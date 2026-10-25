@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "files": [
+    {
+      "name": "CQB-Training-v69-migration.zip",
+      "bytes": 18334322,
+      "sha256": "3b7aec924f93ac1d2c3c7fe781c35bda3f80d01d17cbf645bc4190873961143b"
+    },
+    {
+      "name": "CQB-Training-v69-migration-checks.zip",
+      "bytes": 340143,
+      "sha256": "1601a68b4ff490ca92b864771f9152241d42d7951a1c7b0a237eeeac5fc7b0df"
+    }
+  ],
+  "htmlSHA256": "2a40d16d9dabd6c92498533308e5bb9c0d922b8c77cc980bd86ca5a13a7e7dfc"
+}

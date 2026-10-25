@@ -170,5 +170,10 @@
     "Historical output archives and Git history remain in CQB-HTML; only current reproducibility inputs and tools migrated.",
     "No gameplay equations, data, assets or finger rigs changed. Existing v69 limitations retained."
   ],
-  "workflow": "Local build and validation; no GitHub Actions."
+  "workflow": "Local build and validation; no GitHub Actions.",
+  "delivery": {
+    "releaseAssetUpload": "HTTP 401 at uploads.github.com; API upload route unsupported (404)",
+    "fallback": "Separate builds/v69-migration branch; source main contains no game/check output ZIPs. Release body links immutable download commit.",
+    "actionsUsed": false
+  }
 }

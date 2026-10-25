@@ -15,3 +15,7 @@
 과거 배포 ZIP과 대량 캡처는 새 Git에 복제하지 않았다. 역사 문서의 `downloads/` 링크는 당시 CQB-HTML 경로이며, [원본 고정 커밋](https://github.com/0-FLANDRE-0/CQB-HTML/tree/e46c309c9181f9093efd91798f569074047ad40a/downloads)에서 확인한다. 새 결과는 로컬 `artifacts/`와 GitHub Releases를 사용한다. 모든 과거 버전 보고 도구를 이관한 것은 아니며, 현재 빌드·전체 테스트·v69 이관 검사에 필요한 도구와 입력을 옮겼다.
 
 실제 폰 하드웨어 성능은 미측정이다. 알려진 v69 동작·수치 한계는 그대로 이어받았다. 이관만으로 한계가 해결된 것으로 보고하지 않는다. Actions는 사용하지 않는다.
+
+## 이번 배포의 다운로드 경로
+
+Releases 파일 업로드 주소(`uploads.github.com`)에서 HTTP 401이 발생했다. 이번 이관판의 실행·검사 ZIP과 SHA 파일은 별도 `builds/v69-migration` 브랜치에만 보관하고, Releases 본문에서 고정 커밋 다운로드 링크로 연결한다. `main`에는 실행·검사 ZIP을 추적하지 않는다. 이후 업로드 인증이 가능한 환경에서는 Releases 첨부 방식을 사용한다.

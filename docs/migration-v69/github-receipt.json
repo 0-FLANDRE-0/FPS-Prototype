@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "repository": "0-FLANDRE-0/FPS-Prototype",
+  "deliveryCommit": "edaf488391152c2dbf65fbbb23156bcf6c2b4c66",
+  "method": "GitHub Git Blob API readback; Git blob SHA-1, SHA-256, byte length, ZIP CRC and production HTML verified",
+  "files": [
+    {
+      "name": "CQB-Training-v69-migration.zip",
+      "bytes": 18334322,
+      "sha256": "3b7aec924f93ac1d2c3c7fe781c35bda3f80d01d17cbf645bc4190873961143b",
+      "gitBlob": "1ffea86fd9a2c5530a63a1949c5a69f61f886236",
+      "verifiedFromGitHub": true
+    },
+    {
+      "name": "CQB-Training-v69-migration-checks.zip",
+      "bytes": 340143,
+      "sha256": "1601a68b4ff490ca92b864771f9152241d42d7951a1c7b0a237eeeac5fc7b0df",
+      "gitBlob": "d806ccfdafc2d70b18ce45e5682fff51cba4da94",
+      "verifiedFromGitHub": true
+    }
+  ]
+}

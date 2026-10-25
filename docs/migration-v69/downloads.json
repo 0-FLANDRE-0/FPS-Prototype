@@ -3,13 +3,13 @@
   "files": [
     {
       "name": "CQB-Training-v69-migration.zip",
-      "bytes": 18334152,
-      "sha256": "731688304cf5588019a233a975fb7341e068bb0f6fc1064b3bd70e5d99d1214a"
+      "bytes": 18334322,
+      "sha256": "3b7aec924f93ac1d2c3c7fe781c35bda3f80d01d17cbf645bc4190873961143b"
     },
     {
       "name": "CQB-Training-v69-migration-checks.zip",
-      "bytes": 339824,
-      "sha256": "1fccd0bcd09598c67ff96b140c1ad4595f06c649da87a103a49c2b028ac566a4"
+      "bytes": 340143,
+      "sha256": "1601a68b4ff490ca92b864771f9152241d42d7951a1c7b0a237eeeac5fc7b0df"
     }
   ],
   "htmlSHA256": "2a40d16d9dabd6c92498533308e5bb9c0d922b8c77cc980bd86ca5a13a7e7dfc"

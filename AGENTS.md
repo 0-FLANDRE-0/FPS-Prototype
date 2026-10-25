@@ -11,3 +11,7 @@
 - `dist/`, `artifacts/`, `downloads/`, node_modules는 커밋하지 않는다. 새 ZIP은 Releases에 보관한다.
 - GitHub Actions를 사용하지 않는다. 커밋 메시지에 `[skip ci]`를 넣고 로컬 검증 결과를 기록한다.
 - 원래 CQB-HTML 저장소·브랜치와 이력은 유지한다. 새 저장소에서 과거 커밋·형제 체크아웃에 의존하는 검사나 빌드를 만들지 않는다.
+
+## 이번 배포의 다운로드 경로
+
+Releases 파일 업로드 주소(`uploads.github.com`)에서 HTTP 401이 발생했다. 이번 이관판의 실행·검사 ZIP과 SHA 파일은 별도 `builds/v69-migration` 브랜치에만 보관하고, Releases 본문에서 고정 커밋 다운로드 링크로 연결한다. `main`에는 실행·검사 ZIP을 추적하지 않는다. 이후 업로드 인증이 가능한 환경에서는 Releases 첨부 방식을 사용한다.

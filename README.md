@@ -53,3 +53,7 @@ v69 이관 기준은 전체 테스트 487개, S0 240조건·단일 피격 28개�
 브라우저 검사에는 Chromium이 필요합니다. 기본 실행 경로는 `/usr/bin/chromium`이며 다른 위치는 `CHROMIUM_PATH`로 지정합니다.
 
 GitHub Actions 없이 로컬에서 검증하고 배포 ZIP을 GitHub Releases에 올립니다. 과거 대용량 ZIP·캡처 전체와 이전 Git 이력은 [원래 저장소](https://github.com/0-FLANDRE-0/CQB-HTML/tree/e46c309c9181f9093efd91798f569074047ad40a)에 보존합니다.
+
+## 이번 배포의 다운로드 경로
+
+Releases 파일 업로드 주소(`uploads.github.com`)에서 HTTP 401이 발생했다. 이번 이관판의 실행·검사 ZIP과 SHA 파일은 별도 `builds/v69-migration` 브랜치에만 보관하고, Releases 본문에서 고정 커밋 다운로드 링크로 연결한다. `main`에는 실행·검사 ZIP을 추적하지 않는다. 이후 업로드 인증이 가능한 환경에서는 Releases 첨부 방식을 사용한다.

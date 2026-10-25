@@ -101,7 +101,7 @@ export class SelfCare{
   if(inv.action||inv.primaryId!==t.weaponAtStart)return this.interrupt('총기 동작');
   if(!ability.allowed)return this.interrupt(ability.reason);
   if(!w||w.partKey!==t.target.partKey)return this.interrupt('대상 상처 없음');
-  if(!item||item.remaining<=0||item.remaining!==t.reservedRemaining||item.owner!==t.originalOwner||!inv.reachableMedical(item))return this.interrupt('예약 물품을 사용할 수 없습니다.');
+  if(inv.medicalReservations?.get(t.itemInstanceId)!==t||!item||item.remaining<=0||item.remaining!==t.reservedRemaining||item.owner!==t.originalOwner||!inv.reachableMedical(item))return this.interrupt('예약 물품을 사용할 수 없습니다.');
   const before=t.workS,advance=Math.max(0,Math.min(dt,BANDAGE.seconds-before));t.workS+=advance;if(t.workS>BANDAGE.seconds-1e-9)t.workS=BANDAGE.seconds;t.progress=t.workS/BANDAGE.seconds;t.remainingSeconds=BANDAGE.seconds-t.workS;
   if(t.workS<BANDAGE.seconds)return;
   const time=this.getMedical().time+advance,result=commitBandage(this.m,w,item,time);

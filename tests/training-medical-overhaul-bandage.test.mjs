@@ -46,9 +46,9 @@ test('cancel, repeated clicks and reusing a cancelled record are atomic; cancell
   assert.ok(x.care.resume(t.id));assert.equal(t.workS,0);assert.equal(t.remainingSeconds,4);x.care.step(3);assert.equal(x.item.remaining,100);x.care.step(1);assert.ok(x.item.remaining<100);const balance=x.item.remaining;x.care.step(999);assert.equal(x.item.remaining,balance);
 });
 test('lost target or moved/deleted item cannot be silently replaced or consumed',()=>{
-  for(const failure of ['wound','item','owner']){
+  for(const failure of ['wound','item','owner','reservation']){
     const x=fresh();x.care.request(x.item.instanceId,{woundId:x.w.id});x.care.step(3);
-    if(failure==='wound')x.m.wounds.splice(x.m.wounds.indexOf(x.w),1);else if(failure==='item')x.inventory.items.delete(x.item.instanceId);else x.item.owner='container:ammo-crate';
+    if(failure==='wound')x.m.wounds.splice(x.m.wounds.indexOf(x.w),1);else if(failure==='item')x.inventory.items.delete(x.item.instanceId);else if(failure==='owner')x.item.owner='container:ammo-crate';else x.inventory.medicalReservations.clear();
     x.care.step(1);assert.equal(x.care.list[0].status,'interrupted');assert.equal(x.item.remaining,100);assert.equal(x.w.bandageRepair,undefined);
   }
 });

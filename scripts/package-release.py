@@ -1,7 +1,6 @@
 """Package the locally verified standalone build; no CI or tracked ZIP outputs."""
 import hashlib
 import json
-import re
 from pathlib import Path
 from zipfile import ZipFile, ZipInfo, ZIP_DEFLATED
 
@@ -26,7 +25,7 @@ game = OUT / 'CQB-Training-v69-migration.zip'
 with ZipFile(game, 'w') as z:
     for name in ['CQB_Training.html', 'training-build-info.json']:
         add(z, ROOT / 'dist' / name, 'dist/' + name)
-    add(z, ROOT / 'README.md', 'README.md')
+    add(z, ROOT / 'docs/migration-v69/DOWNLOAD_KO.txt', 'README_KO.txt')
     add(z, ROOT / 'docs/migration-v69/README.md', 'MIGRATION.md')
     for path in sorted((ROOT / 'apps/training/assets').glob('*credits.json')):
         add(z, path, 'credits/' + path.name)
@@ -37,7 +36,7 @@ with ZipFile(checks, 'w') as z:
         if path.is_file():
             add(z, path, 'checks/' + str(path.relative_to(QA)))
     for path in sorted((ROOT / 'docs/migration-v69').glob('*')):
-        if path.is_file():
+        if path.is_file() and path.name not in ['downloads.json', 'github-receipt.json']:
             add(z, path, 'migration/' + path.name)
     add(z, ROOT / 'tests/fixtures/v69/golden.json', 'baseline/v69-golden.json')
     add(z, ROOT / 'dist/training-build-info.json', 'training-build-info.json')

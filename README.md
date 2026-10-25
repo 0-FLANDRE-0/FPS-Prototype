@@ -7,7 +7,7 @@ CQB Training의 독립 3D 개발 저장소입니다. `0-FLANDRE-0/CQB-HTML`의 *
 
 ## 실행
 
-Node.js 22 이상과 npm을 사용합니다.
+Node.js 22 이상, npm, Git, Python 3를 사용합니다. Python은 표준 라이브러리만 필요합니다.
 
 ```sh
 npm ci
@@ -49,5 +49,7 @@ npm run package
 ```
 
 v69 이관 기준은 전체 테스트 487개, S0 240조건·단일 피격 28개·684채널·젤 5종, M4/AK 각각 600틱·6발과 두 화면 오프라인 실행입니다. `verify:v69`는 이관 시점의 HTML까지 엄격히 비교하므로, 향후 의도적인 3D 변경에서는 차이를 검토하고 별도 버전 기준을 추가합니다. 이관 기준값은 덮어쓰지 않습니다.
+
+브라우저 검사에는 Chromium이 필요합니다. 기본 실행 경로는 `/usr/bin/chromium`이며 다른 위치는 `CHROMIUM_PATH`로 지정합니다.
 
 GitHub Actions 없이 로컬에서 검증하고 배포 ZIP을 GitHub Releases에 올립니다. 과거 대용량 ZIP·캡처 전체와 이전 Git 이력은 [원래 저장소](https://github.com/0-FLANDRE-0/CQB-HTML/tree/e46c309c9181f9093efd91798f569074047ad40a)에 보존합니다.

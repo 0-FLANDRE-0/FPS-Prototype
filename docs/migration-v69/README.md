@@ -33,6 +33,8 @@ CQB-HTML의 3D를 FPS-Prototype으로 분리했다. 2D는 고정 참고본이며
 
 실측 최종 결과는 [검증 결과](verification.json)와 Releases의 검사 ZIP에서 확인한다.
 
+**전 항목 통과.** 실행 ZIP은 약 18.3 MB로 20 MB 미만이다. [ZIP 크기·SHA](downloads.json) · [실행판과 검사 ZIP](https://github.com/0-FLANDRE-0/FPS-Prototype/releases/tag/v69-migration).
+
 | 검사 | 비교 내용 |
 | --- | --- |
 | 전체 테스트 | 기존 487개를 유지하고 경로·고정 입력 위치만 수정 |

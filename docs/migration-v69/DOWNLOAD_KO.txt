@@ -1,0 +1,14 @@
+CQB Training — FPS-Prototype v69 이관판
+
+압축을 푼 뒤 dist/CQB_Training.html을 WebGL2·WebAssembly 지원 브라우저에서 여세요.
+모델·음원·렌더러·물리 엔진은 HTML 안에 있어 실행 중 외부 다운로드가 필요 없습니다.
+휴대폰 파일 앱의 미리보기가 실행을 제한하면 브라우저나 HTTP 서버를 이용하세요.
+
+이 ZIP은 실행판입니다. 소스 개발·빌드·검사는 아래 새 저장소에서 합니다.
+https://github.com/0-FLANDRE-0/FPS-Prototype
+https://github.com/0-FLANDRE-0/FPS-Prototype/blob/main/HANDOFF_KO.md
+
+CQB-HTML v69와 게임 HTML 전체가 바이트 동일한 저장소 이관판입니다.
+새 개발 저장소에서는 3D를 독립 관리하며 2D 원본은 참고용 고정본입니다.
+실제 폰 하드웨어 성능과 file:// 실행은 기기별로 다를 수 있습니다.
+모델·음원의 출처와 라이선스는 credits/ 및 HTML 내 크레딧을 따릅니다.

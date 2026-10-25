@@ -1,0 +1,174 @@
+{
+  "passed": true,
+  "date": "2026-10-25",
+  "repository": "0-FLANDRE-0/FPS-Prototype",
+  "branch": "main",
+  "runtimeSourceCommit": "a22cb4c51649f0fc0c5bde4401d394c8b2449ec6",
+  "sourceRepository": "0-FLANDRE-0/CQB-HTML",
+  "sourceHEAD": "e46c309c9181f9093efd91798f569074047ad40a",
+  "originalWorktreeUnchanged": true,
+  "reference2D": {
+    "passed": true,
+    "assembledByteIdentical": true,
+    "bytes": 3641864,
+    "sha256": "ff330c641f9720e3a960adfd84ee084ea06f215366e88e7f03e14803a176f90d"
+  },
+  "checks": {
+    "unit-tests": {
+      "tests": 487,
+      "pass": 487,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "passed": true,
+      "command": "npm test"
+    },
+    "preserved": {
+      "passed": true,
+      "sourceCommit": "e46c309c9181f9093efd91798f569074047ad40a",
+      "files": 294
+    },
+    "identity": {
+      "passed": true,
+      "source": "0-FLANDRE-0/CQB-HTML",
+      "commit": "e46c309c9181f9093efd91798f569074047ad40a",
+      "s0": 240,
+      "single": 28,
+      "channels": 684,
+      "gelatin": 5,
+      "htmlSHA256": "2a40d16d9dabd6c92498533308e5bb9c0d922b8c77cc980bd86ca5a13a7e7dfc"
+    },
+    "independent-build": {
+      "passed": true,
+      "referenceDirectoryAbsent": true,
+      "distCacheAbsent": true,
+      "htmlBytes": 39405309,
+      "htmlSHA256": "2a40d16d9dabd6c92498533308e5bb9c0d922b8c77cc980bd86ca5a13a7e7dfc",
+      "method": "Temporarily rename reference/2d and dist before running the normal 3D build. Independent npm ci installation; no sibling checkout links."
+    },
+    "600-tick": {
+      "passed": true,
+      "reports": [
+        {
+          "weapon": "m4a1",
+          "ticks": 600,
+          "shots": 6,
+          "exact": true,
+          "sha256": "da0c21cec0ca8e4169445d0613ff50a591fc2be550ba88dcdc9dd5d9a3fb076e"
+        },
+        {
+          "weapon": "ak74m",
+          "ticks": 600,
+          "shots": 6,
+          "exact": true,
+          "sha256": "c8da8f7d8f1f7c6ec0ca1f211ec9d182194c8f49e7ffdbb1869c70228eef2141"
+        }
+      ]
+    },
+    "offline": {
+      "passed": true,
+      "htmlSHA256": "2a40d16d9dabd6c92498533308e5bb9c0d922b8c77cc980bd86ca5a13a7e7dfc",
+      "method": "Exact production single HTML, actual requestAnimationFrame/fixed simulation, offline; native keyboard or touch joystick, F/touch panel, selectSCAR/deploy1, pause, pointer lock, persistent/reset AI display. No QA state injection.",
+      "devices": [
+        {
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "approached": {
+            "feet": [
+              131.34814453125,
+              0.007984631061553893,
+              38.02871322631836
+            ],
+            "interaction": {
+              "kind": "combat-panel",
+              "targetId": "kh-panel",
+              "label": "적 투입",
+              "action": ""
+            }
+          },
+          "deployed": {
+            "sector": "05",
+            "count": 1,
+            "ids": [
+              "E01"
+            ],
+            "settings": {
+              "count": 1,
+              "skill": "regular",
+              "placement": "main",
+              "behavior": "patrol",
+              "posture": "stand"
+            },
+            "cost": {
+              "calls": 230,
+              "triangles": 114197,
+              "enemyCount": 1,
+              "includesPiP": true,
+              "quality": "low"
+            },
+            "playerWeapon": "scar_h"
+          },
+          "menuFrozen": true,
+          "pointerLockCorrect": true,
+          "AISettingPersistentAndReset": true
+        },
+        {
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "approached": {
+            "feet": [
+              131.34494018554688,
+              0.007775359153747496,
+              37.80595779418945
+            ],
+            "interaction": {
+              "kind": "combat-panel",
+              "targetId": "kh-panel",
+              "label": "적 투입",
+              "action": ""
+            }
+          },
+          "deployed": {
+            "sector": "05",
+            "count": 1,
+            "ids": [
+              "E01"
+            ],
+            "settings": {
+              "count": 1,
+              "skill": "regular",
+              "placement": "main",
+              "behavior": "patrol",
+              "posture": "stand"
+            },
+            "cost": {
+              "calls": 205,
+              "triangles": 113927,
+              "enemyCount": 1,
+              "includesPiP": true,
+              "quality": "low"
+            },
+            "playerWeapon": "scar_h"
+          },
+          "menuFrozen": true,
+          "pointerLockCorrect": true,
+          "AISettingPersistentAndReset": true
+        }
+      ],
+      "errors": [],
+      "external": []
+    }
+  },
+  "limits": [
+    "Chromium software rendering; real phone hardware performance not measured.",
+    "Managed browser blocks file://; exact production HTML served on an offline intercepted HTTP route with zero external requests.",
+    "Historical output archives and Git history remain in CQB-HTML; only current reproducibility inputs and tools migrated.",
+    "No gameplay equations, data, assets or finger rigs changed. Existing v69 limitations retained."
+  ],
+  "workflow": "Local build and validation; no GitHub Actions."
+}

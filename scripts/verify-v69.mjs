@@ -6,6 +6,7 @@ import {resolve} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {Vector3} from 'three';
 const root=resolve(import.meta.dirname,'..'), record=process.argv.includes('--record');
+const calculationsOnly=process.argv.includes('--calculations-only');
 const sourceRoot=record?resolve(process.env.FPS_BASELINE_ROOT||''):root;
 if(record)assert.ok(process.env.FPS_BASELINE_ROOT&&sourceRoot!==root,'Recording requires a separate original v69 checkout');
 const sha=x=>createHash('sha256').update(x).digest('hex'), hash=x=>sha(JSON.stringify(x));
@@ -37,9 +38,10 @@ try {
   if(record)await writeFile(golden,JSON.stringify({source:'0-FLANDRE-0/CQB-HTML',commit:'e46c309c9181f9093efd91798f569074047ad40a',...result},null,2)+'\n');
   else {
     const {source,commit,...expected}=JSON.parse(await readFile(golden));
+    if(calculationsOnly){delete result.htmlSHA256;delete expected.htmlSHA256;}
     assert.deepEqual(result,expected,'v69 unrounded JSON hashes and production HTML must be identical');
     await mkdir(resolve(root,'artifacts/qa/migration'),{recursive:true});
-    await writeFile(resolve(root,'artifacts/qa/migration/identity.json'),JSON.stringify({passed:true,source,commit,s0:240,single:28,channels:684,gelatin:5,htmlSHA256:result.htmlSHA256},null,2)+'\n');
+    await writeFile(resolve(root,'artifacts/qa/migration/identity.json'),JSON.stringify({passed:true,source,commit,s0:240,single:28,channels:684,gelatin:5,htmlCompared:!calculationsOnly,htmlSHA256:result.htmlSHA256},null,2)+'\n');
   }
-  console.log(`${record?'Recorded':'Verified'} v69: 240 S0, 28 single shots, 684 channels, 5 gelatin references and exact production HTML`);
+  console.log(`${record?'Recorded':'Verified'} v69: 240 S0, 28 single shots, 684 channels, 5 gelatin references ${calculationsOnly?'(HTML difference intentionally excluded)':'and exact production HTML'}`);
 } finally {c.dispose();}

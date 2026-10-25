@@ -1,3 +1,4 @@
+import{isNewBandage}from'./medical-bandage.js';
 // M3 game treatment state, created lazily: untreated medical JSON stays v58 exact.
 // No medical/HP/ballistic formula or legacy 2D declaration is replaced here.
 import{careProfile,careDuration}from'./medical-care-modes.js';
@@ -32,7 +33,7 @@ export function careTiming(m,kind,partKey,feedback={},mode='reality'){
 }
 export function matchesTourniquet(t,position){const p=limbChain(position);return!!p&&t.target.partKey===p.partKey&&p.pathDistanceM>t.target.pathDistanceM+1e-8;}
 export function treatmentForWound(m,w){return treatments(m).filter(t=>t.kind!=='cat'&&t.target.woundId===w.id||t.kind==='cat'&&t.target.partKey===w.partKey&&(m.bleedSources||[]).some(s=>!['intra_thoracic','intra_abdominal','junctional'].includes(s.controlClass)&&s.woundIds.includes(w.id)&&(s.lesions.length?s.lesions:[s]).some(l=>(l.woundId==null||l.woundId===w.id)&&matchesTourniquet(t,l.position||s.position))));}
-export function treatmentStatus(list){return list.some(t=>t.status==='interrupted')?'interrupted':list.length?'treated':'untreated';}
+export function treatmentStatus(list){list=list.filter(t=>!isNewBandage(t)||t.status!=='active');return list.some(t=>t.status==='interrupted')?'interrupted':list.length?'treated':'untreated';}
 export function careClinicalBefore(m){const previous=painOverlays.get(m);if(previous){for(const[k,p]of previous){const part=m.bodyParts[k];if(part.pain>=p.written)part.pain=p.before+(part.pain-p.written);}painOverlays.delete(m);}if(!treatments(m).some(t=>t.kind==='cat'&&t.progress>0))return;m.acutePain=Math.max(m.acutePain||0,CARE.catPain);}
 export function careClinicalAfter(m){
  const overlays=new Map();for(const t of treatments(m)){if(t.kind!=='cat'||t.progress<=0)continue;const k=t.target.partKey,p=m.bodyParts[k];p.functionRatio=0;if(!overlays.has(k))overlays.set(k,{before:p.pain||0,written:Math.max(p.pain||0,CARE.catPain)});p.pain=Math.max(p.pain||0,CARE.catPain);if(k.endsWith('Arm'))m.canShoot=false;else{m.canWalk=false;m.canMove=!!m.canCrawl;}}if(overlays.size)painOverlays.set(m,overlays);

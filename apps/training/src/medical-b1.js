@@ -1,6 +1,7 @@
 import{chestCareSideModel}from'./medical-care-chest.js';
 import{routeLimbVolume}from'./medical-routing.js';
 import{treatmentControlFactor}from'./medical-care-effects.js';
+import{carePlans}from'./medical-care-state.js';
 import{rememberOozeSplit}from'./medical-care-state.js';
 import {exerciseBleedingFactor} from './medical-d2.js';
 import {MEDICAL_B1C_VALUES,unionSeverityB1c,updateParenchymalB1c} from './medical-b1c.js';
@@ -169,7 +170,8 @@ export function updateBleedingB1(unit,dt,{pulseModel=null}={}){
     const external=s.destination==='external',key=external?'externalBleedRate':'internalBleedRate';m[key]+=s.flowMlPerS;
     // A shared vessel is reported once globally; compatibility wound/part
     // totals partition its flow across actual lesions, rather than duplicating it.
-    const shares=s.injuryType==='ooze'?[{woundId:s.woundIds[0],currentAreaMm2:1}]:s.injuryType==='parenchymal'?s.lesions.map(l=>({woundId:l.woundId,currentAreaMm2:l.severity*l.closureFactor})):s.lesions,total=shares.reduce((n,l)=>n+l.currentAreaMm2,0);
+    const plan=carePlans.get(m)?.get(s.id),controlled=plan&&s.woundIds.some(id=>m.wounds.find(w=>w.id===id)?.bandageRepair);
+    const shares=controlled?plan.segments.map(r=>({woundId:r.woundId,currentAreaMm2:r.shareAfter})):s.injuryType==='ooze'?[{woundId:s.woundIds[0],currentAreaMm2:1}]:s.injuryType==='parenchymal'?s.lesions.map(l=>({woundId:l.woundId,currentAreaMm2:l.severity*l.closureFactor})):s.lesions,total=shares.reduce((n,l)=>n+l.currentAreaMm2,0);
     for(const l of shares){const w=m.wounds.find(w=>w.id===l.woundId);if(!w)continue;const f=s.flowMlPerS*l.currentAreaMm2/Math.max(1e-30,total);w[external?'_effExternal':'_effInternal']+=f;if(m.bodyParts[w.partKey])m.bodyParts[w.partKey][key]+=f;}
   }
   m.bloodMl=Math.max(0,before-loss);m._bleedSource=K.ruleId;

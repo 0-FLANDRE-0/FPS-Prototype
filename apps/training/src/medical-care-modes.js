@@ -1,3 +1,4 @@
+import{initBandageResource,BANDAGE}from'./medical-bandage.js';
 import{M4C}from'./medical-care-m4c-policy.js';
 import{m4bDuration}from'./medical-care-m4b-policy.js';
 // 3D M4c timing policy. M3 reality coefficients and M4b drug/infusion times remain the baseline.
@@ -19,7 +20,7 @@ export function careDuration(kind,partKey,p,mode){return kind==='cat'?p.catSecon
 export function syncMedicalUses(inv,mode){
  mode=validCareMode(mode);inv.treatmentMode=mode;inv.medicalStock??=new Map();
  for(const item of inv.items.values())if(item.kind==='medicalSupply'&&item.definitionId!=='cat'&&!inv.medicalStock.has(item.instanceId))inv.medicalStock.set(item.instanceId,{template:structuredClone(item),used:0});
- for(const[id,stock]of inv.medicalStock){const max=useLimit(stock.template.definitionId,mode),remaining=Math.max(0,max-stock.used),item=inv.items.get(id);stock.maximum=max;if(item&&!item.owner.startsWith('treatment:')){stock.template=structuredClone(item);item.remaining=remaining;item.maximumUses=max;item.used=stock.used;if(!remaining)inv.items.delete(id);}else if(!item&&remaining){const restored={...structuredClone(stock.template),remaining,maximumUses:max,used:stock.used};let cell=inv.findCell(restored.owner,restored);if(!cell){restored.owner='bag';cell=inv.findCell('bag',restored);}if(cell){restored.cell=cell;inv.items.set(id,restored);}}}
+ for(const[id,stock]of inv.medicalStock){if(stock.template.definitionId==='bandage'){const item=inv.items.get(id);if(item)initBandageResource(item);stock.resourceRuleId=BANDAGE.ruleId;continue;}const max=useLimit(stock.template.definitionId,mode),remaining=Math.max(0,max-stock.used),item=inv.items.get(id);stock.maximum=max;if(item&&!item.owner.startsWith('treatment:')){stock.template=structuredClone(item);item.remaining=remaining;item.maximumUses=max;item.used=stock.used;if(!remaining)inv.items.delete(id);}else if(!item&&remaining){const restored={...structuredClone(stock.template),remaining,maximumUses:max,used:stock.used};let cell=inv.findCell(restored.owner,restored);if(!cell){restored.owner='bag';cell=inv.findCell('bag',restored);}if(cell){restored.cell=cell;inv.items.set(id,restored);}}}
  inv.changed();
 }
 export function consumeMedicalUse(inv,item){const stock=inv.medicalStock?.get(item.instanceId);if(stock){stock.template=structuredClone(item);stock.used++;item.used=stock.used;}item.remaining=Math.max(0,item.remaining-1);if(!item.remaining)inv.items.delete(item.instanceId);}

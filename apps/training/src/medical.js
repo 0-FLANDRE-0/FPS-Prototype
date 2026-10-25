@@ -1,3 +1,4 @@
+import{stepPartRecovery}from'./medical-part-recovery.js';
 import{stepDrugsAndBlood,createDrugSlots,careSafetyAfter}from'./medical-care-drugs.js';
 import{setCareTime,systemicCarePain}from'./medical-care-systemic.js';
 import{chestCareComplications,registerChestCareBridge}from'./medical-care-chest.js';
@@ -159,7 +160,7 @@ export class TrainingMedical {
   }
   tick(dt,time,active=true){if(!active)return;setCareTime(this.actor.medical,time);setLimbRoutingTime(this.actor.medical,time);this.time=time;this.legacy.setTime(time);this.activity.step(dt,time);
     if(!this.actor.isDead&&(this.actor.alive||this.actor.isDowned)){
-      stepDrugsAndBlood(this,dt);systemicCarePain(this.actor.medical);careClinicalBefore(this.actor.medical);
+      stepPartRecovery(this.actor,dt,time);stepDrugsAndBlood(this,dt);systemicCarePain(this.actor.medical);careClinicalBefore(this.actor.medical);
       this.legacy.tickUnitMedicalBefore(this.actor,dt);
       this.legacy.tickMedical(this.actor,dt);
       this.legacy.tickUnitMedicalAfter(this.actor,dt);

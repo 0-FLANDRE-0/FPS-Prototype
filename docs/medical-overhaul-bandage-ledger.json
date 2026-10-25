@@ -1,0 +1,35 @@
+{
+  "stage": "treatment-1-bandage",
+  "completeOverhaul": false,
+  "base": "e1efefa",
+  "userContract": "docs/medical-overhaul-contract.md",
+  "classification": {
+    "design": "사용자 설계값",
+    "allNewNumbers": "튜닝·게임 허용",
+    "physicalProduct": "기존 제품 무게·크기·출처 유지"
+  },
+  "policy": {
+    "seconds": 4,
+    "capacity": 100,
+    "efficiency": 1,
+    "work": {
+      "base": 8,
+      "hpDamage": 0.6,
+      "originalOpeningAreaMm2": 0.8,
+      "maximum": 400
+    },
+    "recovery": {
+      "hpPerS": 3,
+      "minimumHpPerS": 0.2,
+      "cap": "current part.maxHp; never modified"
+    }
+  },
+  "scope": "one bandage, one explicit wound; external flow only; original internal blood loss retained",
+  "verificationStatus": "pending full build/regression/browser",
+  "knownPolicies": [
+    "Cancel has no consumption or effect; retry starts full4s.",
+    "New same-part hit pauses HP recovery until treatment.",
+    "No revival or HP0/amputation repair. Bone/organ/destruction restrictions remain.",
+    "Existing sector transition reset requirement retained."
+  ]
+}

@@ -1,3 +1,4 @@
+import{medicalReserved}from'./medical-bandage.js';
 import{corpseAccess}from'./corpse-inventory.js';
 import{plateMount,plateParent,plateAccess,plateMove,stepPlateAction}from'./plate-inventory.js';
 import{EQUIPMENT,gearDefinition,pocketInfo,pocketOwners}from'./equipment-data.js';
@@ -22,7 +23,7 @@ const overlaps = (a, b) => a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h
 export class Inventory {
   constructor({includeSCAR=false,primaryWeaponId="m4a1",includePlates=false,includeEquipment=false,includeAK=true,nativeHandling=false,includeDebug=false,includeMedical=false,includeAbdominal=false,includeMedic=false,treatmentMode='reality'}={}) { this.includeSCAR=includeSCAR;this.primaryWeaponId=primaryWeaponId;this.includePlates=includePlates;this.includeEquipment=includeEquipment;this.includeMedic=includeMedic;this.includeAbdominal=includeAbdominal;this.treatmentMode=treatmentMode;this.includeMedical=includeMedical;this.includeAK=includeAK;this.nativeHandling=nativeHandling;this.includeDebug=includeDebug; this.reset(); }
   reset() {
-    this.medicalStock=new Map();this.openMedicalContainers=new Set();this.items = new Map(); this.primaryId = 'weapon-01'; this.weaponSlots = ['weapon-01','weapon-02']; this.action = null; this.spent = {};
+    this.medicalReservations=new Map();this.medicalStock=new Map();this.openMedicalContainers=new Set();this.items = new Map(); this.primaryId = 'weapon-01'; this.weaponSlots = ['weapon-01','weapon-02']; this.action = null; this.spent = {};
     this.accessibleContainer = null; this.serial = 0; this.lastError = '';
     this.debugStateCache=null;this.debugStateKey='';
     this.debugWeapon=this.includeDebug?{instanceId:DEBUG_WEAPON.instanceId,kind:'weapon',definitionId:'ak74m',debugOnly:true,owner:'debug:slot3',magazineId:null,chamber:DEBUG_WEAPON.defaultAmmoId,boltLocked:false,fireMode:'full',velocityOverrideMps:null,autoZero:false}:null;
@@ -162,6 +163,7 @@ export class Inventory {
   }
   move(id, owner, x, y) {
     if (this.action) return this.fail();
+    if(medicalReserved(this,id))return this.fail('처치 중인 물품이나 파우치는 옮길 수 없습니다.');
     const item = this.items.get(id), cell = { x, y };
     if(this.includeEquipment&&(item?.owner.startsWith('weapon:')||item?.kind==='weapon'&&item.owner.startsWith('equipment:')))return this.fail('장착 물품은 분리 동작으로 옮기세요.');
     if(this.includeEquipment&&item?.kind==='gear'&&(item.owner!=='bag'||owner!=='bag'))return this.fail('장비는 벗기거나 장착 칸으로 옮기세요.');

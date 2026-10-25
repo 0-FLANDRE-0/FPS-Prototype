@@ -58,3 +58,14 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+
+# Independent web/FPS development
+node_modules/
+dist/
+artifacts/
+downloads/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example

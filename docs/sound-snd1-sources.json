@@ -1,0 +1,121 @@
+{
+  "version": "snd1-v46",
+  "baseline": "b9d577e92de1470d7112c7673f41cfccff9fc288",
+  "automatic2DPort": false,
+  "instructionProvenance": {
+    "file": "docs/training-snd1-instructions.md",
+    "sedimentId": "file_0000000020788206b45cba721c4a6ec8",
+    "bytes": 14383,
+    "sha256": "5c36d7ce4d018811d312d2c414c2cbebf99d7484e6dc7ad178c7d95950e3848f"
+  },
+  "sources": [
+    {
+      "id": "iso9613-1-python",
+      "url": "https://raw.githubusercontent.com/python-acoustics/python-acoustics/master/acoustics/standards/iso_9613_1_1993.py",
+      "title": "python-acoustics: ISO 9613-1:1993 reference implementation",
+      "quote": "ISO 9613-1:1993 specifies an analytical method of calculating the attenuation of sound as a result of atmospheric absorption",
+      "location": "module documentation; saturation_pressure / relaxation_frequency_oxygen / relaxation_frequency_nitrogen / attenuation_coefficient",
+      "classification": "출처",
+      "verifiedFullText": true,
+      "bytes": 5141,
+      "sha256": "167f32776b00e8096006138647f71c9675b6b5b53613f62193ea1df1447f541f"
+    },
+    {
+      "id": "iso9613-room",
+      "url": "https://raw.githubusercontent.com/python-acoustics/python-acoustics/master/acoustics/room.py",
+      "title": "python-acoustics room formulas",
+      "quote": "def t60_sabine",
+      "location": "t60_sabine; volume / absorption area / speed",
+      "classification": "출처",
+      "verifiedFullText": true,
+      "bytes": 9253,
+      "sha256": "c6707e36b39983a2cb0c3e85e4597147b68e213a0e7c60b8a746b5b438719c1f"
+    },
+    {
+      "id": "absorption-table",
+      "url": "https://www.acoustic.ua/st/web_absorption_data_eng.pdf",
+      "title": "Acoustic.ua absorption coefficient engineering table",
+      "quote": "Smooth concrete, painted or glazed; Plasterboard on 50mm battens; Plywood mounted solidly; 6mm glass",
+      "location": "pages 1–2; octave500/2000/4000Hz columns",
+      "classification": "출처",
+      "verifiedFullText": true,
+      "bytes": 323371,
+      "sha256": "f757044a51f6d3e5bd43c068b390f7287b24c39c8732fac7bf8c278e708f4203"
+    },
+    {
+      "id": "osha-noise",
+      "url": "https://www.osha.gov/otm/section-3-health-hazards/chapter-5",
+      "title": "OSHA Technical Manual: Noise",
+      "quote": "the sound pressure level decreases 6 dB, on a Z-weighted (i.e., unweighted) scale, each time the distance from the point source is doubled",
+      "location": "Free Field / Figure 4; also Sound-Absorption Materials and Sound Transmission Loss Materials",
+      "classification": "출처",
+      "verifiedFullText": true,
+      "bytes": 761901,
+      "sha256": "3a3a8308a3653377a7e01b3306bf33f0669ca09eb94b8299c9e9d38d3f99eab9"
+    },
+    {
+      "id": "sound-speed",
+      "url": "https://openstax.org/books/university-physics-volume-1/pages/17-2-speed-of-sound",
+      "title": "OpenStax University Physics 17.2 Speed of Sound",
+      "quote": "343",
+      "location": "20°C air table; implementation rounds to user-specified343m/s",
+      "classification": "출처",
+      "verifiedFullText": true,
+      "bytes": 370784,
+      "sha256": "da29cda6f7f5903fe51af50edc732f687fb8d42a979fa865b56fb72c69380c4b"
+    },
+    {
+      "id": "mach-cone",
+      "url": "https://openstax.org/books/university-physics-volume-1/pages/17-8-shock-waves",
+      "title": "OpenStax University Physics 17.8 Shock Waves",
+      "quote": "Mach cone",
+      "location": "shock-wave geometry; sin(theta)=sound speed / source speed",
+      "classification": "출처",
+      "verifiedFullText": true,
+      "bytes": 306658,
+      "sha256": "3c91659a18f2100e56b9296736f8ed68dd8f2cb8a4cf0c3e604e0a7c6ff7432f"
+    },
+    {
+      "id": "PMC9008157.xml",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9008157/fullTextXML",
+      "title": "A clinical trial of nicergoline to prevent temporary threshold shift (2022)",
+      "quote": "The approximated noise intensity level of an M16 rifle is 157 dB SPL",
+      "location": "Methods / military firing practice; citing Humes et al.2005,p81; not a verified1m muzzle measurement",
+      "classification": "출처",
+      "verifiedFullText": true,
+      "bytes": 95133,
+      "sha256": "726dc4c58e8fe5bbffe491dd76f24f7d471e7ca809f9063ea4eeedc3da478d61"
+    },
+    {
+      "id": "firearm-study-xml",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10301916/fullTextXML",
+      "title": "Physiological and perceptual auditory consequences of hunting-related recreational firearm noise exposure",
+      "quote": "most recreational firearms produce peak SPLs between 150 and 165 dB",
+      "location": "Introduction; discusses140–175dB maximum and extended/partial recovery",
+      "classification": "출처",
+      "verifiedFullText": true,
+      "bytes": 381766,
+      "sha256": "5f3aa522e70e646532bedaf85ff9df34cab86bae1c826fcbc80a6ddc0d1e7fca"
+    },
+    {
+      "id": "maekawa-crossref",
+      "url": "https://api.crossref.org/works/10.1016/0003-682X(68)90020-0",
+      "title": "Z. Maekawa (1968), Noise reduction by screens",
+      "quote": "Noise reduction by screens",
+      "location": "Crossref bibliographic metadata only; no primary-paper equation verification",
+      "classification": "출처(서지) + 튜닝(회절 근사)",
+      "verifiedFullText": false,
+      "bytes": 3288,
+      "sha256": "bffbcaa95c8758a15b5029ebada4317c478269aad8c261063d235189aa195dda"
+    }
+  ],
+  "limitations": [
+    "160dB@1m gun source is tuning: M16157dBSPL reference measurement location is not verified as1m. MIL-STD1474 criterion is not treated as source power. AK has no original recording.",
+    "Mass-law form20log10(surfaceMass*frequency)-47 uses nominal material densities and a conventional approximate intercept: this is an engineering game model, not measured transmission/STC data. OSHA verifies mechanism, not the -47 intercept.",
+    "Maekawa bibliographic record verified; primary full paper not acquired. Fresnel detour/angle weighting is explicitly tuning, not a reproduced1968 empirical fit.",
+    "Absorption table is an engineering reference table; actual map assemblies/surfaces are unknown. Acoustic ceiling and surface-area fitting are tuning.",
+    "Crack amplitude/duration are tuning; no Whitham calibrated pressure law is claimed. Local Mach geometry uses actual completed trajectory speeds.",
+    "TTS dose/loss/recovery and masking are game tuning, not an auditory-injury predictor. Source recovery16–48h; game dose time constant18s."
+  ],
+  "runtimeSourceCommit": "5a882ab770e09a3cfd973b34acf1fada1d2d7b4e"
+}

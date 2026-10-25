@@ -1,0 +1,125 @@
+{
+  "task": "B1c/v45",
+  "runtimeSourceCommit": "1bfc3bc3694afe7d297490c6ffd6153a88c90ea9",
+  "instructionProvenance": {
+    "file": "docs/training-b1c-instructions.md",
+    "bytes": 4702,
+    "sha256": "59dbf778dfd417ddf545cbae2b4c3a6e9f070c9704c873ba8e168a23b579e83e",
+    "role": "attached next implementation specification in ongoing user-authorized repository work"
+  },
+  "sources": [
+    {
+      "id": "portal-adult-male",
+      "title": "Impact of anthropometrical parameters on portal vein diameter and liver size in a subset of Karachi based population",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3999015/",
+      "retrievalUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3999015/fullTextXML",
+      "location": "Methods healthy adults; TableIII male231, PVDcm",
+      "quote": "Table-III Relationship of portal vein and liver span with gender \n Male (N= 231) \n \n Female (N=228) \n \n p-value \n PVD (cm) 0.9 + 0.2 0.9 + 0.2 0.38 R-LOBE SPAN (cm) 11.9 + 1.7 11.7 + 1.9 0.412 L-LOBE SPAN (cm) 7.1 + 2.2 7.4 + 2.2 0.146 \n PVD: portal vein diameter, R-LOBE SPAN: right lobe of liver, \n \n L-LOBE SPAN: left lobe of liver. BMI: body mass index. \n",
+      "interpretation": "Adult males mean0.9±0.2cm;20+agegroups. Fitted9.45mm is ratio-authored tuning, not universal male calibre.",
+      "verifiedFullText": true,
+      "retrievedBytes": 54453,
+      "sha256": "e27ec8bb19ed95c65646e77a8ed25da2d048ae242a5e7cadced28893020e7df7"
+    },
+    {
+      "id": "hepatic-adult-ct",
+      "title": "Relationship of the Presence of the Inferior Right Hepatic Vein with the Right Hepatic Vein Diameter and CT Liver Volumetry",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10289848/",
+      "retrievalUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10289848/fullTextXML",
+      "location": "Results and Table1",
+      "quote": "Table 1 Comparison of the right hepatic vein diameter, right lobe volume, and percentage of remnant left lobe volume between the IRHV (+) and (−) groups \nIRHV (+) group (\n n \n = 53)\n \nIRHV (−) group (\n n \n = 37)\n p \n-Value\n Right hepatic vein diameter (mm) 8.59 ± 2.73 9.28 ± 1.98 0.19 \nRight lobe volume (cm\n 3 \n)\n 1,037.38 ± 254.49 996.57 ± 241.53 0.433 Percentage of left lobe volume (%) 33.41 ± 6.25 34.13 ± 6.30 0.592 Abbreviation: IRHV, inferior right hepatic vein.",
+      "interpretation": "Adult19–60years,56men/34women;RHV8.59±2.73mm withIRHV and9.28±1.98 without. No sex-separated hepatic mean available: male-player proxy9.45mm is tuning, not a sourced male-only mean.",
+      "verifiedFullText": true,
+      "retrievedBytes": 54262,
+      "sha256": "2277bf10aaaf77d6ff00c9573fad2ed68c8a49e24862a9b4f238eb1fb6bc1a2a"
+    },
+    {
+      "id": "hepatic-confluence",
+      "title": "Study of confluence of hepatic veins application in liver transplantation",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11663525/",
+      "retrievalUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11663525/fullTextXML",
+      "location": "Results: length and diameter of confluence",
+      "quote": "Liver has exceptional regeneration capacity which makes live donor liver transplantation a good surgical option for patients waiting for donors. Hepatic veins play major role in transplantation surgeries. Variations of hepatic veins can have great impact on surgical approach and outcome of the surgery. In the present study, total number of hepatic veins, presence and absence of accessory veins and confluence with its varied patterns were studied. We found maximum cases with 2 and 3 major hepatic veins which indicate presence of confluence. Confluence between left and middle hepatic veins was highest with 38% of total 54% of cases with confluence. We also found confluence between middle and accessory hepatic vein which is not mentioned in any present classifications. In addition, we have measured confluence length and diameter which holds significance in hepatic resection and anastomosis. The mean confluence length was 0.88±0.39 cm while mean confluence diameter was 0.57±0.20 cm. We found accessory hepatic veins in 15% of cases. The knowledge of this surgical anatomy and associated variations is of paramount importance in liver transplantation, radiological interventional procedures of liver and hepatic tumor resection procedures.",
+      "interpretation": "Common-stem5.7±2.0mm andlength8.8±3.9mm; reference variability only, not the entire authored merged-drainage length; exact path ratio tuning.",
+      "verifiedFullText": true,
+      "retrievedBytes": 60556,
+      "sha256": "d4f4d2f8e0b7187f2b928fc79331dcb9ab726d5a343c7f6cbc4834e1cb733110"
+    },
+    {
+      "id": "liver-vascular-course",
+      "title": "Clinical anatomy of hepatic vessels by computed tomography angiography: A minireview",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9884335/",
+      "retrievalUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9884335/fullTextXML",
+      "location": "Portal vein subsection",
+      "quote": "The portal vein is formed by the union of the superior mesenteric and splenic veins. It begins at the level of the second lumbar vertebra, where it lies behind the neck of the pancreas. It has an average length of 6.50 cm and a diameter of 1.09 cm and rises behind the first part of the duodenum. After entering the right margin of the lesser omentum anterior to the epiploic foramen, it reaches the right end of the porta hepatis and divides into right and left hepatic branches that accompany the corresponding branches of the hepatic artery, lymphatic vessels, and hepatic nerve plexus. It is located behind the common bile duct and hepatic artery in the lesser omentum. The superior gastroduodenal vein empties into the portal vein from the lower right, into the left gastric vein from the lower right, and into the right gastric vein from the right. The cholecystic vein drains into the right hepatic branch of the portal vein. The left portal vein receives only the obliterated umbilical vein. The right branch supplies segments V, VI, VII, and VIII. Segments I, II, III, and IV receives the left obliterated umbilical vein  via  the ligamentum teres. It eventually opens into intraparenchymal venules that arise at right angles from a distributive vein and are less than 0.3 mm in diameter. Blood in the branches of the portal vein and hepatic artery flows into the sinusoidal microcirculation. Blood within the sinusoids flows through the radially arranged plates and empties into the central vein[ 3 , 6 , 7 ].",
+      "interpretation": "Portal trunk behind pancreatic neck, rises to porta hepatis; reference10.9mm/65mm. All in-model path coordinates are normalized tuning. Review contains an apparent SVC/IVC wording error inhepatic subsection; that phrase is not used.",
+      "verifiedFullText": true,
+      "retrievedBytes": 72807,
+      "sha256": "891e8708fe0e55df91c64bb7c304cebbcab5025ca3d56d42713f6b4720b2b019"
+    },
+    {
+      "id": "portal-pressure-and-supply",
+      "title": "Major liver resections, perioperative issues and posthepatectomy liver failure: A comprehensive update for the anesthesiologist",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11155507/",
+      "retrievalUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11155507/fullTextXML",
+      "location": "LIVER VASCULARIZATION",
+      "quote": "The hepatic artery (HA) and PV provide the double blood supply to the liver, accounting for 20%-25% of the cardiac output. The total hepatic blood supply approximates 1500 mL/min: 300 mL from the HA (delivering 50% of the oxygen to the liver) and 1200 mL from the PV flow, which provides the remaining 50% of the oxygen supply[ 11 - 13 ]. HA and PV divide into right and left branches at the porta hepatis. PV pressure, typically ranging from 5 to 10 mmHg, is higher than the pressure in IVC. Portal hypertension is defined as a PV pressure > 10 mmHg or a PV-IVC gradient > 4 mmHg. Hepatic venous drainage includes three large intrahepatic veins - the suprahepatic veins (right, middle, and left)- draining into the IVC just below the diaphragm. The MHV, receiving branches from both right and left veins, demarcates the junction between the right and left lobes, each receiving vascularization from the corresponding right and left vascular pedicles. The caudate lobe possesses its unique venous drainage system[ 5 , 6 ]. The liver, whose venous return drains into the right atrium, is extremely sensitive to obstructions in venous outflow, sometimes leading to venous hypertension[ 13 ]. Relevant conditions include right heart failure, Budd-Chiari syndrome, or changes in venous drainage due to both cardiac (acute or subacute right ventricular congestion) and non-cardiac surgery[ 13 ]. Prolonged obstruction of hepatic venous outflow leads to an increase in intrahepatic blood volume associated with moderate-to-severe hepatic dysfunction. Furthermore, the liver serves as a significant blood reservoir: during acute hemorrhage, ortho-sympathetic-mediated vasoconstriction can increase circulating blood volume by approximately 25% of the blood loss[ 12 ].",
+      "interpretation": "PV5–10mmHg reference;8mmHg is chosen tuning. PV1200/total1500=80%;regional normalflow ceiling uses25%CO×80%=20%referenceCO tuning. Hepatic reference25%. RetainB1venous regional cap×1.7.",
+      "verifiedFullText": true,
+      "retrievedBytes": 296600,
+      "sha256": "f5af1bf83f7150546004035575d56ad09c1cd614dcf30db78185a00730d62a8e"
+    },
+    {
+      "id": "hepatic-flow",
+      "title": "Major liver resections, perioperative issues and posthepatectomy liver failure: A comprehensive update for the anesthesiologist",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11155507/",
+      "retrievalUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11155507/fullTextXML",
+      "location": "LIVER VASCULARIZATION, first paragraph",
+      "quote": "accounting for 20%-25% of the cardiac output",
+      "interpretation": "liver fraction0.25 is chosen upper endpoint of sourced20-25% range; portal+hepatic artery total, not hepatic artery alone",
+      "retrievedBytes": 296600,
+      "sha256": "f5af1bf83f7150546004035575d56ad09c1cd614dcf30db78185a00730d62a8e",
+      "verifiedFullText": true
+    },
+    {
+      "id": "renal-flow",
+      "title": "Renal blood flow and oxygenation",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9338895/",
+      "retrievalUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9338895/fullTextXML",
+      "location": "Introduction, Par2",
+      "quote": "kidneys receive approximately 20% of the cardiac output under resting conditions",
+      "interpretation": "both kidneys0.20 source; equal split0.10 each is game symmetry tuning",
+      "retrievedBytes": 160408,
+      "sha256": "ad9e7992db776737f6a533090e6f8619d5e775fdc84d3b870d604c8b7b13020c",
+      "verifiedFullText": true
+    },
+    {
+      "id": "splenic-flow",
+      "title": "Emerging Role of the Spleen in the Pharmacokinetics of Monoclonal Antibodies, Nanoparticles and Exosomes",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5486072/",
+      "retrievalUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC5486072/fullTextXML",
+      "location": "Section2 splenic microcirculation, paragraph beginning Because of the structural characteristics",
+      "quote": "spleen only receives about 4.8 ± 1.5% of cardiac output",
+      "interpretation": "central mean0.048 used; cited primarystudy Crean1986 DOI10.1259/0007-1285-59-699-209 not separately retrieved",
+      "retrievedBytes": 265537,
+      "sha256": "e64795ff1da93f2ec639885f10e131f927fbf464fd6847db36d89214e1df17e3",
+      "verifiedFullText": true
+    },
+    {
+      "id": "ivc-adult-male",
+      "title": "Assessment of inferior vena cava diameter by echocardiography in normal Indian population: A prospective observational study",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5198879/",
+      "retrievalUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC5198879/fullTextXML",
+      "location": "Table1 male2336, age28–68; expiratory/inspiratory IVC diameters",
+      "quote": "Table 1 Demographics of the individuals. Table 1 N  = 4126 Female ( n  = 1790) Male ( n  = 2336) Mean ± SD Range Mean ± SD Range Mean ± SD Range IVC diameter (expiratory) (cm) 1.69 ± 0.37 0.97–2.26 1.64 ± 0.38 0.97–2.23 1.74 ± 0.35 1.06–2.26 IVC diameter (inspiratory) (cm) 1.04 ± 0.22 0.46–1.54 1.00 ± 0.23 0.46–1.50 1.08 ± 0.21 0.52–1.54 Age (years) 38.16 ± 5.50 28–68 38.19 ± 5.38 28–65 38.13 ± 5.58 28–68 Height (m) 1.64 ± 0.08 1.32–1.87 1.61 ± 0.08 1.38–1.76 1.65 ± 0.08 1.32–1.87 Weight (kg) 62.58 ± 13.13 31.07–97.59 59.30 ± 12.99 33.64–88.40 65.10 ± 12.67 31.07–97.59 BMI (kg/m 2 ) 22.90 ± 3.64 14.19–36.84 22.32 ± 3.75 14.19–36.84 23.34 ± 3.49 14.55–35.42 IVC, inferior vena cava; BMI, body mass index.",
+      "verifiedFullText": true,
+      "retrievedBytes": 63170,
+      "sha256": "10a959c5eb2ae05a4b251022573dc8959b179a751418b941fa9e67d8b62938ba",
+      "interpretation": "Male mean17.4±3.5mm expiration /10.8±2.1mm inspiration; measurement site/phase matter. Existing ratio.09 gives18.9mm referencebody with upperextension taper11.52–18.9mm; retainedgame fitting, not simulated respiratory calibre."
+    }
+  ],
+  "automatic2DPort": false,
+  "limitations": [
+    "Adult male portal diameter verified. Hepatic dimensions are adult CT cohorts including men, not a verified sex-separated male mean; model diameters/paths explicitly tuning.",
+    "Probability-union severity is an overlap approximation, not exact spatial wound-volume union."
+  ]
+}

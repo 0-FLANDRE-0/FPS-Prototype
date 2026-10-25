@@ -1,0 +1,3829 @@
+{
+  "sourceRepository": "0-FLANDRE-0/CQB-HTML",
+  "sourceCommit": "e46c309c9181f9093efd91798f569074047ad40a",
+  "files": [
+    {
+      "source": "CQB_Tactical.html",
+      "destination": "reference/2d/CQB_Tactical.html",
+      "bytes": 3641864,
+      "sha256": "ff330c641f9720e3a960adfd84ee084ea06f215366e88e7f03e14803a176f90d"
+    },
+    {
+      "source": "apps/training/README.md",
+      "destination": "apps/training/README.md",
+      "bytes": 39106,
+      "sha256": "87f406aa0b5b7461906213fc6920165f9ad1b9ca0dad4c4ba2628fd6d56219fd"
+    },
+    {
+      "source": "apps/training/assets/acog-credits.json",
+      "destination": "apps/training/assets/acog-credits.json",
+      "bytes": 634,
+      "sha256": "b3f2908046c30fa2262fc2d54ad2040752a90de77e8f364fb9269b3851e5bf0a"
+    },
+    {
+      "source": "apps/training/assets/acog-reference.glb",
+      "destination": "apps/training/assets/acog-reference.glb",
+      "bytes": 517732,
+      "sha256": "21b69371de956c389388f9bf69a4f59a92ca62ccf8b8dd4c111a4f5112f71556"
+    },
+    {
+      "source": "apps/training/assets/credits.json",
+      "destination": "apps/training/assets/credits.json",
+      "bytes": 676,
+      "sha256": "5f455a1511361226ebf7de888f9e9f67b66ddaa9dc00b8c254e5b32113275e51"
+    },
+    {
+      "source": "apps/training/assets/fps-credits.json",
+      "destination": "apps/training/assets/fps-credits.json",
+      "bytes": 1673,
+      "sha256": "9c6f12cf02057081cd09db1c10824f98b34ed16c466ea85fabd6fb35f43f769c"
+    },
+    {
+      "source": "apps/training/assets/m4-arms-credits.json",
+      "destination": "apps/training/assets/m4-arms-credits.json",
+      "bytes": 1433,
+      "sha256": "d1b84e9a079a57a9f924860c7cb5f2d1bd79d1288b1d9005ccb41625b49db998"
+    },
+    {
+      "source": "apps/training/assets/m4a1-training.glb",
+      "destination": "apps/training/assets/m4a1-training.glb",
+      "bytes": 5821164,
+      "sha256": "30c19debb065a881819a4037434da767418925010a82982b05908ac0d87f8fdd"
+    },
+    {
+      "source": "apps/training/assets/mixamo-animations-credits.json",
+      "destination": "apps/training/assets/mixamo-animations-credits.json",
+      "bytes": 869,
+      "sha256": "dfaba01dc71b2d1c9c289e8744d08d258f553b77d92772db00c14d0ba6ee179b"
+    },
+    {
+      "source": "apps/training/assets/scar-credits.json",
+      "destination": "apps/training/assets/scar-credits.json",
+      "bytes": 1010,
+      "sha256": "9303a581f197454c1dd487a5f69c40123da6eaeb3299c4bf944eef5dc4ccecec"
+    },
+    {
+      "source": "apps/training/assets/side-optics-inputs.json",
+      "destination": "apps/training/assets/side-optics-inputs.json",
+      "bytes": 6506,
+      "sha256": "e9714d69fecaa23a74f1a8f317433ba1e9566fad91c8c88434bad25568a2a24c"
+    },
+    {
+      "source": "apps/training/assets/soldier-character.glb",
+      "destination": "apps/training/assets/soldier-character.glb",
+      "bytes": 9723700,
+      "sha256": "f38f736aa92ca01564cbc3d6526655fc639677eedd2e0b7f939eb4ca3e0d978a"
+    },
+    {
+      "source": "apps/training/assets/soldier-credits.json",
+      "destination": "apps/training/assets/soldier-credits.json",
+      "bytes": 788,
+      "sha256": "d547f6914285b20c06b4dc4f4d1df41fe19806362ffa7588331a29be381d6ef1"
+    },
+    {
+      "source": "apps/training/assets/sound-credits.json",
+      "destination": "apps/training/assets/sound-credits.json",
+      "bytes": 5242,
+      "sha256": "bb65eb00f288a2b2fcc55026ff42186f90276f5b24ea52369a28f03b41899057"
+    },
+    {
+      "source": "apps/training/assets/sounds/originals/footsteps/concrete_run_loop__freesound-816019-qubodup.wav",
+      "destination": "apps/training/assets/sounds/originals/footsteps/concrete_run_loop__freesound-816019-qubodup.wav",
+      "bytes": 408546,
+      "sha256": "a0905100226d69f7a7ea6f4a1dcb24a186f18ac51f0bc2444c0267b266cedd5b"
+    },
+    {
+      "source": "apps/training/assets/sounds/originals/footsteps/concrete_walk_boots__freesound-777607-yannsauvin.flac",
+      "destination": "apps/training/assets/sounds/originals/footsteps/concrete_walk_boots__freesound-777607-yannsauvin.flac",
+      "bytes": 4970682,
+      "sha256": "86c3e5661400a88af8d6990da75b7cb320a972e820c0869da275582cddec69e8"
+    },
+    {
+      "source": "apps/training/assets/sounds/originals/footsteps/concrete_walk_single__freesound-778502-blondpanda.wav",
+      "destination": "apps/training/assets/sounds/originals/footsteps/concrete_walk_single__freesound-778502-blondpanda.wav",
+      "bytes": 80762,
+      "sha256": "a6798325d94808bf6824842e537506df23f0367bebad7ecb6509e0bba67ea0ce"
+    },
+    {
+      "source": "apps/training/assets/sounds/originals/footsteps/metal_walk__freesound-398937-softdistortionfx.flac",
+      "destination": "apps/training/assets/sounds/originals/footsteps/metal_walk__freesound-398937-softdistortionfx.flac",
+      "bytes": 3626010,
+      "sha256": "657f325f74113d63385732623554f72d6abb73dc7cb2a49aa1353d5e675553e2"
+    },
+    {
+      "source": "apps/training/assets/sounds/originals/footsteps/tile_walk_single__freesound-477357-nuff3.ogg",
+      "destination": "apps/training/assets/sounds/originals/footsteps/tile_walk_single__freesound-477357-nuff3.ogg",
+      "bytes": 9756,
+      "sha256": "01202e5db37da52ae50b887a1e92cd168d6c4e5cbf5f4b651643407c3e9b4e5c"
+    },
+    {
+      "source": "apps/training/assets/sounds/originals/footsteps/wood_walk__freesound-459970-florianreichelt.mp3",
+      "destination": "apps/training/assets/sounds/originals/footsteps/wood_walk__freesound-459970-florianreichelt.mp3",
+      "bytes": 1079527,
+      "sha256": "84e056d26f776c2607a0129ce2838f524ab6c3879028419ab2a40e84d5828197"
+    },
+    {
+      "source": "apps/training/assets/sounds/originals/gear/gear_rattle__youtube-SoundEffect-SoundFX.mp3",
+      "destination": "apps/training/assets/sounds/originals/gear/gear_rattle__youtube-SoundEffect-SoundFX.mp3",
+      "bytes": 45272,
+      "sha256": "9fdbeab7d2c0a9f717d601bdcc76375631c237353ea49fc95b9f303e829746df"
+    },
+    {
+      "source": "apps/training/assets/sounds/originals/weapons/m4a1_single_x10__user-capture.mp3",
+      "destination": "apps/training/assets/sounds/originals/weapons/m4a1_single_x10__user-capture.mp3",
+      "bytes": 457600,
+      "sha256": "b62b58d1c40ae58b1c6ab25a01ca9d5080b4619b0a4c53d37c845f87c63abb24"
+    },
+    {
+      "source": "apps/training/assets/sounds/originals/\ubaa9\ub85d.txt",
+      "destination": "apps/training/assets/sounds/originals/\ubaa9\ub85d.txt",
+      "bytes": 1482,
+      "sha256": "f2b9b41a42360fdeaae25dc619c5bf249cbeab48fd5d5c0582a4d4c1d2cf25b6"
+    },
+    {
+      "source": "apps/training/assets/sounds/prepared/foot-contacts.json",
+      "destination": "apps/training/assets/sounds/prepared/foot-contacts.json",
+      "bytes": 23524,
+      "sha256": "33bee1ea2c4f960aa79950d5905e0d05ae74a4aedf13d96aee9e97fe2dc835f6"
+    },
+    {
+      "source": "apps/training/assets/sounds/prepared/locomotion.json",
+      "destination": "apps/training/assets/sounds/prepared/locomotion.json",
+      "bytes": 21552,
+      "sha256": "101c5d9b388b28986d3424274c9c5622cf7af4c7ba6f2ea06fbdf663d9bba28b"
+    },
+    {
+      "source": "apps/training/assets/sounds/prepared/manifest.json",
+      "destination": "apps/training/assets/sounds/prepared/manifest.json",
+      "bytes": 170318,
+      "sha256": "97ac94e1f605ab76c9d82212423349409b3976f59ae0717f7db577fb16a71a0f"
+    },
+    {
+      "source": "apps/training/assets/sounds/prepared/snd1-sprite.wav",
+      "destination": "apps/training/assets/sounds/prepared/snd1-sprite.wav",
+      "bytes": 1472684,
+      "sha256": "cb326bc66cc8f4357a8b994eb0d5f7100eefe8f2b6e6dc89b1e7dd735d5ee9ce"
+    },
+    {
+      "source": "apps/training/assets/sounds/prepared/sprite-index.json",
+      "destination": "apps/training/assets/sounds/prepared/sprite-index.json",
+      "bytes": 5871,
+      "sha256": "2c2c1347a0b968b29ed3e7bc91ae00f58e567be3b9454a55607162eac3801ab0"
+    },
+    {
+      "source": "apps/training/assets/sounds/speech-exclusions.json",
+      "destination": "apps/training/assets/sounds/speech-exclusions.json",
+      "bytes": 749,
+      "sha256": "ad84fd927e468f8dd6446f7e2df1a0e0429f3bcafd657fffdf80b0731d22985b"
+    },
+    {
+      "source": "apps/training/assets/source/Mixamo_Rifle_Anims.zip",
+      "destination": "apps/training/assets/source/Mixamo_Rifle_Anims.zip",
+      "bytes": 5272852,
+      "sha256": "eb4badc8cba82f5d02cc1428e639c083c3dbd251d22eb79ed1ded70e6cc91cc8"
+    },
+    {
+      "source": "apps/training/assets/source/animated_fps_m4a4.glb",
+      "destination": "apps/training/assets/source/animated_fps_m4a4.glb",
+      "bytes": 13228236,
+      "sha256": "0e0a35ce7405386725486159ec0b216fa94630523f8381f083c40b46a254faa0"
+    },
+    {
+      "source": "apps/training/assets/source/eotech_vudu_1-6x24.glb",
+      "destination": "apps/training/assets/source/eotech_vudu_1-6x24.glb",
+      "bytes": 4680704,
+      "sha256": "13b3ce147e1a7891367035b2a3ea4f78fecac997ff2bb1b53beb08cd13640e09"
+    },
+    {
+      "source": "apps/training/assets/source/fps_ak-74m_animations.glb",
+      "destination": "apps/training/assets/source/fps_ak-74m_animations.glb",
+      "bytes": 15131564,
+      "sha256": "8eeb18cbe047e8cbbe24084828f39ba625a6f3c1a1062a37d7a978e8cd7d0533"
+    },
+    {
+      "source": "apps/training/assets/source/low-poly_fn_scar_h_std.glb",
+      "destination": "apps/training/assets/source/low-poly_fn_scar_h_std.glb",
+      "bytes": 1592668,
+      "sha256": "c71f79bb1d2c9f408166d4437b296f5b6e9ac929cfc748bfec50ee0987f3b4f3"
+    },
+    {
+      "source": "apps/training/assets/source/scar-h_first-person_fps_animated.glb",
+      "destination": "apps/training/assets/source/scar-h_first-person_fps_animated.glb",
+      "bytes": 10535320,
+      "sha256": "de7881fa7381f4e9d5c4efbd3140e06c2221c7a43db02a21805d0557e9c4cac3"
+    },
+    {
+      "source": "apps/training/assets/source/user-optics-port-kit-v28.zip",
+      "destination": "apps/training/assets/source/user-optics-port-kit-v28.zip",
+      "bytes": 24739,
+      "sha256": "1f71c48f4cd06ba7a0c8484e2f1053cecec9130479925b1c3f4b022660e27a9d"
+    },
+    {
+      "source": "apps/training/assets/source/user-optics-v28.zip",
+      "destination": "apps/training/assets/source/user-optics-v28.zip",
+      "bytes": 14483009,
+      "sha256": "238a6a4bf12703aa3c6bf0855fb1f522afacf4122b795646864531f45868f874"
+    },
+    {
+      "source": "apps/training/assets/vudu-credits.json",
+      "destination": "apps/training/assets/vudu-credits.json",
+      "bytes": 1048,
+      "sha256": "9c7b6a8371d5de4992c8e0fcbed76c4c92648974143258deae6ded57fbb8e001"
+    },
+    {
+      "source": "apps/training/assets/xps3-credits.json",
+      "destination": "apps/training/assets/xps3-credits.json",
+      "bytes": 679,
+      "sha256": "170dc0ac0173c305095d754e529d591ed287b29706b28ac934fb59e8c7f18cde"
+    },
+    {
+      "source": "apps/training/assets/xps3-reference.glb",
+      "destination": "apps/training/assets/xps3-reference.glb",
+      "bytes": 1199524,
+      "sha256": "250020f9846b24fd52e4b5d4622762ffa69447235c777953218ee0e66fb04cd3"
+    },
+    {
+      "source": "apps/training/index.template.html",
+      "destination": "apps/training/index.template.html",
+      "bytes": 34922,
+      "sha256": "65e144a98f3286c9ae64b9429aaa0dcb116f16aa475c619019e4ddf9a444cbb3"
+    },
+    {
+      "source": "apps/training/src/ai1-aim.js",
+      "destination": "apps/training/src/ai1-aim.js",
+      "bytes": 4005,
+      "sha256": "f5e7c19370beb4e5603b940fb2dff732a2ac333f328c3be8f158ca5199a74ec1"
+    },
+    {
+      "source": "apps/training/src/ai1-brain.js",
+      "destination": "apps/training/src/ai1-brain.js",
+      "bytes": 3811,
+      "sha256": "090b134a9a26b2de4b2e1631afdf22ca2132b37ac8320e1a7298041d61adc7e4"
+    },
+    {
+      "source": "apps/training/src/ai1-config.js",
+      "destination": "apps/training/src/ai1-config.js",
+      "bytes": 1247,
+      "sha256": "1c1fbb8600f229183a58c3d8b2ae185163b27fd7e5881ba9b2b52cec763640ba"
+    },
+    {
+      "source": "apps/training/src/ai1-debug.js",
+      "destination": "apps/training/src/ai1-debug.js",
+      "bytes": 3545,
+      "sha256": "4fed6e329da282472aedcfbe047facb1d8c2eea2cc90619a71317efc5af23ac6"
+    },
+    {
+      "source": "apps/training/src/ai1-senses.js",
+      "destination": "apps/training/src/ai1-senses.js",
+      "bytes": 4288,
+      "sha256": "48e7ea8afdcd2694c8290c9736759673c3395842e90bb8842091ad47c2a87f0f"
+    },
+    {
+      "source": "apps/training/src/ai1-weapon.js",
+      "destination": "apps/training/src/ai1-weapon.js",
+      "bytes": 6489,
+      "sha256": "2dc42371089a95ede890cc841791a15acb9a3b36e77507e52c31e360dabd0551"
+    },
+    {
+      "source": "apps/training/src/aim.js",
+      "destination": "apps/training/src/aim.js",
+      "bytes": 14225,
+      "sha256": "2b50ebc26a1d91cd8e1dc5e2c5d31a7eda668866220adb0987e37c66f1c0206c"
+    },
+    {
+      "source": "apps/training/src/arm-ik.js",
+      "destination": "apps/training/src/arm-ik.js",
+      "bytes": 2829,
+      "sha256": "752a42c89648506e458f904c1fbe31501fbd6bd5a86233e1eaf5b12704e090d7"
+    },
+    {
+      "source": "apps/training/src/armor-equipment.js",
+      "destination": "apps/training/src/armor-equipment.js",
+      "bytes": 5195,
+      "sha256": "abe704b847dcba1d12aa239d9914218e85bd7baff0e37a2228dd9c022c6dd63d"
+    },
+    {
+      "source": "apps/training/src/armor-geometry.js",
+      "destination": "apps/training/src/armor-geometry.js",
+      "bytes": 8540,
+      "sha256": "9cf7ed342693ecf835e3ac02a1fb8fe6190cb7395d7632fdba32512271d399a4"
+    },
+    {
+      "source": "apps/training/src/armor-model.js",
+      "destination": "apps/training/src/armor-model.js",
+      "bytes": 3740,
+      "sha256": "a883cd880de7edb53faf4f76b5554ef2818ad0e3ede54551f2d3f3acbd129eb7"
+    },
+    {
+      "source": "apps/training/src/armor-targets.js",
+      "destination": "apps/training/src/armor-targets.js",
+      "bytes": 8033,
+      "sha256": "22fc1a5d9f7655f52e3b26de8b9712bd586ab66fb79e38fc959a0c6adbbd810c"
+    },
+    {
+      "source": "apps/training/src/ballistics.js",
+      "destination": "apps/training/src/ballistics.js",
+      "bytes": 18906,
+      "sha256": "48fb4ba60356141f29cab4ea5e5e01bda91878c8eda9c4e75c86febe8700e2ef"
+    },
+    {
+      "source": "apps/training/src/blackout-remnant.js",
+      "destination": "apps/training/src/blackout-remnant.js",
+      "bytes": 474,
+      "sha256": "f67435e5b5d95ca9cde97c82808267db62f6a9f8ae13b083b5d914f11ddc33df"
+    },
+    {
+      "source": "apps/training/src/body-channel.js",
+      "destination": "apps/training/src/body-channel.js",
+      "bytes": 6907,
+      "sha256": "0eec61abe26ff2398129f958063b34b90824972cb1ec1f95c6a5a4247cff63be"
+    },
+    {
+      "source": "apps/training/src/body-path.js",
+      "destination": "apps/training/src/body-path.js",
+      "bytes": 1176,
+      "sha256": "d93222fcbf7fba2985262e6c601143ad9975fbb5f9127c3ee63e1fc97bae4287"
+    },
+    {
+      "source": "apps/training/src/body-silhouette.js",
+      "destination": "apps/training/src/body-silhouette.js",
+      "bytes": 828,
+      "sha256": "ed22bbe20ba92b14a9611dcb00861d17c325cb8ce8ae964e020dd7e80d7a0e9d"
+    },
+    {
+      "source": "apps/training/src/catalog.js",
+      "destination": "apps/training/src/catalog.js",
+      "bytes": 3562,
+      "sha256": "c66d4c90212a017307588e44aa37355f01906529b0d1a31ce1c45731f56c95ed"
+    },
+    {
+      "source": "apps/training/src/collapse-target-playback.js",
+      "destination": "apps/training/src/collapse-target-playback.js",
+      "bytes": 1186,
+      "sha256": "1c0baa9101940ab7bb40a4e647ab028df4514fa7cb2f7069e8f21da12bb25d1a"
+    },
+    {
+      "source": "apps/training/src/combat-actions.js",
+      "destination": "apps/training/src/combat-actions.js",
+      "bytes": 2248,
+      "sha256": "1cd4a1771bbb68a04585894e5f356dc61ed52a07e0b40d76247d90bbd1a932a1"
+    },
+    {
+      "source": "apps/training/src/combat-actor.js",
+      "destination": "apps/training/src/combat-actor.js",
+      "bytes": 6115,
+      "sha256": "e06cf559d9edadd4923a50a979d484ec0d535c4abcba10b1426ef48d5ce16fce"
+    },
+    {
+      "source": "apps/training/src/combat-config.js",
+      "destination": "apps/training/src/combat-config.js",
+      "bytes": 2180,
+      "sha256": "36a81dcb34758ac3178be4674344c2e9777a5cb5c607b4d6e1874fd839decc44"
+    },
+    {
+      "source": "apps/training/src/combat-decision.js",
+      "destination": "apps/training/src/combat-decision.js",
+      "bytes": 3203,
+      "sha256": "53d6f1cb333c5438022499eaddb3b389334767ceebd8db7f6538830bf74f6a54"
+    },
+    {
+      "source": "apps/training/src/combat-mass.js",
+      "destination": "apps/training/src/combat-mass.js",
+      "bytes": 2609,
+      "sha256": "95355c3efe6ed0a2a8328f4f3fab1d098706f8f92ffa5c1f1c62f75c4a43bad6"
+    },
+    {
+      "source": "apps/training/src/combat-physics.js",
+      "destination": "apps/training/src/combat-physics.js",
+      "bytes": 5496,
+      "sha256": "0e45e6167f4de09a0f013a49b64cbbf411fd1de212abbd7938ccfcbd901ca887"
+    },
+    {
+      "source": "apps/training/src/combat-pose.js",
+      "destination": "apps/training/src/combat-pose.js",
+      "bytes": 8943,
+      "sha256": "41fe67330666ad3920ad97597f4e7eb1ec30e851a68882c43d29db82fa1371e5"
+    },
+    {
+      "source": "apps/training/src/combat-profile.js",
+      "destination": "apps/training/src/combat-profile.js",
+      "bytes": 747,
+      "sha256": "f9b302923d942e8305bc1267914ede248995a38e124525e4347ebb97e9b2514e"
+    },
+    {
+      "source": "apps/training/src/combat-ragdoll.js",
+      "destination": "apps/training/src/combat-ragdoll.js",
+      "bytes": 15642,
+      "sha256": "edae5ec0fa0e6ddfa5c78b751f36fb2b7da89b2a984045fd1ac5fc46e601b0cf"
+    },
+    {
+      "source": "apps/training/src/combat-senses.js",
+      "destination": "apps/training/src/combat-senses.js",
+      "bytes": 1486,
+      "sha256": "423a7b3fc4ae3f870cf4d75ec7250c7c42f0f5880a0ae977c5478beee1b7a422"
+    },
+    {
+      "source": "apps/training/src/combat-weapon.js",
+      "destination": "apps/training/src/combat-weapon.js",
+      "bytes": 11888,
+      "sha256": "f49ea5d64a7d65f1ea5ccb5d29cd42dc31d824dfa18bd414e86305546ec35998"
+    },
+    {
+      "source": "apps/training/src/combat-zone.js",
+      "destination": "apps/training/src/combat-zone.js",
+      "bytes": 2698,
+      "sha256": "cfa1f3fdeb9a47e16bba7c735417b6641599a727ba9cee30ace223da6f224b82"
+    },
+    {
+      "source": "apps/training/src/combat.js",
+      "destination": "apps/training/src/combat.js",
+      "bytes": 27586,
+      "sha256": "e2ecd90ca9c4bf7b9e1bc9e19ae99662c5e19f42b32f670f3bdbe3516ae1506b"
+    },
+    {
+      "source": "apps/training/src/config.js",
+      "destination": "apps/training/src/config.js",
+      "bytes": 5568,
+      "sha256": "d5c40ef3961167089802213ed597b0c3a5b2c3a484c3cfa314962d5b3cf0cb32"
+    },
+    {
+      "source": "apps/training/src/corpse-inventory.js",
+      "destination": "apps/training/src/corpse-inventory.js",
+      "bytes": 12464,
+      "sha256": "d2c88a250d84676d10e4392352815d9e3ca113a200e1e0f17c7471a4373f9383"
+    },
+    {
+      "source": "apps/training/src/damage-index-s3.js",
+      "destination": "apps/training/src/damage-index-s3.js",
+      "bytes": 9008,
+      "sha256": "bd6964e270498750637c3f92593c91736df8de75caeb21f03bd49552677c5b3c"
+    },
+    {
+      "source": "apps/training/src/debug-ammo-ui.js",
+      "destination": "apps/training/src/debug-ammo-ui.js",
+      "bytes": 17357,
+      "sha256": "6d2afd2bd745e6a98d222b2556c672e00a841eb854e5bfbb9b49ff1a06597dee"
+    },
+    {
+      "source": "apps/training/src/debug-weapon.js",
+      "destination": "apps/training/src/debug-weapon.js",
+      "bytes": 4891,
+      "sha256": "d3fcc4bc6c8b93126dd83e24a7b42f739341d079ecd65c9fd461d5a4524c8ae8"
+    },
+    {
+      "source": "apps/training/src/debug/retarget.js",
+      "destination": "apps/training/src/debug/retarget.js",
+      "bytes": 8738,
+      "sha256": "f5e35e27783bf97d6c652b1a61aa400b9b1ec5f488851968ba1fc9ec8686f549"
+    },
+    {
+      "source": "apps/training/src/debug/soldier.js",
+      "destination": "apps/training/src/debug/soldier.js",
+      "bytes": 406,
+      "sha256": "8001ae4ff3a8e89e5d36ad68a8497cd6a7897dd0d7d44c141a0b5bd4a33b8f8d"
+    },
+    {
+      "source": "apps/training/src/enemy-combat-pose.js",
+      "destination": "apps/training/src/enemy-combat-pose.js",
+      "bytes": 14119,
+      "sha256": "65530e5a7307ef8857b606fa10c685caaf51c6bb50e65d30745d33be73d0b87b"
+    },
+    {
+      "source": "apps/training/src/equipment-data.js",
+      "destination": "apps/training/src/equipment-data.js",
+      "bytes": 1961,
+      "sha256": "5d21c683fda71aec87a34b9fae0604673b6ec273c47a82020f1806e8eff84943"
+    },
+    {
+      "source": "apps/training/src/equipment-head-layout.js",
+      "destination": "apps/training/src/equipment-head-layout.js",
+      "bytes": 2854,
+      "sha256": "d7ff21dab4221f567b4e6a5ee9d5ee72bf2548e0dd0dd0f0b8840e5d6b0c8ec9"
+    },
+    {
+      "source": "apps/training/src/equipment-inventory.js",
+      "destination": "apps/training/src/equipment-inventory.js",
+      "bytes": 11810,
+      "sha256": "bd944cdc7851d75b344fdf27a2ef516146cb884c99e400560926909db4eec36d"
+    },
+    {
+      "source": "apps/training/src/equipment-mesh.js",
+      "destination": "apps/training/src/equipment-mesh.js",
+      "bytes": 8357,
+      "sha256": "d6845bbe3841a8b191e8e39ce3f4b1a4d11fc95c7dc8ff1ea9fd12c694961f9e"
+    },
+    {
+      "source": "apps/training/src/equipment-storage-ui.js",
+      "destination": "apps/training/src/equipment-storage-ui.js",
+      "bytes": 6488,
+      "sha256": "71b51c2dc048c01e428ceb987caaba09232d4ea11021e0c621bfbfdb0ea5b9a2"
+    },
+    {
+      "source": "apps/training/src/equipment-ui.js",
+      "destination": "apps/training/src/equipment-ui.js",
+      "bytes": 3260,
+      "sha256": "74570b85f6a422aef964491f9d9c4ec1142cf5288a66a6a6536eef7e059443e3"
+    },
+    {
+      "source": "apps/training/src/equipment-world.js",
+      "destination": "apps/training/src/equipment-world.js",
+      "bytes": 11564,
+      "sha256": "ba31f5d312e0e4cc1af08ae4d1a7bcb8f3a67ee40351851fd3ca0c4bd01467e4"
+    },
+    {
+      "source": "apps/training/src/fall-brace.js",
+      "destination": "apps/training/src/fall-brace.js",
+      "bytes": 9121,
+      "sha256": "1e8c7a09853554a413012a4fccc3e6206d563bc6bad10dde9e03830fed321744"
+    },
+    {
+      "source": "apps/training/src/flight.js",
+      "destination": "apps/training/src/flight.js",
+      "bytes": 3319,
+      "sha256": "9327ced462cab034727be9560fa3f3821f435d1b78707888a8708321d0c41913"
+    },
+    {
+      "source": "apps/training/src/foot-contact.js",
+      "destination": "apps/training/src/foot-contact.js",
+      "bytes": 3112,
+      "sha256": "d8431652876ba541604e8b950da5056434ce8beb927d5387310dcfbe6c811653"
+    },
+    {
+      "source": "apps/training/src/fps-arms.js",
+      "destination": "apps/training/src/fps-arms.js",
+      "bytes": 6008,
+      "sha256": "e689b53bf2ee23a716cc2ad4fccbadda22ed260e921c724a705713c7ee2dd04e"
+    },
+    {
+      "source": "apps/training/src/fps-run-pose.js",
+      "destination": "apps/training/src/fps-run-pose.js",
+      "bytes": 1493,
+      "sha256": "4a9582e4d5a6427526abf87627680f074d310d7ef398df9a6ba7fbdb89790b6d"
+    },
+    {
+      "source": "apps/training/src/fps-shared-arms.js",
+      "destination": "apps/training/src/fps-shared-arms.js",
+      "bytes": 13961,
+      "sha256": "928cbb82bd2f20f3d0884c73f30f196011f8564a6e686accd0cb3d1730daf3f1"
+    },
+    {
+      "source": "apps/training/src/fx.js",
+      "destination": "apps/training/src/fx.js",
+      "bytes": 6354,
+      "sha256": "513e6a41781d41f9b1abf986cba0a1485e86b51e6333e8ffad41196a251fbfc1"
+    },
+    {
+      "source": "apps/training/src/g7-drag.js",
+      "destination": "apps/training/src/g7-drag.js",
+      "bytes": 2013,
+      "sha256": "5de54ba973d99e0464257baef8ea9a442666de68800961018037bbfed8f3327e"
+    },
+    {
+      "source": "apps/training/src/gait.js",
+      "destination": "apps/training/src/gait.js",
+      "bytes": 861,
+      "sha256": "dc4fdcf79c5f797087723f36a610122bcb0eeca3dff21b3dc39c6e7dc0c7620a"
+    },
+    {
+      "source": "apps/training/src/generated/armor-mesh.js",
+      "destination": "apps/training/src/generated/armor-mesh.js",
+      "bytes": 161509,
+      "sha256": "4808f97aa24cb894cac73ab4f2b14d2d5e06342e318ae3f686b9d18acc922741"
+    },
+    {
+      "source": "apps/training/src/generated/body-mesh.js",
+      "destination": "apps/training/src/generated/body-mesh.js",
+      "bytes": 312638,
+      "sha256": "07632fb9bd21ac0eb7563e0a63b8eb0d881bea4c48a13d212abd5a0758606424"
+    },
+    {
+      "source": "apps/training/src/generated/catalog.js",
+      "destination": "apps/training/src/generated/catalog.js",
+      "bytes": 610432,
+      "sha256": "bce7380c25d2bfa2643b879c63f2f7257bd80410cc683a912ddc74e072b02694"
+    },
+    {
+      "source": "apps/training/src/generated/enemy-animations.js",
+      "destination": "apps/training/src/generated/enemy-animations.js",
+      "bytes": 5287906,
+      "sha256": "41409cb592f1bc0e60f4cf0639e7720475bf0734e5d0187cecd7e65833aa15a6"
+    },
+    {
+      "source": "apps/training/src/generated/flight-tuning.js",
+      "destination": "apps/training/src/generated/flight-tuning.js",
+      "bytes": 184,
+      "sha256": "0a66beef37b775afba75bc6941e2350293d819dae90e1004a555b4e5508318ed"
+    },
+    {
+      "source": "apps/training/src/generated/head-mesh.js",
+      "destination": "apps/training/src/generated/head-mesh.js",
+      "bytes": 125087,
+      "sha256": "6b9e24de98201c93b59781045911d394cd71a2894b28ea89796ff3aee934a6aa"
+    },
+    {
+      "source": "apps/training/src/generated/legacy-ballistics.js",
+      "destination": "apps/training/src/generated/legacy-ballistics.js",
+      "bytes": 26322,
+      "sha256": "5eb90b823cd3efde263b4d18b9d6b12cb70cac33cf751a5e4f338e98f6f7eeee"
+    },
+    {
+      "source": "apps/training/src/generated/legacy-flight.js",
+      "destination": "apps/training/src/generated/legacy-flight.js",
+      "bytes": 2091,
+      "sha256": "0ddf55358665149457fa398d37c57074bf2fb10625d890a2723770bd609680b0"
+    },
+    {
+      "source": "apps/training/src/generated/legacy-medical.js",
+      "destination": "apps/training/src/generated/legacy-medical.js",
+      "bytes": 543658,
+      "sha256": "737bc665b2db7c7e0d98cbd6bb5f2114fde657f32f342a1e90a08094e48e0d54"
+    },
+    {
+      "source": "apps/training/src/generated/legacy-protection.js",
+      "destination": "apps/training/src/generated/legacy-protection.js",
+      "bytes": 94021,
+      "sha256": "371ed0acdff5a68d9b98e1d80a6dcd1eb68e45927ae3c68765ac73e9e27b6def"
+    },
+    {
+      "source": "apps/training/src/generated/scar-zeroing.js",
+      "destination": "apps/training/src/generated/scar-zeroing.js",
+      "bytes": 7679,
+      "sha256": "2ec9803ed684d8f0c6e238ebbe53740857446c9f5111839dcae3478886e6913c"
+    },
+    {
+      "source": "apps/training/src/generated/soldier-ak-grip.js",
+      "destination": "apps/training/src/generated/soldier-ak-grip.js",
+      "bytes": 82314,
+      "sha256": "633515f6e8bf81b9e2d940579a17ac4f8a11a3250234f7c8e5d514c043916980"
+    },
+    {
+      "source": "apps/training/src/generated/soldier-fingers.js",
+      "destination": "apps/training/src/generated/soldier-fingers.js",
+      "bytes": 19261,
+      "sha256": "b89d8376a0fccaf58af2de5354464bfc276f1ceb351db958993ab2b6291d891f"
+    },
+    {
+      "source": "apps/training/src/generated/wound-profile-map.json",
+      "destination": "apps/training/src/generated/wound-profile-map.json",
+      "bytes": 49421,
+      "sha256": "6d714418a7fb8ab3efcbc50366b3a64c65cefd4f9dcfe4f6646867916359d650"
+    },
+    {
+      "source": "apps/training/src/generated/zeroing.js",
+      "destination": "apps/training/src/generated/zeroing.js",
+      "bytes": 1160,
+      "sha256": "6639984c5f28df8e9a4b2fc0a92e5d4b8a27bf6943efb4b56a1bde83f1a6d5c1"
+    },
+    {
+      "source": "apps/training/src/handling-animation.js",
+      "destination": "apps/training/src/handling-animation.js",
+      "bytes": 1234,
+      "sha256": "04469d6a1e1df8864950e3f14eee9825f79804f26618832367d6d489e4a9d79d"
+    },
+    {
+      "source": "apps/training/src/helmet-ricochet.js",
+      "destination": "apps/training/src/helmet-ricochet.js",
+      "bytes": 5463,
+      "sha256": "6347af971497c98ffd337ab28157a91d84829a5e8f0bcf631a2b617ee2b20ee1"
+    },
+    {
+      "source": "apps/training/src/human-model.js",
+      "destination": "apps/training/src/human-model.js",
+      "bytes": 5758,
+      "sha256": "e898792bab9ea56b525ed27e897407d89776eeaaa69ed645efa1705c56678260"
+    },
+    {
+      "source": "apps/training/src/human-targets.js",
+      "destination": "apps/training/src/human-targets.js",
+      "bytes": 8588,
+      "sha256": "cfceb58ac3b4a273eb410bc55b5240cb9cf7400b1b7e25ddf915fc5abec08bbd"
+    },
+    {
+      "source": "apps/training/src/input.js",
+      "destination": "apps/training/src/input.js",
+      "bytes": 12190,
+      "sha256": "37759d3a5c095d1562bea4fe5bd3d3fa1f051482633bbb69956d371f4eb54769"
+    },
+    {
+      "source": "apps/training/src/internal-anatomy.js",
+      "destination": "apps/training/src/internal-anatomy.js",
+      "bytes": 21022,
+      "sha256": "1da6b1a8640d33c27e7a81aa528baa67f1c53f42f74b0a08ea377a178d7082a8"
+    },
+    {
+      "source": "apps/training/src/internal-model.js",
+      "destination": "apps/training/src/internal-model.js",
+      "bytes": 10449,
+      "sha256": "bb852d17af46cb7b302292395dc8ab13d448965f2a4821f06c7fc4c223a99416"
+    },
+    {
+      "source": "apps/training/src/internal-profile.json",
+      "destination": "apps/training/src/internal-profile.json",
+      "bytes": 34321,
+      "sha256": "6aea62b85db1dcc6a0522e4a27b4cd5c28acd261a65b2ed42439e8c392adc6a4"
+    },
+    {
+      "source": "apps/training/src/inventory-ui.js",
+      "destination": "apps/training/src/inventory-ui.js",
+      "bytes": 29858,
+      "sha256": "1077998d222f7780f641f0db5aa9a52c8cdcd76b9d04d5305a06fbfcf6d789b6"
+    },
+    {
+      "source": "apps/training/src/inventory-windows.js",
+      "destination": "apps/training/src/inventory-windows.js",
+      "bytes": 4084,
+      "sha256": "b3e6aa13938e23f4c61cbfce51dd6d96505bbc8020c4a37720243103db385403"
+    },
+    {
+      "source": "apps/training/src/inventory.js",
+      "destination": "apps/training/src/inventory.js",
+      "bytes": 38005,
+      "sha256": "b2f2636cc1182d44072ea647c5a125b704a0f5e72d806d4868ad23d4060fa064"
+    },
+    {
+      "source": "apps/training/src/killhouse-config.js",
+      "destination": "apps/training/src/killhouse-config.js",
+      "bytes": 4449,
+      "sha256": "7423b5da3144a9c4b5fcb0c4d20d8753efd402c7df0b7c49d00e216312399821"
+    },
+    {
+      "source": "apps/training/src/killhouse-navigation.js",
+      "destination": "apps/training/src/killhouse-navigation.js",
+      "bytes": 4200,
+      "sha256": "2d251fa302aa2daeaf2715907fa4438803b86ae3000c9ccb00da5717b7adb8bd"
+    },
+    {
+      "source": "apps/training/src/killhouse-zone.js",
+      "destination": "apps/training/src/killhouse-zone.js",
+      "bytes": 2145,
+      "sha256": "4867a7f840b805f14ed6509fb829ebbba83bbf1526417f36292a4cfcdba44584"
+    },
+    {
+      "source": "apps/training/src/lean.js",
+      "destination": "apps/training/src/lean.js",
+      "bytes": 4791,
+      "sha256": "bb3b60034e57edf6bddbeb7451811c897a82215107edf5306ebd1c3b437e113c"
+    },
+    {
+      "source": "apps/training/src/lens.js",
+      "destination": "apps/training/src/lens.js",
+      "bytes": 14378,
+      "sha256": "dfa9c0db20b241771d2b0d52e30743c692eafb9917cda25a08f6104bb434fc2b"
+    },
+    {
+      "source": "apps/training/src/locomotion-tuning.js",
+      "destination": "apps/training/src/locomotion-tuning.js",
+      "bytes": 244,
+      "sha256": "521778cda7006f6beb4c8bc1db6e950999caaeb063b524325612734dd5445e60"
+    },
+    {
+      "source": "apps/training/src/main.js",
+      "destination": "apps/training/src/main.js",
+      "bytes": 66495,
+      "sha256": "c978079e8a9cd3fe6d1cdd9d62b944f22819fff00e6dcd29ae13eaeca5279734"
+    },
+    {
+      "source": "apps/training/src/medical-address.js",
+      "destination": "apps/training/src/medical-address.js",
+      "bytes": 2940,
+      "sha256": "5c8acc581229123cf3890f60f1b74a28f5f75e42aab534e62840f91782ba35be"
+    },
+    {
+      "source": "apps/training/src/medical-aim-hold.js",
+      "destination": "apps/training/src/medical-aim-hold.js",
+      "bytes": 2944,
+      "sha256": "86049ec3340aaadd1a1406a1a907c94fa609e1877f121aa63b5e7f1aeea74c01"
+    },
+    {
+      "source": "apps/training/src/medical-b1.js",
+      "destination": "apps/training/src/medical-b1.js",
+      "bytes": 18784,
+      "sha256": "f98df9f0c087a31ae36d2c6c3661df4224fac8690290cdf616d06a180e09d829"
+    },
+    {
+      "source": "apps/training/src/medical-b1b.js",
+      "destination": "apps/training/src/medical-b1b.js",
+      "bytes": 1918,
+      "sha256": "3730be866c09eea323600caef0a8c7a925f50cf3a2bf99a9bc761b0468dca1e5"
+    },
+    {
+      "source": "apps/training/src/medical-b1c.js",
+      "destination": "apps/training/src/medical-b1c.js",
+      "bytes": 1432,
+      "sha256": "2d74b28be6d3a50f69605284910c11e201978dd15fdfb397865b7ea86f6f7c44"
+    },
+    {
+      "source": "apps/training/src/medical-care-chest.js",
+      "destination": "apps/training/src/medical-care-chest.js",
+      "bytes": 6433,
+      "sha256": "36c01c2d0a52228077213bee428421b28be413dcd9a14ed183d46c81a6ea3c5d"
+    },
+    {
+      "source": "apps/training/src/medical-care-drugs.js",
+      "destination": "apps/training/src/medical-care-drugs.js",
+      "bytes": 7426,
+      "sha256": "798dfeaaf4c8f40ed4c22f4284987c36eebc2d7f71a981186c1c3306a5025efa"
+    },
+    {
+      "source": "apps/training/src/medical-care-effects.js",
+      "destination": "apps/training/src/medical-care-effects.js",
+      "bytes": 3025,
+      "sha256": "fc7326744bd924b2e2b5d8067e791952e4a07d8e70f3986b9ddd7a0fbd0e8f24"
+    },
+    {
+      "source": "apps/training/src/medical-care-m4b-policy.js",
+      "destination": "apps/training/src/medical-care-m4b-policy.js",
+      "bytes": 1327,
+      "sha256": "2bbe047cc0a6cb18a153b6c867e74f71304b704f3f8d589c03946f1b8af509d3"
+    },
+    {
+      "source": "apps/training/src/medical-care-m4c-policy.js",
+      "destination": "apps/training/src/medical-care-m4c-policy.js",
+      "bytes": 2049,
+      "sha256": "43a96c63487da791c7e4c927311440545674b8fe5de297670fe41ca9c9c096c6"
+    },
+    {
+      "source": "apps/training/src/medical-care-modes.js",
+      "destination": "apps/training/src/medical-care-modes.js",
+      "bytes": 3657,
+      "sha256": "419e3197e550015962db54325c5c3e4da66103b4bf77de595c9b6bcf62ac8b76"
+    },
+    {
+      "source": "apps/training/src/medical-care-movement.js",
+      "destination": "apps/training/src/medical-care-movement.js",
+      "bytes": 410,
+      "sha256": "b025f42ea276599ce4e01ce42034327389e902d87d6b3c0537c7b35f858f6252"
+    },
+    {
+      "source": "apps/training/src/medical-care-state.js",
+      "destination": "apps/training/src/medical-care-state.js",
+      "bytes": 6756,
+      "sha256": "52e8721943aea19bd7557c5da05d20db7f22edc86b46ade7220b04052d350d42"
+    },
+    {
+      "source": "apps/training/src/medical-care-systemic.js",
+      "destination": "apps/training/src/medical-care-systemic.js",
+      "bytes": 1214,
+      "sha256": "ac53957dc1bbcf4c0b3664482b86902a35ad795031616e52566f5a4e270bc647"
+    },
+    {
+      "source": "apps/training/src/medical-care-ui.js",
+      "destination": "apps/training/src/medical-care-ui.js",
+      "bytes": 12790,
+      "sha256": "5f41b576fbf941eac9adecc08da2f26aabfd3605d546ce65d316b1f4923438ad"
+    },
+    {
+      "source": "apps/training/src/medical-care.js",
+      "destination": "apps/training/src/medical-care.js",
+      "bytes": 15897,
+      "sha256": "ff3e2700069213e8b1b2d68c23ee7dd08975cdd256adbbc6b963ca4cf191e3dc"
+    },
+    {
+      "source": "apps/training/src/medical-d2.js",
+      "destination": "apps/training/src/medical-d2.js",
+      "bytes": 10009,
+      "sha256": "8c866bf0abd9922e9350ae3555050814d1733649c6c1cf15035a92a9c225b6f5"
+    },
+    {
+      "source": "apps/training/src/medical-eyelids.js",
+      "destination": "apps/training/src/medical-eyelids.js",
+      "bytes": 4404,
+      "sha256": "cb7b5e51642fa239e3aa8917e6c68aa454119e2fffa66e0b25e6aaad0fe601a5"
+    },
+    {
+      "source": "apps/training/src/medical-feedback.js",
+      "destination": "apps/training/src/medical-feedback.js",
+      "bytes": 10865,
+      "sha256": "477691e440901fcf86c9e591b276189370c643ba91c99b0774c2cf6bcbcf6676"
+    },
+    {
+      "source": "apps/training/src/medical-noise.js",
+      "destination": "apps/training/src/medical-noise.js",
+      "bytes": 647,
+      "sha256": "c13da754955a3fdb71b201a9c701e19751a61aa6953cdc1e75404db2198666f4"
+    },
+    {
+      "source": "apps/training/src/medical-panel.js",
+      "destination": "apps/training/src/medical-panel.js",
+      "bytes": 10256,
+      "sha256": "316f0c9682f985dbacec6dc12f0c523cf289245cfaab47db13ecaacbdabdff48"
+    },
+    {
+      "source": "apps/training/src/medical-r.js",
+      "destination": "apps/training/src/medical-r.js",
+      "bytes": 6358,
+      "sha256": "a3ca0187cde01c81d8c3bc2c22e18b52a838c4b6f8118ee2fccb9dc535338caf"
+    },
+    {
+      "source": "apps/training/src/medical-r2.js",
+      "destination": "apps/training/src/medical-r2.js",
+      "bytes": 5112,
+      "sha256": "6c4791d66d6ac4dd5abc8053a94a216c09af88f18afaca791ce5ab9088a13a84"
+    },
+    {
+      "source": "apps/training/src/medical-routing.js",
+      "destination": "apps/training/src/medical-routing.js",
+      "bytes": 5569,
+      "sha256": "477bab0ec338878cee626664cbd821a536ec52e829dc9845ba4d2a2a318737dc"
+    },
+    {
+      "source": "apps/training/src/medical-s0.js",
+      "destination": "apps/training/src/medical-s0.js",
+      "bytes": 5400,
+      "sha256": "aa1265745b8e20734943f36a4fd7d35c24bff18939b141b08e6c174f76072b50"
+    },
+    {
+      "source": "apps/training/src/medical-s1-effects.js",
+      "destination": "apps/training/src/medical-s1-effects.js",
+      "bytes": 10175,
+      "sha256": "7113951c6185aabd54cd7ec4f78cdc7856b0ae2620990528b001d947b240f0ac"
+    },
+    {
+      "source": "apps/training/src/medical-s2-effects.js",
+      "destination": "apps/training/src/medical-s2-effects.js",
+      "bytes": 9497,
+      "sha256": "585f891d33c50f61b24061838c01608d52d6ca0c91eb536618a765a7e858dbe7"
+    },
+    {
+      "source": "apps/training/src/medical-s3-effects.js",
+      "destination": "apps/training/src/medical-s3-effects.js",
+      "bytes": 6979,
+      "sha256": "2f640a75522bac0a999279e2eca986979d239955635b57ea3415c7e35e401e7c"
+    },
+    {
+      "source": "apps/training/src/medical-s3b-effects.js",
+      "destination": "apps/training/src/medical-s3b-effects.js",
+      "bytes": 657,
+      "sha256": "301f2201af6f0c97b267b0ee96e09ca286b64709595f9841398c63b6b98dae1a"
+    },
+    {
+      "source": "apps/training/src/medical-supplies.js",
+      "destination": "apps/training/src/medical-supplies.js",
+      "bytes": 5074,
+      "sha256": "a8e9a2efc9a28797f751d5084700edd7641fac83f78e6c09a680c8851fc4f2dd"
+    },
+    {
+      "source": "apps/training/src/medical-surface.js",
+      "destination": "apps/training/src/medical-surface.js",
+      "bytes": 4184,
+      "sha256": "d1ef9595cdc63aeef8943ee4e491b6a02e9e1cdb7e60fb0c27559948a325a6e0"
+    },
+    {
+      "source": "apps/training/src/medical-ui.js",
+      "destination": "apps/training/src/medical-ui.js",
+      "bytes": 10515,
+      "sha256": "e71acb9256c0e68f1dca1958521c66f59c0efbe64f0d0efd596ee1f0f9d526ca"
+    },
+    {
+      "source": "apps/training/src/medical-v2.js",
+      "destination": "apps/training/src/medical-v2.js",
+      "bytes": 17067,
+      "sha256": "a3c3c92947456682390583e79008da3db2f839b6324b64585e97e8df44a8a56c"
+    },
+    {
+      "source": "apps/training/src/medical-view.js",
+      "destination": "apps/training/src/medical-view.js",
+      "bytes": 10620,
+      "sha256": "5d930fd62b1810787ddacf5c6194234ccb0c8bba6799a413fb243a56fb944947"
+    },
+    {
+      "source": "apps/training/src/medical-waveforms.js",
+      "destination": "apps/training/src/medical-waveforms.js",
+      "bytes": 2542,
+      "sha256": "0aba6fe59a250905cbe539df5dbfb2a6897269f2b723da167debb8e748f76e45"
+    },
+    {
+      "source": "apps/training/src/medical.js",
+      "destination": "apps/training/src/medical.js",
+      "bytes": 17116,
+      "sha256": "0706680e9c0c6b62f4921e351ae186e654adfea625b65a05d37f97225d0b9ba5"
+    },
+    {
+      "source": "apps/training/src/muscle-data.js",
+      "destination": "apps/training/src/muscle-data.js",
+      "bytes": 2807,
+      "sha256": "cbddfbcde4d034b93f7c171449e890d0155d01890c3813ceee68658d81abaa6f"
+    },
+    {
+      "source": "apps/training/src/optic-acog-reticle.js",
+      "destination": "apps/training/src/optic-acog-reticle.js",
+      "bytes": 1840,
+      "sha256": "b933719a39a8c26af6efdb00a535493b57ff198b7ad2545849e469b0ce2efc4b"
+    },
+    {
+      "source": "apps/training/src/optic-data.js",
+      "destination": "apps/training/src/optic-data.js",
+      "bytes": 2851,
+      "sha256": "ca32d2612eb7174b976398d68f3869c6d0651bdb086ce320b4c8a74b7b31bcbe"
+    },
+    {
+      "source": "apps/training/src/optic-focus.js",
+      "destination": "apps/training/src/optic-focus.js",
+      "bytes": 1265,
+      "sha256": "0dd284c66c13d44225bdf658f0b170e9c955e59e4a3da5bf0328797d2eaf7fb7"
+    },
+    {
+      "source": "apps/training/src/optic-holo-shader.js",
+      "destination": "apps/training/src/optic-holo-shader.js",
+      "bytes": 1683,
+      "sha256": "ade92d222633cea76a2987b2536d06889b198552006e0e1cc94bc1c384f939f6"
+    },
+    {
+      "source": "apps/training/src/optic-holo.js",
+      "destination": "apps/training/src/optic-holo.js",
+      "bytes": 1632,
+      "sha256": "2bac4d7e99088465870671a1fec30759acfc075e19a9ef90b76a63655c9af2de"
+    },
+    {
+      "source": "apps/training/src/optic-model.js",
+      "destination": "apps/training/src/optic-model.js",
+      "bytes": 3549,
+      "sha256": "dc631e1ccf317f0dcb5f4b68beb2579bb73497a59993811c95d19393ec778640"
+    },
+    {
+      "source": "apps/training/src/optic-optics.js",
+      "destination": "apps/training/src/optic-optics.js",
+      "bytes": 2794,
+      "sha256": "e41f8e1cfc36bf73ca7bdd906981bae6381ce8d750257cc9567be3eb519827be"
+    },
+    {
+      "source": "apps/training/src/optic-render.js",
+      "destination": "apps/training/src/optic-render.js",
+      "bytes": 9859,
+      "sha256": "a37873f322dadb55eac048ee12ec68718795699ba3aa52fc8f724856024bf9b2"
+    },
+    {
+      "source": "apps/training/src/optic-reticle.js",
+      "destination": "apps/training/src/optic-reticle.js",
+      "bytes": 2942,
+      "sha256": "04996b2c83c0076417f87f41a330941eb925126fd41b121dc186cfac6617f63a"
+    },
+    {
+      "source": "apps/training/src/optic-specs.js",
+      "destination": "apps/training/src/optic-specs.js",
+      "bytes": 1476,
+      "sha256": "b8f5a16e9b070fe4386245fa35b7d096b1c1e3e6dd831978e962d66d693f4570"
+    },
+    {
+      "source": "apps/training/src/physics.js",
+      "destination": "apps/training/src/physics.js",
+      "bytes": 20655,
+      "sha256": "45a0d9b04078e4955332ecd63a2cc9099dc0a46f3a27c3ed2af27c957c92ca30"
+    },
+    {
+      "source": "apps/training/src/plate-inventory.js",
+      "destination": "apps/training/src/plate-inventory.js",
+      "bytes": 4919,
+      "sha256": "d47ca5c89e68917bef2fcac979e9c990c9b6f8ab09158eb6497460d091df29c1"
+    },
+    {
+      "source": "apps/training/src/plate-shapes.js",
+      "destination": "apps/training/src/plate-shapes.js",
+      "bytes": 5018,
+      "sha256": "1ab0797b0656df3079a2b5cb8b11ea1ed0578fc4ea26a0c63637c9149e1c7bbe"
+    },
+    {
+      "source": "apps/training/src/plate-windows.js",
+      "destination": "apps/training/src/plate-windows.js",
+      "bytes": 4776,
+      "sha256": "fb3dceaac5972a4af3a6f40d46f399d134cdb84f82d7c21915e7902e42ad067e"
+    },
+    {
+      "source": "apps/training/src/player-fall.js",
+      "destination": "apps/training/src/player-fall.js",
+      "bytes": 6393,
+      "sha256": "b8471fc66d3841974bd66a7b643753184223690912cd2c1813f87af849f45252"
+    },
+    {
+      "source": "apps/training/src/player-locomotion.js",
+      "destination": "apps/training/src/player-locomotion.js",
+      "bytes": 4426,
+      "sha256": "6cd12feb20334c1745c4445991029907cac8539b7f9f2924b11ed877b0e43cdd"
+    },
+    {
+      "source": "apps/training/src/player-weapon-drop.js",
+      "destination": "apps/training/src/player-weapon-drop.js",
+      "bytes": 4288,
+      "sha256": "f5c5dbe0ae01d70f340d9b8911b4e0a95688d7ea38456d858a7a3f2ae0b23fa8"
+    },
+    {
+      "source": "apps/training/src/pointer-lock-return.js",
+      "destination": "apps/training/src/pointer-lock-return.js",
+      "bytes": 956,
+      "sha256": "6b36386bc94668718ce0a6c82f8eacaad120ea82da3fc69af886bf8ecea9067a"
+    },
+    {
+      "source": "apps/training/src/protection.js",
+      "destination": "apps/training/src/protection.js",
+      "bytes": 17829,
+      "sha256": "80bf08d578682da2adda1f2c9f17c903af060e15dd92684031c291f961db8de1"
+    },
+    {
+      "source": "apps/training/src/ragdoll-data.js",
+      "destination": "apps/training/src/ragdoll-data.js",
+      "bytes": 2122,
+      "sha256": "adc83bd28a48dcad9384ff4381ba11ec359194b85793ed5c0850ad86255de782"
+    },
+    {
+      "source": "apps/training/src/ragdoll-lifecycle.js",
+      "destination": "apps/training/src/ragdoll-lifecycle.js",
+      "bytes": 6155,
+      "sha256": "4dd2baafef599cc53ab5b6c38dbcc3a457338a2d11260b6e321aa775bf957c4e"
+    },
+    {
+      "source": "apps/training/src/ragdoll-settling.js",
+      "destination": "apps/training/src/ragdoll-settling.js",
+      "bytes": 9945,
+      "sha256": "f85219e8731670413943a22c278e351cfe2febd7ef1e7cd455eaed3325ddb24d"
+    },
+    {
+      "source": "apps/training/src/ragdoll-stability.js",
+      "destination": "apps/training/src/ragdoll-stability.js",
+      "bytes": 1501,
+      "sha256": "101c7730247987a79cbfc699d34877534bcbf726f3ecbe9474c13879650eaca5"
+    },
+    {
+      "source": "apps/training/src/recoil.js",
+      "destination": "apps/training/src/recoil.js",
+      "bytes": 7065,
+      "sha256": "75282354953586cf582be0b248c5c247cd6b0bf606b974e52155c57dfae6cfba"
+    },
+    {
+      "source": "apps/training/src/retinal-response.js",
+      "destination": "apps/training/src/retinal-response.js",
+      "bytes": 959,
+      "sha256": "8f5b3ddf6cc68a6025eb65275a6970b5967a01d3a6899af4c8df8bcd9eb3cbab"
+    },
+    {
+      "source": "apps/training/src/retinal-vision.js",
+      "destination": "apps/training/src/retinal-vision.js",
+      "bytes": 1578,
+      "sha256": "44ec52b095ecc5d3bc97777414b369b0b069ae185b8bdb80d7ce2f04424c08c6"
+    },
+    {
+      "source": "apps/training/src/scar-data.js",
+      "destination": "apps/training/src/scar-data.js",
+      "bytes": 3766,
+      "sha256": "11b5fc6248b86caff0be84fb50d960eccc912130eebb06b94a4d82fb5712ad46"
+    },
+    {
+      "source": "apps/training/src/scar-fps.js",
+      "destination": "apps/training/src/scar-fps.js",
+      "bytes": 6448,
+      "sha256": "99ca7d02cacd16dfc5c6f76fa6343944bb117b325ba9b8e58227b427760577c5"
+    },
+    {
+      "source": "apps/training/src/scar-material.js",
+      "destination": "apps/training/src/scar-material.js",
+      "bytes": 2247,
+      "sha256": "e9fe11ae6b171584c77afe5bafbcbd2d76327e8aadb3ded084bdc3e3530013d9"
+    },
+    {
+      "source": "apps/training/src/scene.js",
+      "destination": "apps/training/src/scene.js",
+      "bytes": 12186,
+      "sha256": "6fb3cb0f0f5d7a7594c31ab2b122d6cce25fbe3a1c83948513f6823b1f110f1e"
+    },
+    {
+      "source": "apps/training/src/settings.js",
+      "destination": "apps/training/src/settings.js",
+      "bytes": 3061,
+      "sha256": "f1219b789d75125e57f0a0468b2b90c09ca54f19add8220d0f8a7bc3e4fd2c6c"
+    },
+    {
+      "source": "apps/training/src/side-plate-path.js",
+      "destination": "apps/training/src/side-plate-path.js",
+      "bytes": 1369,
+      "sha256": "af09ef1f3bffa8eaf987e9c1a1103271f05fbf83009e38e1c19d1aa4e71f58b4"
+    },
+    {
+      "source": "apps/training/src/sight-geometry.js",
+      "destination": "apps/training/src/sight-geometry.js",
+      "bytes": 1430,
+      "sha256": "f15fefd71016a65e051a42eb683bb2062d45448a4c7b61814acaa8ac0ab54f73"
+    },
+    {
+      "source": "apps/training/src/soldier-grip.js",
+      "destination": "apps/training/src/soldier-grip.js",
+      "bytes": 4249,
+      "sha256": "ee84bbe444a8dcad8f6b31780a8c4408abcd1da061a783b8778dadcfb5a5cb3c"
+    },
+    {
+      "source": "apps/training/src/soldier-rig.js",
+      "destination": "apps/training/src/soldier-rig.js",
+      "bytes": 9133,
+      "sha256": "f58b64190f8b0790e78325dc3ecdbffc86af9d4818a339ad41bd3d45c8448f0a"
+    },
+    {
+      "source": "apps/training/src/sound-acoustics.js",
+      "destination": "apps/training/src/sound-acoustics.js",
+      "bytes": 14043,
+      "sha256": "52118b7f8226cf79dde04b6524b08941c05be4e8da85c8515825daa02e570202"
+    },
+    {
+      "source": "apps/training/src/sound-debug.js",
+      "destination": "apps/training/src/sound-debug.js",
+      "bytes": 3250,
+      "sha256": "5753de171487095d396e22d67b3f64321d30e6c61c7a1adb4a3f6ae0524e8428"
+    },
+    {
+      "source": "apps/training/src/sound-hearing.js",
+      "destination": "apps/training/src/sound-hearing.js",
+      "bytes": 3167,
+      "sha256": "bbf1b6f1baadad448b6b9ad7c3efa04bddcf3e6bf152d85158805100e2311978"
+    },
+    {
+      "source": "apps/training/src/sound-tuning.js",
+      "destination": "apps/training/src/sound-tuning.js",
+      "bytes": 783,
+      "sha256": "0256b7ad7c70722aa1942c5868ea0bd9a8c79b9067eb6ab3fd8b94bc3a02ee35"
+    },
+    {
+      "source": "apps/training/src/sound-world.js",
+      "destination": "apps/training/src/sound-world.js",
+      "bytes": 3961,
+      "sha256": "9418cec27e10cfae614aa016ff394452e274b0fc3582e1a0658988a5ccaa9c38"
+    },
+    {
+      "source": "apps/training/src/sound.js",
+      "destination": "apps/training/src/sound.js",
+      "bytes": 20089,
+      "sha256": "0148ea22c794a723530d93d647107c537c58776e009cae14a91833d187329fab"
+    },
+    {
+      "source": "apps/training/src/sprint.js",
+      "destination": "apps/training/src/sprint.js",
+      "bytes": 1310,
+      "sha256": "e1134685ce91f853ecaeab385721d53d00d21c299fe02b0dc75d0ae142389802"
+    },
+    {
+      "source": "apps/training/src/status-hud.js",
+      "destination": "apps/training/src/status-hud.js",
+      "bytes": 3570,
+      "sha256": "e398cc6aece4d68cfbec48dee3954e16bcd2bebd7363c7cd2977381f7b7b84fc"
+    },
+    {
+      "source": "apps/training/src/strength-ragdoll.js",
+      "destination": "apps/training/src/strength-ragdoll.js",
+      "bytes": 6868,
+      "sha256": "8245eff8e5d1093fa192a9b5e9e7c51f2603d50dab3f1a7a0e93cbd37d84aca3"
+    },
+    {
+      "source": "apps/training/src/trajectories.js",
+      "destination": "apps/training/src/trajectories.js",
+      "bytes": 4369,
+      "sha256": "c59f715cab6de356c88f6444a4a3a81b715cb92ce1aceb49be1149db948e6936"
+    },
+    {
+      "source": "apps/training/src/ui-touch.js",
+      "destination": "apps/training/src/ui-touch.js",
+      "bytes": 2117,
+      "sha256": "342761a7a01ae2077857746a1f6454a64320226a5a659ed1ec49442904d69870"
+    },
+    {
+      "source": "apps/training/src/weapon-data.js",
+      "destination": "apps/training/src/weapon-data.js",
+      "bytes": 2638,
+      "sha256": "f90dbda6ab6958c52dd9aa4f09b9603f34dd0c5a18f4ce5054245572ef4fc4b9"
+    },
+    {
+      "source": "apps/training/src/weapon-model.js",
+      "destination": "apps/training/src/weapon-model.js",
+      "bytes": 6918,
+      "sha256": "722186a8e9850ad873ca06ca94624c8c8f2e4552dfcaa27b91bc3c13948f35fe"
+    },
+    {
+      "source": "apps/training/src/wound-channel.js",
+      "destination": "apps/training/src/wound-channel.js",
+      "bytes": 36061,
+      "sha256": "c3a716464b24b13d34e7fe322ece4e51ce5de4139b44247ef1fc8ce3c1b544b8"
+    },
+    {
+      "source": "apps/training/src/wound-s3-types.js",
+      "destination": "apps/training/src/wound-s3-types.js",
+      "bytes": 6832,
+      "sha256": "518b2ed17ec2f2b79e9f972b46e059c0304f904b465bd29112c29157a02433f5"
+    },
+    {
+      "source": "apps/training/src/zeroing.js",
+      "destination": "apps/training/src/zeroing.js",
+      "bytes": 747,
+      "sha256": "33f1b86fd5e356e33f8718c474c95373d07ebfb02c37ac753bf578290fa07043"
+    },
+    {
+      "source": "apps/training/styles.css",
+      "destination": "apps/training/styles.css",
+      "bytes": 48762,
+      "sha256": "efbe1f813aefd3190ba87f065cca426ee682e6766251cc6e33540795e3fb19f0"
+    },
+    {
+      "source": "docs/3d-extraction-architecture.md",
+      "destination": "docs/3d-extraction-architecture.md",
+      "bytes": 37764,
+      "sha256": "5bb0c8bb6e95609daf288ca7027181bb79bb51573bdc53946dd2041d640cd79c"
+    },
+    {
+      "source": "docs/ai1-senses-ledger.json",
+      "destination": "docs/ai1-senses-ledger.json",
+      "bytes": 46555,
+      "sha256": "87bdb0eb8fb3668c8afc33ee2d3f6ec045b21415b8575c8ba1bc089af56b5f69"
+    },
+    {
+      "source": "docs/ai1-senses-sources.json",
+      "destination": "docs/ai1-senses-sources.json",
+      "bytes": 4799,
+      "sha256": "940945be1b90d97d1afadbcd43e8696a84328c689e14a0a05d29c09d9d37b850"
+    },
+    {
+      "source": "docs/armor-regions.md",
+      "destination": "docs/armor-regions.md",
+      "bytes": 11733,
+      "sha256": "279ecf27d90f0b0571dfa4946e7b0aaf8932aaaff0e3212d743f19d9cceb22ce"
+    },
+    {
+      "source": "docs/care-m4-ledger.json",
+      "destination": "docs/care-m4-ledger.json",
+      "bytes": 11297,
+      "sha256": "b3c4b30147dbb71b146661ca071f6dbe6cc8c7b521795a0e3455332b9214c3a3"
+    },
+    {
+      "source": "docs/care-m4-sources.json",
+      "destination": "docs/care-m4-sources.json",
+      "bytes": 5228,
+      "sha256": "292eae2e6bba9bee2820c16b6fe3a6229f8264696b5f14210e5b7424e84a5521"
+    },
+    {
+      "source": "docs/care-m4b-ledger.json",
+      "destination": "docs/care-m4b-ledger.json",
+      "bytes": 8764,
+      "sha256": "862f764c5b82e2bcb2c54a9a5e987628bb05117bd0a3bac8161039d99e415c7a"
+    },
+    {
+      "source": "docs/care-m4b-sources.json",
+      "destination": "docs/care-m4b-sources.json",
+      "bytes": 5389,
+      "sha256": "43a353a3260b429af6cd8b0289db6dcb7193959883d01adba27e4b2f796b7794"
+    },
+    {
+      "source": "docs/care-m4c-ledger.json",
+      "destination": "docs/care-m4c-ledger.json",
+      "bytes": 5294,
+      "sha256": "5aefbdbb59d9104b4bc9f33915ced143c59a48b9aacb2aad4043eefa1208772d"
+    },
+    {
+      "source": "docs/care-m4c-sources.json",
+      "destination": "docs/care-m4c-sources.json",
+      "bytes": 1183,
+      "sha256": "1779f3ec7cc738c7403f9cfb1f18d03aa1a2b7e52641dc2b5dd95bd9626b7125"
+    },
+    {
+      "source": "docs/collapse-motion-ledger.json",
+      "destination": "docs/collapse-motion-ledger.json",
+      "bytes": 11391,
+      "sha256": "fdead423902ee20480e6fba0e3958d170829708a6d600dd601b601aedeea0ce6"
+    },
+    {
+      "source": "docs/combat-ai1-ledger.json",
+      "destination": "docs/combat-ai1-ledger.json",
+      "bytes": 17525,
+      "sha256": "c73853c8d41f4f08583845c624f5100488bfb7cf69d85de8d5897a09f67641a2"
+    },
+    {
+      "source": "docs/combat-ai1-supplement-ledger.json",
+      "destination": "docs/combat-ai1-supplement-ledger.json",
+      "bytes": 76249,
+      "sha256": "bc0288fc774c7d80a11a588521edb5d4c88d963af53e879aaf7f8103cd4aed15"
+    },
+    {
+      "source": "docs/d1c-v54-ledger.json",
+      "destination": "docs/d1c-v54-ledger.json",
+      "bytes": 34686,
+      "sha256": "91ff2fcc56677b2c25d8c92be83fc472d591e27b64b77b954404ada381b1895a"
+    },
+    {
+      "source": "docs/development-guide.md",
+      "destination": "docs/development-guide.md",
+      "bytes": 10926,
+      "sha256": "d9546f895dd2080b8fe294512806b2e2f5c3c24180af81ae48fc6c0486fcafa9"
+    },
+    {
+      "source": "docs/enemy-animation-ledger.json",
+      "destination": "docs/enemy-animation-ledger.json",
+      "bytes": 418424,
+      "sha256": "369aca74e3f042595617562519812de8b7509d0738c01f54a333a363459a3b88"
+    },
+    {
+      "source": "docs/enemy-animation-retarget-map.json",
+      "destination": "docs/enemy-animation-retarget-map.json",
+      "bytes": 371948,
+      "sha256": "61de49ac89908e04cbeadf49125f8e505820afa690a1a44f0a7d0fe2e8d614d3"
+    },
+    {
+      "source": "docs/equipment-m6-ledger.json",
+      "destination": "docs/equipment-m6-ledger.json",
+      "bytes": 9576,
+      "sha256": "aadcae5fe93423ec0db084d2c1e2a758665f488f960cd935779c6650febbcc4a"
+    },
+    {
+      "source": "docs/equipment-m6-sources.json",
+      "destination": "docs/equipment-m6-sources.json",
+      "bytes": 1219,
+      "sha256": "3d5561373c812a93e21b395d93b55b4fa7bce6780938964051f032ba25d169a8"
+    },
+    {
+      "source": "docs/equipment-m7-ledger.json",
+      "destination": "docs/equipment-m7-ledger.json",
+      "bytes": 5126,
+      "sha256": "0ddb29048c0940208ca814fa2d07cfd87cc954fe9b39558a43f25a915bcf380e"
+    },
+    {
+      "source": "docs/equipment-m7-sources.json",
+      "destination": "docs/equipment-m7-sources.json",
+      "bytes": 12874,
+      "sha256": "b016b2fedec16d3a932837b10f301db549b92259cd21aee51a3037d3bcb7e00e"
+    },
+    {
+      "source": "docs/equipment-m7b-ledger.json",
+      "destination": "docs/equipment-m7b-ledger.json",
+      "bytes": 2161,
+      "sha256": "5efb70914e80e5d3efb8d924da50a87bc52f03332b19bba48a100547e8b5fb39"
+    },
+    {
+      "source": "docs/equipment-mesh-fix-v64-ledger.json",
+      "destination": "docs/equipment-mesh-fix-v64-ledger.json",
+      "bytes": 1528,
+      "sha256": "0229ec67c9066f18b42736e1aaeaee974013690d710f0103028cf24a45504aaf"
+    },
+    {
+      "source": "docs/fall-stability-ledger.json",
+      "destination": "docs/fall-stability-ledger.json",
+      "bytes": 30532,
+      "sha256": "89f1c1eb88ab8c9ceedfc268b969af0660b352c7c18e1322143212ccba32ec06"
+    },
+    {
+      "source": "docs/feedback-v52-ledger.json",
+      "destination": "docs/feedback-v52-ledger.json",
+      "bytes": 6825,
+      "sha256": "9157a13a50c7eb46f9ae141542c3ffd13c43a09ccc027225a073a3dc5ae0ac62"
+    },
+    {
+      "source": "docs/flight-tuning-ledger.json",
+      "destination": "docs/flight-tuning-ledger.json",
+      "bytes": 7102,
+      "sha256": "bca86e461817567bad3007fb6ef55535334d35f79fc6d9e7ef7e81d4cc6c9a18"
+    },
+    {
+      "source": "docs/footstep-v48-ledger.json",
+      "destination": "docs/footstep-v48-ledger.json",
+      "bytes": 1837,
+      "sha256": "207109096feabb9fa2cf309c2cf225c21b4673f5b9039c6dd6bc41fdb3799ab8"
+    },
+    {
+      "source": "docs/gait-audibility-v50-ledger.json",
+      "destination": "docs/gait-audibility-v50-ledger.json",
+      "bytes": 6270,
+      "sha256": "73571c3e805efd2d899ac520dc43418540bf3a4b9bd457710eba62999e3e0213"
+    },
+    {
+      "source": "docs/human-targets.md",
+      "destination": "docs/human-targets.md",
+      "bytes": 6668,
+      "sha256": "74644a89c042b62172e5e65842a04506cc168ce5d7527d1fbfb063c45f31ac39"
+    },
+    {
+      "source": "docs/locomotion-v49-ledger.json",
+      "destination": "docs/locomotion-v49-ledger.json",
+      "bytes": 5467,
+      "sha256": "bbef4cd6a5ea3dc2c14286eede05e5a33f964a9a16b00be8fad84bf2aa723191"
+    },
+    {
+      "source": "docs/medical-b1-ledger.json",
+      "destination": "docs/medical-b1-ledger.json",
+      "bytes": 29691,
+      "sha256": "a2ed7eab9fc2ce6ac1ae4104892f39cab22934de4fffa1de083913e546a25374"
+    },
+    {
+      "source": "docs/medical-b1-sources.json",
+      "destination": "docs/medical-b1-sources.json",
+      "bytes": 4495,
+      "sha256": "7083bf5e5b110dcb32eaac13245ad7b466350e109d23d9237b859617af39f7fe"
+    },
+    {
+      "source": "docs/medical-b1b-ledger.json",
+      "destination": "docs/medical-b1b-ledger.json",
+      "bytes": 45938,
+      "sha256": "d356f40ba4dedc9ac5f83801b3431c7f25fe50ac2cd12fac86dde77cadfe70c9"
+    },
+    {
+      "source": "docs/medical-b1b-sources.json",
+      "destination": "docs/medical-b1b-sources.json",
+      "bytes": 6575,
+      "sha256": "b35ac41c9b8ec28390764f52fa44ff983e40b5e05a0a8b5e04330e484565e39d"
+    },
+    {
+      "source": "docs/medical-b1c-ledger.json",
+      "destination": "docs/medical-b1c-ledger.json",
+      "bytes": 41536,
+      "sha256": "a5da4a2534230e6a1b0a1bdf01c0adf3493a7ff0b89ead637124ee79cf6a8688"
+    },
+    {
+      "source": "docs/medical-b1c-sources.json",
+      "destination": "docs/medical-b1c-sources.json",
+      "bytes": 13805,
+      "sha256": "92f065f45bce8ce45573f35a1f70fd17a3886c8327d19bf15aef1e86df181142"
+    },
+    {
+      "source": "docs/medical-d1-ledger.json",
+      "destination": "docs/medical-d1-ledger.json",
+      "bytes": 9768,
+      "sha256": "5af5ab8a008b1e498560cadec355d804f85432b1c397ff5f4db4c7223b66be22"
+    },
+    {
+      "source": "docs/medical-d1-sources.json",
+      "destination": "docs/medical-d1-sources.json",
+      "bytes": 3608,
+      "sha256": "825ee0ae1c9f3ac22f5e8621544513bf6b2c93f00df228a52c7512a91b65a81e"
+    },
+    {
+      "source": "docs/medical-d1b-sources.json",
+      "destination": "docs/medical-d1b-sources.json",
+      "bytes": 5529,
+      "sha256": "d93be2fcc870f832c51a71952a3a91ef04e9ed4f80c0323251accb13681f31e4"
+    },
+    {
+      "source": "docs/medical-d1b-v53-ledger.json",
+      "destination": "docs/medical-d1b-v53-ledger.json",
+      "bytes": 23831,
+      "sha256": "08f1e295f6eb4a7a2183dbfd052e08fee72e0896ef15f4026b4952fb458ea41b"
+    },
+    {
+      "source": "docs/medical-d2-ledger.json",
+      "destination": "docs/medical-d2-ledger.json",
+      "bytes": 18918,
+      "sha256": "eea9e1bbd79fced923bc4bc0fbdd34284ad134cac376bf492a9dd70c83fed062"
+    },
+    {
+      "source": "docs/medical-d2-sources.json",
+      "destination": "docs/medical-d2-sources.json",
+      "bytes": 6261,
+      "sha256": "4a2b1b925422e24c77ebb50a9c7933b7146080d55682fcecc2f20874a09cee43"
+    },
+    {
+      "source": "docs/medical-items-m2-ledger.json",
+      "destination": "docs/medical-items-m2-ledger.json",
+      "bytes": 9961,
+      "sha256": "52e6c68294bddec37b1073d2645c2435342ea52a0ae0d6469d12e76dd4046636"
+    },
+    {
+      "source": "docs/medical-items-m2-sources.json",
+      "destination": "docs/medical-items-m2-sources.json",
+      "bytes": 4168,
+      "sha256": "1b49edb71b48844f0992218ed94b0283f54ccc23ce60c548dd8fffd1158e51c4"
+    },
+    {
+      "source": "docs/medical-s0-ledger.json",
+      "destination": "docs/medical-s0-ledger.json",
+      "bytes": 11017,
+      "sha256": "f0c6e25149ba8be14768613645f01892fe713bf10a0ad5a60f6abb24c3f7da80"
+    },
+    {
+      "source": "docs/medical-s1-calibration-inputs.json",
+      "destination": "docs/medical-s1-calibration-inputs.json",
+      "bytes": 71751,
+      "sha256": "468f0cfe9cd68e7259168c21ecb3d723abad29d2640338306bb72760a14239a4"
+    },
+    {
+      "source": "docs/medical-s1-ledger.json",
+      "destination": "docs/medical-s1-ledger.json",
+      "bytes": 97706,
+      "sha256": "add5b699c665481d3eb91af34d6750d3be8b749cf1bc5d50e4f59d1e6b04da9c"
+    },
+    {
+      "source": "docs/medical-s1-sources.json",
+      "destination": "docs/medical-s1-sources.json",
+      "bytes": 15239,
+      "sha256": "42aee06c5dcbccc3c22b8fad27674fcd711b201c49891542462fc6982a029603"
+    },
+    {
+      "source": "docs/medical-s2-ledger.json",
+      "destination": "docs/medical-s2-ledger.json",
+      "bytes": 61646,
+      "sha256": "2970cba035ca71a1b8f3f3cc8b30eb97c22e1b71d30c80e00770a99366bd6a42"
+    },
+    {
+      "source": "docs/medical-s2-sources.json",
+      "destination": "docs/medical-s2-sources.json",
+      "bytes": 16822,
+      "sha256": "7be62233262b8bba22ead66d215d344a3a5d07c416a5a7e4c6b2a8c811700359"
+    },
+    {
+      "source": "docs/medical-s3-ledger.json",
+      "destination": "docs/medical-s3-ledger.json",
+      "bytes": 76787,
+      "sha256": "596a98fb646cc0f03a75bdcaeaff182779e40e511c2753bea20d3adc89df75db"
+    },
+    {
+      "source": "docs/medical-s3-sources.json",
+      "destination": "docs/medical-s3-sources.json",
+      "bytes": 36509,
+      "sha256": "4fc74188039d20f241fad6da3ee2d4f9411aa1eaa491799a2a19cf19fd497f59"
+    },
+    {
+      "source": "docs/medical-s3b-ledger.json",
+      "destination": "docs/medical-s3b-ledger.json",
+      "bytes": 20174,
+      "sha256": "1b276a474286eff221747b906dff0a7c74efd1f8ef5324ac3d1421c71224653e"
+    },
+    {
+      "source": "docs/medical-s3b-sources.json",
+      "destination": "docs/medical-s3b-sources.json",
+      "bytes": 4754,
+      "sha256": "c5e6a42f17d9d923a757ad07e2fe27c69f3b5d9eb75c4f3f674b1a1a48851a0f"
+    },
+    {
+      "source": "docs/medical-ui-m1-ledger.json",
+      "destination": "docs/medical-ui-m1-ledger.json",
+      "bytes": 4913,
+      "sha256": "b379933e4ffb2035fe5e9e4e88ac067b87f79074d009e65f08951342e9274435"
+    },
+    {
+      "source": "docs/medical-ui-m1-sources.json",
+      "destination": "docs/medical-ui-m1-sources.json",
+      "bytes": 1320,
+      "sha256": "05f1545ccde9be087f6c21f7f14ec460541410b1686c3b1d9950257da729f185"
+    },
+    {
+      "source": "docs/medical-v2-ledger.json",
+      "destination": "docs/medical-v2-ledger.json",
+      "bytes": 279929,
+      "sha256": "1a4b8298f6bc7c2baec5ecfda18149ca81a07b60c96af68b4ecead7506ffd99f"
+    },
+    {
+      "source": "docs/medical-v2-ledger.md",
+      "destination": "docs/medical-v2-ledger.md",
+      "bytes": 65787,
+      "sha256": "180129aa1fbcee187f3c01476e93bc2bbaed57c381955f51cc5f9e5a48aa03a2"
+    },
+    {
+      "source": "docs/muscle-ragdoll-ledger.json",
+      "destination": "docs/muscle-ragdoll-ledger.json",
+      "bytes": 9802,
+      "sha256": "05226714bffa66c80ddf55a485ec43336dc3ea1fc342e0183fcf4fde1a696493"
+    },
+    {
+      "source": "docs/obstacle-penetration.md",
+      "destination": "docs/obstacle-penetration.md",
+      "bytes": 7408,
+      "sha256": "2303ee3b28f278ff51362b7e4eab906781245a5ab61270256f33a2c99de99fee"
+    },
+    {
+      "source": "docs/raid-prototype-plan.md",
+      "destination": "docs/raid-prototype-plan.md",
+      "bytes": 25387,
+      "sha256": "33e47f7b2292fa12d977715849cd8799b4f636f8f6ff5a11d3b5c2b93d640808"
+    },
+    {
+      "source": "docs/rg1-ledger.json",
+      "destination": "docs/rg1-ledger.json",
+      "bytes": 10304,
+      "sha256": "41b31553d51a29f43fa0e60f5c972f826d913a908f4e813070cd196b46eeb27f"
+    },
+    {
+      "source": "docs/self-care-m3-ledger.json",
+      "destination": "docs/self-care-m3-ledger.json",
+      "bytes": 13624,
+      "sha256": "a1b1d4320932f1ea492d3aa6d3538b0d6b69e9c2b322e420ed3ccac89ac0d257"
+    },
+    {
+      "source": "docs/self-care-m3-sources.json",
+      "destination": "docs/self-care-m3-sources.json",
+      "bytes": 4187,
+      "sha256": "1408cd51bf457e948b86334b6fdf6933b5ebd7d432820af52dd4095f7a415da2"
+    },
+    {
+      "source": "docs/soldier-ak-grip-ledger.json",
+      "destination": "docs/soldier-ak-grip-ledger.json",
+      "bytes": 190467,
+      "sha256": "4eb185675ec23dce75dba5e3a9b3566ef30064064568b9f43c961f31593553f9"
+    },
+    {
+      "source": "docs/soldier-common-ak-grip-source.json",
+      "destination": "docs/soldier-common-ak-grip-source.json",
+      "bytes": 807061,
+      "sha256": "281fb06d4e015415b4ee349fe037da53357af8f900506006316d98672e4c82a0"
+    },
+    {
+      "source": "docs/soldier-finger-layout.json",
+      "destination": "docs/soldier-finger-layout.json",
+      "bytes": 146122,
+      "sha256": "24d8c2db9a63da9cdd95fa304f12c50dd95ad20ecc47b91b100a9564654c8a93"
+    },
+    {
+      "source": "docs/sound-snd1-ledger.json",
+      "destination": "docs/sound-snd1-ledger.json",
+      "bytes": 23383,
+      "sha256": "63f2fb142d9a7d13dbe80e8c234c67d9a9ad6181ea510d1b44bb79ff1d4d0bf9"
+    },
+    {
+      "source": "docs/sound-snd1-sources.json",
+      "destination": "docs/sound-snd1-sources.json",
+      "bytes": 6560,
+      "sha256": "5f0b7c37cb37b5eaf96bcf5bfe2c4f8e6bca1835b059491d9a30ec7c5c495e22"
+    },
+    {
+      "source": "docs/sound-tuning-v47-ledger.json",
+      "destination": "docs/sound-tuning-v47-ledger.json",
+      "bytes": 4464,
+      "sha256": "8c3b9f3f34a9d67282413cccb4c6ffe6d945291924d419e69f59eb329be6c986"
+    },
+    {
+      "source": "docs/structure-audit.md",
+      "destination": "docs/structure-audit.md",
+      "bytes": 15848,
+      "sha256": "b1e5a17404ebb6e4897cc7379cdd36aaee0086ad7f6023b9eb9d2caaf423bc9a"
+    },
+    {
+      "source": "docs/templates/w1-report.md",
+      "destination": "docs/templates/w1-report.md",
+      "bytes": 8872,
+      "sha256": "d6d8e004a743277b2e475115cddfeffbc4c1f3bc14572e4727562ef26e3da6d7"
+    },
+    {
+      "source": "docs/training-a2-instructions.md",
+      "destination": "docs/training-a2-instructions.md",
+      "bytes": 6699,
+      "sha256": "5149d7b09a8dc3a7cc6b06d1beae5f82c8d56d0163da01886379868e19bcbe70"
+    },
+    {
+      "source": "docs/training-a2-verification.md",
+      "destination": "docs/training-a2-verification.md",
+      "bytes": 10599,
+      "sha256": "cf26cb0e4643dce0a1c0c4ccc287a06a41ccbae943827d20336d20064db93409"
+    },
+    {
+      "source": "docs/training-abc-instructions.md",
+      "destination": "docs/training-abc-instructions.md",
+      "bytes": 16878,
+      "sha256": "b08bd0fd76a3737a293f6857f6f02a50ee6843464420e460083cb4e912efa5e5"
+    },
+    {
+      "source": "docs/training-abc-verification.md",
+      "destination": "docs/training-abc-verification.md",
+      "bytes": 14270,
+      "sha256": "de14bad1570ca732ade9eb233fd0bdccba5077d345ba11e138d4ee31f9cd7dc7"
+    },
+    {
+      "source": "docs/training-ai1-senses-instructions.md",
+      "destination": "docs/training-ai1-senses-instructions.md",
+      "bytes": 9685,
+      "sha256": "7d330ecaef5dac4d17e9ebf3b1d272972f1015e6e94b16dd8b0da063e2c11910"
+    },
+    {
+      "source": "docs/training-ai1-senses-v67.md",
+      "destination": "docs/training-ai1-senses-v67.md",
+      "bytes": 10306,
+      "sha256": "f631b1ee550dd0009abdd7047b8493133d6a9a9868341b0ba1ea93faafd8410d"
+    },
+    {
+      "source": "docs/training-ai1-supplement-instructions.md",
+      "destination": "docs/training-ai1-supplement-instructions.md",
+      "bytes": 1874,
+      "sha256": "b8595ef4cb5e9e3d00fbf394e4c5890429f0b6429e0f34d96ccafca3829ad3af"
+    },
+    {
+      "source": "docs/training-ai1-supplement-v33.md",
+      "destination": "docs/training-ai1-supplement-v33.md",
+      "bytes": 7116,
+      "sha256": "a13c38ca2550726f03b217eeb4c5f6b4a9b479b02bb03c31bf43eb9593a37e9d"
+    },
+    {
+      "source": "docs/training-ai1-v32.md",
+      "destination": "docs/training-ai1-v32.md",
+      "bytes": 11668,
+      "sha256": "669494623b88b6228715fad6a83916c350a01ded5394d92846359118f80e6ac3"
+    },
+    {
+      "source": "docs/training-b1-instructions.md",
+      "destination": "docs/training-b1-instructions.md",
+      "bytes": 7854,
+      "sha256": "bca1a780b745d3f203abfcedbd651499b8d9f33c43098fedd4f4a4ba511bbff1"
+    },
+    {
+      "source": "docs/training-b1-v43.md",
+      "destination": "docs/training-b1-v43.md",
+      "bytes": 9219,
+      "sha256": "7966b740dd1cf525368997406f1898d3cfc3c0101492bb2ded9bf62143d6ff10"
+    },
+    {
+      "source": "docs/training-b1b-instructions.md",
+      "destination": "docs/training-b1b-instructions.md",
+      "bytes": 5726,
+      "sha256": "f0959ea5d90f35ca7c347f57f498432306f514419147a59f7f0631555d50a2ed"
+    },
+    {
+      "source": "docs/training-b1b-v44.md",
+      "destination": "docs/training-b1b-v44.md",
+      "bytes": 6183,
+      "sha256": "c019187cbeebb19e2759b5d4ada98a2b1aff72a77fe530aee8fa19cf2d3cd216"
+    },
+    {
+      "source": "docs/training-b1c-instructions.md",
+      "destination": "docs/training-b1c-instructions.md",
+      "bytes": 4702,
+      "sha256": "59dbf778dfd417ddf545cbae2b4c3a6e9f070c9704c873ba8e168a23b579e83e"
+    },
+    {
+      "source": "docs/training-b1c-v45.md",
+      "destination": "docs/training-b1c-v45.md",
+      "bytes": 9527,
+      "sha256": "d4aaf426d4d6f155195dd1d560d6c43b102d7089acf07edb4cdc97f9587d09d3"
+    },
+    {
+      "source": "docs/training-brief.md",
+      "destination": "docs/training-brief.md",
+      "bytes": 10825,
+      "sha256": "a4b920e9372b23f5b5e74583df234eb3d08fe2fcea63d987f66560ee562247ff"
+    },
+    {
+      "source": "docs/training-care-m4-v60.md",
+      "destination": "docs/training-care-m4-v60.md",
+      "bytes": 8525,
+      "sha256": "093bbe19bed39c12e56fc16d598ba44764658b2e1b7046af7e928fb245bdafb6"
+    },
+    {
+      "source": "docs/training-care-m4b-v61.md",
+      "destination": "docs/training-care-m4b-v61.md",
+      "bytes": 10561,
+      "sha256": "53d97ec5cbc417ff61842d2fe240b8a172a64023a99c4c23cbc645c0fdccec62"
+    },
+    {
+      "source": "docs/training-care-m4c-v62.md",
+      "destination": "docs/training-care-m4c-v62.md",
+      "bytes": 3119,
+      "sha256": "fb31eb6edbec3edd759b47412cffb23375eaa1f906d3d804bc148bd6860a9be9"
+    },
+    {
+      "source": "docs/training-cc-mixamo-draft.json",
+      "destination": "docs/training-cc-mixamo-draft.json",
+      "bytes": 21143,
+      "sha256": "9884f8c7e9965416e5e183a4223b3baf1d48c065db1e13891cec99d555b2429a"
+    },
+    {
+      "source": "docs/training-collapse-motion-instructions.md",
+      "destination": "docs/training-collapse-motion-instructions.md",
+      "bytes": 2880,
+      "sha256": "ff7933b8a63f6f4de6e5c0329afab8e61e327f499460e97399c66b237a35a4d9"
+    },
+    {
+      "source": "docs/training-collapse-motion-v35.md",
+      "destination": "docs/training-collapse-motion-v35.md",
+      "bytes": 16581,
+      "sha256": "0bbbdadf9483c1a370fdf265957719f3bc6f76ddf60ba436d047211d9c8e22ea"
+    },
+    {
+      "source": "docs/training-d1-instructions.md",
+      "destination": "docs/training-d1-instructions.md",
+      "bytes": 10190,
+      "sha256": "e0b32c66af07eff108bf24db1daed2bbf0e1b7a44f0ff076338347f8533e4d7f"
+    },
+    {
+      "source": "docs/training-d1-v51.md",
+      "destination": "docs/training-d1-v51.md",
+      "bytes": 10014,
+      "sha256": "72a277a21eed4447aafd723b129a848203241c2167adee8844a455e067e2f32a"
+    },
+    {
+      "source": "docs/training-d1b-instructions.md",
+      "destination": "docs/training-d1b-instructions.md",
+      "bytes": 9486,
+      "sha256": "e7f0fbb2c1e1ac582846c92dc59d37aaa2c6de943d487ca3166fd84f1c5b0080"
+    },
+    {
+      "source": "docs/training-d1b-v53.md",
+      "destination": "docs/training-d1b-v53.md",
+      "bytes": 8670,
+      "sha256": "e2354b9183eb4bf3a390a30609531565ac357495f93ee191a0ad966ea861baa1"
+    },
+    {
+      "source": "docs/training-d1c-instructions.md",
+      "destination": "docs/training-d1c-instructions.md",
+      "bytes": 1888,
+      "sha256": "3f2f0a343405f99e841728e28767cd6bbd5d773fd015530a17d1e7745d61a0bb"
+    },
+    {
+      "source": "docs/training-d1c-v54.md",
+      "destination": "docs/training-d1c-v54.md",
+      "bytes": 7761,
+      "sha256": "a6de58d9b32e0055742ed6bc3c9ff74fe3514d55d7cad9369bc16a588d03f0e4"
+    },
+    {
+      "source": "docs/training-d2-instructions.md",
+      "destination": "docs/training-d2-instructions.md",
+      "bytes": 10600,
+      "sha256": "d2d81880bc82d847008fa3b8d57703c769b1d32de0480d3d9b5723741383526f"
+    },
+    {
+      "source": "docs/training-d2-v55.md",
+      "destination": "docs/training-d2-v55.md",
+      "bytes": 8512,
+      "sha256": "ea5d90ad1171c6e20dd993de5c7824ae25e714f537e2b5cfc2eb7eebd9a37b1c"
+    },
+    {
+      "source": "docs/training-enemy-animations-v37-instructions.md",
+      "destination": "docs/training-enemy-animations-v37-instructions.md",
+      "bytes": 5999,
+      "sha256": "8792fbbdca47a9440955dc85d67e187a30a4085d952e5ecbe1d6ac6721ba75e2"
+    },
+    {
+      "source": "docs/training-enemy-animations-v37.md",
+      "destination": "docs/training-enemy-animations-v37.md",
+      "bytes": 29442,
+      "sha256": "31e952f0358a827f20fcf50c4ad78d3c8aa49f927762d111af947d0ac74e81f3"
+    },
+    {
+      "source": "docs/training-equipment-m6-v63.md",
+      "destination": "docs/training-equipment-m6-v63.md",
+      "bytes": 6440,
+      "sha256": "71aac03acd41a27ce3843d41ff43d27c3d8e719b59f5a41e6758fb9d89eed075"
+    },
+    {
+      "source": "docs/training-equipment-m7-v65.md",
+      "destination": "docs/training-equipment-m7-v65.md",
+      "bytes": 6392,
+      "sha256": "d40277bc771223f704d54b07eb6ed601f228b6a423b988975b6288cbeee54b0a"
+    },
+    {
+      "source": "docs/training-equipment-m7b-v66.md",
+      "destination": "docs/training-equipment-m7b-v66.md",
+      "bytes": 4880,
+      "sha256": "de193ffe17ae1def9a5dfac39a34d82b5bd7dbd40768e7095d81f5b4f862c454"
+    },
+    {
+      "source": "docs/training-equipment-mesh-fix-v64.md",
+      "destination": "docs/training-equipment-mesh-fix-v64.md",
+      "bytes": 3159,
+      "sha256": "e456d840e3e30a4ff46a27147c493aa9eac952b4c26db89f0700c5f691e1c3f3"
+    },
+    {
+      "source": "docs/training-fall-stability-instructions.md",
+      "destination": "docs/training-fall-stability-instructions.md",
+      "bytes": 2738,
+      "sha256": "da5220b7a58798bc3047f410510c3bc27efe2400cf2efe6182a05af44b2e6a9e"
+    },
+    {
+      "source": "docs/training-fall-stability-v36.md",
+      "destination": "docs/training-fall-stability-v36.md",
+      "bytes": 22222,
+      "sha256": "63629013a90277cc06c6c67b60384f9d586c5f0a7dd896fddbda877e74bbfc75"
+    },
+    {
+      "source": "docs/training-feedback-v52.md",
+      "destination": "docs/training-feedback-v52.md",
+      "bytes": 8191,
+      "sha256": "045029d4a40c1d96e74df827160334fbe9ab2e2b8853fa094837a49463c6b772"
+    },
+    {
+      "source": "docs/training-fixed-target-verification.md",
+      "destination": "docs/training-fixed-target-verification.md",
+      "bytes": 3072,
+      "sha256": "1f7ffd8c9716d3f0ca129d1f8d6d11e592f69fddad17920fe363efb9faf7acc9"
+    },
+    {
+      "source": "docs/training-flight-v23.md",
+      "destination": "docs/training-flight-v23.md",
+      "bytes": 7205,
+      "sha256": "d3211737c4cebe7738e6f4d4a6e6cb106641ea18b9a1bf59effa8571bc67d99a"
+    },
+    {
+      "source": "docs/training-footstep-v48.md",
+      "destination": "docs/training-footstep-v48.md",
+      "bytes": 2221,
+      "sha256": "8620920847b5832f9910c7dff51a8622e16ab183cff4d5ad5674364bc095c05f"
+    },
+    {
+      "source": "docs/training-gait-audibility-v50.md",
+      "destination": "docs/training-gait-audibility-v50.md",
+      "bytes": 5806,
+      "sha256": "52bd3a0b3c3863c129eea7a738c404479ba8cf81e01b9e6778a1025179c65094"
+    },
+    {
+      "source": "docs/training-head-neck-verification.md",
+      "destination": "docs/training-head-neck-verification.md",
+      "bytes": 8214,
+      "sha256": "8d63dfa935d34e55f223efc69872ceb6bd9613f67be9280944a7368e7a5b862c"
+    },
+    {
+      "source": "docs/training-helmet-ricochet.md",
+      "destination": "docs/training-helmet-ricochet.md",
+      "bytes": 6593,
+      "sha256": "d26c0775bb850552d03ece0495edcd71fdde32d33b84c4c4420fbd03e659a4a4"
+    },
+    {
+      "source": "docs/training-interactions.md",
+      "destination": "docs/training-interactions.md",
+      "bytes": 5729,
+      "sha256": "1d787fb467b7c28af7564bf5b71ab0acc135c4942bbf452323e8f6f92e06e8f4"
+    },
+    {
+      "source": "docs/training-locomotion-v49.md",
+      "destination": "docs/training-locomotion-v49.md",
+      "bytes": 4197,
+      "sha256": "c1988d63f0fb35aac0daf59af25611efb436cadb2aa38facf3a22b299f3d7a64"
+    },
+    {
+      "source": "docs/training-m-instructions.md",
+      "destination": "docs/training-m-instructions.md",
+      "bytes": 13073,
+      "sha256": "0e488bf1760dbf5fa9bf3cfc0ae39f8fac6869fe44dbe3cebc512c52c694e0bc"
+    },
+    {
+      "source": "docs/training-m-verification.md",
+      "destination": "docs/training-m-verification.md",
+      "bytes": 14110,
+      "sha256": "0c145195507850ad6f4dcf60f72f62fd6507196f9a303e30f569a0759567b6bd"
+    },
+    {
+      "source": "docs/training-m1-instructions.md",
+      "destination": "docs/training-m1-instructions.md",
+      "bytes": 8803,
+      "sha256": "7642b769d684a343b231da1e28bee7231f1160847ddd00671e70d64c472d922c"
+    },
+    {
+      "source": "docs/training-m1-reference-a.md",
+      "destination": "docs/training-m1-reference-a.md",
+      "bytes": 25271,
+      "sha256": "93f5f394cca858079264e1c62351f3ed8ddc72c9b70e397f5c327a9908804ef7"
+    },
+    {
+      "source": "docs/training-m1-reference-b.md",
+      "destination": "docs/training-m1-reference-b.md",
+      "bytes": 26499,
+      "sha256": "37afe697c14ddccdfd48dac55e2fe10896ce9085953696952a8da376db7eee6b"
+    },
+    {
+      "source": "docs/training-m2-instructions.md",
+      "destination": "docs/training-m2-instructions.md",
+      "bytes": 9063,
+      "sha256": "fcb7559a08d7be91bd30ee7f99139cea074c9be3c7334d53c94868185bf9b45b"
+    },
+    {
+      "source": "docs/training-m3-instructions.md",
+      "destination": "docs/training-m3-instructions.md",
+      "bytes": 10888,
+      "sha256": "a5037f7b79f7f94b24140d78785f6b292b48c06e4de7286861dcbaf948a4013c"
+    },
+    {
+      "source": "docs/training-m4-arms-v24.md",
+      "destination": "docs/training-m4-arms-v24.md",
+      "bytes": 8881,
+      "sha256": "4ca98863b7bedb60a8063f867d4aa1e0c7e773362c2580c6c56ae559fd9b40ac"
+    },
+    {
+      "source": "docs/training-m4-instructions.md",
+      "destination": "docs/training-m4-instructions.md",
+      "bytes": 11618,
+      "sha256": "ec3500e2aee3ccd8cc1fd9e0a77c21c124a993ecbceb56ea30ded4d9320e54d0"
+    },
+    {
+      "source": "docs/training-m4b-instructions.md",
+      "destination": "docs/training-m4b-instructions.md",
+      "bytes": 12350,
+      "sha256": "80899d79ff3d275737323ae809793b2f9828cd076036ba42c5c1513aa327a565"
+    },
+    {
+      "source": "docs/training-m4c-instructions.md",
+      "destination": "docs/training-m4c-instructions.md",
+      "bytes": 1795,
+      "sha256": "d7ff8c9481a0746d2aafd1af2bc5e6ca602e948aac07c1a32828d7b2dc451233"
+    },
+    {
+      "source": "docs/training-m6-instructions.md",
+      "destination": "docs/training-m6-instructions.md",
+      "bytes": 11316,
+      "sha256": "d0857080bce15e73c2ef250e38d6eaad84b18f2a155b0aba20926dbc9fdb3c8c"
+    },
+    {
+      "source": "docs/training-m7-instructions.md",
+      "destination": "docs/training-m7-instructions.md",
+      "bytes": 10783,
+      "sha256": "53b2a01ce5b83a7e9e1d057377b1af6fa71de26d23ad0e120f78a23c8235da4c"
+    },
+    {
+      "source": "docs/training-m7b-instructions.md",
+      "destination": "docs/training-m7b-instructions.md",
+      "bytes": 849,
+      "sha256": "7f82d107723e86a75178bfa9fb6ed814e6526ad830f24e00d8911a3761d414b7"
+    },
+    {
+      "source": "docs/training-medical-address-map.json",
+      "destination": "docs/training-medical-address-map.json",
+      "bytes": 412859,
+      "sha256": "2c0d8155b6be258628d76694f03388ca902267839bd6bad2abd453d0776b6f43"
+    },
+    {
+      "source": "docs/training-medical-items-m2-v58.md",
+      "destination": "docs/training-medical-items-m2-v58.md",
+      "bytes": 11122,
+      "sha256": "090f0c3e56f9d55a7abc5382dc3da69bbd90f103632bc78fe4a26241923e9452"
+    },
+    {
+      "source": "docs/training-medical-ui-m1-v57.md",
+      "destination": "docs/training-medical-ui-m1-v57.md",
+      "bytes": 9020,
+      "sha256": "8aeb91737d3626084caa224cb210794ac42b8cd3ef68e5084eb8b3547207a7de"
+    },
+    {
+      "source": "docs/training-model-audit.json",
+      "destination": "docs/training-model-audit.json",
+      "bytes": 26275,
+      "sha256": "2d31d2aa8e6e8d2cc81cf09f196ee32793ed67ae618f4c40096ffe12518f0dc3"
+    },
+    {
+      "source": "docs/training-p-instructions.md",
+      "destination": "docs/training-p-instructions.md",
+      "bytes": 9659,
+      "sha256": "44960842e76bb086a7bf15733fc028694a85f7bff312c51f7b838b1740dc1775"
+    },
+    {
+      "source": "docs/training-p-verification.md",
+      "destination": "docs/training-p-verification.md",
+      "bytes": 6995,
+      "sha256": "20e2717c3209d0fcde29726433e41597346617cd71f05be04e1e0cb49f768fce"
+    },
+    {
+      "source": "docs/training-p1-textures.md",
+      "destination": "docs/training-p1-textures.md",
+      "bytes": 9917,
+      "sha256": "e735244b83ccd197c4f30899db40e3a9530470287f75d9f59e0c8e48b50f87c1"
+    },
+    {
+      "source": "docs/training-p2-pain.md",
+      "destination": "docs/training-p2-pain.md",
+      "bytes": 8228,
+      "sha256": "61bb93eee2510c4908c72d29be437f9f16d4ea35092dca909ebc066b35cf6996"
+    },
+    {
+      "source": "docs/training-p3-medical.md",
+      "destination": "docs/training-p3-medical.md",
+      "bytes": 10926,
+      "sha256": "6b2f4eb18dd66cc53f5a9169f9113f2167e957b01efbf9f597cd3440a77b9ee2"
+    },
+    {
+      "source": "docs/training-protection-verification.md",
+      "destination": "docs/training-protection-verification.md",
+      "bytes": 10673,
+      "sha256": "3d5e792650a48ecd824991f21b91cbf3743a9c5171e1588b55a6e72b648ef37f"
+    },
+    {
+      "source": "docs/training-q-instructions.md",
+      "destination": "docs/training-q-instructions.md",
+      "bytes": 15756,
+      "sha256": "84eb4f2db98bad98768412cef57759e6136ef5bd246c0c6a61b0f586b8c72f3e"
+    },
+    {
+      "source": "docs/training-q-verification.md",
+      "destination": "docs/training-q-verification.md",
+      "bytes": 12192,
+      "sha256": "0debb68389d8dc17b20c7e24e3cab3726ae0a833127d1c9014d21627fdbfb5f4"
+    },
+    {
+      "source": "docs/training-q0-diagnosis.md",
+      "destination": "docs/training-q0-diagnosis.md",
+      "bytes": 5724,
+      "sha256": "a67b3ef934531f15537966b48034d18aec3a0c5e9bca8ea152f2caba46545b7d"
+    },
+    {
+      "source": "docs/training-r-instructions.md",
+      "destination": "docs/training-r-instructions.md",
+      "bytes": 16823,
+      "sha256": "922b80ce41a90aa18157c68932fd8473e5b16542ba86cf3f8ac8a970b4600916"
+    },
+    {
+      "source": "docs/training-r-verification.md",
+      "destination": "docs/training-r-verification.md",
+      "bytes": 13334,
+      "sha256": "a46f7d099626f6ce03d32eacba996d36c94535bb9a8e2450b69e6dd2d5a03f53"
+    },
+    {
+      "source": "docs/training-r0-diagnosis.md",
+      "destination": "docs/training-r0-diagnosis.md",
+      "bytes": 7093,
+      "sha256": "ea59044be5f6abbdb194db069aa4a2c51f65ce6f048b15ef1940d6f7f40fd8e3"
+    },
+    {
+      "source": "docs/training-r2-instructions.md",
+      "destination": "docs/training-r2-instructions.md",
+      "bytes": 11065,
+      "sha256": "c8d871a5cc9d50bd191d7316c2f6e4518e30a069db1f1ee7f8f384c4f47fdafe"
+    },
+    {
+      "source": "docs/training-r2-verification.md",
+      "destination": "docs/training-r2-verification.md",
+      "bytes": 15525,
+      "sha256": "d60e36acb586e17dce322f48562cb5155a583b648f630894e3e9a8ae9bd2cc1b"
+    },
+    {
+      "source": "docs/training-retarget-models.md",
+      "destination": "docs/training-retarget-models.md",
+      "bytes": 9510,
+      "sha256": "ab05dbc4147c8e8a221004b25fa3f1c309852e8d346234ed8e2985945ac9b6dc"
+    },
+    {
+      "source": "docs/training-rg1-instructions.md",
+      "destination": "docs/training-rg1-instructions.md",
+      "bytes": 6422,
+      "sha256": "4e2fdd61509ed78675ea2127efa779eaa1369a283e6904f835fa79c9c50fb4b6"
+    },
+    {
+      "source": "docs/training-rg1-v68.md",
+      "destination": "docs/training-rg1-v68.md",
+      "bytes": 8293,
+      "sha256": "14f7ceabc8ca68a8c3b7544684be1a41cad2330bbf0ad4942acd269a0bf36265"
+    },
+    {
+      "source": "docs/training-s0-instructions.md",
+      "destination": "docs/training-s0-instructions.md",
+      "bytes": 7828,
+      "sha256": "b97133d839be6e72cc8ff3c39be480f77baea780e2c7e331c0014856e90761ab"
+    },
+    {
+      "source": "docs/training-s0-v38.md",
+      "destination": "docs/training-s0-v38.md",
+      "bytes": 12176,
+      "sha256": "0a215f869866d809c5271f49c891b514a3ea3d1a7dd8dff1b5d86d911ffb73de"
+    },
+    {
+      "source": "docs/training-s1-instructions.md",
+      "destination": "docs/training-s1-instructions.md",
+      "bytes": 9444,
+      "sha256": "02885841ad12d71bb02e505c25f36f6b0dc0ab3e9003ca398984ef05d559187e"
+    },
+    {
+      "source": "docs/training-s1-pipeline-audit.md",
+      "destination": "docs/training-s1-pipeline-audit.md",
+      "bytes": 19267,
+      "sha256": "12204e23ce902a0f29766bfcf13dd9891c20126f40d2c152496fd6299761e575"
+    },
+    {
+      "source": "docs/training-s1-v39.md",
+      "destination": "docs/training-s1-v39.md",
+      "bytes": 31827,
+      "sha256": "f157eeaaa7232efe08d06ffd9278ba5c674b77da1d1a5e53b3b5991159ff1863"
+    },
+    {
+      "source": "docs/training-s2-instructions.md",
+      "destination": "docs/training-s2-instructions.md",
+      "bytes": 10466,
+      "sha256": "7a33988e0f4af2003ca7305b7de7ddf21956b5d6e28ff182ca20faae458d6786"
+    },
+    {
+      "source": "docs/training-s2-pipeline-audit.md",
+      "destination": "docs/training-s2-pipeline-audit.md",
+      "bytes": 7751,
+      "sha256": "d541506162c643e1a865211f1cd21898818cafd2bc2226d37b13223a609718f2"
+    },
+    {
+      "source": "docs/training-s2-v40.md",
+      "destination": "docs/training-s2-v40.md",
+      "bytes": 30052,
+      "sha256": "c6569dd48d9fe11f859acc5553ab8eb4a415392f010f82e9fd88093f5d71a72f"
+    },
+    {
+      "source": "docs/training-s3-calibration-investigation.md",
+      "destination": "docs/training-s3-calibration-investigation.md",
+      "bytes": 7382,
+      "sha256": "df2692340cacddd374d5ab6e3f3b29368ebec9c31bc92f056935c775d643ac5f"
+    },
+    {
+      "source": "docs/training-s3-instructions.md",
+      "destination": "docs/training-s3-instructions.md",
+      "bytes": 8523,
+      "sha256": "753d058aa777c3692c8320e38e8d962e70da9d8669fde3a6b36a6039159c75b1"
+    },
+    {
+      "source": "docs/training-s3-v41.md",
+      "destination": "docs/training-s3-v41.md",
+      "bytes": 25803,
+      "sha256": "82244f73be9710457ae49a441b63245af86c2cf10c49577acc9588d1850105a2"
+    },
+    {
+      "source": "docs/training-s3b-instructions.md",
+      "destination": "docs/training-s3b-instructions.md",
+      "bytes": 4958,
+      "sha256": "61e1bd2e51e582156f84f6ede6f3f40a5053e25984d7269dd124634817ffcfab"
+    },
+    {
+      "source": "docs/training-s3b-v42.md",
+      "destination": "docs/training-s3b-v42.md",
+      "bytes": 9118,
+      "sha256": "c7dc00bb606462cf864e2084d967f52d177b7d87593cf2488f8f7cc6ac522d3a"
+    },
+    {
+      "source": "docs/training-self-care-m3-v59.md",
+      "destination": "docs/training-self-care-m3-v59.md",
+      "bytes": 11017,
+      "sha256": "35aefbfafa4bd850a45d3bcf3f7b5bfdb2577ae332f6218d887a39d833122145"
+    },
+    {
+      "source": "docs/training-shared-arms-v25.md",
+      "destination": "docs/training-shared-arms-v25.md",
+      "bytes": 6776,
+      "sha256": "c8bcc6bd3acf70c1ac6c441dcf72fc8ea11f9ebba67900773efee57602f1e670"
+    },
+    {
+      "source": "docs/training-side-optics-user-instructions.md",
+      "destination": "docs/training-side-optics-user-instructions.md",
+      "bytes": 14813,
+      "sha256": "2133d46eedccf37de8415e6567e989b32e1f222e907ebb1dea0697c9b6df7253"
+    },
+    {
+      "source": "docs/training-side-optics-v28.md",
+      "destination": "docs/training-side-optics-v28.md",
+      "bytes": 11286,
+      "sha256": "b4878960385b029580996a1691d4ce29e5897e0ff6d4fa49a653b3d871f25532"
+    },
+    {
+      "source": "docs/training-skin-verification.md",
+      "destination": "docs/training-skin-verification.md",
+      "bytes": 5550,
+      "sha256": "d80ca0661e7348829bcd315418b281c3848d7a18e4816b008d41490de481746c"
+    },
+    {
+      "source": "docs/training-snd1-instructions.md",
+      "destination": "docs/training-snd1-instructions.md",
+      "bytes": 14383,
+      "sha256": "5c36d7ce4d018811d312d2c414c2cbebf99d7484e6dc7ad178c7d95950e3848f"
+    },
+    {
+      "source": "docs/training-snd1-v46.md",
+      "destination": "docs/training-snd1-v46.md",
+      "bytes": 10300,
+      "sha256": "39d823d2b238e90c429ce1e1c9d870be6f3f3c2dbcba9046b250da8cd44fc8f4"
+    },
+    {
+      "source": "docs/training-soldier-rig-verification.md",
+      "destination": "docs/training-soldier-rig-verification.md",
+      "bytes": 9498,
+      "sha256": "52de0667113c07d34d5dc303841ae9a3709de07c5a3cc26a049eb34784332014"
+    },
+    {
+      "source": "docs/training-sound-tuning-v47.md",
+      "destination": "docs/training-sound-tuning-v47.md",
+      "bytes": 4774,
+      "sha256": "d7a77a80e4ddf2c432408acd35f9b660ad4cd0427cd1acbb494ef8b24db89b6c"
+    },
+    {
+      "source": "docs/training-sprint-v29.md",
+      "destination": "docs/training-sprint-v29.md",
+      "bytes": 5939,
+      "sha256": "330aa929dc5fe1048f1bf777d3060f3135e953156d0c31bc7d4fddd40a3d73b4"
+    },
+    {
+      "source": "docs/training-strength-r2-instructions.md",
+      "destination": "docs/training-strength-r2-instructions.md",
+      "bytes": 2101,
+      "sha256": "0426b82af15cb42c4cf2785b8f75fb2f69fba72bc6647b656db74015fa299f44"
+    },
+    {
+      "source": "docs/training-strength-r2-v34.md",
+      "destination": "docs/training-strength-r2-v34.md",
+      "bytes": 10849,
+      "sha256": "70d5f2210f51f18e639e315f9316698ae52c9b9f45008ca5ddcf796a765534f9"
+    },
+    {
+      "source": "docs/training-viewmodel-v21.md",
+      "destination": "docs/training-viewmodel-v21.md",
+      "bytes": 6208,
+      "sha256": "ecfb78fb27bf094f3f11a5d5e4d03e847da83a419ee2612a85930022aec8bca7"
+    },
+    {
+      "source": "docs/training-vision-stability-v56.md",
+      "destination": "docs/training-vision-stability-v56.md",
+      "bytes": 4202,
+      "sha256": "9d860454491509cea0f05a37144afab4a12c69760f0af2e9214c491f1e3fb926"
+    },
+    {
+      "source": "docs/training-w-instructions.md",
+      "destination": "docs/training-w-instructions.md",
+      "bytes": 13625,
+      "sha256": "d2fd5b60cffd2bfb7f7ebbbe90ed18278199272d9729e2594ba55fcf514dfa03"
+    },
+    {
+      "source": "docs/training-w-model-audit.json",
+      "destination": "docs/training-w-model-audit.json",
+      "bytes": 8575,
+      "sha256": "c4ba05a178e0f39abcb265f7a6cc8dbcb609b9f4daa2a8a284a82a77dc0a00ba"
+    },
+    {
+      "source": "docs/training-w-verification.md",
+      "destination": "docs/training-w-verification.md",
+      "bytes": 12707,
+      "sha256": "d886d8d25f44f8d9af6947679e9bbd07d20014a8aa5423f3a11c9003992fc2dc"
+    },
+    {
+      "source": "docs/training-w0-survey.md",
+      "destination": "docs/training-w0-survey.md",
+      "bytes": 6443,
+      "sha256": "4866c642c6b73e70fc683bfd7b36af707b38c0942c32dc82c46e8004ef75ffcf"
+    },
+    {
+      "source": "docs/training-w1-instructions.md",
+      "destination": "docs/training-w1-instructions.md",
+      "bytes": 15428,
+      "sha256": "0dce8999c1277802d4cdaa53c79429bd8c6372af8936033b6ef66ec39cabe602"
+    },
+    {
+      "source": "docs/training-w1-v69.md",
+      "destination": "docs/training-w1-v69.md",
+      "bytes": 10924,
+      "sha256": "80789067548ecf0cf34f5c8f7cd0ab85a311b10d23a98c5d4b0aff834cc4d654"
+    },
+    {
+      "source": "docs/training-weapon-height-casings-v22.md",
+      "destination": "docs/training-weapon-height-casings-v22.md",
+      "bytes": 5530,
+      "sha256": "d4c5a7a0cea24d1cb686f08280b64b558b6f1744c22a15ca72609a50c91fe7fc"
+    },
+    {
+      "source": "docs/training-z-instructions.md",
+      "destination": "docs/training-z-instructions.md",
+      "bytes": 15984,
+      "sha256": "7f19adb85df1c411a3ec57f7458de85536603ce23701a57bef503360021a2e8b"
+    },
+    {
+      "source": "docs/training-z-optics-v27.md",
+      "destination": "docs/training-z-optics-v27.md",
+      "bytes": 9490,
+      "sha256": "f832868eba44fbb83d3d341904c3e851a5082191792e22f068911bbac7bb4c51"
+    },
+    {
+      "source": "docs/training-z-verification.md",
+      "destination": "docs/training-z-verification.md",
+      "bytes": 6485,
+      "sha256": "29093227b319703c133732367f341bf401df71ea4cefa230e61565c5d1dfd29e"
+    },
+    {
+      "source": "docs/training-z0-survey.md",
+      "destination": "docs/training-z0-survey.md",
+      "bytes": 5485,
+      "sha256": "9aa176e59083ba4ce356b170a6f9c62a231b896989cb8813cc5f1ca48201dd10"
+    },
+    {
+      "source": "docs/training-z2-lean-v31.md",
+      "destination": "docs/training-z2-lean-v31.md",
+      "bytes": 15246,
+      "sha256": "5ca3dd7638bddd3f6197f882c49f10d074195df436ff7f7d02ecb3714da05c0c"
+    },
+    {
+      "source": "docs/training-zeroing-v30.md",
+      "destination": "docs/training-zeroing-v30.md",
+      "bytes": 10384,
+      "sha256": "a149c7d869eee4018a1aef00cf135efd45a7c5a655da435d26cb64f05459d2d2"
+    },
+    {
+      "source": "docs/vision-stability-v56-ledger.json",
+      "destination": "docs/vision-stability-v56-ledger.json",
+      "bytes": 1832,
+      "sha256": "2007d7da0a64b14848eecbac8705b43ca417bb728e3e8815dddefc36c4f071a5"
+    },
+    {
+      "source": "docs/w1-ak-compatibility.json",
+      "destination": "docs/w1-ak-compatibility.json",
+      "bytes": 475,
+      "sha256": "337717f15f9d36d9fb9e185070b4914e24692b5b716ae1027848bb89056da3c9"
+    },
+    {
+      "source": "docs/w1-ledger.json",
+      "destination": "docs/w1-ledger.json",
+      "bytes": 58020,
+      "sha256": "e937d95f53f3f873fafcf9fa15db8e49772c68a27b5e2574f83a311500c5683e"
+    },
+    {
+      "source": "docs/w1-sources.json",
+      "destination": "docs/w1-sources.json",
+      "bytes": 4892,
+      "sha256": "e3c1a1d714e49eaac84da9be89f80c5f76485776ff1b76cbcb34a20f6a801bb1"
+    },
+    {
+      "source": "docs/zeroing-ledger-inputs.json",
+      "destination": "docs/zeroing-ledger-inputs.json",
+      "bytes": 6200,
+      "sha256": "f4f87376dcb1f3b165bb643baec8001556106c451c37760d0b9e27f98dbbf9b7"
+    },
+    {
+      "source": "docs/zeroing-ledger-v30.json",
+      "destination": "docs/zeroing-ledger-v30.json",
+      "bytes": 15391,
+      "sha256": "ff80974f6ce4ebd4b119d4e1e840229a9599fff4923a045a614eaba5e210ff6b"
+    },
+    {
+      "source": "docs/zeroing-ledger.json",
+      "destination": "docs/zeroing-ledger.json",
+      "bytes": 15553,
+      "sha256": "fa031d9acbe358f5518f5aae5384c6cbd4bfc897837781d5af8ac179f9159e1a"
+    },
+    {
+      "source": "reference/tactical_prototype_0.8.0.html",
+      "destination": "reference/2d/reference/tactical_prototype_0.8.0.html",
+      "bytes": 79242,
+      "sha256": "b60edffef690be037d31c4b4928377332cf690d87cd16d8070e3cfcb151f5c4f"
+    },
+    {
+      "source": "src/ai/commands-threat.js",
+      "destination": "reference/2d/src/ai/commands-threat.js",
+      "bytes": 21454,
+      "sha256": "6c45d546e1a3254d9bd78df6ebe485685238f1a3f7be14147171397056cffa41"
+    },
+    {
+      "source": "src/ai/cover-portal-risk.js",
+      "destination": "reference/2d/src/ai/cover-portal-risk.js",
+      "bytes": 54532,
+      "sha256": "e79a0547e65c9abe26684711f57277dbbbd00c4c7b97a5a49878fb3076ca0fcc"
+    },
+    {
+      "source": "src/ai/memory-topology.js",
+      "destination": "reference/2d/src/ai/memory-topology.js",
+      "bytes": 135427,
+      "sha256": "3182ac3ca1fceaf951245abf3325f2cbaaf36342a5ac8cfcd8f141c0838aa75a"
+    },
+    {
+      "source": "src/ai/spatial-perception.js",
+      "destination": "reference/2d/src/ai/spatial-perception.js",
+      "bytes": 170287,
+      "sha256": "f6f1178f673edd860f6b5c6b4ebb555dbffb94c32f422e4b62ec805bd83c4570"
+    },
+    {
+      "source": "src/ai/utility.js",
+      "destination": "reference/2d/src/ai/utility.js",
+      "bytes": 114431,
+      "sha256": "1e170b7a83bb756fc9a5a904969021da64da8d2526675e806633bb8271f5aa2b"
+    },
+    {
+      "source": "src/ai/visibility.js",
+      "destination": "reference/2d/src/ai/visibility.js",
+      "bytes": 20093,
+      "sha256": "3e503ab236e16f9255710b900a02f0dede7556636da54bc4faa65abc10496613"
+    },
+    {
+      "source": "src/combat/accuracy.js",
+      "destination": "reference/2d/src/combat/accuracy.js",
+      "bytes": 6645,
+      "sha256": "907c2eb03f1af37db629c7def141c89853ee24219c55a808ae2a1b441ff1a978"
+    },
+    {
+      "source": "src/combat/ammo-reload.js",
+      "destination": "reference/2d/src/combat/ammo-reload.js",
+      "bytes": 16341,
+      "sha256": "dfc196742a43e62b35ce3e4a94d221ff86607239615a5edd9bfcf88b799115dc"
+    },
+    {
+      "source": "src/combat/armor-durability.js",
+      "destination": "reference/2d/src/combat/armor-durability.js",
+      "bytes": 77279,
+      "sha256": "432d05492fc34b41ac90b6a8a2eb6810583f9c3df21567d99f50a03305d1a853"
+    },
+    {
+      "source": "src/combat/armor-resolution.js",
+      "destination": "reference/2d/src/combat/armor-resolution.js",
+      "bytes": 100349,
+      "sha256": "f5a4dc104a6c5d6b434a687030a3280e1dc875a4350268969f609c7271a385f7"
+    },
+    {
+      "source": "src/combat/ballistics.js",
+      "destination": "reference/2d/src/combat/ballistics.js",
+      "bytes": 58192,
+      "sha256": "9edf0595b32eb9a79d244f8c8c8f3a5b62230d21bbebb77a1da4be0a8a4daee2"
+    },
+    {
+      "source": "src/combat/cover-fire.js",
+      "destination": "reference/2d/src/combat/cover-fire.js",
+      "bytes": 16965,
+      "sha256": "4bbcc55e7de9a16b38a48691f30d8403c098570f41b32f8a2fd2cff93242990b"
+    },
+    {
+      "source": "src/combat/damage-outcomes.js",
+      "destination": "reference/2d/src/combat/damage-outcomes.js",
+      "bytes": 27987,
+      "sha256": "0b41791a21bd809630e12d9d339edbd6a8ac635008c0a515ddcaf545af2fd191"
+    },
+    {
+      "source": "src/combat/explosions-fragments.js",
+      "destination": "reference/2d/src/combat/explosions-fragments.js",
+      "bytes": 49201,
+      "sha256": "1823ab6a04bf066c486c88cae075d33c5f006c4cd035cd8146e16cb99ed8d79e"
+    },
+    {
+      "source": "src/combat/fire-control.js",
+      "destination": "reference/2d/src/combat/fire-control.js",
+      "bytes": 62950,
+      "sha256": "94acfb8b6faf24f800e9e8ea2c6955d2f1362771f21a51e52b653a15d7d91f58"
+    },
+    {
+      "source": "src/combat/hit-tables-injuries.js",
+      "destination": "reference/2d/src/combat/hit-tables-injuries.js",
+      "bytes": 31319,
+      "sha256": "0e362a5aa0f335c5121b646a637ba3517ab19fb80a8d5f2da84da10ba12f98e1"
+    },
+    {
+      "source": "src/combat/impact-address.js",
+      "destination": "reference/2d/src/combat/impact-address.js",
+      "bytes": 101235,
+      "sha256": "3cb53d13f4175e78630dd3bffd1f5d67c8ca256ae70d03b496a9d1f0a6da2cc2"
+    },
+    {
+      "source": "src/combat/impact-resolution.js",
+      "destination": "reference/2d/src/combat/impact-resolution.js",
+      "bytes": 50314,
+      "sha256": "92b8c5eb1ab063523cf7092e4594d0cb6545110bc87c25dde4f7ff3cf2264d7f"
+    },
+    {
+      "source": "src/combat/spread.js",
+      "destination": "reference/2d/src/combat/spread.js",
+      "bytes": 6667,
+      "sha256": "e0570170b725a75f7cc2999a0bbe5e3a29490708991cd9b5770494baee4a58d5"
+    },
+    {
+      "source": "src/combat/visor-accessories.js",
+      "destination": "reference/2d/src/combat/visor-accessories.js",
+      "bytes": 27276,
+      "sha256": "57c75c506ad67c364b8191fcfecb9c2e96807dd7e469adcc5b2ce18a9a3f25ff"
+    },
+    {
+      "source": "src/data/ammunition-legacy.js",
+      "destination": "reference/2d/src/data/ammunition-legacy.js",
+      "bytes": 135765,
+      "sha256": "0a7298e8fa5cd021e40edc67bffffcc736ee1c0ce7ca7284c19405dd7f60156f"
+    },
+    {
+      "source": "src/data/ammunition-registry.js",
+      "destination": "reference/2d/src/data/ammunition-registry.js",
+      "bytes": 142235,
+      "sha256": "859bb7e54bd0e4f9aab8819b95a4a805211c3f5077a462b8a8968ef4839d36c0"
+    },
+    {
+      "source": "src/data/body-armor.js",
+      "destination": "reference/2d/src/data/body-armor.js",
+      "bytes": 26077,
+      "sha256": "058f5ae090013ce30601fb160bcea4aa0063eb96f9ce67f105a2dcdcda9f7233"
+    },
+    {
+      "source": "src/data/equipment-base.js",
+      "destination": "reference/2d/src/data/equipment-base.js",
+      "bytes": 16193,
+      "sha256": "f4cf721776f3582a20cb666a9ea1a49b5ce06d8e75f040bada9dce2717a2d906"
+    },
+    {
+      "source": "src/data/helmets.js",
+      "destination": "reference/2d/src/data/helmets.js",
+      "bytes": 38333,
+      "sha256": "2b53b8798da1b107fef31c7d7670af8799a4c71f7dadeb0c8aa104df5be6ce18"
+    },
+    {
+      "source": "src/data/plates.js",
+      "destination": "reference/2d/src/data/plates.js",
+      "bytes": 68457,
+      "sha256": "742e00401487d5ab80a8182adbd8f05a2691772dcd197e72fb791e21692ebeac"
+    },
+    {
+      "source": "src/data/weapons.js",
+      "destination": "reference/2d/src/data/weapons.js",
+      "bytes": 76412,
+      "sha256": "957117d7b0fc84ece2b02813e4d0dcc23b8cb7d65e8abeb590a4a529c80a6569"
+    },
+    {
+      "source": "src/game/results.js",
+      "destination": "reference/2d/src/game/results.js",
+      "bytes": 1313,
+      "sha256": "397e2aa57692029ab15e6afdd7291456b895a8fa976926eec03f8311e110bf84"
+    },
+    {
+      "source": "src/game/setup-editor.js",
+      "destination": "reference/2d/src/game/setup-editor.js",
+      "bytes": 24766,
+      "sha256": "9ff54ffb9e7a61983060c182afc4b9e0291b334e3d9243152e5a305a77666da1"
+    },
+    {
+      "source": "src/index.template.html",
+      "destination": "reference/2d/src/index.template.html",
+      "bytes": 33228,
+      "sha256": "6cf849e74bdba4882798667fbf39cdf58e65f934d1fd7ca32b507ce6cde35c5c"
+    },
+    {
+      "source": "src/input/buttons.js",
+      "destination": "reference/2d/src/input/buttons.js",
+      "bytes": 5414,
+      "sha256": "3faf6630084ae641c5814c261061daef9f50b4bcd6602d7a1bbf2158b9fda705"
+    },
+    {
+      "source": "src/input/overlay-events.js",
+      "destination": "reference/2d/src/input/overlay-events.js",
+      "bytes": 11284,
+      "sha256": "b8cf6349c0cdea1136d1f4afeffecd25419eac1f4575bddbffbc7d0ac1d935f4"
+    },
+    {
+      "source": "src/input/pointer.js",
+      "destination": "reference/2d/src/input/pointer.js",
+      "bytes": 14930,
+      "sha256": "690d3583237a045a5e3b414eb07dec34e5a6fd5adbdbe2243ffbcdb37ce05a0b"
+    },
+    {
+      "source": "src/manifest.json",
+      "destination": "reference/2d/src/manifest.json",
+      "bytes": 11980,
+      "sha256": "c9e2c98d6b57d478514c841c62b2827ae853ecb6538225e619574f824d51d16f"
+    },
+    {
+      "source": "src/medical/body-trauma.js",
+      "destination": "reference/2d/src/medical/body-trauma.js",
+      "bytes": 88480,
+      "sha256": "1fb2bfa93ce9328ad2d46fe3c309f4120e43e1aa024393541124a94c620dbcf1"
+    },
+    {
+      "source": "src/medical/damage-physiology.js",
+      "destination": "reference/2d/src/medical/damage-physiology.js",
+      "bytes": 99336,
+      "sha256": "d0fe232b3d3c724e038910f2036a13bf4da2c9fa3cf93bf0dedbd3e5057530f8"
+    },
+    {
+      "source": "src/medical/foundation.js",
+      "destination": "reference/2d/src/medical/foundation.js",
+      "bytes": 18184,
+      "sha256": "05df9e2384bd84da793aeee331f14845ef024f4d29c80a86f0b0b3fd6a4bf39e"
+    },
+    {
+      "source": "src/medical/part-destruction.js",
+      "destination": "reference/2d/src/medical/part-destruction.js",
+      "bytes": 38711,
+      "sha256": "862699efbb5381ec299c15b822a874bd7fa3f7b2180c3dbabe08e4963c35349d"
+    },
+    {
+      "source": "src/medical/physiologic-injury.js",
+      "destination": "reference/2d/src/medical/physiologic-injury.js",
+      "bytes": 35579,
+      "sha256": "788e21cee067bdfbdcc0bf6d3e86c35aa534d1e7dc87257df4d7f6e9f7cd951f"
+    },
+    {
+      "source": "src/medical/treatment.js",
+      "destination": "reference/2d/src/medical/treatment.js",
+      "bytes": 93316,
+      "sha256": "94e3789e875911d2c5e2aa993be75b6c4ee5631b36144c7560e32028c42e30c0"
+    },
+    {
+      "source": "src/medical/wound-clusters.js",
+      "destination": "reference/2d/src/medical/wound-clusters.js",
+      "bytes": 49125,
+      "sha256": "aa2707a2f73b7da8bd493de124b03ec03ead626525716b080e603c66dd209520"
+    },
+    {
+      "source": "src/medical/wound-metadata.js",
+      "destination": "reference/2d/src/medical/wound-metadata.js",
+      "bytes": 37750,
+      "sha256": "78c275b1fae05d0f56b04d60a680ce8460ee21d1e460a9d1bf6ce292b54542c1"
+    },
+    {
+      "source": "src/medical/wound-pipeline.js",
+      "destination": "reference/2d/src/medical/wound-pipeline.js",
+      "bytes": 46489,
+      "sha256": "0920d78065afae13245db2f34dc8cb296ea22bcb12e93cc5a0fed8294de60a09"
+    },
+    {
+      "source": "src/presentation/aar.js",
+      "destination": "reference/2d/src/presentation/aar.js",
+      "bytes": 99369,
+      "sha256": "7212b6cbbd7dc0da2ba4ca7a088643d90de1affb03c3f6983a5fc2f4fd36d7c7"
+    },
+    {
+      "source": "src/presentation/armor-analysis.js",
+      "destination": "reference/2d/src/presentation/armor-analysis.js",
+      "bytes": 74754,
+      "sha256": "aaf549ecae30c57de804c4920d46cc8a414f12d0d819eaa0c682aab3c2d7d11b"
+    },
+    {
+      "source": "src/presentation/armor-shapes.js",
+      "destination": "reference/2d/src/presentation/armor-shapes.js",
+      "bytes": 24835,
+      "sha256": "2537e11508229fe87709ca94698df865d0cb118827917fd2682ca190ffe64ff0"
+    },
+    {
+      "source": "src/presentation/canvas-renderer.js",
+      "destination": "reference/2d/src/presentation/canvas-renderer.js",
+      "bytes": 82506,
+      "sha256": "1f18e0abe6824081386d819664f0325b0928ed82d17a36df4f3f56aed8e66f5f"
+    },
+    {
+      "source": "src/presentation/coverage.js",
+      "destination": "reference/2d/src/presentation/coverage.js",
+      "bytes": 71642,
+      "sha256": "d17164b310496017549a9afa8e007da142c09fd89ff6a2476b9ecc6719820baa"
+    },
+    {
+      "source": "src/presentation/debug-panel.js",
+      "destination": "reference/2d/src/presentation/debug-panel.js",
+      "bytes": 12699,
+      "sha256": "b496fa46d32eb6fac9c6381cc961df6334687b3ebaf7736b4575141bda74322b"
+    },
+    {
+      "source": "src/presentation/ecg.js",
+      "destination": "reference/2d/src/presentation/ecg.js",
+      "bytes": 22743,
+      "sha256": "6a56848a83486db92e0ee780cc591375a9eda65d6dd0e27228a48bcc6a616d1e"
+    },
+    {
+      "source": "src/presentation/hud.js",
+      "destination": "reference/2d/src/presentation/hud.js",
+      "bytes": 28127,
+      "sha256": "ab2a4ea5b7e7f2cf8f4bce499100edec56b44bb7516272f3205247c36ef9017b"
+    },
+    {
+      "source": "src/presentation/impact-labels.js",
+      "destination": "reference/2d/src/presentation/impact-labels.js",
+      "bytes": 24228,
+      "sha256": "65115edd5ee12001630b48ac829f6257f879e0749770b5e08c2a939d1072e8cc"
+    },
+    {
+      "source": "src/presentation/loadout.js",
+      "destination": "reference/2d/src/presentation/loadout.js",
+      "bytes": 48746,
+      "sha256": "5740173e3b0bbcdc2f2ee26c012474c0934fcb7d3889c3fc05037be146586e70"
+    },
+    {
+      "source": "src/presentation/log.js",
+      "destination": "reference/2d/src/presentation/log.js",
+      "bytes": 479,
+      "sha256": "f8ddc3e45013972ded622ce31b96c2b1d5f2fd25558093f22307814ff373578d"
+    },
+    {
+      "source": "src/presentation/medical-overlay.js",
+      "destination": "reference/2d/src/presentation/medical-overlay.js",
+      "bytes": 83310,
+      "sha256": "868febf06736eee3f61b9522eecb655c9f03870bbaf142e31fbe37ba658047ce"
+    },
+    {
+      "source": "src/reports/battle-report.js",
+      "destination": "reference/2d/src/reports/battle-report.js",
+      "bytes": 45517,
+      "sha256": "93e878099adeeb9c05534315f1c4b3aa097d6f88fd4ef09e679760fb22f05cfc"
+    },
+    {
+      "source": "src/runtime/game-state.js",
+      "destination": "reference/2d/src/runtime/game-state.js",
+      "bytes": 14859,
+      "sha256": "d890509f8ba0dfb0b708ec61950756e57a35470b0a47d4feec1ccfa87b5282ee"
+    },
+    {
+      "source": "src/runtime/init.js",
+      "destination": "reference/2d/src/runtime/init.js",
+      "bytes": 2917,
+      "sha256": "285e9594178c80b019a429956234172789896871efd2b08ea3a4182d6db0eea5"
+    },
+    {
+      "source": "src/runtime/main-loop.js",
+      "destination": "reference/2d/src/runtime/main-loop.js",
+      "bytes": 1464,
+      "sha256": "41dea37a92f3cbacba17704d697829e227dbda0b4fe09bd237cca92cd1f81765"
+    },
+    {
+      "source": "src/runtime/scale.js",
+      "destination": "reference/2d/src/runtime/scale.js",
+      "bytes": 1917,
+      "sha256": "0eb26687262cda2130bfbfbd71b209d16c9479ac0e7b97929eff1804c8e91cb5"
+    },
+    {
+      "source": "src/runtime/unit-factory.js",
+      "destination": "reference/2d/src/runtime/unit-factory.js",
+      "bytes": 20004,
+      "sha256": "31c92390f82dc2f3097af4bc5a4b82f336f1bb72e69e77949e3f863bda30a297"
+    },
+    {
+      "source": "src/simulation/noise-projectile-effects.js",
+      "destination": "reference/2d/src/simulation/noise-projectile-effects.js",
+      "bytes": 107584,
+      "sha256": "0be04daa11cdd5be6d91cb0fa17910d9a3e32ce07535a637ab526975f8d82aea"
+    },
+    {
+      "source": "src/simulation/threat-throwables.js",
+      "destination": "reference/2d/src/simulation/threat-throwables.js",
+      "bytes": 56557,
+      "sha256": "d58aef8b89a6a9a99c8c055f3ce835ef55350096844b147d42923dc5e240da0b"
+    },
+    {
+      "source": "src/simulation/unit-update.js",
+      "destination": "reference/2d/src/simulation/unit-update.js",
+      "bytes": 50803,
+      "sha256": "5bb3aa4ecc48760b30537c24f55c1a8312d134ab99249141fc170255a4cda645"
+    },
+    {
+      "source": "src/styles/application.css",
+      "destination": "reference/2d/src/styles/application.css",
+      "bytes": 75417,
+      "sha256": "3fa5e8d62160124f59642a1ea99aa80a0af6e34e8845a63273995c64bb532c40"
+    },
+    {
+      "source": "src/validation/presets-closures.js",
+      "destination": "reference/2d/src/validation/presets-closures.js",
+      "bytes": 292426,
+      "sha256": "525770452b608b7c88ec9e38ab3186dfce905d6915339582fdac7023b37a479c"
+    },
+    {
+      "source": "src/world/doors-tactical-actions.js",
+      "destination": "reference/2d/src/world/doors-tactical-actions.js",
+      "bytes": 49929,
+      "sha256": "e891400f0a60fff5c767f9ea21f301e395387a80f0f8c3ba8fb8698b000d551b"
+    },
+    {
+      "source": "src/world/geometry-pathfinding.js",
+      "destination": "reference/2d/src/world/geometry-pathfinding.js",
+      "bytes": 37918,
+      "sha256": "85aef0d45ee0b77758f42a180032fa4893f4e8cfa88f37d129d9b2c1ae520227"
+    },
+    {
+      "source": "src/world/maps.js",
+      "destination": "reference/2d/src/world/maps.js",
+      "bytes": 25985,
+      "sha256": "3b0d3f69bc552e5e4bb0539c6e657432d6f9212824861aded39844c79e6e85fb"
+    },
+    {
+      "source": "src/world/obscurants.js",
+      "destination": "reference/2d/src/world/obscurants.js",
+      "bytes": 34843,
+      "sha256": "cc73592c058a010530e94c063e6732923a8baaf986976f815c3bd285c61c6505"
+    },
+    {
+      "source": "tests/build.test.mjs",
+      "destination": "tests/build.test.mjs",
+      "bytes": 3507,
+      "sha256": "7e1ee34089a784f58c4a387c5ddccfa5645c43445588db6555b0d5e225d53a95"
+    },
+    {
+      "source": "tests/dev.test.mjs",
+      "destination": "tests/dev.test.mjs",
+      "bytes": 1398,
+      "sha256": "611abb7dc27ace1187ceacca299988d033506fdb724f6295380b646e1640d14d"
+    },
+    {
+      "source": "tests/fixtures/models/military_tactical_suit_lowpolygameready.glb",
+      "destination": "tests/fixtures/models/military_tactical_suit_lowpolygameready.glb",
+      "bytes": 17938144,
+      "sha256": "eed7be0507d981b5f09fbce8c6b5a827358d22b08f7052104d74251926049484"
+    },
+    {
+      "source": "tests/fixtures/models/soldier_full_tactical_gear.glb",
+      "destination": "tests/fixtures/models/soldier_full_tactical_gear.glb",
+      "bytes": 25472068,
+      "sha256": "f00982db81b70687f89803fa1427f4caf99c324d64b6a0992ebf769ab054e71c"
+    },
+    {
+      "source": "tests/fixtures/training-m-shots.mjs",
+      "destination": "tests/fixtures/training-m-shots.mjs",
+      "bytes": 1489,
+      "sha256": "c5cd7a3699a40681e98fa4c2733f60ab155ee2380462a285a55be6db0ea847ba"
+    },
+    {
+      "source": "tests/fixtures/training-p-damage-events.json",
+      "destination": "tests/fixtures/training-p-damage-events.json",
+      "bytes": 151053,
+      "sha256": "5032d368c60856ad954cf5c723331c752f2e461e4164b92e285e1bf47df5c922"
+    },
+    {
+      "source": "tests/fixtures/training-p-shots.mjs",
+      "destination": "tests/fixtures/training-p-shots.mjs",
+      "bytes": 494,
+      "sha256": "42825324c4f97e1e7813c9497ac6a741e062fcaf08ca39cf57b5293b86b52f89"
+    },
+    {
+      "source": "tests/known-baseline-failures.json",
+      "destination": "tests/known-baseline-failures.json",
+      "bytes": 291,
+      "sha256": "8178ec14a38d7a92a2cbb47965640593a0d1b9dfd292f9d4cc9124220e0cdd1e"
+    },
+    {
+      "source": "tests/training-ai1-senses.test.mjs",
+      "destination": "tests/training-ai1-senses.test.mjs",
+      "bytes": 6011,
+      "sha256": "8bb94b9dfa4e901c5e201fce4624bb2994ee864a0ea6094262adb6c15ee10f15"
+    },
+    {
+      "source": "tests/training-animation-compact.test.mjs",
+      "destination": "tests/training-animation-compact.test.mjs",
+      "bytes": 1985,
+      "sha256": "9fc0f5114c5be59a8a1d2c108dfc02bea8437e54e7c7eab656ee949094eb7c26"
+    },
+    {
+      "source": "tests/training-armor-mesh.test.mjs",
+      "destination": "tests/training-armor-mesh.test.mjs",
+      "bytes": 3584,
+      "sha256": "ec5f2469bc1312e6a47848371652d469f26a50a306f09fc6df5fbd1fd9edd2bc"
+    },
+    {
+      "source": "tests/training-armor.test.mjs",
+      "destination": "tests/training-armor.test.mjs",
+      "bytes": 17244,
+      "sha256": "115f422696f62b6951937976289044f7d8add8ca053ce8a413f6f37927d45c83"
+    },
+    {
+      "source": "tests/training-ballistics.test.mjs",
+      "destination": "tests/training-ballistics.test.mjs",
+      "bytes": 11712,
+      "sha256": "23fb807c49bcf41535685d98c047d1c394ee2f6fe3d8171480efe694a77799b9"
+    },
+    {
+      "source": "tests/training-body-exit.test.mjs",
+      "destination": "tests/training-body-exit.test.mjs",
+      "bytes": 2447,
+      "sha256": "ed6f33d6287ff22727e4ff53c82f7779a9b9b4d70435bb81317924f5929d4c46"
+    },
+    {
+      "source": "tests/training-body-s2.test.mjs",
+      "destination": "tests/training-body-s2.test.mjs",
+      "bytes": 6186,
+      "sha256": "8ea0d1edb7625a1d82f0586f12cbaecd598f64d3a5a1a5766896800919db9294"
+    },
+    {
+      "source": "tests/training-brace.test.mjs",
+      "destination": "tests/training-brace.test.mjs",
+      "bytes": 5994,
+      "sha256": "a43cbb53e7ce48a909a209cb7e1a7debd70e4a97c2e097ed8b4a9c5158227201"
+    },
+    {
+      "source": "tests/training-collapse-target.test.mjs",
+      "destination": "tests/training-collapse-target.test.mjs",
+      "bytes": 9647,
+      "sha256": "106578dc8f6642220a51a4e51fc6260c379e5a4443fd36ba1fb89da2054140cb"
+    },
+    {
+      "source": "tests/training-combat-supplement.test.mjs",
+      "destination": "tests/training-combat-supplement.test.mjs",
+      "bytes": 5983,
+      "sha256": "cbd4590333e61f547718f41f3b37105cda4e59eee5bb2854995ad56314c6604b"
+    },
+    {
+      "source": "tests/training-combat.test.mjs",
+      "destination": "tests/training-combat.test.mjs",
+      "bytes": 13852,
+      "sha256": "05dd390d8eca7e26b6a1d5462377feb902da25d0245ff3f683dcf011d95e4412"
+    },
+    {
+      "source": "tests/training-d1b-v53.test.mjs",
+      "destination": "tests/training-d1b-v53.test.mjs",
+      "bytes": 5638,
+      "sha256": "e1dfbbbf907ee7951e22e4b59a463ff6280dbe141572bacfa7d0752a122951cb"
+    },
+    {
+      "source": "tests/training-d1c-v54.test.mjs",
+      "destination": "tests/training-d1c-v54.test.mjs",
+      "bytes": 3197,
+      "sha256": "f97f8b0d1f277f977e6d5bab6f1c894efde3d5eaf3ce728e53c6e431d201c9fd"
+    },
+    {
+      "source": "tests/training-d2-v55.test.mjs",
+      "destination": "tests/training-d2-v55.test.mjs",
+      "bytes": 5574,
+      "sha256": "65e7f776cb1886a8cd4ff309c8eb00a27bf36f5cb22ac05c044aea0d3465233d"
+    },
+    {
+      "source": "tests/training-damage-index-s3.test.mjs",
+      "destination": "tests/training-damage-index-s3.test.mjs",
+      "bytes": 3732,
+      "sha256": "a2feaaf6c2e7e420e898d326269cbe81575a2385bafa71a4ad7d0eca50e17217"
+    },
+    {
+      "source": "tests/training-debug-ammo-ui.test.mjs",
+      "destination": "tests/training-debug-ammo-ui.test.mjs",
+      "bytes": 3543,
+      "sha256": "1fd22af3fd7c1861fb89440028f3c1a203b6ad3bbc54ea088ce2e199cc1bb281"
+    },
+    {
+      "source": "tests/training-debug-weapon-s2.test.mjs",
+      "destination": "tests/training-debug-weapon-s2.test.mjs",
+      "bytes": 6453,
+      "sha256": "8af6cfafa9638fa3076899d854e7dc16dce6fb042a28a95a8c112881cb6d6b3b"
+    },
+    {
+      "source": "tests/training-enemy-animation-retarget.test.mjs",
+      "destination": "tests/training-enemy-animation-retarget.test.mjs",
+      "bytes": 10439,
+      "sha256": "9b6e7e0dad24120c890d5ad39fda116b84ba617bbbd5773d61f1eff41a585583"
+    },
+    {
+      "source": "tests/training-enemy-animation.test.mjs",
+      "destination": "tests/training-enemy-animation.test.mjs",
+      "bytes": 7266,
+      "sha256": "f838f4fd39021c51ec9c1551344c7c9249150227511a40cc1704e9a97f87f28b"
+    },
+    {
+      "source": "tests/training-equipment-mesh-v64.test.mjs",
+      "destination": "tests/training-equipment-mesh-v64.test.mjs",
+      "bytes": 4013,
+      "sha256": "d3dc10bf33f4aecb3e9ca8240873fa59bd153ad26827a82af6172ae957065b0e"
+    },
+    {
+      "source": "tests/training-feedback-v52.test.mjs",
+      "destination": "tests/training-feedback-v52.test.mjs",
+      "bytes": 5455,
+      "sha256": "1a06d54479c7fce541fc142d46b2d0ea9e002957cf156b3ad32454a53a3eab9a"
+    },
+    {
+      "source": "tests/training-fixed-medical.test.mjs",
+      "destination": "tests/training-fixed-medical.test.mjs",
+      "bytes": 2209,
+      "sha256": "99a0dc872d5d77cededa2dd60cd1f8083eee68c14c8ad956a884bd5dc624232e"
+    },
+    {
+      "source": "tests/training-flight-tuning.test.mjs",
+      "destination": "tests/training-flight-tuning.test.mjs",
+      "bytes": 2138,
+      "sha256": "1c473dcbd85610ef5cc5f4d978fe5f56d1747db2aff8728a75f4697cefcfe048"
+    },
+    {
+      "source": "tests/training-flight.test.mjs",
+      "destination": "tests/training-flight.test.mjs",
+      "bytes": 9417,
+      "sha256": "ba13f3a0d4000a5688ec48741f4c198386c41b81498543c85fee6b535eb49e8d"
+    },
+    {
+      "source": "tests/training-gait-audibility.test.mjs",
+      "destination": "tests/training-gait-audibility.test.mjs",
+      "bytes": 3585,
+      "sha256": "7f6c5c52feefb69b938572f48e443318ed16a64a3f5b8740f5cc00abdfa016f6"
+    },
+    {
+      "source": "tests/training-head-mesh.test.mjs",
+      "destination": "tests/training-head-mesh.test.mjs",
+      "bytes": 9077,
+      "sha256": "d3fe9d79fa4acaa03ec89ef37e08324ebf42fffe551f44a1693cd949ebbdddbc"
+    },
+    {
+      "source": "tests/training-height-casings.test.mjs",
+      "destination": "tests/training-height-casings.test.mjs",
+      "bytes": 3700,
+      "sha256": "8127289022caa5986aa5fbaf1ed7347a21900aa84ce09bae2988366514a5a7c7"
+    },
+    {
+      "source": "tests/training-helmet-ricochet.test.mjs",
+      "destination": "tests/training-helmet-ricochet.test.mjs",
+      "bytes": 10693,
+      "sha256": "069162ddbab4bde7c3074b9de200edd5ea4f947da574a80b5a5e54b42dc96d8d"
+    },
+    {
+      "source": "tests/training-humans.test.mjs",
+      "destination": "tests/training-humans.test.mjs",
+      "bytes": 10806,
+      "sha256": "438c62a9d6c62f8640d6bc8cc8cf49b42c44782bb7f6c5f106e597b697d4260a"
+    },
+    {
+      "source": "tests/training-internal-s1.test.mjs",
+      "destination": "tests/training-internal-s1.test.mjs",
+      "bytes": 11063,
+      "sha256": "f97266fe9b2a5abc4a380e71bf4c696ef2eb4f9a87de0883ecb598d072bde625"
+    },
+    {
+      "source": "tests/training-internal.test.mjs",
+      "destination": "tests/training-internal.test.mjs",
+      "bytes": 3056,
+      "sha256": "88c8457ea3c26c7fe453bb895593f9f88f2e5b27a9f20ce8f4de5622d7d88300"
+    },
+    {
+      "source": "tests/training-lean.test.mjs",
+      "destination": "tests/training-lean.test.mjs",
+      "bytes": 4182,
+      "sha256": "0137fba441f08776d8d16354d4d7c2b04ba76a4a8b83135446c2b0d8121d0f74"
+    },
+    {
+      "source": "tests/training-locomotion.test.mjs",
+      "destination": "tests/training-locomotion.test.mjs",
+      "bytes": 4853,
+      "sha256": "08a2cd9687b29ffc1122c14fc5f9b6ad4bfaf9efb87815e8621c7a71ef1ff5a9"
+    },
+    {
+      "source": "tests/training-m1-v57.test.mjs",
+      "destination": "tests/training-m1-v57.test.mjs",
+      "bytes": 3270,
+      "sha256": "19dc4ca61b5e859da0fb886eac229cf1e7f1d0e570eb28e6afffdf50c5dcb244"
+    },
+    {
+      "source": "tests/training-m2-v58.test.mjs",
+      "destination": "tests/training-m2-v58.test.mjs",
+      "bytes": 6390,
+      "sha256": "541e84bc6113518ae200de14bd9c700cb8f2b1eeb220f53839bc01ea06827fe7"
+    },
+    {
+      "source": "tests/training-m3-v59.test.mjs",
+      "destination": "tests/training-m3-v59.test.mjs",
+      "bytes": 12442,
+      "sha256": "94e37fe778bc658d2f0cb340b74635e7a60e048446ac7a5939cc4e8c3a38535a"
+    },
+    {
+      "source": "tests/training-m4-v60.test.mjs",
+      "destination": "tests/training-m4-v60.test.mjs",
+      "bytes": 7735,
+      "sha256": "c662a6c87a39a77cfe0853d64e86008ffd9908684cb0f83f826e6a08d0126850"
+    },
+    {
+      "source": "tests/training-m4b-v61.test.mjs",
+      "destination": "tests/training-m4b-v61.test.mjs",
+      "bytes": 9086,
+      "sha256": "fe4ada90d075e0a7becbad12d420b678a7341bbd40929375e55c1cb43700985d"
+    },
+    {
+      "source": "tests/training-m4c-v62.test.mjs",
+      "destination": "tests/training-m4c-v62.test.mjs",
+      "bytes": 4720,
+      "sha256": "49e73ef4cb2d6250226988cb484476f2ce22c2d5dcf0549285facb02c20c9443"
+    },
+    {
+      "source": "tests/training-m6-v63.test.mjs",
+      "destination": "tests/training-m6-v63.test.mjs",
+      "bytes": 8347,
+      "sha256": "357ae27f6fb7561849381b60bb81988b030046ded70903741a5c14fab4de267b"
+    },
+    {
+      "source": "tests/training-m7-v65.test.mjs",
+      "destination": "tests/training-m7-v65.test.mjs",
+      "bytes": 8263,
+      "sha256": "03b857a9926493ffef702356886dcaaab1066107f44ee1a93ca054f05740e193"
+    },
+    {
+      "source": "tests/training-medical-b1.test.mjs",
+      "destination": "tests/training-medical-b1.test.mjs",
+      "bytes": 6887,
+      "sha256": "baa9758811ca28ea6c2945a8a3168870902f3db6847b9f7bff7ee0ded7738655"
+    },
+    {
+      "source": "tests/training-medical-b1b.test.mjs",
+      "destination": "tests/training-medical-b1b.test.mjs",
+      "bytes": 2749,
+      "sha256": "10120ecb68b63464017cb0307fce7ffd4d8fc7307659e04b23279a97ef8fdd19"
+    },
+    {
+      "source": "tests/training-medical-b1c.test.mjs",
+      "destination": "tests/training-medical-b1c.test.mjs",
+      "bytes": 3422,
+      "sha256": "59aa01d87c9ccf41abaac70773d2b7d080ee098745766f088fe483e4c541326d"
+    },
+    {
+      "source": "tests/training-medical-context.test.mjs",
+      "destination": "tests/training-medical-context.test.mjs",
+      "bytes": 1633,
+      "sha256": "2f78125cee38718cd12454421cf2180491f6f36457b63a52c1d688a56412b218"
+    },
+    {
+      "source": "tests/training-medical-feedback.test.mjs",
+      "destination": "tests/training-medical-feedback.test.mjs",
+      "bytes": 5812,
+      "sha256": "21fcb42418d63961fac07c9aa7797866f01f9749a948c6d5806abacb1a69158a"
+    },
+    {
+      "source": "tests/training-medical-r2.test.mjs",
+      "destination": "tests/training-medical-r2.test.mjs",
+      "bytes": 3170,
+      "sha256": "2247c517a29e5bf43ef6113bf195784235c50ef1134947989b9c7131a822a9e1"
+    },
+    {
+      "source": "tests/training-medical-s0.test.mjs",
+      "destination": "tests/training-medical-s0.test.mjs",
+      "bytes": 5759,
+      "sha256": "812056052cdc8d836362f17210af2994d4328db3b23d8253e5cd12ecbd685ff6"
+    },
+    {
+      "source": "tests/training-medical-s1.test.mjs",
+      "destination": "tests/training-medical-s1.test.mjs",
+      "bytes": 8201,
+      "sha256": "f007899ca7f84354ef2424cdb0f945f42d82ddc4984c5e00adf8b95b6b6697c9"
+    },
+    {
+      "source": "tests/training-medical-s2.test.mjs",
+      "destination": "tests/training-medical-s2.test.mjs",
+      "bytes": 15730,
+      "sha256": "bb1a5e1b97813c44bf71ab4cb6a6285b21b44fecc3f18b350fc1e4f49b0519ae"
+    },
+    {
+      "source": "tests/training-medical-s3.test.mjs",
+      "destination": "tests/training-medical-s3.test.mjs",
+      "bytes": 12826,
+      "sha256": "d78f77961f8dccc96ede817e08e419d65c35f255e29ca4abcb7ca39047a5fcac"
+    },
+    {
+      "source": "tests/training-medical-s3b.test.mjs",
+      "destination": "tests/training-medical-s3b.test.mjs",
+      "bytes": 3879,
+      "sha256": "3abfe53cc905084e3bbe0c512a85e897709645cd2e5cd8e7f0d01f51b6b654f0"
+    },
+    {
+      "source": "tests/training-medical-v2.test.mjs",
+      "destination": "tests/training-medical-v2.test.mjs",
+      "bytes": 7440,
+      "sha256": "59023e2cb40d8971773689b84f494cb7fc47e4af831c385a9d5dafacc70778b7"
+    },
+    {
+      "source": "tests/training-medical.test.mjs",
+      "destination": "tests/training-medical.test.mjs",
+      "bytes": 4943,
+      "sha256": "9d2de16a284e6c5d17c7123bb77707cd149f3a159fbe16db183cd48b683874ce"
+    },
+    {
+      "source": "tests/training-native-handling.test.mjs",
+      "destination": "tests/training-native-handling.test.mjs",
+      "bytes": 4854,
+      "sha256": "618eb920d19de80d8ba2732d4b5b51b0719008004ca301d8c1c5cb4e801753b1"
+    },
+    {
+      "source": "tests/training-optic-optics.test.mjs",
+      "destination": "tests/training-optic-optics.test.mjs",
+      "bytes": 5273,
+      "sha256": "f467cd02ae51cc64220edfc4fc67296d0545794a48d0a2a80040a7605ef27fbc"
+    },
+    {
+      "source": "tests/training-optics.test.mjs",
+      "destination": "tests/training-optics.test.mjs",
+      "bytes": 6715,
+      "sha256": "852adab907696c5f3bed83deff18148974212759fcdca34148f2daf4efbb25ff"
+    },
+    {
+      "source": "tests/training-protection.test.mjs",
+      "destination": "tests/training-protection.test.mjs",
+      "bytes": 19199,
+      "sha256": "53898c7b3ec6a694e059ae2dcbee4c3874c447f364e1d4842dbfe0d6c2a7ec71"
+    },
+    {
+      "source": "tests/training-ragdoll-settling.test.mjs",
+      "destination": "tests/training-ragdoll-settling.test.mjs",
+      "bytes": 3369,
+      "sha256": "2b66fb43e41a7e0c6385172609ee4856b53910b29c673056f7de08958597ef22"
+    },
+    {
+      "source": "tests/training-ragdoll-stability.test.mjs",
+      "destination": "tests/training-ragdoll-stability.test.mjs",
+      "bytes": 2161,
+      "sha256": "9d2083e989823b2edb240b72ad2ab58e3a4e1673e7d2f1e5bcb1912f27c4a803"
+    },
+    {
+      "source": "tests/training-retarget.test.mjs",
+      "destination": "tests/training-retarget.test.mjs",
+      "bytes": 2621,
+      "sha256": "b330a192627cc97fec0055ec766f270fb9264a3502b384dd99a7e8dfd6fab683"
+    },
+    {
+      "source": "tests/training-rg1.test.mjs",
+      "destination": "tests/training-rg1.test.mjs",
+      "bytes": 5158,
+      "sha256": "c85e6a9c70829676ac7bd0efdbd2af2b3fb281bccdf61cee242ce177fb41e0f0"
+    },
+    {
+      "source": "tests/training-side-optics.test.mjs",
+      "destination": "tests/training-side-optics.test.mjs",
+      "bytes": 3530,
+      "sha256": "b18ce0874f9d5854658fd79eb3443790a200ad6801ed115b3d607964225b96a0"
+    },
+    {
+      "source": "tests/training-skin.test.mjs",
+      "destination": "tests/training-skin.test.mjs",
+      "bytes": 4824,
+      "sha256": "ee70a0ee87df60cf349833f7f5390360bbb5659d4ad468da338723f6cec2d027"
+    },
+    {
+      "source": "tests/training-soldier-rig.test.mjs",
+      "destination": "tests/training-soldier-rig.test.mjs",
+      "bytes": 11421,
+      "sha256": "249ec4c12b1ba9067fa3cb2e87881d3fddba305a71a0f64da3adc855ab20066d"
+    },
+    {
+      "source": "tests/training-sound.test.mjs",
+      "destination": "tests/training-sound.test.mjs",
+      "bytes": 6962,
+      "sha256": "f017f79ad3fbb5248f4df1651527f92d9cc114cbf9d3162089549ed791bf5547"
+    },
+    {
+      "source": "tests/training-sprint.test.mjs",
+      "destination": "tests/training-sprint.test.mjs",
+      "bytes": 4679,
+      "sha256": "23838fdde580de335a5563c29b682ee3ae92a81f5c87c2bfd72a02b909ffcb94"
+    },
+    {
+      "source": "tests/training-strength.test.mjs",
+      "destination": "tests/training-strength.test.mjs",
+      "bytes": 5340,
+      "sha256": "c4ae106f10ad2ba8e0d8248cbafe821c41cdbf6893e88cbfd931353fab217b8a"
+    },
+    {
+      "source": "tests/training-systems.test.mjs",
+      "destination": "tests/training-systems.test.mjs",
+      "bytes": 22257,
+      "sha256": "63c159f740cac78850fc8fe664854d287b4d35d90dd1918c2c85f2c4048f0fb8"
+    },
+    {
+      "source": "tests/training-textures.test.mjs",
+      "destination": "tests/training-textures.test.mjs",
+      "bytes": 1953,
+      "sha256": "88eeceed847c45237fc004a34d70eb8c546e261509f5990743e85bdd61887474"
+    },
+    {
+      "source": "tests/training-trajectories.test.mjs",
+      "destination": "tests/training-trajectories.test.mjs",
+      "bytes": 3665,
+      "sha256": "f8777499358db71d38fa81b358a5e0ee559ed8dc595496fdebda47176757f86d"
+    },
+    {
+      "source": "tests/training-vision-stability-v56.test.mjs",
+      "destination": "tests/training-vision-stability-v56.test.mjs",
+      "bytes": 3389,
+      "sha256": "45174558bedd209ca261e815bb664b52adb489f27c4dae8c329827cf0b1db680"
+    },
+    {
+      "source": "tests/training-w1.test.mjs",
+      "destination": "tests/training-w1.test.mjs",
+      "bytes": 4001,
+      "sha256": "cc7bb6f8f6fe7c9f93d758d6547ceba579e339ba2cb65219c6cbad9f66cb5ffb"
+    },
+    {
+      "source": "tests/training-weapons-w.test.mjs",
+      "destination": "tests/training-weapons-w.test.mjs",
+      "bytes": 5332,
+      "sha256": "45bfc2e4534de2574141e7de381235d2dfd85a5c8e756139f3189bb442147088"
+    },
+    {
+      "source": "tests/training-wound-channel.test.mjs",
+      "destination": "tests/training-wound-channel.test.mjs",
+      "bytes": 6434,
+      "sha256": "b7a739b3eb23fed12364b17ba7e9e7c679b4411c21964d3ab136f4518aa9c49d"
+    },
+    {
+      "source": "tests/training-wound-debug.test.mjs",
+      "destination": "tests/training-wound-debug.test.mjs",
+      "bytes": 6750,
+      "sha256": "053ff4c78eb38f7c076b13a1789ee5dddb8dc73190233d4ba1a81239f82fd9c7"
+    },
+    {
+      "source": "tests/training-wound-lut.test.mjs",
+      "destination": "tests/training-wound-lut.test.mjs",
+      "bytes": 3615,
+      "sha256": "3d92ed22855abb711fd80213ccbc342a918f09933df9ec5597e4e7d13d48d190"
+    },
+    {
+      "source": "tests/training-wound-s2.test.mjs",
+      "destination": "tests/training-wound-s2.test.mjs",
+      "bytes": 5532,
+      "sha256": "544ac2184790391f958f126d50f4b19d21edf10f8f5739d9a243e195d8ef727d"
+    },
+    {
+      "source": "tests/training-wound-s3.test.mjs",
+      "destination": "tests/training-wound-s3.test.mjs",
+      "bytes": 11107,
+      "sha256": "93251148a2a00cd3a20e85c0d3cdd8fbc15a2dc834d89cc573f5bbf8f78a4e22"
+    },
+    {
+      "source": "tests/training-zeroing.test.mjs",
+      "destination": "tests/training-zeroing.test.mjs",
+      "bytes": 4503,
+      "sha256": "d6b31e0a9354a5af66f800e062bbd4319103740f2f001e5a6351da73b0c6d770"
+    },
+    {
+      "source": "tests/training.test.mjs",
+      "destination": "tests/training.test.mjs",
+      "bytes": 13475,
+      "sha256": "76479c8bb03e01d8769fee29e74f2d1f6ada898b1444eaffb1a764318016a739"
+    },
+    {
+      "source": "package.json",
+      "destination": "package.json",
+      "bytes": 1289,
+      "sha256": "d4b8f3dc05f0ff6025bc27a720fb9b99881a54d7f96afccacd0b480f897927f5"
+    },
+    {
+      "source": "package-lock.json",
+      "destination": "package-lock.json",
+      "bytes": 38180,
+      "sha256": "4a7680a0ea0b4b692560798f90428fcdd18667a8a6bd0bf23b3ae511edb899fe"
+    },
+    {
+      "source": "scripts/build.mjs",
+      "destination": "reference/2d/tools/build.mjs",
+      "bytes": 4617,
+      "sha256": "7ebe16db9d732e3244279f6568653f0634aef1c5389d7d8ffaf8c203875c9bc8"
+    },
+    {
+      "source": "scripts/dev.mjs",
+      "destination": "reference/2d/tools/dev.mjs",
+      "bytes": 2918,
+      "sha256": "4c3d8564f6e17a589eb74b88b5333146c1597e4d1ebc12cb2db8e14ef5462755"
+    },
+    {
+      "source": "scripts/verify-baseline.mjs",
+      "destination": "reference/2d/tools/verify-baseline.mjs",
+      "bytes": 1151,
+      "sha256": "92d99ddb33a14b4b2d4d1cd1aad5c62b5122fe6e740abb0b48b49c29f686ec42"
+    },
+    {
+      "source": "README.md",
+      "destination": "reference/2d/README_ORIGINAL.md",
+      "bytes": 104537,
+      "sha256": "0506d1920fcadbe49247500f1b810f9c348ad130a8bb21b914c706becd7b87a9"
+    },
+    {
+      "source": "HANDOFF_KO.md",
+      "destination": "docs/history/CQB-HTML-HANDOFF-v69.md",
+      "bytes": 302501,
+      "sha256": "b94841aeb9f69bb88567001da00ced22071da8cf9c685060b2960e66ba92ad5f"
+    },
+    {
+      "source": "scripts/build-training.mjs",
+      "destination": "scripts/build-training.mjs",
+      "bytes": 36715,
+      "sha256": "30678c534b585918f12e7190b553d8c7765181bdae4911d6f7e66d87577fe889"
+    },
+    {
+      "source": "scripts/training-scar-model.mjs",
+      "destination": "scripts/training-scar-model.mjs",
+      "bytes": 11129,
+      "sha256": "2f123962bc6a30faf65a82ea324489410d20ff4b31fed8f6c312ac1c3f547f42"
+    },
+    {
+      "source": "scripts/training-scar-bake.mjs",
+      "destination": "scripts/training-scar-bake.mjs",
+      "bytes": 2612,
+      "sha256": "f5c409ff4014ed5daa5c2fe4f4f521d89a7698f7e6a56102cd0e26cb15a173bd"
+    },
+    {
+      "source": "scripts/training-fps-model.mjs",
+      "destination": "scripts/training-fps-model.mjs",
+      "bytes": 8122,
+      "sha256": "0649611cda1584ce89415484d86f8e4bdce62fe28166a88fcac76b6bd842a3cd"
+    },
+    {
+      "source": "scripts/training-soldier-skin.mjs",
+      "destination": "scripts/training-soldier-skin.mjs",
+      "bytes": 8903,
+      "sha256": "45112fec02bbfbf8dac17495d0a3702dbb2d8e73781d53b6cd94add1c5e858a5"
+    },
+    {
+      "source": "scripts/training-webp.mjs",
+      "destination": "scripts/training-webp.mjs",
+      "bytes": 10080,
+      "sha256": "3594c2c84bd506225a182e95f79b7bd3561f15dbbb9e9463ab1c74c61177968a"
+    },
+    {
+      "source": "scripts/training-animation-compact.mjs",
+      "destination": "scripts/training-animation-compact.mjs",
+      "bytes": 4352,
+      "sha256": "f8ef8d9e6500189b4521d0accef531fd7d0c2366202a12d6860b2d4ce4d4d934"
+    },
+    {
+      "source": "scripts/training-scar-zeroing.mjs",
+      "destination": "scripts/training-scar-zeroing.mjs",
+      "bytes": 1268,
+      "sha256": "da9c829cfcd81808b06c812277f7633a4a4572a9c9cba82991b0439f04e82667"
+    },
+    {
+      "source": "scripts/training-zeroing-solver.mjs",
+      "destination": "scripts/training-zeroing-solver.mjs",
+      "bytes": 3151,
+      "sha256": "01570a4e95ad2874fb36e60eb43bc6bef587184595c65341e1bc22fdd8c9b3c2"
+    },
+    {
+      "source": "scripts/training-enemy-animations.mjs",
+      "destination": "scripts/training-enemy-animations.mjs",
+      "bytes": 26661,
+      "sha256": "fabaf0ba60c79c719a353cb1b219922062b8a4b665724ba30ebe83912fadab15"
+    },
+    {
+      "source": "scripts/training-soldier-fingers.mjs",
+      "destination": "scripts/training-soldier-fingers.mjs",
+      "bytes": 3695,
+      "sha256": "b3d6d07cd9b417680bdf1571d00a55c29b5f05b56a04af61f8d513b7f16a30b0"
+    },
+    {
+      "source": "scripts/training-catalog.mjs",
+      "destination": "scripts/training-catalog.mjs",
+      "bytes": 4583,
+      "sha256": "ed2f17dd9da440be92d7cd2f2fd34b68c0b7688dc2a404d6b62e0c7ca2f795e4"
+    },
+    {
+      "source": "scripts/training-ballistics.mjs",
+      "destination": "scripts/training-ballistics.mjs",
+      "bytes": 3606,
+      "sha256": "38032d8a6de987b13f53ae75584f8d2bb4e8b71497480bc545c2c0c879dea916"
+    },
+    {
+      "source": "scripts/training-flight.mjs",
+      "destination": "scripts/training-flight.mjs",
+      "bytes": 1559,
+      "sha256": "46ca4ef470c12026c6987be1a8109bf8559f115f90c76520a223a6a6c633a2ec"
+    },
+    {
+      "source": "scripts/training-zeroing.mjs",
+      "destination": "scripts/training-zeroing.mjs",
+      "bytes": 3525,
+      "sha256": "812e245dfa3736ea060f4a62d2479552bbdb7abaf552344c20ffdc572424ee68"
+    },
+    {
+      "source": "scripts/training-flight-tuning.mjs",
+      "destination": "scripts/training-flight-tuning.mjs",
+      "bytes": 4622,
+      "sha256": "6012fcd19b8f5252a0622187b159ab707278c67f48de93f93830e3683b1749b0"
+    },
+    {
+      "source": "scripts/training-protection.mjs",
+      "destination": "scripts/training-protection.mjs",
+      "bytes": 5734,
+      "sha256": "ebe8fb29baa5e9373853129a199915ce60aa4f0de4951ee39d6b1472a364c655"
+    },
+    {
+      "source": "scripts/training-medical.mjs",
+      "destination": "scripts/training-medical.mjs",
+      "bytes": 11816,
+      "sha256": "40995980700ee038a0b8d82ea62c47127b5e8116db0531d02904f4a905db90c4"
+    },
+    {
+      "source": "scripts/training-armor-mesh.mjs",
+      "destination": "scripts/training-armor-mesh.mjs",
+      "bytes": 7346,
+      "sha256": "993c5f2b564d52aa80152e8c9be7a89a87db457fc7cf48a945eebf4217812d2d"
+    },
+    {
+      "source": "scripts/training-soldier-rig.mjs",
+      "destination": "scripts/training-soldier-rig.mjs",
+      "bytes": 17142,
+      "sha256": "cd5f1e2270187b62140c2a19a1542330387d7232f0051773afbdee268dc0ff97"
+    },
+    {
+      "source": "scripts/training-head-mesh.mjs",
+      "destination": "scripts/training-head-mesh.mjs",
+      "bytes": 9727,
+      "sha256": "3ffda53d1b848d1911e3e398b9a895276e6545e05b174193823c2e07d9af83d0"
+    },
+    {
+      "source": "scripts/training-shared-fps-model.mjs",
+      "destination": "scripts/training-shared-fps-model.mjs",
+      "bytes": 3277,
+      "sha256": "4dad2529b7fea266d074d9e0c5d24a2e714331c6c7f26582e8770662e3ea8832"
+    },
+    {
+      "source": "scripts/training-m4-arms-model.mjs",
+      "destination": "scripts/training-m4-arms-model.mjs",
+      "bytes": 6273,
+      "sha256": "e64dc20063d8e64f50509687d7f531f24f28cc344789f59aba93949e846265c2"
+    },
+    {
+      "source": "scripts/training-vudu-model.mjs",
+      "destination": "scripts/training-vudu-model.mjs",
+      "bytes": 5285,
+      "sha256": "262522868aaf6aeedaac6615478ab9a2bdca8f660b9e976ebbcbfa10447885fa"
+    },
+    {
+      "source": "scripts/training-side-optics-assets.mjs",
+      "destination": "scripts/training-side-optics-assets.mjs",
+      "bytes": 6946,
+      "sha256": "c4bfc89ab75fc9478914a9200aaa6fd3195a7fb70181c91e5770b850cc93083a"
+    },
+    {
+      "source": "scripts/dev-training.mjs",
+      "destination": "scripts/dev-training.mjs",
+      "bytes": 1538,
+      "sha256": "c265be64b1303955e7527ed43188018ece0cd5837609f0bf79e0182ceeec4831"
+    },
+    {
+      "source": "scripts/training-p-session.mjs",
+      "destination": "scripts/training-p-session.mjs",
+      "bytes": 1549,
+      "sha256": "245714b07d41618e5363c4ef83879582804f8a07cfa2c0b36b89241e45890ef1"
+    },
+    {
+      "source": "scripts/training-p-browser.mjs",
+      "destination": "scripts/training-p-browser.mjs",
+      "bytes": 11315,
+      "sha256": "b1a13327a4b7889555df42b357d9d9e8bdfbeed8847ebb9922abd4ad0f7bb3af"
+    },
+    {
+      "source": "scripts/training-w1-session.mjs",
+      "destination": "scripts/training-w1-session.mjs",
+      "bytes": 1550,
+      "sha256": "64c5990df59b6a5f5302513589c640f4ae44434b17c753ae6eed2f2f77315252"
+    },
+    {
+      "source": "scripts/training-w1-browser.mjs",
+      "destination": "scripts/training-w1-browser.mjs",
+      "bytes": 11352,
+      "sha256": "62fc9fa2f17f8e165a969f6f24c98cb0cccfc3412326b302e4512d3f59462b8d"
+    },
+    {
+      "source": "scripts/training-s3b-fixtures.mjs",
+      "destination": "scripts/training-s3b-fixtures.mjs",
+      "bytes": 9380,
+      "sha256": "1835bd0900afce3337b4db36158b7d9e245a69a5e4193dde984c17a74529273a"
+    },
+    {
+      "source": "scripts/training-s0-fixtures.mjs",
+      "destination": "scripts/training-s0-fixtures.mjs",
+      "bytes": 3193,
+      "sha256": "85e2cc4391defe45d4b98fbf203da52a10f6c627a6b23c6db3592f5863574e4b"
+    },
+    {
+      "source": "scripts/training-p-reference.mjs",
+      "destination": "scripts/training-p-reference.mjs",
+      "bytes": 4191,
+      "sha256": "4c99bc91fef680eae26f074a137d2bd22953007668c12644af47c0fa52e42363"
+    },
+    {
+      "source": "scripts/training-w-reference.mjs",
+      "destination": "scripts/training-w-reference.mjs",
+      "bytes": 2452,
+      "sha256": "4d379e9105d22a119894f2680f09fdbe5bc846b6c5ef03417d1e1a8ee30eca05"
+    },
+    {
+      "source": "scripts/build.mjs",
+      "destination": "scripts/build.mjs",
+      "bytes": 4617,
+      "sha256": "7ebe16db9d732e3244279f6568653f0634aef1c5389d7d8ffaf8c203875c9bc8"
+    },
+    {
+      "source": "scripts/dev.mjs",
+      "destination": "scripts/dev.mjs",
+      "bytes": 2918,
+      "sha256": "4c3d8564f6e17a589eb74b88b5333146c1597e4d1ebc12cb2db8e14ef5462755"
+    },
+    {
+      "source": "scripts/verify-baseline.mjs",
+      "destination": "scripts/verify-baseline.mjs",
+      "bytes": 1151,
+      "sha256": "92d99ddb33a14b4b2d4d1cd1aad5c62b5122fe6e740abb0b48b49c29f686ec42"
+    },
+    {
+      "source": "downloads/checks-q0/inputs.json",
+      "destination": "tests/fixtures/imported/checks-q0/inputs.json",
+      "bytes": 933573,
+      "sha256": "9acb90258cf41d1f6e5fef6f6f9f840576b5a926e8977299eecf250ff5da0174"
+    },
+    {
+      "source": "downloads/checks-s0-v38/fixtures.json",
+      "destination": "tests/fixtures/imported/checks-s0-v38/fixtures.json",
+      "bytes": 14941,
+      "sha256": "252cff368827b557e8068c8de65ce1bdf9eeb6f73b94d3d4319d5c820b744d60"
+    },
+    {
+      "source": "downloads/checks-s3b-v42/fixtures.json",
+      "destination": "tests/fixtures/imported/checks-s3b-v42/fixtures.json",
+      "bytes": 258306,
+      "sha256": "238de688295eb96e38b7b74d37d83f48cb49e84863c6bea1ccb3b5372abcf9b1"
+    },
+    {
+      "source": "downloads/checks-p3/bare-forearm.json",
+      "destination": "tests/fixtures/imported/checks-p3/bare-forearm.json",
+      "bytes": 995241,
+      "sha256": "06223b81fc9ac2dc72b99b1b3a0fa635dc8c96f84f5d9cddf126ac704ba1f61b"
+    },
+    {
+      "source": "downloads/checks-p3/front-neck.json",
+      "destination": "tests/fixtures/imported/checks-p3/front-neck.json",
+      "bytes": 1047840,
+      "sha256": "8381bcf48ee7e41f7757df5a36092cfab9794baf472b4997ada1d6caf7c98272"
+    },
+    {
+      "source": "downloads/checks-p3/soft-through-body-rear.json",
+      "destination": "tests/fixtures/imported/checks-p3/soft-through-body-rear.json",
+      "bytes": 1046798,
+      "sha256": "4576213653daa2df5347af58cdc463a2a42b3aa31dd379975cd9b2dabcbd2448"
+    },
+    {
+      "source": "downloads/checks-p3/bare-upper-thigh.json",
+      "destination": "tests/fixtures/imported/checks-p3/bare-upper-thigh.json",
+      "bytes": 991137,
+      "sha256": "8a5f330a6c6e5c289174998ebce769445b222c393313a546afb30947615741d5"
+    },
+    {
+      "source": "downloads/checks-p3/arm-first-body.json",
+      "destination": "tests/fixtures/imported/checks-p3/arm-first-body.json",
+      "bytes": 1145530,
+      "sha256": "20d0cf53c71089e75783747025ba5347f17f3475a147454c44965f0be2493624"
+    },
+    {
+      "source": "c4e608dfc2ea65b4ef94bbb7c7ce9301c3d28fd2:apps/training/src/wound-channel.js",
+      "destination": "tests/fixtures/history/c4e608dfc2ea65b4ef94bbb7c7ce9301c3d28fd2/wound-channel.js",
+      "bytes": 32629,
+      "sha256": "c09d9d15d885d216022c6c75ea7f70e6db8c343f1bc1eb95397f7e791eaa8b79"
+    },
+    {
+      "source": "422cbbc13a171e8a8a8b7f7449c505859022714a:apps/training/src/strength-ragdoll.js",
+      "destination": "tests/fixtures/history/422cbbc13a171e8a8a8b7f7449c505859022714a/strength-ragdoll.js",
+      "bytes": 6255,
+      "sha256": "65678d80187a85ab92ad21c7f0ebf9e0a33c7c7c6088d9d0038f1fc9a049ca43"
+    },
+    {
+      "source": "downloads/checks-b1c-v45/single-fixtures.json",
+      "destination": "tests/fixtures/v69/single-fixtures.json",
+      "bytes": 47543,
+      "sha256": "ecac510b05bb94f881df3468d6c37d66b7f2641954e56e573ec63654db75298b"
+    },
+    {
+      "source": "downloads/checks-w1-v69/regression.json.gz",
+      "destination": "tests/fixtures/v69/regression.json.gz",
+      "bytes": 450990,
+      "sha256": "0e4ac62014d6b028ec5ecced269bd20fd3a9d2d0c72303ba298374d636f9e2ff"
+    },
+    {
+      "source": "downloads/checks-w1-v69/regression-ak.json.gz",
+      "destination": "tests/fixtures/v69/regression-ak.json.gz",
+      "bytes": 450235,
+      "sha256": "b0be83e11c71c8bba05e488944f5adc9d2145e0b8f826852255dc430f73f8831"
+    }
+  ],
+  "excluded": "Historical release ZIPs and raw QA tapes retained in source repository; v69 fixtures moved separately. Full old Git history not copied."
+}

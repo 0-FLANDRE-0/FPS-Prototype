@@ -1,0 +1,260 @@
+{
+  "version": "strength-ragdoll-v34",
+  "trial": true,
+  "settingToggle": false,
+  "baseline": "16932afb12e39b589d37912f40d5658540da825d",
+  "sources": {
+    "massAndROM": "docs/combat-ai1-ledger.json and docs/training-ai1-v32.md: Winter/Dempster fractions and AAOS/Norkin & White ROM; unchanged",
+    "jointAPI": "pinned @dimforge/rapier3d-compat 0.21.0, raw generic force-based motors",
+    "humanTorqueLiteratureUsed": false
+  },
+  "original": {
+    "mass": {
+      "bodyMassKg": 80,
+      "bodyMassClassification": "\ud29c\ub2dd \u2014 \uc0ac\uc6a9\uc790 \uc120\ud0dd 80kg \uae30\ubcf8 \uccb4\uc911",
+      "entries": [
+        {
+          "itemId": "armor_6b45_basic_test",
+          "slot": "vest",
+          "weightKg": 5.3,
+          "classification": "\uc6d0\ubcf8 \uac8c\uc784 \ub808\uc9c0\uc2a4\ud2b8\ub9ac",
+          "source": "src/data/body-armor.js",
+          "bones": [
+            {
+              "bone": "chest",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "plate_granit_br4",
+          "slot": "front",
+          "weightKg": 2.7,
+          "classification": "\uc6d0\ubcf8 \uac8c\uc784 \ub808\uc9c0\uc2a4\ud2b8\ub9ac",
+          "source": "src/data/plates.js",
+          "bones": [
+            {
+              "bone": "chest",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "plate_granit_br4",
+          "slot": "rear",
+          "weightKg": 2.7,
+          "classification": "\uc6d0\ubcf8 \uac8c\uc784 \ub808\uc9c0\uc2a4\ud2b8\ub9ac",
+          "source": "src/data/plates.js",
+          "bones": [
+            {
+              "bone": "chest",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "helmet_6b47_test",
+          "slot": "helmet",
+          "weightKg": 1.15,
+          "classification": "\uc6d0\ubcf8 \uac8c\uc784 \ub808\uc9c0\uc2a4\ud2b8\ub9ac",
+          "source": "src/data/helmets.js",
+          "bones": [
+            {
+              "bone": "head",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "6b45_neck",
+          "slot": "neck",
+          "weightKg": 0.45,
+          "classification": "\uc6d0\ubcf8 \uac8c\uc784 \ub808\uc9c0\uc2a4\ud2b8\ub9ac",
+          "source": "src/data/body-armor.js",
+          "bones": [
+            {
+              "bone": "chest",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "6b45_groin",
+          "slot": "groin",
+          "weightKg": 0.55,
+          "classification": "\uc6d0\ubcf8 \uac8c\uc784 \ub808\uc9c0\uc2a4\ud2b8\ub9ac",
+          "source": "src/data/body-armor.js",
+          "bones": [
+            {
+              "bone": "pelvis",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "6b45_shoulder",
+          "slot": "shoulder",
+          "weightKg": 0.85,
+          "classification": "\uc6d0\ubcf8 \uac8c\uc784 \ub808\uc9c0\uc2a4\ud2b8\ub9ac",
+          "source": "src/data/body-armor.js",
+          "bones": [
+            {
+              "bone": "leftUpperArm",
+              "share": 0.5
+            },
+            {
+              "bone": "rightUpperArm",
+              "share": 0.5
+            }
+          ]
+        }
+      ],
+      "equipmentByBone": {
+        "chest": 11.149999999999999,
+        "head": 1.15,
+        "pelvis": 0.55,
+        "leftUpperArm": 0.425,
+        "rightUpperArm": 0.425
+      },
+      "equipmentMassKg": 13.7,
+      "totalRagdollMassKg": 93.7,
+      "weaponMassKg": 3.6,
+      "weaponClassification": "\uc6d0\ubcf8 AK-74M physical.weightKg; \ubcc4\ub3c4 \ub099\ud558 \uac15\uccb4",
+      "totalWithHeldWeaponKg": 97.3,
+      "mappingClassification": "\uae30\uc874 \ubc29\ud638 \uba54\uc2dc \ubd80\ucc29 \ubf08\uc5d0 \ubc30\ubd84; \uc591\ucabd \uc5b4\uae68 \ubcf4\ud638\uad6c\ub294 \uc6d0\ubcf8 \uc30d \uc7a5\ube44 .85kg\uc744 \uc808\ubc18\uc529; \ubd84\uc808 \ubc30\ubd84\uc740 \uacf5\uac04 \uc5b4\ub311\ud130",
+      "deduplication": "Four vest soft meshes count as one vest; front/back neck meshes count as one collar; two shoulder meshes count as one pair; two distinct plates each count once",
+      "omitted": "Decorative pouches/knee covers have no equipped registry item in H01; no invented item mass. Ammo/inventory load beyond the specified armor kit is deferred"
+    },
+    "soldier": "v33 54 bones, four native clips; finger GLB and common AK rotations unchanged",
+    "flightProtectionMedical": "original source and generated declarations preserved byte for byte"
+  },
+  "tuning": {
+    "consciousnessFadeS": 0.22,
+    "weaknessFollowS": 0.65,
+    "recoveryS": 0.4,
+    "recoveryStrength": 0.72,
+    "recoveryLinearMps": 0.12,
+    "recoveryAngularRadps": 0.35,
+    "recoveryDwellS": 0.35,
+    "painLoss": 0.12,
+    "mapLoss": 0.16,
+    "mapReference": 93,
+    "mapLow": 45,
+    "minAwakeStrength": 0.62,
+    "selfCollision": true,
+    "activeSolverIterations": 12,
+    "activeAngularDamping": 30,
+    "weaponReleaseStrength": 0.32,
+    "flinchRad": 0.075,
+    "flinchS": 0.2,
+    "pelvisKp": 24000,
+    "pelvisKd": 2000,
+    "pelvisMaxForceN": 4500,
+    "upperBodyOrientationShare": 0.3,
+    "pelvisRotationKp": 600,
+    "pelvisRotationKd": 70,
+    "pelvisMaxTorqueNm": 240,
+    "motors": {
+      "torso": [
+        600,
+        100,
+        200
+      ],
+      "neck": [
+        90,
+        25,
+        40
+      ],
+      "shoulder": [
+        90,
+        16,
+        65
+      ],
+      "elbow": [
+        65,
+        12,
+        45
+      ],
+      "wrist": [
+        12,
+        4,
+        12
+      ],
+      "hip": [
+        450,
+        75,
+        220
+      ],
+      "knee": [
+        400,
+        70,
+        220
+      ],
+      "ankle": [
+        180,
+        140,
+        120
+      ]
+    },
+    "activeFootAngularDamping": 70,
+    "passiveAngularDamping": 4,
+    "weaknessActivationDrop": 0.02,
+    "recoveryPelvisErrorM": 0.04,
+    "recoveryFlinchGuardS": 0.3,
+    "motorLimitInsetRad": 0.015,
+    "stockOffsetFromRightUpperArmM": [
+      0.02,
+      0.1,
+      0.06
+    ],
+    "chestBladedYawRad": -0.45,
+    "neckRollRad": 0.55,
+    "headYawRad": -0.35,
+    "eyeForwardOfButtPadM": 0.12,
+    "cheekLandmarkLocalM": [
+      -0.035,
+      0.018,
+      0.04
+    ],
+    "clinicalFunctionFailureReadThreshold": 0.12
+  },
+  "medicalReadMapping": {
+    "general": "unconscious/dead/arrest \u21920; otherwise max(.62, consciousness/100*(1-.12*pain/100-.16*clamp((93-MAP)/48)))",
+    "part": "disabled, hp==0, functionRatio<=.12 \u21920; otherwise functionRatio in [0,1]",
+    "spinal": "existing spinalCordInjury A/B \u2192 leg strength0; arm output already contains original cervical cap",
+    "positionSupport": "generalStrength*(leftLeg+rightLeg)/2",
+    "orientationSupport": "generalStrength*(.3+.7*(leftLeg+rightLeg)/2)",
+    "jointStrength": "generalStrength*affected limb function, torso retains generalStrength",
+    "gunRelease": "unconscious or min(leftArm,rightArm)*general<.32",
+    "collapse": "unconscious/dead/arrest or a leg function0; pain/MAP by themselves do not trigger collapse"
+  },
+  "controller": {
+    "normal": "position kinematic; existing movement capsule retained, query-invisible while physical and restored on recovery",
+    "bodies": "17 massive segments plus1 collider-free kinematic pelvis target; gun3.6kg separate",
+    "jointTargets": "separate animation target skeleton; native crouch goal blended as consciousness/support is lost; local quaternion \u2192 captured joint frame",
+    "spring": "prebuilt generic six-axis pelvis joint, Rapier implicit force-based positional/angular motors",
+    "recovery": "RMS linear/angular speed, adequate general strength and small pelvis error; .35s dwell then .4s visual pose blend and kinematic recovery",
+    "flinch": "local target offset .075rad sine pulse .2s; actual impact momentum separately applied at completed body/armor contact",
+    "fingerPhysics": 0,
+    "fixedRelaxedFingers": true,
+    "ROMReference": "measured neutral coordinate clamped to anatomical interval before frame capture; tuning, not a new human ROM source",
+    "selfCollision": "nonadjacent torso/leg capsules collide; intentional adjacent overlap and head/neck versus torso capsule overlap excluded; arms collide with legs/environment",
+    "unconsciousFade": "capture strength at loss of consciousness and fade that initial value over .22s; posture uses elapsed/fade progress, avoiding prior-weakness posture jumps"
+  },
+  "performance": {
+    "goalMs": 16.7,
+    "median2xRuleRetired": true,
+    "prewarm": "combat sector entry; prepared actor + rigid objects + dropped gun + isolated solver/medical/trace warmup + compile/offscreen first draw",
+    "FX": "70 reusable impact marks, existing22 casing pool,16 pregenerated shot noise buffers; audio nodes still short-lived per shot"
+  },
+  "validation": {
+    "mechanicalInputs": "explicit medical output samples; not claims of clinical trajectories. Actual live trace/medical integration verified separately.",
+    "numericMomentumNs": 2.401,
+    "bleedingOutputFixture": "consciousness=max(5,65-30*t), MAP=max(25,70-25*t), unconscious when consciousness<20; this is a controlled adapter fixture, not a medical equation",
+    "ROM": "raw joint-frame angular diagnostic, strict numerical epsilon1e-5rad; separate2deg diagnostic is not the acceptance threshold",
+    "torso": "nonadjacent pelvis/spine/chest physical capsules only; adjacent joint-end overlap is intentional",
+    "jitter": "max component half-range over last1s; standing mode also checked before recovery",
+    "slip": "maximum horizontal ankle displacement within each continuous floor-contact episode",
+    "trialAcceptance": "all failures retained in acceptance.json and report; no assertion that this is production ready"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "version": "care-m4b-v61",
+  "retrieved": "2026-10-20",
+  "sourceRequirementsComplete": false,
+  "sources": [
+    {
+      "id": "tccc2024",
+      "title": "TCCC Guidelines 25 January2024",
+      "url": "https://jts.health.mil/assets/docs/cpgs/TCCC_Guidelines_25_Jan_2024.pdf",
+      "confirmed": [
+        "OTFC800µg for casualties not in shock/respiratory distress; reassess15min; finger/uniform attachment recommended",
+        "Ketamine50–100mg IM/IN, repeat20–30min",
+        "2024 CWMP acetaminophen500mg×2 every8h + meloxicam15mg daily"
+      ],
+      "limits": [
+        "User specifies650mg×2 ER: retained as user design; differs from this2024 document",
+        "Timing compression, all self-administration, prefilled50mg syringe and body/screen gains are game allowances/tuning",
+        "Absence of opioid respiratory suppression with low-dose ketamine is a game policy, not a claim of zero clinical risk"
+      ]
+    },
+    {
+      "id": "tccc2017",
+      "title": "Battlefield Analgesia in TCCC (PMID28601204)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28601204/",
+      "confirmed": [
+        "CWMP / OTFC for patients without shock / ketamine for shock or respiratory distress"
+      ],
+      "limits": [
+        "Does not quantify our shock adverse-effect multiplier, onset compression, or duration curve"
+      ]
+    },
+    {
+      "id": "otfc-label",
+      "title": "US DailyMed oral transmucosal fentanyl citrate label",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e4ce209d-3f8c-4ac4-bec1-2525a93708bc",
+      "confirmed": [
+        "Lozenge consumed over15min; approximately2g sugar per unit; serious respiratory depression and hypotension described"
+      ],
+      "limits": [
+        "Label describes opioid-tolerant cancer breakthrough pain; not a tactical self-treatment protocol",
+        "Game durations120/150min are tuning; no qualified1–2h analgesia duration confirmed from this label",
+        "10g including packaging/handle is tuning, not sourced packaged mass"
+      ]
+    },
+    {
+      "id": "ketamine-label",
+      "title": "Pfizer Ketamine Hydrochloride Injection US label",
+      "url": "https://labeling.pfizer.com/ShowLabeling.aspx?format=PDF&id=4485",
+      "confirmed": [
+        "Transient increases in BP/heart rate/cardiac index; emergence reactions; respiratory depression/apnea possible with overdose/rapid use"
+      ],
+      "limits": [
+        "Anesthetic doses/onset cannot be transferred to50mg IM analgesia; game30–40min duration and onset compression tuned"
+      ]
+    },
+    {
+      "id": "vented-review",
+      "title": "Chest seals evidence review PMID33721314",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33721314/",
+      "confirmed": [
+        "Four swine-model studies: vented seals more successful in preventing tension than unvented; frequent reassessment still needed"
+      ],
+      "limits": [
+        "Animal model; does not measure a0.006/s human pneumothorax recovery rate"
+      ]
+    },
+    {
+      "id": "vented-pig",
+      "title": "Vented chest seal efficacy in swine HPTX PMID28422911",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28422911/",
+      "confirmed": [
+        "26pigs,43kg; open chest+226mL blood; incremental air infusion; valve performance differs with bleeding"
+      ],
+      "limits": [
+        "Artificial communicating injury; not clinical incidence or our numeric venting coefficient"
+      ]
+    },
+    {
+      "id": "incidence-penetrating",
+      "title": "Vienna penetrating chest injury series PMID37544864",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37544864/",
+      "confirmed": [
+        "480penetrating chest injuries; severe subset43%; combined (tension-)pneumothorax29% within severe subset"
+      ],
+      "limits": [
+        "Combined pneumothorax/tension endpoint and mostly stabbing: cannot use29% as a tension incidence target for rifle lung wounds"
+      ]
+    },
+    {
+      "id": "incidence-tubes",
+      "title": "Chest trauma catheter series PMID15191471",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15191471/",
+      "confirmed": [
+        "173patients/211tubes; tension was7.5% of insertion indications;90.2% blunt injury"
+      ],
+      "limits": [
+        "Selection bias, mixed injury and different denominator; not penetrating lung-wound incidence"
+      ]
+    },
+    {
+      "id": "incidence-police",
+      "title": "Fatal police penetrating-torso series PMID22591934",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22591934/",
+      "confirmed": [
+        "60autopsies, no coroner specifically identified tension;95%CI0–5.96%"
+      ],
+      "limits": [
+        "Fatal-only cohort/retrospective autopsy and underrecognition; not a valid0% gameplay target"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    "Qualified penetrating pulmonary-wound tension incidence: no valid exact target found; deterministic10% valve trait is explicit tuning, measured13/120 conditional cases, not clinical incidence",
+    "Actual packaged masses of new pill/OTFC/prefilled syringe/blood kit/medic pouch were not found: all envelopes/masses tuned",
+    "Pressure-bag500mL/10min, real oral onset30–60min, OTFC15min clinical onset and50mgIM5min analgesic onset were not independently confirmed; timing policies follow user design with actual-label limits stated"
+  ],
+  "reversePortCandidate": true,
+  "automatic2DPort": false
+}

@@ -1,0 +1,50 @@
+{
+  "ruleId": "medical-vision-stability-v56",
+  "baseline": "f9ce49e1190068509f33cf4d4d9eddd817779088",
+  "values": [
+    {
+      "name": "retinal attack time constant",
+      "value": 0.18,
+      "unit": "s",
+      "classification": "튜닝 / 화면 표현",
+      "meaning": "90% darkening response in ~0.414s, no medical delay"
+    },
+    {
+      "name": "retinal recovery time constant",
+      "value": 0.45,
+      "unit": "s",
+      "classification": "튜닝 / 화면 표현",
+      "meaning": "90% recovery in ~1.036s"
+    },
+    {
+      "name": "settle epsilon",
+      "value": 1e-06,
+      "classification": "튜닝 / 수치 정착",
+      "meaning": "Restore exact endpoints after convergence"
+    }
+  ],
+  "retained": [
+    {
+      "classification": "출처 / 원본",
+      "value": "Existing rho*g*h retinal pressure and D2 exercise HR/CO/oxygen demand calculations, unmodified byte-for-byte"
+    },
+    {
+      "classification": "원본",
+      "value": "Blood-volume grayscale/peripheral/tunnel/blackout gates; pain/drowsy eyelids; immediate unconscious black; AI volume-only sight; aim/camera/muzzle paths; all assets"
+    }
+  ],
+  "design": "Independent read-only temporal envelope for conscious retinal tunnel and blackout. Raw retinal diagnostics remain available; AI keeps volume-only mapping. New actors and time rewind reset the envelope; unconscious frames read raw retinal values and keep immediate black composition.",
+  "medicalFormulaChanges": false,
+  "additionalRenderPasses": 0,
+  "newExternalSources": false,
+  "physicalDeviceValidation": false,
+  "storageCleanup": {
+    "classification": "사용자 요청",
+    "deletedOldActionsBuilds": 23,
+    "bytes": 526712222,
+    "actionsArtifactsAfter": 0,
+    "cachesAfter": 0,
+    "sourceOrOriginalAssetDeleted": false,
+    "historyRewritten": false
+  }
+}

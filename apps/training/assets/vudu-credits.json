@@ -1,0 +1,10 @@
+{
+  "name": "EOTECH Vudu 1-6x24",
+  "author": "Se_Oscar_Ya",
+  "authorUrl": "https://sketchfab.com/Se_Oscar_Ya",
+  "source": "https://sketchfab.com/3d-models/eotech-vudu-1-6x24-2d2f9025c2374f39a9155b7dc5f89e68",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "sourceSha256": "13b3ce147e1a7891367035b2a3ea4f78fecac997ff2bb1b53beb08cd13640e09",
+  "changes": "Original uploaded GLB retained. Derived 270mm canonical optic and lens/mount markers; source mesh/UV/material topology retained; WebP images at original resolution, near-lossless q20 normals and lossy q90 material maps. M4 attachment shown through native gun poses; rear iron assembly hidden while attached, restored on removal. Inventory 1x2 item and timed atomic ownership transfers added. Vudu PiP/SR3 and authored optical effects; numerical zeroing remains deferred. v28 resolution-preserving second-stage q90 material/q92 color recompression per uploaded side-optics kit. Original uploads and historical first-stage derivatives retained."
+}

@@ -1,0 +1,878 @@
+{
+  "sourceSHA256": "41409cb592f1bc0e60f4cf0639e7720475bf0734e5d0187cecd7e65833aa15a6",
+  "minHeightToleranceM": 0.015,
+  "minSameFootContactGapS": 0.22,
+  "clips": {
+    "run backward left": {
+      "durationS": 0.5,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.20025860428563158,
+          "maxAnkleM": 0.3572740779301668,
+          "contacts": [
+            {
+              "timeS": 0.24583333333333332,
+              "ankleHeightM": 0.21139007310583097
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.20631998651400685,
+          "maxAnkleM": 0.3247400511824049,
+          "contacts": [],
+          "usable": false
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "run backward right": {
+      "durationS": 0.5,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.2007405131852087,
+          "maxAnkleM": 0.32431571687519767,
+          "contacts": [
+            {
+              "timeS": 0.2375,
+              "ankleHeightM": 0.2007405131852087
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.19870401151898376,
+          "maxAnkleM": 0.34642435288975537,
+          "contacts": [
+            {
+              "timeS": 0.475,
+              "ankleHeightM": 0.19870401151898376
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "run backward": {
+      "durationS": 0.5,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.2024269480428016,
+          "maxAnkleM": 0.3572660919653291,
+          "contacts": [
+            {
+              "timeS": 0.24583333333333332,
+              "ankleHeightM": 0.211336486536116
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.20631621856862514,
+          "maxAnkleM": 0.3247401659329712,
+          "contacts": [],
+          "usable": false
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "run forward left": {
+      "durationS": 0.5,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.19872515482825032,
+          "maxAnkleM": 0.4358674930984649,
+          "contacts": [
+            {
+              "timeS": 0.20833333333333334,
+              "ankleHeightM": 0.1998244932595425
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.19636939890199262,
+          "maxAnkleM": 0.5119645795071551,
+          "contacts": [
+            {
+              "timeS": 0.45,
+              "ankleHeightM": 0.19636939890199262
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "run forward right": {
+      "durationS": 0.5,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.1988697720706401,
+          "maxAnkleM": 0.46446810606759525,
+          "contacts": [
+            {
+              "timeS": 0.19583333333333333,
+              "ankleHeightM": 0.20025539262921627
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.20986160781609114,
+          "maxAnkleM": 0.44593214869299624,
+          "contacts": [
+            {
+              "timeS": 0.42916666666666664,
+              "ankleHeightM": 0.21095768153828365
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "run forward": {
+      "durationS": 0.5,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.19429924048599007,
+          "maxAnkleM": 0.3927592860472029,
+          "contacts": [
+            {
+              "timeS": 0.2125,
+              "ankleHeightM": 0.19429924048599007
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.19154954703369848,
+          "maxAnkleM": 0.3716814693044592,
+          "contacts": [
+            {
+              "timeS": 0.45,
+              "ankleHeightM": 0.19154954703369848
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "run left": {
+      "durationS": 0.5,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.19937232861189202,
+          "maxAnkleM": 0.42493666263410407,
+          "contacts": [
+            {
+              "timeS": 0.275,
+              "ankleHeightM": 0.19973799313623147
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.22669832356864628,
+          "maxAnkleM": 0.33142467753217075,
+          "contacts": [],
+          "usable": false
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "run right": {
+      "durationS": 0.5,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.19876455831358464,
+          "maxAnkleM": 0.5375127948532631,
+          "contacts": [
+            {
+              "timeS": 0.18333333333333332,
+              "ankleHeightM": 0.19876455831358464
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.19542522973979848,
+          "maxAnkleM": 0.4375908135201168,
+          "contacts": [
+            {
+              "timeS": 0.4166666666666667,
+              "ankleHeightM": 0.19542522973979848
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "sprint backward left": {
+      "durationS": 0.5,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.20165986335661745,
+          "maxAnkleM": 0.35126714079480553,
+          "contacts": [
+            {
+              "timeS": 0.20416666666666666,
+              "ankleHeightM": 0.20284919116255457
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.19847834650544904,
+          "maxAnkleM": 0.35888396725353744,
+          "contacts": [
+            {
+              "timeS": 0.475,
+              "ankleHeightM": 0.19847834650544904
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "sprint backward right": {
+      "durationS": 0.5,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.1986625189557863,
+          "maxAnkleM": 0.35784562979756146,
+          "contacts": [
+            {
+              "timeS": 0.22916666666666666,
+              "ankleHeightM": 0.20018220107268447
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.1987185520837404,
+          "maxAnkleM": 0.30581187171303303,
+          "contacts": [
+            {
+              "timeS": 0.4791666666666667,
+              "ankleHeightM": 0.19945097214693325
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "sprint backward": {
+      "durationS": 0.5,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.20177397513527662,
+          "maxAnkleM": 0.3518684068835475,
+          "contacts": [
+            {
+              "timeS": 0.20416666666666666,
+              "ankleHeightM": 0.20279059465931343
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.1975638204915296,
+          "maxAnkleM": 0.35888170602914327,
+          "contacts": [
+            {
+              "timeS": 0.4375,
+              "ankleHeightM": 0.1975638204915296
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "sprint forward left": {
+      "durationS": 0.5,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.19619238738499867,
+          "maxAnkleM": 0.5419096888178394,
+          "contacts": [
+            {
+              "timeS": 0.21666666666666667,
+              "ankleHeightM": 0.19619238738499867
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.1975769234963619,
+          "maxAnkleM": 0.5457254343955991,
+          "contacts": [
+            {
+              "timeS": 0.475,
+              "ankleHeightM": 0.1975769234963619
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "sprint forward right": {
+      "durationS": 0.5,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.200449813854697,
+          "maxAnkleM": 0.4937423764519916,
+          "contacts": [
+            {
+              "timeS": 0.2,
+              "ankleHeightM": 0.200449813854697
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.1912014628268811,
+          "maxAnkleM": 0.5626525704868635,
+          "contacts": [
+            {
+              "timeS": 0.4625,
+              "ankleHeightM": 0.1977508859888718
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "sprint forward": {
+      "durationS": 0.5,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.1866948641130029,
+          "maxAnkleM": 0.48001892823043885,
+          "contacts": [
+            {
+              "timeS": 0.1875,
+              "ankleHeightM": 0.1964483795736871
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.19215092930973104,
+          "maxAnkleM": 0.5037016498567403,
+          "contacts": [
+            {
+              "timeS": 0.44583333333333336,
+              "ankleHeightM": 0.19215092930973104
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "sprint left": {
+      "durationS": 0.5,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.19961489367479623,
+          "maxAnkleM": 0.504091984918667,
+          "contacts": [
+            {
+              "timeS": 0.2375,
+              "ankleHeightM": 0.19987972351905986
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.20005354095944777,
+          "maxAnkleM": 0.4837198164158857,
+          "contacts": [
+            {
+              "timeS": 0.475,
+              "ankleHeightM": 0.2002142621877389
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "sprint right": {
+      "durationS": 0.5,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.19246003485521923,
+          "maxAnkleM": 0.5052234072448597,
+          "contacts": [
+            {
+              "timeS": 0.20833333333333334,
+              "ankleHeightM": 0.19246003485521923
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.19585211405997693,
+          "maxAnkleM": 0.5237767292288473,
+          "contacts": [
+            {
+              "timeS": 0.4583333333333333,
+              "ankleHeightM": 0.19585211405997693
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "walk backward left": {
+      "durationS": 1,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.20809631640784848,
+          "maxAnkleM": 0.2900957351186487,
+          "contacts": [
+            {
+              "timeS": 0.30833333333333335,
+              "ankleHeightM": 0.21161351450340266
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.19693659677556036,
+          "maxAnkleM": 0.2835953309566947,
+          "contacts": [
+            {
+              "timeS": 0.775,
+              "ankleHeightM": 0.2025165997328425
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "walk backward right": {
+      "durationS": 1,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.19766803584774678,
+          "maxAnkleM": 0.29241234718988085,
+          "contacts": [
+            {
+              "timeS": 0.30833333333333335,
+              "ankleHeightM": 0.2006091702041484
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.19828177560156723,
+          "maxAnkleM": 0.3049021295948202,
+          "contacts": [
+            {
+              "timeS": 0.8083333333333333,
+              "ankleHeightM": 0.19946788144585212
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "walk backward": {
+      "durationS": 0.9666666388511658,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.20092309309983064,
+          "maxAnkleM": 0.29264334000104186,
+          "contacts": [
+            {
+              "timeS": 0.2375,
+              "ankleHeightM": 0.21230725688835084
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.19810105930092403,
+          "maxAnkleM": 0.30618582420886375,
+          "contacts": [
+            {
+              "timeS": 0.8083333333333333,
+              "ankleHeightM": 0.20025128503507816
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "walk crouching backward left": {
+      "durationS": 1,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.19807496024357385,
+          "maxAnkleM": 0.30586078677667466,
+          "contacts": [
+            {
+              "timeS": 0.475,
+              "ankleHeightM": 0.20056269977456453
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.19770538840453877,
+          "maxAnkleM": 0.2994799082825136,
+          "contacts": [
+            {
+              "timeS": 0.9416666666666667,
+              "ankleHeightM": 0.19968631232769496
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "walk crouching backward right": {
+      "durationS": 1,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.19618414378910054,
+          "maxAnkleM": 0.29016708607477604,
+          "contacts": [
+            {
+              "timeS": 0.44166666666666665,
+              "ankleHeightM": 0.19876609559957759
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.19832030065564593,
+          "maxAnkleM": 0.282808877449865,
+          "contacts": [
+            {
+              "timeS": 0.9416666666666667,
+              "ankleHeightM": 0.20753997874147037
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "walk crouching backward": {
+      "durationS": 1,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.19616513833182259,
+          "maxAnkleM": 0.28624235706638596,
+          "contacts": [
+            {
+              "timeS": 0.4375,
+              "ankleHeightM": 0.1989145282889594
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.19725683842282188,
+          "maxAnkleM": 0.2893371418031439,
+          "contacts": [],
+          "usable": false
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "walk crouching forward left": {
+      "durationS": 1,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.1961848015021882,
+          "maxAnkleM": 0.290167147251006,
+          "contacts": [
+            {
+              "timeS": 0.3333333333333333,
+              "ankleHeightM": 0.1961848015021882
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.19835075804628438,
+          "maxAnkleM": 0.28363634047048014,
+          "contacts": [
+            {
+              "timeS": 0.6333333333333333,
+              "ankleHeightM": 0.19856303559946253
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "walk crouching forward right": {
+      "durationS": 1,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.19710535388391043,
+          "maxAnkleM": 0.28954058145734785,
+          "contacts": [
+            {
+              "timeS": 0.12083333333333333,
+              "ankleHeightM": 0.2115354297085429
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.20302045963642223,
+          "maxAnkleM": 0.2889595405162353,
+          "contacts": [
+            {
+              "timeS": 0.8166666666666667,
+              "ankleHeightM": 0.20302045963642223
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "walk crouching forward": {
+      "durationS": 1,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.19890024288632274,
+          "maxAnkleM": 0.28741384457298264,
+          "contacts": [
+            {
+              "timeS": 0.31666666666666665,
+              "ankleHeightM": 0.19890024288632274
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.19558782790875673,
+          "maxAnkleM": 0.28931345734127784,
+          "contacts": [
+            {
+              "timeS": 0.6541666666666667,
+              "ankleHeightM": 0.1986915494147482
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "walk crouching left": {
+      "durationS": 1,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.19598093263504307,
+          "maxAnkleM": 0.32435005755351026,
+          "contacts": [
+            {
+              "timeS": 0.4791666666666667,
+              "ankleHeightM": 0.19691432696017536
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.1956893728671657,
+          "maxAnkleM": 0.33705627121804377,
+          "contacts": [],
+          "usable": false
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "walk crouching right": {
+      "durationS": 1,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.19799883953700936,
+          "maxAnkleM": 0.328624646509489,
+          "contacts": [
+            {
+              "timeS": 0.30833333333333335,
+              "ankleHeightM": 0.19799883953700936
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.19643128750114142,
+          "maxAnkleM": 0.32517933749674316,
+          "contacts": [
+            {
+              "timeS": 0.7833333333333333,
+              "ankleHeightM": 0.19643128750114142
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "walk forward left": {
+      "durationS": 1,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.19775539667733538,
+          "maxAnkleM": 0.29241578538292434,
+          "contacts": [
+            {
+              "timeS": 0.31666666666666665,
+              "ankleHeightM": 0.19775539667733538
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.1977637097721474,
+          "maxAnkleM": 0.304899093116558,
+          "contacts": [
+            {
+              "timeS": 0.8166666666666667,
+              "ankleHeightM": 0.1977637097721474
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "walk forward right": {
+      "durationS": 1,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.19728383724570459,
+          "maxAnkleM": 0.2893546244619098,
+          "contacts": [
+            {
+              "timeS": 0.36666666666666664,
+              "ankleHeightM": 0.19728383724570459
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.19882735519819938,
+          "maxAnkleM": 0.2936995285935123,
+          "contacts": [
+            {
+              "timeS": 0.825,
+              "ankleHeightM": 0.19882735519819938
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "walk forward": {
+      "durationS": 1,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.1984308531152238,
+          "maxAnkleM": 0.2933467675794428,
+          "contacts": [
+            {
+              "timeS": 0.32916666666666666,
+              "ankleHeightM": 0.19860240622691916
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.19639823248872385,
+          "maxAnkleM": 0.3037306350883263,
+          "contacts": [
+            {
+              "timeS": 0.825,
+              "ankleHeightM": 0.19639823248872385
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "walk left": {
+      "durationS": 1,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.19718360080464542,
+          "maxAnkleM": 0.288710509376206,
+          "contacts": [
+            {
+              "timeS": 0.4125,
+              "ankleHeightM": 0.19959367386947857
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.19683014502706403,
+          "maxAnkleM": 0.2841070384297803,
+          "contacts": [
+            {
+              "timeS": 0.9416666666666667,
+              "ankleHeightM": 0.2005747380422237
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    },
+    "walk right": {
+      "durationS": 1,
+      "feet": {
+        "left": {
+          "minAnkleM": 0.19557689131135647,
+          "maxAnkleM": 0.3310593032307275,
+          "contacts": [
+            {
+              "timeS": 0.21666666666666667,
+              "ankleHeightM": 0.19557689131135647
+            }
+          ],
+          "usable": true
+        },
+        "right": {
+          "minAnkleM": 0.1998445957321775,
+          "maxAnkleM": 0.28564688079814815,
+          "contacts": [
+            {
+              "timeS": 0.725,
+              "ankleHeightM": 0.1998445957321775
+            }
+          ],
+          "usable": true
+        }
+      },
+      "method": "240Hz retargeted ankle minima, floor band min+15mm (tuning)"
+    }
+  }
+}

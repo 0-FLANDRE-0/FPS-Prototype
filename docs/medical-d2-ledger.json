@@ -1,0 +1,585 @@
+{
+  "version": "medical-activity-d2-v55",
+  "baseline": "3d118338f0a135ad243e17c1dbcc42a12a3660d1",
+  "sourceCommit": "39839d0469180ce1f67ce263007ae0ca9e09cbe0",
+  "items": [
+    {
+      "item": "D1c eye composition correction",
+      "classification": [
+        "사용자 설계값",
+        "게임 허용"
+      ],
+      "change": "20% remnant before lids, unconscious black last; no remnant visible through closed eyes",
+      "reversePortCandidate": true
+    },
+    {
+      "item": "S2 concussion input",
+      "classification": [
+        "원본",
+        "튜닝"
+      ],
+      "change": "Only brain/brainstem/head skull-risk; S2 is blocked temporary cavity volume/organ volume, not joules. Dose+=1.6*sqrt(risk), cap3; severity follows clamp(dose) with0.6s rise;120s decay. No consciousness/LOC/stagger added.",
+      "reversePortCandidate": true
+    },
+    {
+      "item": "concussion consumer",
+      "classification": [
+        "출처",
+        "튜닝",
+        "게임 허용"
+      ],
+      "change": "CDC symptoms + separate tinnitus source; existing v46 oscillator gain max-combined, full frame blur, accommodation/turn delay, highlights; handling/reload/reaction and AI convergence slowed. Minutes-long recovery is game allowance.",
+      "reversePortCandidate": true
+    },
+    {
+      "item": "leg reserve",
+      "classification": [
+        "원본",
+        "튜닝"
+      ],
+      "change": "13.7kg equipment input;32s base sprint;24s standing/crouched and70s walking recovery;25% capacity hysteresis; capacity and recovery = limb function*(1-.45perceived limb pain)*blood ratio*oxygen ratio. Runtime medical changes can shorten reserve sooner.",
+      "reversePortCandidate": true
+    },
+    {
+      "item": "arm reserve",
+      "classification": [
+        "출처",
+        "원본",
+        "튜닝"
+      ],
+      "change": "Original weapon/optic masses; authored.31/.34m bare lever and.27m attachment lever;g9.81,40Nm torque reference;crouch load*.88; authored MVC/time log anchors. Existing hold servo disturbance+.0035fatigue rad, strength*(1-.6fatigue); no forced ADS release. AI floor/convergence same fatigue read.",
+      "reversePortCandidate": true
+    },
+    {
+      "item": "exercise HR",
+      "classification": [
+        "사용자 설계값",
+        "출처",
+        "튜닝"
+      ],
+      "change": "Speed/gear intensity0–1; independent+95I bpm component, rise18s/recovery45s; original190bpm cap. Pathology HR alone receives original tachy SV/filling penalties. Terminal HR reads oxygen supply, cognition/vision read supply/demand; actual supply-failure/agonal/arrest retained.",
+      "reversePortCandidate": true
+    },
+    {
+      "item": "exercise circulation",
+      "classification": [
+        "출처",
+        "튜닝"
+      ],
+      "change": "Capacity=original preload^4 * circulating reserve; preload extra*(1+.25Icapacity),contractility extra*(1+.32Icapacity); SV and HR increase CO. MAP+20Icapacity. Supply has extraction*(1+.75Icapacity), demand1+1.8I; ratio drives existing consciousness/vision. Pump loss still applies.",
+      "reversePortCandidate": true
+    },
+    {
+      "item": "regional bleeding",
+      "classification": [
+        "출처",
+        "사용자 설계값",
+        "튜닝"
+      ],
+      "change": "Parenchymal/organ-bed liver,spleen,kidney perfusion multiplied1/(1+4I) on current CO; limb ooze*(1+2I). Named artery orifice unchanged; global current CO cap unchanged.",
+      "reversePortCandidate": true
+    },
+    {
+      "item": "breathing and HR pulse",
+      "classification": [
+        "사용자 설계값",
+        "튜닝",
+        "원본"
+      ],
+      "change": "Breath frequency+.5I+.18legFatigue Hz; amplitude+.0007I+.00025legFatigue rad. Existing actual HR>150 aim penalty and heartbeat pulse retained.",
+      "reversePortCandidate": true
+    },
+    {
+      "item": "status HUD",
+      "classification": [
+        "사용자 설계값",
+        "튜닝"
+      ],
+      "change": "8 parts, HP thresholds75/50/25/0%; green/yellow/orange/red/destroyed black with faint edge;hit flash.25s;6 postures;2 blue absolute-capacity bars; DOM overlay outside lens; hidden after collapse; debug tab next to slot3; touch ghost-row selection prevented.",
+      "reversePortCandidate": true
+    },
+    {
+      "item": "preservation",
+      "classification": [
+        "원본"
+      ],
+      "change": "No exercise history+intensity0 uses literal original physiology path; new activity WeakMap never adds retained medical keys. Concussion/stamina live outside original medical snapshot. Post-exercise recovery remains intentionally active.2D source/HTML, damage/HP/wound, registry, ballistics/protection/fingers/assets preserved.",
+      "reversePortCandidate": true
+    }
+  ],
+  "values": {
+    "ruleId": "medical-activity-d2-v55",
+    "equipmentMassKg": 13.7,
+    "sprintSeconds": 32,
+    "legRecoveryS": 24,
+    "walkingRecoveryS": 70,
+    "sprintRestart": 0.25,
+    "shoulderTorqueNm": 40,
+    "armRecoveryS": 32,
+    "crouchArmLoad": 0.88,
+    "enduranceCurve": [
+      [
+        0.15,
+        600
+      ],
+      [
+        0.2,
+        300
+      ],
+      [
+        0.3,
+        110
+      ],
+      [
+        0.4,
+        55
+      ],
+      [
+        0.5,
+        30
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "exerciseHrBpm": 95,
+    "hrRiseTauS": 18,
+    "hrRecoveryTauS": 45,
+    "exercisePreloadGain": 0.25,
+    "exerciseContractilityGain": 0.32,
+    "oxygenExtractionGain": 0.75,
+    "oxygenDemandGain": 1.8,
+    "organRedistributionGain": 4,
+    "muscleFlowGain": 2,
+    "concussionGain": 1.6,
+    "concussionRiskPower": 0.5,
+    "concussionTauS": 120,
+    "concussionRiseTauS": 0.6,
+    "concussionHandlingLoss": 0.32,
+    "concussionHearingDb": 8,
+    "concussionTinnitusGain": 0.0025,
+    "reversePortCandidate": true,
+    "automatic2DPort": false,
+    "baseline": "v54",
+    "ledger": "docs/medical-d2-ledger.json",
+    "sources": "docs/medical-d2-sources.json",
+    "concussion": "S2 skull cavity risk only; no LOC/stagger added; shared tinnitus channel",
+    "zeroExercise": "retained physiology byte equality; post-exercise HR recovery explicitly active",
+    "exercise": "separate HR contribution, preload-limited pump/contractility, supply/demand oxygen, regional bleeding factors",
+    "hud": "8 anatomical parts,6 postures,2 stamina bars; DOM outside postprocessing",
+    "blackoutComposite": "20% remnant first; eyelids cover it; unconscious black last",
+    "additionalSourceTuning": {
+      "classification": "튜닝 /2D 역이식 후보",
+      "intensity": {
+        "minimumSpeedMps": 0.05,
+        "walkReferenceMps": 1.6,
+        "walkIntensity": 0.18,
+        "sprintReferenceMps": 4.5,
+        "gearIntensityGainPerKg": 0.01
+      },
+      "capacity": "clamp(min(limb function)*(1-.45*max(masked limb pain)/100)*bloodMl/bloodMax*clamp(oxygen ratio),0,1)",
+      "legExtraDrain": "1+max(0,equipmentKg-13.7)/40",
+      "arm": {
+        "bareLeverM": {
+          "m4a1": 0.31,
+          "ak74m": 0.34
+        },
+        "attachmentLeverM": 0.27,
+        "gravityMps2": 9.81,
+        "capacityDenominatorFloor": 0.05,
+        "fatigueBeginsAtRemainingFraction": 0.65,
+        "servoImpairmentGain": 0.8,
+        "servoStrengthLoss": 0.6,
+        "servoDisturbanceRad": 0.0035,
+        "aiFloorGain": 3,
+        "aiConvergenceLoss": 0.65
+      },
+      "concussion": {
+        "focusMinimumDepthM": 0.2,
+        "focusTurnScaleRadS": 3,
+        "focusLogDepthGain": 0.8,
+        "focusRecoveryTauS": 0.65,
+        "depthRayEveryTicks": 5,
+        "blurBase": 0.35,
+        "blurBreathingAmplitude": 0.12,
+        "blurAngularFrequencyRadS": 0.63,
+        "focusBlurGain": 0.5,
+        "highlightBloomGain": 0.3,
+        "blurSampleRadiusCssPx": "1+5*blur",
+        "blurMixCap": 0.9,
+        "highlightLumaRange": [
+          0.4,
+          1.1
+        ]
+      },
+      "circulation": {
+        "capacityPower": 4,
+        "MAPGainMmHg": 20,
+        "referenceHR": 75,
+        "oxygenRatioCap": 1.2
+      },
+      "breathing": {
+        "exerciseFrequencyGainHz": 0.5,
+        "legFatigueFrequencyGainHz": 0.18,
+        "exerciseAmplitudeGainRad": 0.0007,
+        "legFatigueAmplitudeGainRad": 0.00025
+      },
+      "HUD": {
+        "colorThresholds": [
+          0.75,
+          0.5,
+          0.25,
+          0
+        ],
+        "hitFlashS": 0.25,
+        "desktopWidthPx": 100,
+        "mobileWidthPx": 80,
+        "mobileBodyHeightPx": 100
+      }
+    }
+  },
+  "sources": "docs/medical-d2-sources.json",
+  "automatic2DPort": false,
+  "measurements": {
+    "passed": true,
+    "version": "medical-activity-d2-v55",
+    "baseline": "3d118338f0a135ad243e17c1dbcc42a12a3660d1",
+    "sourceCommit": "39839d0469180ce1f67ce263007ae0ca9e09cbe0",
+    "tests": 384,
+    "s0Cases": 240,
+    "channels": 684,
+    "singleShots": 28,
+    "stationaryMedicalSecondsPerShot": 900,
+    "stationary600TicksExact": true,
+    "moving600TicksIntentionallyChanged": {
+      "ticks": 600,
+      "shots": 6,
+      "movingTicks": 300,
+      "exact": false,
+      "intendedExerciseChange": {
+        "changedTicks": 600,
+        "firstChangedTick": 0,
+        "final": [
+          {
+            "version": "v54",
+            "HR": 75,
+            "CO": 1,
+            "MAP": 93,
+            "oxygen": 1
+          },
+          {
+            "version": "v55",
+            "HR": 76.8234377880656,
+            "CO": 1.024313595939654,
+            "MAP": 93.00085648952829,
+            "oxygen": 1.024310847092529
+          }
+        ]
+      }
+    },
+    "healthy60s": [
+      {
+        "speedMps": 0,
+        "HR60": 75,
+        "CO60_Lmin": 5.25,
+        "MAP60": 93,
+        "HR120": 75,
+        "CO120_Lmin": 5.25,
+        "oxygen60": 1
+      },
+      {
+        "speedMps": 1.4,
+        "HR60": 89.4287278746354,
+        "CO60_Lmin": 6.834388637724487,
+        "MAP60": 96.15000000005324,
+        "HR120": 78.80337137438069,
+        "CO120_Lmin": 5.516334620393758,
+        "oxygen60": 1.134056919591805
+      },
+      {
+        "speedMps": 1.6,
+        "HR60": 91.48997471384577,
+        "CO60_Lmin": 7.077935451308814,
+        "MAP60": 96.60000000004757,
+        "HR120": 79.3467101421493,
+        "CO120_Lmin": 5.554382423307151,
+        "oxygen60": 1.1557267640964346
+      },
+      {
+        "speedMps": 4.5,
+        "HR60": 166.6109706320111,
+        "CO60_Lmin": 19.243204502287234,
+        "MAP60": 112.99999999999994,
+        "HR120": 99.14838967860506,
+        "CO120_Lmin": 6.941013462817463,
+        "oxygen60": 1.2
+      }
+    ],
+    "legStamina": [
+      {
+        "condition": "healthy",
+        "exhaustion": 32,
+        "restart": 38,
+        "recoveryToRestart": 6,
+        "fullRecovery": 56
+      },
+      {
+        "condition": "leg-injury",
+        "exhaustion": 19.883333333333333,
+        "restart": 25.883333333333333,
+        "recoveryToRestart": 6,
+        "fullRecovery": 43.88333333333333
+      },
+      {
+        "condition": "blood-loss",
+        "exhaustion": 25.6,
+        "restart": 31.6,
+        "recoveryToRestart": 6,
+        "fullRecovery": 49.61666666666667
+      },
+      {
+        "condition": "heavy-equipment",
+        "exhaustion": 22.75,
+        "restart": 28.766666666666666,
+        "recoveryToRestart": 6.016666666666666,
+        "fullRecovery": 46.766666666666666
+      }
+    ],
+    "armStamina": [
+      {
+        "weapon": "m4a1",
+        "optic": null,
+        "injured": false,
+        "massKg": 3.07,
+        "enduranceS": 214.58333333333334,
+        "torqueNm": 9.336177000000001,
+        "MVC": 0.23340442500000003
+      },
+      {
+        "weapon": "m4a1",
+        "optic": "eotech_xps3_0",
+        "injured": false,
+        "massKg": 3.2969999999999997,
+        "enduranceS": 184.53333333333333,
+        "torqueNm": 9.937431900000002,
+        "MVC": 0.24843579750000006
+      },
+      {
+        "weapon": "m4a1",
+        "optic": "trijicon_ta31",
+        "injured": false,
+        "massKg": 3.49241,
+        "enduranceS": 162.06666666666666,
+        "torqueNm": 10.455014367,
+        "MVC": 0.261375359175
+      },
+      {
+        "weapon": "m4a1",
+        "optic": "vudu_1_6x24",
+        "injured": false,
+        "massKg": 3.6399999999999997,
+        "enduranceS": 146.93333333333334,
+        "torqueNm": 10.845936,
+        "MVC": 0.2711484
+      },
+      {
+        "weapon": "ak74m",
+        "optic": null,
+        "injured": false,
+        "massKg": 3.6,
+        "enduranceS": 109.86666666666666,
+        "torqueNm": 12.007440000000003,
+        "MVC": 0.30018600000000006
+      },
+      {
+        "weapon": "ak74m",
+        "optic": null,
+        "injured": true,
+        "massKg": 3.6,
+        "enduranceS": 36.2,
+        "torqueNm": 12.007440000000003,
+        "MVC": 0.30018600000000006
+      }
+    ],
+    "actualGameplaySprint": {
+      "exhaustion": 29.466666666666665,
+      "recoveryToRestart": 6.183333333333334,
+      "restarted": true
+    },
+    "injuryTimes": [
+      {
+        "case": "femoral-complete",
+        "speedMps": 0,
+        "downS": 27.783333333333335,
+        "unconsciousS": 81.9,
+        "arrestS": 85.8
+      },
+      {
+        "case": "femoral-complete",
+        "speedMps": 4.5,
+        "downS": 10.083333333333334,
+        "unconsciousS": 77.83333333333333,
+        "arrestS": 81.71666666666667
+      },
+      {
+        "case": "arm-muscle",
+        "speedMps": 0,
+        "downS": null,
+        "unconsciousS": null,
+        "arrestS": null
+      },
+      {
+        "case": "arm-muscle",
+        "speedMps": 4.5,
+        "downS": null,
+        "unconsciousS": null,
+        "arrestS": null
+      },
+      {
+        "case": "liver-central",
+        "speedMps": 0,
+        "downS": 155.23333333333332,
+        "unconsciousS": 535.7833333333333,
+        "arrestS": 556.65
+      },
+      {
+        "case": "liver-central",
+        "speedMps": 4.5,
+        "downS": 136.08333333333334,
+        "unconsciousS": 655.1833333333333,
+        "arrestS": 676.0666666666667
+      },
+      {
+        "case": "left-kidney-central",
+        "speedMps": 0,
+        "downS": 246.46666666666667,
+        "unconsciousS": null,
+        "arrestS": null
+      },
+      {
+        "case": "left-kidney-central",
+        "speedMps": 4.5,
+        "downS": 303.43333333333334,
+        "unconsciousS": null,
+        "arrestS": null
+      }
+    ],
+    "frames": [
+      {
+        "width": 1280,
+        "mode": "v54",
+        "cpuMs_median": 4.6000000005587935,
+        "cpuMs_p95": 6.2999999998137355,
+        "cpuMs_max": 6.2999999998137355,
+        "gpuWaitMs_median": 379.09999999962747,
+        "gpuWaitMs_p95": 401.30000000074506,
+        "gpuWaitMs_max": 401.30000000074506,
+        "totalMs_median": 383.70000000018626,
+        "totalMs_p95": 405.80000000074506,
+        "totalMs_max": 405.80000000074506,
+        "calls": 231,
+        "triangles": 80175,
+        "hudMedianMs": null,
+        "hudP95Ms": null
+      },
+      {
+        "width": 1280,
+        "mode": "v55-neutral",
+        "cpuMs_median": 6.099999999627471,
+        "cpuMs_p95": 14.799999999813735,
+        "cpuMs_max": 14.799999999813735,
+        "gpuWaitMs_median": 387.1000000005588,
+        "gpuWaitMs_p95": 402.40000000037253,
+        "gpuWaitMs_max": 402.40000000037253,
+        "totalMs_median": 397.19999999925494,
+        "totalMs_p95": 414.5,
+        "totalMs_max": 414.5,
+        "calls": 231,
+        "triangles": 80175,
+        "hudMedianMs": 0,
+        "hudP95Ms": 0.10000000055879354
+      },
+      {
+        "width": 1280,
+        "mode": "v55-concussion",
+        "cpuMs_median": 5.2999999998137355,
+        "cpuMs_p95": 10.199999999254942,
+        "cpuMs_max": 10.199999999254942,
+        "gpuWaitMs_median": 407.09999999962747,
+        "gpuWaitMs_p95": 441.79999999981374,
+        "gpuWaitMs_max": 441.79999999981374,
+        "totalMs_median": 412.20000000018626,
+        "totalMs_p95": 446.5,
+        "totalMs_max": 446.5,
+        "calls": 231,
+        "triangles": 80175,
+        "hudMedianMs": 0,
+        "hudP95Ms": 0.10000000055879354
+      },
+      {
+        "width": 844,
+        "mode": "v54",
+        "cpuMs_median": 4.7000000001862645,
+        "cpuMs_p95": 5.699999999254942,
+        "cpuMs_max": 5.699999999254942,
+        "gpuWaitMs_median": 165.20000000018626,
+        "gpuWaitMs_p95": 176.40000000037253,
+        "gpuWaitMs_max": 176.40000000037253,
+        "totalMs_median": 169.6000000005588,
+        "totalMs_p95": 182.09999999962747,
+        "totalMs_max": 182.09999999962747,
+        "calls": 226,
+        "triangles": 80125,
+        "hudMedianMs": null,
+        "hudP95Ms": null
+      },
+      {
+        "width": 844,
+        "mode": "v55-neutral",
+        "cpuMs_median": 5,
+        "cpuMs_p95": 6.7999999998137355,
+        "cpuMs_max": 6.7999999998137355,
+        "gpuWaitMs_median": 171.20000000018626,
+        "gpuWaitMs_p95": 206.90000000037253,
+        "gpuWaitMs_max": 206.90000000037253,
+        "totalMs_median": 176.1000000005588,
+        "totalMs_p95": 211.70000000018626,
+        "totalMs_max": 211.70000000018626,
+        "calls": 226,
+        "triangles": 80125,
+        "hudMedianMs": 0,
+        "hudP95Ms": 0.10000000055879354
+      },
+      {
+        "width": 844,
+        "mode": "v55-concussion",
+        "cpuMs_median": 4.900000000372529,
+        "cpuMs_p95": 20.59999999962747,
+        "cpuMs_max": 20.59999999962747,
+        "gpuWaitMs_median": 171.5,
+        "gpuWaitMs_p95": 210.09999999962747,
+        "gpuWaitMs_max": 210.09999999962747,
+        "totalMs_median": 180.8999999994412,
+        "totalMs_p95": 217.09999999962747,
+        "totalMs_max": 217.09999999962747,
+        "calls": 226,
+        "triangles": 80125,
+        "hudMedianMs": 0,
+        "hudP95Ms": 0.10000000055879354
+      }
+    ],
+    "sourceRequirementsComplete": false,
+    "limitations": [
+      "SCAT5 original PDF inaccessible; corroborated symptom list with CDC.",
+      "Rohmert1960 original curve unavailable; generic inverse load/endurance shape and all anchors labeled tuning.",
+      "Matching13.7kg military all-out sprint time or steady run HR not found; tuning is used as permitted.",
+      "Rise18s/recovery45s are not literature-derived time constants; Cole only supplies recovery direction and definition.",
+      "No actual phone hardware/FPS measurement; SwiftShader GPU completion reported separately.",
+      "Physiology workload bench continues prescribed running until medical incapacity and bypasses leg reserve; gameplay sprint stops around29.47s in actual movement.",
+      "Standard7N6/M855 penetrate to real brain injury; helmet-stopped9mm has no S2 skull-cavity input. No invented helmet blunt concussion. Future input API exists.",
+      "Rohmert curve anchors are tuning, not digitized source measurements.",
+      "Current original medical record concussionPhysiologyApplied:false remains byte-preserved historical S2 metadata; D2 activity/build metadata separately records the symptom consumer."
+    ]
+  }
+}

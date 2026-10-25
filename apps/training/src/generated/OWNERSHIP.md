@@ -1,0 +1,2 @@
+# 3D-owned ported modules
+These files were imported from the recorded CQB-HTML v69 baseline. `generated`/`legacy` in their names records origin; the normal3D build never re-extracts them from reference/2d. Future3D data and code changes belong here or in3D modules, with tests and provenance updated independently. Reference source is frozen; extraction scripts are comparison tools and require --allow-reference-import to overwrite ports.

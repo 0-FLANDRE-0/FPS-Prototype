@@ -1,0 +1,117 @@
+{
+  "checkedDateKST": "2026-10-19",
+  "sourceRequirementsComplete": false,
+  "items": [
+    {
+      "id": "cat",
+      "url": "https://www.narescue.com/all-products/massive-hemorrhage/combat-application-tourniquet-c-a-t.html",
+      "packageMm": [
+        165.1,
+        60.96,
+        38.1
+      ],
+      "weightKg": 0.07654371243750001,
+      "verified": "Public manufacturer product page specifications; no prices/use procedures imported"
+    },
+    {
+      "id": "gauze",
+      "url": "https://www.narescue.com/outdoor-adventure-products/combat-gauze.html",
+      "packageMm": [
+        139.7,
+        127,
+        15.875
+      ],
+      "weightKg": 0.022679618500000005,
+      "verified": "Public manufacturer product page specifications; no prices/use procedures imported"
+    },
+    {
+      "id": "bandage",
+      "url": "https://www.narescue.com/all-products/4-emergency-trauma-dressing-etd.html",
+      "packageMm": [
+        114.3,
+        63.5,
+        44.45
+      ],
+      "weightKg": 0.07370876012500001,
+      "verified": "Public manufacturer product page specifications; no prices/use procedures imported"
+    },
+    {
+      "id": "seal",
+      "url": "https://www.narescue.com/hyfin-vent-compact-chest-seal-twin-pack.html",
+      "packageMm": [
+        167.64,
+        98.425,
+        3.302
+      ],
+      "weightKg": 0.043941760843750004,
+      "verified": "Public manufacturer product page specifications; no prices/use procedures imported"
+    },
+    {
+      "id": "needle",
+      "url": "https://www.narescue.com/military-products/respirations/ars-for-needle-decompression-3-26.html",
+      "packageMm": [
+        144.78,
+        20.32,
+        17.78
+      ],
+      "weightKg": 0.017009713875,
+      "verified": "Public manufacturer product page specifications; no prices/use procedures imported"
+    },
+    {
+      "id": "npa",
+      "url": "https://www.narescue.com/all-products/naso-with-lubricant-packet.html",
+      "packageMm": [
+        152.4,
+        40.64,
+        12.7
+      ],
+      "weightKg": 0.0141747615625,
+      "verified": "Public manufacturer product page specifications; no prices/use procedures imported"
+    }
+  ],
+  "pouch": {
+    "url": "https://tasmaniantigerusa.com/medic-equipment/ifak-pouches/tt-tac-ifak-pouch-m",
+    "weightKg": 0.159,
+    "packageMm": [
+      190,
+      130,
+      64
+    ],
+    "verified": "Manufacturer public page19x13x6.4cm,159g; older2024catalog18x12.5x6.5cm differs; current product page chosen"
+  },
+  "ifakII": {
+    "url": "https://api.army.mil/e2/c/downloads/2023/01/19/31e03488/17-13-tactical-casualty-",
+    "title": "Center for Army Lessons Learned17-13 Tactical Combat Casualty Care Handbook2017",
+    "verified": "PDF printed54-55 / viewer61-62 Table3-2",
+    "findings": "NPA and Combat Gauze present. Army kit has2CAT with separate pouches, elastic/gauze bandages/tape/gloves, chest seal, eye shield/strap cutter/marker; no Army needle listed. Nearby WALK list includes14G needle. User design keeps1CAT inside,1gauze,1ETD,2ventedseals as1set,1needle,1NPA; skips rest.",
+    "exactArmyKit": false
+  },
+  "capacities": [
+    {
+      "region": "upperLeg",
+      "tuningMl": 1250,
+      "url": "https://www.merckmanuals.com/en-ca/professional/injuries-poisoning/fractures/femoral-shaft-fractures",
+      "verified": "Professional manual: up to1.5L hemorrhage per femoral shaft fracture. Not a compartment capacity measurement."
+    },
+    {
+      "region": "lowerLeg/upperArm",
+      "tuningMl": {
+        "lowerLeg": 750,
+        "upperArm": 500
+      },
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK534830/",
+      "verified": "StatPearls Shock Resuscitation indexed source states roughly1L femur, as much500cc humerus/tibia/fibula each; direct page CAPTCHA. All selected capacities are tuning, lower-leg750is not claimed from that500ccstatement."
+    },
+    {
+      "region": "forearm",
+      "tuningMl": 250,
+      "verified": "No adequate primary/public trauma table verified; explicit tuning only"
+    }
+  ],
+  "fractionsAndPressure": {
+    "verifiedSource": false,
+    "classification": "튜닝 / 게임 허용",
+    "clinicalClaim": false
+  },
+  "automatic2DPort": false
+}

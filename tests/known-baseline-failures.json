@@ -1,0 +1,10 @@
+{
+  "commit": "cef2ff00b3a3eb68719b4127003b8c90ef62629a",
+  "seed": 1234,
+  "suiteFailures": {
+    "runAI0C2PortalRiskCheckpointSuite": ["C2-03_danger_freshness"]
+  },
+  "validatorWarnings": [
+    { "cat": "armorCoverage", "msg": "side hard 선택인데 soft backer armor 미연결" }
+  ]
+}

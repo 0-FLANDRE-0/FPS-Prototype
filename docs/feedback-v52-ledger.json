@@ -1,0 +1,118 @@
+{
+  "version": "embodied-feedback-v52",
+  "runtimeSourceCommit": "8d9562780d1633f77347e7ece68675d1682aa8dc",
+  "baseline": "ef994a593f4fcd5adb3a73484d5c25b3a0a027be",
+  "automatic2DPort": false,
+  "physiologyAndDamageUnchanged": true,
+  "entries": [
+    {
+      "item": "출혈 시야 입력",
+      "classification": "사용자 정정 + 튜닝",
+      "driver": "clamp(1-bloodMl/bloodMax,0,1)",
+      "values": {
+        "bloodLossVisionStart": 0.15,
+        "bloodLossVisionFull": 0.445,
+        "bloodLossDesaturation": [
+          0.15,
+          0.4
+        ],
+        "bloodLossPeripheral": [
+          0.2,
+          0.445
+        ],
+        "bloodLossTunnel": [
+          0.3,
+          0.445
+        ],
+        "bloodLossBlackout": [
+          0.38,
+          0.445
+        ]
+      },
+      "curves": "각 구간 smoothstep. MAP/관류/산소/현재 출혈 속도는 흑백화·출혈 터널·암전 입력에서 제외. 기존 생리값과 쓰러짐 판정은 읽기만 함.",
+      "2D 역이식 후보": "예(표현)"
+    },
+    {
+      "item": "작은 떨림·조준 유지",
+      "classification": "사용자 정정 + 원본 aimMul 기여 읽기 + 튜닝",
+      "previous": {
+        "curveRad": 0.018,
+        "baseMaxRad": 0.08,
+        "partArmRad": 0.01,
+        "crashRad": 0.012,
+        "thoraxRad": 0.006,
+        "dropM": 0.045
+      },
+      "current": {
+        "curveRad": 0.0025,
+        "baseMaxRad": 0.012,
+        "partArmRad": 0.0015,
+        "crashRad": 0.002,
+        "thoraxRad": 0.0012,
+        "dropM": 0.012,
+        "fastTremorGain": 0.25
+      },
+      "servo": {
+        "frequencyRadS": 9,
+        "dampingRatio": 0.82,
+        "minimumStrength": 0.28,
+        "lapsePeriodS": 3.8,
+        "maxAlignmentLoss": 0.42,
+        "alignmentResponse": 5,
+        "maxErrorRad": 0.012
+      },
+      "equations": "servo disturbance follows coherent value-noise; acceleration=omega0²*target−omega²*angle−2*zeta*omega*velocity; weaker hold during lapse; ADS target=requestedADS*holdAlignment. ADS input never toggles off. stock pivot and actual muzzle/sight positions remain authoritative; no new player projectile spread or camera-input delay.",
+      "2D 역이식 후보": "아니오(3D 견착/조준 표현)"
+    },
+    {
+      "item": "플레이어 래그돌/머리 시점",
+      "classification": "기존 물리 경로 + 사용자 설계 + 튜닝",
+      "values": {
+        "cameraRadiusM": 0.035,
+        "cameraClearanceM": 0.008,
+        "minimumInterfaceS": 1.8,
+        "maximumInterfaceS": 4.5,
+        "supportedS": 0.2,
+        "passiveAngularDamping": 3,
+        "passiveLinearDamping": 2
+      },
+      "mass": "기존 body80kg+장비13.7kg=93.7kg, 총 별도",
+      "joints": "기존17분절/16관절과 두 틱에서 계산한 각 뼈의 선속도/각속도 사용",
+      "skin": "P01 1인칭 렌더만 head/neck weight>.45 삼각형 제외; GLB/피격 형상/적 보존",
+      "collision": "자기 이동 캡슐은 래그돌 전환 시 sensor/groups0. 정상 이동 쿼리도 P01 사전생성 센서 제외. 초기화/퇴장 시 원래 값 복구.",
+      "UI": "쓰러짐/착지→기존 사망·심정지·전투불능 UI. 의료/메뉴를 닫아도 자동 재시작하지 않고 같은 몸/기존 UI로 복귀. 재시작 버튼만 구역 밖에서 초기화.",
+      "2D 역이식 후보": "아니오(3D 물리/시점)"
+    },
+    {
+      "item": "낙하 M4/AK",
+      "classification": "기존 메시·질량 + 물리 배치 튜닝",
+      "values": {
+        "bodyCollisionGraceS": 0.2
+      },
+      "preparation": "두 총의 강체/메시를 구역 진입에 사전 생성, M4 현재 부품·광학 가시성을 전환 순간 복사. FPS 팔 제외. 오른손의 각 뼈 속도에서 COM 속도 전달.",
+      "2D 역이식 후보": "아니오(3D 물리 표현)"
+    },
+    {
+      "item": "검증/보존",
+      "classification": "원본 보존 + 실측 게임 QA",
+      "protectedSources": 180,
+      "allAssetsExact": 35,
+      "embeddedBlocksExact": 8,
+      "tests": 368,
+      "healthyStationary600TicksExact": true,
+      "healthyMovingCombat600TicksExact": true,
+      "2D 역이식 후보": "아니오"
+    }
+  ],
+  "limitations": [
+    "혈액량 기준은 정상 bloodMax 대비 현재 bloodMl의 부족률이다.15–40% 흑백화,20–44.5% 주변 어둠,30–44.5% 터널,38–44.5% 암전의 문턱은 사용자 피드백에 맞춘 게임 튜닝이며 임상 실측값이 아니다.",
+    "공황의 주변 흐림/주의 협착, 낮은 의식의 눈꺼풀, 기립성 하얗게 날림은 별도 효과로 유지한다. 기립성 효과가 출혈 흑백화/터널 문턱을 바꾸지는 않는다.",
+    "조준 유지·보정은 로컬 각도의 감쇠 제어와 결정론적 연속 교란으로 표현한다. 실제 근육/신경 제어를 측정해 재현한 모델은 아니다. 고주파8–12Hz 근거는 기존 D1 출처를 따르고 각도·보정력·정렬 손실은 튜닝이다.",
+    "플레이어는 기존17강체·16관절·93.7kg 래그돌 경로를 재사용한다.1인칭의 낮은 자세에서 안정된 채 앉아 굳지 않도록 플레이어 수동 감쇠만 각3/선2로 둔다. 적의 래그돌 계수/질량/마찰/가동 범위와 의료 쓰러짐 판정은 보존한다.",
+    "카메라는 전환 순간 눈 위치/방향을 머리 로컬 좌표에 저장하고 머리 움직임을 따른다.35mm 구체와8mm 여유로 환경 충돌을 제한한다. 자기 몸/낙하 총기의 근사 콜라이더는 카메라 쿼리에서 제외한다. 실제 총기/몸의 물리 충돌은 유지한다.",
+    "낙하 총기는 세계/바닥과 즉시 충돌하고, 견착 시 겹친 근사 총기 박스가 머리를 튀기지 않도록 첫.2초만 신체 충돌을 유예한다. 원래 장비/소유권 체계는 보존하며 전리품 회수는 추가하지 않았다.",
+    "쓰러짐 동안 기존 의료·세계 물리를 진행하고 입력/1인칭 팔을 끈다. 최소1.8초 후 실제 착지/기울어진 몸의 접촉을.2초 확인해 기존 UI를 표시한다. 비정상적으로 끼인 경우4.5초 대기가 상한이다. 이번12사례는 모두 상한 없이 실제 착지 조건을 통과했다. UI 표시 뒤에는 종전처럼 시뮬레이션을 멈춘다.",
+    "자기 얼굴/헬멧은 P01의 렌더용 인덱스에서만 숨긴다. 원본 GLB/적/피격·방호 형상은 그대로다. 손가락은 기존 이완 고정이며 손가락 물리는 없다.",
+    "시트는.05초 간격의 축소된 세계 캔버스이며 기존 UI가 뜨면 이후 프레임은 멈춘 같은 자세다. 기본 스크린샷과 최종 HTML 오프라인 검증은 실제1280×720/터치844×390이다. 실제 Android/iOS의 청감·발열·실시간 성능과 주관적인 조준감은 별도 검수 대상이다."
+  ]
+}

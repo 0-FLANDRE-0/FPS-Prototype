@@ -1,0 +1,1110 @@
+[
+  {
+    "path": "tests/fixtures/models/military_tactical_suit_lowpolygameready.glb",
+    "bytes": 17938144,
+    "sha256": "eed7be0507d981b5f09fbce8c6b5a827358d22b08f7052104d74251926049484",
+    "meshes": 15,
+    "primitives": 15,
+    "triangles": 31771,
+    "images": [
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 647989,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 24038,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 1000075,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 686529,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 1252258,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 320508,
+        "format": "JPEG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 793606,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 1369526,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 251615,
+        "format": "JPEG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 463717,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 910967,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 692189,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 677407,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 909569,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 463450,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 499568,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 327872,
+        "format": "JPEG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 821736,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 1093102,
+        "format": "PNG"
+      }
+    ],
+    "imageBytes": 13205721,
+    "estimatedRGBAMipmapMiB": 101.33333333333333,
+    "boneCount": 88,
+    "bones": [
+      {
+        "name": "_rootJoint",
+        "parent": "Object_5"
+      },
+      {
+        "name": "mixamorig:Hips_01",
+        "parent": "_rootJoint"
+      },
+      {
+        "name": "mixamorig:Spine_02",
+        "parent": "mixamorig:Hips_01"
+      },
+      {
+        "name": "mixamorig:Spine1_03",
+        "parent": "mixamorig:Spine_02"
+      },
+      {
+        "name": "mixamorig:Spine2_04",
+        "parent": "mixamorig:Spine1_03"
+      },
+      {
+        "name": "mixamorig:Neck_05",
+        "parent": "mixamorig:Spine2_04"
+      },
+      {
+        "name": "mixamorig:Head_06",
+        "parent": "mixamorig:Neck_05"
+      },
+      {
+        "name": "mixamorig:HeadTop_End_07",
+        "parent": "mixamorig:Head_06"
+      },
+      {
+        "name": "mixamorig:RightShoulder_08",
+        "parent": "mixamorig:Spine2_04"
+      },
+      {
+        "name": "mixamorig:RightArm_09",
+        "parent": "mixamorig:RightShoulder_08"
+      },
+      {
+        "name": "mixamorig:RightForeArm_010",
+        "parent": "mixamorig:RightArm_09"
+      },
+      {
+        "name": "mixamorig:RightHand_011",
+        "parent": "mixamorig:RightForeArm_010"
+      },
+      {
+        "name": "mixamorig:RightHandThumb1_012",
+        "parent": "mixamorig:RightHand_011"
+      },
+      {
+        "name": "mixamorig:RightHandThumb2_013",
+        "parent": "mixamorig:RightHandThumb1_012"
+      },
+      {
+        "name": "mixamorig:RightHandThumb3_014",
+        "parent": "mixamorig:RightHandThumb2_013"
+      },
+      {
+        "name": "mixamorig:RightHandThumb4_015",
+        "parent": "mixamorig:RightHandThumb3_014"
+      },
+      {
+        "name": "mixamorig:RightHandMiddle1_016",
+        "parent": "mixamorig:RightHand_011"
+      },
+      {
+        "name": "mixamorig:RightHandMiddle2_017",
+        "parent": "mixamorig:RightHandMiddle1_016"
+      },
+      {
+        "name": "mixamorig:RightHandMiddle3_018",
+        "parent": "mixamorig:RightHandMiddle2_017"
+      },
+      {
+        "name": "mixamorig:RightHandMiddle4_019",
+        "parent": "mixamorig:RightHandMiddle3_018"
+      },
+      {
+        "name": "mixamorig:RightHandRing1_020",
+        "parent": "mixamorig:RightHand_011"
+      },
+      {
+        "name": "mixamorig:RightHandRing2_021",
+        "parent": "mixamorig:RightHandRing1_020"
+      },
+      {
+        "name": "mixamorig:RightHandRing3_022",
+        "parent": "mixamorig:RightHandRing2_021"
+      },
+      {
+        "name": "mixamorig:RightHandRing4_00",
+        "parent": "mixamorig:RightHandRing3_022"
+      },
+      {
+        "name": "mixamorig:RightHandPinky1_023",
+        "parent": "mixamorig:RightHand_011"
+      },
+      {
+        "name": "mixamorig:RightHandPinky2_024",
+        "parent": "mixamorig:RightHandPinky1_023"
+      },
+      {
+        "name": "mixamorig:RightHandPinky3_025",
+        "parent": "mixamorig:RightHandPinky2_024"
+      },
+      {
+        "name": "mixamorig:RightHandPinky4_026",
+        "parent": "mixamorig:RightHandPinky3_025"
+      },
+      {
+        "name": "mixamorig:RightHandIndex1_027",
+        "parent": "mixamorig:RightHand_011"
+      },
+      {
+        "name": "mixamorig:RightHandIndex2_028",
+        "parent": "mixamorig:RightHandIndex1_027"
+      },
+      {
+        "name": "mixamorig:RightHandIndex3_029",
+        "parent": "mixamorig:RightHandIndex2_028"
+      },
+      {
+        "name": "mixamorig:RightHandIndex4_030",
+        "parent": "mixamorig:RightHandIndex3_029"
+      },
+      {
+        "name": "Right_Elbow_Pads_031",
+        "parent": "mixamorig:RightForeArm_010"
+      },
+      {
+        "name": "mixamorig:LeftShoulder_032",
+        "parent": "mixamorig:Spine2_04"
+      },
+      {
+        "name": "mixamorig:LeftArm_033",
+        "parent": "mixamorig:LeftShoulder_032"
+      },
+      {
+        "name": "mixamorig:LeftForeArm_034",
+        "parent": "mixamorig:LeftArm_033"
+      },
+      {
+        "name": "mixamorig:LeftHand_035",
+        "parent": "mixamorig:LeftForeArm_034"
+      },
+      {
+        "name": "mixamorig:LeftHandThumb1_036",
+        "parent": "mixamorig:LeftHand_035"
+      },
+      {
+        "name": "mixamorig:LeftHandThumb2_037",
+        "parent": "mixamorig:LeftHandThumb1_036"
+      },
+      {
+        "name": "mixamorig:LeftHandThumb3_038",
+        "parent": "mixamorig:LeftHandThumb2_037"
+      },
+      {
+        "name": "mixamorig:LeftHandThumb4_039",
+        "parent": "mixamorig:LeftHandThumb3_038"
+      },
+      {
+        "name": "mixamorig:LeftHandIndex1_040",
+        "parent": "mixamorig:LeftHand_035"
+      },
+      {
+        "name": "mixamorig:LeftHandIndex2_041",
+        "parent": "mixamorig:LeftHandIndex1_040"
+      },
+      {
+        "name": "mixamorig:LeftHandIndex3_042",
+        "parent": "mixamorig:LeftHandIndex2_041"
+      },
+      {
+        "name": "mixamorig:LeftHandIndex4_043",
+        "parent": "mixamorig:LeftHandIndex3_042"
+      },
+      {
+        "name": "mixamorig:LeftHandMiddle1_044",
+        "parent": "mixamorig:LeftHand_035"
+      },
+      {
+        "name": "mixamorig:LeftHandMiddle2_045",
+        "parent": "mixamorig:LeftHandMiddle1_044"
+      },
+      {
+        "name": "mixamorig:LeftHandMiddle3_046",
+        "parent": "mixamorig:LeftHandMiddle2_045"
+      },
+      {
+        "name": "mixamorig:LeftHandMiddle4_047",
+        "parent": "mixamorig:LeftHandMiddle3_046"
+      },
+      {
+        "name": "mixamorig:LeftHandRing1_048",
+        "parent": "mixamorig:LeftHand_035"
+      },
+      {
+        "name": "mixamorig:LeftHandRing2_049",
+        "parent": "mixamorig:LeftHandRing1_048"
+      },
+      {
+        "name": "mixamorig:LeftHandRing3_050",
+        "parent": "mixamorig:LeftHandRing2_049"
+      },
+      {
+        "name": "mixamorig:LeftHandRing4_051",
+        "parent": "mixamorig:LeftHandRing3_050"
+      },
+      {
+        "name": "mixamorig:LeftHandPinky1_052",
+        "parent": "mixamorig:LeftHand_035"
+      },
+      {
+        "name": "mixamorig:LeftHandPinky2_053",
+        "parent": "mixamorig:LeftHandPinky1_052"
+      },
+      {
+        "name": "mixamorig:LeftHandPinky3_054",
+        "parent": "mixamorig:LeftHandPinky2_053"
+      },
+      {
+        "name": "mixamorig:LeftHandPinky4_055",
+        "parent": "mixamorig:LeftHandPinky3_054"
+      },
+      {
+        "name": "Left_Elbow_Pads_056",
+        "parent": "mixamorig:LeftForeArm_034"
+      },
+      {
+        "name": "mixamorig:RightUpLeg_057",
+        "parent": "mixamorig:Hips_01"
+      },
+      {
+        "name": "mixamorig:RightLeg_058",
+        "parent": "mixamorig:RightUpLeg_057"
+      },
+      {
+        "name": "mixamorig:RightFoot_059",
+        "parent": "mixamorig:RightLeg_058"
+      },
+      {
+        "name": "mixamorig:RightToeBase_060",
+        "parent": "mixamorig:RightFoot_059"
+      },
+      {
+        "name": "mixamorig:RightToe_End_061",
+        "parent": "mixamorig:RightToeBase_060"
+      },
+      {
+        "name": "Right_Knee_Pads_062",
+        "parent": "mixamorig:RightLeg_058"
+      },
+      {
+        "name": "mixamorig:LeftUpLeg_063",
+        "parent": "mixamorig:Hips_01"
+      },
+      {
+        "name": "mixamorig:LeftLeg_064",
+        "parent": "mixamorig:LeftUpLeg_063"
+      },
+      {
+        "name": "mixamorig:LeftFoot_065",
+        "parent": "mixamorig:LeftLeg_064"
+      },
+      {
+        "name": "mixamorig:LeftToeBase_066",
+        "parent": "mixamorig:LeftFoot_065"
+      },
+      {
+        "name": "mixamorig:LeftToe_End_067",
+        "parent": "mixamorig:LeftToeBase_066"
+      },
+      {
+        "name": "Left_Knee_Pads_068",
+        "parent": "mixamorig:LeftLeg_064"
+      },
+      {
+        "name": "Front_Big_Pouch.1_069",
+        "parent": "mixamorig:Hips_01"
+      },
+      {
+        "name": "Front_Big_Pouch.2_070",
+        "parent": "Front_Big_Pouch.1_069"
+      },
+      {
+        "name": "Front_Big_Pouch.3_071",
+        "parent": "Front_Big_Pouch.2_070"
+      },
+      {
+        "name": "Left_Pouch.1_072",
+        "parent": "mixamorig:Hips_01"
+      },
+      {
+        "name": "Left_Pouch.2_073",
+        "parent": "Left_Pouch.1_072"
+      },
+      {
+        "name": "Left_Pouch.3_074",
+        "parent": "Left_Pouch.2_073"
+      },
+      {
+        "name": "Back_Small_Pouch2.1_075",
+        "parent": "mixamorig:Hips_01"
+      },
+      {
+        "name": "Back_Small_Pouch2.2_076",
+        "parent": "Back_Small_Pouch2.1_075"
+      },
+      {
+        "name": "Back_Small_Pouch2.3_077",
+        "parent": "Back_Small_Pouch2.2_076"
+      },
+      {
+        "name": "Back_Small_Pouch.1_078",
+        "parent": "mixamorig:Hips_01"
+      },
+      {
+        "name": "Back_Small_Pouch.2_079",
+        "parent": "Back_Small_Pouch.1_078"
+      },
+      {
+        "name": "Back_Small_Pouch.3_080",
+        "parent": "Back_Small_Pouch.2_079"
+      },
+      {
+        "name": "Back_Big_Pouch.1_081",
+        "parent": "mixamorig:Hips_01"
+      },
+      {
+        "name": "Back_Big_Pouch.2_082",
+        "parent": "Back_Big_Pouch.1_081"
+      },
+      {
+        "name": "Back_Big_Pouch.3_083",
+        "parent": "Back_Big_Pouch.2_082"
+      },
+      {
+        "name": "Right_Pouch.1_084",
+        "parent": "mixamorig:Hips_01"
+      },
+      {
+        "name": "Right_Pouch.2_085",
+        "parent": "Right_Pouch.1_084"
+      },
+      {
+        "name": "Right_Pouch.3_086",
+        "parent": "Right_Pouch.2_085"
+      }
+    ],
+    "animations": [
+      {
+        "name": "Idle_Animation",
+        "channels": 265
+      }
+    ]
+  },
+  {
+    "path": "tests/fixtures/models/soldier_full_tactical_gear.glb",
+    "bytes": 25472068,
+    "sha256": "f00982db81b70687f89803fa1427f4caf99c324d64b6a0992ebf769ab054e71c",
+    "meshes": 23,
+    "primitives": 23,
+    "triangles": 84154,
+    "images": [
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 860673,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 779376,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 393908,
+        "format": "JPEG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 1138090,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 1303213,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 328967,
+        "format": "JPEG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 803049,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 673766,
+        "format": "JPEG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 232962,
+        "format": "JPEG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 634394,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 1004781,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 860423,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 1127207,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 1353135,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 752000,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 321971,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 827210,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 279379,
+        "format": "JPEG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 805998,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 1206423,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 284241,
+        "format": "JPEG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 742102,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 1007623,
+        "format": "PNG"
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "bytes": 480730,
+        "format": "JPEG"
+      }
+    ],
+    "imageBytes": 18201621,
+    "estimatedRGBAMipmapMiB": 128.0,
+    "boneCount": 114,
+    "bones": [
+      {
+        "name": "_rootJoint",
+        "parent": "Object_5"
+      },
+      {
+        "name": "RL_BoneRoot_00",
+        "parent": "_rootJoint"
+      },
+      {
+        "name": "CC_Base_Hip_01",
+        "parent": "RL_BoneRoot_00"
+      },
+      {
+        "name": "CC_Base_Pelvis_02",
+        "parent": "CC_Base_Hip_01"
+      },
+      {
+        "name": "CC_Base_L_Thigh_03",
+        "parent": "CC_Base_Pelvis_02"
+      },
+      {
+        "name": "CC_Base_L_Calf_04",
+        "parent": "CC_Base_L_Thigh_03"
+      },
+      {
+        "name": "CC_Base_L_Foot_05",
+        "parent": "CC_Base_L_Calf_04"
+      },
+      {
+        "name": "CC_Base_L_ToeBaseShareBone_06",
+        "parent": "CC_Base_L_Foot_05"
+      },
+      {
+        "name": "CC_Base_L_ToeBase_07",
+        "parent": "CC_Base_L_Foot_05"
+      },
+      {
+        "name": "CC_Base_L_PinkyToe1_08",
+        "parent": "CC_Base_L_ToeBase_07"
+      },
+      {
+        "name": "CC_Base_L_RingToe1_09",
+        "parent": "CC_Base_L_ToeBase_07"
+      },
+      {
+        "name": "CC_Base_L_MidToe1_010",
+        "parent": "CC_Base_L_ToeBase_07"
+      },
+      {
+        "name": "CC_Base_L_IndexToe1_011",
+        "parent": "CC_Base_L_ToeBase_07"
+      },
+      {
+        "name": "CC_Base_L_BigToe1_012",
+        "parent": "CC_Base_L_ToeBase_07"
+      },
+      {
+        "name": "CC_Base_L_CalfTwist01_013",
+        "parent": "CC_Base_L_Calf_04"
+      },
+      {
+        "name": "CC_Base_L_CalfTwist02_014",
+        "parent": "CC_Base_L_CalfTwist01_013"
+      },
+      {
+        "name": "CC_Base_L_KneeShareBone_015",
+        "parent": "CC_Base_L_Calf_04"
+      },
+      {
+        "name": "CC_Base_L_ThighTwist01_016",
+        "parent": "CC_Base_L_Thigh_03"
+      },
+      {
+        "name": "CC_Base_L_ThighTwist02_017",
+        "parent": "CC_Base_L_ThighTwist01_016"
+      },
+      {
+        "name": "CC_Base_R_Thigh_018",
+        "parent": "CC_Base_Pelvis_02"
+      },
+      {
+        "name": "CC_Base_R_ThighTwist01_019",
+        "parent": "CC_Base_R_Thigh_018"
+      },
+      {
+        "name": "CC_Base_R_ThighTwist02_020",
+        "parent": "CC_Base_R_ThighTwist01_019"
+      },
+      {
+        "name": "CC_Base_R_Calf_021",
+        "parent": "CC_Base_R_Thigh_018"
+      },
+      {
+        "name": "CC_Base_R_Foot_022",
+        "parent": "CC_Base_R_Calf_021"
+      },
+      {
+        "name": "CC_Base_R_ToeBase_023",
+        "parent": "CC_Base_R_Foot_022"
+      },
+      {
+        "name": "CC_Base_R_PinkyToe1_024",
+        "parent": "CC_Base_R_ToeBase_023"
+      },
+      {
+        "name": "CC_Base_R_BigToe1_025",
+        "parent": "CC_Base_R_ToeBase_023"
+      },
+      {
+        "name": "CC_Base_R_IndexToe1_026",
+        "parent": "CC_Base_R_ToeBase_023"
+      },
+      {
+        "name": "CC_Base_R_MidToe1_027",
+        "parent": "CC_Base_R_ToeBase_023"
+      },
+      {
+        "name": "CC_Base_R_RingToe1_028",
+        "parent": "CC_Base_R_ToeBase_023"
+      },
+      {
+        "name": "CC_Base_R_ToeBaseShareBone_029",
+        "parent": "CC_Base_R_Foot_022"
+      },
+      {
+        "name": "CC_Base_R_KneeShareBone_030",
+        "parent": "CC_Base_R_Calf_021"
+      },
+      {
+        "name": "CC_Base_R_CalfTwist01_031",
+        "parent": "CC_Base_R_Calf_021"
+      },
+      {
+        "name": "CC_Base_R_CalfTwist02_032",
+        "parent": "CC_Base_R_CalfTwist01_031"
+      },
+      {
+        "name": "CC_Base_Waist_033",
+        "parent": "CC_Base_Hip_01"
+      },
+      {
+        "name": "CC_Base_Spine01_034",
+        "parent": "CC_Base_Waist_033"
+      },
+      {
+        "name": "CC_Base_Spine02_035",
+        "parent": "CC_Base_Spine01_034"
+      },
+      {
+        "name": "CC_Base_NeckTwist01_036",
+        "parent": "CC_Base_Spine02_035"
+      },
+      {
+        "name": "CC_Base_NeckTwist02_037",
+        "parent": "CC_Base_NeckTwist01_036"
+      },
+      {
+        "name": "CC_Base_Head_038",
+        "parent": "CC_Base_NeckTwist02_037"
+      },
+      {
+        "name": "CC_Base_FacialBone_039",
+        "parent": "CC_Base_Head_038"
+      },
+      {
+        "name": "CC_Base_JawRoot_040",
+        "parent": "CC_Base_FacialBone_039"
+      },
+      {
+        "name": "CC_Base_Tongue01_041",
+        "parent": "CC_Base_JawRoot_040"
+      },
+      {
+        "name": "CC_Base_Tongue02_042",
+        "parent": "CC_Base_Tongue01_041"
+      },
+      {
+        "name": "CC_Base_Tongue03_043",
+        "parent": "CC_Base_Tongue02_042"
+      },
+      {
+        "name": "CC_Base_Teeth02_044",
+        "parent": "CC_Base_JawRoot_040"
+      },
+      {
+        "name": "CC_Base_R_Eye_045",
+        "parent": "CC_Base_FacialBone_039"
+      },
+      {
+        "name": "CC_Base_L_Eye_046",
+        "parent": "CC_Base_FacialBone_039"
+      },
+      {
+        "name": "CC_Base_UpperJaw_047",
+        "parent": "CC_Base_FacialBone_039"
+      },
+      {
+        "name": "CC_Base_Teeth01_048",
+        "parent": "CC_Base_UpperJaw_047"
+      },
+      {
+        "name": "CC_Base_L_Clavicle_049",
+        "parent": "CC_Base_Spine02_035"
+      },
+      {
+        "name": "CC_Base_L_Upperarm_050",
+        "parent": "CC_Base_L_Clavicle_049"
+      },
+      {
+        "name": "CC_Base_L_Forearm_051",
+        "parent": "CC_Base_L_Upperarm_050"
+      },
+      {
+        "name": "CC_Base_L_ForearmTwist01_052",
+        "parent": "CC_Base_L_Forearm_051"
+      },
+      {
+        "name": "CC_Base_L_ForearmTwist02_053",
+        "parent": "CC_Base_L_ForearmTwist01_052"
+      },
+      {
+        "name": "CC_Base_L_ElbowShareBone_054",
+        "parent": "CC_Base_L_Forearm_051"
+      },
+      {
+        "name": "CC_Base_L_Hand_055",
+        "parent": "CC_Base_L_Forearm_051"
+      },
+      {
+        "name": "CC_Base_L_Mid1_056",
+        "parent": "CC_Base_L_Hand_055"
+      },
+      {
+        "name": "CC_Base_L_Mid2_057",
+        "parent": "CC_Base_L_Mid1_056"
+      },
+      {
+        "name": "CC_Base_L_Mid3_058",
+        "parent": "CC_Base_L_Mid2_057"
+      },
+      {
+        "name": "CC_Base_L_Index1_059",
+        "parent": "CC_Base_L_Hand_055"
+      },
+      {
+        "name": "CC_Base_L_Index2_060",
+        "parent": "CC_Base_L_Index1_059"
+      },
+      {
+        "name": "CC_Base_L_Index3_061",
+        "parent": "CC_Base_L_Index2_060"
+      },
+      {
+        "name": "CC_Base_L_Ring1_062",
+        "parent": "CC_Base_L_Hand_055"
+      },
+      {
+        "name": "CC_Base_L_Ring2_063",
+        "parent": "CC_Base_L_Ring1_062"
+      },
+      {
+        "name": "CC_Base_L_Ring3_064",
+        "parent": "CC_Base_L_Ring2_063"
+      },
+      {
+        "name": "CC_Base_L_Pinky1_065",
+        "parent": "CC_Base_L_Hand_055"
+      },
+      {
+        "name": "CC_Base_L_Pinky2_066",
+        "parent": "CC_Base_L_Pinky1_065"
+      },
+      {
+        "name": "CC_Base_L_Pinky3_067",
+        "parent": "CC_Base_L_Pinky2_066"
+      },
+      {
+        "name": "CC_Base_L_Thumb1_068",
+        "parent": "CC_Base_L_Hand_055"
+      },
+      {
+        "name": "CC_Base_L_Thumb2_069",
+        "parent": "CC_Base_L_Thumb1_068"
+      },
+      {
+        "name": "CC_Base_L_Thumb3_070",
+        "parent": "CC_Base_L_Thumb2_069"
+      },
+      {
+        "name": "CC_Base_L_UpperarmTwist01_071",
+        "parent": "CC_Base_L_Upperarm_050"
+      },
+      {
+        "name": "CC_Base_L_UpperarmTwist02_072",
+        "parent": "CC_Base_L_UpperarmTwist01_071"
+      },
+      {
+        "name": "CC_Base_R_Clavicle_073",
+        "parent": "CC_Base_Spine02_035"
+      },
+      {
+        "name": "CC_Base_R_Upperarm_074",
+        "parent": "CC_Base_R_Clavicle_073"
+      },
+      {
+        "name": "CC_Base_R_UpperarmTwist01_075",
+        "parent": "CC_Base_R_Upperarm_074"
+      },
+      {
+        "name": "CC_Base_R_UpperarmTwist02_076",
+        "parent": "CC_Base_R_UpperarmTwist01_075"
+      },
+      {
+        "name": "CC_Base_R_Forearm_077",
+        "parent": "CC_Base_R_Upperarm_074"
+      },
+      {
+        "name": "CC_Base_R_ForearmTwist01_078",
+        "parent": "CC_Base_R_Forearm_077"
+      },
+      {
+        "name": "CC_Base_R_ForearmTwist02_079",
+        "parent": "CC_Base_R_ForearmTwist01_078"
+      },
+      {
+        "name": "CC_Base_R_ElbowShareBone_080",
+        "parent": "CC_Base_R_Forearm_077"
+      },
+      {
+        "name": "CC_Base_R_Hand_081",
+        "parent": "CC_Base_R_Forearm_077"
+      },
+      {
+        "name": "CC_Base_R_Mid1_082",
+        "parent": "CC_Base_R_Hand_081"
+      },
+      {
+        "name": "CC_Base_R_Mid2_083",
+        "parent": "CC_Base_R_Mid1_082"
+      },
+      {
+        "name": "CC_Base_R_Mid3_084",
+        "parent": "CC_Base_R_Mid2_083"
+      },
+      {
+        "name": "CC_Base_R_Ring1_085",
+        "parent": "CC_Base_R_Hand_081"
+      },
+      {
+        "name": "CC_Base_R_Ring2_086",
+        "parent": "CC_Base_R_Ring1_085"
+      },
+      {
+        "name": "CC_Base_R_Ring3_087",
+        "parent": "CC_Base_R_Ring2_086"
+      },
+      {
+        "name": "CC_Base_R_Thumb1_088",
+        "parent": "CC_Base_R_Hand_081"
+      },
+      {
+        "name": "CC_Base_R_Thumb2_089",
+        "parent": "CC_Base_R_Thumb1_088"
+      },
+      {
+        "name": "CC_Base_R_Thumb3_090",
+        "parent": "CC_Base_R_Thumb2_089"
+      },
+      {
+        "name": "CC_Base_R_Index1_091",
+        "parent": "CC_Base_R_Hand_081"
+      },
+      {
+        "name": "CC_Base_R_Index2_092",
+        "parent": "CC_Base_R_Index1_091"
+      },
+      {
+        "name": "CC_Base_R_Index3_093",
+        "parent": "CC_Base_R_Index2_092"
+      },
+      {
+        "name": "CC_Base_R_Pinky1_094",
+        "parent": "CC_Base_R_Hand_081"
+      },
+      {
+        "name": "CC_Base_R_Pinky2_095",
+        "parent": "CC_Base_R_Pinky1_094"
+      },
+      {
+        "name": "CC_Base_R_Pinky3_096",
+        "parent": "CC_Base_R_Pinky2_095"
+      },
+      {
+        "name": "CC_Base_R_RibsTwist_097",
+        "parent": "CC_Base_Spine02_035"
+      },
+      {
+        "name": "CC_Base_R_Breast_098",
+        "parent": "CC_Base_R_RibsTwist_097"
+      },
+      {
+        "name": "CC_Base_L_RibsTwist_099",
+        "parent": "CC_Base_Spine02_035"
+      },
+      {
+        "name": "CC_Base_L_Breast_0100",
+        "parent": "CC_Base_L_RibsTwist_099"
+      },
+      {
+        "name": "Pouch1_0101",
+        "parent": "CC_Base_Waist_033"
+      },
+      {
+        "name": "Pouch1.001_0102",
+        "parent": "Pouch1_0101"
+      },
+      {
+        "name": "Pouch1.002_0103",
+        "parent": "Pouch1.001_0102"
+      },
+      {
+        "name": "Pouch2_0104",
+        "parent": "CC_Base_Waist_033"
+      },
+      {
+        "name": "Pouch2.001_0105",
+        "parent": "Pouch2_0104"
+      },
+      {
+        "name": "Pouch2.002_0106",
+        "parent": "Pouch2.001_0105"
+      },
+      {
+        "name": "Pouch3_0107",
+        "parent": "CC_Base_Waist_033"
+      },
+      {
+        "name": "Pouch3.001_0108",
+        "parent": "Pouch3_0107"
+      },
+      {
+        "name": "Pouch3.002_0109",
+        "parent": "Pouch3.001_0108"
+      },
+      {
+        "name": "Pouch4_0110",
+        "parent": "CC_Base_Waist_033"
+      },
+      {
+        "name": "Pouch4.001_0111",
+        "parent": "Pouch4_0110"
+      },
+      {
+        "name": "Pouch4.002_0112",
+        "parent": "Pouch4.001_0111"
+      }
+    ],
+    "animations": [
+      {
+        "name": "Mark_Idle_Pose",
+        "channels": 321
+      }
+    ]
+  }
+]

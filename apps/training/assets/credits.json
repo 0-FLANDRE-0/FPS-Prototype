@@ -1,0 +1,11 @@
+{
+  "name": "M4A1",
+  "author": "Firewarden3D",
+  "authorUrl": "https://sketchfab.com/Firewarden",
+  "source": "https://sketchfab.com/3d-models/m4a1-40d8ef818c7549a896371cbb1f64fec6",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "sourceSha256": "472a720bf2d594399b9050a6a79ce5e459e5c3f895543e44224b2a02b8183355",
+  "preparedSha256": "30c19debb065a881819a4037434da767418925010a82982b05908ac0d87f8fdd",
+  "changes": "One weapon assembly and one spent casing extracted; unused display objects removed; root axes normalized; geometry and original embedded textures retained. Gameplay attachment markers are configured separately."
+}

@@ -1,0 +1,1902 @@
+{
+  "version": "ai1-senses-v67",
+  "baseline": "9ad55d107967e6efb44ce218bd1a8a9bc978b505",
+  "scope": "3D AI1 only; no automatic 2D port; AI2 utility brain and AI3 cooperation deferred",
+  "sources": "docs/ai1-senses-sources.json",
+  "rows": [
+    {
+      "key": "original-profiles",
+      "classification": "원본",
+      "values": {
+        "recruit": {
+          "composure": 0.35,
+          "panicResistance": 0.42,
+          "adrenalineControl": 0.4,
+          "painTolerance": 0.45,
+          "breathingDiscipline": 0.4,
+          "postCombatRecovery": 0.45,
+          "startleResistance": 0.38
+        },
+        "regular": {
+          "composure": 0.6,
+          "panicResistance": 0.62,
+          "adrenalineControl": 0.6,
+          "painTolerance": 0.6,
+          "breathingDiscipline": 0.6,
+          "postCombatRecovery": 0.6,
+          "startleResistance": 0.6
+        },
+        "elite": {
+          "composure": 0.93,
+          "panicResistance": 0.93,
+          "adrenalineControl": 0.9,
+          "painTolerance": 0.86,
+          "breathingDiscipline": 0.92,
+          "postCombatRecovery": 0.9,
+          "startleResistance": 0.92
+        }
+      },
+      "notes": "CATALOG.COMPOSURE_PROFILES; same selector keys as getUnitComposureProfile; no registry edits",
+      "2D 역이식 후보": true
+    },
+    {
+      "key": "new-skill-factors",
+      "classification": "튜닝",
+      "values": {
+        "recruit": {
+          "id": "recruit",
+          "original": {
+            "composure": 0.35,
+            "panicResistance": 0.42,
+            "adrenalineControl": 0.4,
+            "painTolerance": 0.45,
+            "breathingDiscipline": 0.4,
+            "postCombatRecovery": 0.45,
+            "startleResistance": 0.38
+          },
+          "reaction": 1.1225,
+          "turn": 0.945,
+          "overshoot": 0.6900000000000001,
+          "lead": 0.45999999999999996,
+          "perceptionM": 0.1575,
+          "recovery": 4.449999999999999,
+          "suppressionResistance": 0.38,
+          "hipM": 6.05,
+          "quickM": 14.1
+        },
+        "regular": {
+          "id": "regular",
+          "original": {
+            "composure": 0.6,
+            "panicResistance": 0.62,
+            "adrenalineControl": 0.6,
+            "painTolerance": 0.6,
+            "breathingDiscipline": 0.6,
+            "postCombatRecovery": 0.6,
+            "startleResistance": 0.6
+          },
+          "reaction": 0.9600000000000001,
+          "turn": 1.1199999999999999,
+          "overshoot": 0.54,
+          "lead": 0.61,
+          "perceptionM": 0.12,
+          "recovery": 6.2,
+          "suppressionResistance": 0.6,
+          "hipM": 6.8,
+          "quickM": 15.6
+        },
+        "elite": {
+          "id": "elite",
+          "original": {
+            "composure": 0.93,
+            "panicResistance": 0.93,
+            "adrenalineControl": 0.9,
+            "painTolerance": 0.86,
+            "breathingDiscipline": 0.92,
+            "postCombatRecovery": 0.9,
+            "startleResistance": 0.92
+          },
+          "reaction": 0.7455,
+          "turn": 1.351,
+          "overshoot": 0.34199999999999997,
+          "lead": 0.808,
+          "perceptionM": 0.07049999999999998,
+          "recovery": 8.510000000000002,
+          "suppressionResistance": 0.92,
+          "hipM": 7.79,
+          "quickM": 17.58
+        }
+      },
+      "notes": "New factors derived from original composure; no independent hit probability",
+      "2D 역이식 후보": true
+    },
+    {
+      "key": "sampling-rhythm-memory",
+      "classification": "튜닝",
+      "values": {
+        "sensePeriodS": 0.1,
+        "maxRays": 9,
+        "fovDeg": 120,
+        "detectionRate": 5,
+        "memoryDecayPerS": 0.08,
+        "walkSpeedMps": 1.4,
+        "nearAutoM": 3,
+        "autoIntervalS": 0.09230769230769231,
+        "pairIntervalS": 0.25,
+        "patrolPauseS": 1.5
+      },
+      "notes": "10Hz per actor,9 points,4 actors max360 actual rays/s. Stagger .025s; sample-time stamp controls observation validity. Hearing uses SND1 estimatedPosition, never true source.",
+      "2D 역이식 후보": true
+    },
+    {
+      "key": "vision-weights",
+      "classification": "튜닝",
+      "values": [
+        [
+          "head",
+          "head",
+          0.15
+        ],
+        [
+          "chest",
+          "chest",
+          0.25
+        ],
+        [
+          "pelvis",
+          "pelvis",
+          0.2
+        ],
+        [
+          "leftArm",
+          "leftForearm",
+          0.075
+        ],
+        [
+          "rightArm",
+          "rightForearm",
+          0.075
+        ],
+        [
+          "leftLeg",
+          "leftLowerLeg",
+          0.1
+        ],
+        [
+          "rightLeg",
+          "rightLowerLeg",
+          0.1
+        ],
+        [
+          "leftFoot",
+          "leftFoot",
+          0.025
+        ],
+        [
+          "rightFoot",
+          "rightFoot",
+          0.025
+        ]
+      ],
+      "notes": "Actual rays from eye to live posed bones. No hidden-location fallback; half-seen weighted body sample rather than pixel/mesh-area integral.",
+      "2D 역이식 후보": true
+    },
+    {
+      "key": "detection",
+      "classification": "튜닝",
+      "values": {
+        "rate": "5 * exposure^1.35 * clamp(7/d,.25,2) * (1-.7*(ecc/(pi/3))^1.5) * (1+min(1,visibleSpeed/3)) * (crouched?.75:1) * D1visionDetection",
+        "emptyDecayPerS": 0.45,
+        "visibleSpeedCapMps": 8,
+        "memoryDecayPerS": 0.08
+      },
+      "notes": "Movement estimated from successive clear samples of same part. Peripheral limitation research gives direction, not coefficients. Lighting uniform; prone target unavailable in current controls.",
+      "2D 역이식 후보": true
+    },
+    {
+      "key": "staged-reaction",
+      "classification": "튜닝",
+      "values": {
+        "noticeS": [
+          0.19,
+          0.24
+        ],
+        "recognizeS": [
+          0.1,
+          0.2
+        ],
+        "decideS": [
+          0.08,
+          0.21
+        ],
+        "peripheral": "1+ecc*.6",
+        "surprise": "ecc>.6 ?1.2:1",
+        "medical": "convertedAI.reactionS[0]/.25"
+      },
+      "notes": "Simple/choice reaction studies are different lab tasks. Stage partition, skill and surprise factors are game tuning; D1 reaction/adrenaline modifiers read unchanged.",
+      "2D 역이식 후보": true
+    },
+    {
+      "key": "perception-and-underlead",
+      "classification": "튜닝",
+      "values": {
+        "gaussian": "existing LCG Box-Muller; clamp +/-3sigma; same sample reused between sight updates",
+        "positionSigma": "skill.perceptionM*(1+d/20)*(1+.2*visibleSpeed)/sqrt(max(.1,exposure))*style*(1+3*suppression)",
+        "verticalSigmaRatio": 0.65,
+        "lead": "visibleVelocity * distance / muzzleVelocity * (.25+.6*composure)"
+      },
+      "notes": "Noise is an uncertain perceived point moved through the physical aiming motor, never a post-shot bullet cone. Underlead coefficient has no direct rifle experimental calibration.",
+      "2D 역이식 후보": true
+    },
+    {
+      "key": "fitts-motor",
+      "classification": "튜닝",
+      "values": {
+        "time": "(.10+.085*log2(1+A/max(.003,W)))/skill.turn",
+        "omega": "min(22,4.6/max(.15,time))",
+        "damping": "skill.overshoot",
+        "yawCapRadps": 5,
+        "pitchCapRadps": 4,
+        "pitchLimitRad": 1.1,
+        "bodyTurnPerS": 6
+      },
+      "notes": "Underdamped motor settles/overshoots. Actual muzzle from preceding pose provides geometric aiming origin; eyes provide perception/range. Same AimState then adds handling lag.",
+      "2D 역이식 후보": true
+    },
+    {
+      "key": "sway-recoil-medical",
+      "classification": "원본",
+      "values": {
+        "AimState": "unchanged aim.js",
+        "RecoilState": "unchanged recoil.js",
+        "D1": "unchanged medical-feedback.js; feedback output passed to AimState",
+        "ammo": "545_ps_gs",
+        "weapon": "ak74m"
+      },
+      "notes": "No player change. Same weapon/ammo impulse with same shot ID and stance is byte-identical. D1 tremor/aim hold shared.",
+      "2D 역이식 후보": true
+    },
+    {
+      "key": "AI-support-recovery-suppression",
+      "classification": "튜닝",
+      "values": {
+        "swayMultiplier": {
+          "standing": 1,
+          "crouched": 0.7,
+          "supported": 0.4
+        },
+        "suppressionGain": 0.65,
+        "suppressionDecayPerS": 1.3,
+        "suppressionSway": "1+suppression",
+        "manualRecoveryDelayS": 0.14,
+        "manualRate": "2+7*composure"
+      },
+      "notes": "Recovery calls player RecoilState.compensate, leaving impulse/integrator intact. Only opposing SND1 heard crack adds suppression. Supported flag is an interface/measurement input; AI1 does not seek cover/support.",
+      "2D 역이식 후보": true
+    },
+    {
+      "key": "styles-and-bursts",
+      "classification": "튜닝",
+      "values": {
+        "styles": {
+          "hip": {
+            "readyS": 0.13,
+            "uncertainty": 2.8,
+            "ads": false
+          },
+          "quick": {
+            "readyS": 0.28,
+            "uncertainty": 1.6,
+            "ads": false
+          },
+          "ads": {
+            "readyS": 0.5,
+            "uncertainty": 1,
+            "ads": true
+          }
+        },
+        "hipBoundary": "5+3c meters",
+        "quickBoundary": "12+6c meters",
+        "urgentHip": "ecc>.65 and distance<9",
+        "reaimS": "near .45/turn, far .75/turn",
+        "pairIntervalS": 0.25
+      },
+      "notes": "No verified generic AK0.25s empirical cadence; tuning. New styles alter posture/readiness/perceived point, not hit rolls.",
+      "2D 역이식 후보": true
+    },
+    {
+      "key": "prepared-actor-query-filter",
+      "classification": "게임 허용",
+      "values": {
+        "queryEnabled": false,
+        "movement": "disabled until deployment"
+      },
+      "notes": "Unused prewarmed bodies stay out of shooterPhysics body/armor/internal queries and movement collisions. Deployed instances reenable before their first tick.",
+      "2D 역이식 후보": false
+    },
+    {
+      "key": "auto-and-inventory",
+      "classification": "원본",
+      "values": {
+        "autoRPM": 650,
+        "magazineInitial": 30,
+        "spares": 4,
+        "reloadS": 3.498
+      },
+      "notes": "M7 actual gun/chamber/magazine ownership path. Finite ammo; no infinite replenishment. Original empty reload time scaled by existing D1 reload rate.",
+      "2D 역이식 후보": true
+    },
+    {
+      "key": "3D-MOA-status",
+      "classification": "원본",
+      "values": {
+        "playerSeparateMOADraw": false,
+        "AISeparateMOADraw": false,
+        "changedPlayer": false
+      },
+      "notes": "Registry angular accuracy is not independently sampled in v66 3D main.fire/AimState.shotPose. Adding it only to AI would violate equality. Existing 2D values untouched; future shared 3D dispersion needs separate approval/scope.",
+      "2D 역이식 후보": true
+    },
+    {
+      "key": "stock-first-IK",
+      "classification": "튜닝",
+      "values": {
+        "pocketRelativeRightClavicleM": [
+          0.045,
+          0.09,
+          0.075
+        ],
+        "hipOffsetM": [
+          0.01,
+          -0.23,
+          0.03
+        ],
+        "lowReadyDirection": [
+          0,
+          -0.5,
+          0.866
+        ],
+        "elbowPolesM": {
+          "R": [
+            -0.65,
+            1.05,
+            0.2
+          ],
+          "L": [
+            0.65,
+            1.05,
+            0.2
+          ]
+        },
+        "sightEye": "existing SOLDIER_EYE_LOCAL; neck rotation to reachable line/sphere intersection, no bone translation/scale"
+      },
+      "notes": "Gun mounted before both arm IK. Common AK fixed fingers unchanged. ADS metric is point-to-axis distance, not an eye relief specification; relief ~.33–.37m in tested poses.",
+      "2D 역이식 후보": true
+    },
+    {
+      "key": "lean",
+      "classification": "튜닝",
+      "values": {
+        "rollDeg": 12,
+        "headSphereRadiusM": 0.12,
+        "wallMarginM": 0.02
+      },
+      "notes": "Manual test postures, no AI2 autonomous peeking. Existing pelvis pivot with floor-pinned leg IK; head cast excludes own movement collider. Muzzle blocked uses resulting gun pose.",
+      "2D 역이식 후보": true
+    },
+    {
+      "key": "Sector05-dimensions",
+      "classification": "사용자 설계값",
+      "values": {
+        "requestedRoomsM": {
+          "A": [
+            4,
+            4
+          ],
+          "B": [
+            3,
+            4
+          ],
+          "C": [
+            3,
+            3
+          ],
+          "main": [
+            6,
+            8
+          ]
+        },
+        "corridorWidthM": 1.2,
+        "doorWidthM": 0.9,
+        "windowSillM": 1,
+        "ceilingM": 2.7
+      },
+      "notes": "Actual concrete roof and openings; dimensions refer to authored wall center planes. Main depth8.2m for shared L-corridor alignment.",
+      "2D 역이식 후보": false
+    },
+    {
+      "key": "Sector05-layout-and-light",
+      "classification": "튜닝",
+      "values": {
+        "config": {
+          "sector": "05",
+          "spawn": {
+            "x": 131.35,
+            "z": 39.55
+          },
+          "panel": {
+            "id": "kh-panel",
+            "at": [
+              130.14,
+              1.2,
+              37.1
+            ],
+            "size": [
+              0.08,
+              0.5,
+              0.4
+            ],
+            "range": 1.8
+          },
+          "maximumEnemies": 4,
+          "ceilingM": 2.7,
+          "roomSizeM": [
+            6,
+            8.2
+          ]
+        },
+        "rooms": [
+          {
+            "id": "kh-A",
+            "boxes": [
+              {
+                "min": [
+                  130,
+                  0,
+                  30
+                ],
+                "max": [
+                  134,
+                  2.7,
+                  34
+                ]
+              }
+            ],
+            "outdoor": false,
+            "surfaceAreas": [
+              {
+                "material": "concrete",
+                "areaM2": 50
+              },
+              {
+                "material": "drywall",
+                "areaM2": 20
+              },
+              {
+                "material": "wood",
+                "areaM2": 12
+              }
+            ]
+          },
+          {
+            "id": "kh-B",
+            "boxes": [
+              {
+                "min": [
+                  134,
+                  0,
+                  30
+                ],
+                "max": [
+                  137,
+                  2.7,
+                  34
+                ]
+              }
+            ],
+            "outdoor": false,
+            "surfaceAreas": [
+              {
+                "material": "concrete",
+                "areaM2": 50
+              },
+              {
+                "material": "drywall",
+                "areaM2": 20
+              },
+              {
+                "material": "wood",
+                "areaM2": 12
+              }
+            ]
+          },
+          {
+            "id": "kh-main",
+            "boxes": [
+              {
+                "min": [
+                  137,
+                  0,
+                  30
+                ],
+                "max": [
+                  143,
+                  2.7,
+                  38.2
+                ]
+              }
+            ],
+            "outdoor": false,
+            "surfaceAreas": [
+              {
+                "material": "concrete",
+                "areaM2": 50
+              },
+              {
+                "material": "drywall",
+                "areaM2": 20
+              },
+              {
+                "material": "wood",
+                "areaM2": 12
+              }
+            ]
+          },
+          {
+            "id": "kh-hall",
+            "boxes": [
+              {
+                "min": [
+                  130,
+                  0,
+                  34
+                ],
+                "max": [
+                  137,
+                  2.7,
+                  35.2
+                ]
+              },
+              {
+                "min": [
+                  135.8,
+                  0,
+                  35.2
+                ],
+                "max": [
+                  137,
+                  2.7,
+                  38.2
+                ]
+              }
+            ],
+            "outdoor": false,
+            "surfaceAreas": [
+              {
+                "material": "concrete",
+                "areaM2": 50
+              },
+              {
+                "material": "drywall",
+                "areaM2": 20
+              },
+              {
+                "material": "wood",
+                "areaM2": 12
+              }
+            ]
+          },
+          {
+            "id": "kh-C",
+            "boxes": [
+              {
+                "min": [
+                  132.8,
+                  0,
+                  35.2
+                ],
+                "max": [
+                  135.8,
+                  2.7,
+                  38.2
+                ]
+              }
+            ],
+            "outdoor": false,
+            "surfaceAreas": [
+              {
+                "material": "concrete",
+                "areaM2": 50
+              },
+              {
+                "material": "drywall",
+                "areaM2": 20
+              },
+              {
+                "material": "wood",
+                "areaM2": 12
+              }
+            ]
+          },
+          {
+            "id": "kh-foyer",
+            "boxes": [
+              {
+                "min": [
+                  130,
+                  0,
+                  35.2
+                ],
+                "max": [
+                  132.8,
+                  2.7,
+                  38.2
+                ]
+              }
+            ],
+            "outdoor": false,
+            "surfaceAreas": [
+              {
+                "material": "concrete",
+                "areaM2": 50
+              },
+              {
+                "material": "drywall",
+                "areaM2": 20
+              },
+              {
+                "material": "wood",
+                "areaM2": 12
+              }
+            ]
+          }
+        ],
+        "portals": [
+          {
+            "id": "kh-A-door",
+            "roomA": "kh-A",
+            "roomB": "kh-hall",
+            "center": [
+              131.65,
+              1.05,
+              34
+            ],
+            "width": 0.9,
+            "height": 2.1,
+            "normal": [
+              0,
+              0,
+              1
+            ],
+            "kind": "opening",
+            "openness": 1
+          },
+          {
+            "id": "kh-B-door",
+            "roomA": "kh-B",
+            "roomB": "kh-hall",
+            "center": [
+              135.45,
+              1.05,
+              34
+            ],
+            "width": 0.9,
+            "height": 2.1,
+            "normal": [
+              0,
+              0,
+              1
+            ],
+            "kind": "opening",
+            "openness": 1
+          },
+          {
+            "id": "kh-main-north-door",
+            "roomA": "kh-hall",
+            "roomB": "kh-main",
+            "center": [
+              137,
+              1.05,
+              34.6
+            ],
+            "width": 0.9,
+            "height": 2.1,
+            "normal": [
+              1,
+              0,
+              0
+            ],
+            "kind": "opening",
+            "openness": 1
+          },
+          {
+            "id": "kh-main-south-door",
+            "roomA": "kh-hall",
+            "roomB": "kh-main",
+            "center": [
+              137,
+              1.05,
+              36.85
+            ],
+            "width": 0.9,
+            "height": 2.1,
+            "normal": [
+              1,
+              0,
+              0
+            ],
+            "kind": "opening",
+            "openness": 1
+          },
+          {
+            "id": "kh-C-door",
+            "roomA": "kh-C",
+            "roomB": "kh-hall",
+            "center": [
+              135.8,
+              1.05,
+              36.85
+            ],
+            "width": 0.9,
+            "height": 2.1,
+            "normal": [
+              1,
+              0,
+              0
+            ],
+            "kind": "opening",
+            "openness": 1
+          },
+          {
+            "id": "kh-C-foyer",
+            "roomA": "kh-C",
+            "roomB": "kh-foyer",
+            "center": [
+              132.8,
+              1.05,
+              36.65
+            ],
+            "width": 0.9,
+            "height": 2.1,
+            "normal": [
+              1,
+              0,
+              0
+            ],
+            "kind": "opening",
+            "openness": 1
+          },
+          {
+            "id": "kh-foyer-hall",
+            "roomA": "kh-foyer",
+            "roomB": "kh-hall",
+            "center": [
+              131.45,
+              1.05,
+              35.2
+            ],
+            "width": 0.9,
+            "height": 2.1,
+            "normal": [
+              0,
+              0,
+              1
+            ],
+            "kind": "opening",
+            "openness": 1
+          },
+          {
+            "id": "kh-entrance",
+            "roomA": "kh-foyer",
+            "roomB": "outdoor",
+            "center": [
+              131.35,
+              1.05,
+              38.2
+            ],
+            "width": 0.9,
+            "height": 2.1,
+            "normal": [
+              0,
+              0,
+              1
+            ],
+            "kind": "opening",
+            "openness": 1
+          },
+          {
+            "id": "kh-A-window",
+            "roomA": "kh-A",
+            "roomB": "outdoor",
+            "center": [
+              132,
+              1.5,
+              30
+            ],
+            "width": 1.2,
+            "height": 1,
+            "normal": [
+              0,
+              0,
+              1
+            ],
+            "kind": "window",
+            "openness": 1
+          },
+          {
+            "id": "kh-B-window",
+            "roomA": "kh-B",
+            "roomB": "outdoor",
+            "center": [
+              135.6,
+              1.5,
+              30
+            ],
+            "width": 1.2,
+            "height": 1,
+            "normal": [
+              0,
+              0,
+              1
+            ],
+            "kind": "window",
+            "openness": 1
+          },
+          {
+            "id": "kh-main-window",
+            "roomA": "kh-main",
+            "roomB": "outdoor",
+            "center": [
+              140.35,
+              1.5,
+              30
+            ],
+            "width": 1.7,
+            "height": 1,
+            "normal": [
+              0,
+              0,
+              1
+            ],
+            "kind": "window",
+            "openness": 1
+          }
+        ],
+        "boxes": [
+          {
+            "id": "kh-floor",
+            "at": [
+              136.5,
+              -0.15,
+              34.1
+            ],
+            "size": [
+              13.4,
+              0.3,
+              8.6
+            ],
+            "material": "concrete",
+            "kind": "floor",
+            "penetrable": false,
+            "nominalThicknessM": 0.3
+          },
+          {
+            "id": "kh-yard",
+            "at": [
+              136.5,
+              -0.15,
+              44
+            ],
+            "size": [
+              20,
+              0.3,
+              12
+            ],
+            "material": "concrete",
+            "kind": "floor",
+            "penetrable": false,
+            "nominalThicknessM": 0.3
+          },
+          {
+            "id": "kh-north-yard",
+            "at": [
+              136.5,
+              -0.15,
+              25
+            ],
+            "size": [
+              20,
+              0.3,
+              10
+            ],
+            "material": "concrete",
+            "kind": "floor",
+            "penetrable": false,
+            "nominalThicknessM": 0.3
+          },
+          {
+            "id": "kh-roof",
+            "at": [
+              136.5,
+              2.8,
+              34.1
+            ],
+            "size": [
+              13.2,
+              0.2,
+              8.4
+            ],
+            "material": "concrete",
+            "kind": "barrier",
+            "penetrable": false,
+            "nominalThicknessM": 0.2
+          },
+          {
+            "id": "kh-north-0",
+            "at": [
+              130.65,
+              1.35,
+              30
+            ],
+            "size": [
+              1.5,
+              2.7,
+              0.2
+            ],
+            "material": "concrete",
+            "kind": "barrier",
+            "penetrable": false,
+            "nominalThicknessM": 0.2
+          },
+          {
+            "id": "kh-north-1",
+            "at": [
+              132,
+              0.5,
+              30
+            ],
+            "size": [
+              1.1999999999999886,
+              1,
+              0.2
+            ],
+            "material": "concrete",
+            "kind": "barrier",
+            "penetrable": false,
+            "nominalThicknessM": 0.2
+          },
+          {
+            "id": "kh-north-2",
+            "at": [
+              132,
+              2.35,
+              30
+            ],
+            "size": [
+              1.1999999999999886,
+              0.7000000000000002,
+              0.2
+            ],
+            "material": "concrete",
+            "kind": "barrier",
+            "penetrable": false,
+            "nominalThicknessM": 0.2
+          },
+          {
+            "id": "kh-north-3",
+            "at": [
+              133.8,
+              1.35,
+              30
+            ],
+            "size": [
+              2.4000000000000057,
+              2.7,
+              0.2
+            ],
+            "material": "concrete",
+            "kind": "barrier",
+            "penetrable": false,
+            "nominalThicknessM": 0.2
+          },
+          {
+            "id": "kh-north-4",
+            "at": [
+              135.6,
+              0.5,
+              30
+            ],
+            "size": [
+              1.1999999999999886,
+              1,
+              0.2
+            ],
+            "material": "concrete",
+            "kind": "barrier",
+            "penetrable": false,
+            "nominalThicknessM": 0.2
+          },
+          {
+            "id": "kh-north-5",
+            "at": [
+              135.6,
+              2.35,
+              30
+            ],
+            "size": [
+              1.1999999999999886,
+              0.7000000000000002,
+              0.2
+            ],
+            "material": "concrete",
+            "kind": "barrier",
+            "penetrable": false,
+            "nominalThicknessM": 0.2
+          },
+          {
+            "id": "kh-north-6",
+            "at": [
+              137.85,
+              1.35,
+              30
+            ],
+            "size": [
+              3.3000000000000114,
+              2.7,
+              0.2
+            ],
+            "material": "concrete",
+            "kind": "barrier",
+            "penetrable": false,
+            "nominalThicknessM": 0.2
+          },
+          {
+            "id": "kh-north-7",
+            "at": [
+              140.35,
+              0.5,
+              30
+            ],
+            "size": [
+              1.6999999999999886,
+              1,
+              0.2
+            ],
+            "material": "concrete",
+            "kind": "barrier",
+            "penetrable": false,
+            "nominalThicknessM": 0.2
+          },
+          {
+            "id": "kh-north-8",
+            "at": [
+              140.35,
+              2.35,
+              30
+            ],
+            "size": [
+              1.6999999999999886,
+              0.7000000000000002,
+              0.2
+            ],
+            "material": "concrete",
+            "kind": "barrier",
+            "penetrable": false,
+            "nominalThicknessM": 0.2
+          },
+          {
+            "id": "kh-north-9",
+            "at": [
+              142.14999999999998,
+              1.35,
+              30
+            ],
+            "size": [
+              1.9000000000000057,
+              2.7,
+              0.2
+            ],
+            "material": "concrete",
+            "kind": "barrier",
+            "penetrable": false,
+            "nominalThicknessM": 0.2
+          },
+          {
+            "id": "kh-south-0",
+            "at": [
+              130.4,
+              1.35,
+              38.2
+            ],
+            "size": [
+              1,
+              2.7,
+              0.2
+            ],
+            "material": "concrete",
+            "kind": "barrier",
+            "penetrable": false,
+            "nominalThicknessM": 0.2
+          },
+          {
+            "id": "kh-south-1",
+            "at": [
+              131.35,
+              2.4000000000000004,
+              38.2
+            ],
+            "size": [
+              0.8999999999999773,
+              0.6000000000000001,
+              0.2
+            ],
+            "material": "concrete",
+            "kind": "barrier",
+            "penetrable": false,
+            "nominalThicknessM": 0.2
+          },
+          {
+            "id": "kh-south-2",
+            "at": [
+              137.45,
+              1.35,
+              38.2
+            ],
+            "size": [
+              11.300000000000011,
+              2.7,
+              0.2
+            ],
+            "material": "concrete",
+            "kind": "barrier",
+            "penetrable": false,
+            "nominalThicknessM": 0.2
+          },
+          {
+            "id": "kh-west-0",
+            "at": [
+              130,
+              1.35,
+              34.1
+            ],
+            "size": [
+              0.2,
+              2.7,
+              8.200000000000003
+            ],
+            "material": "concrete",
+            "kind": "barrier",
+            "penetrable": false,
+            "nominalThicknessM": 0.2
+          },
+          {
+            "id": "kh-east-0",
+            "at": [
+              143,
+              1.35,
+              34.1
+            ],
+            "size": [
+              0.2,
+              2.7,
+              8.200000000000003
+            ],
+            "material": "concrete",
+            "kind": "barrier",
+            "penetrable": false,
+            "nominalThicknessM": 0.2
+          },
+          {
+            "id": "kh-A-B-0",
+            "at": [
+              134,
+              1.35,
+              32
+            ],
+            "size": [
+              0.018,
+              2.7,
+              4
+            ],
+            "material": "wood",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.018
+          },
+          {
+            "id": "kh-B-main-0",
+            "at": [
+              137,
+              1.35,
+              32.075
+            ],
+            "size": [
+              0.025,
+              2.7,
+              4.149999999999999
+            ],
+            "material": "drywall",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.025
+          },
+          {
+            "id": "kh-B-main-1",
+            "at": [
+              137,
+              2.4000000000000004,
+              34.6
+            ],
+            "size": [
+              0.025,
+              0.6000000000000001,
+              0.9000000000000057
+            ],
+            "material": "drywall",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.025
+          },
+          {
+            "id": "kh-B-main-2",
+            "at": [
+              137,
+              1.35,
+              35.725
+            ],
+            "size": [
+              0.025,
+              2.7,
+              1.3499999999999943
+            ],
+            "material": "drywall",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.025
+          },
+          {
+            "id": "kh-B-main-3",
+            "at": [
+              137,
+              2.4000000000000004,
+              36.85
+            ],
+            "size": [
+              0.025,
+              0.6000000000000001,
+              0.9000000000000057
+            ],
+            "material": "drywall",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.025
+          },
+          {
+            "id": "kh-B-main-4",
+            "at": [
+              137,
+              1.35,
+              37.75
+            ],
+            "size": [
+              0.025,
+              2.7,
+              0.8999999999999986
+            ],
+            "material": "drywall",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.025
+          },
+          {
+            "id": "kh-A-hall-0",
+            "at": [
+              130.60000000000002,
+              1.35,
+              34
+            ],
+            "size": [
+              1.200000000000017,
+              2.7,
+              0.025
+            ],
+            "material": "drywall",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.025
+          },
+          {
+            "id": "kh-A-hall-1",
+            "at": [
+              131.65,
+              2.4000000000000004,
+              34
+            ],
+            "size": [
+              0.8999999999999773,
+              0.6000000000000001,
+              0.025
+            ],
+            "material": "drywall",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.025
+          },
+          {
+            "id": "kh-A-hall-2",
+            "at": [
+              133.05,
+              1.35,
+              34
+            ],
+            "size": [
+              1.9000000000000057,
+              2.7,
+              0.025
+            ],
+            "material": "drywall",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.025
+          },
+          {
+            "id": "kh-B-hall-0",
+            "at": [
+              134.5,
+              1.35,
+              34
+            ],
+            "size": [
+              1,
+              2.7,
+              0.018
+            ],
+            "material": "wood",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.018
+          },
+          {
+            "id": "kh-B-hall-1",
+            "at": [
+              135.45,
+              2.4000000000000004,
+              34
+            ],
+            "size": [
+              0.8999999999999773,
+              0.6000000000000001,
+              0.018
+            ],
+            "material": "wood",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.018
+          },
+          {
+            "id": "kh-B-hall-2",
+            "at": [
+              136.45,
+              1.35,
+              34
+            ],
+            "size": [
+              1.1000000000000227,
+              2.7,
+              0.018
+            ],
+            "material": "wood",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.018
+          },
+          {
+            "id": "kh-foyer-hall-0",
+            "at": [
+              130.5,
+              1.35,
+              35.2
+            ],
+            "size": [
+              1,
+              2.7,
+              0.025
+            ],
+            "material": "drywall",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.025
+          },
+          {
+            "id": "kh-foyer-hall-1",
+            "at": [
+              131.45,
+              2.4000000000000004,
+              35.2
+            ],
+            "size": [
+              0.8999999999999773,
+              0.6000000000000001,
+              0.025
+            ],
+            "material": "drywall",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.025
+          },
+          {
+            "id": "kh-foyer-hall-2",
+            "at": [
+              133.85,
+              1.35,
+              35.2
+            ],
+            "size": [
+              3.900000000000034,
+              2.7,
+              0.025
+            ],
+            "material": "drywall",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.025
+          },
+          {
+            "id": "kh-C-hall-0",
+            "at": [
+              135.8,
+              1.35,
+              35.8
+            ],
+            "size": [
+              0.018,
+              2.7,
+              1.1999999999999957
+            ],
+            "material": "wood",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.018
+          },
+          {
+            "id": "kh-C-hall-1",
+            "at": [
+              135.8,
+              2.4000000000000004,
+              36.85
+            ],
+            "size": [
+              0.018,
+              0.6000000000000001,
+              0.9000000000000057
+            ],
+            "material": "wood",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.018
+          },
+          {
+            "id": "kh-C-hall-2",
+            "at": [
+              135.8,
+              1.35,
+              37.75
+            ],
+            "size": [
+              0.018,
+              2.7,
+              0.8999999999999986
+            ],
+            "material": "wood",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.018
+          },
+          {
+            "id": "kh-C-foyer-0",
+            "at": [
+              132.8,
+              1.35,
+              35.7
+            ],
+            "size": [
+              0.018,
+              2.7,
+              0.9999999999999929
+            ],
+            "material": "wood",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.018
+          },
+          {
+            "id": "kh-C-foyer-1",
+            "at": [
+              132.8,
+              2.4000000000000004,
+              36.65
+            ],
+            "size": [
+              0.018,
+              0.6000000000000001,
+              0.9000000000000057
+            ],
+            "material": "wood",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.018
+          },
+          {
+            "id": "kh-C-foyer-2",
+            "at": [
+              132.8,
+              1.35,
+              37.650000000000006
+            ],
+            "size": [
+              0.018,
+              2.7,
+              1.1000000000000014
+            ],
+            "material": "wood",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.018
+          },
+          {
+            "id": "kh-sofa",
+            "at": [
+              141.7,
+              0.425,
+              36.7
+            ],
+            "size": [
+              1.9,
+              0.85,
+              0.75
+            ],
+            "material": "wood",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.75
+          },
+          {
+            "id": "kh-cabinet",
+            "at": [
+              138.5,
+              0.95,
+              31.1
+            ],
+            "size": [
+              1.15,
+              1.9,
+              0.6
+            ],
+            "material": "wood",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.6
+          },
+          {
+            "id": "kh-pillar",
+            "at": [
+              140.7,
+              1.35,
+              33.4
+            ],
+            "size": [
+              0.45,
+              2.7,
+              0.45
+            ],
+            "material": "concrete",
+            "kind": "barrier",
+            "penetrable": false,
+            "nominalThicknessM": 0.45
+          },
+          {
+            "id": "kh-table-top",
+            "at": [
+              139.2,
+              0.78,
+              35.1
+            ],
+            "size": [
+              1.4,
+              0.06,
+              0.8
+            ],
+            "material": "wood",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.06
+          },
+          {
+            "id": "kh-table-leg-138.65-34.8",
+            "at": [
+              138.65,
+              0.375,
+              34.8
+            ],
+            "size": [
+              0.08,
+              0.75,
+              0.08
+            ],
+            "material": "wood",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.08
+          },
+          {
+            "id": "kh-table-leg-138.65-35.4",
+            "at": [
+              138.65,
+              0.375,
+              35.4
+            ],
+            "size": [
+              0.08,
+              0.75,
+              0.08
+            ],
+            "material": "wood",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.08
+          },
+          {
+            "id": "kh-table-leg-139.75-34.8",
+            "at": [
+              139.75,
+              0.375,
+              34.8
+            ],
+            "size": [
+              0.08,
+              0.75,
+              0.08
+            ],
+            "material": "wood",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.08
+          },
+          {
+            "id": "kh-table-leg-139.75-35.4",
+            "at": [
+              139.75,
+              0.375,
+              35.4
+            ],
+            "size": [
+              0.08,
+              0.75,
+              0.08
+            ],
+            "material": "wood",
+            "kind": "barrier",
+            "penetrable": true,
+            "nominalThicknessM": 0.08
+          }
+        ],
+        "placements": {
+          "rooms": [
+            [
+              131.2,
+              0,
+              31.6
+            ],
+            [
+              135.1,
+              0,
+              31.7
+            ],
+            [
+              134.5,
+              0,
+              37.1
+            ],
+            [
+              141.7,
+              0,
+              32.7
+            ]
+          ],
+          "main": [
+            [
+              138.4,
+              0,
+              37.2
+            ],
+            [
+              141.9,
+              0,
+              34.6
+            ],
+            [
+              139.1,
+              0,
+              32.5
+            ],
+            [
+              142.1,
+              0,
+              31.6
+            ]
+          ],
+          "corridor": [
+            [
+              130.65,
+              0,
+              34.6
+            ],
+            [
+              133.9,
+              0,
+              34.6
+            ],
+            [
+              136.4,
+              0,
+              37.5
+            ],
+            [
+              138,
+              0,
+              34.6
+            ]
+          ]
+        },
+        "patrols": [
+          [
+            131.2,
+            0,
+            32.2
+          ],
+          [
+            135.1,
+            0,
+            32.4
+          ],
+          [
+            134.6,
+            0,
+            37
+          ],
+          [
+            138.1,
+            0,
+            37
+          ],
+          [
+            141.8,
+            0,
+            32.4
+          ]
+        ],
+        "guardLooks": {
+          "rooms": [
+            [
+              131.65,
+              0,
+              34
+            ],
+            [
+              135.45,
+              0,
+              34
+            ],
+            [
+              132.8,
+              0,
+              36.65
+            ],
+            [
+              137,
+              0,
+              34.6
+            ]
+          ],
+          "main": [
+            [
+              137,
+              0,
+              36.85
+            ],
+            [
+              137,
+              0,
+              34.6
+            ],
+            [
+              137,
+              0,
+              34.6
+            ],
+            [
+              137,
+              0,
+              34.6
+            ]
+          ],
+          "corridor": [
+            [
+              131.45,
+              0,
+              35.2
+            ],
+            [
+              131.45,
+              0,
+              35.2
+            ],
+            [
+              136.4,
+              0,
+              34.6
+            ],
+            [
+              137,
+              0,
+              34.6
+            ]
+          ]
+        },
+        "lights": {
+          "intensity": 7,
+          "distanceM": 8,
+          "heightM": 2.5,
+          "decay": 1
+        }
+      },
+      "notes": "World x130..143,z30..38.2, separate old sectors; uniform lights, no light-dependent sensing. Source acoustic absorption constants retained; room surface areas are authored approximations.",
+      "2D 역이식 후보": false
+    },
+    {
+      "key": "navigation",
+      "classification": "튜닝",
+      "values": {
+        "cellM": 0.15,
+        "clearanceM": 0.23,
+        "capsuleHalfHeightM": 0.6,
+        "capsuleCenterM": 0.85,
+        "arrivalM": 0.045,
+        "collisionMarginM": 0.01
+      },
+      "notes": "Room BFS over shared SND1 door portals (windows excluded); grid A* within room route, expanded actual wall/cover boxes, real downward floor rays; actual capsule cast on movement. Dynamic human colliders stop movement; no teamwork/traffic negotiation.",
+      "2D 역이식 후보": true
+    },
+    {
+      "key": "UI-and-debug",
+      "classification": "게임 허용",
+      "values": {
+        "aiDisplayDefault": false,
+        "count": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "skillDefault": "regular",
+        "placementSets": [
+          "rooms",
+          "main",
+          "corridor"
+        ],
+        "behavior": [
+          "patrol",
+          "guard"
+        ],
+        "posture": [
+          "stand",
+          "crouch",
+          "left",
+          "right"
+        ]
+      },
+      "notes": "F / same touch interaction; settings persistent/reset. Debug includes blocked rays purely as diagnostics; blocked target coordinates never passed to brain.",
+      "2D 역이식 후보": false
+    }
+  ]
+}

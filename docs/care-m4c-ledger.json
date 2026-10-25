@@ -1,0 +1,173 @@
+{
+  "version": "care-m4c-v62",
+  "baseline": "5eeffa97d950586c8c5fea5a5cff09549d3792fc",
+  "scope": "3D only",
+  "automatic2DPort": false,
+  "reversePortCandidate": true,
+  "entries": [
+    {
+      "id": "fixed-stages",
+      "classification": [
+        "사용자 설계값",
+        "버그 수정"
+      ],
+      "value": {
+        "scaled": [
+          "CAT",
+          "gauze packing",
+          "bandage",
+          "seal",
+          "needle",
+          "TXA",
+          "foam",
+          "pill administration",
+          "OTFC placing",
+          "ketamine administration",
+          "blood connection"
+        ],
+        "fixed": [
+          "gauze pressure",
+          "blood infusion",
+          "drug onset",
+          "OTFC dissolution"
+        ]
+      },
+      "implementation": "Split a crossing tick at packing boundary; pressure advances actual elapsed seconds, not dt/multiplier. Start mode/hand-work multiplier frozen, resume refreshes injury in same mode. Fixed timers in existing drug/infusion code are untouched."
+    },
+    {
+      "id": "caps",
+      "classification": [
+        "사용자 설계값",
+        "게임 허용"
+      ],
+      "value": {
+        "game": {
+          "injury": 1.2,
+          "includingOneHand": 1.5
+        },
+        "realistic": {
+          "injury": 1.5,
+          "includingOneHand": 2.2
+        },
+        "reality": "uncapped exact v61 multiplication order"
+      },
+      "formula": "min(totalCap,min(injuryCap,v61Multiplier/oneHandFactor)*oneHandFactor); rear seal position factor is separate, applied afterwards."
+    },
+    {
+      "id": "realistic-times",
+      "classification": [
+        "사용자 설계값",
+        "게임 허용"
+      ],
+      "seconds": {
+        "catLeg": 10,
+        "catArm": 8,
+        "bandage": 8,
+        "gauzePacking": 8,
+        "gauzePressure": 20,
+        "seal": 6,
+        "rearSealMultiplier": 1.8,
+        "needle": 8,
+        "txa": 8,
+        "foam": 12
+      },
+      "v61EffectiveSeconds": {
+        "catLeg": 15,
+        "catArm": 12,
+        "bandage": 12,
+        "gauzePacking": 10,
+        "gauzePressure": 45,
+        "seal": 10,
+        "needle": 4.8,
+        "txa": 8,
+        "foam": 12
+      },
+      "note": "Requested explicit values win: current effective needle4.8→8 is an increase; TXA8/foam12 already matched. M4 base constants12/20/30 were previously scaled by.4 in realistic."
+    },
+    {
+      "id": "game-times",
+      "classification": [
+        "튜닝",
+        "게임 허용"
+      ],
+      "seconds": {
+        "catLeg": 3,
+        "catArm": 2.5,
+        "bandage": 3,
+        "gauzePacking": 3,
+        "gauzePressure": 4,
+        "seal": 2,
+        "needle": 2,
+        "txa": 2,
+        "foam": 3
+      },
+      "rule": "new/old game ratio <= realistic new/old ratio for every listed step; no game extra longer than realistic"
+    },
+    {
+      "id": "reality-times",
+      "classification": [
+        "원본",
+        "출처",
+        "튜닝"
+      ],
+      "seconds": {
+        "catLeg": 37.5,
+        "catArm": 28,
+        "bandage": 30,
+        "gauzePacking": 30,
+        "gauzePressure": 180,
+        "seal": 25,
+        "rearSealMultiplier": 3,
+        "needle": 12,
+        "txa": 20,
+        "foam": 30
+      },
+      "source": "docs/self-care-m3-sources.json CG-IFU200/TCCC2026 only support pressure180 and cited CAT leg sample, not every other time or multiplier. Existing arm28/packing30/bandage30 and multiplier1.65 remain tuning."
+    },
+    {
+      "id": "one-hand-pressure",
+      "classification": [
+        "튜닝"
+      ],
+      "efficacy": 0.98,
+      "formula": "completed residual = original + (1-original)*.02*oneHandPressureSeconds/fixedPressureSeconds; fraction clamped0..1. All two-hand/pre-M4c records return original coefficient exactly. Game returns original regardless of hands. Only completed effect changes, not active manual pressure. Actual one-hand time persists through interruptions; resume setup not counted.",
+      "completedArterialResidual": {
+        "game": 0,
+        "realistic": 0.020049,
+        "reality": 0.0494
+      },
+      "note": "2 percentage point loss of control efficacy, not a clinical one-hand result; no finger assets or anatomy changed."
+    },
+    {
+      "id": "unmodified",
+      "classification": [
+        "원본"
+      ],
+      "files": [
+        "medical-care-m4b-policy.js",
+        "medical-care-drugs.js",
+        "medical-care-systemic.js",
+        "medical-care-chest.js",
+        "medical-care-movement.js",
+        "generated/legacy-medical.js",
+        "CQB_Tactical.html"
+      ],
+      "note": "All unchanged byte for byte. Drug application and connection still get capped hand multiplier; subsequent onset/dissolution/infusion timers do not. No raw bleeding/HP/chest/physiology/ballistic/armor formula edits."
+    },
+    {
+      "id": "retained-known-misses",
+      "classification": [
+        "원본",
+        "튜닝"
+      ],
+      "sprintGoal": 0.3,
+      "v61MeasuredShorteningByMode": {
+        "game": 0.46,
+        "realistic": 0.71,
+        "reality": 0.43
+      },
+      "changed": false,
+      "note": "D2 redistribution preserved; no fit or formula changes to reach sprint30%. Existing clinical tension-incidence source gap also retained."
+    }
+  ]
+}

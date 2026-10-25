@@ -1,0 +1,11 @@
+{
+  "name": "xps3",
+  "author": "Andruxa-snajper",
+  "authorURL": "https://sketchfab.com/Andruxa-snajper",
+  "license": "Sketchfab Standard",
+  "sourceURL": "https://sketchfab.com/3d-models/eotech-xps3-0-holographic-sight-ver40-4efb1b416b6a413ebaeb0ed60fd3c2a2",
+  "use": "private personal project",
+  "input": "canonical uploaded derivative extracted from user-optics-v28.zip",
+  "originalModelProvided": false,
+  "changes": "Uploaded prepared derivative retained byte-exactly. User toolkit documents axis/meter normalization, marker placement, texture compression and removed components; original upstream GLB not supplied, so upstream preparation proof remains unverified."
+}

@@ -1,0 +1,155 @@
+{
+  "checkedUTC": "2026-10-22",
+  "scope": "Shape/dimensions only. Existing registry armor, durability, mass and thickness never imported from web/wiki.",
+  "priority": [
+    "manufacturer/official",
+    "public/research",
+    "retailer/review",
+    "game wiki unofficial shape only",
+    "same-class tuning if unavailable"
+  ],
+  "findings": {
+    "hesco4800": "Official 4800-SH-MC-L 10x12in; SAPI M9.50x12.50in analogous dimension for SAPI entries, not per-model verification.",
+    "rma1155": "Current Gen2 actual9.5x11.5in Shooter multi curve. Registry generation not identified; representative variant is an estimate.",
+    "colossus": "Official multi-curve confirmed; dimensions and radii remain tuning.",
+    "highcom": "HTTP200 pages did not expose usable model specifications. Not treated as verified.",
+    "russia": "Granit Br4 25x30cm not independently verified; preserves v64 geometry as tuning. Other Russian entries same-class tuning.",
+    "ssapiEsbi": "6x8in is user-provided example; public document fetch failed, not asserted as verified.",
+    "wiki": "No wiki-derived dimensions used; attempted pages unavailable.",
+    "curveRadiiAndCornerRatios": "All radii, corner proportions and carrier mounts are tuning, including rows with manufacturer dimensions."
+  },
+  "attempts": [
+    {
+      "key": "highcom4s17m",
+      "url": "https://www.highcomarmor.com/product/4s17m/",
+      "status": 200,
+      "bytes": 437296,
+      "sha256": "edca971ce59f6f98cc5ce49877102d97cfb98bc0af9d9b40cdaa4ad804d1f5b2",
+      "fragments": []
+    },
+    {
+      "key": "highcom4sas7",
+      "url": "https://www.highcomarmor.com/product/4sas7/",
+      "status": 200,
+      "bytes": 437296,
+      "sha256": "a806967750192a71c0e1fa53999979c690f814998d340d6f04fce02bee67f4e4",
+      "fragments": []
+    },
+    {
+      "key": "highcom3s9m",
+      "url": "https://www.highcomarmor.com/product/3s9m/",
+      "status": 200,
+      "bytes": 437296,
+      "sha256": "4de0ab36f1118338c415a5b9759341961e92204bd0e838e8fd03af02adc2573a",
+      "fragments": []
+    },
+    {
+      "key": "hesco",
+      "url": "https://www.hesco.com/products/armor/600-series/",
+      "status": 200,
+      "bytes": 101252,
+      "sha256": "1e678ae4ca163a295203c7b81b8bf3fb52d7be08a01666c7b549839f741e2396",
+      "fragments": [
+        " NIJ CERTIFIED ADVANCED SPECTRA® MATERIAL COMFORT DESIGN&nbsp;FOR LONGER WEAR LAW ENFORCEMENT-STYLE SHOOTER CUT AND MILITARY STYLE SAPI CUT HIGHLY DURABLE, WATER-RESISTANT&nbsp;POLYURETHANE COATED CORDURA®&nbsp;FABRIC FINISH PRECISION QUALITY CONTROL Image PRODUCT SPECIFICATIONS &nbsp; ",
+        "IC FINISH PRECISION QUALITY CONTROL Image PRODUCT SPECIFICATIONS &nbsp; 3612 LEVEL III+ STAND ALONE SHOOTER CUT - MULTI CURVE - TORSO PLATES&nbsp; PART NUMBER WIDTH X LENGTH WEIGHT 3612-SH-MC-L 10.00 x 12.00 in (254 x 305 mm) 3.8 lb (1.7 kg) 3612-SH-MC-S 8.00 x 10.00 in (203 x 254 mm) 2",
+        "ISION QUALITY CONTROL Image PRODUCT SPECIFICATIONS &nbsp; 3612 LEVEL III+ STAND ALONE SHOOTER CUT - MULTI CURVE - TORSO PLATES&nbsp; PART NUMBER WIDTH X LENGTH WEIGHT 3612-SH-MC-L 10.00 x 12.00 in (254 x 305 mm) 3.8 lb (1.7 kg) 3612-SH-MC-S 8.00 x 10.00 in (203 x 254 mm) 2.5 lb (1.1 kg) &nb",
+        "5 mm) 3.8 lb (1.7 kg) 3612-SH-MC-S 8.00 x 10.00 in (203 x 254 mm) 2.5 lb (1.1 kg) &nbsp; SAPI CUT - MULTI CURVE - TORSO PLATES PART NUMBER WIDTH X LENGTH WEIGHT 3612-SA-MC-XL 11.00 x 14.00 in (279 x 356 mm) 5.3 lb (2.4 kg) 3612-SA-MC-L 10.25 x 13.25 in (260 x 337 mm) 4.6 lb (2.1 kg) 3612-SA"
+      ]
+    },
+    {
+      "key": "rma1155",
+      "url": "https://rmadefense.com/store/body-armor/level-iv/level-iv-hard-armor-plate-model-1155/",
+      "status": 200,
+      "bytes": 702670,
+      "sha256": "9644f93a242325c556adaf4f6cf1a649c73a67ee6fb67fc6b8fc45de2da1ee22",
+      "fragments": [
+        "Url\":\"https:\\/\\/rmadefense.com\\/wp-content\\/uploads\\/2023\\/08\\/RMA-1155-Gen-2-Level-4-Ceramic-Plate-Shooters-Cut-Front.jpg\",\"datePublished\":\"2017-08-18T19:18:03+00:00\",\"dateModified\":\"2026-10-20T13:15:55+00:00\",\"description\":\"Get ultimate defense with our NIJ .07 Level 4 Ceramic Plates ",
+        "url\":\"https:\\/\\/rmadefense.com\\/wp-content\\/uploads\\/2023\\/08\\/RMA-1155-Gen-2-Level-4-Ceramic-Plate-Shooters-Cut-Front.jpg\",\"contentUrl\":\"https:\\/\\/rmadefense.com\\/wp-content\\/uploads\\/2023\\/08\\/RMA-1155-Gen-2-Level-4-Ceramic-Plate-Shooters-Cut-Front.jpg\",\"width\":1200,\"height\":1200,\"cap",
+        "Url\":\"https:\\/\\/rmadefense.com\\/wp-content\\/uploads\\/2023\\/08\\/RMA-1155-Gen-2-Level-4-Ceramic-Plate-Shooters-Cut-Front.jpg\",\"width\":1200,\"height\":1200,\"caption\":\"RMA 1155 Gen 2 Level 4 Ceramic Plate Shooter's Cut Front\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/rmadefense.com\\/store\\/",
+        "-Shooters-Cut-Front.jpg\",\"width\":1200,\"height\":1200,\"caption\":\"RMA 1155 Gen 2 Level 4 Ceramic Plate Shooter's Cut Front\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/rmadefense.com\\/store\\/body-armor\\/level-iv-body-armor\\/level-iv-body-armor-plate-model-1155\\/#breadcrumb\",\"itemListElemen"
+      ]
+    },
+    {
+      "key": "ltc26605",
+      "url": "https://www.hoplitearmor.com/products/two-sapi-plates-triple-curve-level-iv-stand-alone",
+      "status": 200,
+      "bytes": 1143339,
+      "sha256": "c32f9df31d26b415a554629f6b802883c28e5ad73257c1103ff0df2eee257dbc",
+      "fragments": [
+        "ll,\"price\":null,\"sku\":null,\"title\":null,\"untranslatedTitle\":null}]},{\"id\":\"2440193278016\",\"handle\":\"multi-curve-shoulder-armor-plates\",\"isCollective\":false,\"title\":null,\"type\":null,\"untranslatedTitle\":null,\"url\":null,\"vendor\":null,\"remoteShopId\":null,\"variants\":[{\"id\":\"22751416451136\",\"imag",
+        "me}}!\"},{\"key\":\"agent_chat.greeting.welcome\",\"value\":\"You can ask questions about shopping, sizing\\/dimensions, shipping, returns, or order status.\"},{\"key\":\"agent_chat.greeting.welcome_back\",\"value\":\"Welcome back to %{shop_name}! How can I help?\"},{\"key\":\"agent_chat.greeting.welcome_back_",
+        "ht: 50px; } Menu Search Cancel AMERICAN MADE BODY ARMOR Login View cart SALE BODY ARMOR SAPI PLATES SWIMMER PLATES EXTREMITIES HELMETS SHIELDS SOFT ARMOR SAPI / SWIMMER COMBOS PLATE / CARRIER COMBOS PLATE CARRIERS TACTICAL GEAR COMMUNICATIONS FLAMETHROWERS FLASHLIGHTS & BATTERIES MAGAZI",
+        " View cart SALE BODY ARMOR SAPI PLATES SWIMMER PLATES EXTREMITIES HELMETS SHIELDS SOFT ARMOR SAPI / SWIMMER COMBOS PLATE / CARRIER COMBOS PLATE CARRIERS TACTICAL GEAR COMMUNICATIONS FLAMETHROWERS FLASHLIGHTS & BATTERIES MAGAZINES MEDICAL OPTICS SAFETY & PROTECTION SHOOTING ACCESSORIES B"
+      ]
+    },
+    {
+      "key": "sapi",
+      "url": "https://www.marines.mil/Portals/1/Publications/MCO%204400.201_VOL%2013.pdf",
+      "error": "HTTP Error 403: Forbidden",
+      "fragments": []
+    },
+    {
+      "key": "granitWiki",
+      "url": "https://escapefromtarkov.fandom.com/wiki/Granit_4_ballistic_plate",
+      "error": "HTTP Error 402: Payment Required",
+      "fragments": []
+    },
+    {
+      "key": "hesco400",
+      "url": "https://www.hesco.com/products/armor/400-series/",
+      "status": 200,
+      "fragments": [
+        "ONTROL GET IN TOUCH Image PRODUCT SPECIFICATIONS 3404 LEVEL III STAND ALONE SHOOTER CUT - MULTI CURVE - TORSO PLATES PLATE NUMBER WIDTH X LENGTH WEIGHT 3404-SH-MC-L 10.00 x 12.00 in (254 x 305 mm) 3.1 lb (1.4 kg) 3404-SH-MC-S 8.00 x 10.00 in (203 x 254 mm) 2.0 lb (0.9 kg) SAPI CUT - MULTI CURVE - TOR",
+        "m) 3.1 lb (1.4 kg) 3404-SH-MC-S 8.00 x 10.00 in (203 x 254 mm) 2.0 lb (0.9 kg) SAPI CUT - MULTI CURVE - TORSO PLATES PART NUMBER WIDTH X LENGTH WEIGHT 3404-SA-MC-XL 11.00 x 14.00 in (279 x 356 mm) 4.3 lb (2.0 kg) 3404-SA-MC-L 10.25 x 13.25 in (260 x 337 mm) 3.7 lb (1.7 kg) 3404-SA-MC-M 9.50 x 12.50 i",
+        "4.3 lb (2.0 kg) 3404-SA-MC-L 10.25 x 13.25 in (260 x 337 mm) 3.7 lb (1.7 kg) 3404-SA-MC-M 9.50 x 12.50 in (241 x 318 mm) 3.2 lb (1.5 kg) 3404-SA-MC-S 8.75 x 11.75 in (222 x 298 mm) 2.8 lb (1.3 kg) 3411 LEVEL III+ STAND ALONE SHOOTER CUT - MULTI CURVE - TORSO PLATES PART NUMBER WIDTH X LENGTH ",
+        " 8.75 x 11.75 in (222 x 298 mm) 2.8 lb (1.3 kg) 3411 LEVEL III+ STAND ALONE SHOOTER CUT - MULTI CURVE - TORSO PLATES PART NUMBER WIDTH X LENGTH WEIGHT 3411-SH-MC-L 10.00 x 12.00 in (254 x 305 mm) 5.5 lb (2.5 kg) 3411-SH-MC-S 8.00 x 10.00 in (203 x 254 mm) 3.5 lb (1.6 kg) SAPI CUT - MULTI CURVE - TORS"
+      ]
+    },
+    {
+      "key": "hesco800",
+      "url": "https://www.hesco.com/products/armor/800-series/",
+      "status": 200,
+      "fragments": [
+        "ning its strength and flexibility. NEXT GEN SPECTRA® MATERIALS AND TECHNOLOGY COMFORTABLE MULTI-CURVE DESIGNS LAW ENFORCEMENT-STYLE SHOOTER CUT AND MILITARY-STYLE SAPI CUT HIGHLY DURABLE, WATER-RESISTANT POLYURETHANE COATED CORDURA® FABRIC FINISH ALSO AVAILABLE WITH SPRAYED-ON POLYUREA COATING PRECIS",
+        "N QUALITY CONTROL Image PRODUCT SPECIFICATIONS 3802 - LEVEL III STAND ALONE Shooter Cut - Multi Curve - Torso Plates Part Number Nominal Width x Length Weight 3802-SH-MC-L 10.0 x 12.0 inches / 254 x 305 mm 2.2 lb/1.0 kg 3802-SH-MC-S 8.0 x 10.0 inches / 203 x 254 mm 1.4 lb/0.6 kg SAPI Cut - Multi Curv",
+        "5 mm 2.2 lb/1.0 kg 3802-SH-MC-S 8.0 x 10.0 inches / 203 x 254 mm 1.4 lb/0.6 kg SAPI Cut - Multi Curve - Torso Plates Part Number Nominal Width x Length Thickness Weight 3802-SA-MC-XL 11.00 x 14.00 inches / 279 x 356 mm 1.05 inches / 27 mm 3.0 lb / 1.4 kg 3802-SA-MC-L 10.25 x 13.25 inches / 260 x 337 ",
+        "MC-L 10.25 x 13.25 inches / 260 x 337 mm 1.05 inches / 27 mm 2.6 lb / 1.2 kg 3802-SA-MC-M 9.50 x 12.50 inches / 241 x 318 mm 1.05 inches / 27 mm 2.3 lb /1.0 kg 3802-SA-MC-S 8.75 x 11.75 inches / 222 x 298 mm 1.05 inches / 27 mm 2.0 lb / 0.9 kg NIJ Standard-0101.06: Tested and verified to meet"
+      ]
+    },
+    {
+      "key": "rma1092",
+      "url": "https://rmadefense.com/store/body-armor/level-iii-plus-body-armor/level-iii-plus-multi-curve-small-extra-large-nij-07-tested/",
+      "status": 200,
+      "fragments": [
+        "product pages to see the materials RMA utilizes. Our Level 3+ body armor plates come in a multi-curve SAPI and Shooter’s cut architectiure and shape ( XRT Armor ), plus ultra-thin, multi-curve ESRT armor size small through extra large. Why Should I Buy Level 3+ Body Armor? We say that Level 3+ body a",
+        "ulti-curve SAPI and Shooter’s cut architectiure and shape ( XRT Armor ), plus ultra-thin, multi-curve ESRT armor size small through extra large. Why Should I Buy Level 3+ Body Armor? We say that Level 3+ body armor is the sweet spot of armor. It may not live up to the Level 4 ballistics. However, it ",
+        " M80 NATO, 7.62×39 MSC, M193 AND the M855 green tip. Plus, it’s only 4.5lbs in a standard 10X12 or medium size. What Happens if I Drop My Armor? If You happen to drop your armor, train with it, or toss your rig around after you take it off. Your armor from RMA should be just fine. RMA’s level 3"
+      ]
+    },
+    {
+      "key": "esbi",
+      "url": "https://www.sbir.gov/node/384445",
+      "error": "HTTP Error 404: Not Found",
+      "fragments": []
+    },
+    {
+      "key": "granitRetail",
+      "url": "https://grey-shop.ru/product/granit-ballistic-plate-replica",
+      "error": "HTTP Error 404: Not Found",
+      "fragments": []
+    },
+    {
+      "key": "adept",
+      "url": "https://www.adeptarmor.com/product/colossus/",
+      "status": 200,
+      "fragments": [
+        "y side, this serves as an integrated trauma pad. \\u2022\\u00a0Comfortable and form-fitting multi-curve geometry. \\u2022\\u00a0Just 6.5 pounds (2.95kg) and 1.18\\u2033 thick. \\u2022 A full-sized strike face with full edge-to-edge ceramic coverage. \\u2022 The world\\u2019s most protective ceramic armor pla",
+        "the body side, this serves as an integrated trauma pad.\\r\\n• Comfortable and form-fitting multi-curve geometry.\\r\\n• Just 6.5 pounds (2.95kg) and 1.18″ thick.\\r\\n• A full-sized strike face with full edge-to-edge ceramic coverage.\\r\\n• The world’s most protective ceramic armor plate.\\r\\n\\r\\nLead time:",
+        "On the body side, this serves as an integrated trauma pad. • Comfortable and form-fitting multi-curve geometry. • Just 6.5 pounds (2.95kg) and 1.18″ thick. • A full-sized strike face with full edge-to-edge ceramic coverage. • The world’s most protective ceramic armor plate. Lead time: 10-12 weeks. $ ",
+        "On the body side, this serves as an integrated trauma pad. • Comfortable and form-fitting multi-curve geometry. • Just 6.5 pounds (2.95kg) and 1.18″ thick. • A full-sized strike face with full edge-to-edge ceramic coverage. Related Products NovaSteel™ Flip Ballistic Mandible, Gen 2. $ 490 Select opti"
+      ]
+    }
+  ],
+  "sourceRequirementsComplete": false,
+  "port2DCandidate": false
+}

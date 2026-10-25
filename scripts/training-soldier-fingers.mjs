@@ -1,0 +1,18 @@
+// Only the final soldier derivative gains fingers. Native v9/v13 and uploaded
+// GLB, image buffers, topology, 24 original bones and their clips remain intact.
+import{readFile,writeFile}from'node:fs/promises';import{createHash}from'node:crypto';import{Vector3,Quaternion,Matrix4}from'three';import{readGLB}from'./training-soldier-skin.mjs';
+const hash=b=>createHash('sha256').update(b).digest('hex');
+export async function generateSoldierFingers(source){
+ const layout=JSON.parse(await readFile(new URL('../docs/soldier-finger-layout.json',import.meta.url))),{g,binary}=readGLB(source),bin=Buffer.from(binary),skin=g.skins[0],originalJoints=[...skin.joints],nodes=new Map(g.nodes.map((n,i)=>[n.name,i]));
+ if(originalJoints.length!==24)throw Error('Finger derivative requires native 24-bone source');
+ const original=g.meshes.find(m=>m.name==='Body').primitives[0],accessOffset=(id,i)=>{const a=g.accessors[id],v=g.bufferViews[a.bufferView],w={5123:2,5126:4}[a.componentType];return(v.byteOffset||0)+(a.byteOffset||0)+i*(v.byteStride||w*4);},names=originalJoints.map(i=>g.nodes[i].name).concat(layout.bones.map(b=>b.name));
+ for(const [index,influence]of Object.entries(layout.weights)){
+  const jo=accessOffset(original.attributes.JOINTS_0,+index),wo=accessOffset(original.attributes.WEIGHTS_0,+index);
+  for(let j=0;j<4;j++){const row=influence[j];bin.writeUInt16LE(row?names.indexOf(row[0]):0,jo+j*2);bin.writeFloatLE(row?row[1]:0,wo+j*4);}
+ }
+ const world=new Map(originalJoints.map((id,i)=>[g.nodes[id].name,new Matrix4().fromArray(readGLB(source).access(skin.inverseBindMatrices)[i]).invert()]));
+ for(const d of layout.bones){const q=new Quaternion(...d.worldRestQ),mat=new Matrix4().compose(new Vector3(...d.at),q,new Vector3(1,1,1)),local=world.get(d.parent).clone().invert().multiply(mat),p=new Vector3(),r=new Quaternion(),s=new Vector3();local.decompose(p,r,s);const id=g.nodes.length;g.nodes.push({name:d.name,translation:p.toArray(),rotation:r.toArray(),children:[]});(g.nodes[nodes.get(d.parent)].children??=[]).push(id);nodes.set(d.name,id);skin.joints.push(id);world.set(d.name,mat);}
+ const inverse=new Float32Array(names.flatMap(name=>world.get(name).clone().invert().toArray())),pad=Buffer.alloc((4-bin.length%4)%4),offset=bin.length+pad.length,binaryOut=Buffer.concat([bin,pad,Buffer.from(inverse.buffer)]),bufferView=g.bufferViews.length;g.bufferViews.push({buffer:0,byteOffset:offset,byteLength:inverse.byteLength});skin.inverseBindMatrices=g.accessors.length;g.accessors.push({bufferView,componentType:5126,count:54,type:'MAT4'});g.buffers=[{byteLength:binaryOut.length}];g.asset.generator+='; v33 source-geometry finger skin / 54 joints';
+ let json=Buffer.from(JSON.stringify(g));json=Buffer.concat([json,Buffer.alloc((4-json.length%4)%4,32)]);const h=Buffer.alloc(20),bh=Buffer.alloc(8);h.writeUInt32LE(0x46546c67);h.writeUInt32LE(2,4);h.writeUInt32LE(28+json.length+binaryOut.length,8);h.writeUInt32LE(json.length,12);h.writeUInt32LE(0x4e4f534a,16);bh.writeUInt32LE(binaryOut.length);bh.writeUInt32LE(0x004e4942,4);const glb=Buffer.concat([h,json,bh,binaryOut]);
+ const meta={version:'soldier-fingers-v33',sourceSHA256:hash(source),sha256:hash(glb),sourceBytes:source.length,bytes:glb.length,bonesBefore:24,bonesAfter:54,addedBones:layout.bones,changedFingerVertices:Object.keys(layout.weights).length,palmBackAndOtherVertexWeightsUnchanged:true,original24BonesAndClipsUnchanged:true,topologyUVNormalsImagesUnchanged:true,jointLocations:layout.classification};await writeFile(new URL('../dist/soldier-fingers.glb',import.meta.url),glb);await writeFile(new URL('../dist/soldier-fingers-meta.json',import.meta.url),JSON.stringify(meta,null,2)+'\n');return{glb,meta};
+}

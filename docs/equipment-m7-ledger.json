@@ -1,0 +1,115 @@
+{
+  "version": "equipment-m7-v65",
+  "baseline": "2d2c688b9deeb78c1aa0b8d574a65082b8e2bf26",
+  "classificationKey": [
+    "출처",
+    "원본",
+    "튜닝",
+    "사용자 설계값",
+    "게임 허용"
+  ],
+  "rows": [
+    {
+      "classification": "원본",
+      "id": "plate-properties",
+      "valueOrRule": "PLATE_REGISTRY identity/material/hardArmor/backer/durability/weight/thickness/compatibility; computeBackerResolution unchanged",
+      "2D 역이식 후보": true
+    },
+    {
+      "classification": "출처·추정·튜닝",
+      "id": "plate-geometry",
+      "valueOrRule": "37 entries including3none; per-row source and limits in plate-shapes.csv/json; manufacturer verified/analogous sizes separated",
+      "2D 역이식 후보": false
+    },
+    {
+      "classification": "사용자 설계값",
+      "id": "plate-ownership",
+      "valueOrRule": "Independent armorPlate instances own original condition.current/max/localZones plus external damageHistory; front/back2x2 side1x2",
+      "2D 역이식 후보": true
+    },
+    {
+      "classification": "튜닝",
+      "id": "mounts",
+      "valueOrRule": "Original front/rear preserved; side±.161,1.285,.012m yaw±90deg, 6B45 side soft interior",
+      "2D 역이식 후보": false
+    },
+    {
+      "classification": "사용자 설계값",
+      "id": "defaults",
+      "valueOrRule": "P01/H01 Br4 front/rear plus GranitSide pair; enemies Br4/Br5 front/rear same50:50 plus twoGranitsides",
+      "2D 역이식 후보": true
+    },
+    {
+      "classification": "튜닝·사용자 설계값",
+      "id": "timings",
+      "valueOrRule": "Plate worn1.5/5/10s, off1/3/5s; original M4c hand impairment/caps; search1/3/5s; strip M6.6/1.2/2s",
+      "2D 역이식 후보": true
+    },
+    {
+      "classification": "사용자 설계값",
+      "id": "worn-rear",
+      "valueOrRule": "Worn player/corpse rear locked; off-body rig all slots unlocked; move/fire/hit cancel atomically",
+      "2D 역이식 후보": true
+    },
+    {
+      "classification": "사용자 설계값·게임 허용",
+      "id": "corpse",
+      "valueOrRule": "Dead/unconscious only, torso centered1.5m; cached first search; target grids and medical; no others treatment",
+      "2D 역이식 후보": true
+    },
+    {
+      "classification": "튜닝",
+      "id": "enemy-kit",
+      "valueOrRule": "6B47/6B45/belt/no bag; AK30 including chamber1+mag29, four spare30 magazines; originalIFAK supplies",
+      "2D 역이식 후보": true
+    },
+    {
+      "classification": "원본·구조 연결",
+      "id": "finite-ammo",
+      "valueOrRule": "Actual AI shots pop rounds and chamber; empty reload swaps actual magazines; dropped AK keeps remaining rounds",
+      "2D 역이식 후보": true
+    },
+    {
+      "classification": "튜닝",
+      "id": "rng",
+      "valueOrRule": "Two existing LCG samples summed modulo1 then threshold.5 to avoid adjacent first-seed bias; forced debug also consumes2 samples",
+      "2D 역이식 후보": true
+    },
+    {
+      "classification": "원본·구조 연결",
+      "id": "mass",
+      "valueOrRule": "Remove legacy included2frontplate mass before adding childplates; P01+4.6kg; actual kit feeds D2/footsteps unchanged equations",
+      "2D 역이식 후보": true
+    },
+    {
+      "classification": "구조 연결·사용자 설계값",
+      "id": "side-path",
+      "valueOrRule": "Subtract only hard side material intervals from fitted continuous arm/torso proxy. Unchanged traceShot/protection/body-channel execute residual-speed order. Empty side slots restore original path.",
+      "2D 역이식 후보": false
+    },
+    {
+      "classification": "사용자 설계값",
+      "id": "cleanup",
+      "valueOrRule": "Two-step5s confirmation; delete unclaimed body/floor items; carried/claimed loot survives. No clone/refill.",
+      "2D 역이식 후보": true
+    },
+    {
+      "classification": "사용자 설계값",
+      "id": "debug",
+      "valueOrRule": "Type colors and names for mounted plate regions; no visible mountedplate mesh; no spawner; next-enemy Br4/Br5 force only",
+      "2D 역이식 후보": false
+    }
+  ],
+  "automatic2DPort": false,
+  "shapeTable": "../downloads/checks-equipment-m7-v65/plate-shapes.json",
+  "sources": "equipment-m7-sources.json",
+  "limits": [
+    "Most product shapes lack independently verified dimensions; explicitly same-class tuning.",
+    "All curve radii/corner proportions are tuning; SAPI family sizes are analogous, not each SKU verified.",
+    "Loose plates have invisible physical props and Nearby entries because user excludes visual plate meshes.",
+    "Ragdoll baseline now includes two2.3kg side plates (80+18.3=98.3kg body/equipment); prepared segment masses are not dynamically redistributed after looting every magazine/plate. P01 carried mass/D2 is live.",
+    "No M5 treatment, enemy bag/pickup AI, item spawner, or bullet-vs-loose-item simulation.",
+    "Desktop Chromium software render and touch emulation tested; real phone hardware not tested.",
+    "Existing M4b/D2 running rebleed target miss and prior clinical source limitations remain."
+  ]
+}

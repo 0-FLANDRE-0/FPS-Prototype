@@ -1,0 +1,228 @@
+{
+  "version": "equipment-m6-v63",
+  "baseline": "b02c02b6904fddcca15b85abb3aefd075311814a",
+  "scope": "3D only; M5 deferred; no raw2D or medical/ballistic/armor equations changed",
+  "automatic2DPort": false,
+  "reversePortCandidate": true,
+  "entries": [
+    {
+      "id": "one-hand-blood",
+      "classification": [
+        "사용자 설계값",
+        "게임 허용"
+      ],
+      "value": "One usable arm may connect blood; same M4c hand multipliers/caps. Game7.5s / realistic33s / reality99s for isolated healthy one-hand boundary. Original500mL infusion rates/onset/drugs unchanged.",
+      "note": "Not a simulation of a clinical self-IV or sternal-IO technique; no clinical procedural claim.",
+      "2D 역이식 후보": true
+    },
+    {
+      "id": "source-mesh-audit",
+      "classification": [
+        "원본"
+      ],
+      "source": "downloads/checks-equipment-m6-v63/mesh-audit.json",
+      "value": "All six mesh/vertex counts and Head dominant3639/145/119 match attached table; runtime GLTF node names carry Soldier prefix. Current derivative has54 bones, fingers unchanged.",
+      "2D 역이식 후보": false
+    },
+    {
+      "id": "armor-note-discrepancy",
+      "classification": [
+        "원본"
+      ],
+      "source": "apps/training/src/armor-targets.js; src/data/body-armor.js; generated/catalog.js",
+      "value": "Actual v62 6B45 accessorySlots shoulderGuard/neckGuard=true; no 6B45 builtInProtection.neckGuard entry. Existing3D profile uses6b45_neck and6b45_shoulder accessory sensors. Attachment shoulderGuard:false/builtIn attribution differs. All definitions/ratings are byte-preserved; removal changes membership only.",
+      "2D 역이식 후보": false
+    },
+    {
+      "id": "runtime-partition",
+      "classification": [
+        "원본",
+        "사용자 설계값",
+        "튜닝"
+      ],
+      "value": "Dominant bone at each vertex, triangle majority for Head collar/helmet, Equipment pelvis/chest, Vest leg/knee versus torso/arms. Existing anatomical source triangle ranges + face envelope(|x|<.078,1.55<y<1.74,z>.035) retain face pieces, avoid loose helmet straps. New index subsets share original vertex/UV/weight buffers; no source triangle moved/capped. Original GLBs remain exact.",
+      "2D 역이식 후보": false
+    },
+    {
+      "id": "balaclava",
+      "classification": [
+        "authored",
+        "튜닝"
+      ],
+      "value": "Runtime dark scalp sphere with eye opening and tapered neck bridge; full head is missing under helmet in source. Sphere radii.085/.124/.095 at(0,1.663,.065); neck1.47–1.61m connects to existing TorsoUnderlayer. This is visual cloth only; no collision/medical geometry change. Existing v52 first-person head/neck mask applies to all new pieces.",
+      "2D 역이식 후보": false
+    },
+    {
+      "id": "pockets",
+      "classification": [
+        "사용자 설계값",
+        "게임 허용"
+      ],
+      "value": {
+        "rig": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        "belt": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "backpack": [
+          6,
+          5
+        ]
+      },
+      "ownerContract": "rig:pouch-N/belt:pouch-N → immutable gear identity → equipped or ground owner. Medical container: parent tracking reused; no cycles, duplicates or spanning pockets.",
+      "2D 역이식 후보": true
+    },
+    {
+      "id": "initial-placement",
+      "classification": [
+        "사용자 설계값",
+        "원본"
+      ],
+      "value": "Four M4 spare magazines: two loaded30 and two empty; both AK spare magazines30. AK-mag03 moves crate→belt, so carried ammo870→900; global round counts unchanged. Existing68 item identities kept, four worn gear identities represent existing equipment. Pure placement72→72 items and whole-world mass conserved on one common mass model. IFAK→rig2x2; abdominal/support pouches/ammo remain backpack.",
+      "2D 역이식 후보": false
+    },
+    {
+      "id": "reload",
+      "classification": [
+        "사용자 설계값",
+        "원본"
+      ],
+      "value": "Automatic considers only nonempty ready magazines, rig then belt, pouch top/left order. Backpack excluded. Outgoing takes incoming original pocket; cancellation before seating restores original magazine/pocket atomically. Native reload clips/times unchanged. Explicit empty-magazine reload remains possible.",
+      "2D 역이식 후보": true
+    },
+    {
+      "id": "access-times",
+      "classification": [
+        "사용자 설계값",
+        "튜닝",
+        "게임 허용"
+      ],
+      "seconds": {
+        "backpack": {
+          "game": 1,
+          "realistic": 2,
+          "reality": 3.5
+        },
+        "gearOffAndOn": {
+          "game": 0.6,
+          "realistic": 1.2,
+          "reality": 2
+        }
+      },
+      "value": "One backpack open cost; while open cannot move/fire, move intent/close shuts it. Access plus hand procedure, not multiplier on waiting. Rig/belt instant. Cancellation by movement/fire/hit, pause freezes. Medical supplies already taken out continue existing M3 flow after closing inventory.",
+      "2D 역이식 후보": true
+    },
+    {
+      "id": "ground-items",
+      "classification": [
+        "사용자 설계값",
+        "튜닝"
+      ],
+      "value": "Helmet/rig off/on timed. Weapons and magazines drop via existing drag command; true dynamic Rapier boxes, friction.85, restitution.03, CCD, inherited player velocity+.25m/s forward. Pickup within2m of feet, centered look with radius.10–.30m from bounds and wall occlusion. Ground objects ignored by projectile queries; no item damage. Contents and armorCondition live on same unique item; pickup never creates replacement. Ground rig grids opened in Nearby on both equipment and medical tabs. Belt/backpack/medical loose drops rejected. Collider bounds/COM use only indexed vertices, not unused vertices in shared source attributes. Explicit backpack storage of loose helmet/rig and later wear are supported; worn removal first drops to world. Dropped props collide with the environment and each other; approximate boxes, no projectile damage. Inherit hand angular velocity plus deterministic tumble(1.5,.25,.65)rad/s tuning, to avoid an upright-box equilibrium. No gameplay RNG consumed. Baked tangents are regenerated via normal-map derivatives; magazine descendants follow actual loaded state.",
+      "2D 역이식 후보": true
+    },
+    {
+      "id": "mass-source",
+      "classification": [
+        "원본",
+        "출처",
+        "튜닝"
+      ],
+      "source": "combatMassLedger; shotBallistics weaponMassKg; optic-data; medical-supplies/M2 sources",
+      "value": "Original armor kit13.7kg: helmet1.15, rig12.55 including2x2.7kg plates and existing collar/groin/shoulder accessories. M4 existing assembled mass3.07kg (generic registry body3.0 is not substituted), AK3.6; attachments counted once. M2 product masses retained. Missing belt.5/backpack.8/STANAG empty.11/AK empty.23kg tuning; complete cartridge mass=registry projectile mass×3 tuning, not manufacturer full cartridge weight. Blood liquid and partial OTFC decrease carried contents. Liquid mass1kg/L and package residual(definitionWeight−.5kg) are game tuning.",
+      "2D 역이식 후보": true
+    },
+    {
+      "id": "d2-input",
+      "classification": [
+        "사용자 설계값",
+        "원본",
+        "튜닝"
+      ],
+      "value": "Actual carried sum replaces fixed13.7 input only; D2 formulas/default data byte unchanged. Held weapon includes magazine/ammo/optics for original arm-load formula. No mass retune of stamina, HR or recovery. Body80kg excluded from equipment input. Prepared ragdoll segment masses remain v62 preset; M6 mass connection scope is D2/audio/drop body, not a new ragdoll mass-distribution system.",
+      "2D 역이식 후보": true
+    },
+    {
+      "id": "footstep-mass",
+      "classification": [
+        "사용자 설계값",
+        "튜닝"
+      ],
+      "anchors": [
+        [
+          0,
+          0.85
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          13,
+          1.15
+        ],
+        [
+          18,
+          1.3
+        ]
+      ],
+      "value": "Continuous linear interpolation; above18kg extends last slope.03/kg. Anchors use old class boundary inputs/levels, not measurements. Player actual carry; NPC existing armor+AK17.3kg. Legacy explicit-class API retained only for callers without a mass input. Existing sample/contact timing/speech exclusions/propagation formulas unchanged.",
+      "2D 역이식 후보": true
+    },
+    {
+      "id": "no-new-scope",
+      "classification": [
+        "사용자 설계값"
+      ],
+      "value": "No M5/other-patient care, NPC undressing/corpse search, belt/backpack drop/model, loose medical drops, bullet-item collisions or protection definition edits. Existing sprint rebleed30% miss and clinical tension source gap retained.",
+      "2D 역이식 후보": false
+    }
+  ]
+}

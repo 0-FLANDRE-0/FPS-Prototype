@@ -1,0 +1,11 @@
+{
+  "name": "acog",
+  "author": "Mateusz Woliński",
+  "authorURL": "https://sketchfab.com/jeandiz",
+  "license": "CC BY-NC 4.0",
+  "sourceURL": "https://sketchfab.com/3d-models/acog-b2eedf78173343c2b9e47d94618824e7",
+  "use": "private personal project",
+  "input": "canonical uploaded derivative extracted from user-optics-v28.zip",
+  "originalModelProvided": false,
+  "changes": "Uploaded prepared derivative retained byte-exactly. User toolkit documents axis/meter normalization, marker placement, texture compression and removed components; original upstream GLB not supplied, so upstream preparation proof remains unverified."
+}

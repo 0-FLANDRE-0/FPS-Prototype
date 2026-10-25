@@ -1,0 +1,1786 @@
+{
+  "version": 4,
+  "ruleId": "internal-anatomy-b1c",
+  "coordinateConvention": "bone-oriented measured mesh sections; all locations/sizes are normalized tuning ratios",
+  "nearMissM": 0.02,
+  "shapes": [
+    {
+      "id": "left-carotid",
+      "kind": "vessel",
+      "domain": "neck",
+      "bone": "neck",
+      "identifier": "carotid_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0.42,
+          0.16,
+          0.22
+        ],
+        [
+          0.42,
+          0.8,
+          0.22
+        ]
+      ],
+      "radiusRatio": 0.045,
+      "side": "left",
+      "vesselKind": "artery",
+      "candidate": "carotid_candidate"
+    },
+    {
+      "id": "left-jugular",
+      "kind": "vessel",
+      "domain": "neck",
+      "bone": "neck",
+      "identifier": "jugular_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0.68,
+          0.18,
+          0.12
+        ],
+        [
+          0.68,
+          0.77,
+          0.12
+        ]
+      ],
+      "radiusRatio": 0.065,
+      "side": "left",
+      "vesselKind": "vein",
+      "candidate": "jugular_candidate"
+    },
+    {
+      "id": "left-subclavian",
+      "kind": "vessel",
+      "domain": "chest",
+      "bone": "chest",
+      "identifier": "subclavian_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0.3,
+          0.88,
+          0.05
+        ],
+        [
+          0.78,
+          0.88,
+          0.05
+        ]
+      ],
+      "radiusRatio": 0.035,
+      "side": "left",
+      "vesselKind": "artery",
+      "candidate": "thoracic_vessel_candidate"
+    },
+    {
+      "id": "left-subclavian-vein",
+      "kind": "vessel",
+      "domain": "chest",
+      "bone": "chest",
+      "identifier": "subclavian-vein_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0.3,
+          0.78,
+          0.25
+        ],
+        [
+          0.78,
+          0.78,
+          0.25
+        ]
+      ],
+      "radiusRatio": 0.05,
+      "side": "left",
+      "vesselKind": "vein",
+      "candidate": "thoracic_vessel_candidate"
+    },
+    {
+      "id": "left-axillary",
+      "kind": "vessel",
+      "domain": "left-upper-arm",
+      "bone": "leftUpperArm",
+      "identifier": "axillary_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0.42,
+          0.1,
+          0.36
+        ],
+        [
+          0.42,
+          0.3,
+          0.36
+        ]
+      ],
+      "radiusRatio": 0.045,
+      "side": "left",
+      "vesselKind": "artery",
+      "candidate": "axillary_vessel_candidate"
+    },
+    {
+      "id": "left-axillary-vein",
+      "kind": "vessel",
+      "domain": "left-upper-arm",
+      "bone": "leftUpperArm",
+      "identifier": "axillary-vein_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0.56,
+          0.1,
+          0.13
+        ],
+        [
+          0.56,
+          0.3,
+          0.13
+        ]
+      ],
+      "radiusRatio": 0.06,
+      "side": "left",
+      "vesselKind": "vein",
+      "candidate": "axillary_vessel_candidate"
+    },
+    {
+      "id": "left-brachial",
+      "kind": "vessel",
+      "domain": "left-upper-arm",
+      "bone": "leftUpperArm",
+      "identifier": "brachial_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0.4,
+          0.31,
+          0.38
+        ],
+        [
+          0.4,
+          0.9,
+          0.38
+        ]
+      ],
+      "radiusRatio": 0.04,
+      "side": "left",
+      "vesselKind": "artery",
+      "candidate": "axillary_brachial_candidate"
+    },
+    {
+      "id": "left-brachial-vein",
+      "kind": "vessel",
+      "domain": "left-upper-arm",
+      "bone": "leftUpperArm",
+      "identifier": "brachial-vein_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0.55,
+          0.31,
+          0.13
+        ],
+        [
+          0.55,
+          0.9,
+          0.13
+        ]
+      ],
+      "radiusRatio": 0.05,
+      "side": "left",
+      "vesselKind": "vein",
+      "candidate": "axillary_brachial_candidate"
+    },
+    {
+      "id": "left-radial",
+      "kind": "vessel",
+      "domain": "left-forearm",
+      "bone": "leftForearm",
+      "identifier": "radial_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.55,
+          0.12,
+          0.42
+        ],
+        [
+          -0.55,
+          0.88,
+          0.42
+        ]
+      ],
+      "radiusRatio": 0.04,
+      "side": "left",
+      "vesselKind": "artery",
+      "candidate": null
+    },
+    {
+      "id": "left-ulnar",
+      "kind": "vessel",
+      "domain": "left-forearm",
+      "bone": "leftForearm",
+      "identifier": "ulnar_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0.44,
+          0.12,
+          0.42
+        ],
+        [
+          0.44,
+          0.88,
+          0.42
+        ]
+      ],
+      "radiusRatio": 0.04,
+      "side": "left",
+      "vesselKind": "artery",
+      "candidate": null
+    },
+    {
+      "id": "left-iliac",
+      "kind": "vessel",
+      "domain": "pelvis",
+      "bone": "pelvis",
+      "identifier": "iliac_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0.15,
+          0.8,
+          -0.22
+        ],
+        [
+          0.55,
+          0.3,
+          -0.22
+        ]
+      ],
+      "radiusRatio": 0.05,
+      "side": "left",
+      "vesselKind": "artery",
+      "candidate": "iliac_vessel_candidate"
+    },
+    {
+      "id": "left-iliac-vein",
+      "kind": "vessel",
+      "domain": "pelvis",
+      "bone": "pelvis",
+      "identifier": "iliac-vein_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0.28,
+          0.8,
+          -0.08
+        ],
+        [
+          0.67,
+          0.3,
+          -0.08
+        ]
+      ],
+      "radiusRatio": 0.065,
+      "side": "left",
+      "vesselKind": "vein",
+      "candidate": "iliac_vessel_candidate"
+    },
+    {
+      "id": "left-femoral",
+      "kind": "vessel",
+      "domain": "left-thigh",
+      "bone": "leftUpperLeg",
+      "identifier": "femoral_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0.42,
+          0.08,
+          0.42
+        ],
+        [
+          0.42,
+          0.87,
+          0.42
+        ]
+      ],
+      "radiusRatio": 0.043,
+      "side": "left",
+      "vesselKind": "artery",
+      "candidate": "femoral_vessel_candidate"
+    },
+    {
+      "id": "left-femoral-vein",
+      "kind": "vessel",
+      "domain": "left-thigh",
+      "bone": "leftUpperLeg",
+      "identifier": "femoral-vein_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0.56,
+          0.08,
+          0.12
+        ],
+        [
+          0.56,
+          0.87,
+          0.12
+        ]
+      ],
+      "radiusRatio": 0.06,
+      "side": "left",
+      "vesselKind": "vein",
+      "candidate": "femoral_vessel_candidate"
+    },
+    {
+      "id": "left-popliteal-proximal",
+      "kind": "vessel",
+      "domain": "left-thigh",
+      "bone": "leftUpperLeg",
+      "identifier": "popliteal-proximal_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0,
+          0.89,
+          -0.55
+        ],
+        [
+          0,
+          0.96,
+          -0.55
+        ]
+      ],
+      "radiusRatio": 0.035,
+      "side": "left",
+      "vesselKind": "artery",
+      "candidate": null
+    },
+    {
+      "id": "left-popliteal",
+      "kind": "vessel",
+      "domain": "left-lower-leg",
+      "bone": "leftLowerLeg",
+      "identifier": "popliteal_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0,
+          0.08,
+          -0.55
+        ],
+        [
+          0,
+          0.22,
+          -0.55
+        ]
+      ],
+      "radiusRatio": 0.035,
+      "side": "left",
+      "vesselKind": "artery",
+      "candidate": null
+    },
+    {
+      "id": "left-popliteal-vein",
+      "kind": "vessel",
+      "domain": "left-lower-leg",
+      "bone": "leftLowerLeg",
+      "identifier": "popliteal-vein_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0.14,
+          0.08,
+          -0.58
+        ],
+        [
+          0.14,
+          0.22,
+          -0.58
+        ]
+      ],
+      "radiusRatio": 0.05,
+      "side": "left",
+      "vesselKind": "vein",
+      "candidate": null
+    },
+    {
+      "id": "left-humerus",
+      "kind": "bone",
+      "domain": "left-upper-arm",
+      "bone": "leftUpperArm",
+      "identifier": "humerus",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0,
+          0.12,
+          -0.12
+        ],
+        [
+          0,
+          0.9,
+          -0.12
+        ]
+      ],
+      "radiusRatio": 0.23,
+      "side": "left"
+    },
+    {
+      "id": "left-radius",
+      "kind": "bone",
+      "domain": "left-forearm",
+      "bone": "leftForearm",
+      "identifier": "radius_ulna",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.25,
+          0.12,
+          -0.12
+        ],
+        [
+          -0.25,
+          0.9,
+          -0.12
+        ]
+      ],
+      "radiusRatio": 0.16,
+      "side": "left"
+    },
+    {
+      "id": "left-ulna",
+      "kind": "bone",
+      "domain": "left-forearm",
+      "bone": "leftForearm",
+      "identifier": "radius_ulna",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0.25,
+          0.12,
+          -0.12
+        ],
+        [
+          0.25,
+          0.9,
+          -0.12
+        ]
+      ],
+      "radiusRatio": 0.15,
+      "side": "left"
+    },
+    {
+      "id": "left-femur",
+      "kind": "bone",
+      "domain": "left-thigh",
+      "bone": "leftUpperLeg",
+      "identifier": "femur",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0,
+          0.12,
+          -0.12
+        ],
+        [
+          0,
+          0.9,
+          -0.12
+        ]
+      ],
+      "radiusRatio": 0.22,
+      "side": "left"
+    },
+    {
+      "id": "left-tibia",
+      "kind": "bone",
+      "domain": "left-lower-leg",
+      "bone": "leftLowerLeg",
+      "identifier": "tibia_fibula",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.17,
+          0.12,
+          -0.12
+        ],
+        [
+          -0.17,
+          0.9,
+          -0.12
+        ]
+      ],
+      "radiusRatio": 0.23,
+      "side": "left"
+    },
+    {
+      "id": "left-fibula",
+      "kind": "bone",
+      "domain": "left-lower-leg",
+      "bone": "leftLowerLeg",
+      "identifier": "tibia_fibula",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0.42,
+          0.12,
+          -0.12
+        ],
+        [
+          0.42,
+          0.9,
+          -0.12
+        ]
+      ],
+      "radiusRatio": 0.12,
+      "side": "left"
+    },
+    {
+      "id": "left-clavicle",
+      "kind": "bone",
+      "domain": "chest",
+      "bone": "chest",
+      "identifier": "clavicle",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0.18,
+          0.91,
+          0.4
+        ],
+        [
+          0.8,
+          0.91,
+          0.4
+        ]
+      ],
+      "radiusRatio": 0.06,
+      "side": "left"
+    },
+    {
+      "id": "left-lung",
+      "kind": "organ",
+      "domain": "chest",
+      "bone": "chest",
+      "identifier": "lung_candidate",
+      "type": "ellipsoid",
+      "center": [
+        0.52,
+        0.53,
+        0
+      ],
+      "radii": [
+        0.35,
+        0.38,
+        0.68
+      ],
+      "candidate": "lung_candidate",
+      "organ": "lung"
+    },
+    {
+      "id": "left-kidney",
+      "kind": "organ",
+      "domain": "abdomen",
+      "bone": "spine",
+      "identifier": "kidney_candidate",
+      "type": "ellipsoid",
+      "center": [
+        0.62,
+        0.64,
+        -0.45
+      ],
+      "radii": [
+        0.18,
+        0.25,
+        0.3
+      ],
+      "candidate": "kidney_candidate",
+      "organ": "kidney"
+    },
+    {
+      "id": "right-carotid",
+      "kind": "vessel",
+      "domain": "neck",
+      "bone": "neck",
+      "identifier": "carotid_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.42,
+          0.16,
+          0.22
+        ],
+        [
+          -0.42,
+          0.8,
+          0.22
+        ]
+      ],
+      "radiusRatio": 0.045,
+      "side": "right",
+      "vesselKind": "artery",
+      "candidate": "carotid_candidate"
+    },
+    {
+      "id": "right-jugular",
+      "kind": "vessel",
+      "domain": "neck",
+      "bone": "neck",
+      "identifier": "jugular_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.68,
+          0.18,
+          0.12
+        ],
+        [
+          -0.68,
+          0.77,
+          0.12
+        ]
+      ],
+      "radiusRatio": 0.065,
+      "side": "right",
+      "vesselKind": "vein",
+      "candidate": "jugular_candidate"
+    },
+    {
+      "id": "right-subclavian",
+      "kind": "vessel",
+      "domain": "chest",
+      "bone": "chest",
+      "identifier": "subclavian_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.3,
+          0.88,
+          0.05
+        ],
+        [
+          -0.78,
+          0.88,
+          0.05
+        ]
+      ],
+      "radiusRatio": 0.035,
+      "side": "right",
+      "vesselKind": "artery",
+      "candidate": "thoracic_vessel_candidate"
+    },
+    {
+      "id": "right-subclavian-vein",
+      "kind": "vessel",
+      "domain": "chest",
+      "bone": "chest",
+      "identifier": "subclavian-vein_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.3,
+          0.78,
+          0.25
+        ],
+        [
+          -0.78,
+          0.78,
+          0.25
+        ]
+      ],
+      "radiusRatio": 0.05,
+      "side": "right",
+      "vesselKind": "vein",
+      "candidate": "thoracic_vessel_candidate"
+    },
+    {
+      "id": "right-axillary",
+      "kind": "vessel",
+      "domain": "right-upper-arm",
+      "bone": "rightUpperArm",
+      "identifier": "axillary_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.42,
+          0.1,
+          0.36
+        ],
+        [
+          -0.42,
+          0.3,
+          0.36
+        ]
+      ],
+      "radiusRatio": 0.045,
+      "side": "right",
+      "vesselKind": "artery",
+      "candidate": "axillary_vessel_candidate"
+    },
+    {
+      "id": "right-axillary-vein",
+      "kind": "vessel",
+      "domain": "right-upper-arm",
+      "bone": "rightUpperArm",
+      "identifier": "axillary-vein_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.56,
+          0.1,
+          0.13
+        ],
+        [
+          -0.56,
+          0.3,
+          0.13
+        ]
+      ],
+      "radiusRatio": 0.06,
+      "side": "right",
+      "vesselKind": "vein",
+      "candidate": "axillary_vessel_candidate"
+    },
+    {
+      "id": "right-brachial",
+      "kind": "vessel",
+      "domain": "right-upper-arm",
+      "bone": "rightUpperArm",
+      "identifier": "brachial_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.4,
+          0.31,
+          0.38
+        ],
+        [
+          -0.4,
+          0.9,
+          0.38
+        ]
+      ],
+      "radiusRatio": 0.04,
+      "side": "right",
+      "vesselKind": "artery",
+      "candidate": "axillary_brachial_candidate"
+    },
+    {
+      "id": "right-brachial-vein",
+      "kind": "vessel",
+      "domain": "right-upper-arm",
+      "bone": "rightUpperArm",
+      "identifier": "brachial-vein_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.55,
+          0.31,
+          0.13
+        ],
+        [
+          -0.55,
+          0.9,
+          0.13
+        ]
+      ],
+      "radiusRatio": 0.05,
+      "side": "right",
+      "vesselKind": "vein",
+      "candidate": "axillary_brachial_candidate"
+    },
+    {
+      "id": "right-radial",
+      "kind": "vessel",
+      "domain": "right-forearm",
+      "bone": "rightForearm",
+      "identifier": "radial_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0.55,
+          0.12,
+          0.42
+        ],
+        [
+          0.55,
+          0.88,
+          0.42
+        ]
+      ],
+      "radiusRatio": 0.04,
+      "side": "right",
+      "vesselKind": "artery",
+      "candidate": null
+    },
+    {
+      "id": "right-ulnar",
+      "kind": "vessel",
+      "domain": "right-forearm",
+      "bone": "rightForearm",
+      "identifier": "ulnar_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.44,
+          0.12,
+          0.42
+        ],
+        [
+          -0.44,
+          0.88,
+          0.42
+        ]
+      ],
+      "radiusRatio": 0.04,
+      "side": "right",
+      "vesselKind": "artery",
+      "candidate": null
+    },
+    {
+      "id": "right-iliac",
+      "kind": "vessel",
+      "domain": "pelvis",
+      "bone": "pelvis",
+      "identifier": "iliac_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.15,
+          0.8,
+          -0.22
+        ],
+        [
+          -0.55,
+          0.3,
+          -0.22
+        ]
+      ],
+      "radiusRatio": 0.05,
+      "side": "right",
+      "vesselKind": "artery",
+      "candidate": "iliac_vessel_candidate"
+    },
+    {
+      "id": "right-iliac-vein",
+      "kind": "vessel",
+      "domain": "pelvis",
+      "bone": "pelvis",
+      "identifier": "iliac-vein_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.28,
+          0.8,
+          -0.08
+        ],
+        [
+          -0.67,
+          0.3,
+          -0.08
+        ]
+      ],
+      "radiusRatio": 0.065,
+      "side": "right",
+      "vesselKind": "vein",
+      "candidate": "iliac_vessel_candidate"
+    },
+    {
+      "id": "right-femoral",
+      "kind": "vessel",
+      "domain": "right-thigh",
+      "bone": "rightUpperLeg",
+      "identifier": "femoral_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.42,
+          0.08,
+          0.42
+        ],
+        [
+          -0.42,
+          0.87,
+          0.42
+        ]
+      ],
+      "radiusRatio": 0.043,
+      "side": "right",
+      "vesselKind": "artery",
+      "candidate": "femoral_vessel_candidate"
+    },
+    {
+      "id": "right-femoral-vein",
+      "kind": "vessel",
+      "domain": "right-thigh",
+      "bone": "rightUpperLeg",
+      "identifier": "femoral-vein_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.56,
+          0.08,
+          0.12
+        ],
+        [
+          -0.56,
+          0.87,
+          0.12
+        ]
+      ],
+      "radiusRatio": 0.06,
+      "side": "right",
+      "vesselKind": "vein",
+      "candidate": "femoral_vessel_candidate"
+    },
+    {
+      "id": "right-popliteal-proximal",
+      "kind": "vessel",
+      "domain": "right-thigh",
+      "bone": "rightUpperLeg",
+      "identifier": "popliteal-proximal_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0,
+          0.89,
+          -0.55
+        ],
+        [
+          0,
+          0.96,
+          -0.55
+        ]
+      ],
+      "radiusRatio": 0.035,
+      "side": "right",
+      "vesselKind": "artery",
+      "candidate": null
+    },
+    {
+      "id": "right-popliteal",
+      "kind": "vessel",
+      "domain": "right-lower-leg",
+      "bone": "rightLowerLeg",
+      "identifier": "popliteal_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0,
+          0.08,
+          -0.55
+        ],
+        [
+          0,
+          0.22,
+          -0.55
+        ]
+      ],
+      "radiusRatio": 0.035,
+      "side": "right",
+      "vesselKind": "artery",
+      "candidate": null
+    },
+    {
+      "id": "right-popliteal-vein",
+      "kind": "vessel",
+      "domain": "right-lower-leg",
+      "bone": "rightLowerLeg",
+      "identifier": "popliteal-vein_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.14,
+          0.08,
+          -0.58
+        ],
+        [
+          -0.14,
+          0.22,
+          -0.58
+        ]
+      ],
+      "radiusRatio": 0.05,
+      "side": "right",
+      "vesselKind": "vein",
+      "candidate": null
+    },
+    {
+      "id": "right-humerus",
+      "kind": "bone",
+      "domain": "right-upper-arm",
+      "bone": "rightUpperArm",
+      "identifier": "humerus",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0,
+          0.12,
+          -0.12
+        ],
+        [
+          0,
+          0.9,
+          -0.12
+        ]
+      ],
+      "radiusRatio": 0.23,
+      "side": "right"
+    },
+    {
+      "id": "right-radius",
+      "kind": "bone",
+      "domain": "right-forearm",
+      "bone": "rightForearm",
+      "identifier": "radius_ulna",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0.25,
+          0.12,
+          -0.12
+        ],
+        [
+          0.25,
+          0.9,
+          -0.12
+        ]
+      ],
+      "radiusRatio": 0.16,
+      "side": "right"
+    },
+    {
+      "id": "right-ulna",
+      "kind": "bone",
+      "domain": "right-forearm",
+      "bone": "rightForearm",
+      "identifier": "radius_ulna",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.25,
+          0.12,
+          -0.12
+        ],
+        [
+          -0.25,
+          0.9,
+          -0.12
+        ]
+      ],
+      "radiusRatio": 0.15,
+      "side": "right"
+    },
+    {
+      "id": "right-femur",
+      "kind": "bone",
+      "domain": "right-thigh",
+      "bone": "rightUpperLeg",
+      "identifier": "femur",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0,
+          0.12,
+          -0.12
+        ],
+        [
+          0,
+          0.9,
+          -0.12
+        ]
+      ],
+      "radiusRatio": 0.22,
+      "side": "right"
+    },
+    {
+      "id": "right-tibia",
+      "kind": "bone",
+      "domain": "right-lower-leg",
+      "bone": "rightLowerLeg",
+      "identifier": "tibia_fibula",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0.17,
+          0.12,
+          -0.12
+        ],
+        [
+          0.17,
+          0.9,
+          -0.12
+        ]
+      ],
+      "radiusRatio": 0.23,
+      "side": "right"
+    },
+    {
+      "id": "right-fibula",
+      "kind": "bone",
+      "domain": "right-lower-leg",
+      "bone": "rightLowerLeg",
+      "identifier": "tibia_fibula",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.42,
+          0.12,
+          -0.12
+        ],
+        [
+          -0.42,
+          0.9,
+          -0.12
+        ]
+      ],
+      "radiusRatio": 0.12,
+      "side": "right"
+    },
+    {
+      "id": "right-clavicle",
+      "kind": "bone",
+      "domain": "chest",
+      "bone": "chest",
+      "identifier": "clavicle",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.18,
+          0.91,
+          0.4
+        ],
+        [
+          -0.8,
+          0.91,
+          0.4
+        ]
+      ],
+      "radiusRatio": 0.06,
+      "side": "right"
+    },
+    {
+      "id": "right-lung",
+      "kind": "organ",
+      "domain": "chest",
+      "bone": "chest",
+      "identifier": "lung_candidate",
+      "type": "ellipsoid",
+      "center": [
+        -0.52,
+        0.53,
+        0
+      ],
+      "radii": [
+        0.35,
+        0.38,
+        0.68
+      ],
+      "candidate": "lung_candidate",
+      "organ": "lung"
+    },
+    {
+      "id": "right-kidney",
+      "kind": "organ",
+      "domain": "abdomen",
+      "bone": "spine",
+      "identifier": "kidney_candidate",
+      "type": "ellipsoid",
+      "center": [
+        -0.62,
+        0.64,
+        -0.45
+      ],
+      "radii": [
+        0.18,
+        0.25,
+        0.3
+      ],
+      "candidate": "kidney_candidate",
+      "organ": "kidney"
+    },
+    {
+      "id": "thoracic-aorta",
+      "kind": "vessel",
+      "domain": "chest",
+      "bone": "chest",
+      "identifier": "aorta_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0.13,
+          0.14,
+          -0.5
+        ],
+        [
+          0.13,
+          0.86,
+          -0.5
+        ]
+      ],
+      "radiusRatio": 0.09,
+      "vesselKind": "artery",
+      "candidate": "thoracic_vessel_candidate"
+    },
+    {
+      "id": "abdominal-aorta",
+      "kind": "vessel",
+      "domain": "abdomen",
+      "bone": "spine",
+      "identifier": "aorta_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0.13,
+          0.12,
+          -0.5
+        ],
+        [
+          0.13,
+          0.86,
+          -0.5
+        ]
+      ],
+      "radiusRatio": 0.075,
+      "vesselKind": "artery",
+      "candidate": "upper_abdominal_vessel_candidate"
+    },
+    {
+      "id": "thoracic-vena-cava",
+      "kind": "vessel",
+      "domain": "chest",
+      "bone": "chest",
+      "identifier": "vena_cava_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.2,
+          0.13,
+          -0.45
+        ],
+        [
+          -0.2,
+          0.85,
+          -0.45
+        ]
+      ],
+      "radiusRatio": 0.09,
+      "vesselKind": "vein",
+      "candidate": "thoracic_vessel_candidate"
+    },
+    {
+      "id": "abdominal-vena-cava",
+      "kind": "vessel",
+      "domain": "abdomen",
+      "bone": "spine",
+      "identifier": "vena_cava_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.2,
+          0.13,
+          -0.45
+        ],
+        [
+          -0.2,
+          0.85,
+          -0.45
+        ],
+        [
+          -0.2,
+          0.97,
+          -0.45
+        ]
+      ],
+      "radiusRatio": 0.09,
+      "vesselKind": "vein",
+      "candidate": "upper_abdominal_vessel_candidate"
+    },
+    {
+      "id": "hepatic-vein-trunk",
+      "kind": "vessel",
+      "domain": "abdomen",
+      "bone": "spine",
+      "identifier": "hepatic_vein_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.48,
+          0.68,
+          0.12
+        ],
+        [
+          -0.35,
+          0.76,
+          -0.2
+        ],
+        [
+          -0.2,
+          0.82,
+          -0.45
+        ]
+      ],
+      "radiusRatio": 0.045,
+      "vesselKind": "vein",
+      "candidate": "upper_abdominal_vessel_candidate"
+    },
+    {
+      "id": "portal-vein",
+      "kind": "vessel",
+      "domain": "abdomen",
+      "bone": "spine",
+      "identifier": "portal_vein_vessel_injury",
+      "type": "capsuleChain",
+      "points": [
+        [
+          -0.02,
+          0.47,
+          0.12
+        ],
+        [
+          -0.24,
+          0.62,
+          0.18
+        ],
+        [
+          -0.4,
+          0.73,
+          0.2
+        ]
+      ],
+      "radiusRatio": 0.045,
+      "vesselKind": "vein",
+      "candidate": "upper_abdominal_vessel_candidate"
+    },
+    {
+      "id": "brain",
+      "kind": "organ",
+      "domain": "head",
+      "bone": "head",
+      "identifier": "brain_injury",
+      "type": "ellipsoid",
+      "center": [
+        0,
+        0.67,
+        -0.18
+      ],
+      "radii": [
+        0.66,
+        0.24,
+        0.61
+      ],
+      "candidate": null,
+      "organ": "brain"
+    },
+    {
+      "id": "brainstem",
+      "kind": "organ",
+      "domain": "head",
+      "bone": "head",
+      "identifier": "brainstem_injury",
+      "type": "ellipsoid",
+      "center": [
+        0,
+        0.34,
+        -0.52
+      ],
+      "radii": [
+        0.17,
+        0.14,
+        0.18
+      ],
+      "candidate": null,
+      "organ": "brainstem"
+    },
+    {
+      "id": "heart",
+      "kind": "organ",
+      "domain": "chest",
+      "bone": "chest",
+      "identifier": "heart_candidate",
+      "type": "ellipsoid",
+      "center": [
+        0.16,
+        0.57,
+        0.38
+      ],
+      "radii": [
+        0.3,
+        0.22,
+        0.28
+      ],
+      "candidate": "heart_candidate",
+      "organ": "heart_hook_only"
+    },
+    {
+      "id": "liver",
+      "kind": "organ",
+      "domain": "abdomen",
+      "bone": "spine",
+      "identifier": "liver_candidate",
+      "type": "ellipsoid",
+      "center": [
+        -0.42,
+        0.73,
+        0.3
+      ],
+      "radii": [
+        0.48,
+        0.23,
+        0.5
+      ],
+      "candidate": "liver_candidate",
+      "organ": "liver"
+    },
+    {
+      "id": "spleen",
+      "kind": "organ",
+      "domain": "abdomen",
+      "bone": "spine",
+      "identifier": "spleen_candidate",
+      "type": "ellipsoid",
+      "center": [
+        0.7,
+        0.82,
+        -0.02
+      ],
+      "radii": [
+        0.16,
+        0.2,
+        0.29
+      ],
+      "candidate": "spleen_candidate",
+      "organ": "spleen"
+    },
+    {
+      "id": "bowel",
+      "kind": "organ",
+      "domain": "abdomen",
+      "bone": "spine",
+      "identifier": "bowel_candidate",
+      "type": "ellipsoid",
+      "center": [
+        0,
+        0.32,
+        0.1
+      ],
+      "radii": [
+        0.7,
+        0.22,
+        0.65
+      ],
+      "candidate": "bowel_candidate",
+      "organ": "bowel"
+    },
+    {
+      "id": "cervical-spine",
+      "kind": "bone",
+      "domain": "neck",
+      "bone": "neck",
+      "identifier": "spine",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0,
+          0.12,
+          -0.58
+        ],
+        [
+          0,
+          0.87,
+          -0.58
+        ]
+      ],
+      "radiusRatio": 0.09
+    },
+    {
+      "id": "cervical-upper-spinal-cord",
+      "kind": "organ",
+      "domain": "neck",
+      "bone": "neck",
+      "identifier": "cervical_spine_candidate",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0,
+          0.46,
+          -0.58
+        ],
+        [
+          0,
+          0.93,
+          -0.58
+        ]
+      ],
+      "radiusRatio": 0.025,
+      "organ": "spinal_cord",
+      "cordRegion": "A"
+    },
+    {
+      "id": "cervical-lower-spinal-cord",
+      "kind": "organ",
+      "domain": "neck",
+      "bone": "neck",
+      "identifier": "cervical_spine_candidate",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0,
+          0.15,
+          -0.58
+        ],
+        [
+          0,
+          0.46,
+          -0.58
+        ]
+      ],
+      "radiusRatio": 0.025,
+      "organ": "spinal_cord",
+      "cordRegion": "B"
+    },
+    {
+      "id": "thoracic-spine",
+      "kind": "bone",
+      "domain": "chest",
+      "bone": "chest",
+      "identifier": "spine",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0,
+          0.12,
+          -0.58
+        ],
+        [
+          0,
+          0.87,
+          -0.58
+        ]
+      ],
+      "radiusRatio": 0.09
+    },
+    {
+      "id": "thoracic-spinal-cord",
+      "kind": "organ",
+      "domain": "chest",
+      "bone": "chest",
+      "identifier": "cervical_spine_candidate",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0,
+          0.15,
+          -0.58
+        ],
+        [
+          0,
+          0.85,
+          -0.58
+        ]
+      ],
+      "radiusRatio": 0.025,
+      "organ": "spinal_cord",
+      "cordRegion": "B"
+    },
+    {
+      "id": "lumbar-spine",
+      "kind": "bone",
+      "domain": "abdomen",
+      "bone": "spine",
+      "identifier": "spine",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0,
+          0.12,
+          -0.58
+        ],
+        [
+          0,
+          0.87,
+          -0.58
+        ]
+      ],
+      "radiusRatio": 0.09
+    },
+    {
+      "id": "lumbar-spinal-cord",
+      "kind": "organ",
+      "domain": "abdomen",
+      "bone": "spine",
+      "identifier": "cervical_spine_candidate",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0,
+          0.15,
+          -0.58
+        ],
+        [
+          0,
+          0.85,
+          -0.58
+        ]
+      ],
+      "radiusRatio": 0.025,
+      "organ": "spinal_cord",
+      "cordRegion": "B"
+    },
+    {
+      "id": "larynx-trachea",
+      "kind": "organ",
+      "domain": "neck",
+      "bone": "neck",
+      "identifier": "airway_candidate",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0,
+          0.02,
+          0.45
+        ],
+        [
+          0,
+          0.92,
+          0.45
+        ]
+      ],
+      "radiusRatio": 0.13,
+      "organ": "airway"
+    },
+    {
+      "id": "thoracic-trachea",
+      "kind": "organ",
+      "domain": "chest",
+      "bone": "chest",
+      "identifier": "airway_candidate",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0,
+          0.64,
+          0.22
+        ],
+        [
+          0,
+          0.97,
+          0.22
+        ]
+      ],
+      "radiusRatio": 0.075,
+      "organ": "airway"
+    },
+    {
+      "id": "cervical-esophagus",
+      "kind": "organ",
+      "domain": "neck",
+      "bone": "neck",
+      "identifier": "esophagus_record_only",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0,
+          0.02,
+          -0.04
+        ],
+        [
+          0,
+          0.92,
+          -0.04
+        ]
+      ],
+      "radiusRatio": 0.09,
+      "organ": "esophagus"
+    },
+    {
+      "id": "thoracic-esophagus",
+      "kind": "organ",
+      "domain": "chest",
+      "bone": "chest",
+      "identifier": "esophagus_record_only",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0,
+          0.04,
+          -0.18
+        ],
+        [
+          0,
+          0.97,
+          -0.18
+        ]
+      ],
+      "radiusRatio": 0.055,
+      "organ": "esophagus"
+    },
+    {
+      "id": "abdominal-esophagus",
+      "kind": "organ",
+      "domain": "abdomen",
+      "bone": "spine",
+      "identifier": "esophagus_record_only",
+      "type": "capsuleChain",
+      "points": [
+        [
+          0,
+          0.89,
+          -0.06
+        ],
+        [
+          0,
+          0.97,
+          -0.06
+        ]
+      ],
+      "radiusRatio": 0.055,
+      "organ": "esophagus"
+    },
+    {
+      "id": "skull",
+      "kind": "bone",
+      "domain": "head",
+      "bone": "head",
+      "identifier": "skull",
+      "type": "ellipsoid",
+      "center": [
+        0,
+        0.68,
+        -0.16
+      ],
+      "radii": [
+        0.78,
+        0.28,
+        0.73
+      ]
+    },
+    {
+      "id": "pelvis-bone",
+      "kind": "bone",
+      "domain": "pelvis",
+      "bone": "pelvis",
+      "identifier": "pelvis",
+      "type": "ellipsoid",
+      "center": [
+        0,
+        0.56,
+        -0.34
+      ],
+      "radii": [
+        0.72,
+        0.32,
+        0.3
+      ]
+    }
+  ]
+}

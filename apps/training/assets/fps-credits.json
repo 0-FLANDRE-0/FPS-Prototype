@@ -1,0 +1,22 @@
+{
+  "title": "FPS AK-74m animations",
+  "author": "Cransh",
+  "authorUrl": "https://sketchfab.com/ccransh",
+  "sourceUrl": "https://sketchfab.com/3d-models/fps-ak-74m-animations-94be8385c402474cacd39bc096c6ca14",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "contributors": [
+    {
+      "role": "AK mesh",
+      "author": "creationwasteland",
+      "url": "https://sketchfab.com/creationwasteland"
+    },
+    {
+      "role": "FP-ARMS",
+      "author": "DJMaesen / bumstrum",
+      "url": "https://sketchfab.com/bumstrum"
+    }
+  ],
+  "sourceSha256": "8eeb18cbe047e8cbbe24084828f39ba625a6f3c1a1062a37d7a978e8cd7d0533",
+  "changes": "Camera/display nodes removed; rifle/arms scaled together to 943mm extended-stock AK74M; canonical meter frame; authored markers; resolution-preserving WebP textures with near-lossless q20 normals; byte-exact deduplication of accessor data; original topology/materials retained. Runtime gun/animation-only derivative excludes the original arm mesh/textures and unused Reload_var2. Source key values and clip endpoints retained; redundant animation keys removed within 0.01mm translation, 1e-5 scale and 1e-4 rad local rotation tolerance. Shared JUST arm mesh receives native AK palm/finger motion. Runtime animation sampling, head compensation, two-joint arm IK with body-anchored shoulders and arm reach retargeting, original aperture/mount follow and separate M4 magazine/bolt-catch adaptation. Source GLB preserved. v28 resolution-preserving second-stage q90 material/q92 color recompression per uploaded side-optics kit. Original uploads and historical first-stage derivatives retained."
+}

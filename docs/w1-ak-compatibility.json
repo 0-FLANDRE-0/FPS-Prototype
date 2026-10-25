@@ -1,0 +1,8 @@
+{
+  "classification": "W1 SCAR-only branches; AK compatibility verified by600ticks; numeric soldier finger asset unchanged",
+  "sourceSHA256": {
+    "apps/training/src/fps-arms.js": "e689b53bf2ee23a716cc2ad4fccbadda22ed260e921c724a705713c7ee2dd04e",
+    "apps/training/src/fps-shared-arms.js": "928cbb82bd2f20f3d0884c73f30f196011f8564a6e686accd0cb3d1730daf3f1",
+    "apps/training/src/weapon-data.js": "f90dbda6ab6958c52dd9aa4f09b9603f34dd0c5a18f4ce5054245572ef4fc4b9"
+  }
+}

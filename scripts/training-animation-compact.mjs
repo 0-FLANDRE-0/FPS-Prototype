@@ -1,0 +1,21 @@
+// Retain source key values and clip endpoints; remove keys only within tight
+// interpolation tolerances. Original uploaded assets remain untouched.
+import assert from 'node:assert/strict';
+import * as T from 'three';
+export const ANIMATION_LIMITS=Object.freeze({translation:1e-5,scale:1e-5,rotation:1e-4});
+export function accessorBytes(g,binary,id){const a=g.accessors[id],v=g.bufferViews[a.bufferView],n={SCALAR:1,VEC2:2,VEC3:3,VEC4:4,MAT4:16}[a.type],size={5121:1,5123:2,5125:4,5126:4}[a.componentType]*n,stride=v.byteStride||size,start=(v.byteOffset||0)+(a.byteOffset||0),out=Buffer.alloc(a.count*size);assert.ok(!a.sparse);for(let i=0;i<a.count;i++)binary.copy(out,i*size,start+i*stride,start+i*stride+size);return out;}
+export function pruneAccessors(g){const used=new Set();for(const m of g.meshes)for(const p of m.primitives){used.add(p.indices);Object.values(p.attributes).forEach(i=>used.add(i));}for(const s of g.skins)used.add(s.inverseBindMatrices);for(const a of g.animations)for(const s of a.samplers){used.add(s.input);used.add(s.output);}const ids=[...used].sort((a,b)=>a-b),map=new Map(ids.map((v,i)=>[v,i]));g.accessors=ids.map(i=>g.accessors[i]);for(const m of g.meshes)for(const p of m.primitives){p.indices=map.get(p.indices);for(const k of Object.keys(p.attributes))p.attributes[k]=map.get(p.attributes[k]);}for(const s of g.skins)s.inverseBindMatrices=map.get(s.inverseBindMatrices);for(const a of g.animations)for(const s of a.samplers){s.input=map.get(s.input);s.output=map.get(s.output);}}
+export function compactAnimationKeys(g,binary){
+ const chunks=[binary];let offset=binary.length,keysBefore=0,keysAfter=0,channels=0,maxError={translation:0,scale:0,rotation:0};
+ const append=(bytes,old,count)=>{const pad=(4-offset%4)%4;if(pad){chunks.push(Buffer.alloc(pad));offset+=pad;}const view=g.bufferViews.length;g.bufferViews.push({buffer:0,byteOffset:offset,byteLength:bytes.length});chunks.push(bytes);offset+=bytes.length;const id=g.accessors.length;g.accessors.push({...old,count,bufferView:view,byteOffset:0});return id;};
+ for(const a of g.animations)for(const [i,s] of a.samplers.entries()){
+  const paths=[...new Set(a.channels.filter(c=>c.sampler===i).map(c=>c.target.path))];assert.equal(paths.length,1);const path=paths[0],input=g.accessors[s.input],output=g.accessors[s.output],n=path==='rotation'?4:3,ib=accessorBytes(g,binary,s.input),ob=accessorBytes(g,binary,s.output),times=new Float32Array(ib.buffer,ib.byteOffset,input.count),values=new Float32Array(ob.buffer,ob.byteOffset,ob.length/4),count=input.count;channels++;keysBefore+=count;
+  if(!ANIMATION_LIMITS[path]||s.interpolation&&s.interpolation!=='LINEAR'||count<3){keysAfter+=count;continue;}
+  assert.equal(output.componentType,5126);assert.equal(output.count,count);const predicted=new Float32Array(n),keep=new Set([0,count-1]),stack=[[0,count-1]],tolerance=ANIMATION_LIMITS[path];
+  const error=(lo,hi,k)=>{const alpha=(times[k]-times[lo])/(times[hi]-times[lo]);if(path==='rotation'){T.Quaternion.slerpFlat(predicted,0,values,lo*n,values,hi*n,alpha);let dot=0,x=0,y=0;for(let j=0;j<4;j++){const v=values[k*n+j];dot+=predicted[j]*v;x+=predicted[j]**2;y+=v**2;}return 2*Math.acos(Math.min(1,Math.abs(dot)/Math.sqrt(x*y)));}return Math.hypot(...Array.from({length:n},(_,j)=>values[k*n+j]-(values[lo*n+j]+(values[hi*n+j]-values[lo*n+j])*alpha)));};
+  while(stack.length){const [lo,hi]=stack.pop();if(hi-lo<2)continue;let maximum=tolerance,at=-1;for(let k=lo+1;k<hi;k++){const e=error(lo,hi,k);if(e>maximum){maximum=e;at=k;}}if(at>=0){keep.add(at);stack.push([lo,at],[at,hi]);}}
+  const indices=[...keep].sort((a,b)=>a-b);let worst=0;for(let j=1;j<indices.length;j++)for(let k=indices[j-1]+1;k<indices[j];k++)worst=Math.max(worst,error(indices[j-1],indices[j],k));assert.ok(worst<=tolerance+1e-12);maxError[path]=Math.max(maxError[path],worst);keysAfter+=indices.length;
+  if(indices.length<count){const reducedTimes=Buffer.concat(indices.map(k=>ib.subarray(k*4,k*4+4))),reducedValues=Buffer.concat(indices.map(k=>ob.subarray(k*n*4,(k+1)*n*4)));s.input=append(reducedTimes,input,indices.length);s.output=append(reducedValues,output,indices.length);}
+ }
+ return{binary:Buffer.concat(chunks),proof:{channels,keysBefore,keysAfter,keysRemoved:keysBefore-keysAfter,retainedKeyValuesByteExact:true,endpointsPreserved:true,limits:ANIMATION_LIMITS,maxError}};
+}

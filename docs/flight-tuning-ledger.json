@@ -1,0 +1,229 @@
+{
+  "ruleId": "3d-556-bdc-retention-fit-v1",
+  "classification": "튜닝(제조사 BDC 역산); 실측 탄도 계수 아님",
+  "source": {
+    "product": "https://www.trijicon.com/products/details/ta31-d-100309",
+    "quote": "The ranging reticle is calibrated for 5.56(.223 cal) flattop rifles out to 800 meters.",
+    "checked": "2026-10-11",
+    "productHTTPStatus": 200,
+    "productBytes": 182103,
+    "productSHA256": "8f81e44b224c9bcbc7c6027d2a8e0048c22a1b00780c89366d065b65e8c6cc80",
+    "drawing": {
+      "id": "acog",
+      "classification": "출처",
+      "title": "Trijicon 4x32 .223 Chevron Reticle Dimensions",
+      "url": "https://www.trijicon.com/uploads/product-uploads/product-downloads/223_Chevron_Reticle_Dimensions4x32.pdf",
+      "page": "PDF1",
+      "quotes": [
+        "ZERO at 100m"
+      ],
+      "application": "TA31-D-100309 among SKUs on drawing; chevron tip at optic axis",
+      "httpStatus": 200,
+      "bytes": 86678,
+      "sha256": "abddcabce31007b7f9f183905ea808e328bb46ab4df41f73a040bd851bce88c7",
+      "checkedAt": "2026-10-11 UTC"
+    },
+    "marksMOA": [
+      7.8,
+      12.6,
+      18.7
+    ],
+    "zeroDistanceM": 100
+  },
+  "original": {
+    "legacyRetentionTable": {
+      "pistol": 0.88,
+      "pistol_fast": 0.9,
+      "rifle_light": 0.94,
+      "rifle_heavy": 0.95,
+      "ap_streamlined": 0.96,
+      "subsonic": 0.92,
+      "frangible_poor": 0.86,
+      "shotgun": 0.8
+    },
+    "legacyDeclarationsUnchanged": true,
+    "baseline": "a574eed7a9946af9808f53ea45cceb79309b49b6",
+    "referenceAmmoId": "556_m855",
+    "weaponId": "m4a1",
+    "muzzleVelocityMps": 879,
+    "RK4AndGravityUnchanged": true
+  },
+  "tuning": {
+    "method": "golden-section squared MOA error minimum; nested production RK4 zero solve",
+    "bracket": [
+      0.75,
+      0.98
+    ],
+    "iterations": 42,
+    "classTransfer": "R(class)=R(fit)*legacyRetention(class)/legacyRetention(rifle_light); preserves retention ratios, not logarithmic drag ratios",
+    "overrides": {
+      "5.56x45mm": 0.8855627070193814
+    },
+    "R": 0.8855627070193814,
+    "thetaRad": 0.0013427310436964033,
+    "rows": [
+      {
+        "distanceM": 400,
+        "markMOA": 7.8,
+        "gameDropMOA": 8.314073395245554,
+        "errorMOA": 0.5140733952455543
+      },
+      {
+        "distanceM": 500,
+        "markMOA": 12.6,
+        "gameDropMOA": 12.87015133932415,
+        "errorMOA": 0.2701513393241495
+      },
+      {
+        "distanceM": 600,
+        "markMOA": 18.7,
+        "gameDropMOA": 18.36852994234362,
+        "errorMOA": -0.3314700576563787
+      }
+    ],
+    "squaredErrorMOA": 0.4471256009606467,
+    "mapping": [
+      {
+        "ammoId": "556_223_fmj",
+        "caliber": "5.56x45mm",
+        "legacyDragClass": "rifle_light",
+        "legacyRetentionPer100M": 0.94,
+        "classRatioToRifleLight": 1,
+        "retentionPer100M": 0.8855627070193814
+      },
+      {
+        "ammoId": "556_m193",
+        "caliber": "5.56x45mm",
+        "legacyDragClass": "rifle_light",
+        "legacyRetentionPer100M": 0.94,
+        "classRatioToRifleLight": 1,
+        "retentionPer100M": 0.8855627070193814
+      },
+      {
+        "ammoId": "556_m855",
+        "caliber": "5.56x45mm",
+        "legacyDragClass": "rifle_light",
+        "legacyRetentionPer100M": 0.94,
+        "classRatioToRifleLight": 1,
+        "retentionPer100M": 0.8855627070193814
+      },
+      {
+        "ammoId": "556_m855a1",
+        "caliber": "5.56x45mm",
+        "legacyDragClass": "rifle_light",
+        "legacyRetentionPer100M": 0.94,
+        "classRatioToRifleLight": 1,
+        "retentionPer100M": 0.8855627070193814
+      },
+      {
+        "ammoId": "556_mk318_sost",
+        "caliber": "5.56x45mm",
+        "legacyDragClass": "rifle_light",
+        "legacyRetentionPer100M": 0.94,
+        "classRatioToRifleLight": 1,
+        "retentionPer100M": 0.8855627070193814
+      },
+      {
+        "ammoId": "556_mk255_rrlp",
+        "caliber": "5.56x45mm",
+        "legacyDragClass": "frangible_poor",
+        "legacyRetentionPer100M": 0.86,
+        "classRatioToRifleLight": 0.9148936170212766,
+        "retentionPer100M": 0.810195668124115
+      },
+      {
+        "ammoId": "556_m995_ap",
+        "caliber": "5.56x45mm",
+        "legacyDragClass": "ap_streamlined",
+        "legacyRetentionPer100M": 0.96,
+        "classRatioToRifleLight": 1.0212765957446808,
+        "retentionPer100M": 0.9044044667431981
+      },
+      {
+        "ammoId": "556_varmageddon",
+        "caliber": "5.56x45mm",
+        "legacyDragClass": "frangible_poor",
+        "legacyRetentionPer100M": 0.86,
+        "classRatioToRifleLight": 0.9148936170212766,
+        "retentionPer100M": 0.810195668124115
+      },
+      {
+        "ammoId": "556_hp",
+        "caliber": "5.56x45mm",
+        "legacyDragClass": "rifle_light",
+        "legacyRetentionPer100M": 0.94,
+        "classRatioToRifleLight": 1,
+        "retentionPer100M": 0.8855627070193814
+      },
+      {
+        "ammoId": "556_mk262_mod1",
+        "caliber": "5.56x45mm",
+        "legacyDragClass": "rifle_light",
+        "legacyRetentionPer100M": 0.94,
+        "classRatioToRifleLight": 1,
+        "retentionPer100M": 0.8855627070193814
+      },
+      {
+        "ammoId": "556_m856_tracer",
+        "caliber": "5.56x45mm",
+        "legacyDragClass": "rifle_light",
+        "legacyRetentionPer100M": 0.94,
+        "classRatioToRifleLight": 1,
+        "retentionPer100M": 0.8855627070193814
+      },
+      {
+        "ammoId": "556_m856a1_tracer",
+        "caliber": "5.56x45mm",
+        "legacyDragClass": "rifle_light",
+        "legacyRetentionPer100M": 0.94,
+        "classRatioToRifleLight": 1,
+        "retentionPer100M": 0.8855627070193814
+      }
+    ]
+  },
+  "comparison": [
+    {
+      "distanceM": 400,
+      "markMOA": 7.8,
+      "gameDropMOA": 8.314073395245554,
+      "errorMOA": 0.5140733952455543,
+      "v30GameDropMOA": 6.380337977691868,
+      "v30ErrorMOA": -1.419662022308132,
+      "withinOneMOA": true
+    },
+    {
+      "distanceM": 500,
+      "markMOA": 12.6,
+      "gameDropMOA": 12.87015133932415,
+      "errorMOA": 0.2701513393241495,
+      "v30GameDropMOA": 9.455505623040857,
+      "v30ErrorMOA": -3.144494376959143,
+      "withinOneMOA": true
+    },
+    {
+      "distanceM": 600,
+      "markMOA": 18.7,
+      "gameDropMOA": 18.36852994234362,
+      "errorMOA": -0.3314700576563787,
+      "v30GameDropMOA": 12.85700821986382,
+      "v30ErrorMOA": -5.842991780136179,
+      "withinOneMOA": true
+    }
+  ],
+  "acceptance": {
+    "ranges": [
+      400,
+      500,
+      600
+    ],
+    "maximumAbsoluteErrorMOA": 1,
+    "passed": true,
+    "vuduComparisonOnly": true
+  },
+  "limitations": [
+    "One distance-independent retention fit does not reproduce a measured Mach-dependent drag curve",
+    "The manufacturer drawing identifies .223/5.56 flattop calibration, not a measured M855 ballistic coefficient or exact load/atmosphere",
+    "Vudu SR3 was designed for a different 75gr load; it is not a fit target",
+    "Only 3D 5.56 flight changes; distant incident velocity changes downstream results without editing terminal equations"
+  ]
+}

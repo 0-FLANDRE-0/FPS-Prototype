@@ -1,0 +1,80 @@
+{
+  "version": "equipment-m7b-v66",
+  "baseline": "a1ba2d42ff5f2c080afc6cc80e90280421b933e0",
+  "rows": [
+    {
+      "classification": "사용자 설계값",
+      "key": "side-center-y",
+      "beforeM": 1.285,
+      "afterM": 1.135,
+      "deltaM": -0.15,
+      "2D 역이식 후보": false
+    },
+    {
+      "classification": "튜닝",
+      "key": "left-xz",
+      "beforeM": [
+        0.161,
+        0.012
+      ],
+      "afterM": [
+        0.14,
+        0.036
+      ],
+      "deltaM": [
+        -0.021,
+        0.024
+      ],
+      "reason": "Original6B45 source soft triangles; lateral+adjacent front/rear carrier seam faces. No inflated bounds/hull/new geometry.",
+      "2D 역이식 후보": false
+    },
+    {
+      "classification": "튜닝",
+      "key": "right-xz",
+      "beforeM": [
+        -0.161,
+        0.012
+      ],
+      "afterM": [
+        -0.14,
+        0.026
+      ],
+      "deltaM": [
+        0.021,
+        0.014
+      ],
+      "reason": "Source vest left/right asymmetry; independentz offset.",
+      "2D 역이식 후보": false
+    },
+    {
+      "classification": "원본·M7 튜닝 보존",
+      "key": "side-size-and-rating",
+      "values": {
+        "GranitSideNominalM": [
+          0.15,
+          0.2
+        ],
+        "heightBoundsM": [
+          1.035,
+          1.235
+        ],
+        "yawDeg": [
+          90,
+          -90
+        ],
+        "radiusM": 0.8,
+        "thicknessMm": 18,
+        "weightKg": 2.3
+      },
+      "unchanged": "Registry/shape table, front/rear mounts, all equations, inventory/AI/fingers/2D.",
+      "2D 역이식 후보": false
+    }
+  ],
+  "fitScope": "Default15x20cm GranitSide onH01/P01/enemies. Other side plate products retain their existing individual M7 dimensions. Exact containment checks original6B45 carrier side including adjacent front/rear semantic seam; semantic-side-only area is reported separately.",
+  "automatic2DPort": false,
+  "physicalPhoneTested": false,
+  "inheritedLimits": [
+    "M7 product shape source gaps and prepared-ragdoll mass redistribution limitation unchanged.",
+    "M4b/D2 sprint rebleed target miss and clinical source gaps unchanged."
+  ]
+}

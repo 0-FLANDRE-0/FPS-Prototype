@@ -1,0 +1,623 @@
+[
+  {
+    "name": "cerebrum",
+    "pose": "standing",
+    "target": [
+      99.9715973308424,
+      1.664760364562004,
+      0.010622122465697388
+    ],
+    "direction": [
+      -0.9819935739680297,
+      -0.11010215334217552,
+      -0.1535126591356949
+    ],
+    "score": 5,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": [
+      "skull",
+      "brain"
+    ]
+  },
+  {
+    "name": "brainstem",
+    "pose": "standing",
+    "target": [
+      99.98657648920057,
+      1.5998608921313011,
+      -0.032564474159961145
+    ],
+    "direction": [
+      -0.9819935739680297,
+      -0.11010215334217552,
+      -0.1535126591356949
+    ],
+    "score": 0,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": []
+  },
+  {
+    "name": "face-jaw",
+    "pose": "standing",
+    "target": [
+      99.99465499209727,
+      1.536854775010121,
+      0.05303398593735464
+    ],
+    "direction": [
+      -0.9819935739680297,
+      -0.11010215334217552,
+      -0.1535126591356949
+    ],
+    "score": 0,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": []
+  },
+  {
+    "name": "heart",
+    "pose": "standing",
+    "target": [
+      99.99832775168026,
+      1.3106277094389,
+      -0.023506806614581488
+    ],
+    "direction": [
+      0.7071067811865475,
+      0,
+      -0.7071067811865476
+    ],
+    "score": 4,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": [
+      "heart"
+    ]
+  },
+  {
+    "name": "aorta",
+    "pose": "standing",
+    "target": [
+      100.10657149976916,
+      1.2357919634113241,
+      -0.06596997594369527
+    ],
+    "direction": [
+      0.7843929806739096,
+      0.09161459788032844,
+      -0.6134610153259334
+    ],
+    "score": 11,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": [
+      "thoracic-aorta"
+    ]
+  },
+  {
+    "name": "lung-only",
+    "pose": "standing",
+    "target": [
+      100.09562800612969,
+      1.309422098106643,
+      0.02327918802525781
+    ],
+    "direction": [
+      0.7843929806739096,
+      0.09161459788032844,
+      -0.6134610153259334
+    ],
+    "score": 4,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": [
+      "left-lung"
+    ]
+  },
+  {
+    "name": "liver",
+    "pose": "standing",
+    "target": [
+      99.95248548787544,
+      1.1126264547307467,
+      -0.05870518666028494
+    ],
+    "direction": [
+      -0.6112565491866195,
+      -0.053767807710754956,
+      -0.7896039855082071
+    ],
+    "score": 4,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": [
+      "liver"
+    ]
+  },
+  {
+    "name": "femoral-artery",
+    "pose": "standing",
+    "target": [
+      99.94073764584587,
+      0.7434418942724186,
+      0.2085913275107532
+    ],
+    "direction": [
+      -0.7670066732669654,
+      -0.039538200410272284,
+      -0.6404197794199206
+    ],
+    "score": 11,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": [
+      "left-femoral"
+    ]
+  },
+  {
+    "name": "femur",
+    "pose": "standing",
+    "target": [
+      100.00496934866864,
+      0.7120751693930822,
+      0.20150715644205797
+    ],
+    "direction": [
+      -0.7670066732669654,
+      -0.039538200410272284,
+      -0.6404197794199206
+    ],
+    "score": 1,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": [
+      "left-femur"
+    ]
+  },
+  {
+    "name": "cord-A",
+    "pose": "standing",
+    "target": [
+      100.04102224576937,
+      1.5316865447055787,
+      -0.06989300221992342
+    ],
+    "direction": [
+      -0.6825549325502481,
+      -0.07513313807886214,
+      -0.7269620179993925
+    ],
+    "score": 5,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": [
+      "cervical-spine",
+      "cervical-upper-spinal-cord"
+    ]
+  },
+  {
+    "name": "cord-B",
+    "pose": "standing",
+    "target": [
+      100.10122405472704,
+      1.2138363275032549,
+      -0.0899704040881337
+    ],
+    "direction": [
+      1,
+      0,
+      -6.123233995736766e-17
+    ],
+    "score": 5,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": [
+      "thoracic-spine",
+      "thoracic-spinal-cord"
+    ]
+  },
+  {
+    "name": "arm-muscle",
+    "pose": "standing",
+    "target": [
+      100.14119085436698,
+      1.2599807028132186,
+      0.19603455432250383
+    ],
+    "direction": [
+      -0.7670066732669654,
+      -0.039538200410272284,
+      -0.6404197794199206
+    ],
+    "score": 0,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": []
+  },
+  {
+    "name": "leg-muscle",
+    "pose": "standing",
+    "target": [
+      100.03696100366427,
+      0.7504607929445708,
+      0.27565157024552517
+    ],
+    "direction": [
+      -0.7670066732669654,
+      -0.039538200410272284,
+      -0.6404197794199206
+    ],
+    "score": 0,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": []
+  },
+  {
+    "name": "cerebrum",
+    "pose": "aim",
+    "target": [
+      99.94174448890814,
+      1.6377160025314623,
+      0.01320475989086457
+    ],
+    "direction": [
+      -0.93847681079981,
+      -0.31492412847073126,
+      -0.14171827298541229
+    ],
+    "score": 5,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": [
+      "skull",
+      "brain"
+    ]
+  },
+  {
+    "name": "brainstem",
+    "pose": "aim",
+    "target": [
+      99.96954626363842,
+      1.5773967519320042,
+      -0.030269924282538496
+    ],
+    "direction": [
+      -0.93847681079981,
+      -0.31492412847073126,
+      -0.14171827298541229
+    ],
+    "score": 0,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": []
+  },
+  {
+    "name": "face-jaw",
+    "pose": "aim",
+    "target": [
+      99.99178350271153,
+      1.5175925607389615,
+      0.055117974678162526
+    ],
+    "direction": [
+      -0.93847681079981,
+      -0.31492412847073126,
+      -0.14171827298541229
+    ],
+    "score": 0,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": []
+  },
+  {
+    "name": "heart",
+    "pose": "aim",
+    "target": [
+      100.04214996057782,
+      1.297156598029355,
+      -0.021842651431158117
+    ],
+    "direction": [
+      0.7071067811865475,
+      0,
+      -0.7071067811865476
+    ],
+    "score": 4,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": [
+      "heart"
+    ]
+  },
+  {
+    "name": "aorta",
+    "pose": "aim",
+    "target": [
+      100.1632143205088,
+      1.2467990630745143,
+      -0.06574889314099747
+    ],
+    "direction": [
+      0.7398212689648402,
+      0.25444468647979,
+      -0.6228341605190381
+    ],
+    "score": 11,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": [
+      "thoracic-aorta"
+    ]
+  },
+  {
+    "name": "lung-only",
+    "pose": "aim",
+    "target": [
+      100.13808222398872,
+      1.3165475003140135,
+      0.023750287216130053
+    ],
+    "direction": [
+      0.7398212689648402,
+      0.25444468647979,
+      -0.6228341605190381
+    ],
+    "score": 4,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": [
+      "left-lung"
+    ]
+  },
+  {
+    "name": "liver",
+    "pose": "aim",
+    "target": [
+      99.98555383705376,
+      1.112057682022291,
+      -0.05693677131063356
+    ],
+    "direction": [
+      0.7398212689648402,
+      0.25444468647979,
+      -0.6228341605190381
+    ],
+    "score": 4,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": [
+      "liver"
+    ]
+  },
+  {
+    "name": "femoral-artery",
+    "pose": "aim",
+    "target": [
+      99.93778682894447,
+      0.7423699704838131,
+      0.21719742027266228
+    ],
+    "direction": [
+      -0.7966119749511057,
+      -0.03996258704534375,
+      -0.6031685941767377
+    ],
+    "score": 11,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": [
+      "left-femoral"
+    ]
+  },
+  {
+    "name": "femur",
+    "pose": "aim",
+    "target": [
+      100.00085062870694,
+      0.709174649354856,
+      0.20820874008233933
+    ],
+    "direction": [
+      -0.7966119749511057,
+      -0.03996258704534375,
+      -0.6031685941767377
+    ],
+    "score": 1,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": [
+      "left-femur"
+    ]
+  },
+  {
+    "name": "cord-A",
+    "pose": "aim",
+    "target": [
+      100.03668181781336,
+      1.5222032135210304,
+      -0.06837613632092336
+    ],
+    "direction": [
+      -0.6602550104274889,
+      -0.21805649475132838,
+      -0.7186895618430535
+    ],
+    "score": 5,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": [
+      "cervical-spine",
+      "cervical-upper-spinal-cord"
+    ]
+  },
+  {
+    "name": "cord-B",
+    "pose": "aim",
+    "target": [
+      100.16232426211113,
+      1.2241869375240655,
+      -0.08971898370949466
+    ],
+    "direction": [
+      0.7398212689648402,
+      0.25444468647979,
+      -0.6228341605190381
+    ],
+    "score": 9,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": [
+      "thoracic-esophagus",
+      "thoracic-spine",
+      "thoracic-spinal-cord"
+    ]
+  },
+  {
+    "name": "arm-muscle",
+    "pose": "aim",
+    "target": [
+      100.20163028896603,
+      1.3025177710555889,
+      0.22370829863855973
+    ],
+    "direction": [
+      -0.7966119749511057,
+      -0.03996258704534375,
+      -0.6031685941767377
+    ],
+    "score": 0,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": []
+  },
+  {
+    "name": "leg-muscle",
+    "pose": "aim",
+    "target": [
+      100.03715754254833,
+      0.7490264950846599,
+      0.27953863971985216
+    ],
+    "direction": [
+      -0.7966119749511057,
+      -0.03996258704534375,
+      -0.6031685941767377
+    ],
+    "score": 0,
+    "selectedUsing": "v37 actual unarmored trace; brainstem location is a declared virtual landmark before missing primitive exists",
+    "referenceHits": []
+  },
+  {
+    "name": "helmet-stop",
+    "pose": "standing",
+    "target": [
+      99.85769196208494,
+      1.6489051385280311,
+      -0.06363862824919647
+    ],
+    "direction": [
+      0.13163031606986722,
+      0.18409745380954623,
+      -0.9740542014652926
+    ],
+    "randomValue": 0.999,
+    "restPoint": [
+      -0.1250000000000058,
+      1.6900000000000008,
+      8.326672684688674e-16
+    ],
+    "selectedUsing": "actual v37 6B47 shell edge trace; deterministic RNG branches, ordinary armor/residual formulas unchanged",
+    "referenceArmor": [
+      {
+        "kind": "helmet",
+        "outcome": "hard_block"
+      },
+      {
+        "kind": "helmet",
+        "outcome": "not_reached"
+      }
+    ],
+    "referenceHits": []
+  },
+  {
+    "name": "helmet-graze",
+    "pose": "standing",
+    "target": [
+      99.85769196208494,
+      1.6489051385280311,
+      -0.06363862824919647
+    ],
+    "direction": [
+      0.13163031606986722,
+      0.18409745380954623,
+      -0.9740542014652926
+    ],
+    "randomValue": 0.0001,
+    "restPoint": [
+      -0.1250000000000058,
+      1.6900000000000008,
+      8.326672684688674e-16
+    ],
+    "selectedUsing": "actual v37 6B47 shell edge trace; deterministic RNG branches, ordinary armor/residual formulas unchanged",
+    "referenceArmor": [
+      {
+        "kind": "helmet",
+        "outcome": "ricochet"
+      },
+      {
+        "kind": "helmet",
+        "outcome": "not_reached"
+      },
+      {
+        "kind": "helmet",
+        "outcome": "penetrated"
+      },
+      {
+        "kind": "helmet",
+        "outcome": "penetrated"
+      }
+    ],
+    "referenceHits": []
+  },
+  {
+    "name": "helmet-stop",
+    "pose": "aim",
+    "target": [
+      99.8328449036339,
+      1.5981194383632427,
+      -0.05968881152848404
+    ],
+    "direction": [
+      0.07787463019666035,
+      0.20681456293093115,
+      -0.9752760012075665
+    ],
+    "randomValue": 0.999,
+    "restPoint": [
+      -0.12499999999999706,
+      1.689999999999999,
+      -2.220446049250313e-16
+    ],
+    "selectedUsing": "actual v37 6B47 shell edge trace; deterministic RNG branches, ordinary armor/residual formulas unchanged",
+    "referenceArmor": [
+      {
+        "kind": "helmet",
+        "outcome": "hard_block"
+      },
+      {
+        "kind": "helmet",
+        "outcome": "not_reached"
+      }
+    ],
+    "referenceHits": []
+  },
+  {
+    "name": "helmet-graze",
+    "pose": "aim",
+    "target": [
+      99.8328449036339,
+      1.5981194383632427,
+      -0.05968881152848404
+    ],
+    "direction": [
+      0.07787463019666035,
+      0.20681456293093115,
+      -0.9752760012075665
+    ],
+    "randomValue": 0.0001,
+    "restPoint": [
+      -0.12499999999999706,
+      1.689999999999999,
+      -2.220446049250313e-16
+    ],
+    "selectedUsing": "actual v37 6B47 shell edge trace; deterministic RNG branches, ordinary armor/residual formulas unchanged",
+    "referenceArmor": [
+      {
+        "kind": "helmet",
+        "outcome": "ricochet"
+      },
+      {
+        "kind": "helmet",
+        "outcome": "not_reached"
+      }
+    ],
+    "referenceHits": []
+  }
+]

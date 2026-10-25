@@ -1,0 +1,109 @@
+{
+  "task": "B1b/v44",
+  "runtimeSourceCommit": "20578df8d3fafc6934dccd620998383de4328b6b",
+  "instructionProvenance": {
+    "file": "docs/training-b1b-instructions.md",
+    "bytes": 5726,
+    "sha256": "f0959ea5d90f35ca7c347f57f498432306f514419147a59f7f0631555d50a2ed",
+    "role": "attached implementation specification; user message body empty, continuing authorized repository work"
+  },
+  "sources": [
+    {
+      "id": "hepatic-flow",
+      "title": "Major liver resections, perioperative issues and posthepatectomy liver failure: A comprehensive update for the anesthesiologist",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11155507/",
+      "retrievalUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11155507/fullTextXML",
+      "location": "LIVER VASCULARIZATION, first paragraph",
+      "quote": "accounting for 20%-25% of the cardiac output",
+      "interpretation": "liver fraction0.25 is chosen upper endpoint of sourced20-25% range; portal+hepatic artery total, not hepatic artery alone",
+      "retrievedBytes": 296600,
+      "sha256": "f5af1bf83f7150546004035575d56ad09c1cd614dcf30db78185a00730d62a8e",
+      "verifiedFullText": true
+    },
+    {
+      "id": "renal-flow",
+      "title": "Renal blood flow and oxygenation",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9338895/",
+      "retrievalUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9338895/fullTextXML",
+      "location": "Introduction, Par2",
+      "quote": "kidneys receive approximately 20% of the cardiac output under resting conditions",
+      "interpretation": "both kidneys0.20 source; equal split0.10 each is game symmetry tuning",
+      "retrievedBytes": 160408,
+      "sha256": "ad9e7992db776737f6a533090e6f8619d5e775fdc84d3b870d604c8b7b13020c",
+      "verifiedFullText": true
+    },
+    {
+      "id": "splenic-flow",
+      "title": "Emerging Role of the Spleen in the Pharmacokinetics of Monoclonal Antibodies, Nanoparticles and Exosomes",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5486072/",
+      "retrievalUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC5486072/fullTextXML",
+      "location": "Section2 splenic microcirculation, paragraph beginning Because of the structural characteristics",
+      "quote": "spleen only receives about 4.8 ± 1.5% of cardiac output",
+      "interpretation": "central mean0.048 used; cited primarystudy Crean1986 DOI10.1259/0007-1285-59-699-209 not separately retrieved",
+      "retrievedBytes": 265537,
+      "sha256": "e64795ff1da93f2ec639885f10e131f927fbf464fd6847db36d89214e1df17e3",
+      "verifiedFullText": true
+    },
+    {
+      "id": "carotid-diameter",
+      "title": "Age, sex, and the vascular contributors to cerebral pulsatility and pulsatile damping",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7790130/",
+      "retrievalUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7790130/fullTextXML",
+      "location": "Table3, common carotid diameter",
+      "quote": "5.73",
+      "interpretation": "young male cohort mean5.73mm SD0.52; comparison, not universal calibre",
+      "retrievedBytes": 149355,
+      "sha256": "3ab564996982f055808551315881c4c4ec3b0e42d8394b71011fbdcb93efe530",
+      "verifiedFullText": true
+    },
+    {
+      "id": "femoral-diameter",
+      "title": "Acute Dietary Nitrate Supplementation Improves Flow Mediated Dilatation of the Superficial Femoral Artery in Healthy Older Males",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6566150/",
+      "retrievalUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6566150/fullTextXML",
+      "location": "Results, passive leg movement",
+      "quote": "Mean diameter of the common femoral artery was 1.03 ± 0.02 cm",
+      "interpretation": "older male cohort CFA10.3mm; superficial6.93mm Table2; anatomical segment comparison limited",
+      "retrievedBytes": 193794,
+      "sha256": "2408043c4988cdecd4cfc1df4ba2ae350ef924f1b811e155f77bb070dad2588c",
+      "verifiedFullText": true
+    },
+    {
+      "id": "hepatic-trauma",
+      "url": "https://www.msdmanuals.com/professional/injuries-poisoning/abdominal-trauma/hepatic-injury",
+      "location": "Pathophysiology / Treatment",
+      "quote": "Many small lacerations, particularly in children, cease bleeding spontaneously. Larger injuries hemorrhage extensively, often causing hemorrhagic shock",
+      "verifiedFullText": true,
+      "retrievedBytes": 296490,
+      "sha256": "97fca2a15979763a9dff2c5d0bc1f69ca3bd0698eaa735aef5d6d2adbe3a94ab",
+      "interpretation": "Small lesions may stop; major ongoing bleeding can require embolization or surgery. NOT evidence that every high-grade lesion necessarily needs surgery; no numerical game threshold is sourced.",
+      "AASTReferenceQuote": "Parenchymal disruption involving 25‒75% of a hepatic lobe or 1‒3 Couinaud segments within a single lobe"
+    },
+    {
+      "id": "splenic-trauma",
+      "url": "https://www.msdmanuals.com/professional/injuries-poisoning/abdominal-trauma/splenic-injury",
+      "location": "Pathophysiology / Treatment",
+      "quote": "Most low-grade and many high-grade splenic injuries can be managed nonoperatively.",
+      "verifiedFullText": true,
+      "retrievedBytes": 296092,
+      "sha256": "0786f360de4827321b999d889768afb4a4853a55566565dfbd41cf3e9c138728",
+      "interpretation": "Small lesions may stop; major ongoing bleeding can require embolization or surgery. NOT evidence that every high-grade lesion necessarily needs surgery; no numerical game threshold is sourced."
+    },
+    {
+      "id": "splenic-wses",
+      "title": "Splenic trauma: WSES classification and guidelines for adult and pediatric patients (2017)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5562999/",
+      "location": "Background, anatomical vs hemodynamic classification; Table1 AAST",
+      "quote": "hemodynamically stable patients with high-grade lesions could be successfully treated non-operatively",
+      "verifiedFullText": true,
+      "retrievedBytes": 503551,
+      "sha256": "b1f9b8e97100e54098145a4e1d2e165d95f37f9392ef7c3bf933bd47da679672",
+      "interpretation": "High-grade injury does not universally require surgery; stable patients can be managed nonoperatively, including embolization/monitoring. Game severity threshold not AAST validated."
+    }
+  ],
+  "rejectedSources": [
+    "PMC3012579/PMC7106618/NCBIbooks returned challenge or unavailable full text; no verified quote used",
+    "Search snippets and broad search matches were discovery only, not evidence"
+  ],
+  "automatic2DPort": false
+}

@@ -1,0 +1,1008 @@
+{
+  "version": "fall-stability-v36",
+  "trial": true,
+  "settingToggle": false,
+  "baseline": "e15b3d3ccf060b42d4fb6db3994b239f18bb4c1d",
+  "sources": {
+    "massAndROM": "docs/combat-ai1-ledger.json and docs/training-ai1-v32.md: Winter/Dempster fractions and AAOS/Norkin & White ROM; unchanged",
+    "jointAPI": "pinned @dimforge/rapier3d-compat 0.21.0, raw generic force-based motors",
+    "humanTorqueLiteratureUsed": false
+  },
+  "original": {
+    "mass": {
+      "bodyMassKg": 80,
+      "bodyMassClassification": "튜닝 — 사용자 선택 80kg 기본 체중",
+      "entries": [
+        {
+          "itemId": "armor_6b45_basic_test",
+          "slot": "vest",
+          "weightKg": 5.3,
+          "classification": "원본 게임 레지스트리",
+          "source": "src/data/body-armor.js",
+          "bones": [
+            {
+              "bone": "chest",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "plate_granit_br4",
+          "slot": "front",
+          "weightKg": 2.7,
+          "classification": "원본 게임 레지스트리",
+          "source": "src/data/plates.js",
+          "bones": [
+            {
+              "bone": "chest",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "plate_granit_br4",
+          "slot": "rear",
+          "weightKg": 2.7,
+          "classification": "원본 게임 레지스트리",
+          "source": "src/data/plates.js",
+          "bones": [
+            {
+              "bone": "chest",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "helmet_6b47_test",
+          "slot": "helmet",
+          "weightKg": 1.15,
+          "classification": "원본 게임 레지스트리",
+          "source": "src/data/helmets.js",
+          "bones": [
+            {
+              "bone": "head",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "6b45_neck",
+          "slot": "neck",
+          "weightKg": 0.45,
+          "classification": "원본 게임 레지스트리",
+          "source": "src/data/body-armor.js",
+          "bones": [
+            {
+              "bone": "chest",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "6b45_groin",
+          "slot": "groin",
+          "weightKg": 0.55,
+          "classification": "원본 게임 레지스트리",
+          "source": "src/data/body-armor.js",
+          "bones": [
+            {
+              "bone": "pelvis",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "6b45_shoulder",
+          "slot": "shoulder",
+          "weightKg": 0.85,
+          "classification": "원본 게임 레지스트리",
+          "source": "src/data/body-armor.js",
+          "bones": [
+            {
+              "bone": "leftUpperArm",
+              "share": 0.5
+            },
+            {
+              "bone": "rightUpperArm",
+              "share": 0.5
+            }
+          ]
+        }
+      ],
+      "equipmentByBone": {
+        "chest": 11.149999999999999,
+        "head": 1.15,
+        "pelvis": 0.55,
+        "leftUpperArm": 0.425,
+        "rightUpperArm": 0.425
+      },
+      "equipmentMassKg": 13.7,
+      "totalRagdollMassKg": 93.7,
+      "weaponMassKg": 3.6,
+      "weaponClassification": "원본 AK-74M physical.weightKg; 별도 낙하 강체",
+      "totalWithHeldWeaponKg": 97.3,
+      "mappingClassification": "기존 방호 메시 부착 뼈에 배분; 양쪽 어깨 보호구는 원본 쌍 장비 .85kg을 절반씩; 분절 배분은 공간 어댑터",
+      "deduplication": "Four vest soft meshes count as one vest; front/back neck meshes count as one collar; two shoulder meshes count as one pair; two distinct plates each count once",
+      "omitted": "Decorative pouches/knee covers have no equipped registry item in H01; no invented item mass. Ammo/inventory load beyond the specified armor kit is deferred"
+    },
+    "soldier": "v33 54 bones, four native clips; finger GLB and common AK rotations unchanged",
+    "flightProtectionMedical": "original source and generated declarations preserved byte for byte"
+  },
+  "preserved": {
+    "clinicalFlightProtectionEquations": true,
+    "allModelsAndFingerWeights": true,
+    "standingAnimationAndV33Flinch": true,
+    "fingerPhysics": 0,
+    "massLedgerUnchanged": true
+  },
+  "multibodyTrial": {
+    "package": "0.21.0",
+    "report": "downloads/checks-fall-stability-v36/multibody-capabilities.json",
+    "test": "scripts/check-ragdoll-multibody-v36.mjs",
+    "sameROMRequirement": "Capability gate precedes full17segment comparison; APIcannotapplyv35angularlimits/motors/localframes",
+    "decision": "Retain impulse joints: the installed multibody binding exposes no motor, angular-limit setter or local-frame setter. Requested angular limits in generic/revolute JointData are not transferred; a same-ROM/muscle-target runtime cannot be built through this binding.",
+    "performanceInterpretation": "2body capabilityprobe step durations are not a comparable17segment benchmark"
+  },
+  "tuning": {
+    "MUSCLE": {
+      "consciousnessFadeS": 0.45,
+      "legCollapseFadeS": 0.4,
+      "stationaryReflexS": 0.22,
+      "unconsciousArmStrength": 0,
+      "movingThresholdMps": 0.08,
+      "walkReferenceMps": 1.4,
+      "brace": {
+        "fadeS": 0.45,
+        "movingPredictionS": 0.12,
+        "offsetEpsilonM": 0.025,
+        "velocityEpsilonMps": 0.03,
+        "reachAheadM": 0.3,
+        "handSeparationM": 0.36,
+        "contactDistanceM": 0.003,
+        "motors": {
+          "shoulder": [
+            180,
+            28,
+            110
+          ],
+          "elbow": [
+            140,
+            24,
+            90
+          ],
+          "wrist": [
+            35,
+            8,
+            22
+          ]
+        }
+      },
+      "collapseSpineForwardRad": 0.18,
+      "collapseChestForwardRad": 0.12,
+      "painLoss": 0.12,
+      "mapLoss": 0.16,
+      "mapReference": 93,
+      "mapLow": 45,
+      "minAwakeStrength": 0.62,
+      "selfCollision": true,
+      "activeSolverIterations": 12,
+      "passiveSolverIterations": 12,
+      "activeAngularDamping": 8,
+      "passiveAngularDamping": 8,
+      "activeLinearDamping": 2,
+      "passiveLinearDamping": 4,
+      "footFriction": 3,
+      "flinchRad": 0.075,
+      "flinchS": 0.2,
+      "motors": {
+        "torso": [
+          600,
+          100,
+          200
+        ],
+        "neck": [
+          90,
+          25,
+          40
+        ],
+        "shoulder": [
+          90,
+          16,
+          65
+        ],
+        "elbow": [
+          65,
+          12,
+          45
+        ],
+        "wrist": [
+          12,
+          4,
+          12
+        ],
+        "hip": [
+          450,
+          75,
+          220
+        ],
+        "knee": [
+          400,
+          70,
+          220
+        ],
+        "ankle": [
+          180,
+          140,
+          120
+        ]
+      }
+    },
+    "RAGDOLL_STABILITY": {
+      "handInertiaFloorKgM2": 0.006,
+      "footInertiaFloorKgM2": 0.006,
+      "neckInertiaFloorKgM2": 0.012,
+      "hipInertiaFloorKgM2": 0.25,
+      "solverIterations": 64
+    },
+    "RAGDOLL_SETTLING": {
+      "minimumPassiveS": 0.75,
+      "contactStableS": 0.25,
+      "quietS": 0.6,
+      "wakeCooldownS": 0.5,
+      "dampingAngular": 64,
+      "dampingExtremities": 128,
+      "dampingLinear": 24,
+      "dampingCoreMaxAngularRadps": 0.5,
+      "dampingCoreMaxLinearMps": 0.2,
+      "residualQuietS": 0.25,
+      "residualCoreMaxAngularRadps": 0.1,
+      "residualCoreMaxLinearMps": 0.03,
+      "residualMaxAngularRadps": 0.5,
+      "residualMaxLinearMps": 0.1,
+      "residualDampingAngular": 128,
+      "residualDampingExtremities": 256,
+      "residualDampingLinear": 64,
+      "sleepMaxAngularRadps": 0.12,
+      "sleepMaxLinearMps": 0.015,
+      "maxJointExcessRad": 0.17453292519943295,
+      "contactPredictionM": 0.012,
+      "minimumSupportBodies": 2,
+      "lyingMaxTorsoElevationDeg": 35,
+      "lyingMaxPelvisHeightM": 0.5,
+      "lyingMaxHeadHeightM": 0.65,
+      "lyingMaxChestHeightM": 0.6
+    },
+    "BRACE_TUNING": {
+      "fadeS": 0.45,
+      "movingPredictionS": 0.12,
+      "offsetEpsilonM": 0.025,
+      "velocityEpsilonMps": 0.03,
+      "reachAheadM": 0.3,
+      "handSeparationM": 0.36,
+      "contactDistanceM": 0.003,
+      "motors": {
+        "shoulder": [
+          180,
+          28,
+          110
+        ],
+        "elbow": [
+          140,
+          24,
+          90
+        ],
+        "wrist": [
+          35,
+          8,
+          22
+        ]
+      }
+    }
+  },
+  "classification": "All added inertia floors, control targets,solver choices,contact/timing/damping/sleep thresholds are game tuning, not measured human torque or new clinical equations",
+  "medicalReadMapping": {
+    "braceEligible": "collapse begins while conscious andnotdead/arrest; armsreadconsciousnessandexistingfunction only",
+    "braceDirection": "initial 17-body COM minus support-feet center in XZ; moving COM velocity*.12s prediction; offset<.025m falls back to measured velocity, speed<.03m/s returns zero",
+    "braceFade": "Both arms retain consciousness-scaled strength until FIRST actual hand-floor contact, then share a .45s fade; not separate per-hand hold. Unconscious/dead/arrest cancels brace.",
+    "standing": "unchanged100%animation/proceduralflinch; weaponhelduntilmedicalcollapse"
+  },
+  "controller": {
+    "balanceSteps": false,
+    "fingerPhysics": 0,
+    "physicalSleep": "actualRapierbodyisSleeping for17segments; no snapshotcounter substitution",
+    "multibodyAdopted": false,
+    "fallback": "Impulse generic joints retained. Zero-additional-mass principal inertia floor on EACH of three principal axes: hands/feet .006, neck .012, both upper legs .25 kg m^2. Actual mass/COM preserved; connected-island64 additional solver iterations, not per-joint-only. Original ROM and global TGS4/PGS1/maxCCD1 unchanged.",
+    "unconsciousArmStrength": 0,
+    "unconsciousArmsReason": "v35aim/croucharmsPDduring.45sfadecouldformstabletripod; onlyunconsciouspost-collapsearmPDremoved,consciousbraceandstandingunchanged",
+    "settling": "Two real-damping phases gated by actualfixedsupport+core+lying+jointROM; residualstage requires ALL17angular<=.5rad/sandlinear<=.1m/s quiet.25s. Actualsleepgates ALL17angular<=.12/linear<=.015 quiet.6s; prehitrestorebeforephysicalimpulse"
+  },
+  "acceptance": {
+    "maxJointExcessDeg": 10,
+    "diagnosticJointExcessDeg": 2,
+    "settlingWindowS": [
+      5,
+      6
+    ],
+    "maxAngularSpeedRadps": 0.5,
+    "maxComponentHalfRangeRadps": 0.5,
+    "allBodiesPhysicallySleepingAt6S": true,
+    "stationaryHorizontalCOMLimitM": 1,
+    "movingHorizontalCOMLimit": "precollapse speed*.8s",
+    "contactSlipLimitM": 0.15,
+    "transitionPerformanceRatio": 1.5,
+    "handBeforeHead": "firstactualfloorcontacttimesbothhands/headreported"
+  },
+  "validation": {
+    "cases": [
+      "walking-unconscious",
+      "walking-legloss",
+      "doorway-unconscious",
+      "aiming-unconscious",
+      "crouching-unconscious",
+      "walking-conscious-brace",
+      "aiming-conscious-brace"
+    ],
+    "baseline": "v35",
+    "frames": 61,
+    "frameIntervalS": 0.05,
+    "sheetDurationS": 3,
+    "finalPoseTimeS": 6,
+    "mechanicalInputs": "prescribedmedicaloutputs forisolatedmechanicalreproduction; actuallivetrace/medicalpathverifiedseparately",
+    "remainingFailures": [
+      {
+        "case": "walking-unconscious",
+        "criterion": "max joint excess<=10deg",
+        "joint": "leftUpperLeg",
+        "actualDeg": 10.08670402364557,
+        "atS": 1.2666667
+      },
+      {
+        "case": "doorway-unconscious",
+        "criterion": "last-second angular<=.5rad/s and actual sleep",
+        "halfRangeRadps": 0.7852888,
+        "maxNormRadps": 1.331374410229211,
+        "sleepingBodies": 0
+      },
+      {
+        "case": "aiming-conscious-brace",
+        "criterion": "max joint excess<=10deg",
+        "joint": "neck",
+        "actualDeg": 17.465696667117754,
+        "atS": 0.9
+      }
+    ],
+    "jointMetric": "Full16joints: explicitrangeconstraints plus implicitlockedheadXYZ/hingeYZ; uniquejoint-framecountbeyond2deg andmaximumangleperjoint, samev35/v36definition",
+    "angularMetric": "Both maximumtrue angularvelocity norm and maximumcomponent half-range over(5,6]60ticks mustbe<=.5rad/s; all17 actualRapierisSleeping flagsat6s",
+    "floorContact": "FirstactualleftHand/rightHand/head floorcontact, nullmeansnotwithin6s; finitefirsthand required, headnullwithfinitehandcountsprotected, equalfirsttickdoesnotcountbefore",
+    "legacyFixtureBug": {
+      "placementX": 40,
+      "duplicate": "manualY0flooroverlapsproductionlong-floorx31..57,twophysicalcoplanarcontacthandles",
+      "legacyJitter": "published7.389/15.244rad/s retainedaslegacyduplicated-floortrial,notSector04singlefloor",
+      "doorway": "existingSector04caseoriginallysinglefloor"
+    },
+    "correctedFixture": "BOTHv35/v36non-doorwaycasesatx100onespecifiedmanualfloor; doorwayusesactualSector04singlefloor. Improvementonlycomparedbetweennewlyrerunpairedsamefixtures",
+    "jointMetricCaveat": "Formerconfigured-limitovershootwasrealRapierresidualinitsdualfloorworld; correctingfloorisnotchangingquaternioncoordinateorpretendingallerrorsweremeasurement",
+    "groundProof": "actualRapierCollider.containsPoint atY−.0001 on9points±4m; centerGroundColliderCount1. Ordinaryx100all9count1; doorwayoutside-floorpoints0explicitlyexcludedandall<=1",
+    "performanceProtocolCorrection": {
+      "initialWarmupFrames": 12,
+      "discardedDenominatorReason": "40 ordinary samples included26 low-cost startup frames (~9ms) and14 genuinely steady software-rendered frames206–296ms; mixed median invalid as steady denominator",
+      "pairedFinalWarmupFrames": 60,
+      "ordinaryWindowFrames": 40,
+      "sameCameraAndEnemyCount": true,
+      "interpretation": "Protocol correction for BOTH versions; not a runtime change or proof startup hitches eliminated",
+      "initialReports": "local artifacts diagnostics, not final shipped benchmark",
+      "initialLowCostOrdinarySamples": {
+        "v35": 26,
+        "v36": 28,
+        "ordinaryCount": 40
+      },
+      "diagnostic": "downloads/checks-fall-stability-v36/performance-protocol-diagnostic.json"
+    }
+  },
+  "inheritedGameTuningV35": {
+    "consciousnessFadeS": 0.45,
+    "legCollapseFadeS": 0.4,
+    "movingThresholdMps": 0.08,
+    "walkReferenceMps": 1.4,
+    "painLoss": 0.12,
+    "mapLoss": 0.16,
+    "mapReference": 93,
+    "mapLow": 45,
+    "minAwakeStrength": 0.62,
+    "selfCollision": true,
+    "activeSolverIterations": 12,
+    "passiveSolverIterations": 12,
+    "activeAngularDamping": 8,
+    "passiveAngularDamping": 8,
+    "flinchRad": 0.075,
+    "flinchS": 0.2,
+    "motors": {
+      "torso": [
+        600,
+        100,
+        200
+      ],
+      "neck": [
+        90,
+        25,
+        40
+      ],
+      "shoulder": [
+        90,
+        16,
+        65
+      ],
+      "elbow": [
+        65,
+        12,
+        45
+      ],
+      "wrist": [
+        12,
+        4,
+        12
+      ],
+      "hip": [
+        450,
+        75,
+        220
+      ],
+      "knee": [
+        400,
+        70,
+        220
+      ],
+      "ankle": [
+        180,
+        140,
+        120
+      ]
+    },
+    "motorLimitInsetRad": 0.015,
+    "standingFlinch": {
+      "source": "v33 short procedural hit impulse",
+      "amountRad": 0.035,
+      "exponentialDecayPerS": 18,
+      "expiryS": 0.25
+    },
+    "clinicalFunctionFailureReadThreshold": 0.12,
+    "stationaryReflexS": 0.22,
+    "slipContactToleranceM": 0.003001,
+    "legacyAnkleContactToleranceM": 0.006,
+    "collapseSpineForwardRad": 0.18,
+    "collapseChestForwardRad": 0.12,
+    "activeLinearDamping": 2,
+    "footFriction": 3,
+    "passiveLinearDamping": 4
+  },
+  "sourceCommit": "329cd6447148ea90063909d67ea99a5433792445",
+  "acceptancePassed": false,
+  "results": {
+    "cases": 7,
+    "allCriteriaPassed": 4,
+    "trialAcceptancePassed": false,
+    "allFinalLying": true,
+    "allCOMAndSlipPassed": true,
+    "allTargetsOff": true,
+    "actualAll17SleepingCases": 6,
+    "braceFirstHandBeforeHeadCases": 3,
+    "braceBothHandsBeforeHeadCases": 2,
+    "perCase": [
+      {
+        "name": "walking-unconscious",
+        "maxJointExcessDeg": 10.08670402364557,
+        "maxHorizontalCOMTravelM": 0.871950133444642,
+        "horizontalTravelLimitM": 1.1199999999999999,
+        "maxFootSlideM": 0.06962203739827022,
+        "jitterRadps": 0,
+        "lateMaxAngularSpeedRadps": 0,
+        "sleepingBodiesAt6S": 17,
+        "firstFloorContactS": {
+          "leftHand": 0.85,
+          "rightHand": 0.8833333,
+          "head": 1.2166667
+        },
+        "handsBeforeHead": true,
+        "bothHandsBeforeHead": true,
+        "allMotorsOffS": 0.45,
+        "acceptance": {
+          "lying": true,
+          "targetsOff": true,
+          "forwardFall": true,
+          "launch": true,
+          "slip": true,
+          "kinematicStanding": "verified separately by live standing-hit browser test",
+          "jitter": true,
+          "sleep": true,
+          "handsFirst": true,
+          "all": false,
+          "joints": false,
+          "flailing": true
+        }
+      },
+      {
+        "name": "walking-legloss",
+        "maxJointExcessDeg": 4.069928290885029,
+        "maxHorizontalCOMTravelM": 1.1036691377907073,
+        "horizontalTravelLimitM": 1.1199999999999999,
+        "maxFootSlideM": 0.049108452348372224,
+        "jitterRadps": 0,
+        "lateMaxAngularSpeedRadps": 0,
+        "sleepingBodiesAt6S": 17,
+        "firstFloorContactS": {
+          "leftHand": 0.8,
+          "rightHand": 0.75,
+          "head": 1.2833333
+        },
+        "handsBeforeHead": true,
+        "bothHandsBeforeHead": true,
+        "allMotorsOffS": 1.2166667,
+        "acceptance": {
+          "lying": true,
+          "targetsOff": true,
+          "forwardFall": true,
+          "launch": true,
+          "slip": true,
+          "kinematicStanding": "verified separately by live standing-hit browser test",
+          "jitter": true,
+          "sleep": true,
+          "handsFirst": true,
+          "all": true,
+          "joints": true,
+          "flailing": true
+        }
+      },
+      {
+        "name": "doorway-unconscious",
+        "maxJointExcessDeg": 5.955248277886411,
+        "maxHorizontalCOMTravelM": 1.1094561328276074,
+        "horizontalTravelLimitM": 1.1199999999999999,
+        "maxFootSlideM": 0.07834947929702855,
+        "jitterRadps": 0.7852888,
+        "lateMaxAngularSpeedRadps": 1.331374410229211,
+        "sleepingBodiesAt6S": 0,
+        "firstFloorContactS": {
+          "leftHand": 0.85,
+          "rightHand": 0.8833333,
+          "head": 1.2333333
+        },
+        "handsBeforeHead": true,
+        "bothHandsBeforeHead": true,
+        "allMotorsOffS": 0.45,
+        "acceptance": {
+          "lying": true,
+          "targetsOff": true,
+          "forwardFall": true,
+          "launch": true,
+          "slip": true,
+          "kinematicStanding": "verified separately by live standing-hit browser test",
+          "jitter": false,
+          "sleep": false,
+          "handsFirst": true,
+          "all": false,
+          "joints": true,
+          "flailing": true
+        }
+      },
+      {
+        "name": "aiming-unconscious",
+        "maxJointExcessDeg": 0.2324046015007449,
+        "maxHorizontalCOMTravelM": 0.6531931724335234,
+        "horizontalTravelLimitM": 1,
+        "maxFootSlideM": 0.03251835897671907,
+        "jitterRadps": 0,
+        "lateMaxAngularSpeedRadps": 0,
+        "sleepingBodiesAt6S": 17,
+        "firstFloorContactS": {
+          "leftHand": null,
+          "rightHand": 1.3333333,
+          "head": null
+        },
+        "handsBeforeHead": true,
+        "bothHandsBeforeHead": false,
+        "allMotorsOffS": 0.45,
+        "acceptance": {
+          "lying": true,
+          "targetsOff": true,
+          "forwardFall": true,
+          "launch": true,
+          "slip": true,
+          "kinematicStanding": "verified separately by live standing-hit browser test",
+          "jitter": true,
+          "sleep": true,
+          "handsFirst": true,
+          "all": true,
+          "joints": true,
+          "flailing": true
+        }
+      },
+      {
+        "name": "crouching-unconscious",
+        "maxJointExcessDeg": 0.09478850541165355,
+        "maxHorizontalCOMTravelM": 0.8137471585208954,
+        "horizontalTravelLimitM": 1,
+        "maxFootSlideM": 0.03356335635583863,
+        "jitterRadps": 0,
+        "lateMaxAngularSpeedRadps": 0,
+        "sleepingBodiesAt6S": 17,
+        "firstFloorContactS": {
+          "leftHand": null,
+          "rightHand": null,
+          "head": 4.2833333
+        },
+        "handsBeforeHead": false,
+        "bothHandsBeforeHead": false,
+        "allMotorsOffS": 0.45,
+        "acceptance": {
+          "lying": true,
+          "targetsOff": true,
+          "forwardFall": true,
+          "launch": true,
+          "slip": true,
+          "kinematicStanding": "verified separately by live standing-hit browser test",
+          "jitter": true,
+          "sleep": true,
+          "handsFirst": true,
+          "all": true,
+          "joints": true,
+          "flailing": true
+        }
+      },
+      {
+        "name": "walking-conscious-brace",
+        "maxJointExcessDeg": 8.191606659734699,
+        "maxHorizontalCOMTravelM": 0.8838799630706838,
+        "horizontalTravelLimitM": 1.1199999999999999,
+        "maxFootSlideM": 0.06310939008408163,
+        "jitterRadps": 0,
+        "lateMaxAngularSpeedRadps": 0,
+        "sleepingBodiesAt6S": 17,
+        "firstFloorContactS": {
+          "leftHand": 0.7666667,
+          "rightHand": 0.8166667,
+          "head": 1.7
+        },
+        "handsBeforeHead": true,
+        "bothHandsBeforeHead": true,
+        "allMotorsOffS": 1.2333333,
+        "acceptance": {
+          "lying": true,
+          "targetsOff": true,
+          "forwardFall": true,
+          "launch": true,
+          "slip": true,
+          "kinematicStanding": "verified separately by live standing-hit browser test",
+          "jitter": true,
+          "sleep": true,
+          "handsFirst": true,
+          "all": true,
+          "joints": true,
+          "flailing": true
+        }
+      },
+      {
+        "name": "aiming-conscious-brace",
+        "maxJointExcessDeg": 17.465696667117754,
+        "maxHorizontalCOMTravelM": 0.8057180679838759,
+        "horizontalTravelLimitM": 1,
+        "maxFootSlideM": 0.021994856990072368,
+        "jitterRadps": 0,
+        "lateMaxAngularSpeedRadps": 0,
+        "sleepingBodiesAt6S": 17,
+        "firstFloorContactS": {
+          "leftHand": 2.2166667,
+          "rightHand": 0.8166667,
+          "head": 1.45
+        },
+        "handsBeforeHead": true,
+        "bothHandsBeforeHead": false,
+        "allMotorsOffS": 1.2833333,
+        "acceptance": {
+          "lying": true,
+          "targetsOff": true,
+          "forwardFall": true,
+          "launch": true,
+          "slip": true,
+          "kinematicStanding": "verified separately by live standing-hit browser test",
+          "jitter": true,
+          "sleep": true,
+          "handsFirst": true,
+          "all": false,
+          "joints": false,
+          "flailing": true
+        }
+      }
+    ],
+    "perJointSummary": [
+      {
+        "bone": "chest",
+        "v35": {
+          "max": 0.4343466483797332,
+          "frames": 0
+        },
+        "v36": {
+          "max": 0.03779443808466962,
+          "frames": 0
+        }
+      },
+      {
+        "bone": "head",
+        "v35": {
+          "max": 4.747705886717389,
+          "frames": 40
+        },
+        "v36": {
+          "max": 0.17648371790971465,
+          "frames": 0
+        }
+      },
+      {
+        "bone": "leftFoot",
+        "v35": {
+          "max": 3.6758368729755118,
+          "frames": 12
+        },
+        "v36": {
+          "max": 0.21285858963449658,
+          "frames": 0
+        }
+      },
+      {
+        "bone": "leftForearm",
+        "v35": {
+          "max": 4.632612428614922,
+          "frames": 9
+        },
+        "v36": {
+          "max": 0.3127060335796507,
+          "frames": 0
+        }
+      },
+      {
+        "bone": "leftHand",
+        "v35": {
+          "max": 38.17337399230231,
+          "frames": 44
+        },
+        "v36": {
+          "max": 0.4644902400867014,
+          "frames": 0
+        }
+      },
+      {
+        "bone": "leftLowerLeg",
+        "v35": {
+          "max": 0.5928522254256212,
+          "frames": 0
+        },
+        "v36": {
+          "max": 0.08200341558447748,
+          "frames": 0
+        }
+      },
+      {
+        "bone": "leftUpperArm",
+        "v35": {
+          "max": 81.7867430451243,
+          "frames": 304
+        },
+        "v36": {
+          "max": 0.038423318351179334,
+          "frames": 0
+        }
+      },
+      {
+        "bone": "leftUpperLeg",
+        "v35": {
+          "max": 67.92021497765093,
+          "frames": 158
+        },
+        "v36": {
+          "max": 10.08670402364557,
+          "frames": 35
+        }
+      },
+      {
+        "bone": "neck",
+        "v35": {
+          "max": 131.8537539623113,
+          "frames": 678
+        },
+        "v36": {
+          "max": 17.465696667117754,
+          "frames": 9
+        }
+      },
+      {
+        "bone": "rightFoot",
+        "v35": {
+          "max": 17.278636534520224,
+          "frames": 229
+        },
+        "v36": {
+          "max": 0.1961959765947212,
+          "frames": 0
+        }
+      },
+      {
+        "bone": "rightForearm",
+        "v35": {
+          "max": 1.6165748238847182,
+          "frames": 0
+        },
+        "v36": {
+          "max": 0.43201325744373337,
+          "frames": 0
+        }
+      },
+      {
+        "bone": "rightHand",
+        "v35": {
+          "max": 20.162163568826795,
+          "frames": 60
+        },
+        "v36": {
+          "max": 0.3092092248872245,
+          "frames": 0
+        }
+      },
+      {
+        "bone": "rightLowerLeg",
+        "v35": {
+          "max": 3.772716929670741,
+          "frames": 2
+        },
+        "v36": {
+          "max": 0.2888154073861336,
+          "frames": 0
+        }
+      },
+      {
+        "bone": "rightUpperArm",
+        "v35": {
+          "max": 63.080488671884915,
+          "frames": 112
+        },
+        "v36": {
+          "max": 5.258006794795928,
+          "frames": 23
+        }
+      },
+      {
+        "bone": "rightUpperLeg",
+        "v35": {
+          "max": 24.764610725330634,
+          "frames": 75
+        },
+        "v36": {
+          "max": 8.191606659734699,
+          "frames": 12
+        }
+      },
+      {
+        "bone": "spine",
+        "v35": {
+          "max": 1.6672614789573577,
+          "frames": 0
+        },
+        "v36": {
+          "max": 0.12304025572656571,
+          "frames": 0
+        }
+      }
+    ]
+  },
+  "regression": {
+    "testsPassed": 217,
+    "testsFailed": 0,
+    "baselineBytes": 3641864,
+    "baselineIdentical": true,
+    "protectedSourceAndAssetFiles": 170,
+    "htmlBytes": 29618105,
+    "htmlSHA256": "c69f21c5f1677a481ed13e0dfa4b293b9c1e3d08c23dccd3b4e72b45846d8d98",
+    "performance": "Final paired steady-scene benchmark, script SHA and runtime hashes verified; three v36 events<=1.5, global render spikes remain",
+    "offline": {
+      "passed": true,
+      "viewports": [
+        [
+          1280,
+          720
+        ],
+        [
+          844,
+          390
+        ]
+      ],
+      "externalRequests": 0,
+      "errors": 0,
+      "standaloneHTMLExact": true
+    }
+  },
+  "performance": {
+    "benchmarkScriptSHA256": "d39dba49034c1a4ae2e8d8d536b76903fd5956e49dd335952f11388b9ffe00ba",
+    "protocol": "fall-stability-v36-steady-scene",
+    "preFirstShotWarmupFrames": 60,
+    "ordinaryWindowFrames": 40,
+    "postCollapseWindowFrames": 180,
+    "v36AllThreeEventsPassed": true,
+    "v35FirstShotStrictFailRatio": 1.5018996960468616,
+    "measure": "SwiftShader sustained offscreen scene work; excludes presentation/startup/real-phone FPS",
+    "deploymentDenominator": "same-camera steady one-enemy normal window, empty-room result separately retained",
+    "reports": [
+      {
+        "version": "v35",
+        "emptyBeforeDeployNormal": {
+          "count": 40,
+          "medianMs": 5.7000000001862645,
+          "maxMs": 13.700000000186265
+        },
+        "actions": {
+          "deploy": {
+            "frameMs": 9.599999999627471,
+            "normalMedianMs": 263.20000000018626,
+            "overNormal": 0.036474164132297406,
+            "goalMet": true
+          },
+          "firstShot": {
+            "frameMs": 395.29999999981374,
+            "normalMedianMs": 263.20000000018626,
+            "overNormal": 1.5018996960468616,
+            "goalMet": false
+          },
+          "fall": {
+            "frameMs": 257.6000000005588,
+            "normalMedianMs": 262.40000000037253,
+            "overNormal": 0.9817073170739066,
+            "goalMet": true
+          }
+        },
+        "postCollapse2to3SPhysics": {
+          "count": 60,
+          "medianMs": 3.400000000372529,
+          "maxMs": 13.799999999813735
+        },
+        "worstFrameMs": 1196.2999999998137,
+        "worstRenderMs": 1191.5999999996275,
+        "sourceHashCount": 12
+      },
+      {
+        "version": "v36",
+        "emptyBeforeDeployNormal": {
+          "count": 40,
+          "medianMs": 6.7000000001862645,
+          "maxMs": 25.5
+        },
+        "actions": {
+          "deploy": {
+            "frameMs": 7.8999999994412065,
+            "normalMedianMs": 285.20000000018626,
+            "overNormal": 0.027699859745568187,
+            "goalMet": true
+          },
+          "firstShot": {
+            "frameMs": 308.1000000005588,
+            "normalMedianMs": 285.20000000018626,
+            "overNormal": 1.0802945301555316,
+            "goalMet": true
+          },
+          "fall": {
+            "frameMs": 280,
+            "normalMedianMs": 286,
+            "overNormal": 0.9790209790209791,
+            "goalMet": true
+          }
+        },
+        "postCollapse2to3SPhysics": {
+          "count": 60,
+          "medianMs": 4.599999999627471,
+          "maxMs": 13
+        },
+        "worstFrameMs": 1050.2000000001863,
+        "worstRenderMs": 1045.0999999996275,
+        "sourceHashCount": 15
+      }
+    ],
+    "allHitchesResolved": false,
+    "postCollapsePhysicsCaveat": "Samples2–3s after collapse; both performance actors still awake at3s. Not confirmed post-sleep/settled physics cost; separate6s numerical evidence used for sleep."
+  }
+}

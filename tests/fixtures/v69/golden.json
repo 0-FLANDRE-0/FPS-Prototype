@@ -1,0 +1,3905 @@
+{
+  "source": "0-FLANDRE-0/CQB-HTML",
+  "commit": "e46c309c9181f9093efd91798f569074047ad40a",
+  "s0": [
+    {
+      "name": "cerebrum",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "d4df484a19e7ab0eec4ad32dc039a137ae246f41eb5eda6651f2331fa990e1e8"
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "bd348c313cf9d7641d063142124a25efd0d93314454af393169d8294e115cc46"
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "9550763d92ff4625a772b3ff73b4fde9262b69d251233f0ca308a6dacf4994a9"
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "4bc495c278cadfa962f36a29c3aabddb03005cccc23a6f2b9b86aebc173e055d"
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "01aa22bce1c87b852794498b62e08a0203c52f5a794360ff440ae94f8b5c9453"
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "9bfbf45cd92163e236b5d15fd57c85327c7e78b74d330fb2e34ce67e057524e1"
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "bf076da2bd841629e6bf4c6eb5a3c73b4ba23a100caf57be075f235983afcd39"
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "077d8e403e6191140411854f23e858298c2e457d092897a8650b17fb99bd89eb"
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "88692639434244f8f39faf5cf1121cac4e89732201895130bacd64c16ac2a11e"
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "6356fa9307022b2c505e06141dcad6529878ce7300eb420c8168590ed7b07f77"
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "fd2bd0e0e06b93b8a05d63c90b32576b096786ec6b3e8cde690dc3062e00de42"
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "39816fb75cdf156ed812ecee9836542bc16b01d1129949ffabf86d92e895eacb"
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "68555c60234995c63c424e978f250663eb3e61355cf107eb404c8032b13d1a8c"
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "c65962ad56724a671df6dcccbd22f9012cc61c264faede024e8667a6298a2b94"
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "a392744288cda9793cb90e7caf09279ce847989d42342e740343d3c2bd4253cc"
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "06394c292a5ed8b9232c435f87bd7d3c1b29ec607f84377ccf27212cc9462bec"
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "22406e3c782969926620b4b10e970134c44fa4ffb33729fe19c8340607f7f63b"
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "22406e3c782969926620b4b10e970134c44fa4ffb33729fe19c8340607f7f63b"
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "27c10023a3cfcc37e131a40cacfa38a96fb4fc16ebd6628d6d01c26fda21bfc9"
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "27c10023a3cfcc37e131a40cacfa38a96fb4fc16ebd6628d6d01c26fda21bfc9"
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "bd369480a61b002ea943ab33ea280b44aba7a3c08e580d86e7cf8be3c612167c"
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "bd369480a61b002ea943ab33ea280b44aba7a3c08e580d86e7cf8be3c612167c"
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "64fe872f01eb43699592ed17565b688f93fb11631c4ed5b0ab2d8fa4876bffa1"
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "64fe872f01eb43699592ed17565b688f93fb11631c4ed5b0ab2d8fa4876bffa1"
+    },
+    {
+      "name": "heart",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "88cec96d644351a208c61c4be51003f901285aa803c799ff139a8fd463e6f21b"
+    },
+    {
+      "name": "heart",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "7efbe8027aa3f392239e88bfeb97b8407661422e6004f873d634ff98208d5fff"
+    },
+    {
+      "name": "heart",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "aa0d59b1d7b83f0431043e2c21a1f70970397e69f3b2c1235599d6b9ced56ef9"
+    },
+    {
+      "name": "heart",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "b0daa14610f1e0ef5f9910c738e180310d5661b0ef1d52d0f6432ef51617a950"
+    },
+    {
+      "name": "heart",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "ee43e0e81d0b84751824f0ef8917b36afeb0a0f553bb59b513e04309a45a63f9"
+    },
+    {
+      "name": "heart",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "bfbc618dcc30039986e3515746fc9d67722beca807bed8fde91ff8d8572298a0"
+    },
+    {
+      "name": "heart",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "6d204f1712c6e04d4d5979150cfa2ed6f6812419d6ce246191bc83904f4e2f19"
+    },
+    {
+      "name": "heart",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "c3a96860daee019e3830894508a9daaca4985e8826bb48075fdae1663b0d94c8"
+    },
+    {
+      "name": "aorta",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "2653579babd01dfadff439930fcc059209eb1fb02f4ef847fca9e62ad550cce2"
+    },
+    {
+      "name": "aorta",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "d6da9d4b32a70085df0d907aa7fa80d888c765e89cc26d45047f7bcc6efb8156"
+    },
+    {
+      "name": "aorta",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "b93becb70072b74926b14d74577735241e3d0dd0aee10865bf47091c7691802e"
+    },
+    {
+      "name": "aorta",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "742c1f6100a191407a865a67a5251be0543170e088627ea813698a517c02cec0"
+    },
+    {
+      "name": "aorta",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "58e1bf935c3f05bfeb22c0fc971cb79fc4179e410612009e945590dab5c758aa"
+    },
+    {
+      "name": "aorta",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "0d4c7f6c2c06330784ac3505ca6ba39a440004def59fcdfceec4dc00b6d41fee"
+    },
+    {
+      "name": "aorta",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "5f3e60140c88ee7f546cf2aefb33acdbe22e4737fd4a1e71caa435e5f8c9987d"
+    },
+    {
+      "name": "aorta",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "43d8a9808e7fcc8ccbeaede31916992f0211fb3ae14b3b1d9aa33fdc9272f018"
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "9c8479115cb5274b33bdc115cd4eadd688c57004b8eb30e6802e60099ff4f353"
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "9dca0fa1e34605ff0622f0f3dca58e52c4c8bd457628ba1f5bbfbe35a8efb695"
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "5e463449a4115d32c811a2b57c2188c46c585c7e08d74b6a464c7bca851cddd8"
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "7fa80318f4efca8e5a2d5d9d5a7fa91bbbe6eeef45dbc839819c2a4efc5b9d82"
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "4a592cd0a957ea4082f4f440f15819086a6ac53e20a08d5a06a9683cf772e069"
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "4e5f514c56121eeef468bb1a7a5646513675f2fe020ea6457b15464ebcd04b41"
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "5eee7360d8b603013eecbfae6b3b21451202b4a1d29932f756befb68a5c58074"
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "af171f172830e10f92f2e8603bd90fa437e4e0dde707bf149f23b366abce459c"
+    },
+    {
+      "name": "liver",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "74956631b8406232353f6b22316ae03bb549fc359cf36aadcb50cd41fccc3f54"
+    },
+    {
+      "name": "liver",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "5c220d84d3bd409f04420f77d0b53832b177dba805255a3b5583aae54dea8f8f"
+    },
+    {
+      "name": "liver",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "79e55e59396016cd314bbdb44f05d6e8a81ff4af8dda4f0fa5fe7bdca2c0b74b"
+    },
+    {
+      "name": "liver",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "7e2962a5cf5dcbf4b3320adaa67d10caffaaa9cf69f4409cba568b1fb922927a"
+    },
+    {
+      "name": "liver",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "c479e76c58cf524656250be022d7abdddc71c88aca8885b27fefabcf00329228"
+    },
+    {
+      "name": "liver",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "2b45b5beae70cc369a30024ea93903b45925c6334f9b01b34694deec9cd47e55"
+    },
+    {
+      "name": "liver",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "3381b6bad856f7fc18f4819f1f6c5803cda1bdbc978fd18b0cd75847fca7ac42"
+    },
+    {
+      "name": "liver",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "e42463ac42faba3cf2e1a608203f79af2470da2802c8b1958fd92572a96322dc"
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "9b185e89004a66b7c5e55bb80fe804998753e4a198b5be5e8e87e95db1e42209"
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "9b185e89004a66b7c5e55bb80fe804998753e4a198b5be5e8e87e95db1e42209"
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "760fd09e51be3cb158088d19b4431fdd3ea0be89fab1962463ed7f4b5916f8cd"
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "760fd09e51be3cb158088d19b4431fdd3ea0be89fab1962463ed7f4b5916f8cd"
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "bca5ce489e8f8638039f00e2067b4a3a53acbf6c5c9cf124d993ba19ccc867df"
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "bca5ce489e8f8638039f00e2067b4a3a53acbf6c5c9cf124d993ba19ccc867df"
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "7375d64e443bc9238229238700a06e975895b4b36c28e43108c8b1c33e5c817e"
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "7375d64e443bc9238229238700a06e975895b4b36c28e43108c8b1c33e5c817e"
+    },
+    {
+      "name": "femur",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "220c620efa38e52d06f27cf4b5b3ca65fe7b31300e23fde3a4fca69333f00985"
+    },
+    {
+      "name": "femur",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "220c620efa38e52d06f27cf4b5b3ca65fe7b31300e23fde3a4fca69333f00985"
+    },
+    {
+      "name": "femur",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "f5535aafa186f4b9da0485f899c707adfacef852bc403d90dad060a20650986c"
+    },
+    {
+      "name": "femur",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "f5535aafa186f4b9da0485f899c707adfacef852bc403d90dad060a20650986c"
+    },
+    {
+      "name": "femur",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "518971318eedbcea006e6b751b14cf9ce59406e5b29b4777b491e96631e7b79b"
+    },
+    {
+      "name": "femur",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "518971318eedbcea006e6b751b14cf9ce59406e5b29b4777b491e96631e7b79b"
+    },
+    {
+      "name": "femur",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "af679f1ded6d57a054f2b6733bc7ef1fa86ff0b026535fc76e2688ebf6a6b94a"
+    },
+    {
+      "name": "femur",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "af679f1ded6d57a054f2b6733bc7ef1fa86ff0b026535fc76e2688ebf6a6b94a"
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "e83df1401def2f465963028ae7ad91f5ab2e40425f63685c441ae6a8b9084f59"
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "ac91d7e641423bd47cc9b13421120b3c7b34d9e6223df431f7f83ccb923fa55d"
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "55fd7add8c4b058efd53f3c04127f6b800bbedc220e92c7df52e25092af3d6d3"
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "c56b97bb65b7a64b2fae34e133060c3294472b79cbb2400d372d40d5f075f66e"
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "3db5e8483ae4106d4ecfe081583c6a060a50600ec352af3017003467e3a6859c"
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "433bf230c1c1072e8e7bd659903e3d1ab2bbf9893a0fedb1e8a9826f1169548a"
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "3af5f18dcc0330c724f5428f69486ae4f3cd2c212f8750628d903560ba414528"
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "71d4fac61f0b0672297aad7dfded5a24348a4b12092f1da098b0de2ea982b162"
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "66b23e6805c8a27b05dd8a30713fe8dc5fa43fda2e4e9362cd972f6a8194a5ed"
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "92b677054876b2b6b81fedc18074b407dc9883f597606d02d3b71bce4521522c"
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "1881c2b23401bf5e8457a05bfc15a6d8949080fb104cf94c0ac12b1f21201b26"
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "7cecbe52326fbdd654420c895b4a5958a2d8d96bb6c033d970aeb63f19a816c0"
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "837e90fe8c94b7091b368ae557217ec999cd647e447f0371dc22cb327ad15f1e"
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "c80b772204e213f9c9fc2586d47066960303f103e4c0c69a99f4b6ee23872a3e"
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "46bc79a0662ce820d810b092c3e607861d980e13f77b57e707f2940366d0c7fd"
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "edbe32e194ba71ef2d0a5d834c5954f15e0613e6af1e04f1ec78d6c8dc90e0cd"
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "58d068c9449e662af426bc8b02b9c3bc964cd62f00fe498411d872273d82f691"
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "c280002b81755a56cfce2fc82174fd5ea6b1bf45087d76b53153844605c27883"
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "3dd0ab4643403f65fff0fbfaa149c09414d47db4bc07773fc776fab42f5e3e44"
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "62cf91ac587caa429a134dab4929ec35f49fbbe49dab4369909ee345434ce087"
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "c83826d7fa6670846aaaefc3bea0886341444ca2bc78fbdbdaf023849c207c2f"
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "68e57613a3c57c2adb0fe763b773fb314f5378852484f216e38519b0cb4de0cb"
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "a12ba3223aee78c97196d00769cca11e3f55fcbc5e059856dab602ab71884f14"
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "9a42ffcec1a6bc8b06617539f1f479674739a976a6a7c2fc7cdeaaaf6b653db9"
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "0b506ed8472172bbef2738e47ec31bcccd0998184d7119937478217a580e25b9"
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "0b506ed8472172bbef2738e47ec31bcccd0998184d7119937478217a580e25b9"
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "66451b6b8343ca93d46991486b5222c40c7ffa0cf87c7c2532cbdc3920740501"
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "66451b6b8343ca93d46991486b5222c40c7ffa0cf87c7c2532cbdc3920740501"
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "de64bb820d7bc4fb36bac57853d9806493c197606f268daab97da3cb1ae0a853"
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "de64bb820d7bc4fb36bac57853d9806493c197606f268daab97da3cb1ae0a853"
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "7f78950ce1a02467d8ca9601b3d261ea980975b343ef313fae9ee6415cc4e239"
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "7f78950ce1a02467d8ca9601b3d261ea980975b343ef313fae9ee6415cc4e239"
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "9edd6a77ad2f8eaa5cc4bc9dcf7561c50de0cdbdbdf69fe40086fb05b03aa443"
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "4aaf701a627dbefa2c3c28cbf86a5a442f7bbf15038718979fd6a575e3449dfb"
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "c6ae5eda7386cbcc60155588060341c7eb8c584895d2bff7a21fc88269e13582"
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "d76ad639c67ede62de67ccfbcbf22d68ccf1fdeddb5466181a75d746270c60f6"
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "d232c483145c0f0517c65a20de9b3afc5f1c9df6f872b504b2b01d37149094ed"
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "c3b6354aea23b5f41d50d72552a5aacf5131f6768aad097f6c12f41b0747d14e"
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "efccbfad476f310ea1af5e6995eda6b3c973683031780978cfd8e3db56d77e61"
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "ee3ceb10b705a97d98118f1ef5acaea1a293b67cef3918330df291dc6a8793d6"
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "6bdba65876a27f17c2d03d0fef86ac8e3f11228fbc9ccc275acecd435acb07ab"
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "85c607ce95ca27a9aa1178aec955095047b594acb99e2163756e5b67c1368e20"
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "98db49c1032ae33532474065796ff8da7ed843f2fc0a6d9ec0dcbbe8e80ea8b7"
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "d9322bafd9cfe49f0d564276b1aac2bba73b6cf654faa6d68c868db0714151cd"
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "7026237fad558d70651a6ae9ff3e263a4c4e210ef14c40b74ca2f80cc14a8a76"
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "d6ccdd6938779e90ac3bedf4116696f7cdeb1b0a446fe65666f560d5e8aefa61"
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "9bfb25cccfd65608a1b46220b156d9da5a168c8cdb6f2d0268c728a4dfa28ec1"
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "7378548d98188004b91be38681e2b5b2894608786d2a5d3fee3075751fdd1816"
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "165e4a3e8159387a733914bcec103dee6f0c08da9114fffee1ac7aabcd072291"
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "165e4a3e8159387a733914bcec103dee6f0c08da9114fffee1ac7aabcd072291"
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "881cb6d4b5ed0f2068d1802abcb7e648a4020f587b35bd8e0b9944375bf903f5"
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "881cb6d4b5ed0f2068d1802abcb7e648a4020f587b35bd8e0b9944375bf903f5"
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "879b314d226de33925cfa5383395d3f6d03485e6d4b7e7e6068ccdc09ae8dd35"
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "879b314d226de33925cfa5383395d3f6d03485e6d4b7e7e6068ccdc09ae8dd35"
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "5407b760131b3d06bb52e2efe0813593a8647ad9ef73e83f7e133d160ba0fe1c"
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "5407b760131b3d06bb52e2efe0813593a8647ad9ef73e83f7e133d160ba0fe1c"
+    },
+    {
+      "name": "heart",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "5ff4fd51002cab81fa20206e28370d7b881251e2ebbb64dff30d6bc5f378ae26"
+    },
+    {
+      "name": "heart",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "c6073b0b536bba27f363bfffb30c64af99cffe9a86ed2d0d9aaf7a1d7302e057"
+    },
+    {
+      "name": "heart",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "0ccf12827673c2b56c73bfd13f99dd2c02791c34a8a8e9541a4b3869bf13e4dd"
+    },
+    {
+      "name": "heart",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "849af1c800a5628b98991e877d51b54bc876a84925fee7678b27c49d04be7220"
+    },
+    {
+      "name": "heart",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "597662d35132c4b6036b244525f1713d18604a629694dcaa50441ae08ed999af"
+    },
+    {
+      "name": "heart",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "5d7393886f001b56b3e0aa72ded4a0000ab069c4e2825449b697933da1d75451"
+    },
+    {
+      "name": "heart",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "d0bc9cdf57c7d8cfdb5de9db2e2a8c289b38025747aea17e9549b20e5979ac6f"
+    },
+    {
+      "name": "heart",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "76cb1821aee90062ab6dc548e63f8515043dc01c04a95536b1fb187b6f2699a5"
+    },
+    {
+      "name": "aorta",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "2cdcc24687487d85ce9c24c90f753c6cb328f5f27540dd3b37feaedfd9da3470"
+    },
+    {
+      "name": "aorta",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "97975fcb1c93c9e691aece3806b07408ac9b7d50e6d495c7c4c633bfaa9c5b38"
+    },
+    {
+      "name": "aorta",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "4ab2abb700754baa4ebcb981bf70ff1704b468508b51774dca57d1a911beefbf"
+    },
+    {
+      "name": "aorta",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "f53f68a7b7133ad09eec7b6d352c8ae397691e092a51ec8ff44fb4cd02a11448"
+    },
+    {
+      "name": "aorta",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "8e68ca52c4d3c87a0b7986f37b48e2ff253f2bf6bc3ef6e60b77b12239169aed"
+    },
+    {
+      "name": "aorta",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "25f034bbd316222dc3bf6216c8d24695a378ccd16f6c5e9c9fb3671e4877e2f1"
+    },
+    {
+      "name": "aorta",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "ef9150bc9007b78bf17bf5646e37147d92d7390a17a10efdf9f508d3507ff708"
+    },
+    {
+      "name": "aorta",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "8040ba47fec86fd857d9bab3c8a71a9aa29abdcad378582ac4226ade6907bb13"
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "574b2a38ff88b3b2d97194badac2c6b793d012be674508ace1532f02e30accce"
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "8a2f7fee4b6cfb561ca1d6bc202cd03b4cf57f231abffdd9fc253ea143b5a476"
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "6820726af1c987cf7cd1b3a15ae3ae68505c12497d1642bc7957e9ce6724607a"
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "be76c1c547498250ff0b0f0b1f3d8121270eaca6663796e805f12a013aeb6a7e"
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "74e3ed593b53a20de030f174407ecbda3eb5a9ba551367cd42648ee538531063"
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "8eaf4984e204fce5556b421ff2d45dccc4dc923f5fbfc24d16485658b876f758"
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "631c446f8ab3bfa01801d9c565203e2984d7e8af7f5a727bdf783622c964cc78"
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "8dafccb4986773f330339bb18df5d1836dccbe9d23eb792636f26721fe8c7237"
+    },
+    {
+      "name": "liver",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "57aac6727da844ce904ade3f42ae8a55ea11f45d4946e2242e13769af3bc9a20"
+    },
+    {
+      "name": "liver",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "9a5bbd94533d13b5c23c45216639912a94b6ebbc494e7ee86cfb45536fc38e22"
+    },
+    {
+      "name": "liver",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "13b9cc406ad30f396efe4665a7413f830b9db62e1d7b5ec0b9c8ff9ec7b9f02f"
+    },
+    {
+      "name": "liver",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "219b2d4fcf85d5b3a18873fe7a84fe0cbef53e1a0c57fe7cb513f0628eab9369"
+    },
+    {
+      "name": "liver",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "51c40398ac5a40a26968571912e2aaed8327af20bc3bbc4c43dfc43fa32d4539"
+    },
+    {
+      "name": "liver",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "c2a7636136d8661c299e898e2891dd87eb00ad8681f4a0dc68f6a9e17ab38710"
+    },
+    {
+      "name": "liver",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "c2b10f8cc53b6dd86d4a7358359eec028c6f74862b5c6cfa2acd8e9ac9564552"
+    },
+    {
+      "name": "liver",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "a0f13cebe22b82c0e09150114253e7edcb67bef38f87348eb88f1ed2f5c73379"
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "d5979df618f90f9286c1dfbcff174d5c920cc127af5bb4f72cfe4f60f719f107"
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "d5979df618f90f9286c1dfbcff174d5c920cc127af5bb4f72cfe4f60f719f107"
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "af0b4f585374265bf4d6eda551b372563e0e5813c5077089d9c6de3c6fa1ade0"
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "af0b4f585374265bf4d6eda551b372563e0e5813c5077089d9c6de3c6fa1ade0"
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "5375c09cef3950076d8b596c97a342eb6ef89fdcdacaa624af6616e0b68868db"
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "5375c09cef3950076d8b596c97a342eb6ef89fdcdacaa624af6616e0b68868db"
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "b0111846ebef0d1b75da431bd5baf148a0a922164afc01a20bf468aea6795ba8"
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "b0111846ebef0d1b75da431bd5baf148a0a922164afc01a20bf468aea6795ba8"
+    },
+    {
+      "name": "femur",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "0c95bfb292c86c2bf50ff5532055750e9083d5029b2c0572f5cf40eb43d1b5b6"
+    },
+    {
+      "name": "femur",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "0c95bfb292c86c2bf50ff5532055750e9083d5029b2c0572f5cf40eb43d1b5b6"
+    },
+    {
+      "name": "femur",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "4b3500e87d545a37ac50514912039720883adf3caa23aaad8d2a16e5936a455c"
+    },
+    {
+      "name": "femur",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "4b3500e87d545a37ac50514912039720883adf3caa23aaad8d2a16e5936a455c"
+    },
+    {
+      "name": "femur",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "17e80e4a96ce553438e9f164ad48767cb4a3ec0c12a647aec6220e0d9f3339d3"
+    },
+    {
+      "name": "femur",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "17e80e4a96ce553438e9f164ad48767cb4a3ec0c12a647aec6220e0d9f3339d3"
+    },
+    {
+      "name": "femur",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "0661e3206b49ab8a9bbb36e3ce3f5b0905115a84957878670ef9b63227a8bb9c"
+    },
+    {
+      "name": "femur",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "0661e3206b49ab8a9bbb36e3ce3f5b0905115a84957878670ef9b63227a8bb9c"
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "87fc2dcbedf0d2f21d5ffc3bd22fbd0029200a26f579dd090582d0fd36ab7bde"
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "427d1b7c6fd2c79633619cee529711dd1e4a383a19d6ef0abbc163a83ac12e03"
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "536af5d1629188ec2e39a793df92e479e8947e1191814e1ceb88ff7aee475baf"
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "921fb67fb4e6aa06c09c4c6ae66e0ace751ba0b37afc55c6abd369ad1630b30b"
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "d3d74bd24144366f1513e49e333428c0f4770c4ab555069415ac822d1e4e66c3"
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "eb58680ab1f5a6b4bc1dc4470aa15086cd3b032f22bdf13de1434fe7da3b110d"
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "9acbe55d683e0853fdad1c58f640526533cf8b0126a17fb6cb2bf730cc052736"
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "216c1cf7c17fb9ab84a36605fa8a028681f2d559b6651a57addaa5d9d1488221"
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "9da233960fb9972ba26fef80f8d86a5689667f9021ead8d527d671b879046695"
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "74f7f0f59f003f7226c41628137ad9db6fb37012c9d09edaf53b2941484e0852"
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "bdfdbeec5e74ab819e06c707bfc4ba169210b61511ee30e389dacc26ba5d112e"
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "61a6c1ffa94d1300a88ff596a1669e7780959eaad0b84f39c92dda2a0f257b98"
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "341f2ab14fba734562c0ae118057737d31250e66fb3055ca4d3bfe20d58701d4"
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "2b5aa919f4a8636aa28de202e83458b29dc07b4ff22596d986f87a3883e6207d"
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "58f009278ee3a94e86c2becdb815a08702a328cadd320417ac8ca97630b3c42d"
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "4a8782f44137fbaeaa9c6591f2250e499b37700650cef1c3444b2029c619d1e6"
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "75c25384f95c90cd3285a16dcd3434a6a19241c53a66d9dc800300882390feb8"
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "ca0a28992af0659fad15ba07ece3999f8f4841cc5de7815e6a3eddff6f6d9058"
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "c0b418646a69e0fdab26d7e5f0aeeb17403d26130775cb8a3e3b852d3b62a709"
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "1e28ece52a77627accb08a9a63a7acdff535c5c42f15a540aa65dc170ceb6eda"
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "b6533862b5744bdc10b80dc157e6bdc69d19b97bc84eec8b2951ddcaa3b35c1d"
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "e7c5e646975764b29c0036f789e19d62debb896eff48e37f5b3529da5a094fe4"
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "c34c9562dbe4a34630ec1f427ee3821f3acad95c92836548e6049044ac307f80"
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "97a97dc78f1b84d4691c90692ec2aabab9dfa3d8cb70d5a619ba2ff63d918303"
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "9ca71e4da93a69b774a6baeed5f3dfb76ffaf7871db8ac6642cbf70270819c74"
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "9ca71e4da93a69b774a6baeed5f3dfb76ffaf7871db8ac6642cbf70270819c74"
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "e73ae3ef4927fc75a42c8b19011f47b2c4d9c91c9033d7d9fe4e7e01b7f83fa7"
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "e73ae3ef4927fc75a42c8b19011f47b2c4d9c91c9033d7d9fe4e7e01b7f83fa7"
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "4dc83702e722f46e82008b20d5751e0a0dcae92b8bd621bcac57f0736d7c0753"
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "4dc83702e722f46e82008b20d5751e0a0dcae92b8bd621bcac57f0736d7c0753"
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "eb754af92b894f3cbe4b796ca1a2fcea789d36cc82199aa08dd5ee84d3461493"
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "eb754af92b894f3cbe4b796ca1a2fcea789d36cc82199aa08dd5ee84d3461493"
+    },
+    {
+      "name": "helmet-stop",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "584d877e33393aac566bfa7054bfe63a65a3ed21a4cc483f0d846a6bd4897d1a"
+    },
+    {
+      "name": "helmet-stop",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "92c5dc1b19ad2ca7fa06047702820ae07f64ac41cdea393afff70930b48153d5"
+    },
+    {
+      "name": "helmet-stop",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "18301bf85399311edb67e794b029a828d17b95f9b42c5c39405910b615d23dd6"
+    },
+    {
+      "name": "helmet-stop",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "4837225b87308798ad8134e96eb761c4e23d32b8bff9a381d5dcc593abfa83f6"
+    },
+    {
+      "name": "helmet-stop",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "5071a8a795917ae51237f3638f33e0c7b26e8e54ce9642db0d26b85db242092d"
+    },
+    {
+      "name": "helmet-stop",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "f6c107eca3d7d5bfb9ccd076859975e56b03c88b469c09bdbe16b4830cb6689a"
+    },
+    {
+      "name": "helmet-stop",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "b9dce6e42bb465b7993ded5d7886c7d996d11a34e8fbdafa908c9cd6736f87d5"
+    },
+    {
+      "name": "helmet-stop",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "29db32e6fc86c352979ed6c8dde969e2eb2a604161ecba5361e8c83e520a494e"
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "584d877e33393aac566bfa7054bfe63a65a3ed21a4cc483f0d846a6bd4897d1a"
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "068c6e8f850c86ba0767f5a2d7f9f41866c56704f4a0f7d089a7be967f61f89a"
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "18301bf85399311edb67e794b029a828d17b95f9b42c5c39405910b615d23dd6"
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "0d2ede0a9b4944819499f24c348affe28cf0bf7d7f6c08ae69e0f991588234f1"
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "5071a8a795917ae51237f3638f33e0c7b26e8e54ce9642db0d26b85db242092d"
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "4a6c4b56ea0ef734eb562fb766cda79ffd36b28c2737026efcd4f67d39c7499c"
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "b9dce6e42bb465b7993ded5d7886c7d996d11a34e8fbdafa908c9cd6736f87d5"
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "55af2689e03c95a2fe8ed96a68700a113e27d0112d582dcb72a05a7ae1634d60"
+    },
+    {
+      "name": "helmet-stop",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "3841f2b442a5b74ce97a1f9ce328cb1343ba4364a33b3b92199e3418f4d1ad99"
+    },
+    {
+      "name": "helmet-stop",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "c72afccbe04dcac70cbf9a29c739ae81a521cb426ec19bf1fcaa64d4eccf283e"
+    },
+    {
+      "name": "helmet-stop",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "ec8e6d431ac2a301493f91578f949d24a6f6b989d4845531109044315c5fb4c2"
+    },
+    {
+      "name": "helmet-stop",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "56e202486d7f9d127cc4b3404c4f466d23cc7bc82169f3da55101df22e121c2e"
+    },
+    {
+      "name": "helmet-stop",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "0b87a0ae453595b8449a3d2108622d54f6f817c095db040b9be48e999cc9f7a4"
+    },
+    {
+      "name": "helmet-stop",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "ab5a9abe6d2d90aefb8493fb2ecfc8d2653b9f7215da78438fd655cf975abc74"
+    },
+    {
+      "name": "helmet-stop",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "1b1f0a1997fa808fcff8fade6e31b160e454d7b93cd0f1f2b5b7e0abb4fd1388"
+    },
+    {
+      "name": "helmet-stop",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "2abb9f9973696ffa640a131195a2da35cb9ea05df699ac1b0f51644c59dc9db6"
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "sha256": "3841f2b442a5b74ce97a1f9ce328cb1343ba4364a33b3b92199e3418f4d1ad99"
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "sha256": "6f16c8f26c0259356069a2bd59fd67a76bd81a8ba879cd422b1e2a0980237134"
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "sha256": "ec8e6d431ac2a301493f91578f949d24a6f6b989d4845531109044315c5fb4c2"
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "sha256": "94c061db858ffbd82675f1b73efa60eff9c4f2033e29f8c003328829bd02f7dc"
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "sha256": "0b87a0ae453595b8449a3d2108622d54f6f817c095db040b9be48e999cc9f7a4"
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "sha256": "934ff68b6ac3d953390a22711627ce41380c754ea6e111f6a5b0a118e0f0b1f1"
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "sha256": "1b1f0a1997fa808fcff8fade6e31b160e454d7b93cd0f1f2b5b7e0abb4fd1388"
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "sha256": "0ca462fc4a9226f8fd1ec79f626fb75c07d74f9188812c18abd88d5b6e070f21"
+    }
+  ],
+  "single": [
+    {
+      "name": "liver-central",
+      "ammoId": "545_ps_gs",
+      "sha256": "528662448bcdd0ae4986f9173d6788b48e3b3fff9f2a3ca1032b068dcf19af46"
+    },
+    {
+      "name": "liver-graze",
+      "ammoId": "545_ps_gs",
+      "sha256": "3e076a481e6056ab24b79c358aa74ea7bb30d131835b848d0fcd2e18e1772d9d"
+    },
+    {
+      "name": "spleen-central",
+      "ammoId": "545_ps_gs",
+      "sha256": "a081be3d76bd01a6d1a8c70ab5d063b5143459ae2047e46e449360666ad68685"
+    },
+    {
+      "name": "left-kidney-central",
+      "ammoId": "545_ps_gs",
+      "sha256": "7bcc2c1ba4b2da069bd86e47fcfb4bae97473ee002fdc1fe7327b106bbda4eb2"
+    },
+    {
+      "name": "right-kidney-central",
+      "ammoId": "545_ps_gs",
+      "sha256": "d1dd87dd12e80afe513afbe74449ba87e48ff07891c57596eac9127122f963ce"
+    },
+    {
+      "name": "carotid",
+      "ammoId": "545_ps_gs",
+      "sha256": "5550ee098ed420bf2b64a65785c367f4b1fe4407c2624dba87fa6ad497c88932"
+    },
+    {
+      "name": "femoral-complete",
+      "ammoId": "545_ps_gs",
+      "sha256": "9b185e89004a66b7c5e55bb80fe804998753e4a198b5be5e8e87e95db1e42209"
+    },
+    {
+      "name": "thoracic-aorta",
+      "ammoId": "545_ps_gs",
+      "sha256": "2653579babd01dfadff439930fcc059209eb1fb02f4ef847fca9e62ad550cce2"
+    },
+    {
+      "name": "heart",
+      "ammoId": "545_ps_gs",
+      "sha256": "88cec96d644351a208c61c4be51003f901285aa803c799ff139a8fd463e6f21b"
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "545_ps_gs",
+      "sha256": "58d068c9449e662af426bc8b02b9c3bc964cd62f00fe498411d872273d82f691"
+    },
+    {
+      "name": "femoral-partial",
+      "ammoId": "545_ps_gs",
+      "sha256": "b1911a2da32ed18ac98025248b2675542596d5c9823bdf7b03ce3cee80320d79"
+    },
+    {
+      "name": "inferior-vena-cava",
+      "ammoId": "545_ps_gs",
+      "sha256": "dc24d9bc909378cff6da37bb1529ed4277157e30d2699a32d9b3a5bd695f7413"
+    },
+    {
+      "name": "liver-posterior",
+      "ammoId": "545_ps_gs",
+      "sha256": "f08f369f0748f54001c9fc3064f17926ff619cc060b37657ac2dc71c762de690"
+    },
+    {
+      "name": "portal-crossing",
+      "ammoId": "545_ps_gs",
+      "sha256": "e0f9f8da101c9d5177c534e279c786c75aaa4b2d619d2bfc2f1177c3c2634d83"
+    },
+    {
+      "name": "liver-central",
+      "ammoId": "556_m855",
+      "sha256": "3e1ebb16b45f2d260f582be29087cc06142699e8ca5ac41d1e9b8482bd9f6c73"
+    },
+    {
+      "name": "liver-graze",
+      "ammoId": "556_m855",
+      "sha256": "fafd680fe672ef97aaf836b48e06a65cf6750f4b968059b99badc8162d5af509"
+    },
+    {
+      "name": "spleen-central",
+      "ammoId": "556_m855",
+      "sha256": "4f22fff1cd9e7c67dc924978062f757d01e6b47234cbf4213e42210b67a0060c"
+    },
+    {
+      "name": "left-kidney-central",
+      "ammoId": "556_m855",
+      "sha256": "5258fee25fe0e814508b5559ea6dab1982881a32109b1920413253182646ec22"
+    },
+    {
+      "name": "right-kidney-central",
+      "ammoId": "556_m855",
+      "sha256": "33076727e3c876b2c245e587b37186b330e2d9ca920ef5b7b01c858b2f529924"
+    },
+    {
+      "name": "carotid",
+      "ammoId": "556_m855",
+      "sha256": "d0111e01eac0508ab95b77e80b9d777245aae25ce017d4e50542fbd2996c566e"
+    },
+    {
+      "name": "femoral-complete",
+      "ammoId": "556_m855",
+      "sha256": "bca5ce489e8f8638039f00e2067b4a3a53acbf6c5c9cf124d993ba19ccc867df"
+    },
+    {
+      "name": "thoracic-aorta",
+      "ammoId": "556_m855",
+      "sha256": "58e1bf935c3f05bfeb22c0fc971cb79fc4179e410612009e945590dab5c758aa"
+    },
+    {
+      "name": "heart",
+      "ammoId": "556_m855",
+      "sha256": "ee43e0e81d0b84751824f0ef8917b36afeb0a0f553bb59b513e04309a45a63f9"
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "556_m855",
+      "sha256": "c83826d7fa6670846aaaefc3bea0886341444ca2bc78fbdbdaf023849c207c2f"
+    },
+    {
+      "name": "femoral-partial",
+      "ammoId": "556_m855",
+      "sha256": "4d4fa47bf4259c475da0708f76bcfa622388e693c83b456089e1dd56d9e7b054"
+    },
+    {
+      "name": "inferior-vena-cava",
+      "ammoId": "556_m855",
+      "sha256": "150c26b8050195f08bc8b0ab2a9ce5cfbbf76959085ef3d80546d5470e9648a9"
+    },
+    {
+      "name": "liver-posterior",
+      "ammoId": "556_m855",
+      "sha256": "c646d451bbfd2ae4f0971a9e3af72d0a440cb5330e0c9ebbe2ef04f427b265ef"
+    },
+    {
+      "name": "portal-crossing",
+      "ammoId": "556_m855",
+      "sha256": "ab78475ce6c32ecbcf5b54ef9c101316e88d6d66edb114738ac23cd83f99e0c1"
+    }
+  ],
+  "channels": [
+    {
+      "ammoId": "9mm_115gr",
+      "speed": 400,
+      "armSHA256": "afa5ca7a2f74236a894a11513b4d76d77c0705c8a124fca665224bc48b67fb8a",
+      "residualChestSHA256": "8678ed677afd4a9689ea6fe46f48132a8425bd8b3a0c4e4b348d382ed6a0c5c3"
+    },
+    {
+      "ammoId": "9mm_115gr",
+      "speed": 700,
+      "armSHA256": "b6503298c7a8bcca54c1914dff539d55c6ef7984d237eab9c7acbfbeb86280a4",
+      "residualChestSHA256": "8380fcd5c773f5505f6b4229a448ff52d30d3eb97ff0690e260c5134abe0ab12"
+    },
+    {
+      "ammoId": "9mm_115gr",
+      "speed": 380,
+      "armSHA256": "02ca8ba3ed22ed189687bee6bbc5df47b471bccb25801e5568e1aff6389905a7",
+      "residualChestSHA256": "286aeeab71c5ed45c90cec2c59f03685e2521862a505986178b8e758d35a519a"
+    },
+    {
+      "ammoId": "9mm_124gr",
+      "speed": 400,
+      "armSHA256": "7ed951e7646ab19ff8a5186810a533759ed5c6031ff135359b495684d9c1ed49",
+      "residualChestSHA256": "c59c3b49ca493e041201ef8721d0b2660f984b4fe55df333676337d418148ea0"
+    },
+    {
+      "ammoId": "9mm_124gr",
+      "speed": 700,
+      "armSHA256": "ce88f512b337b4cbc53ae7f4c9bda77438878d452173a49cd3f632af03fdd805",
+      "residualChestSHA256": "af4393a0972813fdac8f8af49b96bd9a7805c858158d955bef93c7b9d67377c3"
+    },
+    {
+      "ammoId": "9mm_124gr",
+      "speed": 360,
+      "armSHA256": "8e53701e295f79a7bea0d6cf7e2a8b7365d28dddeb767004aa73f2ef8b42f7b5",
+      "residualChestSHA256": "2d7ca20997989b0ffdc16ba5060674747a8dd84fdea8a687d9ea161deee11ba0"
+    },
+    {
+      "ammoId": "9mm_m882",
+      "speed": 400,
+      "armSHA256": "2f9a162a001f32e11c7afc419841f1882fc25623206414e24028d0629c993519",
+      "residualChestSHA256": "1d6aebb853f30e5b744e43a36976e6c981166df2cca731ba8a1ebcb623eb7d67"
+    },
+    {
+      "ammoId": "9mm_m882",
+      "speed": 700,
+      "armSHA256": "13bbe3f4bb850b6a702586ac53b34c8e7216ec20e9425b020734e509700abe22",
+      "residualChestSHA256": "7a924ad9c5b2eade8201522af99f6d2e7e4324c981af3f9d5254c6cbeade3e02"
+    },
+    {
+      "ammoId": "9mm_m882",
+      "speed": 400,
+      "armSHA256": "2f9a162a001f32e11c7afc419841f1882fc25623206414e24028d0629c993519",
+      "residualChestSHA256": "1d6aebb853f30e5b744e43a36976e6c981166df2cca731ba8a1ebcb623eb7d67"
+    },
+    {
+      "ammoId": "9mm_7n21",
+      "speed": 400,
+      "armSHA256": "105c2ada8cd8eb0e84cf373d1e3b87a9b44b36cee316648140cbc9f2f85dc6c2",
+      "residualChestSHA256": "e79582789a5fbce169dac5bacaa4db66c59acf9fb3f7283654122085b3f2749e"
+    },
+    {
+      "ammoId": "9mm_7n21",
+      "speed": 700,
+      "armSHA256": "2f71f16125ffaa4232c923226f6e0dd02b8092f982e5bbeabe11353a71cd8c74",
+      "residualChestSHA256": "89c05aa525b0c299e281bd3d989f0774a948921d2fca69ce690649662610ced0"
+    },
+    {
+      "ammoId": "9mm_7n21",
+      "speed": 460,
+      "armSHA256": "528635fbb00d797ec73804c8ffbdf9472144ec87b73eaa8c8a9c9eb6678b76f4",
+      "residualChestSHA256": "e2e62ca814bfdd9b41a87479ca17a40d934bafcfbfb724a76ad427a807cbc14b"
+    },
+    {
+      "ammoId": "9mm_7n31",
+      "speed": 400,
+      "armSHA256": "5ec898ed463e91597caf5fdb9a9e35fe420c530d3f4e717ad9cf48b93d0db76b",
+      "residualChestSHA256": "418dedf2f2411bec312d173e3e64f3ea0e372df71256ec86526310d8ae0d5468"
+    },
+    {
+      "ammoId": "9mm_7n31",
+      "speed": 700,
+      "armSHA256": "4d16b7a269b91ad8203094911227d205d62ac02cac67d8950ea23a88285382b3",
+      "residualChestSHA256": "fd3ead2ea5f510fc814b612c119859698f63ff8718ec2c5de207159084677a83"
+    },
+    {
+      "ammoId": "9mm_7n31",
+      "speed": 580,
+      "armSHA256": "c7d56f1b40849d4d801a3af99215e1007c8418230bf232feb98504252298e372",
+      "residualChestSHA256": "b93e1fda8178c0b96fd944596f081b73f5165f027b8db9f65b19b0a6618b570b"
+    },
+    {
+      "ammoId": "9mm_jhp",
+      "speed": 400,
+      "armSHA256": "658c7f71e5c4ed1e0d0dac513790ffe54cbf51ad8f1cbedd44dd4ddd7acdff22",
+      "residualChestSHA256": "d97338aca6eb4a89da86f0c1e3ba413bcdcefc22adc559de466ee27c371db245"
+    },
+    {
+      "ammoId": "9mm_jhp",
+      "speed": 700,
+      "armSHA256": "14d271719fe6e747da3a5bc013e9851981f8c45cdff3ef7bd04e19ab7a06829c",
+      "residualChestSHA256": "99c270f55dc60c5c339751091cbfd71f7d4315a4dc80d3ccca9e7bb2e38a6816"
+    },
+    {
+      "ammoId": "9mm_jhp",
+      "speed": 360,
+      "armSHA256": "3d5de135830c0084e9608fa1c8124055c42fa4cd5b1d3088059db4431d8b42a3",
+      "residualChestSHA256": "afaac37ae4e0187ac50dd8167fb9d5ed6363d75c83fb0ed29723a93d92eb8803"
+    },
+    {
+      "ammoId": "9mm_jhp_p",
+      "speed": 400,
+      "armSHA256": "a8100e015fd043553f0ae47a7bde143f20c47992fecb9f45b08450ea7935c709",
+      "residualChestSHA256": "953753dab1fcaecff7b7a6b6e8ba79c67a14b7151032b5aba8b184203b3a0e4d"
+    },
+    {
+      "ammoId": "9mm_jhp_p",
+      "speed": 700,
+      "armSHA256": "a2c3f2747aa6a5ccd76c32429eb24be884475932fb95ff1afab3d2e7a61d35a8",
+      "residualChestSHA256": "d50a48941246eb6f8120246e0c3d6593b6adfe8210de3588b746202357b707d4"
+    },
+    {
+      "ammoId": "9mm_jhp_p",
+      "speed": 390,
+      "armSHA256": "909f49fe924c181ac607ca4283b358f96bd3830e13cdb75a9a3a294099b6c666",
+      "residualChestSHA256": "0edea164602e2fdf9f14bac7ff65e2508c6fd56d8b83248b421c2c9d18c028a8"
+    },
+    {
+      "ammoId": "9mm_rip",
+      "speed": 400,
+      "armSHA256": "8e9bd0316f73e3515201e87c2095bba25f7abdd69f0c98c7de35113b5d8e6f7f",
+      "residualChestSHA256": "2924ab39e70df91e6187a8f83da074e6a6d6861f24de77e0ae9c6e1c980bbbb7"
+    },
+    {
+      "ammoId": "9mm_rip",
+      "speed": 700,
+      "armSHA256": "7c530acfe79df0d8c0a1f5458383b56af91f43d86cc2b518017f75fea98f1552",
+      "residualChestSHA256": "2258b3ed400c1a223573073d149f1a0af0a0ede090fd9ddba291d7babdaf6bca"
+    },
+    {
+      "ammoId": "9mm_rip",
+      "speed": 380,
+      "armSHA256": "eade85bcf33ae05c778ce1980df2ecdd74941b28e3b52dfd1ed73a8d874c5b27",
+      "residualChestSHA256": "0f7a85730e0c8426c7985c4cc84c7163284343558fe02ad199e62ed7c1a1bfa0"
+    },
+    {
+      "ammoId": "556_223_fmj",
+      "speed": 400,
+      "armSHA256": "ab8f63b212bc5486c6fa5091a4aeabc7ed81a9a9ca4ff2961d80d877bd6760e8",
+      "residualChestSHA256": "d9aecdc2e06c0f2cf17262a679f3536a90f69c5ab3aebb0c5bba9618c8a2dec2"
+    },
+    {
+      "ammoId": "556_223_fmj",
+      "speed": 700,
+      "armSHA256": "188847bcd1cc2a68e4e68cfb826bcb0122aeed632d00c7db5ac56d54d011ed26",
+      "residualChestSHA256": "5a7d365095375e5c02b3d0f0988e2bfe4566a35ee997e212f806d2c164e179d6"
+    },
+    {
+      "ammoId": "556_223_fmj",
+      "speed": 900,
+      "armSHA256": "43fc5d44027d24f7f1f9c838f17b2ae22190a717ebd2c1364ba90a16603d2c1a",
+      "residualChestSHA256": "a4375442848213b1ed4cc891fe2abab2576cbd0e96c90c86a5b694efa74b4220"
+    },
+    {
+      "ammoId": "556_m193",
+      "speed": 400,
+      "armSHA256": "f7bb51b3b1affc7f76ac024d6c3f82e1a16f19ee6cb4640d7605c35de0f16ad8",
+      "residualChestSHA256": "05825075848b3be3d038dd31d32990555ecad9b878dedb81e562ef66af6ffe96"
+    },
+    {
+      "ammoId": "556_m193",
+      "speed": 700,
+      "armSHA256": "feb9f092fc2e15d480c658912a2dfd42e44b01bea788136bf8afb176b6d8eb10",
+      "residualChestSHA256": "f5ac729e92aed66480d8fd72336eb218c3d659ba9337b6d8351d5577ec373d7e"
+    },
+    {
+      "ammoId": "556_m193",
+      "speed": 990,
+      "armSHA256": "df6e4fb931b7c8b6ab0638fb98490def8626621c6e70c42ed351b1b82ab87757",
+      "residualChestSHA256": "3deab558102b69803ff29c26167bddc403ae842d10f4366aaa735372c473a68e"
+    },
+    {
+      "ammoId": "556_m855",
+      "speed": 400,
+      "armSHA256": "76223ecf73b3dcb1f2b8864427e44287c39aaf12710e8bd4bffbe3c0887c95b1",
+      "residualChestSHA256": "a61c667eb1aea0199a80a27b1b552f069949bf4b775f975ce69b3ffda78c6640"
+    },
+    {
+      "ammoId": "556_m855",
+      "speed": 700,
+      "armSHA256": "5cc1bf3a7e686f20724ccc8f9bc3adbf3bc145e2935f3404c1516698139993c7",
+      "residualChestSHA256": "e14d7ef106b6f270c404d585f0434ca9390925e11f38b3f09812ee24522736ab"
+    },
+    {
+      "ammoId": "556_m855",
+      "speed": 925,
+      "armSHA256": "80172b134b0aeb2e412003df08133d58bf01704ac7d5a2caeb1bf5ab4bc4e066",
+      "residualChestSHA256": "4348b3d05f4e2de0e2b12e6a6efd1f12213efbfb1d52f2f7e25e6715673f40c5"
+    },
+    {
+      "ammoId": "556_m855a1",
+      "speed": 400,
+      "armSHA256": "20ec6fb398f72841fd84c0200746e1d8f1e06b785b458158829ac75e32771c22",
+      "residualChestSHA256": "2b6ae78e79a0b16f58f2471f1c966f0cb1d42fa445b6ae0d4bf396d5ddc1648c"
+    },
+    {
+      "ammoId": "556_m855a1",
+      "speed": 700,
+      "armSHA256": "060e50a6ea60c79c4e2810458d2ae23b642fae0c4379d00bfeeddfecc04de789",
+      "residualChestSHA256": "2c9de8cef18b73c0b488de9ce1a7d8a536293771c7356a4d387fe5c00cb06544"
+    },
+    {
+      "ammoId": "556_m855a1",
+      "speed": 955,
+      "armSHA256": "f6f5653fb23931b8aa5224c2ed7ccbb6cde27bc1667a970e99ac8b752d879ae5",
+      "residualChestSHA256": "681937c1bacfc1a192f5bfccec84c3056cdfde27007d03c20413e760e46c0042"
+    },
+    {
+      "ammoId": "556_mk318_sost",
+      "speed": 400,
+      "armSHA256": "7d64c67ff183cfe92407eac60750e2ee9898aab515100820ffbb83eb101184fb",
+      "residualChestSHA256": "536a3a1d7903f7499d058f0ff3265f763a85ee17dcf906560f1f6088d1a0f167"
+    },
+    {
+      "ammoId": "556_mk318_sost",
+      "speed": 700,
+      "armSHA256": "e45ad2c80c9841c64004d25eba23f33963176f2ff48d7a830d01ec886a059ad6",
+      "residualChestSHA256": "607a056a0eef34a80f709606c02c800cd9f495cce7367ad4a01666e2a6a01436"
+    },
+    {
+      "ammoId": "556_mk318_sost",
+      "speed": 935,
+      "armSHA256": "4ebfaad1293b850280646ae708e7a0b03271177bdf0d9a187e5befd2e25ce39a",
+      "residualChestSHA256": "6fdfcc64130034316f3bf0dc1a1120430be4070600726c1b7af4155ed4215fa2"
+    },
+    {
+      "ammoId": "556_mk255_rrlp",
+      "speed": 400,
+      "armSHA256": "65cb2caa8ecf04eface77e8e693e36a1a908b9937de9ed8c30b58c25301cdc1c",
+      "residualChestSHA256": "0880a8424a26b46c18882388d9d62d7da81fd40354e1add71c33616856536f96"
+    },
+    {
+      "ammoId": "556_mk255_rrlp",
+      "speed": 700,
+      "armSHA256": "1584bbe4e9592bfd024fda2d0058a7db5bd90f976b42506a7f44b0340db6f1bf",
+      "residualChestSHA256": "6b0b85fec14f5d04055c8918f04cb41a43d1c9968553a97305acc1f3b2b5f8ef"
+    },
+    {
+      "ammoId": "556_mk255_rrlp",
+      "speed": 880,
+      "armSHA256": "7dc8310cbd40226886618321e5a8e1b95a75e62910b924d57479341ae81bba56",
+      "residualChestSHA256": "30bb9608747be4a21c648c75e18d3855b6c97ee7bb6927492a1390dae6aba0f7"
+    },
+    {
+      "ammoId": "556_m995_ap",
+      "speed": 400,
+      "armSHA256": "a0aa6f2fb53fb467d8529115bd46cab5a3f74d543bf9f93b636e10b5af569445",
+      "residualChestSHA256": "2fcd082e68b8ed7f75ca82b7486d80fb86b515b729d946379e35990980b99bd0"
+    },
+    {
+      "ammoId": "556_m995_ap",
+      "speed": 700,
+      "armSHA256": "40929162c4d37159db49e2270905ef8763e488527697456f1b10f4a3c4ce3cd8",
+      "residualChestSHA256": "5d0c1a7e637681383577da6425772d6908a95c233bb2288733ae9ded58d7db9d"
+    },
+    {
+      "ammoId": "556_m995_ap",
+      "speed": 1015,
+      "armSHA256": "c6c6041954ce85e158d0af447576ccc1044230ea0d18e7e720176a608fd57082",
+      "residualChestSHA256": "029c5d50995ad574b4d7fa8be9cbbda6f28196194c76aa83bf110c27dee7310d"
+    },
+    {
+      "ammoId": "556_varmageddon",
+      "speed": 400,
+      "armSHA256": "bcbd5d744a70a94c56b93d5cefef7c3c31529e0c26d080946e874e6b63ab9f9f",
+      "residualChestSHA256": "40470a79819085f1b9b4606fd4d2b381622c1300d7ca6ad2e8b9e47c0c250be7"
+    },
+    {
+      "ammoId": "556_varmageddon",
+      "speed": 700,
+      "armSHA256": "5bddba9a113895e621d02f07a7f665639e5931298a6427d1972424e330a9ebe3",
+      "residualChestSHA256": "5939291d9a4c83eebe73836a6323b4281e1587305835089805f69d38dd4c6849"
+    },
+    {
+      "ammoId": "556_varmageddon",
+      "speed": 920,
+      "armSHA256": "ee8f925ef13ec07c62ec56cc7bd8f9c933f0c070c96d0b69d87d8068b48a6be1",
+      "residualChestSHA256": "9c851dfde1ef5b0ccd3ef10b438ddee62cb34066b2d9c051315992ddeba40ed4"
+    },
+    {
+      "ammoId": "556_hp",
+      "speed": 400,
+      "armSHA256": "3c20b6a1c70a579097906d98d4565307c5eedfa462328f5464dc75d71328b710",
+      "residualChestSHA256": "d745621ef13d3e198cad1db92b3efa54ecf8fb24672a0edc32df72a21c03dce2"
+    },
+    {
+      "ammoId": "556_hp",
+      "speed": 700,
+      "armSHA256": "d5f8807565513bde1808b9c8a05dff835c00e34309e283bd607c1ff8a74afed7",
+      "residualChestSHA256": "3b8cbb30a386dc2bd9145fd2117f4682b44857d3fb56a09c6619384ae625252e"
+    },
+    {
+      "ammoId": "556_hp",
+      "speed": 900,
+      "armSHA256": "c7e65b14609db9cbe96cce056c4e7a28d231f19da0196b8991d1ed6a2ca45854",
+      "residualChestSHA256": "43027e290878525410bad7a09c965445ca34b25ab2ab2586da0f7a00315521fe"
+    },
+    {
+      "ammoId": "556_mk262_mod1",
+      "speed": 400,
+      "armSHA256": "2992f235ea801f1740e9879dd1f43f053f3bb889633650967194ed66b9040372",
+      "residualChestSHA256": "d71d0e46d8411472d48e3dba85e8c2730154eeec5c855271638f95a9dffbc022"
+    },
+    {
+      "ammoId": "556_mk262_mod1",
+      "speed": 700,
+      "armSHA256": "b68fc1da517ae18cdcf9b3dd09916ec738e56e18ff715a5e58838f96ec0184bf",
+      "residualChestSHA256": "c792f8779a2fb39e76bfa60d92df0d46b491bbdb45700d1135b12fb6d657ea57"
+    },
+    {
+      "ammoId": "556_mk262_mod1",
+      "speed": 850,
+      "armSHA256": "7904b6616bc059bee4eb7ef5f48463ad083dfa5f094e1c7641764a288cf1b04c",
+      "residualChestSHA256": "496b13fbcd2c523d9068054f0680a05925f8650ace2bd65fb40e9a67de008e61"
+    },
+    {
+      "ammoId": "545_hp",
+      "speed": 400,
+      "armSHA256": "99aab489409c238669d51bffd4515fced507c91845613f40a890728d5f4aa423",
+      "residualChestSHA256": "804064050070d9622c0678d59a42c65f7a3f5590372cccc3a8092bf4ac5638e4"
+    },
+    {
+      "ammoId": "545_hp",
+      "speed": 700,
+      "armSHA256": "5a90adfbf9f744e7e98ddff553b1fda3d202b1ad43db1b20dfad0a77f0c02ff5",
+      "residualChestSHA256": "ffd31603341b5fb78d9c022a825dc1393a59bba56ca7d72a4ea8001d026c90aa"
+    },
+    {
+      "ammoId": "545_hp",
+      "speed": 840,
+      "armSHA256": "63f9e8d5930853925e7123ba16deea25864c03d9afb74e39c86c2b7378237cf4",
+      "residualChestSHA256": "104fe4448da025c23d171c163f0e54fe47068a63b2b37c9a44882526ac17792c"
+    },
+    {
+      "ammoId": "545_prs_gs",
+      "speed": 400,
+      "armSHA256": "49ed6a3056f02526a39e5b02aa2322d64445725f15a983839e2cdd8da4c1c4b1",
+      "residualChestSHA256": "c613613cf6d74ac6683eaa9c66214283f30497156df47a025c666300bf7992ef"
+    },
+    {
+      "ammoId": "545_prs_gs",
+      "speed": 700,
+      "armSHA256": "f7c412dab47d384379cf6f4105ca31efbe28cd89aae046bff04c1574881a18c4",
+      "residualChestSHA256": "d77c55e1d69e5c0555cd28b9cddbeb811f0543d251e7dd88ab3a29e91273962e"
+    },
+    {
+      "ammoId": "545_prs_gs",
+      "speed": 860,
+      "armSHA256": "a7e2d61a02fcc1011991d3cf84dc4eef8018978236cf9dfdb1d917d62092f4f4",
+      "residualChestSHA256": "b25d06b01a1e8a2827dc09120e0e10c9a9d38cc9b0c5d05f493f9060749f7b1e"
+    },
+    {
+      "ammoId": "545_sp",
+      "speed": 400,
+      "armSHA256": "40158e8bb38792d398e3636e3d0772651be9e6bb08953169ddb47d0a7abf0afc",
+      "residualChestSHA256": "c1ab3fcdb8af87e57619175bbc712af803ee6b7d2a8d29ce4c1ef88df85955fe"
+    },
+    {
+      "ammoId": "545_sp",
+      "speed": 700,
+      "armSHA256": "c072b5ab9a9731253bd95bc41e11a5b1091a0deaa2bf65159d77056c9e918850",
+      "residualChestSHA256": "6465e5323eed1da424a0f458af2a7115fdbbe13c7435802d911cd9b9ab4b03de"
+    },
+    {
+      "ammoId": "545_sp",
+      "speed": 870,
+      "armSHA256": "a28eba4c3f091c2136fc0bfa77aca66527fca09371ad7db183c99b8b4f41715a",
+      "residualChestSHA256": "a44ec1a1d1efed030976cd1f86bbe96ec83c2687ab9bc3090278613e0c8473a6"
+    },
+    {
+      "ammoId": "545_us_gs",
+      "speed": 400,
+      "armSHA256": "67410029e31d55030aa97f5202da85026cf4cf62eb0814d5d617cd03f24f4553",
+      "residualChestSHA256": "cd4784ed6010fc7629bb7413952d1c5ec18106d307929fb891ca24a8be83dc0b"
+    },
+    {
+      "ammoId": "545_us_gs",
+      "speed": 700,
+      "armSHA256": "101e7ea010d690e7b19f381f3be781fb108849e89605756c51bae5a5693012a4",
+      "residualChestSHA256": "ae96768cd26583c0da30601d3f1d88761bc9064b8a4346e58105887f27e24517"
+    },
+    {
+      "ammoId": "545_us_gs",
+      "speed": 305,
+      "armSHA256": "51ca4c29f59268ab86ceab6f201b641378df99deaf5550fa21eecd91a45a3ec6",
+      "residualChestSHA256": "b4853aad11e22f58bb283f345d89cb99d0be6b45e08cc7568f5c648d51185a69"
+    },
+    {
+      "ammoId": "545_fmj",
+      "speed": 400,
+      "armSHA256": "15f42cc9442f55cbda3b904c01c147f034bbaba986cecd2c277a80e02148773f",
+      "residualChestSHA256": "c4d765514496067a09d50b1174f88be190a4857e5da05ff6cf099b881cee6984"
+    },
+    {
+      "ammoId": "545_fmj",
+      "speed": 700,
+      "armSHA256": "ef4cf7089eced25eb6a58c4a88dfe26dd1c618c3842097a0abf891bf56c32e6f",
+      "residualChestSHA256": "3816f814a603ccc9916d219f40eed77d15ac40f032f40bbf49d4bfadc8aff54b"
+    },
+    {
+      "ammoId": "545_fmj",
+      "speed": 880,
+      "armSHA256": "b521ad761f6b48a8fe20cd3379c0deaa8e84924382d4be12d5e56db564fd8548",
+      "residualChestSHA256": "f8536fe2d207fd1f3a1324982ec262674592e57e6189f0b85e5804352a1170a4"
+    },
+    {
+      "ammoId": "545_ps_gs",
+      "speed": 400,
+      "armSHA256": "c6f9ad1fe473755913d949b021702470fc6302e65824ddf92c7372c493383336",
+      "residualChestSHA256": "90161a82a9420cfd44ce864069ed9c072e9c355bfdbf07fa50d82674bef26841"
+    },
+    {
+      "ammoId": "545_ps_gs",
+      "speed": 700,
+      "armSHA256": "85484c276168816cb51f84595115b8b90f150abce1b5eaa8df063bc1180d295e",
+      "residualChestSHA256": "7471d48b6dcb506ea7253eb4885a3c595184edaf181e69fdcffdc4110f24fb86"
+    },
+    {
+      "ammoId": "545_ps_gs",
+      "speed": 890,
+      "armSHA256": "553745bbdc62ea982de7e8ef76adc4cbc2b2db6222ef79d4ad379ba4972476d7",
+      "residualChestSHA256": "05a8cdf24ad74956586428b4088400075cc763b273e8458f2201b38c3d5ab05a"
+    },
+    {
+      "ammoId": "545_pp_gs",
+      "speed": 400,
+      "armSHA256": "42a7facce0388b576e5db0fe97186b93fc6efa6b396f4726970fdc23770a5eca",
+      "residualChestSHA256": "720cec062c07468987062e0ec5e5ecaee3ffc3142636155e909033aa6f94327f"
+    },
+    {
+      "ammoId": "545_pp_gs",
+      "speed": 700,
+      "armSHA256": "51eae671a06541d14fe5c9c29ac9299bdc1cb02a41b559a56b44c86816c2922a",
+      "residualChestSHA256": "4f19e14f5dea9a1f73d4bdf896384c8dbe6750b9c018f72fa5614600cfd9b5a5"
+    },
+    {
+      "ammoId": "545_pp_gs",
+      "speed": 890,
+      "armSHA256": "39adc7e0e0a8e0e14a1273b58beb490dae4ef60f6984da3cf29a2dd8cd7648df",
+      "residualChestSHA256": "886485186f31fa602e7d83fb19aba484ce620b42ca637f3a797576815841ad79"
+    },
+    {
+      "ammoId": "545_bp_gs",
+      "speed": 400,
+      "armSHA256": "e3c055233a9b6fbfad36ad753e4982818327f5bf7469da08552f31a736e51a19",
+      "residualChestSHA256": "111212692368c224b4628bcf1ed96eba16164a97386f73d4a2d20bcd395b3450"
+    },
+    {
+      "ammoId": "545_bp_gs",
+      "speed": 700,
+      "armSHA256": "c8df41689f700d6108d191365194987596d382840dbaef8dfcf34d379642924a",
+      "residualChestSHA256": "4d2e40d0be0f68264867ff2c16db1630db07387e23fb14fb31f2132f39cacbb7"
+    },
+    {
+      "ammoId": "545_bp_gs",
+      "speed": 890,
+      "armSHA256": "7d3312ee71156772fa7fb307d5cdfbf6d397c4380ee48b52d1d98284ffa24634",
+      "residualChestSHA256": "d0401b17a82d8dc489bd5d49c7cb5e70dfcd09a7729793e71b78f1c89e5be598"
+    },
+    {
+      "ammoId": "545_bs_gs",
+      "speed": 400,
+      "armSHA256": "8aacad4bee35f78f9235649024802721def67d4ddb687df31d0b24ea24c97443",
+      "residualChestSHA256": "c4780445b84cd6dac1f70af2ed77030071fa890e89541d940a93d505c2e52f79"
+    },
+    {
+      "ammoId": "545_bs_gs",
+      "speed": 700,
+      "armSHA256": "a8e1bbe170f58c072bab0ee6cae74a48d8d0cc8adf20deb95b20619c9ee787ae",
+      "residualChestSHA256": "a7a0b889ff5d79a46f88f318310db878ee5616b70e2b221361c7b112d54cfca5"
+    },
+    {
+      "ammoId": "545_bs_gs",
+      "speed": 880,
+      "armSHA256": "58010a079b9d48b3a3426b4de2637ccee9e47b50152a8025e353bbd77ea85d4a",
+      "residualChestSHA256": "0c123f069f26b1eb92b0b930a447aca91d0b7bb0c6889d88cc87efe203dd666b"
+    },
+    {
+      "ammoId": "545_7n40",
+      "speed": 400,
+      "armSHA256": "28eb984a4f80a2b4271fb582b9a41b7144101170d892739e07d1a961ec01bca2",
+      "residualChestSHA256": "6a094b561b0051b946866b9f0955794a61f5788090ede31d3e345bcc109bebee"
+    },
+    {
+      "ammoId": "545_7n40",
+      "speed": 700,
+      "armSHA256": "18522862693c646fc40b4136a14616792579805e97667c4e9ed47c1f6edd4cd8",
+      "residualChestSHA256": "c4fdfc6452cfe85c99c4c560242402c2efc28c51cf401c7a348092bfada8ad39"
+    },
+    {
+      "ammoId": "545_7n40",
+      "speed": 900,
+      "armSHA256": "8f31757bceb100cb102433a57db760461372cf7815338583ae7d2b10a1941aaf",
+      "residualChestSHA256": "c54715922e609ac3b05159a771c535dab224401be56728eb07cec312f8a2fcfa"
+    },
+    {
+      "ammoId": "545_ppbs_gs",
+      "speed": 400,
+      "armSHA256": "c8c1e6485ed21ac89da3a239466216c1396382987d77bbc760d9bf6767c90aa7",
+      "residualChestSHA256": "9aaa0d0b661385dacc1ad2abc6575abb2a4991b72a5c85bb7a15e12f53dd3acd"
+    },
+    {
+      "ammoId": "545_ppbs_gs",
+      "speed": 700,
+      "armSHA256": "427b6ec7a34a2ff3b8ed90655d407d140ac60d9b582a90f977e6be1506c169da",
+      "residualChestSHA256": "d60dfe2e534dece0507a668c3964e5ce658c07704a58c487dbb5531b1eadfee8"
+    },
+    {
+      "ammoId": "545_ppbs_gs",
+      "speed": 910,
+      "armSHA256": "7812655e0c6240b8cffb9cd88c8febf0894b1c49b61338b3b7a5f5151e45558a",
+      "residualChestSHA256": "892211b8b3dbe0d5217be843df534403c6fff6c003121ee7c936457bca5c607a"
+    },
+    {
+      "ammoId": "762x39_hp",
+      "speed": 400,
+      "armSHA256": "f9f1618163a9575dbda59c13547aacbc90ceb9a062cf9092269cd589aa78e553",
+      "residualChestSHA256": "b62ddfb5456255386f6ad35165fdfa8b86b119a76cb84568a2b2266c04ae7d84"
+    },
+    {
+      "ammoId": "762x39_hp",
+      "speed": 700,
+      "armSHA256": "d9b9c9285a9619605d1253a1af8ffca351517cdaf946f855308f1c67d808466c",
+      "residualChestSHA256": "0bfb031a6a83954283412c6136d8aea2c71fb655f10269c5f98cea4adc9187ce"
+    },
+    {
+      "ammoId": "762x39_hp",
+      "speed": 715,
+      "armSHA256": "6f76d42d907313abb3a5842731e1128c005db9571a6cd1ceb5b6753860debecb",
+      "residualChestSHA256": "7c0b16ede97c0cab958ee3c3236a0ef5001c2aed8eeb39f47f85c2a12a846e87"
+    },
+    {
+      "ammoId": "762x39_sp",
+      "speed": 400,
+      "armSHA256": "ec167875cbf2db212ac4635abe6b16e1be851a1b9a7779e53f01bb578df6f75c",
+      "residualChestSHA256": "b6015cab09a4e93c7ccf93a2dc031b3370ebdf8ecdcfab40d963825593a52cf7"
+    },
+    {
+      "ammoId": "762x39_sp",
+      "speed": 700,
+      "armSHA256": "1bfafedd1f439ba105f2e65951f5c3075c271b6346c1fed29e7a45421f109a04",
+      "residualChestSHA256": "a926827ea65895eaabd866f3827d87a53f0f06fb2236e617f3df37b220f6dd00"
+    },
+    {
+      "ammoId": "762x39_sp",
+      "speed": 720,
+      "armSHA256": "f9ad7c5d2e0d929e57c6fb37213eecc97565e8b6c7124653cf9954746828521a",
+      "residualChestSHA256": "6153950348017b986f2a8879d7012b98b219e0bf709c548bb5ce773e91f4ea4c"
+    },
+    {
+      "ammoId": "762x39_us",
+      "speed": 400,
+      "armSHA256": "0b68c00cd1d6e403eeb05e0fab9f69783b08f7e599a9363eb25bae54b1c9f9b6",
+      "residualChestSHA256": "a054490c939895280e3423dcc51d2ac80fbd6c80945c662a52ab6a63960423ad"
+    },
+    {
+      "ammoId": "762x39_us",
+      "speed": 700,
+      "armSHA256": "0627a89f05b785bbe3ad2dbe4d4606195d14c9a2b65173ac2fddca239100f02a",
+      "residualChestSHA256": "fb5623cfd4f8be090b854c748dac7fe9c2c07ff3f60a1b927c19ed002d7af021"
+    },
+    {
+      "ammoId": "762x39_us",
+      "speed": 305,
+      "armSHA256": "36eeaf0f56cb03181121aa15555d194f224de7977edbf5e0f9ff28096ac25bed",
+      "residualChestSHA256": "dcced6cd687e3613b25f1ecb3e2a57e11019a51a12a0d32b6b0e6d6a986c6126"
+    },
+    {
+      "ammoId": "762x39_ps",
+      "speed": 400,
+      "armSHA256": "3066c80b4298c8b6b4b15c270aa3d2e6a0ba4cf93719b9e5c2939ca4966a5365",
+      "residualChestSHA256": "78588d819d11237ca6daad3f99953806dfade3d0219c752f67eefc1d26cbfdf9"
+    },
+    {
+      "ammoId": "762x39_ps",
+      "speed": 700,
+      "armSHA256": "c29ed3c7bf27c6bb9c7195357554430bc1762a31342c44a2148844d8e5acff9d",
+      "residualChestSHA256": "bcbdbc123f2c706fbb9906c448e60325835588882fc5b8aff0405e0170d43a85"
+    },
+    {
+      "ammoId": "762x39_ps",
+      "speed": 718,
+      "armSHA256": "877eb49439f1e86f674dad17c456f8594372637388b89c6c812aafc2170f0937",
+      "residualChestSHA256": "da2b45507e8b5d972c05cad794e156839a4580b8461ac22175e7948d9a4412e2"
+    },
+    {
+      "ammoId": "762x39_pp",
+      "speed": 400,
+      "armSHA256": "a736d6fc17f04f703fbf718fb8589a8d5d7c7d48680aaff7158b0bc37290c299",
+      "residualChestSHA256": "63cf6703102d6325b2243f81f4f84f197b70ab36e35d6b0e99afa73b7bd0cdab"
+    },
+    {
+      "ammoId": "762x39_pp",
+      "speed": 700,
+      "armSHA256": "1a1f519fcae787441c16c06f97900c0bd8d2fdebf7f098466f0d0ca31980de67",
+      "residualChestSHA256": "a7e9909b21896df5aab159fd9ea8b0cf09075da2f0cff5450f1a7d3708a2f009"
+    },
+    {
+      "ammoId": "762x39_pp",
+      "speed": 730,
+      "armSHA256": "97fb261b550ee2a3238ba3669e253a69b536bbd6f8b6f5e262e241fdf916ff82",
+      "residualChestSHA256": "a7fdce1d5458967d216c3e359dc1471f22666363420025d2320fe6192c7457b9"
+    },
+    {
+      "ammoId": "762x39_bp",
+      "speed": 400,
+      "armSHA256": "84a959894487734bf96d50d8b4e782cc725543b7e42f71d4f50b846fe988e94f",
+      "residualChestSHA256": "420effbda9dc7a07d59ef5e856c0db7046bb3ea787a65de3003a432bef8d7833"
+    },
+    {
+      "ammoId": "762x39_bp",
+      "speed": 700,
+      "armSHA256": "39641df09b6586e328b2df4a2ddc2de26d86c73429337d6cc388ead7a06e451d",
+      "residualChestSHA256": "611b6cc5c10a5c6c3854feedeaff206041db421a64f2b02e449c44bf90ba8ca8"
+    },
+    {
+      "ammoId": "762x39_bp",
+      "speed": 745,
+      "armSHA256": "1746981930df5b0a47bfea97ac13efba3c35e2644f016e02b9d4bd54410f68d5",
+      "residualChestSHA256": "c742d660f84e319d1b6dfb8605941e9a8796288ae0cc184c146be4aa7b1effe7"
+    },
+    {
+      "ammoId": "762_308_fmj",
+      "speed": 400,
+      "armSHA256": "006896c57184933c924714d6cbeb212e1f1acc4db16738fdb1c4f9975a5e978d",
+      "residualChestSHA256": "f67741b95b2a956eaeefb54d27c4565ffc85bf46482b4c53166845dd0c9bcb93"
+    },
+    {
+      "ammoId": "762_308_fmj",
+      "speed": 700,
+      "armSHA256": "b4f9bb92bc26b1f89d4540be1080069d1c3adbc71bb02d2aa207ea8af78b3115",
+      "residualChestSHA256": "28c0ffb419e411c5091a3880966e81c2f5ca87e7ab32fa5ab4894cdc0baba8a3"
+    },
+    {
+      "ammoId": "762_308_fmj",
+      "speed": 850,
+      "armSHA256": "8cfdc3932d1384f7ca76b94676279c1542b5d6444cc3a59cb5aa11220cd3f6cd",
+      "residualChestSHA256": "ab129208844f07ded738abab3756b3016c421e3f389028ee80d6939104bfe453"
+    },
+    {
+      "ammoId": "762_m80",
+      "speed": 400,
+      "armSHA256": "12d24118d6cc753f10e719fb3f5206057d447f0af8fc81e26cd7051064fc47fd",
+      "residualChestSHA256": "567cf3645cea72f4fcc98ccefafb64563640fa1af7a788700d8378756f1e44e3"
+    },
+    {
+      "ammoId": "762_m80",
+      "speed": 700,
+      "armSHA256": "afdd182e7afc0936e3468fdb94fe4dbb7af0581a66e6f8e561faba3cdde7886c",
+      "residualChestSHA256": "a3f9776e6e76c9937bc30e00ada3f3c6a21ca9898ee623c5dd3c9d5d309aa733"
+    },
+    {
+      "ammoId": "762_m80",
+      "speed": 833,
+      "armSHA256": "f47660fd5ba0da953dfcd3138dcde845e6830362a3f0eb5077d1f3016742bcf6",
+      "residualChestSHA256": "b3842de6f8cfcf620cff8ceed32b4cd79ea70c434a9f453a2ef9caec7f09befb"
+    },
+    {
+      "ammoId": "762_m80a1",
+      "speed": 400,
+      "armSHA256": "83ba7bc023d5ddd4b6b5600421cce2da08b2abf21334bd4fe22bbb501022b3c0",
+      "residualChestSHA256": "1e1867ca18c82eecb013476d740bc0dcc13ecf0678efa827c701f50e397dc365"
+    },
+    {
+      "ammoId": "762_m80a1",
+      "speed": 700,
+      "armSHA256": "389b662099d2642c2e8e7131458662f5aa15508d869cfd7a6fc5be02d7448c30",
+      "residualChestSHA256": "e29bebf828935ba3958648b43c6a8eda2f6a666b9a1ad635c86ca4cbcc16a114"
+    },
+    {
+      "ammoId": "762_m80a1",
+      "speed": 850,
+      "armSHA256": "38cc8ddaa7eaa19f6a8a241c9b1aef882f48289121f4e1ba06e69902f599d1e4",
+      "residualChestSHA256": "6e334ccf46e45e85dd135fbcab5a48352ba2069cd1bfe487c8a94c209da7ded0"
+    },
+    {
+      "ammoId": "762_m61_ap",
+      "speed": 400,
+      "armSHA256": "8f7fa75503efc0c3d2cb0843855c1cbd55647907b3a23e4a77f5d1fd1791d053",
+      "residualChestSHA256": "4c9043ee91bb47957421f03d9b387fc6c6671251b5cefcb89cd68765cd01b9f2"
+    },
+    {
+      "ammoId": "762_m61_ap",
+      "speed": 700,
+      "armSHA256": "cd0b685b56a34e2c25a19f7fa5126f2e52f2d2e75a9307dbf0be66f43c5556f9",
+      "residualChestSHA256": "35861dfdeeb1a91a941fdba6841582e9ef1b61ed9314c3f68fa979076a754048"
+    },
+    {
+      "ammoId": "762_m61_ap",
+      "speed": 855,
+      "armSHA256": "056b969a9faefbb9fadff86cae74495670f32368c99b79142d33e8054300ce99",
+      "residualChestSHA256": "e737103d20f6e3b74d65a0959ad5995c5e71e027f1630a3e3f8bf870edf26257"
+    },
+    {
+      "ammoId": "762_m993_ap",
+      "speed": 400,
+      "armSHA256": "f8d529b751079071cedb967b6a361033d4522b848d3d17ee337606290dd8e6b1",
+      "residualChestSHA256": "92430269403fe9a8e0a20e2b9fd51bc542ef9db02bcee20788b11108f22e8cbb"
+    },
+    {
+      "ammoId": "762_m993_ap",
+      "speed": 700,
+      "armSHA256": "c5f6a1dccf559827edc37833801a7eefcc8942bf57d33c5090d1dde5c1d33c14",
+      "residualChestSHA256": "c69bb588e1974d6ebf15f2163cd33986610e0b185dd793b8d6c1cc666dd3b54f"
+    },
+    {
+      "ammoId": "762_m993_ap",
+      "speed": 910,
+      "armSHA256": "7949ecb8bcafa55a5d5a9a462e4c40360e0ab4eeda7b106b550f61e4f7016fb5",
+      "residualChestSHA256": "fa7af4bfff41eeae9844f03897cc54d6b2f229e858cc78312be84fa8e39145e0"
+    },
+    {
+      "ammoId": "12g_00buck",
+      "speed": 400,
+      "armSHA256": "d6b1faaacd40427f81406b74238e62476918c0cd8e81cc992fbcb1d18922c68c",
+      "residualChestSHA256": "8c491adcb8c5bf7404b22c74176584175e732ac82ff9ccbf7fa62d36d564d1c3"
+    },
+    {
+      "ammoId": "12g_00buck",
+      "speed": 700,
+      "armSHA256": "3eb3b00621c24c7b3a4e3792c1df3b31f9ce6deda3565a24ab333f1529a5f749",
+      "residualChestSHA256": "41fb019b3d3c5eddebaa4943da45ff1c9a364840bda8c373c1d14e146592708f"
+    },
+    {
+      "ammoId": "12g_00buck",
+      "speed": 400,
+      "armSHA256": "d6b1faaacd40427f81406b74238e62476918c0cd8e81cc992fbcb1d18922c68c",
+      "residualChestSHA256": "8c491adcb8c5bf7404b22c74176584175e732ac82ff9ccbf7fa62d36d564d1c3"
+    },
+    {
+      "ammoId": "12g_slug",
+      "speed": 400,
+      "armSHA256": "c9fd5c7baa9aa455d0a3f950f71f1167cb2c934eeb9cc1d5e7b3a0a3567e605e",
+      "residualChestSHA256": "295bafb7639d38254340f5281f4b19cb0bb3dedf930bd4bae5a88fa1b9e969fd"
+    },
+    {
+      "ammoId": "12g_slug",
+      "speed": 700,
+      "armSHA256": "bb5044ed89ec09fa2fddc7d2e93d5a5cb10b1ec80aa79c3948cbb6696bf0438f",
+      "residualChestSHA256": "856ddfba6aeb93dcc079554ad8fa82da1351bbc368a07ef83e2eeac94ee9b6dc"
+    },
+    {
+      "ammoId": "12g_slug",
+      "speed": 450,
+      "armSHA256": "1be41b4ba55f3b4d176ef3812ddec97e7a1c76ad8de0256f6afebc714aba789a",
+      "residualChestSHA256": "aa3fd0069b9f613020a763d870caa25d46f97039c7adbcfad5b29c0ec4fe7743"
+    },
+    {
+      "ammoId": "12g_flechette",
+      "speed": 400,
+      "armSHA256": "63f3cdce5d07a10b78b3d28d685614d777cc7dc85555ed9dfb8723ea2eac6cff",
+      "residualChestSHA256": "fcbaf7523bac715e4208bd6ccc9561b371dcdb82328df505e9ce3cf879f0a1d9"
+    },
+    {
+      "ammoId": "12g_flechette",
+      "speed": 700,
+      "armSHA256": "77fe6b8e130a10b1cad0b36de37ca053bed588c42b98bb88526623bdb6cbd774",
+      "residualChestSHA256": "ffb035ac0fb0b3a82abe7d047ec50d714436a5a98cc6fe59cb9ae8f3203ca404"
+    },
+    {
+      "ammoId": "12g_flechette",
+      "speed": 475,
+      "armSHA256": "7df17d842a8ed480d254c2106a9327dd68aed5c73c42350ce280234ee20f3767",
+      "residualChestSHA256": "a1682a63765ec02bd57ca856ec378340451be0b525944a18f3c41281cc2e32a0"
+    },
+    {
+      "ammoId": "4.6_dm11_ap_sx",
+      "speed": 400,
+      "armSHA256": "caa0245f2e0ef63b3b7c7cf507856aca267254c94ef588bd0fe01a457893ef78",
+      "residualChestSHA256": "e1523e310cbc54e4f8cc25976e4a84e0aa5f5b9f3f65a139bec027aa022fa480"
+    },
+    {
+      "ammoId": "4.6_dm11_ap_sx",
+      "speed": 700,
+      "armSHA256": "70e8008f18924d98317ba9beb1660a535e695c206770ec56463107e954c69aa4",
+      "residualChestSHA256": "092e7c3ef8938fbe0cca8072f65703680dbc721f9ebdaf45c342535b490a1328"
+    },
+    {
+      "ammoId": "4.6_dm11_ap_sx",
+      "speed": 720,
+      "armSHA256": "b88240d590f8ccd5be1504f177228a1aa1b3de73fe6f4618999978f01f225c5f",
+      "residualChestSHA256": "eeaf1141797538c1c23b367e306e882d329642e79c1d92eda59a535c32157f39"
+    },
+    {
+      "ammoId": "4.6_action_sx",
+      "speed": 400,
+      "armSHA256": "a03c6170d4e7a809e109a074c1b0c6ea34a288980c9850b203aa0b864087952a",
+      "residualChestSHA256": "32438064e556a6657f69e98084f09df23ae987765414db7f415543c564fed33f"
+    },
+    {
+      "ammoId": "4.6_action_sx",
+      "speed": 700,
+      "armSHA256": "5e30eb1ec510db5a7c2378ee4a9c2d26e6511b41f83f2a0d6b94dd4a0f9bc3ce",
+      "residualChestSHA256": "f8a9b25d85c8cf550e513b3cb8bc743fd3d1487e9dc86702c7f1c98294084cbe"
+    },
+    {
+      "ammoId": "4.6_action_sx",
+      "speed": 700,
+      "armSHA256": "5e30eb1ec510db5a7c2378ee4a9c2d26e6511b41f83f2a0d6b94dd4a0f9bc3ce",
+      "residualChestSHA256": "f8a9b25d85c8cf550e513b3cb8bc743fd3d1487e9dc86702c7f1c98294084cbe"
+    },
+    {
+      "ammoId": "4.6_fmj_sx",
+      "speed": 400,
+      "armSHA256": "b6f95c04a93eb08e36a39e39d98d6be5650ff613c998ce41de2c5dc1b294be11",
+      "residualChestSHA256": "3ebc88b753a3b16003ef6c1fdfa167145588ddac59d657759102fd6daf1db831"
+    },
+    {
+      "ammoId": "4.6_fmj_sx",
+      "speed": 700,
+      "armSHA256": "7d8264e5064ecf1b121458e54b719eb927e746a91cc5cd43f50c7c29840ad782",
+      "residualChestSHA256": "6683f771b06fb7472b1ccd61ec4afdb15b12b80a2195b7475bf6d5ed59a88b54"
+    },
+    {
+      "ammoId": "4.6_fmj_sx",
+      "speed": 600,
+      "armSHA256": "3f62ec7fe58636797eff205f3448835a9aba3614385b09e429b9e4788d8e9279",
+      "residualChestSHA256": "a8af7625bce228ecfb9d049422d40f1ce153ef6da42a37800f4ecadcab6f287e"
+    },
+    {
+      "ammoId": "4.6_jsp_sx",
+      "speed": 400,
+      "armSHA256": "d6e3f7ffd2def17bb0c569d80b08f48922b9a6cd6da1cdc08c37de760749402f",
+      "residualChestSHA256": "69c29e5a0028bff568dd1c1b1e9c79d4cf3ba37bdb2f88e4dfd17e7227dc805e"
+    },
+    {
+      "ammoId": "4.6_jsp_sx",
+      "speed": 700,
+      "armSHA256": "9cf034084613ea25cca4bcfa172e4c6e986b623f37292019185bf5b6da33c3ff",
+      "residualChestSHA256": "ed758fa86ef03b0095159f8ee0609903b1db19cf4a538536b05814f06d8846f1"
+    },
+    {
+      "ammoId": "4.6_jsp_sx",
+      "speed": 690,
+      "armSHA256": "04de404af3e406d3ccbc35ae2ca273335d45cfdaaee67b21f40db731728f18ba",
+      "residualChestSHA256": "3270cae4cbb78702aa71c1fc9e5724bace0c1d3451429af5c3ed515b5379801d"
+    },
+    {
+      "ammoId": "4.6_subsonic_sx",
+      "speed": 400,
+      "armSHA256": "36ec1aecd1a2fd0e5ee721ad16d0ea6f8451faa8c369b8af8773b5484f5edfbc",
+      "residualChestSHA256": "c800dc21d64037425b8f8b5682d69921bf2f1351d63292f0cc7cc0fa05f66057"
+    },
+    {
+      "ammoId": "4.6_subsonic_sx",
+      "speed": 700,
+      "armSHA256": "3b5e79b13a85aa31262644249150b7302a86396f56a8497c4cf248f3736df62d",
+      "residualChestSHA256": "4701485d03bcb5aef64b1953d57915e268ecceda516f24e93c4f64bdacbc2291"
+    },
+    {
+      "ammoId": "4.6_subsonic_sx",
+      "speed": 305,
+      "armSHA256": "0f5144df42012b990b20c034953dfcde466c3092b888467382383badbc580254",
+      "residualChestSHA256": "46ebbfaddb3413c3b1444136e57ff82e34677fdd3ca7d4c54df4a7a132ea4e60"
+    },
+    {
+      "ammoId": "5.7_ss190",
+      "speed": 400,
+      "armSHA256": "15658e285e50b013adeca83a2f1c81e833227ed66cb311bb3607dc03cd41b562",
+      "residualChestSHA256": "615a400eaed5353ad4204375f0d28824e9192bafe886b991e68a0f1bc3b76451"
+    },
+    {
+      "ammoId": "5.7_ss190",
+      "speed": 700,
+      "armSHA256": "64e4c3e6026cac4bdd8769efa32b3a91c887d6358459f9c4a5a02d3de106a56a",
+      "residualChestSHA256": "ca26f7943f00c329f7f31c454ef7fcd07ab2a76894bdce747803c72eaeeb8dcc"
+    },
+    {
+      "ammoId": "5.7_ss190",
+      "speed": 716,
+      "armSHA256": "cbb0c47eaa4da36f1dad075ac85457a25c7a0ad634d017d55dbefb7ce3bdbe41",
+      "residualChestSHA256": "f9c1d8aff5a872a9449c3f780a5754cba8a4390d7382772079f1f743aab2aff0"
+    },
+    {
+      "ammoId": "5.7_l191_tracer",
+      "speed": 400,
+      "armSHA256": "167d8daa9022d6fe9442c645757f2e5ecadaa108a72dcc8966e9e6b7da3897b0",
+      "residualChestSHA256": "3285cb3377ce6e10821a2f77718f833e782e397d07542e45829a2936d1be43a3"
+    },
+    {
+      "ammoId": "5.7_l191_tracer",
+      "speed": 700,
+      "armSHA256": "9547150e0a7a8b41edef248767ad730960164d75f187adcd91543fefaf21a0c7",
+      "residualChestSHA256": "bf0ced512df8bc7ffa240a59c77011a17a2c9c3051b60c0911bed3727486cc17"
+    },
+    {
+      "ammoId": "5.7_l191_tracer",
+      "speed": 716,
+      "armSHA256": "5c5e25577112cb3b072d93d8f1e4498fdad448172b6ceb785d316db25b24ce21",
+      "residualChestSHA256": "0c79f4146256d5cb526f2b8118767b293f73043b89d88d4eebc5aea0aead1575"
+    },
+    {
+      "ammoId": "5.7_ss192_jhp",
+      "speed": 400,
+      "armSHA256": "12bf5c3d3aec1f1ced4a9bc3f5bdee9f4723c1126bbc26359a2810b6b362db1b",
+      "residualChestSHA256": "bcf6a91acebc69ed76eb6a94e48c58a074de4fbc010c9f70d9cc7fbdb2d8a12e"
+    },
+    {
+      "ammoId": "5.7_ss192_jhp",
+      "speed": 700,
+      "armSHA256": "b992ececce2c28090f026b13975a48cbce619f39878e6676fc1a8205129c3e15",
+      "residualChestSHA256": "cf08d9752b3e511ce750ecac35dd7ab7b27da7101d777697733f3b9b947e7174"
+    },
+    {
+      "ammoId": "5.7_ss192_jhp",
+      "speed": 715,
+      "armSHA256": "c60ff59cf67902aefc0215e6f937a27538d17b16a0f1ea8f919e10ef5b8d3ab6",
+      "residualChestSHA256": "a3ed6a9694d7e2b03768ccb7602aa58ef51c6e0bc3285f4a7d3690110f4cc725"
+    },
+    {
+      "ammoId": "5.7_sb193_subsonic",
+      "speed": 400,
+      "armSHA256": "1f4fcc257d137d78b7c5f90c66df77caa975e7559374298b0adb9886c62b5791",
+      "residualChestSHA256": "72ae680878a6f4a346218bd766f80d07688d27d2350daf0618d2b08ab180e2dc"
+    },
+    {
+      "ammoId": "5.7_sb193_subsonic",
+      "speed": 700,
+      "armSHA256": "c95a306c300eb51d6e8ac3525ed6a29186719adee027cfe61300cd070460aca7",
+      "residualChestSHA256": "d8e5290cd82bafce31e9e344ff910f2c27d2e4af0db9a9a3858a3073850525de"
+    },
+    {
+      "ammoId": "5.7_sb193_subsonic",
+      "speed": 320,
+      "armSHA256": "02df0c02e1bb04150b42b8aba456a29e4fbba74b90646c74c2941cbf86b58dea",
+      "residualChestSHA256": "6d4c7a7e795d46945c82def36e2fc0e484ebe6410a1ac6aace8ee2c324b80730"
+    },
+    {
+      "ammoId": "5.7_r37f",
+      "speed": 400,
+      "armSHA256": "1c37faccbe69bdf00e3108a308131521eb616b3acf572296eb1aa0157dbb147a",
+      "residualChestSHA256": "d7eeb36961ca75902f4ed0fa8d988c8840c3362b5b5dd4a21c6408c519200c16"
+    },
+    {
+      "ammoId": "5.7_r37f",
+      "speed": 700,
+      "armSHA256": "12da73853aae74d172db1d01a18690552816bc0fa201473647c1eb7ed1d895ac",
+      "residualChestSHA256": "2b552738ccd9c8824af82e203e1c846ae58f7410a685d119c7b56913f565a762"
+    },
+    {
+      "ammoId": "5.7_r37f",
+      "speed": 650,
+      "armSHA256": "c71c9c667412806bc414eb6716043f04b896ac8e4286a032e6709c05df83f404",
+      "residualChestSHA256": "b125277b8824d4c8936f584688d227441c2dc8e078598edbdc98d61171d4fecf"
+    },
+    {
+      "ammoId": "9mm_luger_tracer",
+      "speed": 400,
+      "armSHA256": "c5a25ad3ebf77c4ffe4f3a48bafffe55897f2dced4a1284c8e16b803eef607ac",
+      "residualChestSHA256": "8393408df403b866a16659a5ee3468d75db0a3b442b92ca2cc1b54b16e7cfe09"
+    },
+    {
+      "ammoId": "9mm_luger_tracer",
+      "speed": 700,
+      "armSHA256": "20a1dd10370d1b0a71cff5d45f187b00e1f50c8fde01719f903e5657a1ac3b7a",
+      "residualChestSHA256": "11d57b283fdd3d41ce82e6e5fb0e15f2a2ef3c30522401d2f24a4977bf1a42e2"
+    },
+    {
+      "ammoId": "9mm_luger_tracer",
+      "speed": 330,
+      "armSHA256": "2e05b7327a8caa41904fe0317e219db8fffd0ca56754f0fd675672584f2a4194",
+      "residualChestSHA256": "34c7a16f8e8be902bded638720885e2e2708e68acea3226f62e1de31c354c07d"
+    },
+    {
+      "ammoId": "9x21_sp10_7n29",
+      "speed": 400,
+      "armSHA256": "b124862e435e03b8b08f7c7faa4f2faed8987f10646b9ed9dcb0497d5d0340f2",
+      "residualChestSHA256": "2747978d1283101aecf771c90fcce09cac32bc94211c5bd6463d2222b98dd40c"
+    },
+    {
+      "ammoId": "9x21_sp10_7n29",
+      "speed": 700,
+      "armSHA256": "c3834d5019586676b3dd317d4e0e6958284efa1052a5dd9dae175069e3601ed2",
+      "residualChestSHA256": "375323e8adf24934b3a88033a3ed1643c7a62faecb1c32aeb5dbc384ea2dd162"
+    },
+    {
+      "ammoId": "9x21_sp10_7n29",
+      "speed": 410,
+      "armSHA256": "6ead46a2f356df5066233d2ee7da3ac0d9b88cfa4cba5d7b3d6aebff2eff7526",
+      "residualChestSHA256": "832858b6b024276a9c985cd87a39b846222867d6234574ab158912d927f65b7d"
+    },
+    {
+      "ammoId": "9x21_sp11_7n28",
+      "speed": 400,
+      "armSHA256": "cd55605aef64ba596e253d81eb2efa0e89b0819eaaf89caddd2eed96762f0eb2",
+      "residualChestSHA256": "3ed971a25f26eabd00c0a88890fd50a2df9cf1e8558d25370e4674039c9d3a37"
+    },
+    {
+      "ammoId": "9x21_sp11_7n28",
+      "speed": 700,
+      "armSHA256": "7d0c4c9ab0cd668ef72a94a0116889efbcc9cf3a70885e441685edb9ae710951",
+      "residualChestSHA256": "94fd937729a35d5a4a36a46286d13c20caddfa41b51e86c377f0bfa8e2852f93"
+    },
+    {
+      "ammoId": "9x21_sp11_7n28",
+      "speed": 390,
+      "armSHA256": "7b1b3b5e6ba5b6d52f9e5678e44ec0279cdbc3bec560d905cae0c375d11726dc",
+      "residualChestSHA256": "bd720de836a48e6ab20f5cd86cffc12da7e9ac7b9cad306b99d0c6dddbf25b2a"
+    },
+    {
+      "ammoId": "9x21_sp12_jhp",
+      "speed": 400,
+      "armSHA256": "7ff243da16dc047341fdade3806af14d4312195df313cc2f03585e0ab54a476b",
+      "residualChestSHA256": "865c0f678c7200b5d59bab0c24eda624b4c512afc2632d46e09e29db424eb7fd"
+    },
+    {
+      "ammoId": "9x21_sp12_jhp",
+      "speed": 700,
+      "armSHA256": "e30c62c9ab72d5136af85625f439cf80a301e7178e2a9a653abe9e0e4f229a84",
+      "residualChestSHA256": "d1758caef1c0f25c7f39da8170a1c679c35f28ce241a07c8936bcfd85d19be75"
+    },
+    {
+      "ammoId": "9x21_sp12_jhp",
+      "speed": 400,
+      "armSHA256": "7ff243da16dc047341fdade3806af14d4312195df313cc2f03585e0ab54a476b",
+      "residualChestSHA256": "865c0f678c7200b5d59bab0c24eda624b4c512afc2632d46e09e29db424eb7fd"
+    },
+    {
+      "ammoId": "9x21_sp13_7bt3",
+      "speed": 400,
+      "armSHA256": "5f65c67158c92c0d53e8191f2f436f536ed5493ae3ed98e7eb87c106aa56251e",
+      "residualChestSHA256": "bd7f80d537daf322c63422ba5b915ac7173351ef623df5e31d4a7cd799d6dc03"
+    },
+    {
+      "ammoId": "9x21_sp13_7bt3",
+      "speed": 700,
+      "armSHA256": "2dd36453b5fb96febf14b11cc21a4cf831dcb127d452c1570f6237728b3f841a",
+      "residualChestSHA256": "c9218430093cd7394edcbffcd88b4034afb29e25a69e5dd47cc0dd952799dfbf"
+    },
+    {
+      "ammoId": "9x21_sp13_7bt3",
+      "speed": 395,
+      "armSHA256": "b0075f2ed1a7657baeee5be42f5569f2f8f77be91ba34c33050c8edc27abcf95",
+      "residualChestSHA256": "6d07e7756627eeb3a6f6eac1e8654994fd71761216e2d8f0cbd94b4ac42cc18c"
+    },
+    {
+      "ammoId": "9x21_7n42",
+      "speed": 400,
+      "armSHA256": "d52c92d31d73533c8a62b1383f50b0acf99cebd12fcdfbe06906607fefd5a1f9",
+      "residualChestSHA256": "e70a71500023eea5ddc8a82f114121825fe03a91e96d7ef4af21985e96262b00"
+    },
+    {
+      "ammoId": "9x21_7n42",
+      "speed": 700,
+      "armSHA256": "4367e245ed3261a218a783adcdc4e471c559b35ab801bf1df19951b4f4dee940",
+      "residualChestSHA256": "1cf7d31c53163e547bcdeacb761ce6bae76e3410f63bb8c085accc0d5e86e71a"
+    },
+    {
+      "ammoId": "9x21_7n42",
+      "speed": 410,
+      "armSHA256": "1c57a7ff3c59e773159823afc106414cab9c863e5888023e32a4ee5a1e84ddc7",
+      "residualChestSHA256": "7660265874590d35b809ccad29cfdddbe985f099aff8eed566d991796748f3d4"
+    },
+    {
+      "ammoId": "9x21_7u4_subsonic",
+      "speed": 400,
+      "armSHA256": "8e20df6c44bf17b61cf4c0b756f4be900ea0d7545303884ac2098a64cd32b5ff",
+      "residualChestSHA256": "d065ec32e645f99ab90780a6509128d62b7c5e03a9794aa6ad803ab2a5643ed6"
+    },
+    {
+      "ammoId": "9x21_7u4_subsonic",
+      "speed": 700,
+      "armSHA256": "1b4896ee81ef7772cd81c3000bfd7ec07e4594397d62a38f8515b6f8f2b89763",
+      "residualChestSHA256": "045f1b329fc5c5830f55b8e3318e625ea151c765f988cbe900187d63d15fff27"
+    },
+    {
+      "ammoId": "9x21_7u4_subsonic",
+      "speed": 300,
+      "armSHA256": "f9d6ca416042b91e46243b33b1cfd73bbde703803ff8771c02b3d43e7542da6c",
+      "residualChestSHA256": "5d9a971f17b519d21b6ee112238d8542f7b0173f8cdf13fb6ccde92d79b445ff"
+    },
+    {
+      "ammoId": "9x39_sp5_7n8",
+      "speed": 400,
+      "armSHA256": "68386ba17ff88e6bb11a09391d5b397693a5f30ead22c6c0fd50f946098fdd57",
+      "residualChestSHA256": "73f921723a92db945a4616b42235ea42ff9b3a0b119cce42b2570a43d02d4034"
+    },
+    {
+      "ammoId": "9x39_sp5_7n8",
+      "speed": 700,
+      "armSHA256": "11b3da35c4c19c60f10c3eafa590223e2386436d0449998dcbf64dc91a2fa74d",
+      "residualChestSHA256": "56a84da99271cbf36c57f17e87ef4709d01c5c7f8d2de890ae36ec579b12e82e"
+    },
+    {
+      "ammoId": "9x39_sp5_7n8",
+      "speed": 290,
+      "armSHA256": "0e572b128639ccf9a35d27d9e3848a88a2b1a511d90bbe3920b5175f5cd78c9b",
+      "residualChestSHA256": "66f4f846537c7036f52519b9c3795fbd2bf173f906511c96f8902df617f0e622"
+    },
+    {
+      "ammoId": "9x39_sp6_7n9",
+      "speed": 400,
+      "armSHA256": "68b53c437acba8d38b1d999c477cf256d28718b2698915f6fbe98d9869a11831",
+      "residualChestSHA256": "d1b3250d3204893aa6d1f18f981109a49eec4e8e9d5b365ddb3c52d81d39c45a"
+    },
+    {
+      "ammoId": "9x39_sp6_7n9",
+      "speed": 700,
+      "armSHA256": "0d0e29c58ce736748799c366dca115b805ee21bf27f1c084964ed687c0563d44",
+      "residualChestSHA256": "0115455f2b20c0a2af724432905457a2913106e7658c624acb8aac633b3732d6"
+    },
+    {
+      "ammoId": "9x39_sp6_7n9",
+      "speed": 295,
+      "armSHA256": "9470f41a9def952f04a83f2e804492ad9c0f42dd95b7e5be7181039c5361739f",
+      "residualChestSHA256": "1e84bee12bd8d17f027404eebcbb37a71d33e588aa540d1af952799959b7481e"
+    },
+    {
+      "ammoId": "9x39_pab9",
+      "speed": 400,
+      "armSHA256": "aaf6eb8e0517ba003f270eed7caa3fb54eb64f3167b7a68d9123c44e94f49ba3",
+      "residualChestSHA256": "a90c49b762b708da91f3bee90598e2404ae747abbb44cf2a945168c0238f89f8"
+    },
+    {
+      "ammoId": "9x39_pab9",
+      "speed": 700,
+      "armSHA256": "de2cf8886b65124d97e2bdcebcb3748798e5d20318bab4a873180915a0ba166e",
+      "residualChestSHA256": "17f96ccce4acae6fd1e6fa06c1270917cc8b4460d1ed8fef9bc331468e240b21"
+    },
+    {
+      "ammoId": "9x39_pab9",
+      "speed": 300,
+      "armSHA256": "14d2668a647b5bb891b9b6d5eee5524828b4c8f2c3d268d7ba6c21ab2fe0036c",
+      "residualChestSHA256": "816314900d1bc1c7292c55ea8c5277ff9047d4ed99c11a58054571bce2785ffb"
+    },
+    {
+      "ammoId": "9x39_bp_7n12",
+      "speed": 400,
+      "armSHA256": "9542e52cc2d8cff54cf0f59444d9265a2fccd0be7fe9bc79eba4db6e2233dcfe",
+      "residualChestSHA256": "687722c89f41e473c84e642e24818968f9b2bdcaef485f2fb07974699fc209c7"
+    },
+    {
+      "ammoId": "9x39_bp_7n12",
+      "speed": 700,
+      "armSHA256": "f725cb02b37089708670d6952622c60e49f940e629747e4cbae44fa94b9c8e1b",
+      "residualChestSHA256": "4de4ae36fa2369586091fbc44be431f63020db81789b63b5b5b51c256cb66272"
+    },
+    {
+      "ammoId": "9x39_bp_7n12",
+      "speed": 295,
+      "armSHA256": "73134efe1a66415d4ee85032d086d14e3a42a9daca5a0d633e92f9fc72b78701",
+      "residualChestSHA256": "03f35ec8194ac0ade18f7100e2be4ddcf2ba76592f36ea096cc26a0fa30c6cb9"
+    },
+    {
+      "ammoId": "300blk_vmax_110",
+      "speed": 400,
+      "armSHA256": "f27da22300ee1206ecb131529b40899d3cf67fb003c1276a5c8c4e1b158b6495",
+      "residualChestSHA256": "8a5cbb21fabba8128ce1a99eeef07284971b2211a853c4c60772a99396f22a59"
+    },
+    {
+      "ammoId": "300blk_vmax_110",
+      "speed": 700,
+      "armSHA256": "7eda00a71ca7c0dabc10e73a3982b1f6e1904628a01a0f133b8a389a36aa47c6",
+      "residualChestSHA256": "0e967fb3ce8bf158041e4d091fca3e9e2be5a99d98d1b136d484eb51512ac2a7"
+    },
+    {
+      "ammoId": "300blk_vmax_110",
+      "speed": 720,
+      "armSHA256": "f45de8b0110c207ede585755ccc641b7d2845bb8bf5e7ba5fc803cd4f5a68a67",
+      "residualChestSHA256": "92b8b08da27e47cf2082d49e295cbc306f396131e0fe19b4c81575e48a8ce888"
+    },
+    {
+      "ammoId": "300blk_fmj_147",
+      "speed": 400,
+      "armSHA256": "7a48c425afee667674668d153c5bc80933decba227ac7933dfe6c8330876fec5",
+      "residualChestSHA256": "ba2ea2c2f7811e2dfae6d1ef49541808b834a52d57ae59c346c0dba6bb1a6c48"
+    },
+    {
+      "ammoId": "300blk_fmj_147",
+      "speed": 700,
+      "armSHA256": "4cd0082b70c8158bfe975fe9be34345202929c5f4759c253b7108d41fbf4646a",
+      "residualChestSHA256": "8c3b0e8a5ba6ae97d3b1053d312e6570388b470a16cb422e5378edd152a116db"
+    },
+    {
+      "ammoId": "300blk_fmj_147",
+      "speed": 610,
+      "armSHA256": "59eb45cc266daead75784744c657e4f2efb41f0c7734d7b4f21905e1d516e78e",
+      "residualChestSHA256": "c61e2ea7b552569a9c8e98937ae31bf25c530a41cd92b361a2c1d08aca63d2e3"
+    },
+    {
+      "ammoId": "300blk_m62_tracer",
+      "speed": 400,
+      "armSHA256": "9c382c9bc0c6a5b162ffb385b66d44a8b35c609bf46b5da9ab64a79caae719be",
+      "residualChestSHA256": "e7dc21ecb53193b2f03b887b744666fd2c7e66e1b17adf9ce34d0ea3804e3b8d"
+    },
+    {
+      "ammoId": "300blk_m62_tracer",
+      "speed": 700,
+      "armSHA256": "271e1cbaa4fc353113b56e662cd146e5f475caa19127f5f721a06cc1fb6895da",
+      "residualChestSHA256": "6bcd607ab3721ae2cbcd1c69c1be1487fc7f87de61cad8290dacabcfc8c97f52"
+    },
+    {
+      "ammoId": "300blk_m62_tracer",
+      "speed": 500,
+      "armSHA256": "2bb22f61badfe179dab3551d80895af656cc784a81eb5c93f94d5ea2c6c6b292",
+      "residualChestSHA256": "974c67723e9856d6c27965fd14cfbb6251ebeedd5b51df5daedc5d18e132d2e8"
+    },
+    {
+      "ammoId": "300blk_cbj",
+      "speed": 400,
+      "armSHA256": "972c5373f224e9d1286c421a4f30dda24217df6277001add9d3c449a58e0af75",
+      "residualChestSHA256": "827101f6648448e86f9a2192d3f060bd590b4e90e3a353356cbb27c9f2236dba"
+    },
+    {
+      "ammoId": "300blk_cbj",
+      "speed": 700,
+      "armSHA256": "74d28833fa051c988aa2fc5eef2f7a419cee04355c3fd8ef315e3723045344b7",
+      "residualChestSHA256": "b7714cc708e54e0a38db1b669611f92c2fc822c5e5be7e54cbc06f464866ae66"
+    },
+    {
+      "ammoId": "300blk_cbj",
+      "speed": 725,
+      "armSHA256": "06f94f5ef37de575d05d6aaf25dc5742bebf42aa2c6756f74b46a350abaf094c",
+      "residualChestSHA256": "3e15702f405c5e9ff448c82a788cb58aa199662765306cbaadfac86cf834d4ba"
+    },
+    {
+      "ammoId": "300blk_ap_hardcore",
+      "speed": 400,
+      "armSHA256": "d206c038b4fcbc24c8bad23e45d2a5ccb3912b6913ec2dfe41d939821d4b5b3d",
+      "residualChestSHA256": "f3789f18902381c5d5e58da089952369f76103f94eb0a50ea8e0bb04c7409331"
+    },
+    {
+      "ammoId": "300blk_ap_hardcore",
+      "speed": 700,
+      "armSHA256": "af4f81d3fd87e2d7edff7cf56c65420e461c722c6ae06880b0f0a0e23ac12a9f",
+      "residualChestSHA256": "3c9fc5fb56fd7a5ac2a722cfd67b921741b5cd77a610605faa7ab1f662154bbe"
+    },
+    {
+      "ammoId": "300blk_ap_hardcore",
+      "speed": 620,
+      "armSHA256": "a6c074f045307e63a3d9aa17e9b2430f6f4a867a03397ce1456a63d1a93d081b",
+      "residualChestSHA256": "c8711f6612bd6897ed4d1d7dc5322153c0e2ca762413251b146a9bdbf03f3d64"
+    },
+    {
+      "ammoId": "300blk_220_subsonic",
+      "speed": 400,
+      "armSHA256": "437f00eb2f9fc90470f1998e0ccc835b3751f1d28f54bcd351204bc551234d6b",
+      "residualChestSHA256": "f7ac0aa6c600c6b70a8ef9fe3a9efd73d4a019393c9cf9293c2bd2bf92f9bdce"
+    },
+    {
+      "ammoId": "300blk_220_subsonic",
+      "speed": 700,
+      "armSHA256": "fe4802c7d090375f818cf63004981433f6fa77e3f8ef36ad78a6e0b2e778c5c0",
+      "residualChestSHA256": "048ad248959c5a974eda989b8855fee893e7e8d6453197356bc64a0f20685916"
+    },
+    {
+      "ammoId": "300blk_220_subsonic",
+      "speed": 315,
+      "armSHA256": "4ded1a33fd5c6ea5e768f1e4fd5158c232d9b415e50c96d74e6145f2f57dd92d",
+      "residualChestSHA256": "e19b94c05a7d947f6331c034dbff63ad50a19e9d0f37fae273d1e152cc459d04"
+    },
+    {
+      "ammoId": "556_m856_tracer",
+      "speed": 400,
+      "armSHA256": "8244bbcbfe0f970378ad9a326410f56166d2cc9ba900ce81a3afcac881eb7178",
+      "residualChestSHA256": "62e5a0182b5a0a98085e5243e081579549f7bdd7350aa9abcb4047882f08adff"
+    },
+    {
+      "ammoId": "556_m856_tracer",
+      "speed": 700,
+      "armSHA256": "b5f94a6a0c1e5679a8b7c2f87a519eff2421a0d5c05461df555b72b760884844",
+      "residualChestSHA256": "e888d05fe1e41f83d4171cabc03535d20f3bf8c7db05aedfb1e0b0a534582092"
+    },
+    {
+      "ammoId": "556_m856_tracer",
+      "speed": 900,
+      "armSHA256": "8b5cb0001d90eb69fbf399b3bc7d668a8f1a079eb4a60f1a7f000f45fb41a7fa",
+      "residualChestSHA256": "e8b64e4df0cb393080d5e13ab666b2dffae1c01263a6a0a9aa7ecd0481d8d7eb"
+    },
+    {
+      "ammoId": "556_m856a1_tracer",
+      "speed": 400,
+      "armSHA256": "b015510b9110da0e18e96fd0ef4f29dc6077a761ecac97a03229e8d802360915",
+      "residualChestSHA256": "fda85b65cb391f0df2c4758fed015664b6b383a6939fa5bf5484daf64f705880"
+    },
+    {
+      "ammoId": "556_m856a1_tracer",
+      "speed": 700,
+      "armSHA256": "4c3ecf26c8d4a3ffbf793679780837e75413fa146ae4aabc0730edbd56f4b99b",
+      "residualChestSHA256": "0d5bc80e951599c3aa183c6b45f7418eb308c12e260ca5ad076f7b2f089bcaca"
+    },
+    {
+      "ammoId": "556_m856a1_tracer",
+      "speed": 930,
+      "armSHA256": "f83f0ae989493125359abf39af74c907ca08b74ca9fcf2a847c1b608595c65f0",
+      "residualChestSHA256": "194d4a101e6f991e04a0be463a6aebe2775e2a2415ab2273bba6012585b31480"
+    },
+    {
+      "ammoId": "545_7t3_tracer",
+      "speed": 400,
+      "armSHA256": "edaedc19e8010dbf3ed65cd775f09de675efb89b69878f91ef8f97ace0579424",
+      "residualChestSHA256": "4fc984cc6a99608742a89698928c7307d18d51d7be38d48106f2ea9ad3944e7d"
+    },
+    {
+      "ammoId": "545_7t3_tracer",
+      "speed": 700,
+      "armSHA256": "c19cf56fe7dd497b48de406992a60dfe479f0603e152aae46c48992df530b572",
+      "residualChestSHA256": "19b467a243f62cc7d14ad61789452b6719148acca7ca90c445ffd6dc01dad5d8"
+    },
+    {
+      "ammoId": "545_7t3_tracer",
+      "speed": 885,
+      "armSHA256": "6cf5d7b83da3355d7b84788a8a11d5ff5d596331bd0563d9c7f8ef4ea62bbe4e",
+      "residualChestSHA256": "4b9884cd351fbcd59528bb6ecd8412c16e47ba8802cb7c0290acc0afbb0e902a"
+    },
+    {
+      "ammoId": "545_7bt4_aptracer",
+      "speed": 400,
+      "armSHA256": "d35f509195ac90d885c8b364a323188d2c53c0f3ff40fac92eac478fbc62ef6f",
+      "residualChestSHA256": "7a0ad581e0199b5ae7578cdd03e9962ec6d717d897c09f527707e038d02328b7"
+    },
+    {
+      "ammoId": "545_7bt4_aptracer",
+      "speed": 700,
+      "armSHA256": "f70e81dee4092b6db95be7e3457b3ce658371a6027a87e2219b8a2af164fce07",
+      "residualChestSHA256": "f88917a2c392911ed83bffe07709945bd8843f2c4699ba17ca3773e44852f5cf"
+    },
+    {
+      "ammoId": "545_7bt4_aptracer",
+      "speed": 880,
+      "armSHA256": "d310a17255cee49d8aa518b461e896da44ea63ac2147d3852dd882fb8b7dcad2",
+      "residualChestSHA256": "66764025a3b23243db3c6c96d37bd463c228eb35212e3ef3496e841155cbf865"
+    },
+    {
+      "ammoId": "762x39_t45m_tracer",
+      "speed": 400,
+      "armSHA256": "44cb04d5b4213dcd8df82edb010b1939fcacd24aef61fb5e4cb9d978e3056695",
+      "residualChestSHA256": "31f76ba0f53f5811adad5272ee95b952b75244f68c7232113ac6224fc28b9b87"
+    },
+    {
+      "ammoId": "762x39_t45m_tracer",
+      "speed": 700,
+      "armSHA256": "65540f8f410ff4ee1ba84bf80de848489bf69bbc304c65a076fa766c81909e69",
+      "residualChestSHA256": "ff2a6b312e4257df00be85ae3c969855c85acc6791dd9abf8f67bba8c03b4f96"
+    },
+    {
+      "ammoId": "762x39_t45m_tracer",
+      "speed": 720,
+      "armSHA256": "41434934f854a5868a0fa008160c5be3a22b4591a9e31effa10db6eea5ed09a7",
+      "residualChestSHA256": "cd773e2ae9ef225ace92224658542595b8bd1a283db831c636d5cad1003df78e"
+    },
+    {
+      "ammoId": "762x51_m62_tracer",
+      "speed": 400,
+      "armSHA256": "7d537b72b38c1d9709df4f1e154a05cacc4d5d5b86e2dd39a3426726cb442364",
+      "residualChestSHA256": "6f8db5f7026ef4863bf6780f08a4c732dff527fd57aae315052dbd2deb034746"
+    },
+    {
+      "ammoId": "762x51_m62_tracer",
+      "speed": 700,
+      "armSHA256": "2ef37f18c313b5b38ed8352d3122b2ea945f456c45dc6b8f1e31f16a45f42642",
+      "residualChestSHA256": "23aea5908f9229381af7749cdb15679cdfdbb3f12a3f160c2d667645cc79554e"
+    },
+    {
+      "ammoId": "762x51_m62_tracer",
+      "speed": 830,
+      "armSHA256": "666173af801b8e697575c7626a71766e1f79855b9393513a81f5963b1fb00ac4",
+      "residualChestSHA256": "c535164d0d62cb76c7c70423e5ce36d578b891d5b05f73c8e0caa4f823ccfcba"
+    },
+    {
+      "ammoId": "762x51_m948_slap",
+      "speed": 400,
+      "armSHA256": "67023cd767433e7fb7c024db106688731cc4d9cf32e4edbed08e2ac0ba69a0f1",
+      "residualChestSHA256": "a1cb43e224c175b1eb77eade912e0b4749de5c4e41d96f4b7cc0522b1722f57b"
+    },
+    {
+      "ammoId": "762x51_m948_slap",
+      "speed": 700,
+      "armSHA256": "13cedbac664a39cd7baec9e0b009c925859bdcc613982be78eddf07c33462708",
+      "residualChestSHA256": "a12480ca6711a135a10831defa11dfe71db1e279cea195847350d1c6ec305ea8"
+    },
+    {
+      "ammoId": "762x51_m948_slap",
+      "speed": 1210,
+      "armSHA256": "a85b47b41214593c5562e1a7bec069568c8659f906a65796f97ee3a6951e6262",
+      "residualChestSHA256": "0b979f83038b49ea16215a67b7ef07f9fbb7d001adf1870965c9c12404842bfb"
+    },
+    {
+      "ammoId": "762x54r_lps_gzh",
+      "speed": 400,
+      "armSHA256": "b7bc6fb65ba67c3eda178fb84fe35c13c5b75a81e25bb18314c5ddbaea20380d",
+      "residualChestSHA256": "a63ba8c28d27300aa40df2d9d24c84b6131877ab8adf1d9aecd3df78aaeb20e7"
+    },
+    {
+      "ammoId": "762x54r_lps_gzh",
+      "speed": 700,
+      "armSHA256": "190611d8e97aa998650a8dbe99040cdb67868f9a353b03eb381405ec701019f7",
+      "residualChestSHA256": "a3d592b94d8fa565b095797654fcc28dc0370417f6e672c028b2611fe461b566"
+    },
+    {
+      "ammoId": "762x54r_lps_gzh",
+      "speed": 830,
+      "armSHA256": "09b3f590f8ef0e4d523d2dee6232800f8615cdd69ed4ae3c931a6b8f15c9c56b",
+      "residualChestSHA256": "f0585a9087ef43e25dc2d3065c82aa57814e6737407767f4f23fcd40b6e1a3f8"
+    },
+    {
+      "ammoId": "762x54r_t46m",
+      "speed": 400,
+      "armSHA256": "2dcf575590210105e081d277679668202b7d0b535b5ba8fd44c132f18308d31b",
+      "residualChestSHA256": "c75b8faf292f79eca89b53073e186b1fdb093c32d62ac8d10be906adb664d07e"
+    },
+    {
+      "ammoId": "762x54r_t46m",
+      "speed": 700,
+      "armSHA256": "fe040cff6d5563ca60ddc332685a0096dd672bf1833e35a4d03efa43ea9a5d80",
+      "residualChestSHA256": "60d1181056748c3341e505bf5f1e89e5d459328a54ef466d46e7868fc79ec65c"
+    },
+    {
+      "ammoId": "762x54r_t46m",
+      "speed": 800,
+      "armSHA256": "6bf11d12af317eee68560ed6b65f6347be9d4c232aa2149c4a81406e97361e74",
+      "residualChestSHA256": "9f78edd061b3fd2c03fa7ab15eedcf819fddb2deb4a9c8c712a112379a6bda95"
+    },
+    {
+      "ammoId": "762x54r_7n1",
+      "speed": 400,
+      "armSHA256": "00764af5fa6b536075e75473e0b1c8cf80175e8206c3d93409c38faa8d9ddfa5",
+      "residualChestSHA256": "ca88cdc675302b2bfe6cacf28aa9b25f5cbb18362337c7df6df8abbf07b65ae8"
+    },
+    {
+      "ammoId": "762x54r_7n1",
+      "speed": 700,
+      "armSHA256": "b47ad4ad6b9da76a95e865f41d4c374f67062966623c9aff492a2dfd66d15296",
+      "residualChestSHA256": "069ada05586e4759f9b228e9bcdde6962194e7c6fbc3b71f24ed55ef325d2c9e"
+    },
+    {
+      "ammoId": "762x54r_7n1",
+      "speed": 830,
+      "armSHA256": "4b1f731f533fe993f12dc0c700918f96082da77f523d59ef3ed71c4d6a720397",
+      "residualChestSHA256": "909627de5608efee015733fdf6913d7b223b478b488c85c4f4eb01d4e3cd28cd"
+    },
+    {
+      "ammoId": "762x54r_7bt1",
+      "speed": 400,
+      "armSHA256": "5732ea1833eed9de1bdafadd7d7d42de62152bedd5e21ad568c8b4c6de326681",
+      "residualChestSHA256": "0ba132c56319869503eed25e05ebd7890bd10f40a01968c5b00a476ec2922849"
+    },
+    {
+      "ammoId": "762x54r_7bt1",
+      "speed": 700,
+      "armSHA256": "8bfca0eb4aa06a4a0503b5a4b4844beeecdf2a9582052e98331a086667cc0640",
+      "residualChestSHA256": "2a7769e304af33b5d72fc0d5d9aadc7d9123aa4da1eb0984214cceca3174461d"
+    },
+    {
+      "ammoId": "762x54r_7bt1",
+      "speed": 800,
+      "armSHA256": "73139c3ec58fba4e9f4fa7dec9108ac5b2ab0a627002d2bdbc1cba396d268d69",
+      "residualChestSHA256": "ce68d53f619e3dcdf642e117030d0bdb77cdd0503015efa81fcfb629e30b65fe"
+    },
+    {
+      "ammoId": "762x54r_7n14_snb",
+      "speed": 400,
+      "armSHA256": "6fe47426db9af57c010fe46e4685ad9bbc2503e38fdd24083a09e6dba674aa76",
+      "residualChestSHA256": "4c82af023afa4c536c705bd328e22b4b83796a8ef63436b22a278336019b9a64"
+    },
+    {
+      "ammoId": "762x54r_7n14_snb",
+      "speed": 700,
+      "armSHA256": "2fb7b914cfd217935ca2369d850905bc0df28e4ccc3faa4496970027b94e8462",
+      "residualChestSHA256": "d7696b40196e823a18386f6655165ceed0aa7e0ce902e61e665e9c6b09881b25"
+    },
+    {
+      "ammoId": "762x54r_7n14_snb",
+      "speed": 830,
+      "armSHA256": "f77a6add8e6445a88771c08ccb0449518b6dfef530e007eea51f96620007a1be",
+      "residualChestSHA256": "1a90515790b02c2d184a341264fb4dd33d7fc88d8437d686ce9526ca7cb08c80"
+    },
+    {
+      "ammoId": "762x54r_7n37_bs",
+      "speed": 400,
+      "armSHA256": "ffdf9850463c7ea11a56cf96df12c7b8a44056387506392f109a7a42757b3342",
+      "residualChestSHA256": "ceb5909bd778e140576819a0d721353947f036c0179137a6ffc8a33c13b406f1"
+    },
+    {
+      "ammoId": "762x54r_7n37_bs",
+      "speed": 700,
+      "armSHA256": "77ea4b764a10dae779660e4b66ba9cd8fb61ba46f6e414b88b1c3a4272928e4a",
+      "residualChestSHA256": "b074c8ab8c8a550620eaed49e2be481625b6f6dcbb52a3e5c1ab2a6cf4f80a27"
+    },
+    {
+      "ammoId": "762x54r_7n37_bs",
+      "speed": 815,
+      "armSHA256": "74a9f708f660d461451e56008b6fa5e2285d5bae1955fa390b856b407e0a1f76",
+      "residualChestSHA256": "838fb66d634609cd9e4c1c63fa06ece31520d80f38fde4fb621cd8296e8ea150"
+    },
+    {
+      "ammoId": "68x51_sig_fmj",
+      "speed": 400,
+      "armSHA256": "5bfae5cfd3c7af3871cabb93144ef29879b3fde29eb062a1afdf6ba09dcbd13e",
+      "residualChestSHA256": "f72d78b52a92bc6e993933fdf3960e6f9763252e0b1af1a44f7fdc0b2e174e65"
+    },
+    {
+      "ammoId": "68x51_sig_fmj",
+      "speed": 700,
+      "armSHA256": "50de3d13044717507769d227b8bc7068e5a6c5413189a662ce1a54a685650743",
+      "residualChestSHA256": "1a84d326016e672262b5a455f1b5fb10582639ea82bc8c31ff75e9dc448f96ce"
+    },
+    {
+      "ammoId": "68x51_sig_fmj",
+      "speed": 850,
+      "armSHA256": "5762e2394cd040b111e42e6b0f0af0c710d89eab0131351b972c5655a697eda4",
+      "residualChestSHA256": "05aee7204d96b668dfbd63035899b7a86ee5722a3f25f46e8820239ca003f816"
+    },
+    {
+      "ammoId": "68x51_sig_hybrid",
+      "speed": 400,
+      "armSHA256": "99f96c823551d31c13ec36b5d95e4aae6cb15b630de2ea97875adaa44f6effad",
+      "residualChestSHA256": "a35ea48cac75aab4d8df580a2a3d35589a3262256a38d22b9aa3a0787c046bb5"
+    },
+    {
+      "ammoId": "68x51_sig_hybrid",
+      "speed": 700,
+      "armSHA256": "35fa6c1ff341c11c6b900b5412f2ce62d1afac8e6e073fa579ca7c20c34cb00a",
+      "residualChestSHA256": "41117aead764021e8ed6ca4ea14f9591313723e2a443a0bc3721562657002610"
+    },
+    {
+      "ammoId": "68x51_sig_hybrid",
+      "speed": 915,
+      "armSHA256": "ad46f4301e045d427768c95f871d77dc5b0f5b005ac9e963869d6b842f8d9914",
+      "residualChestSHA256": "5744d35fd5278fd0bd2fef6725266565642089150632bdf1d9b6144532cb2b93"
+    },
+    {
+      "ammoId": "68x51_xm1186",
+      "speed": 400,
+      "armSHA256": "9cc1e801cd6bdd320011eebe31bf63943c3fc5dfef35f01b49ccb18769742c91",
+      "residualChestSHA256": "0194a02e6607346b12b026b4b132501f64129d976eb65d62bd993727cde2717b"
+    },
+    {
+      "ammoId": "68x51_xm1186",
+      "speed": 700,
+      "armSHA256": "d0eee343259efd13c94646cf8386e427505de3281589a9b9eda90f157423a771",
+      "residualChestSHA256": "f20115fa5457d1274d0b91352c6464bb8908219b175132ea2571ff033e753ac1"
+    },
+    {
+      "ammoId": "68x51_xm1186",
+      "speed": 915,
+      "armSHA256": "68b28564740aadbe09b922e710f42f34504479b0eee4e841c023006ab690bb0e",
+      "residualChestSHA256": "f9c8ef4d04f35a8e5f2de1578ff8e5cccd3a43f6ddc54adfdfc526f43a24d7a3"
+    },
+    {
+      "ammoId": "68x51_xm1188_rra",
+      "speed": 400,
+      "armSHA256": "86f5ba3f07ee4ebaca4e3d166daadcf05a1eaab7ee2f8350cef12ccc67789924",
+      "residualChestSHA256": "e6df3694274ab5124f905c2325e032f5606460efb3eee332eb7a26d2f1ff1e63"
+    },
+    {
+      "ammoId": "68x51_xm1188_rra",
+      "speed": 700,
+      "armSHA256": "6df56196aaa9150fd989abd8f5a026c3bad090ab4a259041c1161abfdf95ca12",
+      "residualChestSHA256": "c9130c89b1edb67d015557aaea6ce2d8bfa26801da9c1c07aef2a00a650f4497"
+    },
+    {
+      "ammoId": "68x51_xm1188_rra",
+      "speed": 800,
+      "armSHA256": "c13660e30a0e2821651de1359a59b202e5cf6b861940b93151e21823878beaa2",
+      "residualChestSHA256": "d902e47f812660db18af01a3649ab8cfbd84caf68dcd0d40d82035f01fd8833e"
+    },
+    {
+      "ammoId": "68x51_xm1184_ap",
+      "speed": 400,
+      "armSHA256": "b5d79708602caba8cf0a2ca795519c985ee545854a061802d1705e3f2425a010",
+      "residualChestSHA256": "cb7989ff4e53f64fd558582ea0c62c16ca415e878e51b285c8d116ac332d27cf"
+    },
+    {
+      "ammoId": "68x51_xm1184_ap",
+      "speed": 700,
+      "armSHA256": "2ab75c9b92b22dcda77c9798e2d57dfa137082d22782c715496a190fa81f520c",
+      "residualChestSHA256": "0ca886168b71d91accd26774ff2f712f068884972343bd0f47d88648c3488f88"
+    },
+    {
+      "ammoId": "68x51_xm1184_ap",
+      "speed": 915,
+      "armSHA256": "f19372c402ca371bb2de0dffccb8abcb5aeca894a428aec4307174348b57c171",
+      "residualChestSHA256": "5180f386cf122004fff2537bdce40b0a945ea1167491831310c7b646a6b671bf"
+    },
+    {
+      "ammoId": "93x64_fmj",
+      "speed": 400,
+      "armSHA256": "21ad16322d3c6509799f884fdec5b5b7c1cb46ca0e24435db01da9f0590e776b",
+      "residualChestSHA256": "81972236e55d19590bd58ab160204e3d9e2ccbbbc28b8fb4d53809cd5d502261"
+    },
+    {
+      "ammoId": "93x64_fmj",
+      "speed": 700,
+      "armSHA256": "0856029fd534297a6f9b54ca84f10952195dbb3e663fb717777a88c65692e915",
+      "residualChestSHA256": "afc6641efdaa2fca450ca57875f231c9e4d50a584bb22a11b2040f47a8faf498"
+    },
+    {
+      "ammoId": "93x64_fmj",
+      "speed": 780,
+      "armSHA256": "322006a3e748bf29894f3c9c4294a75a2eaec7be5b1ff3b37161cd695f361620",
+      "residualChestSHA256": "a7d4c2bcb38ef181ecbe06fd9bca53461132b692222d1adc5fc56d8303856d51"
+    },
+    {
+      "ammoId": "93x64_sp",
+      "speed": 400,
+      "armSHA256": "4de6ece495ae9c89eda930aa2fe2c4ee502df9e6996f7b1b4ad0a1d1867ee6a7",
+      "residualChestSHA256": "9c91bb4aa8e6081db26dac928a2e6bd907895fd1e35fe36d2b4c646b47a51bd5"
+    },
+    {
+      "ammoId": "93x64_sp",
+      "speed": 700,
+      "armSHA256": "94950c4650def515ae3e64cb372011dd627ce0939e2d506fb589d78af9d76eaa",
+      "residualChestSHA256": "0508f490b6d9429bbd307d5416a7e03b6778f2613812bbc6218c1897af67c7a2"
+    },
+    {
+      "ammoId": "93x64_sp",
+      "speed": 770,
+      "armSHA256": "a39640a34296df4516ab394f50c12357094946c1ad601c1089a4c8f7b3901831",
+      "residualChestSHA256": "8a80ec2a5f10d27f6735dc04f47d75004375790c29771f36dd577b4cb7b0e4af"
+    },
+    {
+      "ammoId": "93x64_9sn_7n33_ap",
+      "speed": 400,
+      "armSHA256": "893f05d3d3a278ccf17d2e80b81e77861ed7b255f7f8cb648efcc57fee1ce3b4",
+      "residualChestSHA256": "e468bfe0cdfa30ec45a8ba474e21e9391a88b1087bc9cb5b93f96e3e503d55c6"
+    },
+    {
+      "ammoId": "93x64_9sn_7n33_ap",
+      "speed": 700,
+      "armSHA256": "849e332e8a7ba2ae274f61cda42f93953d043cd2e91731dedcdd9a2f00693aed",
+      "residualChestSHA256": "9472c72dc66ed3feea0bbbe74f66a549d0a148238f3c6217b90024d6feebe5ca"
+    },
+    {
+      "ammoId": "93x64_9sn_7n33_ap",
+      "speed": 770,
+      "armSHA256": "d99bb12acdde1800a87c0d358d95cab795bedb29b9d6679174ab033b320ab809",
+      "residualChestSHA256": "b40a7f7f4df242bfbe6e6f4c15f69edcce34b18bc1cde98fa51975aee058dfe0"
+    },
+    {
+      "ammoId": "338lm_fmj",
+      "speed": 400,
+      "armSHA256": "af6afc1ba7d89a2d1807cbf086774c7dd66fbb4311545fa6b8e26a2a63881f8e",
+      "residualChestSHA256": "9734cd3b70e58e9b1c55a3fe220f67fc113b2cbb0e9e673acc0b5dd2ac637949"
+    },
+    {
+      "ammoId": "338lm_fmj",
+      "speed": 700,
+      "armSHA256": "4704aad91223780c12841fc482cdf7d56fb0c071c80afc8d34b7d43403857cf5",
+      "residualChestSHA256": "8cd1150fa2cc0d481713b5fce7999668853ff5d53efc630d2c0f9cb266ea43d4"
+    },
+    {
+      "ammoId": "338lm_fmj",
+      "speed": 900,
+      "armSHA256": "a1c35fe4d03dde1bdc5d6661b130b247471965afb950efae0e619f53e746ffc8",
+      "residualChestSHA256": "257bf361bbe75da5b86a4ed1c1829d5e8d59446f905b89153b90b1464ffa6dbe"
+    },
+    {
+      "ammoId": "338lm_ap",
+      "speed": 400,
+      "armSHA256": "08daaaf574de49910c0390981875ed7c1222974846904571f82f9d0a8bc3943c",
+      "residualChestSHA256": "0bf991e7675ecc6432557cbbdd74775c920cc5971f4e5646b1943b00a7f546f2"
+    },
+    {
+      "ammoId": "338lm_ap",
+      "speed": 700,
+      "armSHA256": "9cc950d0d773eec74895b80dc51759405ef287500e01c0f16f0c9c532a0dcc38",
+      "residualChestSHA256": "26dbe1bdccbbf3a6a3eb554c2bfbf396aa9cfe84b2fbe762d25e251662d2751b"
+    },
+    {
+      "ammoId": "338lm_ap",
+      "speed": 890,
+      "armSHA256": "9574469df4fbfa3b19abaf270746bedb8b7ec5b97b296411b9b787264a317e48",
+      "residualChestSHA256": "bfcd55cf4232d89c0684a8910972d725cb49ce4ade986032328da1c807d1297e"
+    },
+    {
+      "ammoId": "338lm_tacx",
+      "speed": 400,
+      "armSHA256": "de15b23e16e9ce130120d3777a13db55a35459920595d7bd4799a9709e9a356a",
+      "residualChestSHA256": "3034042b087853b6a36d0e4b943acb11162380c7bb9ce5610014a71fe8851e77"
+    },
+    {
+      "ammoId": "338lm_tacx",
+      "speed": 700,
+      "armSHA256": "abf4d4a203642dba8c763a8f14d30312a9b9901521bbb4ecf09227192254e505",
+      "residualChestSHA256": "4fb3c8c7eb611736ce2f65ae68512d72b2340c1de7950f9acee5402cb19b584f"
+    },
+    {
+      "ammoId": "338lm_tacx",
+      "speed": 890,
+      "armSHA256": "0e861577b9c002a3738a4deb2029efb0bc058ca15503226292f84a504cc02725",
+      "residualChestSHA256": "c9c21d0879ab420f0ce4fd112a64b96421961a75eb0ca6d9e400168e5c5834fb"
+    },
+    {
+      "ammoId": "338lm_ucw_subsonic",
+      "speed": 400,
+      "armSHA256": "0a3efd7906af0459a9011e558d5e6ceebeb7346f62f0de181955cf4e44035db2",
+      "residualChestSHA256": "b9196280515e335340841dc76f9e5b2a82f68eb8bec30f730d051dc92476ed9c"
+    },
+    {
+      "ammoId": "338lm_ucw_subsonic",
+      "speed": 700,
+      "armSHA256": "89d1c2e69cb1b45674f1d3cd6bb9e5d8902a378cd4b9b25b25e697ad603bc61f",
+      "residualChestSHA256": "def5ee11a155be3e7bdbb085b85338edfbee801c7a5e2d829dcea56247a8c326"
+    },
+    {
+      "ammoId": "338lm_ucw_subsonic",
+      "speed": 310,
+      "armSHA256": "3bad54c40a40467f9682be75f768c8b355ba2d5efc696551bb751f55ad6fc934",
+      "residualChestSHA256": "db6a377d0d01c0b8f696f0a68ed39b4473501e7a07f2f9844f8c275ed564a08b"
+    },
+    {
+      "ammoId": "338nm_fmj",
+      "speed": 400,
+      "armSHA256": "3c5aed570d58fbc4827903f6fc2f53526100c8aee62e9537422096067ab0bad3",
+      "residualChestSHA256": "693b4b27df815d3007437dc8c956271a2b7db68081800f028a2e12c3abc459ff"
+    },
+    {
+      "ammoId": "338nm_fmj",
+      "speed": 700,
+      "armSHA256": "1af0921a01c67a96bdfacbdc90b3c2cbd8b9113a72ee8c9cba292761470ad10f",
+      "residualChestSHA256": "c9cf9b72d6e156f03f00b80cb02897e80d8b99e055da5ca1a07c0a067d5434fb"
+    },
+    {
+      "ammoId": "338nm_fmj",
+      "speed": 825,
+      "armSHA256": "3b53137bcb140c5a54eff1e6bb53ff71810c7aaafb88ef82012409c180dc2e66",
+      "residualChestSHA256": "9213d1b161d115e7e90cd554b1da47fcfeca860f6acb0a2b30ce8a9ac2d935e2"
+    },
+    {
+      "ammoId": "338nm_ap",
+      "speed": 400,
+      "armSHA256": "85fc2eb0a6ac293939d7f44fd72a7b9ada2b5399a5545e47766edb0f74839bfe",
+      "residualChestSHA256": "bd9dcdc0a263c47de20fea35db0fca12401588fe241295a8f5dabc49345d40a2"
+    },
+    {
+      "ammoId": "338nm_ap",
+      "speed": 700,
+      "armSHA256": "cb4878e666f14e42ee1d5297f38b3b7937143d82a30edb53f9327f49bc6f038f",
+      "residualChestSHA256": "bd303f8f30043647a0d323edcf246c5d0823f7713bdf345b0346638f44088209"
+    },
+    {
+      "ammoId": "338nm_ap",
+      "speed": 825,
+      "armSHA256": "f36635f2f1b6b83005806324770dfee519a15447ac4f6e634adb91e8f4464329",
+      "residualChestSHA256": "a52fe5dae888229cdb5f628c4212d556938d78c16420c3741daa151576b516f6"
+    },
+    {
+      "ammoId": "127x55_ps12",
+      "speed": 400,
+      "armSHA256": "7904caa13f0e5db103ed5aff5c6eae3bb6549a3533dba496d6351c37cdc189e7",
+      "residualChestSHA256": "7787a3b27d8d7cd47f9b0b3604795ea8a85351ad86f49cea8d6f29357fa50c63"
+    },
+    {
+      "ammoId": "127x55_ps12",
+      "speed": 700,
+      "armSHA256": "4d8a8f3e329051b1a71671a3cb494e042bfa4ee125561aa0bd331a45939773ff",
+      "residualChestSHA256": "21d33c02665e11028c2a1cb0d30a9de2cfd6c7848b33130e8e7d59ab4dade81e"
+    },
+    {
+      "ammoId": "127x55_ps12",
+      "speed": 300,
+      "armSHA256": "68538696094414845373d87f69b7a84b13718ad917feb7d880f4c1fd427c0d1b",
+      "residualChestSHA256": "33ac15691ef120eddbd3953341e14d895c08e84dbb383cb3913f572a6639e3ed"
+    },
+    {
+      "ammoId": "127x55_ps12a",
+      "speed": 400,
+      "armSHA256": "cf91f06e935727f46b9839ed0e4ce63015c962d885768544ec30515927972641",
+      "residualChestSHA256": "a654a038bfa938fc558feb4db6246d351e037ef89797b21d4af600f2eb9fc658"
+    },
+    {
+      "ammoId": "127x55_ps12a",
+      "speed": 700,
+      "armSHA256": "24eed9b83b4f4f765758f83b5c687c352a8b3f712df0ec10e249fa3f3402acce",
+      "residualChestSHA256": "7ffe7290a79c998eea20193945a315d1c631a39af55f6483c7275514a044849d"
+    },
+    {
+      "ammoId": "127x55_ps12a",
+      "speed": 520,
+      "armSHA256": "7e54226353e2fa357440bcf53f75550951e1abde4309f7a4c3883c1e10d0f1e7",
+      "residualChestSHA256": "3a2c9d56f2983471071300644e35ed03c9c4dc41b0ac3ad670378dcc9b0a9aa1"
+    },
+    {
+      "ammoId": "127x55_ps12b",
+      "speed": 400,
+      "armSHA256": "b83f577c58d5f54f42ed0859d017688243c19435f21a550f256da678e9be010f",
+      "residualChestSHA256": "025c576c953879a8400787e7c6840b904821f00f8b408eeb674bb7c3d8b828f2"
+    },
+    {
+      "ammoId": "127x55_ps12b",
+      "speed": 700,
+      "armSHA256": "078c52698b341d6880c8d895d015c87e4137797d5c9e612108080f8d76539707",
+      "residualChestSHA256": "efade4142f865ce255c2091b5e327196ef8048d440b4dd400c9bbb38aa0b0cd8"
+    },
+    {
+      "ammoId": "127x55_ps12b",
+      "speed": 300,
+      "armSHA256": "22cecd856141e9c2ba14b64992bc56c4e9864c669a494fdabe15d98da253cf91",
+      "residualChestSHA256": "6fd2d2d738ad192d76c1c7e46a2dc116a97c6d177f40ba558bcc59132c4eba30"
+    },
+    {
+      "ammoId": "127x99_m33_ball",
+      "speed": 400,
+      "armSHA256": "5906a9f07efdd10bce9378a83b34eeccaa959315c874314af4014ea679f2c14f",
+      "residualChestSHA256": "aa3fd3bbcc2c076f2fa8ae73e72dc9f35478d401a7982cc6d92112cb10c8fc3a"
+    },
+    {
+      "ammoId": "127x99_m33_ball",
+      "speed": 700,
+      "armSHA256": "91aeee43db9d8f1a863ede2e77f45ad43c3f478afefb106f79f6e306b004a361",
+      "residualChestSHA256": "b37f9199d86f048a4b872fb4df2df019fead91b96769d1e5e8fcc55c11952b9e"
+    },
+    {
+      "ammoId": "127x99_m33_ball",
+      "speed": 890,
+      "armSHA256": "a1448e79f484219f1761849200abf0a8d253b2452b1d65495033c9a6e38b2013",
+      "residualChestSHA256": "eac8b654bd9294a583e22afa48e5f32992ee358b305e2b49627935627e1e96a9"
+    },
+    {
+      "ammoId": "127x99_m17_tracer",
+      "speed": 400,
+      "armSHA256": "ac0d5431e1243193e798551a581e710499e93454267ac59f60bc49125c88ec72",
+      "residualChestSHA256": "5508d6f7baa34079adb476315e694d14aa305866b8d0fa0342d0d21881228376"
+    },
+    {
+      "ammoId": "127x99_m17_tracer",
+      "speed": 700,
+      "armSHA256": "f390275745d17714bb000ddc4bd9afe78ceb9d91c536cc9e7ac8013efa45b05a",
+      "residualChestSHA256": "4fb789b129ec797d8d4fd1523d8f0cf153064fa05588ec271a93ad302016328e"
+    },
+    {
+      "ammoId": "127x99_m17_tracer",
+      "speed": 870,
+      "armSHA256": "59841504e8e06b9f0be4844995d04e2ae9432284acdcf831a3ca2d5a16d0dd91",
+      "residualChestSHA256": "e2effd996c438d94142cd247d6a96059f179ecc8657abe4ee6a662c833d0ccaa"
+    },
+    {
+      "ammoId": "127x99_m8_api",
+      "speed": 400,
+      "armSHA256": "097e3bdd8a088e1ce6c9b7282c19ff5d5ad85dc37e72a34992356764046e4324",
+      "residualChestSHA256": "f7a648395899b5be4ab5d22a09eea860d0105c51e1307ed46d950ceaca6af51d"
+    },
+    {
+      "ammoId": "127x99_m8_api",
+      "speed": 700,
+      "armSHA256": "c7a8dd1884c63b088317ee9735a30d8ba6c86cd66abfb02d0d54aebcc2e9c5d2",
+      "residualChestSHA256": "5ab86d85092db5305376b9f1258d292d6900fe9396352ea0234cad0dc85fe263"
+    },
+    {
+      "ammoId": "127x99_m8_api",
+      "speed": 890,
+      "armSHA256": "2bb1ad541bf014767b6da0e10f93dd3174a65e3120db3861d91b058f1083a37f",
+      "residualChestSHA256": "96752c9293e10d134516492cd0ed727e50178757c535c84193bfa8c022b835ce"
+    },
+    {
+      "ammoId": "127x99_m20_apit",
+      "speed": 400,
+      "armSHA256": "cb5e9110974d3f5fdb8954380154c9a8257ee0a85c3a26f399dbef7dc49fb768",
+      "residualChestSHA256": "9d85fb56e0a9d33e0944c7bd95037174537407b81d9d982394752bfee11fb625"
+    },
+    {
+      "ammoId": "127x99_m20_apit",
+      "speed": 700,
+      "armSHA256": "d2ddccd6a567d726d589f4ab5ed1f8bfc71cc85a07b98915d4d28f12870650cd",
+      "residualChestSHA256": "0e8c3db01218a3288e1e17041901566db4fe92c9d0c07eb4a207cb813d3920b6"
+    },
+    {
+      "ammoId": "127x99_m20_apit",
+      "speed": 890,
+      "armSHA256": "6c6b8fe483f50c37ba800157ec885d60cb9b1c38cb557b51a1127b8ea44dc768",
+      "residualChestSHA256": "184295971debea6d9f3c7a4b634c3d4501da3b8b89f9a4501c7b310ed87ff553"
+    },
+    {
+      "ammoId": "127x99_mk211_heiap",
+      "speed": 400,
+      "armSHA256": "cc270794b118e14a54a64f244968297a255daa08ed056994114aaa151436ee9f",
+      "residualChestSHA256": "9cd14858eb40bff4db2182d8aea8b57e391511c1307f9909691ec5c7d312f6b2"
+    },
+    {
+      "ammoId": "127x99_mk211_heiap",
+      "speed": 700,
+      "armSHA256": "28df93289cac97cdb7aeefa283bd8a5326c71f667547c7e0eed831b6f1b2b0ef",
+      "residualChestSHA256": "5c2741d2992f4084fc8c691faa508c42718db52334fe2f5e12dc12fa9f07790c"
+    },
+    {
+      "ammoId": "127x99_mk211_heiap",
+      "speed": 915,
+      "armSHA256": "dcaa3461eb7d2cd9ada1f868673a3371aaa83aba2a8960df800afaa983dc3dc9",
+      "residualChestSHA256": "f3e56db66c4e045014574d8b7785f7b1cffbab77bb9db804670f6423db309f34"
+    },
+    {
+      "ammoId": "127x99_m903_slap",
+      "speed": 400,
+      "armSHA256": "b0f0e08c8c2c05fcb5abaa8df382832a906c93bb35dd99395ea9731851b6f2d4",
+      "residualChestSHA256": "8d9b74b3f364e0c1c47f50ddf5fe3d4cdd7d866b503e483c3abe250a45ccf352"
+    },
+    {
+      "ammoId": "127x99_m903_slap",
+      "speed": 700,
+      "armSHA256": "77b1c5cfbd0c87ef604f7696bcc33918065a49388978107ab551a7b1b0bb0450",
+      "residualChestSHA256": "426a9c9696c5d8387292d2ffb485bf37bd54acda826fcb22c631214a54b11f19"
+    },
+    {
+      "ammoId": "127x99_m903_slap",
+      "speed": 1219,
+      "armSHA256": "d078f3293fdf2c6ae5d0756740c9575f0bbb103ef6feb7ffd39b629bed1eb195",
+      "residualChestSHA256": "b55212c423503fade401bd23250c5701cd2850207794322a257477eb3adf0b89"
+    },
+    {
+      "ammoId": "127x108_b32_api",
+      "speed": 400,
+      "armSHA256": "b7c074e6f049b89ed2f9408e2162da5db1b9b860047bb9baeb6e664662990cee",
+      "residualChestSHA256": "dda93b84589e86148c10ea37c2a6690613c846c3f30381d66fce9c7c9cf797f5"
+    },
+    {
+      "ammoId": "127x108_b32_api",
+      "speed": 700,
+      "armSHA256": "1edbbed9ee158fabecc2c9dbbb5d2267f89588c56dc7dd1eeacc478876dfa31c",
+      "residualChestSHA256": "b684d7392a09a703eb5851677de22e254c328a1416247de46efec6bed4971f15"
+    },
+    {
+      "ammoId": "127x108_b32_api",
+      "speed": 820,
+      "armSHA256": "dba68474e66097040249c184c6c5ad431f7ec6ff3055d3031b0fd45f474c54a2",
+      "residualChestSHA256": "26537c51de02ed95cd5f7f22538a6d30e705fcdad7af9756297f5145d6a48172"
+    },
+    {
+      "ammoId": "127x108_bzt44_apit",
+      "speed": 400,
+      "armSHA256": "25ba83238a7fa7e351d1b83c49a69107b7ed115d77bfd18dc5987cbe07a8cf61",
+      "residualChestSHA256": "e98e69e577361777200a55a9d241155c9ff5a571959498c2897c40e13c99ffa8"
+    },
+    {
+      "ammoId": "127x108_bzt44_apit",
+      "speed": 700,
+      "armSHA256": "cace7532254689800b256dbfa0ff09aef6f27ff77cfb3f867d9cfaaa0b41373e",
+      "residualChestSHA256": "3d597f0b49db5a3791181b7afc66f90b8eb61fd503cbe5a5a8a4a7a86a0ec2c2"
+    },
+    {
+      "ammoId": "127x108_bzt44_apit",
+      "speed": 820,
+      "armSHA256": "6537005713f9177b9f96415268a71e52b169646caaff58fe6998cfcac34cee86",
+      "residualChestSHA256": "dc363302460b79789e56a256e0f01ecbe095008d2ff4a8c756e40db7d436fb4f"
+    },
+    {
+      "ammoId": "127x108_mdz_hei",
+      "speed": 400,
+      "armSHA256": "409643044c961a200965f99dd0d8205064d82c7392cd6dcbd9c1133ebd81b91c",
+      "residualChestSHA256": "285b09c1277dda466c2192f87321ec97ca281078944bc4fdfb6790225f348e59"
+    },
+    {
+      "ammoId": "127x108_mdz_hei",
+      "speed": 700,
+      "armSHA256": "512d27f6d687b4fcd755921e9d1b820b1d76b6cbd787acfe193c3733b1e4b503",
+      "residualChestSHA256": "1d163497c4f379bb008d2847132745bd9929da350127d25e348ef3eef386a40a"
+    },
+    {
+      "ammoId": "127x108_mdz_hei",
+      "speed": 830,
+      "armSHA256": "ecb383cff89fd30bb53496ec596674f7073b5842c0d40818a777654e44d6b32c",
+      "residualChestSHA256": "9d5aa79877cf5a75ab34a92b011cb27b7c067120275f4b421f6e0d7ae00a1852"
+    },
+    {
+      "ammoId": "30_06_m2_ball",
+      "speed": 400,
+      "armSHA256": "312cb24da3021cd6c65cc555a6c8f7c2c677af5077944ccd7a69458e1220b772",
+      "residualChestSHA256": "81da6fd036303283ac5fca1efcadb66e14860f9c3e7fd5d88f70971bf55039b9"
+    },
+    {
+      "ammoId": "30_06_m2_ball",
+      "speed": 700,
+      "armSHA256": "ab228fcde1834ebb52fc08cf6ab4eb4d8da10902071270f31fec046becf80150",
+      "residualChestSHA256": "2edae9f37fffaed22e969572afab6fa108f244b0672f7f372879aceadf25adbd"
+    },
+    {
+      "ammoId": "30_06_m2_ball",
+      "speed": 845,
+      "armSHA256": "7422f505110ed53e6f347b5b5049eb2c623dc8ee6bb6e8d772831920be80d4ed",
+      "residualChestSHA256": "996ec8810b41b51517f7f1473bc3cac7ddabb6f055092ef0a1ae7babacde989c"
+    },
+    {
+      "ammoId": "30_06_m2_ap",
+      "speed": 400,
+      "armSHA256": "4b6f6efa20f2605324fc121abbbd678747ef0ecb5edb646a049be6d2c40f099d",
+      "residualChestSHA256": "e97d35f94f779a52e5b85614a87b6b8aefbf088456af552442743e43380f3e7a"
+    },
+    {
+      "ammoId": "30_06_m2_ap",
+      "speed": 700,
+      "armSHA256": "7c2ae662d2e89fff028f40aba6e84f2cf171492ef6c7840926b39328832fff80",
+      "residualChestSHA256": "3793d8d87d3eb3075b4f8a0d3a6618568fb38b302ad67371e92212c46fc09b7e"
+    },
+    {
+      "ammoId": "30_06_m2_ap",
+      "speed": 829,
+      "armSHA256": "1a65bd1adc90dfaf9c822fb2000e8b3f41afe2f416a067523e12cd496623d4e9",
+      "residualChestSHA256": "1021355d8174b3ff870cfd93a9e7608962fcba8b9bc3b8a3c0343fc39544d1ba"
+    },
+    {
+      "ammoId": "30_06_m25_tracer",
+      "speed": 400,
+      "armSHA256": "20d0f850f969574f5aa66cf931268abb2ef32985244f83bc9a73a71f13006ce5",
+      "residualChestSHA256": "a82839925f8ca3bf4c3a8c88a4cdea0b8196867b7a5a3b013856a76189959865"
+    },
+    {
+      "ammoId": "30_06_m25_tracer",
+      "speed": 700,
+      "armSHA256": "deda84a83af614698bcdfc459e9dbaa03fc62755bc4a2d3f440a4e344f02a650",
+      "residualChestSHA256": "89c4efb02dd7cf4b562b24e8ff3e2791b70110975739a5e69382637dbf7685e0"
+    },
+    {
+      "ammoId": "30_06_m25_tracer",
+      "speed": 810,
+      "armSHA256": "e595020bc86bfdf33c87727f2c8525e23a8c06dc22d585f3f710f4cb724b4748",
+      "residualChestSHA256": "53addc6c3301a172a02b8cec178539028335846fd0dfd31d019585dd6b1e2ba9"
+    },
+    {
+      "ammoId": "30_06_sp",
+      "speed": 400,
+      "armSHA256": "bf0786ea3c664b58c6fbcd007d22790cf2b3f51a7c772c1bb0722df40db69f13",
+      "residualChestSHA256": "65e788a0cff0d17b1202f2e68fc600e9747230134ee45fb6bc15ba7edff0cd8b"
+    },
+    {
+      "ammoId": "30_06_sp",
+      "speed": 700,
+      "armSHA256": "ce3af58bfcde3abd18d69f5f9d132b0822defe72875d13eb59a4971c9287dd75",
+      "residualChestSHA256": "c222aa0d6362b4dec2d33bde978f2375519cebc04ac70671bf841be0271946ca"
+    },
+    {
+      "ammoId": "30_06_sp",
+      "speed": 835,
+      "armSHA256": "02dda9b02a3caa82ddf7ebc233a66d29545598a47dc7c8abcd1b3a11406bd22a",
+      "residualChestSHA256": "9fd3cf39ef782551323bc61d6aabf5e760741afda3979739b9d97da7e2941707"
+    },
+    {
+      "ammoId": "30_06_m72_match",
+      "speed": 400,
+      "armSHA256": "028fbbd146ffbcafd00d9321f03c8b4cf39f0b1a00267d99f1c1870f19f55643",
+      "residualChestSHA256": "f9e877a33137a751fe9e78af009bb337f5c38954e5c6c06dc1b1cf219a163607"
+    },
+    {
+      "ammoId": "30_06_m72_match",
+      "speed": 700,
+      "armSHA256": "634344bfa83393dd31473b06c2048e22d7e1660a443aea5130b30336eddacbd7",
+      "residualChestSHA256": "3b31f51b98f56b84912596edc2b1edb289b0e491394a502aa640319861938eb8"
+    },
+    {
+      "ammoId": "30_06_m72_match",
+      "speed": 805,
+      "armSHA256": "6d9e223afd589d82cccdfef87228ba835197d4c979aff6c2a761743a0c72716d",
+      "residualChestSHA256": "1ad048ee6789e1017fec163db2e11dcfed806162a1a15b74989c14e5eb3d187c"
+    }
+  ],
+  "gelatin": [
+    {
+      "id": "ak74",
+      "sha256": "895baf31d5516bdc598c280c78688201d5d6d969460083a965d6368e7dc88f61"
+    },
+    {
+      "id": "m193",
+      "sha256": "b0a00d752c7fe20d870ba35e88fe5feb82d54fb9994d9d771a93db14408eda52"
+    },
+    {
+      "id": "ak47",
+      "sha256": "8248b19aacc44d6874d471d403003cd0ef35328dc022846179ea9ce9d94e784c"
+    },
+    {
+      "id": "m80",
+      "sha256": "c7f45387eacd92152fa783f3eefa0013dd59b9f634730bbc4a2b94553a4f1ac8"
+    },
+    {
+      "id": "pistol",
+      "sha256": "cb25d848a13b1b4d849624a8ff1e9d382cb7730db38bb982a01ee519f07e49d6"
+    }
+  ],
+  "htmlSHA256": "2a40d16d9dabd6c92498533308e5bb9c0d922b8c77cc980bd86ca5a13a7e7dfc"
+}

@@ -1,0 +1,86 @@
+{
+  "version": "physical-damage-s3b-v42",
+  "checkedKST": "2026-10-17",
+  "runtimeSourceCommit": "8f4a25c0596b9083e20e19e112e2fb44c813c9e9",
+  "automatic2DPort": false,
+  "instructionProvenance": {
+    "kind": "user-attached instruction document, separate from message body",
+    "file": "docs/training-s3b-instructions.md",
+    "bytes": 4958,
+    "sha256": "61e1bd2e51e582156f84f6ede6f3f40a5053e25984d7269dd124634817ffcfab",
+    "additionalMessageBodyInstructions": null
+  },
+  "sources": [
+    {
+      "id": "ews2004-m855",
+      "classification": "출처(미 육군 교범 원문; Internet Archive 보존본)",
+      "title": "Emergency War Surgery, Third United States Revision (2004), Chapter 1 — Weapons Effects and Parachute Injuries",
+      "publisher": "Borden Institute, US Army",
+      "url": "https://archive.org/download/EmergencyWarSurgery_201902/Emergency-War-Surgery.pdf",
+      "accessedKST": "2026-10-17",
+      "documentEvidence": {
+        "path": "artifacts/s1-sources/ews2004-full.pdf",
+        "bytes": 7649690,
+        "sha256": "66be2e06fc15abf3f30fe093c7a51e4e38c762d35176ab814cc1bd1c21d917f3"
+      },
+      "locations": [
+        {
+          "printedPage": "1.8",
+          "pdfPage": 39,
+          "quote": "The slightly heavier M-855 bullet used with the M-16A2 rifle, shows a similar pattern to the M-193 bullet",
+          "context": "직전 문장은 M193 약12cm point-forward 이후90°yaw,flatten,cannelure에서break. 같은 페이지 Fig1-5는 M19355gr/943m/s 이상화 젤라틴 도판. M855 전용 수치 도판이 아님."
+        },
+        {
+          "printedPage": "1.7",
+          "pdfPage": 38,
+          "claim": "아래 예시는5–10m ordnance gelatin 사격이며 거리·중간표적·신체조직이 상처를 바꿀 수 있다는 조건."
+        }
+      ],
+      "claims": [
+        "근거리 젤라틴 조건에서 M855가 M193와 유사한 yaw/파편화 패턴을 보일 수 있다는 정성 근거."
+      ],
+      "limits": [
+        "M855 전용 파편 질량비・760m/s文턱・파편화확률의 실측 근거가 아님. M193 donor 차용·원본문턱은 게임 튜닝/원본으로 구별한다."
+      ],
+      "decision": "S3b user instruction now authorizes3D-only fragment override; original2D yaw760 remains unchanged."
+    },
+    {
+      "id": "msd-abdominal-trauma",
+      "classification": "출처·제한: 보편적 심한 통증 주장을 뒷받침하지 않음",
+      "title": "MSD Manual Professional: Overview of Abdominal Trauma, Symptoms and Signs",
+      "url": "https://www.msdmanuals.com/professional/injuries-poisoning/abdominal-trauma/overview-of-abdominal-trauma",
+      "accessedKST": "2026-10-17",
+      "httpStatus": 200,
+      "retrievedSha256": "50b75cca7863186a56e42c10bab16f9d26d9d9daff7fcd4a9309338da7474965",
+      "quote": "Abdominal pain typically is present; however, pain is often mild and thus easily obscured by other, more painful injuries (eg, fractures) and by altered sensorium (eg, due to head injury, intoxication, shock).",
+      "interpretation": "복부 외상은 통증을 일으킬 수 있지만 항상 심하다는 보편명제를 입증하지 않는다. 복부 HP0의95/100은 사용자 설계 기대와 튜닝으로 분류한다."
+    }
+  ],
+  "rules": {
+    "armHp75": "사용자 설계값",
+    "abdomenHp0WithoutDirectArrest": "사용자 설계값",
+    "abdomenPainFloor95": "튜닝: Q5-a 바닥 성분, 의학적 실측점수 아님",
+    "maskingAndOtherPhysiology": "원본3D v41 식 그대로; cap0.85",
+    "m855FragmentType": "사용자 승인3D덮어쓰기 + EWS2004 정성근거",
+    "m855Threshold760": "원본 게임 값; 보편적인 문헌 임계값으로 주장하지 않음",
+    "fragmentDefaults": "기존 fragment 유형의 M193 donor: fraction0.36/range0.13m, 별도 M855 재적합 없음",
+    "C": {
+      "classification": "튜닝: 동일S3목적함수",
+      "value": 0.09174725695886135,
+      "method": {
+        "method": "Same S3 equal-category log-distance objective and220-step ternary solver. S3b targets have a zero-loss interval; the solver deterministically chooses its lower boundary, not a unique optimum.",
+        "minimumInclusive": 0.09174725695886135,
+        "maximumExclusive": 0.14129537733705996,
+        "chosenC": 0.09174725695886135,
+        "objectiveAtChosen": 0,
+        "allRayCountsInTarget": true
+      }
+    },
+    "earlyIndex": "실제RK4/동일체내모형 자동산출; M85510m첫30cm=100 공통분모"
+  },
+  "limits": [
+    "공통C와HP는생존발수/의학적상해율이아니다.",
+    "H01 A자자세와서기보정경로는다르다.",
+    "기존전체젤라틴도판형상재현과v41성능미달은이번수정으로해결했다고주장하지않는다."
+  ]
+}

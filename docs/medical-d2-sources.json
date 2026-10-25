@@ -1,0 +1,98 @@
+{
+  "checkedOn": "2026-10-18",
+  "classificationRule": "Publication supports qualitative direction only unless explicit quotation says otherwise. All gameplay coefficients and continuous mappings are tuning; no automatic2D port.",
+  "sources": [
+    {
+      "id": "symptoms",
+      "url": "https://www.cdc.gov/traumatic-brain-injury/signs-symptoms/index.html",
+      "title": "CDC: Symptoms of Mild TBI and Concussion",
+      "access": "full official page verified",
+      "verifiedQuotes": [
+        "Bothered by light or noise",
+        "Vision problems",
+        "Feeling slowed down",
+        "Foggy or groggy"
+      ],
+      "limits": "SCAT5 BJSM PDF returned429 and CISG mirror403. Symptom list corroborated with CDC; no claim of reading the blocked SCAT5 PDF. Focus-lag waveform, strength and duration are tuning."
+    },
+    {
+      "id": "tinnitus",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7956904/",
+      "title": "Theodoroff et al.: Concussion Management Guidelines Neglect Auditory Symptoms. DOI10.1097/JSM.0000000000000874",
+      "access": "PMC full article verified",
+      "verifiedQuotes": [
+        "Tinnitus, noise sensitivity, and hearing difficulties are commonly reported secondary to head injury."
+      ],
+      "limits": "Supports tinnitus/noise sensitivity after head injury; symptom risk-to-gain mapping and120s decay are tuning. Reuses v46 oscillator/gain, does not create a second tone."
+    },
+    {
+      "id": "exercise",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4551211/",
+      "title": "Joyner & Casey2015: Regulation of increased blood flow (hyperemia) to muscles during exercise. DOI10.1152/physrev.00035.2013",
+      "access": "PMC full article verified",
+      "verifiedQuotes": [
+        "At rest, cardiac output is ∼5 l/min and rises to ∼20 l/min in the untrained subject during maximum exercise.",
+        "renal and splanchnic blood flow can both fall to ∼25% of resting values during heavy exercise in humans",
+        "oxygen consumption in these tissues is preserved by marked increases in extraction"
+      ],
+      "limits": "Untrained maximum approximately5→20L/min is context for tuning target3–4x. Not a prediction for a particular loaded soldier. Organ factor1/(1+4I) multiplies current CO, not a direct claim that final organ flow equals25% of rest. Oxygen extraction, preload^4, pump/HR constants are tuning."
+    },
+    {
+      "id": "cole",
+      "url": "https://europepmc.org/article/MED/10536127",
+      "title": "Heart-rate recovery immediately after exercise as a predictor of mortality. DOI10.1056/NEJM199910283411804",
+      "access": "Europe PMC bibliographic record and original abstract verified",
+      "verifiedQuotes": [
+        "Recovery of the heart rate immediately after exercise is a function of vagal reactivation.",
+        "The value for the recovery of heart rate was defined as the decrease in the heart rate from peak exercise to one minute after the cessation of exercise.",
+        "An abnormal value ... 12 beats per minute or less"
+      ],
+      "limits": "12bpm is a cohort/protocol prognostic cut point, not a universal recovery curve. Rise18s/recovery45s time constants and150–180bpm loaded run target are tuning, not Cole measurements."
+    },
+    {
+      "id": "rowell",
+      "url": "https://doi.org/10.1152/physrev.1974.54.1.75",
+      "title": "Human cardiovascular adjustments to exercise and thermal stress.",
+      "access": "Bibliographic identity verified; original full article not obtained",
+      "verifiedQuotes": [],
+      "limits": "Original1974 numerical tables not quoted. Redistribution direction and public quantitative context verified via Joyner2015 full review instead."
+    },
+    {
+      "id": "load",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11851911/fullTextXML",
+      "title": "Effect of Vest Load Carriage on Cardiometabolic Responses with Load Position, Load Mass, and Walking Conditions for Young Adults2025",
+      "access": "Full XML verified",
+      "limits": "This is walking data, not loaded all-out sprint duration or run HR. No matching13.7kg sprint endurance/steady HR source verified.32s sprint capacity, recovery24/70s,25% hysteresis,150–180bpm target are explicitly tuning.",
+      "verifiedParaphrases": [
+        "When walking with a vest load at a speed of5km/h ... heart rate increased linearly.",
+        "0–30kg loads; different speeds and inclines"
+      ]
+    },
+    {
+      "id": "rohmert",
+      "url": "https://europepmc.org/article/MED/14438438",
+      "title": "Rohmert1960: Ermittlung von Erholungspausen für statische Arbeit des Menschen",
+      "access": "Original bibliographic record verified; no original curve/table text obtained",
+      "verifiedQuotes": [],
+      "limits": "No original Rohmert coefficients copied. MVC→time log-interpolated anchors are a game-authored monotone endurance approximation, not a digitized1960 curve.40Nm shoulder reference and lever arms are tuning."
+    },
+    {
+      "id": "endurance-review",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6239301/fullTextXML",
+      "title": "Pulling strength, muscular fatigue, and prediction of maximum endurance time for simulated pulling tasks2018",
+      "access": "Full XML verified",
+      "limits": "Supports load fraction/endurance dependence and posture specificity, not transfer of measured pulling durations to rifle holding. The entire rifle endurance curve remains tuning. Exact1960 curve shape not independently reproduced.",
+      "verifiedParaphrases": [
+        "Rohmert posture-specific models compared; posture5 employed muscles on back/hip and lower limbs.",
+        "Models differ with recruited muscle groups/posture."
+      ]
+    }
+  ],
+  "sourceRequirementsComplete": false,
+  "unresolved": [
+    "SCAT5 original PDF inaccessible; corroborated symptom list with CDC.",
+    "Rohmert1960 original curve unavailable; generic inverse load/endurance shape and all anchors labeled tuning.",
+    "Matching13.7kg military all-out sprint time or steady run HR not found; tuning is used as permitted.",
+    "Rise18s/recovery45s are not literature-derived time constants; Cole only supplies recovery direction and definition."
+  ]
+}

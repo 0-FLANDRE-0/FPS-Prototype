@@ -1,0 +1,147 @@
+{
+  "sources": [
+    {
+      "id": "tc",
+      "classification": "출처",
+      "title": "TC 3-22.9 Rifle and Carbine, 13 May 2016, Change 3 July 2019",
+      "url": "https://archive.org/download/arn-19927-tc-3-22x-9-c-3-final-web/ARN19927_TC_3-22x9_C3_FINAL_WEB.pdf",
+      "publisher": "Headquarters Department of the Army; public mirror of Army document",
+      "page": "7-12 §7-36 (PDF130), E-2 §E-9/10 (PDF216)",
+      "quotes": [
+        "The 300 meter zero is the Army standard and works in all tactical situations, including close quarters combat.",
+        "The only way to rely on a 300-m hit, is to confirm a 300-m zero."
+      ],
+      "application": "M4 iron and XPS3 manual adoption; no independently verified EOTECH XPS3 zero recommendation",
+      "httpStatus": 200,
+      "bytes": 14328641,
+      "sha256": "268941c0ed41e71e6aa838e39a84f54b7cde853d66f75852b95469f0f0344354",
+      "checkedAt": "2026-10-11 UTC"
+    },
+    {
+      "id": "acog",
+      "classification": "출처",
+      "title": "Trijicon 4x32 .223 Chevron Reticle Dimensions",
+      "url": "https://www.trijicon.com/uploads/product-uploads/product-downloads/223_Chevron_Reticle_Dimensions4x32.pdf",
+      "page": "PDF1",
+      "quotes": [
+        "ZERO at 100m"
+      ],
+      "application": "TA31-D-100309 among SKUs on drawing; chevron tip at optic axis",
+      "httpStatus": 200,
+      "bytes": 86678,
+      "sha256": "abddcabce31007b7f9f183905ea808e328bb46ab4df41f73a040bd851bce88c7",
+      "checkedAt": "2026-10-11 UTC"
+    },
+    {
+      "id": "vudu",
+      "classification": "출처",
+      "title": "EOTECH Vudu SR2/SR3 VD1905 RevB, April 2021",
+      "url": "https://cdn.shopify.com/s/files/1/0698/3044/3191/files/Vudu_Reticle_Manual_SR2-3_RevB_98e2cd9b-6729-466e-91da-e502b3c21fdc.pdf?v=1763358308",
+      "page": "printed8 (PDF8), printed9 (PDF9)",
+      "quotes": [
+        "All drops are calculated with a 100 yard zero.",
+        "75 grain, 2900 fps, .395 BC, 1.5\" sight height"
+      ],
+      "application": "SR3 center; source BTHP differs from game M855 mass 4.02g and speed879m/s",
+      "httpStatus": 200,
+      "bytes": 416139,
+      "sha256": "6e510daea3dfe303b57c56c84c68bcc245895c9315d2ffc14be499113f05d878",
+      "checkedAt": "2026-10-11 UTC"
+    },
+    {
+      "id": "ak",
+      "classification": "출처",
+      "title": "AK74/RPK74 Руководство, Voenizdat 1984 (2nd stereotyped edition)",
+      "url": "https://ru.djvu.online/file/VdNjJdWnyUBdn",
+      "retrieval": "https://r.jina.ai/https://ru.djvu.online/file/VdNjJdWnyUBdn",
+      "representation": "public source OCR transcription via reader, not independently scanned PDF",
+      "httpStatus": 200,
+      "bytes": 362166,
+      "sha256": "4d4b50590fe5eb3406d8fd98ec7d60ebc2cd660b3fc4a63c5c3b6fcc2f0e5977",
+      "checkedAt": "2026-10-11 UTC",
+      "page": "§13 pp39–40; §80–81 pp98–99; Appendix4(a) p190",
+      "quotes": [
+        "У автомата, кроме того, на прицельной планке нанесена буква «П» — постоянная установка прицела, примерно соответствующая прицелу 4 (дальности стрельбы 440 м).",
+        "Дальность стрельбы 100 м, прицел 3, целик 0.",
+        "выше точки прицеливания при стрельбе из автомата на расстоянии 13 см"
+      ],
+      "table": "Appendix4(a): distance columns50/100/150/200/250/300/350/400m; sight4 row11/24/33/38/37/32/20/0cm",
+      "application": "P approximately sight4 per text; use source sight4 +24cm at100m as explicit manual adoption. Normal-fire check +13cm is sight3, never mislabeled P. P-specific exact 100m mean offset not supplied."
+    }
+  ],
+  "presets": [
+    {
+      "weaponId": "m4a1",
+      "distanceM": 300,
+      "offsetM": 0,
+      "referenceAmmoId": "556_m855",
+      "sourceId": "tc",
+      "sightPoint": "iron marker line",
+      "classification": "출처 준용"
+    },
+    {
+      "weaponId": "m4a1",
+      "opticId": "eotech_xps3_0",
+      "distanceM": 300,
+      "offsetM": 0,
+      "referenceAmmoId": "556_m855",
+      "sourceId": "tc",
+      "sightPoint": "central dot / optical axis",
+      "classification": "교범 준용"
+    },
+    {
+      "weaponId": "m4a1",
+      "opticId": "trijicon_ta31",
+      "distanceM": 100,
+      "offsetM": 0,
+      "referenceAmmoId": "556_m855",
+      "sourceId": "acog",
+      "sightPoint": "chevron tip / optical axis",
+      "classification": "출처 준용"
+    },
+    {
+      "weaponId": "m4a1",
+      "opticId": "vudu_1_6x24",
+      "distanceM": 91.44,
+      "offsetM": 0,
+      "referenceAmmoId": "556_m855",
+      "sourceId": "vudu",
+      "sightPoint": "central dot / optical axis",
+      "classification": "출처 준용"
+    },
+    {
+      "weaponId": "ak74m",
+      "distanceM": 100,
+      "offsetM": 0.24,
+      "referenceAmmoId": "545_ps_gs",
+      "sourceId": "ak",
+      "sightPoint": "iron marker line, P approximately4",
+      "classification": "교범 준용: П≈4, 표4(a)의4/100m+24cm",
+      "normalFireCheck": {
+        "sightSetting": "3",
+        "distanceM": 100,
+        "offsetCm": 13,
+        "applied": false
+      },
+      "pApproximation": true
+    }
+  ],
+  "pending": [],
+  "originalValues": {
+    "classification": "원본",
+    "velocity": "unchanged catalog + shotBallistics",
+    "dragRetention": ".94 /100m rifle_light unchanged",
+    "gravity": 9.81,
+    "flight": "existing RK4/chord arrival, no changed equations"
+  },
+  "tuning": {
+    "classification": "튜닝",
+    "geometry": "unchanged supplied model markers and existing rail mounts, scale1 stationary ADS",
+    "sprintEntry": 0.97,
+    "sprintExit": 0.82,
+    "solverToleranceMm": 0.1,
+    "zeroAngle": "numerical result from game model, not real-world measured rifle angle",
+    "akPMapping": "Explicit approximate P→4 adoption from §13; exact P-specific100m offset not available"
+  },
+  "visualAlignment": "v29 ADS marker alignment retained under visualAlignment. No sightCorrection in ballistic direction. Apply theta once about weapon +X starting from actual sight axis, rather than barrel -Z."
+}

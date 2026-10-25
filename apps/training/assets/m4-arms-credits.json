@@ -1,0 +1,10 @@
+{
+  "title": "Animated FPS M4A4",
+  "author": "JUST",
+  "authorUrl": "https://sketchfab.com/teenjust500",
+  "sourceUrl": "https://sketchfab.com/3d-models/animated-fps-m4a4-a82fbbb731724390bc88d38940b8b01c",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "sourceSha256": "0e0a35ce7405386725486159ec0b216fa94630523f8381f083c40b46a254faa0",
+  "changes": "Retain the four original arm/hand meshes, 113-joint skin and Hide/Reload/Shoot/Take clips. Exclude M4A4 gun meshes, textures and display/camera nodes; retain the existing M4A1 gun. Normalize arm frame to meters; compact accessor data byte-exactly; resolution-preserving WebP with near-lossless q20 normals. One arm mesh/skeleton/texture set shared by M4 and AK; native AK palm/finger motions retargeted by anatomical hand frames. Redundant animation keys removed with retained key bytes and clip endpoints intact (local 0.01mm translation, 1e-5 scale, 1e-4 rad rotation limits). Runtime body-anchored connected arm IK, native hand/finger poses, magazine/bolt-catch contact adaptation and native-timed reload, full hide/draw and source rifle handling poses. Native firing/camera recoil excluded; existing gameplay aim/recoil authoritative. Source GLB preserved. v28 resolution-preserving second-stage q90 material/q92 color recompression per uploaded side-optics kit. Original uploads and historical first-stage derivatives retained."
+}

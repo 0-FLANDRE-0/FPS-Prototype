@@ -1,0 +1,17 @@
+import {Group,BufferGeometry,Float32BufferAttribute,LineSegments,LineBasicMaterial,CanvasTexture,Sprite,SpriteMaterial,Vector3} from 'three';
+import {KH_PORTALS} from './killhouse-config.js';
+export class AI1Debug{
+ constructor(scene){this.root=new Group();this.root.name='AI1 senses / known evidence';scene.add(this.root);this.labels=new Map();this.next=0;}
+ clear(){for(const n of [...this.root.children]){n.geometry?.dispose();if(n.material){n.material.map?.dispose();n.material.dispose();}this.root.remove(n);}this.labels.clear();}
+ update(enemies,time){if(!enemies.length){this.root.visible=false;return;}this.root.visible=true;if(time<this.next)return;this.next=time+.1;
+  for(const n of [...this.root.children])if(!n.isSprite){n.geometry.dispose();n.material.dispose();this.root.remove(n);}const points=[],colors=[],add=(a,b,c)=>{points.push(...a,...b);colors.push(...c,...c);},cross=(p,c)=>{for(const axis of[0,1,2]){const a=[...p],b=[...p];a[axis]-=.08;b[axis]+=.08;add(a,b,c);}};
+  const active=new Set(enemies.map(e=>e.actor.id));for(const[id,l]of this.labels)if(!active.has(id)){l.material.map.dispose();l.material.dispose();l.removeFromParent();this.labels.delete(id);}
+  for(const e of enemies){if(e.collapsed)continue;const eye=e.pose.eye(e.actor).toArray(),s=e.senses?.snapshot(time),aim=e.aimController?.snapshot();if(!s)continue;
+   for(const ray of s.rays){if(!ray.inFov)continue;add(eye,ray.point,ray.clear?[.1,1,.2]:[1,.15,.1]);}let previous=null;for(let n=0;n<=24;n++){const a=e.actor.yaw-Math.PI/3+n/24*Math.PI*2/3,p=[eye[0]+Math.sin(a)*7,eye[1],eye[2]+Math.cos(a)*7];if(n===0||n===24)add(eye,p,[.4,.6,1]);if(previous)add(previous,p,[.4,.6,1]);previous=p;}
+   if(s.target)cross(s.target.point,[.1,1,.2]);if(s.memory)cross(s.memory.point,[1,.75,.1]);if(e.lastHeardNoise)cross(e.lastHeardNoise.estimatedPosition,[.1,.8,1]);if(aim?.target){cross(aim.target,[1,.2,1]);add(e.shotPose.origin.toArray(),aim.target,[1,.2,1]);}
+   let sprite=this.labels.get(e.actor.id);if(!sprite){const c=document.createElement('canvas');c.width=512;c.height=224;const texture=new CanvasTexture(c);sprite=new Sprite(new SpriteMaterial({map:texture,depthTest:false}));sprite.scale.set(2.5,1.09,1);sprite.renderOrder=100;this.root.add(sprite);this.labels.set(e.actor.id,sprite);}const c=sprite.material.map.image,ctx=c.getContext('2d');ctx.clearRect(0,0,512,224);ctx.fillStyle='rgba(0,10,5,.85)';ctx.fillRect(0,0,512,224);ctx.fillStyle='#c7f6cd';ctx.font='23px monospace';const err=aim?.errors;for(const[n,line]of[`${e.actor.id} ${e.skill.id} ${e.decision.state} / ${e.decision.style}`,`발견 ${(s.gauge*100).toFixed(0)}% 노출 ${(s.exposure*100).toFixed(0)}%`,`인지 ${err?.perceptionM.toFixed(2)}m 앞보기 ${err?.leadM.toFixed(2)}m`,`동작 ${err?.motorErrorDeg.toFixed(1)}° 흔들림 ${err?.swayDeg.toFixed(2)}°`,`반동 ${((err?.recoilPitchRad||0)*180/Math.PI).toFixed(2)}° 제압 ${err?.suppression.toFixed(2)}`].entries())ctx.fillText(line,12,34+n*35);ctx.fillStyle='#55d883';ctx.fillRect(12,207,488*s.gauge,7);sprite.material.map.needsUpdate=true;sprite.position.set(eye[0],eye[1]+.7,eye[2]);
+  }
+  if(enemies.some(e=>e.actor.at[0]>120))for(const p of KH_PORTALS){const[x,y,z]=p.center;add([x,y-.8,z],[x,y+.8,z],[.1,1,1]);cross(p.center,[.1,1,1]);}
+  const g=new BufferGeometry();g.setAttribute('position',new Float32BufferAttribute(points,3));g.setAttribute('color',new Float32BufferAttribute(colors,3));this.root.add(new LineSegments(g,new LineBasicMaterial({vertexColors:true,transparent:true,opacity:.8,depthTest:false})));
+ }
+}

@@ -1,0 +1,903 @@
+{
+  "version": "B1c/v45",
+  "baseline": "a3e974fbfc93a82a3a8bcacd1259673cf5423ad7",
+  "runtimeSourceCommit": "1bfc3bc3694afe7d297490c6ffd6153a88c90ea9",
+  "sourceHashes": {
+    "apps/training/src/aim.js": "0fafe480f9ad50978fa26d0017acf94aca319046a6a258c49402f08e85104dd3",
+    "apps/training/src/arm-ik.js": "752a42c89648506e458f904c1fbe31501fbd6bd5a86233e1eaf5b12704e090d7",
+    "apps/training/src/armor-geometry.js": "cbcd568d216d7fc7b9ef7bf0431ee9c4eadbaa0ba41f78d24b47bd2888215e53",
+    "apps/training/src/armor-model.js": "3ea82f17020aedfc42be7833cfd42b4e1d10fe14313540b04fef1532218f727f",
+    "apps/training/src/armor-targets.js": "7a8c53bc9250eea8fd577ebfba89b72bf5367a15d3e81fea37076993b4779504",
+    "apps/training/src/ballistics.js": "48fb4ba60356141f29cab4ea5e5e01bda91878c8eda9c4e75c86febe8700e2ef",
+    "apps/training/src/body-channel.js": "0eec61abe26ff2398129f958063b34b90824972cb1ec1f95c6a5a4247cff63be",
+    "apps/training/src/body-path.js": "d93222fcbf7fba2985262e6c601143ad9975fbb5f9127c3ee63e1fc97bae4287",
+    "apps/training/src/catalog.js": "53d2df26c313edc73871a42c4e0869ff4de243059e8fcb236fdbb6da85a0e70f",
+    "apps/training/src/collapse-target-playback.js": "1c0baa9101940ab7bb40a4e647ab028df4514fa7cb2f7069e8f21da12bb25d1a",
+    "apps/training/src/combat-actions.js": "5955b0ca037d55e716cb4cf87fa11094f9198fa53eedae4852016f838506a5e6",
+    "apps/training/src/combat-actor.js": "9b094ce6cca2bedac8fad8f653ed0b271ad46e6ed5ce76b96e940aeabb59e8e6",
+    "apps/training/src/combat-config.js": "36a81dcb34758ac3178be4674344c2e9777a5cb5c607b4d6e1874fd839decc44",
+    "apps/training/src/combat-decision.js": "6173af99f52e67a8f98d9f13d5e1c6dbf70d6f079a392115bf9db2aa21f3669a",
+    "apps/training/src/combat-mass.js": "95355c3efe6ed0a2a8328f4f3fab1d098706f8f92ffa5c1f1c62f75c4a43bad6",
+    "apps/training/src/combat-physics.js": "d980b53499272e24d4ec1f33ef33f4fd12812a14e8dedda72596160e4f2d764d",
+    "apps/training/src/combat-pose.js": "c374d516f0f5430a63f5080458eb87a84ad2e690734374be50118cbd9ffaa3ac",
+    "apps/training/src/combat-profile.js": "80219a43c63e70ab00a2bd9f52c9050eb1d13f2c02c49813e47aca5624891382",
+    "apps/training/src/combat-ragdoll.js": "885d1e1348c241b69a4586e06813de40e457671e210ed0f42af058a94f40c596",
+    "apps/training/src/combat-senses.js": "d5856071ddb0dccdc529a7019f92c9c8484609d94a9bd186d59aac1d2b3b3582",
+    "apps/training/src/combat-weapon.js": "f49ea5d64a7d65f1ea5ccb5d29cd42dc31d824dfa18bd414e86305546ec35998",
+    "apps/training/src/combat-zone.js": "3297a306bafaa42e5a8ffb091771ea503b5f3c9bb264399f603a70c1e3672381",
+    "apps/training/src/combat.js": "12c4dcbbf3b4f0611dc2e2af92b98ac6967db2e57c53fd2af42716fb00cf9cb5",
+    "apps/training/src/config.js": "e9a52ad59d15d34346c151b775672b5c669a751b66236cbf00704d0564faecc6",
+    "apps/training/src/damage-index-s3.js": "bd6964e270498750637c3f92593c91736df8de75caeb21f03bd49552677c5b3c",
+    "apps/training/src/debug-ammo-ui.js": "c4b02fdd03a03eb124da47eb68dcb3dc374c8aed75d687f66f2007a79a70587f",
+    "apps/training/src/debug-weapon.js": "d3fcc4bc6c8b93126dd83e24a7b42f739341d079ecd65c9fd461d5a4524c8ae8",
+    "apps/training/src/debug/retarget.js": "f5e35e27783bf97d6c652b1a61aa400b9b1ec5f488851968ba1fc9ec8686f549",
+    "apps/training/src/debug/soldier.js": "8001ae4ff3a8e89e5d36ad68a8497cd6a7897dd0d7d44c141a0b5bd4a33b8f8d",
+    "apps/training/src/enemy-combat-pose.js": "b998b4a7230d0eada13819697a3c760f70e9accb46086fb226a483640e097b15",
+    "apps/training/src/fall-brace.js": "1e8c7a09853554a413012a4fccc3e6206d563bc6bad10dde9e03830fed321744",
+    "apps/training/src/flight.js": "27042bfffdd218714925e3e830b463faccbc7291e86529dfbe0ce2e3f82584a6",
+    "apps/training/src/fps-arms.js": "a756d377c3d2e4faadece5b5d157cb7043e31f09acdfacbfbcf9634c3cbfc1b0",
+    "apps/training/src/fps-run-pose.js": "4a9582e4d5a6427526abf87627680f074d310d7ef398df9a6ba7fbdb89790b6d",
+    "apps/training/src/fps-shared-arms.js": "837b7f71499246fd253c6797f402a577a22e1fecb9bd2ca7bce35261ee04e354",
+    "apps/training/src/fx.js": "f9cd974df4b787c7666e7a5193d6cbad07f24ca487f8f24b441560e0349ecda6",
+    "apps/training/src/generated/armor-mesh.js": "4808f97aa24cb894cac73ab4f2b14d2d5e06342e318ae3f686b9d18acc922741",
+    "apps/training/src/generated/body-mesh.js": "07632fb9bd21ac0eb7563e0a63b8eb0d881bea4c48a13d212abd5a0758606424",
+    "apps/training/src/generated/catalog.js": "1df78c8cf14f9934bb92f44a08f11b6d79a4f7f76442ed6d87fcdbc96b308b6c",
+    "apps/training/src/generated/enemy-animations.js": "41409cb592f1bc0e60f4cf0639e7720475bf0734e5d0187cecd7e65833aa15a6",
+    "apps/training/src/generated/flight-tuning.js": "0a66beef37b775afba75bc6941e2350293d819dae90e1004a555b4e5508318ed",
+    "apps/training/src/generated/head-mesh.js": "6b9e24de98201c93b59781045911d394cd71a2894b28ea89796ff3aee934a6aa",
+    "apps/training/src/generated/legacy-ballistics.js": "5eb90b823cd3efde263b4d18b9d6b12cb70cac33cf751a5e4f338e98f6f7eeee",
+    "apps/training/src/generated/legacy-flight.js": "0ddf55358665149457fa398d37c57074bf2fb10625d890a2723770bd609680b0",
+    "apps/training/src/generated/legacy-medical.js": "7c0769badd0ffdeb63dfab53a9e048a169ce7ac6da24baf21eb8585ed519d448",
+    "apps/training/src/generated/legacy-protection.js": "371ed0acdff5a68d9b98e1d80a6dcd1eb68e45927ae3c68765ac73e9e27b6def",
+    "apps/training/src/generated/soldier-ak-grip.js": "633515f6e8bf81b9e2d940579a17ac4f8a11a3250234f7c8e5d514c043916980",
+    "apps/training/src/generated/soldier-fingers.js": "b89d8376a0fccaf58af2de5354464bfc276f1ceb351db958993ab2b6291d891f",
+    "apps/training/src/generated/wound-profile-map.json": "6d714418a7fb8ab3efcbc50366b3a64c65cefd4f9dcfe4f6646867916359d650",
+    "apps/training/src/generated/zeroing.js": "6639984c5f28df8e9a4b2fc0a92e5d4b8a27bf6943efb4b56a1bde83f1a6d5c1",
+    "apps/training/src/handling-animation.js": "ebd643fea5a7e2975ed5c54719ce058ac8febe29175aacaf9fc6fd712517b887",
+    "apps/training/src/helmet-ricochet.js": "6347af971497c98ffd337ab28157a91d84829a5e8f0bcf631a2b617ee2b20ee1",
+    "apps/training/src/human-model.js": "e21872d52b6bc35848191aa66acf8dbb46c466ac74deb30fce1b3b2cf15ed907",
+    "apps/training/src/human-targets.js": "cfceb58ac3b4a273eb410bc55b5240cb9cf7400b1b7e25ddf915fc5abec08bbd",
+    "apps/training/src/input.js": "83064efa125846e568328b70fe6076e2e4a2cc62df19dbce6c89727240ffe023",
+    "apps/training/src/internal-anatomy.js": "165a0909785e2e19bc82e78be4e66794070a91eb406983c6817bc19531e7973f",
+    "apps/training/src/internal-model.js": "bb852d17af46cb7b302292395dc8ab13d448965f2a4821f06c7fc4c223a99416",
+    "apps/training/src/internal-profile.json": "6aea62b85db1dcc6a0522e4a27b4cd5c28acd261a65b2ed42439e8c392adc6a4",
+    "apps/training/src/inventory-ui.js": "eeef387d71c663fc6f6e70bc638ca1efa825bad7fa804309f9c15981adb8a820",
+    "apps/training/src/inventory.js": "5ae17bb23740409bfed1102fd4805fe93fa3cb57fc9edb15c908b506c314fd67",
+    "apps/training/src/lean.js": "bb3b60034e57edf6bddbeb7451811c897a82215107edf5306ebd1c3b437e113c",
+    "apps/training/src/lens.js": "438232fdcdeafdee091773be8ddb457a5c3b905cb8fcbe8348074c88de43f6c7",
+    "apps/training/src/main.js": "a76d516b411e71b6b5364679fcf3b9bd76429cc4fa6a2bed9bd799802ab98521",
+    "apps/training/src/medical-address.js": "5c8acc581229123cf3890f60f1b74a28f5f75e42aab534e62840f91782ba35be",
+    "apps/training/src/medical-b1.js": "bde5a51f67027bf360899feac83db125442f3f1b9b139dfc3e7f96561a773dd9",
+    "apps/training/src/medical-b1b.js": "3730be866c09eea323600caef0a8c7a925f50cf3a2bf99a9bc761b0468dca1e5",
+    "apps/training/src/medical-b1c.js": "2d74b28be6d3a50f69605284910c11e201978dd15fdfb397865b7ea86f6f7c44",
+    "apps/training/src/medical-panel.js": "2dbe4e71bf3cdbe4f3be55a1c8d6d37b5f24c60476ab884488331bfbeb767d93",
+    "apps/training/src/medical-r.js": "a3ca0187cde01c81d8c3bc2c22e18b52a838c4b6f8118ee2fccb9dc535338caf",
+    "apps/training/src/medical-r2.js": "6c4791d66d6ac4dd5abc8053a94a216c09af88f18afaca791ce5ab9088a13a84",
+    "apps/training/src/medical-s0.js": "aa1265745b8e20734943f36a4fd7d35c24bff18939b141b08e6c174f76072b50",
+    "apps/training/src/medical-s1-effects.js": "7113951c6185aabd54cd7ec4f78cdc7856b0ae2620990528b001d947b240f0ac",
+    "apps/training/src/medical-s2-effects.js": "585f891d33c50f61b24061838c01608d52d6ca0c91eb536618a765a7e858dbe7",
+    "apps/training/src/medical-s3-effects.js": "2f640a75522bac0a999279e2eca986979d239955635b57ea3415c7e35e401e7c",
+    "apps/training/src/medical-s3b-effects.js": "301f2201af6f0c97b267b0ee96e09ca286b64709595f9841398c63b6b98dae1a",
+    "apps/training/src/medical-v2.js": "a5d0452628550af0e91b2824065df035fcfae4314a94f14b7a47c9ccda7ea1f9",
+    "apps/training/src/medical.js": "4b83e7b3f9b47ae44729f208db9e0d55db655cb4f38c7383fe8650aebfa6223f",
+    "apps/training/src/muscle-data.js": "cbddfbcde4d034b93f7c171449e890d0155d01890c3813ceee68658d81abaa6f",
+    "apps/training/src/optic-acog-reticle.js": "b933719a39a8c26af6efdb00a535493b57ff198b7ad2545849e469b0ce2efc4b",
+    "apps/training/src/optic-data.js": "f161bfa5c0955f5d4151db43ccf7b31f3b0b9baefa53b68db116521de9b79fad",
+    "apps/training/src/optic-focus.js": "0dd284c66c13d44225bdf658f0b170e9c955e59e4a3da5bf0328797d2eaf7fb7",
+    "apps/training/src/optic-holo-shader.js": "ade92d222633cea76a2987b2536d06889b198552006e0e1cc94bc1c384f939f6",
+    "apps/training/src/optic-holo.js": "2bac4d7e99088465870671a1fec30759acfc075e19a9ef90b76a63655c9af2de",
+    "apps/training/src/optic-model.js": "6e3aac0b70383589b30186ccd52af96f6e50d5b2ac06f7f7501a67ebb7226313",
+    "apps/training/src/optic-optics.js": "e41f8e1cfc36bf73ca7bdd906981bae6381ce8d750257cc9567be3eb519827be",
+    "apps/training/src/optic-render.js": "a37873f322dadb55eac048ee12ec68718795699ba3aa52fc8f724856024bf9b2",
+    "apps/training/src/optic-reticle.js": "04996b2c83c0076417f87f41a330941eb925126fd41b121dc186cfac6617f63a",
+    "apps/training/src/optic-specs.js": "b8f5a16e9b070fe4386245fa35b7d096b1c1e3e6dd831978e962d66d693f4570",
+    "apps/training/src/physics.js": "7c2238c36932c5bcdf6c8a9419428556c12ddff790d28e02ca25c3d0203ff400",
+    "apps/training/src/protection.js": "80bf08d578682da2adda1f2c9f17c903af060e15dd92684031c291f961db8de1",
+    "apps/training/src/ragdoll-data.js": "adc83bd28a48dcad9384ff4381ba11ec359194b85793ed5c0850ad86255de782",
+    "apps/training/src/ragdoll-settling.js": "0b912eec19f3f7357a71f8b76474a6bca5227f2332fdb857061de26def08a724",
+    "apps/training/src/ragdoll-stability.js": "101c7730247987a79cbfc699d34877534bcbf726f3ecbe9474c13879650eaca5",
+    "apps/training/src/recoil.js": "75282354953586cf582be0b248c5c247cd6b0bf606b974e52155c57dfae6cfba",
+    "apps/training/src/scene.js": "6fb3cb0f0f5d7a7594c31ab2b122d6cce25fbe3a1c83948513f6823b1f110f1e",
+    "apps/training/src/settings.js": "31dd2ba35e1c2c41d2770903faa91b5f37fa915b995763c58a228c7118f29592",
+    "apps/training/src/sight-geometry.js": "e79d25d8914b0b707d3a9979550ed785ba3b05424eea52aa971a0106c46e463f",
+    "apps/training/src/soldier-grip.js": "ee84bbe444a8dcad8f6b31780a8c4408abcd1da061a783b8778dadcfb5a5cb3c",
+    "apps/training/src/soldier-rig.js": "f58b64190f8b0790e78325dc3ecdbffc86af9d4818a339ad41bd3d45c8448f0a",
+    "apps/training/src/sprint.js": "8ef37c0f95a1ea95b79dfee63ef400be1fb1e84e60f80b6e73973b39a34f28d4",
+    "apps/training/src/strength-ragdoll.js": "a9481510685e9c8acb6122381729615a82f8e1565142ea126fef7c2d625a3e75",
+    "apps/training/src/trajectories.js": "c59f715cab6de356c88f6444a4a3a81b715cb92ce1aceb49be1149db948e6936",
+    "apps/training/src/weapon-data.js": "76b73b731aaeb7c704124f2bd606b348204d6a61b383609e7eedf16966504ad7",
+    "apps/training/src/weapon-model.js": "50aec2a21fdae86c48043f3ecb1064b3c2b361b637a684af6ac110a246ceba86",
+    "apps/training/src/wound-channel.js": "a3abf8c206bc469780943aa27dae9c2e0e5f6e15716ad753523df16c2f670083",
+    "apps/training/src/wound-s3-types.js": "716e3353cd1f8fb6d7e00a9ff73afd598f74d11408db9e7bb95715c06b293869",
+    "apps/training/src/zeroing.js": "10461151aca27b6a54a3d77b17498d5b2df478b95669a90f0b039ab800514f0c"
+  },
+  "automatic2DPort": false,
+  "entries": [
+    {
+      "id": "organ_sources",
+      "classification": "버그수정/튜닝",
+      "rule": "parenchymal/<geometryId> 하나, 여러 woundIds/lesions로 연결. 합친severity=1−Π(1−각severity), 정확한공간union이아닌확률적중복근사. 매장기flow는현재관류이하.",
+      "evidence": "userB1c§1",
+      "2D 역이식 후보": "예",
+      "dependenciesFor2D": "Manual bleeding-source/lesion union+CO adapter and ratio-anatomy layer; new compatibility identifiers not existing2Ddeclarations"
+    },
+    {
+      "id": "parenchymal_rate",
+      "classification": "사용자 설계값",
+      "rule": "현재CO×원래장기비율×(2/3)×합친유효심각도. active gain3 제거, B1b함수/값은역사호환용으로만남김.",
+      "evidence": "userB1c§2; inheritedflowreferences",
+      "2D 역이식 후보": "예",
+      "dependenciesFor2D": "Manual bleeding-source/lesion union+CO adapter and ratio-anatomy layer; new compatibility identifiers not existing2Ddeclarations"
+    },
+    {
+      "id": "natural_closure",
+      "classification": "원본+튜닝",
+      "rule": "기존.10/180s유지. 합친기본severity≤.10일때각lesion이180s지수감소. .10초과는중지. 이전에닫힌lesion은새피격으로재개방하지않음. 유효union으로출혈/상처별가중배분.",
+      "evidence": "v44hemostasisthresholds;aggregationtuning",
+      "2D 역이식 후보": "예",
+      "dependenciesFor2D": "Manual bleeding-source/lesion union+CO adapter and ratio-anatomy layer; new compatibility identifiers not existing2Ddeclarations"
+    },
+    {
+      "id": "other_organ_beds",
+      "classification": "버그수정/튜닝",
+      "rule": "B1부터장기별ID공유는있었으나8mm²×severity면적단순합산. 이제각닫힌lesionseverity의union×8mm², 기존정맥압/45s노출/1.7지역cap보존, 현재가정관류.20CO도상한. 실제장기도형lung2/heart/bowel, stomach/bladder처리코드는있지만도형은없음.",
+      "evidence": "medical-b1 originalbed; B1c§1",
+      "2D 역이식 후보": "예",
+      "dependenciesFor2D": "Manual bleeding-source/lesion union+CO adapter and ratio-anatomy layer; new compatibility identifiers not existing2Ddeclarations"
+    },
+    {
+      "id": "hepatic_portal_shapes",
+      "classification": "출처+튜닝",
+      "rule": "기존75무관도형원문+기존IVC원래경로접두보존하고hepatic-vein-trunk/portal-vein만추가. abdomen/spine소유비율캡슐사슬,각기본지름9.45mm(해부학대표참고+게임피팅). 간정맥하위3개를대표줄기로근사.",
+      "evidence": "hepatic-adult-ct;hepatic-confluence;portal-adult-male;liver-vascular-course",
+      "2D 역이식 후보": "예",
+      "dependenciesFor2D": "Manual bleeding-source/lesion union+CO adapter and ratio-anatomy layer; new compatibility identifiers not existing2Ddeclarations"
+    },
+    {
+      "id": "retrohepatic_ivc",
+      "classification": "원본/검사",
+      "rule": "체형1.1검사에서원래IVC의간상단투영일부미포함확인. 기존abdominal-vena-cava에정규화상단.85→.97구간추가. 기존12segments/지름/경로는그대로,새12segments는동일R1피팅. 같은ID/출혈원1개유지,중복IVC없음.원래retroperitoneal분류상속.",
+      "evidence": "R1originalratio + geometry.ivcCoverage",
+      "2D 역이식 후보": "예",
+      "dependenciesFor2D": "Manual bleeding-source/lesion union+CO adapter and ratio-anatomy layer; new compatibility identifiers not existing2Ddeclarations"
+    },
+    {
+      "id": "new_vein_bleeding",
+      "classification": "원본+출처+튜닝",
+      "rule": "CdA√(2P/rho),간정맥5mmHg/문맥8mmHg(출처5–10내튜닝),majorNamed정맥자연지혈없음,peritoneal/intra_abdominal.기존정맥지역cap×1.7유지. 정상유량참고간정맥.25/문맥.20referenceCO는장기유입분할근사튜닝;전체현CO상한유지. 공동접촉은contusion뿐.",
+      "evidence": "portal-pressure-and-supply;B1/B1bvenousmodel",
+      "2D 역이식 후보": "예",
+      "dependenciesFor2D": "Manual bleeding-source/lesion union+CO adapter and ratio-anatomy layer; new compatibility identifiers not existing2Ddeclarations"
+    },
+    {
+      "id": "preserved_core",
+      "classification": "원본보존",
+      "rule": "2D/src/generated선언/모든자산/옛75도형과기존IVC경로접두/상처통로·HP수식/C/펌프/심정지trigger와원인분류보존. 새정맥도형이기존혈관조직가중치.12로인한유효부피/HP결과차이는별도기록,계산식수정없음.",
+      "evidence": "originalv44codebyteproof;matrix+684kernelpairs",
+      "2D 역이식 후보": "예",
+      "dependenciesFor2D": "Manual bleeding-source/lesion union+CO adapter and ratio-anatomy layer; new compatibility identifiers not existing2Ddeclarations"
+    }
+  ],
+  "validation": {
+    "singles": 56,
+    "pureControls": 16,
+    "allR2InvariantsPassed": true,
+    "invariants": [
+      {
+        "name": "liver-central",
+        "ammoId": "545_ps_gs",
+        "arrestTime": 571.0333333333333,
+        "lossPercent": 45.53305457342391,
+        "passed": true
+      },
+      {
+        "name": "carotid",
+        "ammoId": "545_ps_gs",
+        "arrestTime": 255.73333333333332,
+        "lossPercent": 45.619329131982525,
+        "passed": true
+      },
+      {
+        "name": "femoral-complete",
+        "ammoId": "545_ps_gs",
+        "arrestTime": 86.56666666666666,
+        "lossPercent": 45.621954254642674,
+        "passed": true
+      },
+      {
+        "name": "femoral-partial",
+        "ammoId": "545_ps_gs",
+        "arrestTime": 86.36666666666666,
+        "lossPercent": 45.622126487336665,
+        "passed": true
+      },
+      {
+        "name": "liver-central",
+        "ammoId": "556_m855",
+        "arrestTime": 590.2833333333333,
+        "lossPercent": 45.53253608127197,
+        "passed": true
+      },
+      {
+        "name": "carotid",
+        "ammoId": "556_m855",
+        "arrestTime": 241.51666666666668,
+        "lossPercent": 45.62062481455189,
+        "passed": true
+      },
+      {
+        "name": "femoral-complete",
+        "ammoId": "556_m855",
+        "arrestTime": 88.03333333333333,
+        "lossPercent": 45.62221856648241,
+        "passed": true
+      },
+      {
+        "name": "femoral-partial",
+        "ammoId": "556_m855",
+        "arrestTime": 86.36666666666666,
+        "lossPercent": 45.622126487336665,
+        "passed": true
+      },
+      {
+        "name": "arm-muscle",
+        "ammoId": "545_ps_gs",
+        "passed": true
+      },
+      {
+        "name": "arm-muscle",
+        "ammoId": "556_m855",
+        "passed": true
+      }
+    ],
+    "matrix": {
+      "cases": 240,
+      "timingChanges": 10,
+      "hpGeometryChangeCases": 16,
+      "hpChangedParts": 16,
+      "maxAbsoluteHpDifference": 0.8923877511881244,
+      "heart": {
+        "cases": 8,
+        "unconsciousSeconds": [
+          8.65,
+          8.65,
+          8.666666666666666,
+          8.666666666666666,
+          8.65,
+          8.65,
+          8.666666666666666,
+          8.666666666666666
+        ],
+        "passed": 8
+      }
+    },
+    "abdomen": [
+      {
+        "version": "v42",
+        "firstSecondLossMl": 230.27101666666658,
+        "downS": 10.533333333333333,
+        "unconsciousS": 13.75,
+        "arrestS": 15.116666666666667,
+        "arrestReason": "hemorrhagic_shock",
+        "sourceCount": 0,
+        "sources": [],
+        "oldWoundAggregates": [
+          {
+            "woundId": "w1",
+            "part": "abdomen",
+            "externalMlS": 10.333,
+            "internalMlS": 59.826,
+            "originalAorta": {
+              "diameterM": 0.01574999950826168,
+              "openingAreaM2": 2.337933836905835e-05,
+              "orificeMlS": 70.1097398352425,
+              "flowCapMlS": 148.75,
+              "sourceFlowMlS": 70.1097398352425,
+              "severity": 0.12,
+              "diameterSource": "fitted original anatomical collider; game tuning, not measured human vessel lumen",
+              "seedMlS": 35.05486991762125,
+              "classification": "tuning: orifice model, assumed opening fraction and compensatory flow cap; existing MAP pulse retained"
+            },
+            "vascularEvidence": {
+              "riskPercent": 0,
+              "level": "confirmed",
+              "vesselClass": "major_named",
+              "suspectedVessels": [],
+              "probableVessels": [],
+              "confirmedVessels": [
+                "aorta_vessel_injury",
+                "vena_cava_vessel_injury"
+              ],
+              "evidenceStrength": 1,
+              "majorVessel": true,
+              "selfTamponadePossible": false,
+              "evidenceTags": [
+                "major_vessel_confirmed"
+              ],
+              "source": "confirmed_injury",
+              "vesselKinds": [
+                "artery",
+                "vein"
+              ],
+              "cavityDamage": [
+                "aorta_vessel_injury",
+                "vena_cava_vessel_injury"
+              ],
+              "cavityDamageSource": "S1 positive modeled cavity volume, not direct geometry"
+            },
+            "organs": [
+              {
+                "id": "bowel",
+                "kind": "organ",
+                "direct": false,
+                "severity": 0.4,
+                "permanentVolumeM3": 0,
+                "temporaryVolumeM3": 0.00024465400363599035
+              },
+              {
+                "id": "abdominal-aorta",
+                "kind": "vessel",
+                "direct": false,
+                "severity": 0.12,
+                "permanentVolumeM3": 0,
+                "temporaryVolumeM3": 3.088066113954573e-05
+              },
+              {
+                "id": "liver",
+                "kind": "organ",
+                "direct": false,
+                "severity": 0.9,
+                "permanentVolumeM3": 0,
+                "temporaryVolumeM3": 0.00023893417643646898
+              },
+              {
+                "id": "abdominal-vena-cava",
+                "kind": "vessel",
+                "direct": false,
+                "severity": 0.1735599578876583,
+                "permanentVolumeM3": 0,
+                "temporaryVolumeM3": 4.3936021681630525e-05
+              },
+              {
+                "id": "right-kidney",
+                "kind": "organ",
+                "direct": false,
+                "severity": 0.9448894379667506,
+                "permanentVolumeM3": 0,
+                "temporaryVolumeM3": 2.9743373160297302e-05
+              }
+            ],
+            "bleedSourceIds": [],
+            "contusions": []
+          },
+          {
+            "woundId": "w2",
+            "part": "abdomen",
+            "externalMlS": 10.333,
+            "internalMlS": 59.826,
+            "originalAorta": {
+              "diameterM": 0.01574999950826168,
+              "openingAreaM2": 2.337933836905835e-05,
+              "orificeMlS": 70.1097398352425,
+              "flowCapMlS": 148.75,
+              "sourceFlowMlS": 70.1097398352425,
+              "severity": 0.12,
+              "diameterSource": "fitted original anatomical collider; game tuning, not measured human vessel lumen",
+              "seedMlS": 35.05486991762125,
+              "classification": "tuning: orifice model, assumed opening fraction and compensatory flow cap; existing MAP pulse retained"
+            },
+            "vascularEvidence": {
+              "riskPercent": 0,
+              "level": "confirmed",
+              "vesselClass": "major_named",
+              "suspectedVessels": [],
+              "probableVessels": [],
+              "confirmedVessels": [
+                "aorta_vessel_injury",
+                "vena_cava_vessel_injury"
+              ],
+              "evidenceStrength": 1,
+              "majorVessel": true,
+              "selfTamponadePossible": false,
+              "evidenceTags": [
+                "major_vessel_confirmed"
+              ],
+              "source": "confirmed_injury",
+              "vesselKinds": [
+                "artery",
+                "vein"
+              ],
+              "cavityDamage": [
+                "aorta_vessel_injury",
+                "vena_cava_vessel_injury"
+              ],
+              "cavityDamageSource": "S1 positive modeled cavity volume, not direct geometry"
+            },
+            "organs": [
+              {
+                "id": "bowel",
+                "kind": "organ",
+                "direct": false,
+                "severity": 0.4,
+                "permanentVolumeM3": 0,
+                "temporaryVolumeM3": 0.00024465400363599035
+              },
+              {
+                "id": "abdominal-aorta",
+                "kind": "vessel",
+                "direct": false,
+                "severity": 0.12,
+                "permanentVolumeM3": 0,
+                "temporaryVolumeM3": 3.088066113954573e-05
+              },
+              {
+                "id": "liver",
+                "kind": "organ",
+                "direct": false,
+                "severity": 0.9,
+                "permanentVolumeM3": 0,
+                "temporaryVolumeM3": 0.00023893417643646898
+              },
+              {
+                "id": "abdominal-vena-cava",
+                "kind": "vessel",
+                "direct": false,
+                "severity": 0.1735599578876583,
+                "permanentVolumeM3": 0,
+                "temporaryVolumeM3": 4.3936021681630525e-05
+              },
+              {
+                "id": "right-kidney",
+                "kind": "organ",
+                "direct": false,
+                "severity": 0.9448894379667506,
+                "permanentVolumeM3": 0,
+                "temporaryVolumeM3": 2.9743373160297302e-05
+              }
+            ],
+            "bleedSourceIds": [],
+            "contusions": []
+          },
+          {
+            "woundId": "w3",
+            "part": "abdomen",
+            "externalMlS": 14.339,
+            "internalMlS": 59.826,
+            "originalAorta": {
+              "diameterM": 0.01574999950826168,
+              "openingAreaM2": 2.337933836905835e-05,
+              "orificeMlS": 70.1097398352425,
+              "flowCapMlS": 148.75,
+              "sourceFlowMlS": 70.1097398352425,
+              "severity": 0.12,
+              "diameterSource": "fitted original anatomical collider; game tuning, not measured human vessel lumen",
+              "seedMlS": 35.05486991762125,
+              "classification": "tuning: orifice model, assumed opening fraction and compensatory flow cap; existing MAP pulse retained"
+            },
+            "vascularEvidence": {
+              "riskPercent": 0,
+              "level": "confirmed",
+              "vesselClass": "major_named",
+              "suspectedVessels": [],
+              "probableVessels": [],
+              "confirmedVessels": [
+                "aorta_vessel_injury",
+                "vena_cava_vessel_injury"
+              ],
+              "evidenceStrength": 1,
+              "majorVessel": true,
+              "selfTamponadePossible": false,
+              "evidenceTags": [
+                "major_vessel_confirmed"
+              ],
+              "source": "confirmed_injury",
+              "vesselKinds": [
+                "artery",
+                "vein"
+              ],
+              "cavityDamage": [
+                "aorta_vessel_injury",
+                "vena_cava_vessel_injury"
+              ],
+              "cavityDamageSource": "S1 positive modeled cavity volume, not direct geometry"
+            },
+            "organs": [
+              {
+                "id": "bowel",
+                "kind": "organ",
+                "direct": false,
+                "severity": 0.4,
+                "permanentVolumeM3": 0,
+                "temporaryVolumeM3": 0.00024465400363599035
+              },
+              {
+                "id": "abdominal-aorta",
+                "kind": "vessel",
+                "direct": false,
+                "severity": 0.12,
+                "permanentVolumeM3": 0,
+                "temporaryVolumeM3": 3.088066113954573e-05
+              },
+              {
+                "id": "liver",
+                "kind": "organ",
+                "direct": false,
+                "severity": 0.9,
+                "permanentVolumeM3": 0,
+                "temporaryVolumeM3": 0.00023893417643646898
+              },
+              {
+                "id": "abdominal-vena-cava",
+                "kind": "vessel",
+                "direct": false,
+                "severity": 0.1735599578876583,
+                "permanentVolumeM3": 0,
+                "temporaryVolumeM3": 4.3936021681630525e-05
+              },
+              {
+                "id": "right-kidney",
+                "kind": "organ",
+                "direct": false,
+                "severity": 0.9448894379667506,
+                "permanentVolumeM3": 0,
+                "temporaryVolumeM3": 2.9743373160297302e-05
+              }
+            ],
+            "bleedSourceIds": [],
+            "contusions": []
+          }
+        ],
+        "maxOrganFlowToPerfusionRatio": null
+      },
+      {
+        "version": "v43",
+        "firstSecondLossMl": 38.53224480506742,
+        "downS": 81.63333333333334,
+        "unconsciousS": null,
+        "arrestS": null,
+        "arrestReason": null,
+        "sourceCount": 6,
+        "sources": [
+          "organ-bed/bowel",
+          "organ-bed/liver",
+          "organ-bed/right-kidney",
+          "ooze/w1",
+          "ooze/w2",
+          "ooze/w3"
+        ],
+        "oldWoundAggregates": null,
+        "maxOrganFlowToPerfusionRatio": null
+      },
+      {
+        "version": "v44",
+        "firstSecondLossMl": 123.68393398325316,
+        "downS": 21.4,
+        "unconsciousS": 79.28333333333333,
+        "arrestS": 82.73333333333333,
+        "arrestReason": "hemorrhagic_shock",
+        "sourceCount": 10,
+        "sources": [
+          "organ-bed/bowel",
+          "parenchymal/liver/w1",
+          "parenchymal/right-kidney/w1",
+          "ooze/w1",
+          "parenchymal/liver/w2",
+          "parenchymal/right-kidney/w2",
+          "ooze/w2",
+          "parenchymal/liver/w3",
+          "parenchymal/right-kidney/w3",
+          "ooze/w3"
+        ],
+        "oldWoundAggregates": null,
+        "maxOrganFlowToPerfusionRatio": {
+          "liver": 2.7329920631708524,
+          "right-kidney": 2.7329920631708524
+        }
+      },
+      {
+        "version": "B1c",
+        "firstSecondLossMl": 34.99684155482191,
+        "downS": 67.15,
+        "unconsciousS": 335.6333333333333,
+        "arrestS": 348.48333333333335,
+        "arrestReason": "hemorrhagic_shock",
+        "sourceCount": 6,
+        "sources": [
+          "organ-bed/bowel",
+          "parenchymal/liver",
+          "parenchymal/right-kidney",
+          "ooze/w1",
+          "ooze/w2",
+          "ooze/w3"
+        ],
+        "oldWoundAggregates": null,
+        "maxOrganFlowToPerfusionRatio": {
+          "bowel": 0.3709518474852188,
+          "liver": 0.666,
+          "right-kidney": 0.666555079754162
+        }
+      }
+    ],
+    "abdomenOrganBudgets": [
+      {
+        "version": "v44",
+        "organ": "liver",
+        "initialFlowMlS": 81.1551707112878,
+        "initialPerfusionMlS": 30.262467003427236,
+        "flowToPerfusionRatio": 2.681710341133026,
+        "sourceIDs": [
+          "parenchymal/liver/w1",
+          "parenchymal/liver/w2",
+          "parenchymal/liver/w3"
+        ]
+      },
+      {
+        "version": "v44",
+        "organ": "right-kidney",
+        "initialFlowMlS": 32.46206828451513,
+        "initialPerfusionMlS": 12.104986801370895,
+        "flowToPerfusionRatio": 2.6817103411330265,
+        "sourceIDs": [
+          "parenchymal/right-kidney/w1",
+          "parenchymal/right-kidney/w2",
+          "parenchymal/right-kidney/w3"
+        ]
+      },
+      {
+        "version": "B1c",
+        "organ": "liver",
+        "initialFlowMlS": 20.181315519671035,
+        "initialPerfusionMlS": 30.30227555506162,
+        "flowToPerfusionRatio": 0.6659999999999999,
+        "sourceIDs": [
+          "parenchymal/liver"
+        ]
+      },
+      {
+        "version": "B1c",
+        "organ": "right-kidney",
+        "initialFlowMlS": 8.079254279734675,
+        "initialPerfusionMlS": 12.120910222024648,
+        "flowToPerfusionRatio": 0.6665550797541618,
+        "sourceIDs": [
+          "parenchymal/right-kidney"
+        ]
+      }
+    ],
+    "multihit": [
+      {
+        "version": "v44",
+        "ammo": "545_ps_gs",
+        "n": 1,
+        "sourceCount": 1,
+        "perfusionMlS": 21.875,
+        "totalMlS": 21.875,
+        "rawMlS": 21.875,
+        "flowToPerfusion": 1,
+        "rawToPerfusion": 1
+      },
+      {
+        "version": "v44",
+        "ammo": "545_ps_gs",
+        "n": 2,
+        "sourceCount": 2,
+        "perfusionMlS": 21.875,
+        "totalMlS": 43.75,
+        "rawMlS": 43.75,
+        "flowToPerfusion": 2,
+        "rawToPerfusion": 2
+      },
+      {
+        "version": "v44",
+        "ammo": "545_ps_gs",
+        "n": 3,
+        "sourceCount": 3,
+        "perfusionMlS": 21.875,
+        "totalMlS": 57.76058884288623,
+        "rawMlS": 65.625,
+        "flowToPerfusion": 2.6404840613890848,
+        "rawToPerfusion": 3
+      },
+      {
+        "version": "v44",
+        "ammo": "556_m855",
+        "n": 1,
+        "sourceCount": 1,
+        "perfusionMlS": 21.875,
+        "totalMlS": 21.875,
+        "rawMlS": 21.875,
+        "flowToPerfusion": 1,
+        "rawToPerfusion": 1
+      },
+      {
+        "version": "v44",
+        "ammo": "556_m855",
+        "n": 2,
+        "sourceCount": 2,
+        "perfusionMlS": 21.875,
+        "totalMlS": 43.75,
+        "rawMlS": 43.75,
+        "flowToPerfusion": 2,
+        "rawToPerfusion": 2
+      },
+      {
+        "version": "v44",
+        "ammo": "556_m855",
+        "n": 3,
+        "sourceCount": 3,
+        "perfusionMlS": 21.875,
+        "totalMlS": 57.7481520591341,
+        "rawMlS": 65.625,
+        "flowToPerfusion": 2.6399155227032733,
+        "rawToPerfusion": 3
+      },
+      {
+        "version": "B1c",
+        "ammo": "545_ps_gs",
+        "n": 1,
+        "sourceCount": 1,
+        "perfusionMlS": 21.875,
+        "totalMlS": 13.773094728193962,
+        "rawMlS": 13.773094728193962,
+        "flowToPerfusion": 0.6296271875745811,
+        "rawToPerfusion": 0.6296271875745811
+      },
+      {
+        "version": "B1c",
+        "ammo": "545_ps_gs",
+        "n": 2,
+        "sourceCount": 1,
+        "perfusionMlS": 21.875,
+        "totalMlS": 14.53831710952134,
+        "rawMlS": 14.53831710952134,
+        "flowToPerfusion": 0.664608782149547,
+        "rawToPerfusion": 0.664608782149547
+      },
+      {
+        "version": "B1c",
+        "ammo": "545_ps_gs",
+        "n": 3,
+        "sourceCount": 1,
+        "perfusionMlS": 21.875,
+        "totalMlS": 14.5808322671123,
+        "rawMlS": 14.5808322671123,
+        "flowToPerfusion": 0.666552332210848,
+        "rawToPerfusion": 0.666552332210848
+      },
+      {
+        "version": "B1c",
+        "ammo": "556_m855",
+        "n": 1,
+        "sourceCount": 1,
+        "perfusionMlS": 21.875,
+        "totalMlS": 13.324339977866185,
+        "rawMlS": 13.324339977866185,
+        "flowToPerfusion": 0.6091126847024542,
+        "rawToPerfusion": 0.6091126847024542
+      },
+      {
+        "version": "B1c",
+        "ammo": "556_m855",
+        "n": 2,
+        "sourceCount": 1,
+        "perfusionMlS": 21.875,
+        "totalMlS": 14.474643212022904,
+        "rawMlS": 14.474643212022904,
+        "flowToPerfusion": 0.6616979754067613,
+        "rawToPerfusion": 0.6616979754067613
+      },
+      {
+        "version": "B1c",
+        "ammo": "556_m855",
+        "n": 3,
+        "sourceCount": 1,
+        "perfusionMlS": 21.875,
+        "totalMlS": 14.573950009410948,
+        "rawMlS": 14.573950009410948,
+        "flowToPerfusion": 0.6662377147159291,
+        "rawToPerfusion": 0.6662377147159291
+      }
+    ],
+    "geometry": {
+      "conditions": 27,
+      "intersections": 54,
+      "ivcCoverage": [
+        {
+          "height": 1,
+          "width": 1,
+          "existingIVC": true,
+          "upperRetrohepaticExtension": true,
+          "addedDuplicate": false,
+          "originalSegmentCount": 12,
+          "addedSegmentCount": 12,
+          "normalizedUpperSection": [
+            0.85,
+            0.97
+          ],
+          "addedDiameterMm": {
+            "min": 11.51999885559107,
+            "max": 18.899999409914017
+          },
+          "IVCYBoundsM": [
+            -0.0734499997049571,
+            0.10975999942779541
+          ],
+          "liverYBoundsM": [
+            0.024949999648704937,
+            0.08705000035129483
+          ],
+          "posteriorToLiverCenter": true,
+          "interpretation": "Existing bone-owned abdominalIVC retains original12segments plus12upper retrohepatic segments; combined envelope covers full liver-height projection behind liver. Not a new clinical atlas."
+        },
+        {
+          "height": 0.9,
+          "width": 1.15,
+          "existingIVC": true,
+          "upperRetrohepaticExtension": true,
+          "addedDuplicate": false,
+          "originalSegmentCount": 12,
+          "addedSegmentCount": 12,
+          "normalizedUpperSection": [
+            0.85,
+            0.97
+          ],
+          "addedDiameterMm": {
+            "min": 10.367998970032026,
+            "max": 18.899999409914017
+          },
+          "IVCYBoundsM": [
+            -0.06704999970495709,
+            0.09878399948501586
+          ],
+          "liverYBoundsM": [
+            0.025249499715450985,
+            0.0755505002845488
+          ],
+          "posteriorToLiverCenter": true,
+          "interpretation": "Existing bone-owned abdominalIVC retains original12segments plus12upper retrohepatic segments; combined envelope covers full liver-height projection behind liver. Not a new clinical atlas."
+        },
+        {
+          "height": 1.1,
+          "width": 0.9,
+          "existingIVC": true,
+          "upperRetrohepaticExtension": true,
+          "addedDuplicate": false,
+          "originalSegmentCount": 12,
+          "addedSegmentCount": 12,
+          "normalizedUpperSection": [
+            0.85,
+            0.97
+          ],
+          "addedDiameterMm": {
+            "min": 12.671998741150325,
+            "max": 18.899999409914017
+          },
+          "IVCYBoundsM": [
+            -0.07984999970495721,
+            0.12073599937057494
+          ],
+          "liverYBoundsM": [
+            0.024532429071263503,
+            0.09866757092873603
+          ],
+          "posteriorToLiverCenter": true,
+          "interpretation": "Existing bone-owned abdominalIVC retains original12segments plus12upper retrohepatic segments; combined envelope covers full liver-height projection behind liver. Not a new clinical atlas."
+        }
+      ]
+    },
+    "QChecks": 1101778
+  },
+  "limitations": [
+    "User design: shared organ flow = currentCO × organFraction × (2/3) × (1−product(1−lesionSeverity)). This is probabilistic overlap tuning, not exact spatial wound-volume union.",
+    "Natural closure keeps 0.10/180 s from v44: combined baseline severity governs threshold; prior closed tissue never reopens when a later injury crosses it. Other microvascular organ beds already shared IDs but summed areas; these now union damage and retain venous/orifice/closure rules with current-perfusion guard.",
+    "All 75 unrelated anatomical definitions and the original 12 IVC segments are exact. Existing abdominal IVC gains an upper 0.85→0.97 normalized section to cover the tall-body liver projection. The same vessel ID/source prevents duplicate IVC hits. Two new hepatic/portal logical shapes bring total 76→78.",
+    "Portal adult-male mean 9±2 mm is verified; hepatic CT references include adult men but no sex-separated male mean. Authored mainstem diameters ~9.45 mm and all paths are game tuning; fitted sizes are in geometry.csv. The new IVC section inherits original radius ratio and tapers to remain inside its closed owner.",
+    "New portal pressure 8 mmHg is tuning within sourced 5–10 mmHg; hepatic 5 mmHg follows B1. Retained venous regional caps use reference flow×1.7; current global CO cap remains. Cavity-only vessel exposure produces contusions, not bleeding.",
+    "Ballistics/armor/channel/HP equations and pump/arrest logic are byte-preserved. New vessel geometry may change effective-volume weighting and hence HP; all actual curves remain exact, initial HP is independently checked with the unchanged C. Differences are enumerated, not hidden.",
+    "Actual shots are standing 5 m with normal 7N6/M855 weapons. Grazing is a geometric permanent intersection, not necessarily mild S1/S2 cavity severity. All other damaged organs and direct vessels are listed.",
+    "Pure-source controls copy one real-shot-derived source into a healthy physiological actor; they are not additional real gunshots. They isolate the 40–60% loss invariant from concomitant pump/respiratory/CNS/structural injuries.",
+    "v42/v43 abdomen rows retain verified archived provenance; v44/B1c are actual replays of the same 3 M855 shots at 879 m/s and 0.3 s sequence. v42 has no authoritative per-vessel flow: only original wound aggregates and intersection evidence.",
+    "Plot plateaus after cardiac arrest reflect zero circulation, not wound closure. Timings are simulator outputs, not verified clinical predictions.",
+    "Software 1280×720 and 844×390 browser tests do not establish real Android/iOS performance. Earlier gelatin-plate/shot-performance limits remain."
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "ruleId": "sound-tuning-v47",
+  "version": "v47",
+  "baseline": "1cc8b4acc37fe4ee1428780f9ab93afd39cac266",
+  "automatic2DPort": false,
+  "request": "총성이 뚝 끊김, 단발 직후 이명 과함, 총성 음량 증가 요청",
+  "provenance": {
+    "classification": "사용자 요청 + 튜닝",
+    "newExternalMeasurement": false,
+    "originalReferences": "docs/sound-snd1-sources.json"
+  },
+  "entries": [
+    {
+      "id": "gunshot-release",
+      "classification": "원본 녹음 + 튜닝(사용자 피드백)",
+      "before": {
+        "durationS": 0.125,
+        "endFadeS": 0.012,
+        "fade": "linear"
+      },
+      "after": {
+        "durationS": 0.6,
+        "endFadeS": 0.18,
+        "fade": "raised cosine",
+        "normalizationWindowS": 0.125,
+        "attackFadeS": 0.006,
+        "peakCap": 0.88
+      },
+      "evidence": "원본 6개 선택 시작점 고정. 125–200ms 원음 RMS는 약−10..−16dBFS로 컷 시점 뒤에도 소리가 남아 있음. sample-preservation.json / assets.csv / audio-output.json",
+      "limitations": "드라이 신호와 원음 초기 반사음을 분리할 수 없어 0.6초 녹음 감쇠를 보존. 약2초 전체 녹음 꼬리는 재생하지 않으며 실내 컨볼버와의 반사 중복은 근사다.",
+      "dependenciesFor2D": "오디오 샘플 및 재생기 교체 시만 적용",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "playback-level",
+      "classification": "튜닝(사용자 피드백)",
+      "values": {
+        "gunshotBoostDb": 3,
+        "dosePer140DbImpulse": 0.00025,
+        "referenceImpulseS": 0.12,
+        "doseRecoveryS": 18,
+        "hearingAttackS": 0.18,
+        "tinnitusOnsetLoss": 0.25,
+        "tinnitusFullLoss": 0.8,
+        "tinnitusMaxGain": 0.004,
+        "tinnitusAttackS": 0.25
+      },
+      "unchangedPhysicalGunshotSourceDb": 160,
+      "physicalImpulseDurationS": 0.125,
+      "evidence": "apps/training/src/sound-tuning.js / audio-output.json. 재생 +3dB는 physical dB·벽/거리 전파·소리 탐지 범위에 더하지 않는다.",
+      "dependenciesFor2D": "재생 게인과 물리 dB 분리 필요",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "auditory-dose",
+      "classification": "튜닝(사용자 피드백); 의학적 노출 모델 아님",
+      "before": {
+        "dosePer140DbImpulse": 0.012,
+        "hearingAttackS": 0.035,
+        "tinnitusGain": "loss*.012, threshold 없음",
+        "tinnitusAttackS": 0.05
+      },
+      "after": {
+        "dosePer140DbImpulse": 0.00025,
+        "hearingAttackS": 0.18,
+        "tinnitusGain": "smoothstep(loss .25.. .8)*.004",
+        "tinnitusAttackS": 0.25
+      },
+      "evidence": "hearing-comparison.json / tests/training-sound.test.mjs. 164dB 단발 loss6.332%·이명0, 160dB 단발2.571%·이명0.",
+      "note": "P01과 적의 별도 auditory dose에 함께 적용한다. 적의 누적 청력 저하도 느려지지만 탐지 수식·masking·물리 전파는 보존. 의료 상태와 별개이며 의료 데이터에 쓰지 않는다. 샘플0.6초와 물리 impulse0.125초는 독립.",
+      "dependenciesFor2D": "별도 auditory 상태가 있을 때만",
+      "2D 역이식 후보": "예"
+    }
+  ],
+  "unchanged": [
+    "탄도·관통·방호·의료 수식",
+    "2D 원본과 baseline",
+    "발소리/장비 소리 52개 샘플 바이트",
+    "총성 발원 SPL160dB와 지연·HRTF·전파 계산",
+    "마이크/리미터/리버브 그래프",
+    "사격·반동·총기 모델·애니메이션"
+  ],
+  "limitations": [
+    "AK/debug AK 총성은 M4 녹음 pitch/EQ 임시 대체 유지.",
+    "실기기·실제 스피커 청감과 음압 교정 미검증. +3dB 재생 값은 실제 SPL이 아님.",
+    "v46 소프트웨어 렌더 실시간 연사 간격 미달을 이번에 해결했다고 주장하지 않음.",
+    "원음 라이선스/출처 미확인 표기는 기존 크레딧 유지."
+  ],
+  "runtimeSourceCommit": "82ce2de8fc056cf08c3cf5a8dfd226d9324e7f80",
+  "validation": {
+    "tests": 350,
+    "regression": {
+      "ticks": 600,
+      "shots": 6,
+      "exact": true,
+      "baseline": "1cc8b4acc37fe4ee1428780f9ab93afd39cac266"
+    },
+    "audioRenderCases": 6,
+    "bursts": 6,
+    "offlineViewports": [
+      {
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "width": 844,
+        "height": 390
+      }
+    ],
+    "protectedSourceCount": 180,
+    "nonGunClipsByteIdentical": 52
+  }
+}

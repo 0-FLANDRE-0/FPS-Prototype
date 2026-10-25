@@ -1,0 +1,22 @@
+{
+  "sourceRequirementsComplete": false,
+  "checkedDateKST": "2026-10-19",
+  "sources": [
+    {
+      "title": "Deakin & Low. Accuracy of the ATLS guidelines for predicting systolic blood pressure using carotid, femoral, and radial pulses: observational study",
+      "year": 2000,
+      "doi": "10.1136/bmj.321.7262.673",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10987771/",
+      "fullText": "https://pmc.ncbi.nlm.nih.gov/articles/PMC27481/",
+      "verified": "Indexed primary text and bibliographic metadata: historical radial>80mmHg rule and observational challenge. Not a validated runtime threshold.",
+      "accessLimit": "Direct PMC CAPTCHA, BMJ403, EuropePMC fullTextXML500; full paper not fetched"
+    },
+    {
+      "title": "Russell. Accuracy of ATLS guidelines for predicting systolic blood pressure. Authors' core assertion was wrong",
+      "year": 2001,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11230089/",
+      "verified": "PubMed comment metadata and title; no abstract; letter documents dispute over attribution/claim about ATLS teaching. Full letter not verified."
+    }
+  ],
+  "decision": "Reserve null wristPulse/responsiveness fields only; do not infer a radial pulse from an80mmHg switch, do not expose precise BP in ordinary UI. M5 will require explicit observation/model design."
+}

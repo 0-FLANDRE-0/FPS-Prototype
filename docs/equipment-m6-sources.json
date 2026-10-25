@@ -1,0 +1,31 @@
+{
+  "version": "equipment-m6-v63",
+  "newClinicalSourceClaims": false,
+  "entries": [
+    {
+      "classification": "원본",
+      "source": "apps/training/src/generated/catalog.js; combat-mass.js; armor-targets.js",
+      "use": "6B47/6B45/plates/accessory masses and current preset; definitions unchanged"
+    },
+    {
+      "classification": "출처/원본",
+      "source": "docs/medical-items-m2-sources.json; medical-supplies.js",
+      "use": "Inherited M2 manufacturer packaging weights; not re-fetched for M6"
+    },
+    {
+      "classification": "원본",
+      "source": "catalog.shotBallistics().weaponMassKg and optic-data.js",
+      "use": "Existing assembled weapon3.07/3.6 and actual mounted optic mass"
+    },
+    {
+      "classification": "authored",
+      "source": "apps/training/src/equipment-mesh.js",
+      "use": "Scalp/neck cloth, no source GLB edit"
+    },
+    {
+      "classification": "사용자 설계값/게임 허용/튜닝",
+      "source": "docs/training-m6-instructions.md; equipment-m6-ledger.json",
+      "use": "Grids, timers, self blood connection, missing item weights, cartridge multiplier, mass→audio mapping; no unsupported clinical or manufacturer mass claims"
+    }
+  ]
+}

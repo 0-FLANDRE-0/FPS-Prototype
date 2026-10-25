@@ -1,0 +1,12 @@
+{
+  "version": "equipment-mesh-fix-v64",
+  "baseline": "38dcd9fc7e9fcc1f9eebe3e864facb76f48da921",
+  "scope": "3D visual partition only",
+  "automatic2DPort": false,
+  "entries": [
+    {"id":"eyes-and-skin","classification":["원본","시각 검수"],"source":"dist/soldier-fingers.glb, Head/material source topology and base-color atlas","value":"material255vertices/404triangles is both eyeballs and wet edges, not goggle lenses. All stay with body. Head face wrap/inner scalp/nape/skin-textured rear14triangles stay with body.","2D 역이식 후보":false},
+    {"id":"semantic-layout","classification":["사용자 설계값","튜닝"],"source":"apps/training/src/equipment-head-layout.js","value":"Reviewed source triangle ranges override animation bone labels for Head/material. Geometry and texture topology are hash-pinned; no source GLB changes.","2D 역이식 후보":false},
+    {"id":"collar-rim","classification":["기존 튜닝","시각 분할"],"source":"v63 head-mesh fitting/front collar review; apps/training/src/equipment-head-layout.js","value":{"heightM":1.535,"sideRiseM":0.038,"halfWidthM":0.116,"method":"Complementary surface clipping with shared edge points and interpolated UV/normal/skin weights; no collider change"},"2D 역이식 후보":false},
+    {"id":"unchanged","classification":["원본"],"value":"Medical/ballistic/armor/D2/inventory/finger code and all source/derived GLBs unchanged. Gear mass, protection membership, durability and ownership unchanged.","2D 역이식 후보":false}
+  ]
+}

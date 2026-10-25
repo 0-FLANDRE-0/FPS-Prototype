@@ -1,0 +1,280 @@
+{
+  "ruleId": "snd1-assets",
+  "sampleRate": 48000,
+  "channels": 1,
+  "format": "PCM16 RIFF/WAV; decodeAudioData on Chrome/Safari",
+  "bytes": 1472684,
+  "sha256": "cb326bc66cc8f4357a8b994eb0d5f7100eefe8f2b6e6dc89b1e7dd735d5ee9ce",
+  "clips": {
+    "concrete_walk-00": {
+      "group": "concrete_walk",
+      "offsetS": 0.0,
+      "durationS": 0.2
+    },
+    "concrete_walk-01": {
+      "group": "concrete_walk",
+      "offsetS": 0.2,
+      "durationS": 0.2
+    },
+    "concrete_walk-02": {
+      "group": "concrete_walk",
+      "offsetS": 0.4,
+      "durationS": 0.2
+    },
+    "concrete_walk-03": {
+      "group": "concrete_walk",
+      "offsetS": 0.6,
+      "durationS": 0.2
+    },
+    "concrete_walk-04": {
+      "group": "concrete_walk",
+      "offsetS": 0.8,
+      "durationS": 0.2
+    },
+    "concrete_walk-05": {
+      "group": "concrete_walk",
+      "offsetS": 1.0,
+      "durationS": 0.2
+    },
+    "concrete_walk-06": {
+      "group": "concrete_walk",
+      "offsetS": 1.2,
+      "durationS": 0.2
+    },
+    "concrete_walk-07": {
+      "group": "concrete_walk",
+      "offsetS": 1.4,
+      "durationS": 0.2
+    },
+    "concrete_walk-08": {
+      "group": "concrete_walk",
+      "offsetS": 1.6,
+      "durationS": 0.2
+    },
+    "concrete_walk-09": {
+      "group": "concrete_walk",
+      "offsetS": 1.8,
+      "durationS": 0.2
+    },
+    "concrete_walk-10": {
+      "group": "concrete_walk",
+      "offsetS": 2.0,
+      "durationS": 0.2
+    },
+    "concrete_walk-11": {
+      "group": "concrete_walk",
+      "offsetS": 2.2,
+      "durationS": 0.2
+    },
+    "concrete_aux-00": {
+      "group": "concrete_aux",
+      "offsetS": 2.4,
+      "durationS": 0.22
+    },
+    "concrete_run-00": {
+      "group": "concrete_run",
+      "offsetS": 2.62,
+      "durationS": 0.19
+    },
+    "concrete_run-01": {
+      "group": "concrete_run",
+      "offsetS": 2.81,
+      "durationS": 0.19
+    },
+    "concrete_run-02": {
+      "group": "concrete_run",
+      "offsetS": 3.0,
+      "durationS": 0.19
+    },
+    "concrete_run-03": {
+      "group": "concrete_run",
+      "offsetS": 3.19,
+      "durationS": 0.19
+    },
+    "concrete_run-04": {
+      "group": "concrete_run",
+      "offsetS": 3.38,
+      "durationS": 0.19
+    },
+    "concrete_run-05": {
+      "group": "concrete_run",
+      "offsetS": 3.57,
+      "durationS": 0.19
+    },
+    "concrete_run-06": {
+      "group": "concrete_run",
+      "offsetS": 3.76,
+      "durationS": 0.19
+    },
+    "concrete_run-07": {
+      "group": "concrete_run",
+      "offsetS": 3.95,
+      "durationS": 0.19
+    },
+    "concrete_run-08": {
+      "group": "concrete_run",
+      "offsetS": 4.14,
+      "durationS": 0.19
+    },
+    "concrete_run-09": {
+      "group": "concrete_run",
+      "offsetS": 4.33,
+      "durationS": 0.19
+    },
+    "concrete_run-10": {
+      "group": "concrete_run",
+      "offsetS": 4.52,
+      "durationS": 0.19
+    },
+    "concrete_run-11": {
+      "group": "concrete_run",
+      "offsetS": 4.71,
+      "durationS": 0.19
+    },
+    "wood_walk-00": {
+      "group": "wood_walk",
+      "offsetS": 4.9,
+      "durationS": 0.25
+    },
+    "wood_walk-01": {
+      "group": "wood_walk",
+      "offsetS": 5.15,
+      "durationS": 0.25
+    },
+    "wood_walk-02": {
+      "group": "wood_walk",
+      "offsetS": 5.4,
+      "durationS": 0.25
+    },
+    "wood_walk-03": {
+      "group": "wood_walk",
+      "offsetS": 5.65,
+      "durationS": 0.25
+    },
+    "wood_walk-04": {
+      "group": "wood_walk",
+      "offsetS": 5.9,
+      "durationS": 0.25
+    },
+    "wood_walk-05": {
+      "group": "wood_walk",
+      "offsetS": 6.15,
+      "durationS": 0.25
+    },
+    "wood_walk-06": {
+      "group": "wood_walk",
+      "offsetS": 6.4,
+      "durationS": 0.25
+    },
+    "wood_walk-07": {
+      "group": "wood_walk",
+      "offsetS": 6.65,
+      "durationS": 0.25
+    },
+    "wood_walk-08": {
+      "group": "wood_walk",
+      "offsetS": 6.9,
+      "durationS": 0.25
+    },
+    "wood_walk-09": {
+      "group": "wood_walk",
+      "offsetS": 7.15,
+      "durationS": 0.25
+    },
+    "metal_walk-00": {
+      "group": "metal_walk",
+      "offsetS": 7.4,
+      "durationS": 0.6
+    },
+    "metal_walk-01": {
+      "group": "metal_walk",
+      "offsetS": 8.0,
+      "durationS": 0.6
+    },
+    "metal_walk-02": {
+      "group": "metal_walk",
+      "offsetS": 8.6,
+      "durationS": 0.6
+    },
+    "metal_walk-03": {
+      "group": "metal_walk",
+      "offsetS": 9.2,
+      "durationS": 0.6
+    },
+    "metal_walk-04": {
+      "group": "metal_walk",
+      "offsetS": 9.8,
+      "durationS": 0.6
+    },
+    "metal_walk-05": {
+      "group": "metal_walk",
+      "offsetS": 10.4,
+      "durationS": 0.6
+    },
+    "tile_walk-00": {
+      "group": "tile_walk",
+      "offsetS": 11.0,
+      "durationS": 0.2
+    },
+    "gear-00": {
+      "group": "gear",
+      "offsetS": 11.2,
+      "durationS": 0.09
+    },
+    "gear-01": {
+      "group": "gear",
+      "offsetS": 11.29,
+      "durationS": 0.09
+    },
+    "gear-02": {
+      "group": "gear",
+      "offsetS": 11.38,
+      "durationS": 0.09
+    },
+    "gear-03": {
+      "group": "gear",
+      "offsetS": 11.47,
+      "durationS": 0.09
+    },
+    "gear-04": {
+      "group": "gear",
+      "offsetS": 11.56,
+      "durationS": 0.09
+    },
+    "gear-05": {
+      "group": "gear",
+      "offsetS": 11.65,
+      "durationS": 0.09
+    },
+    "m4-00": {
+      "group": "m4",
+      "offsetS": 11.74,
+      "durationS": 0.6
+    },
+    "m4-01": {
+      "group": "m4",
+      "offsetS": 12.34,
+      "durationS": 0.6
+    },
+    "m4-02": {
+      "group": "m4",
+      "offsetS": 12.94,
+      "durationS": 0.6
+    },
+    "m4-03": {
+      "group": "m4",
+      "offsetS": 13.54,
+      "durationS": 0.6
+    },
+    "m4-04": {
+      "group": "m4",
+      "offsetS": 14.14,
+      "durationS": 0.6
+    },
+    "m4-05": {
+      "group": "m4",
+      "offsetS": 14.74,
+      "durationS": 0.6
+    }
+  }
+}

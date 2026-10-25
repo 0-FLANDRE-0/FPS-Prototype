@@ -1,0 +1,77 @@
+{
+  "version": "bleeding-b1-v43",
+  "checkedKST": "2026-10-17",
+  "automatic2DPort": false,
+  "instructionProvenance": {
+    "kind": "user-attached instruction document; message body empty",
+    "path": "docs/training-b1-instructions.md",
+    "bytes": 7854,
+    "sha256": "bca1a780b745d3f203abfcedbd651499b8d9f33c43098fedd4f4a4ba511bbff1"
+  },
+  "sources": [
+    {
+      "id": "vascular-review",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4512873/",
+      "status": 200,
+      "bytes": 118823,
+      "sha256": "be016c20b765e3d0efffef0c82edd840da2fb00fca428394fbe2c75aad33a25b",
+      "title": "Penetrating nontorso trauma: the extremities",
+      "classification": "출처(정성/기준점); 수치 응답 튜닝과 분리",
+      "quote": "arteries with a complete transection tend to spasm and stop bleeding below systolic blood pressures of 80 mm Hg, whereas partial thickness arterial lacerations are not able to contract and therefore continue to hemorrhage",
+      "limits": "Qualitative contraction difference only. Major artery floor0.35 and8s are tuning; B1 intentionally does not auto-seal major arteries.",
+      "evidence": "artifacts/b1-sources/vascular-review.html"
+    },
+    {
+      "id": "hemothorax-msd",
+      "url": "https://www.msdmanuals.com/professional/injuries-poisoning/thoracic-trauma/hemothorax",
+      "status": 200,
+      "bytes": 257356,
+      "sha256": "4e3024536b9c2a63ca2e3c4f48d7a49115098a577cec1c7d67a9f67094d9b630",
+      "title": "MSD Manual Professional: Hemothorax",
+      "classification": "출처(정성/기준점); 수치 응답 튜닝과 분리",
+      "quote": "Massive hemothorax is most often defined as rapid accumulation of ≥ 1500 mL of blood",
+      "limits": "Massive anchor, not a measured lung compression curve. Per-side response is tuning.",
+      "evidence": "artifacts/b1-sources/hemothorax-msd.html"
+    },
+    {
+      "id": "co-normal",
+      "url": "https://cvphysiology.com/cardiac-function/cf016",
+      "status": 200,
+      "bytes": 15744,
+      "sha256": "92a1f7c62754a0c4928a472f99071d7d1cfd0bdf6f3ab7ed3845926efa985fea",
+      "title": "CV Physiology: Venous Return",
+      "classification": "출처(정성/기준점); 수치 응답 튜닝과 분리",
+      "quote": "PRA is normally very low (fluctuating a few mmHg around a mean of 0 mmHg) and PV in peripheral veins (when the body is supine) is only a few mmHg higher.",
+      "limits": "5mmHg is explicit tuning; hydrostatic posture and individual venous pressures are not modeled.",
+      "evidence": "artifacts/b1-sources/co-normal.html"
+    },
+    {
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-4-cardiac-physiology",
+      "status": 200,
+      "bytes": 387288,
+      "sha256": "6795b20618a95e179abc997a0751beadb42727e504df31f70907d533f23a1f1f",
+      "id": "cardiac-open",
+      "title": "OpenStax Anatomy and Physiology2e §19.4 Cardiac Physiology",
+      "classification": "출처 + 원본 S1 수치",
+      "quote": "Using these numbers, the mean CO is 5.25 L/min, with a range of 4.0–8.0 L/min.",
+      "evidence": "artifacts/b1-sources/cardiac-open.html",
+      "limits": "Reference only. Actual cap uses existing hemodynamics.cardiacOutputMul; no heart-rate-only recalculation or pumping formula replacement."
+    },
+    {
+      "id": "ews2004-elastic",
+      "url": "https://archive.org/download/EmergencyWarSurgery_201902/Emergency-War-Surgery.pdf",
+      "title": "Emergency War Surgery2004 Ch1 Weapons Effects",
+      "classification": "출처(정성) + 사용자 설계",
+      "evidence": "artifacts/s1-sources/ews2004-full.pdf",
+      "sha256": "66be2e06fc15abf3f30fe093c7a51e4e38c762d35176ab814cc1bd1c21d917f3",
+      "quote": "Elastic tissue, such as skeletal muscle, blood vessels and skin, may be pushed aside after passage of the projectile, but then rebound.",
+      "limits": "Supports elastic rebound, not a guarantee that every cavity-only vessel has no rupture. B1 contusion-only/no physiology is user design; HP coefficient0.12 retained."
+    }
+  ],
+  "unverified": [
+    "NCBI Bookshelf4URLs returned HTTP200 reCAPTCHA, not source content; not cited as verified.",
+    "Exact normal flow for every fitted game vessel was not verified. Non-aorta/cava uses explicitly tuned diameter-squared estimate.",
+    "Venous5mmHg is a tuning choice consistent with low-pressure venous circulation, not a universally measured pressure."
+  ],
+  "runtimeSourceCommit": "b9e0f113816a0971d877f4d34fd15b591f3eb32c"
+}

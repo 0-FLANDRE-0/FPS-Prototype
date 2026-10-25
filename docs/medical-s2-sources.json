@@ -1,0 +1,307 @@
+{
+  "version": "medical-s2-sources-v1",
+  "checkedKST": "2026-10-16",
+  "purpose": "S2 독립3D 의료: 조직 저항·뼈 안 공동·구조HP·분쇄/절단의 출처와 튜닝 한계. 임상·법의학 예측기가 아님.",
+  "candidate2D": "예",
+  "automatic2DPort": false,
+  "sources": [
+    {
+      "id": "geant4-material-density",
+      "classification": "출처(공식 Geant4 참조표 구현; 원 ICRP/ICRU 보고서 직접 열람 아님)",
+      "title": "Geant4 G4NistMaterialBuilder.cc",
+      "url": "https://raw.githubusercontent.com/Geant4/geant4/master/source/materials/src/G4NistMaterialBuilder.cc",
+      "accessedKST": "2026-10-16",
+      "claims": [
+        {
+          "line": 1470,
+          "material": "G4_MUSCLE_SKELETAL_ICRP",
+          "densityGcm3": 1.05,
+          "densityKgM3": 1050,
+          "use": "S1과 같은 근육 참조값"
+        },
+        {
+          "line": 1031,
+          "material": "G4_BONE_CORTICAL_ICRP",
+          "densityGcm3": 1.92,
+          "densityKgM3": 1920,
+          "use": "S2 피질골 밀도"
+        },
+        {
+          "line": 1020,
+          "material": "G4_BONE_COMPACT_ICRU",
+          "densityGcm3": 1.85,
+          "densityKgM3": 1850,
+          "use": "비교만. 해면골 값으로 사용하지 않음"
+        },
+        {
+          "line": 1406,
+          "material": "G4_LUNG_ICRP",
+          "densityGcm3": 1.04,
+          "densityKgM3": 1040,
+          "use": "사용하지 않음. 원문 주석 Adult Lung congested; 공기 찬 폐 실효 밀도 아님"
+        },
+        {
+          "line": 938,
+          "material": "G4_AIR",
+          "densityGcm3": 0.00120479,
+          "densityKgM3": 1.20479,
+          "use": "도형으로 표현된 공기 공간의 실효 밀도 참고"
+        }
+      ],
+      "limits": [
+        "다운로드한 파일은 S1의 원문과 SHA256까지 동일하다.",
+        "같은 표에 trabecular/spongiosa/cancellous 명칭의 해면골 재료가 없다. 해면골 1170kg/m³를 이 출처의 값으로 표시할 수 없다.",
+        "이온화 방사선 재료 참조표이며 탄환 항력·골절 역학 실측표가 아니다. 밀도비를 항력 환산비로 사용하는 것은 별도 게임 근사다."
+      ],
+      "candidate2D": "예",
+      "2D 역이식 후보": "예",
+      "localResearchOnly": "artifacts/s2-sources/geant4-current.cc",
+      "bytes": 71166,
+      "sha256": "48a7b57ab06c0465bf8a2b4e228441a3f948f032a558a24b4d20c22057bc9261"
+    },
+    {
+      "id": "hopkins2007-inflated-lung",
+      "classification": "출처(실험 연구의 원문 초록 수치 확인)",
+      "title": "Vertical gradients in regional lung density and perfusion in the supine human lung: the Slinky effect",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17395757/",
+      "accessedKST": "2026-10-16",
+      "claims": [
+        {
+          "section": "Abstract / Lung Density",
+          "subjects": 6,
+          "condition": "정상 성인, 누운 자세, 기능적 잔기량(FRC) 숨멈춤, 오른쪽 폐 대부분의 MRI",
+          "meanDensityGcm3": 0.34,
+          "standardDeviationGcm3": 0.08,
+          "meanDensityKgM3": 340,
+          "standardDeviationKgM3": 80
+        }
+      ],
+      "limits": [
+        "원문 초록은 EuropePMC MED 레코드에서 HTTP200으로 직접 확인했다. PMC 본문은 CAPTCHA, 출판사 본문은 HTTP403, EuropePMC fullTextXML은 HTTP500이라 전문을 직접 내려받지 못했다.",
+        "평균값은 자세·흡기량·중력 위치·혈액량에 따라 달라진다. 모든 자세의 모든 폐 셀에 340kg/m³를 고정하는 것은 게임 근사다.",
+        "MRI 수소 밀도 기반 실효 밀도이며 탄환 저항을 직접 측정한 연구가 아니다."
+      ],
+      "candidate2D": "예",
+      "2D 역이식 후보": "예",
+      "authors": "S. R. Hopkins, A. C. Henderson, D. L. Levin, K. Yamada, T. Arai, R. B. Buxton, G. K. Prisk",
+      "journal": "Journal of Applied Physiology103(2007)240–248",
+      "doi": "10.1152/japplphysiol.01289.2006",
+      "retrievedAbstract": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:17395757%20AND%20SRC:MED&format=json&resultType=core",
+      "localResearchOnly": "artifacts/s2-sources/PMC2399899-metadata.json",
+      "bytes": 7281,
+      "sha256": "f239a4c656ef1cbdbeaa75506ae5ce14899a2dfd63e596aaa1d7b9bd01b7a792"
+    },
+    {
+      "id": "geisenberger2024-bone-fragments",
+      "classification": "출처(정성; 원문 XML 확인)",
+      "title": "Distribution of bone fragments in angled shots: an experimental study conducted on composite models containing artificial bone plates",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11490459/",
+      "accessedKST": "2026-10-16",
+      "claims": [
+        {
+          "section": "Introduction",
+          "claim": "뼈 접촉은 탄의 변형과 이른 tumbling을 유발할 수 있다. 속도·구조·질량·입사각이 결과에 영향을 준다."
+        },
+        {
+          "section": "Methods",
+          "claim": "9mm Luger124gr FMJ, 제조사 약338m/s, 5m; 10% 젤라틴과 기울인 합성 평판골의 복합 모형."
+        },
+        {
+          "section": "Results / Discussion",
+          "claim": "큰 뼈 입자는 판 표면에 대략 직각 방향으로 움직여 공동을 비대칭으로 불룩하게 했다. 작은 입자는 탄 경로와 방사 균열에 남았다."
+        },
+        {
+          "section": "Discussion / Conclusion",
+          "claim": "통상 뼈 조각이 TC 범위를 벗어난 독립 상처 통로를 만들 만큼 에너지를 갖는다는 주장을 경계한다. 높은 에너지의 독립 2차 탄환처럼 일반화할 수 없다."
+        }
+      ],
+      "limits": [
+        "특정 9mm/인조 평판골 실험이며 모든 소총/실제 장골에 적용하는 정량 모델이 아니다.",
+        "yaw 앞당김, 변형 배율, 추가 반경·영구 손상량의 숫자는 제공하지 않는다. S2 수치는 모두 튜닝이다."
+      ],
+      "candidate2D": "예",
+      "2D 역이식 후보": "예",
+      "authors": "D. Geisenberger, M. Große Perdekamp, M. Glardon, J. Kromeier, S. Pollak, A. Thierauf-Emberger",
+      "doi": "10.1007/s00414-024-03307-y",
+      "retrievedFullText": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11490459/fullTextXML",
+      "localResearchOnly": "artifacts/s2-sources/PMC11490459.xml",
+      "bytes": 54306,
+      "sha256": "856ec02a0e5fbf607bd431abe189de889297c217a5b9cf9cd4b7e6f73d030d23"
+    },
+    {
+      "id": "bone2020-fragment-impact",
+      "classification": "출처(실험 조건·정성; 원문 XML 확인)",
+      "title": "The ballistic performance of bone when impacted by fragments",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7295711/",
+      "accessedKST": "2026-10-16",
+      "claims": [
+        {
+          "section": "Abstract / Methods",
+          "claim": "분리된 돼지 갈비뼈에 .68g 구형/1.10g 끌모양 FSP를99–1265m/s로 발사. 실제 입사·잔여 속도로 전달 에너지를 구했다."
+        },
+        {
+          "section": "Results",
+          "claim": "시험의 표적 명중탄은 모두 뼈를 관통했다. 고속 영역은 빠른 취성 파괴와 뼈 파편을 보였고, 투영 면적·형상·yaw에 따라 전달 에너지가 달랐다."
+        },
+        {
+          "section": "Discussion",
+          "claim": "뼈 파편은 인접 혈관·흉부 장기에 위험이 될 수 있으나 일차 발사체가 주된 위협이다."
+        }
+      ],
+      "limits": [
+        "강철 FSP와 분리된 돼지 갈비뼈의 시험이다. 사람의 온전한 팔·다리 또는 레지스트리 모든 FMJ/AP 탄의 통과/정지 확률을 검증하지 않는다.",
+        "낮은 에너지에서도 얇은 뼈 관통이 관찰되었다는 사실은 인체 전체 관통 깊이, 분쇄 문턱, 절단 문턱을 정하지 못한다.",
+        "S2의 밀도비 항력 환산, 고정 뼈 파편 반경 및 에너지당 손상부피의 수치 검증 자료로 사용할 수 없다."
+      ],
+      "candidate2D": "예",
+      "2D 역이식 후보": "예",
+      "doi": "10.1007/s00414-020-02299-9",
+      "retrievedFullText": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7295711/fullTextXML",
+      "localResearchOnly": "artifacts/s2-sources/PMC7295711.xml",
+      "bytes": 54386,
+      "sha256": "38cd475edfded6e010f3642556d1c27b7951421b9c439afbac781c2d0d102b8c"
+    },
+    {
+      "id": "ews2018-heterogeneous-limits",
+      "classification": "출처(기존 S1 확인 원문 재사용)",
+      "title": "Emergency War Surgery Fifth Edition(2018), Chapter1 — Weapons Effects and War Wounds",
+      "url": "https://medcoe.army.mil/pfw-images/dbimages/Ch%201.pdf",
+      "accessedKST": "2026-10-16",
+      "claims": [
+        {
+          "printedPage": "11–12",
+          "claim": "제시한 젤라틴 도판은5–10m 발사의 이상화 경로이며 거리, 중간 표적, 방호구, 조직의 차이가 상처를 바꾼다. 생체에서 같은 AK47계 탄의 양상도 크게 달라질 수 있다."
+        },
+        {
+          "printedPage": "12",
+          "claim": "AK74는 simulant에서 비교적 이른 yaw를 보이고 M4/M16계5.56은 yaw·편평화·분해가 가능하다고 설명한다."
+        },
+        {
+          "printedPage": "12–13",
+          "pdfPage": "12–13",
+          "figures": [
+            "1-6 AK47",
+            "1-7 M16/M193-like55gr",
+            "1-8 M80"
+          ],
+          "claim": "동일2018원문에개별소총도판이실려있음을직접이미지로재확인. S1문서의개별도판생략설명은오류. AK74전용도판/M855전용도판/완전권총도판은여기없다."
+        }
+      ],
+      "limits": [
+        "도판과 젤라틴 정지 깊이는 실제 이질적 인체의 고정 관통률/출구속도를 뜻하지 않는다.",
+        "S2의 사람 뒤 벽·두번째 표적 결과는 게임 비교 결과이며 법의학적 확률 예측이 아니다.",
+        "S1의2004판/Fackler1987도판보정입력은그대로유효하며S2가곡선을새로맞추지않는다. 2018그림은M193/M80끝축이35/65cm까지표시되어있고원FacklerFigure2/3끝라벨36/64cm와구분한다."
+      ],
+      "candidate2D": "예",
+      "2D 역이식 후보": "예",
+      "priorSource": "docs/medical-s1-sources.json#ews2018-ch1",
+      "localResearchOnly": "artifacts/s1-sources/Ch_1.pdf",
+      "sha256": "3e6b5583f54beffcc8a23f0ed2fa12a9b295e8709e40632453531d86cb7d743e"
+    }
+  ],
+  "selectedDensityPolicy": {
+    "softTissue": {
+      "valueKgM3": 1050,
+      "classification": "출처 참조밀도; 기존 균질 젤라틴 보정을 유지하도록 환산비1을 사용",
+      "source": "geant4-material-density",
+      "candidate2D": "예"
+    },
+    "gelatin": {
+      "valueKgM3": 1000,
+      "classification": "기존 S1 튜닝 보존",
+      "source": "docs/medical-s1-calibration-inputs.json",
+      "candidate2D": "예"
+    },
+    "inflatedLung": {
+      "valueKgM3": 340,
+      "classification": "출처 평균값 선택; 모든 자세에 고정하는 것은 게임 근사",
+      "source": "hopkins2007-inflated-lung",
+      "candidate2D": "예"
+    },
+    "corticalBone": {
+      "valueKgM3": 1920,
+      "classification": "출처; S1과 동일 Geant4 공식 참조표 구현",
+      "source": "geant4-material-density",
+      "candidate2D": "예"
+    },
+    "trabecularBone": {
+      "valueKgM3": 1170,
+      "classification": "튜닝; 같은 공식 표에 해당 항목 없음",
+      "source": null,
+      "note": "골수/광질이 섞인 다공성 유효 밀도의 게임 가정.1.85g/cm³ compact를 해면골로 오인하지 않음. 부위별 실제 해면골 밀도를 검증하지 못함.",
+      "candidate2D": "예"
+    },
+    "air": {
+      "valueKgM3": 1.20479,
+      "classification": "출처 참조밀도; 실제 빈공간 도형이 있을 때만 적용",
+      "source": "geant4-material-density",
+      "candidate2D": "예"
+    }
+  },
+  "boneEffectPolicy": {
+    "classification": "정성적 발생 가능성은 문헌; 수치는 게임 튜닝",
+    "qualitativeSources": [
+      "geisenberger2024-bone-fragments",
+      "bone2020-fragment-impact"
+    ],
+    "noVerifiedUniversalThreshold": [
+      "뼈 통과 후 yaw 증가량",
+      "탄 변형 면적 배율",
+      "뼈 파편 추가 반경/영구 손상량",
+      "장골 분쇄 한 발 문턱",
+      "팔다리 절단 한 발 문턱"
+    ],
+    "boundedLocalEffect": "뼈 조각의 추가 손상은 원래 통과한 뼈 인접 범위의 모델값. 독립 고에너지 탄환/원거리 파편 궤적을 생성하지 않는다."
+  },
+  "yawCarryPolicy": {
+    "classification": "물리적 상태 연속성에 따른 모델 설계; 실측 회전 동역학 검증 아님",
+    "reason": "팔에서 yaw/변형/파편이 생긴 탄이 짧은 공기 틈을 거쳐 몸통에 도달해도 탄을 초기 자세·초기 질량으로 재설정할 이유가 없다. 조직 점유 깊이와 별도의 실제 상태를 이어 받는다.",
+    "limits": "yaw는 S1의 깊이 곡선을 상태로 표현한 단순 모델이고 각운동량을 적분하지 않는다. 부위 사이 공중 안정화·프리세션·파편별 궤도는 이번 범위 밖이다.",
+    "candidate2D": "예"
+  },
+  "enclosedCnsPolicy": {
+    "classification": "사용자 지정 게임 규칙 + 튜닝",
+    "source": "docs/training-s2-instructions.md#2",
+    "note": "두개골/척추의 실제 직접 교차 캐시와 내부 구간을 이용해TC를 차단/허용한다. 외부TC감쇠0과 concussionRisk는 임상 뇌진탕 확률이 아니다. concussionRisk는 기록만 하고 생리 효과를 주지 않는다.",
+    "candidate2D": "예"
+  },
+  "hpAndAmputationPolicy": {
+    "classification": "사용자 지정 게임 의미 + 수치 튜닝",
+    "source": "docs/training-s2-instructions.md#3",
+    "note": "부위HP를 구조 내구도로 사용.뇌 직접 손상과 별도로 머리HP0만으로 사망하지 않는다.몸통HP0은torso_destroyed심정지.분쇄/절단 문턱은한발 전달에너지의 게임 문턱이며 의학적 절단 예측식이 아니다.",
+    "candidate2D": "예"
+  },
+  "debugWeaponPolicy": {
+    "classification": "사용자 지정 디버그 기능; 현실값 아님",
+    "source": "docs/training-s2-instructions.md#사용자-추가-요청--디버그-총기",
+    "registryValuesUnchanged": true,
+    "note": "AK모델/반동/소리는임의 탄종과 물리적으로 일치하지 않는다.수동속도는시험입력.자동영점은게임의동일 비행모델로 푸는 시험편의.3번칸은일반장비용이 아니다.",
+    "candidate2D": "아니오"
+  },
+  "inheritedS1Limits": [
+    "M855는M193도판차용.780/760m/s파편문턱은원본값을다른의미로차용한튜닝이며문헌보편문턱이아님.",
+    "AK74두번째공동지름과AK47두봉우리형상은S1에서미달이며S2는균질젤라틴결과를보존한다.",
+    "완전한권총도판이없어권총수치는추정.114개탄의donor매핑은개별실험검증이아님.",
+    "도판Cd/k같은보정목표에재현된출력은독립검증이아님.",
+    "장기형상체적과1D겹침은콜라이더근사이며실제손상장기체적실측이아님.",
+    "S1실제얼굴경로0.5833s쓰러짐은S2에서재시험할대상이며고정벤치의다른얼굴경로와혼동하지않음."
+  ],
+  "bodyStopExitComparisonPolicy": "기존계산과S2를동일형상/탄약/거리에서나란히보고한다.전체인체고정관통률이나실제사람의출구속도를직접검증하는일치자료는확보하지못했다.문헌은이질적조직·뼈·초기yaw·탄구조에따른변동을지지한다.",
+  "sourceVsTuningRules": [
+    "참조밀도는출처,그밀도비를항력/환산깊이로사용하는식은튜닝근사로분리한다.",
+    "출처에서확인하지못한해면골밀도나절단문턱을확정값처럼표시하지않는다.",
+    "원본탄약데미지/부위HP/2D표와벽·방호·비행수식은보존대상.모든역이식후보는자동반영하지않는다."
+  ],
+  "sourceCorrections": [
+    {
+      "id": "S2-correct-EWS2018-figure-availability",
+      "previousClaim": "S1출처/보고서: 공식EWS2018Chapter1은개념그림만있고개별AK47/M193/M80도판을생략한다.",
+      "correctedClaim": "동일PDF의인쇄/PDF12–13쪽에Fig1-6AK47,Fig1-7M16/55gr,Fig1-8M80도판이있다. AK74/M855전용도판과완전권총도판부재는그대로.",
+      "evidence": "원문텍스트와두페이지시각확인. artifacts/s2-sources/ews2018-p12.png,p13.png",
+      "runtimeOrCalibrationChanged": false,
+      "classification": "출처 조사 오류 정정",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    }
+  ]
+}

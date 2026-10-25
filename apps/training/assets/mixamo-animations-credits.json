@@ -1,0 +1,13 @@
+{
+  "source": "Adobe Mixamo (user-supplied rifle animation ZIP)",
+  "sourceURL": "https://www.mixamo.com/",
+  "license": "User supplied Adobe Mixamo royalty-free assets; see Adobe Mixamo FAQ. Animation derivative embedded in game, original ZIP kept as build source.",
+  "licenseURL": "https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html",
+  "sourceSHA256": "eb4badc8cba82f5d02cc1428e639c083c3dbd251d22eb79ed1ded70e6cc91cc8",
+  "sourceBytes": 5272852,
+  "sourceArchive": "source/Mixamo_Rifle_Anims.zip",
+  "use": "Animation-only derivative retargeted at build time to the existing soldier skeleton; no Mixamo skin or mesh embedded.",
+  "fingerTracks": "Discarded; original common AK grip retained.",
+  "excluded": "Jump and death animations; physical ragdoll owns collapse.",
+  "reload": "Generic Mixamo rifle reload; approximation, not AK-specific mechanism."
+}

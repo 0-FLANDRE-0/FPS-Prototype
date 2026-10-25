@@ -1,0 +1,299 @@
+{
+  "version": "medical-s1-sources-v1",
+  "checkedKST": "2026-10-16",
+  "purpose": "게임 의료 상처 통로 모델의 출처와 판독 한계를 기록. 수치 튜닝은 임상 예측값이 아님.",
+  "candidate2D": "예",
+  "automatic2DPort": false,
+  "sources": [
+    {
+      "id": "ews2004-ch1",
+      "classification": "출처(원문·도판 판독)",
+      "title": "Emergency War Surgery, Third United States Revision (2004)",
+      "edition": "Third United States Revision, 2004, Borden Institute; inspected PDF copyright/printing page vi",
+      "chapter": "1 — Weapons Effects and Parachute Injuries",
+      "url": "https://archive.org/download/EmergencyWarSurgery_201902/Emergency-War-Surgery.pdf",
+      "publisher": "Borden Institute, US Army",
+      "hosting": "Internet Archive mirror; current official 2018 PDF is a different edition",
+      "accessedKST": "2026-10-16",
+      "localResearchOnly": "artifacts/s1-sources/ews2004-full.pdf",
+      "bytes": 7649690,
+      "sha256": "66be2e06fc15abf3f30fe093c7a51e4e38c762d35176ab814cc1bd1c21d917f3",
+      "locations": [
+        {
+          "printedPage": "1.3",
+          "pdfPage": 34,
+          "claim": "Skeletal muscle, blood vessels and skin may rebound after temporary displacement; inelastic liver may fracture. This does not validate numerical tissue multipliers."
+        },
+        {
+          "printedPage": "1.5",
+          "pdfPage": 36,
+          "claim": "M193 fragments at cannelure after about 12 cm tissue, but no numerical striking-velocity threshold is given."
+        },
+        {
+          "printedPage": "1.7",
+          "pdfPage": 38,
+          "figure": "1-4",
+          "claim": "AK-47 FMJ 713 m/s, 7.89 g; 10% gelatin; text says yaw starts after 25 cm. Profile ends at 74 cm."
+        },
+        {
+          "printedPage": "1.8",
+          "pdfPage": 39,
+          "figure": "1-5",
+          "claim": "M193 55 gr/3.6 g, 943 m/s, final 35 gr/2.3 g, 36% fragmentation. Text: forward travel about 12 cm; M855 shows a similar pattern. AK-74 yaw about 7 cm, no AK-74 illustration on this page."
+        },
+        {
+          "printedPage": "1.9",
+          "pdfPage": 40,
+          "figure": "1-6",
+          "claim": "7.62 mm NATO 150 gr/9.7 g, 862 m/s. Text on prior page: yaw after about 16 cm. Complete profile, nonfragmenting."
+        }
+      ],
+      "limits": [
+        "No separate M855 profile is printed: using M193 is the explicitly declared proxy allowed by S1.",
+        "No pistol profile appears in this chapter.",
+        "The figures are idealized whole gelatin paths from 5–10 m firing; they do not define an invariant wound in heterogeneous human anatomy.",
+        "Charts have an axial cm scale but no independent vertical scale; diameter readings assume the diagram is drawn to equal physical x/y scale. Diameter uncertainty includes that assumption."
+      ]
+    },
+    {
+      "id": "ews2018-ch1",
+      "classification": "출처(원문 확인)",
+      "title": "Emergency War Surgery, Fifth Edition (2018), Chapter 1 — Weapons Effects and War Wounds",
+      "url": "https://medcoe.army.mil/pfw-images/dbimages/Ch%201.pdf",
+      "accessedKST": "2026-10-16",
+      "localResearchOnly": "artifacts/s1-sources/Ch_1.pdf",
+      "bytes": 1595446,
+      "sha256": "3e6b5583f54beffcc8a23f0ed2fa12a9b295e8709e40632453531d86cb7d743e",
+      "locations": [
+        {
+          "printedPage": "2,4",
+          "pdfPage": "2,4",
+          "claim": "Elastic skeletal muscle/vessels/skin can stretch and rebound; inelastic liver/bone may fracture."
+        },
+        {
+          "printedPage": "6",
+          "pdfPage": 6,
+          "claim": "5.56 rounds may fragment at the cannelure after about 12 cm in soft tissue."
+        }
+      ],
+      "limits": [
+        "The current official chapter has a generic tissue-interaction diagram only; it omits individual AK-47, AK-74, M193, M855 and pistol wound-profile plots. It cannot be cited as the source for individual plot dimensions."
+      ]
+    },
+    {
+      "id": "fackler1987-report239",
+      "classification": "출처(원문 스캔·도판 판독)",
+      "author": "M. L. Fackler",
+      "title": "What's Wrong with the Wound Ballistics Literature, and Why",
+      "edition": "Letterman Army Institute of Research, Institute Report No. 239, July 1987, AD-A183285",
+      "url": "https://rkba.org/research/fackler/wrong.pdf",
+      "textReprint": "https://rkba.org/research/fackler/wrong.html",
+      "accessedKST": "2026-10-16",
+      "localResearchOnly": "artifacts/s1-sources/wrong.pdf",
+      "bytes": 1591218,
+      "sha256": "cee95dce534d285501519c8871dd181a2c35e4034c425c79bd3f63ce6c2e2622",
+      "locations": [
+        {
+          "printedPage": "3",
+          "pdfPage": 6,
+          "claim": "Elastic bowel wall, lung and muscle relatively resist temporary stretching; liver does not. Quantitative tissue coefficients are not supplied."
+        },
+        {
+          "printedPage": "7–8",
+          "pdfPage": "10–11",
+          "claim": "Cautions that deposited kinetic energy alone is not a tissue-damage measure; fragmentation and tissue material properties materially change the outcome."
+        },
+        {
+          "printedPage": "26",
+          "pdfPage": 29,
+          "figure": 2,
+          "imageUrl": "https://rkba.org/research/fackler/figure2.gif",
+          "claim": "M16/M193 943 m/s, 55 gr/3.6 g; 36% fragmentation; 36 cm final depth."
+        },
+        {
+          "printedPage": "27",
+          "pdfPage": 30,
+          "figure": 3,
+          "imageUrl": "https://rkba.org/research/fackler/figure3.gif",
+          "claim": "7.62 NATO 862 m/s, 150 gr/9.7 g, 64 cm depth; caption states yaw starts 15 cm and maximal yaw near 28 cm."
+        },
+        {
+          "printedPage": "30",
+          "pdfPage": 33,
+          "figure": 6,
+          "imageUrl": "https://rkba.org/research/fackler/figure6.gif",
+          "claim": "AK-74 935 m/s, 53 gr/3.4 g, 52 cm final depth; two temporary-cavity lobes."
+        }
+      ],
+      "limits": [
+        "Report PDF and GIFs were both visually inspected. The report is a military research primary source preserved by a third-party mirror.",
+        "The report cites Fackler et al., J Trauma 1984;24:263–266 for AK-74; that original 1984 full text was not independently retrieved.",
+        "Equal-axis assumption and chart blur limit measured cavity diameters.",
+        "Does not verify a universal 823 m/s M193/M855 fragmentation threshold."
+      ]
+    },
+    {
+      "id": "thoma2023-organs",
+      "classification": "출처(정성·실험조건)",
+      "title": "Gunshot wounds in parenchymatous organs: the morphology mainly depends on the physical properties of the affected tissues",
+      "authors": "V. Thoma et al.",
+      "journal": "International Journal of Legal Medicine 137 (2023), starts p.1463",
+      "doi": "10.1007/s00414-023-03058-2",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10421818/",
+      "retrievedFullText": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10421818/fullTextXML",
+      "accessedKST": "2026-10-16",
+      "localResearchOnly": "artifacts/s1-sources/PMC10421818.xml",
+      "bytes": 66213,
+      "sha256": "32e6b8a844134badc499d8db0399471ae38052ea6ce303a5600c882994baefc7",
+      "locations": [
+        {
+          "section": "Materials and methods",
+          "claim": "10% gelatin, 20×20×30 cm composite block, porcine organs; 9 mm Luger round-nose FMJ 7.5 g, stated manufacturer muzzle velocity342 m/s; firing distance1.6 m."
+        },
+        {
+          "section": "Results",
+          "claim": "All shots perforated 30 cm blocks. Temporary cavities approximately cylindrical; no calibrated maximum diameter or final stopping depth is reported."
+        },
+        {
+          "section": "Discussion",
+          "claim": "Temporary-cavity volume correlates with transferred energy; dense liver/spleen/kidney develop radiating tears, while highly elastic lung tolerates distortion much better. Vessels stretch more than adjacent parenchyma."
+        }
+      ],
+      "limits": [
+        "Authors explicitly say the study is qualitative, without a claim to quantification.",
+        "Excised anaemic porcine organs and uninflated lungs; findings valid for the tested 9 mm FMJ and cannot validate exact high-velocity-rifle numerical coefficients.",
+        "342 m/s is a manufacturer muzzle-velocity statement, not measured impact velocity at the block.",
+        "No 9 mm Fackler whole gelatin profile or stop depth is supplied by this paper."
+      ]
+    },
+    {
+      "id": "chatzaraki2025-tcl",
+      "classification": "출처(실험 근사·정성)",
+      "title": "Quantitative wound ballistic analysis of gelatin head phantoms by computed tomography using the total crack length method",
+      "authors": "V. Chatzaraki et al.",
+      "journal": "Forensic Science, Medicine, and Pathology21 (2025)1248–1255",
+      "doi": "10.1007/s12024-025-00995-9",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12491355/",
+      "retrievedFullText": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12491355/fullTextXML",
+      "accessedKST": "2026-10-16",
+      "localResearchOnly": "artifacts/s1-sources/PMC12491355.xml",
+      "bytes": 85780,
+      "sha256": "caa5fa58fb72f0d117ccbb77bfbc45b86e735d5bd25049fa7893d555a0023ef5",
+      "locations": [
+        {
+          "section": "Introduction",
+          "claim": "Cavity volume/energy relation in ballistic soap uses a proportionality constant; gelatin crack profiles correlate with energy transfer per specific depth."
+        },
+        {
+          "section": "Discussion",
+          "claim": "Gelatin total crack length is described as proportional to cavity volume and energy transferred per unit length; reference1 is Kneubuehl, General wound ballistics,2022,p87–162."
+        }
+      ],
+      "limits": [
+        "Supports a calibrated simulant approximation, not a universal r=k√(dE/dx) law for human organs.",
+        "The game square-root radius relation, k, thresholds, and translation into irreversible organ severity remain tuning."
+      ]
+    },
+    {
+      "id": "geant4-muscle-density",
+      "classification": "출처(공식 연구 소프트웨어의 참조표 구현; 원 ICRU 보고서 아님)",
+      "title": "Geant4 G4NistMaterialBuilder.cc",
+      "url": "https://raw.githubusercontent.com/Geant4/geant4/master/source/materials/src/G4NistMaterialBuilder.cc",
+      "accessedKST": "2026-10-16",
+      "localResearchOnly": "artifacts/s1-sources/geant4.txt",
+      "bytes": 71166,
+      "sha256": "48a7b57ab06c0465bf8a2b4e228441a3f948f032a558a24b4d20c22057bc9261",
+      "locations": [
+        {
+          "line": 1470,
+          "claim": "G4_MUSCLE_SKELETAL_ICRP density1.05 g/cm³=1050 kg/m³."
+        },
+        {
+          "line": 1482,
+          "claim": "G4_MUSCLE_STRIATED_ICRU density1.04 g/cm³=1040 kg/m³; code comment says old ICRU report."
+        }
+      ],
+      "limits": [
+        "NIST original online table was HTTP403; no direct verification of the cited ICRU report edition/page.",
+        "Density is a reference-material property, not a calibrated drag coefficient. Homogeneous gelatin density and Cd must be marked tuning."
+      ]
+    },
+    {
+      "id": "s0-head-context",
+      "classification": "출처(기존 S0 보존)",
+      "title": "Emergency War Surgery Fifth Edition, Chapter15 Head Injuries",
+      "url": "https://medcoe.army.mil/pfw-images/dbimages/Ch%2015.pdf",
+      "accessedKST": "2026-10-16",
+      "locations": [
+        {
+          "printedPage": "216–218",
+          "pdfPage": "4–6",
+          "claim": "Head-injury mechanisms and ICP/CPP context; cortex injury outcomes vary, hypotension/hypoxia worsen function."
+        }
+      ],
+      "limits": [
+        "Does not validate a numeric brain temporary-cavity coefficient1.0 or any universal immediate collapse for all nearby temporary cavities. Those are game tuning/clinical policy."
+      ]
+    },
+    {
+      "id": "openstax-resting-co",
+      "classification": "출처(공식 공개 교재 원문)",
+      "title": "OpenStax Anatomy and Physiology2e,19.4 Cardiac Physiology",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/19-4-cardiac-physiology",
+      "accessedKST": "2026-10-16",
+      "localResearchOnly": "artifacts/s1-sources/openstax-cardiac.html",
+      "bytes": 387288,
+      "sha256": "6795b20618a95e179abc997a0751beadb42727e504df31f70907d533f23a1f1f",
+      "locations": [
+        {
+          "section": "Resting Cardiac Output",
+          "claim": "Mean CO5.25L/min,range4.0–8.0L/min for each ventricle separately, based on mean70mL SV and75bpm."
+        }
+      ],
+      "limits": [
+        "Supports a resting flow reference, not gunshot aortic orifice flow, a1.7reserve factor, collider lumen size, or a30s consciousness threshold. All such choices are game tuning."
+      ]
+    }
+  ],
+  "fragmentationThresholdReview": {
+    "status": "원문 수치 미확인",
+    "requestedAmmo": [
+      "556_m193",
+      "556_m855"
+    ],
+    "verified": [
+      "EWS2004 p1.8 describes yaw/deformation/cannelure breakup at 943m/s and says M855 pattern is similar.",
+      "Fackler1987 Figure2 proves substantial fragmentation for M193 at943m/s."
+    ],
+    "notVerified": [
+      "A primary literature boundary separating fragment/no-fragment at823m/s or762m/s.",
+      "A lot-invariant or entry-yaw-invariant universal threshold."
+    ],
+    "implementationPolicy": "Use original registry terminalEffect.thresholdVelocity values (M193780m/s,M855760m/s) as S1 fragmentation-threshold tuning borrowed from a differently purposed original value. No primary-paper fragmentation threshold was verified. Preserve the original registry and flight behavior; record this semantic change in the3D ledger.",
+    "searchFailures": [
+      "AR15 AmmoOracle endpoint HTTP403",
+      "firearmstactical original host HTTP410",
+      "DTIC original host tunnel403",
+      "Current EWS2018 and original Fackler1987 do not state the requested numeric threshold."
+    ],
+    "selectedLegacyValueReuse": {
+      "556_m193": {
+        "valueMps": 780,
+        "classification": "원본값 차용한 튜닝(원래 terminalEffect 문턱 의미를 파편화 문턱으로 재사용)",
+        "primaryLiteratureVerified": false
+      },
+      "556_m855": {
+        "valueMps": 760,
+        "classification": "원본값 차용한 튜닝(원래 terminalEffect 문턱 의미를 파편화 문턱으로 재사용)",
+        "primaryLiteratureVerified": false
+      }
+    }
+  },
+  "sourceVsTuningRules": [
+    "도판의 선에서 읽은 치수만 출처(도판 판독)이며, 판독 오차와 축척 가정 포함.",
+    "직접 도판이 없는 탄에 차용한 값은 추정; 같은 탄이라는 뜻이 아님.",
+    "Cd, k, 조직수치계수, 피해배율정규화, 파편구름의 균질방사모형, 회전곡선 형태는 튜닝.",
+    "공동 부피와 에너지 연관은 균질 simulant의 보정 관계로 제한한다. 에너지전달=사람조직손상이라는 등식은 쓰지 않는다.",
+    "원문논문/PDF는 artifacts/s1-sources에만 보관하고 다운로드 게임 ZIP에 넣지 않는다."
+  ]
+}

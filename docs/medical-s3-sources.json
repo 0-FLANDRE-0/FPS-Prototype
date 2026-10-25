@@ -1,0 +1,1096 @@
+{
+  "version": "physical-damage-s3-v41",
+  "checkedKST": "2026-10-17",
+  "status": "Final recorded sources and fixed-runtime evidence;declared objective failures retained",
+  "purpose": "S3 변경의 출처/원본/튜닝/사용자 설계값을 구분. M855만 추가 조사하며 다른24탄의 개별 물리자료를 새로 조사하지 않음.",
+  "candidate2D": "예",
+  "2D 역이식 후보": "예",
+  "automatic2DPort": false,
+  "instructionProvenance": {
+    "document": "docs/training-s3-instructions.md",
+    "uploadedFile": "CQB Training 지시서 S3 - 물리 피해 통일·부위 HP·5.56·5.45 보정.md",
+    "sha256": "753d058aa777c3692c8320e38e8d962e70da9d8669fde3a6b36a6039159c75b1",
+    "verbatim": true,
+    "documentRequirements": "첨부 원문을 사용자가 보낸 작업 지시서로 보존. 현재 메시지 본문에는 별도 추가 요구가 없음. 기존 대화의 구현/같은 브랜치 전달/Actions 미사용 요청은 별도 대화 지시."
+  },
+  "sources": [
+    {
+      "id": "s3-user-design",
+      "classification": "사용자 설계값",
+      "title": "S3 첨부 지시서",
+      "path": "docs/training-s3-instructions.md",
+      "claims": [
+        "부위HP: 머리85,목60,가슴240,복부180,팔각100,다리각120.",
+        "25탄 HP=자기부위유효손상량(cm3)×공통C. 유형/문턱은 원본을 읽고 C는 M855 대표경로 보정.",
+        "M855 원본yaw/760 유지, 자료는 보고만. 다른 구경은 미보정 v40식."
+      ],
+      "limits": [
+        "사용자가 정한 게임 설계 조건이며 임상 데이터가 아님."
+      ]
+    },
+    {
+      "id": "original-terminal-25",
+      "classification": "원본(빌드 값 감사)",
+      "title": "AMMO_TERMINAL_EFFECT and generated CATALOG",
+      "path": "src/data/ammunition-legacy.js",
+      "generatedPath": "apps/training/src/generated/catalog.js",
+      "sourceSHA256": "0a7298e8fa5cd021e40edc67bffffcc736ee1c0ce7ca7284c19405dd7f60156f",
+      "claims": [
+        "유형/문턱 25/25 지시표와 동일, 차이0.",
+        "11탄 원본 estimatedThreshold:true 유지.",
+        "기준 질량·구경·속도와 원본 데미지·방호피해 수치는 레지스트리에서 읽음."
+      ],
+      "limits": [
+        "원본 게임 수치는 검증된 문헌의 물리량으로 승격하지 않음.",
+        "760m/s는 M855 원본 yaw효과 문턱이며 이번에 파편화 문턱으로 해석하지 않음."
+      ],
+      "auditEvidence": {
+        "path": "artifacts/s3-sources/original-terminal-audit.json",
+        "bytes": 12243,
+        "sha256": "b2b2fa548e2f520fc22f1f3cf01e8405e96c6a1f0fb703d671d121dabe25c154"
+      }
+    },
+    {
+      "id": "ews2004-m855",
+      "classification": "출처(미 육군 교범 원문; Internet Archive 보존본)",
+      "title": "Emergency War Surgery, Third United States Revision (2004), Chapter 1 — Weapons Effects and Parachute Injuries",
+      "publisher": "Borden Institute, US Army",
+      "url": "https://archive.org/download/EmergencyWarSurgery_201902/Emergency-War-Surgery.pdf",
+      "accessedKST": "2026-10-17",
+      "documentEvidence": {
+        "path": "artifacts/s1-sources/ews2004-full.pdf",
+        "bytes": 7649690,
+        "sha256": "66be2e06fc15abf3f30fe093c7a51e4e38c762d35176ab814cc1bd1c21d917f3"
+      },
+      "locations": [
+        {
+          "printedPage": "1.8",
+          "pdfPage": 39,
+          "quote": "The slightly heavier M-855 bullet used with the M-16A2 rifle, shows a similar pattern to the M-193 bullet",
+          "context": "직전 문장은 M193 약12cm point-forward 이후90°yaw,flatten,cannelure에서break. 같은 페이지 Fig1-5는 M19355gr/943m/s 이상화 젤라틴 도판. M855 전용 수치 도판이 아님."
+        },
+        {
+          "printedPage": "1.7",
+          "pdfPage": 38,
+          "claim": "아래 예시는5–10m ordnance gelatin 사격이며 거리·중간표적·신체조직이 상처를 바꿀 수 있다는 조건."
+        }
+      ],
+      "claims": [
+        "근거리 젤라틴 조건에서 M855가 M193와 유사한 yaw/파편화 패턴을 보일 수 있다는 정성 근거."
+      ],
+      "limits": [
+        "M855파편질량비/보편적인760m/s문턱/100m경계/파편화확률을 검증하지 않음.",
+        "보고만 하며 S3 M855설정은 원본yaw/760 유지."
+      ]
+    },
+    {
+      "id": "ews2018-general-556",
+      "classification": "출처(현행 공식 호스트 원문 확인)",
+      "title": "Emergency War Surgery, Fifth Edition (2018), Chapter 1 — Weapons Effects and War Wounds",
+      "url": "https://medcoe.army.mil/pfw-images/dbimages/Ch%201.pdf",
+      "accessedKST": "2026-10-17",
+      "documentEvidence": {
+        "path": "artifacts/s3-sources/ews2018.pdf",
+        "bytes": 1595446,
+        "sha256": "3e6b5583f54beffcc8a23f0ed2fa12a9b295e8709e40632453531d86cb7d743e"
+      },
+      "locations": [
+        {
+          "printedPage": 6,
+          "pdfPage": 6,
+          "quote": "The 5.56-mm rounds from M-4 and M-16 rifles reliably fragment at the level of the cannelure after traversing about 12 cm of tissue in soft tissue only."
+        },
+        {
+          "printedPage": "11–13",
+          "pdfPage": "11–13",
+          "claim": "5–10m 젤라틴 예시임을 명시. Fig1-6AK47,Fig1-7M16/55gr,Fig1-8M80 포함.12쪽 본문은M4/M16일반5.56의yaw/flatten/break를 설명."
+        }
+      ],
+      "limits": [
+        "해당 판의 문장은 M855를 별도로 명명하지 않음. M855 전용 도판으로 인용하지 않음.",
+        "S1의2018개별도판부재 서술은 S2에서 정정했으며 그 정정을 유지.",
+        "거리/속도/파편질량비의 보편적 문턱을 제공하지 않음."
+      ]
+    },
+    {
+      "id": "penn-barwell2015-review",
+      "classification": "출처(동료심사 임상 리뷰, 전문 확인)",
+      "title": "High velocity gunshot injuries to the extremities: management on and off the battlefield",
+      "authors": [
+        "Jowan G Penn-Barwell",
+        "Kate V Brown",
+        "C Anton Fries"
+      ],
+      "journal": "Current Reviews in Musculoskeletal Medicine",
+      "year": 2015,
+      "doi": "10.1007/s12178-015-9289-4",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4596205/",
+      "accessedKST": "2026-10-17",
+      "documentEvidence": {
+        "path": "artifacts/s3-sources/review-pmc.html",
+        "bytes": 151310,
+        "sha256": "865abbd04925d33d02cbe6e48b678936c53a705e49698642b4f1b3a6123e9df1"
+      },
+      "claims": [
+        "SS109/M855와7N6를 현대 군용 고속탄의 예로 명명.",
+        "Tumbling,fragmentation,deformation과bone strike가 항력 및 에너지전달을 늘린다는 정성 설명."
+      ],
+      "limits": [
+        "M855 특정 근거리 파편화율/문턱속도/정지깊이 실험이 아님.",
+        "이 리뷰를 근거로 이번25탄의 개별 값을 새로 만들지 않음.",
+        "S3의 계수C·유형별 기본값을 검증하는 수치 출처가 아님."
+      ]
+    },
+    {
+      "id": "lakmali-gitto2025-m855-unread",
+      "classification": "미열람 서지 확인(사실 근거로 사용하지 않음)",
+      "title": "Green Tip 5.56 × 45-mm (NATO M855) Ammunition: Structural Composition, Radiological Features, and Autopsy Findings",
+      "authors": [
+        "W A C Lakmali",
+        "L Gitto"
+      ],
+      "journal": "American Journal of Forensic Medicine and Pathology 46(2),2025",
+      "doi": "10.1097/PAF.0000000000001006",
+      "url": "https://doi.org/10.1097/PAF.0000000000001006",
+      "accessedKST": "2026-10-17",
+      "indexEvidence": {
+        "path": "artifacts/s3-sources/m855-2025-core.json",
+        "bytes": 2862,
+        "sha256": "4a4e3c09377beeef189301cea41f3273445c435d34bbaea1d9184e61344951d1"
+      },
+      "claims": [],
+      "limits": [
+        "EuropePMC서지상 subscription required. 색인 abstractText 없음. 초록·전문을 읽지 못해 결과를 인용하지 않음."
+      ]
+    }
+  ],
+  "originalTypeAudit": {
+    "baselineCommit": "c4e608dfc2ea65b4ef94bbb7c7ce9301c3d28fd2",
+    "source": "src/data/ammunition-legacy.js",
+    "generatedCatalog": "apps/training/src/generated/catalog.js",
+    "classification": "원본 값의 읽기 전용 감사",
+    "sourceSHA256": "0a7298e8fa5cd021e40edc67bffffcc736ee1c0ce7ca7284c19405dd7f60156f",
+    "count": 25,
+    "mismatchCount": 0,
+    "estimatedThresholdCount": 11,
+    "rows": [
+      {
+        "id": "556_223_fmj",
+        "requested": {
+          "type": "yaw",
+          "thresholdVelocity": 760
+        },
+        "original": {
+          "type": "yaw",
+          "thresholdVelocity": 760,
+          "aboveTissueMul": 1.1,
+          "belowTissueMul": 0.8,
+          "aboveBleedMul": 1.05,
+          "belowBleedMul": 0.9,
+          "aboveShockMul": 1.05,
+          "belowShockMul": 0.9
+        },
+        "matches": true
+      },
+      {
+        "id": "556_m193",
+        "requested": {
+          "type": "fragment",
+          "thresholdVelocity": 780
+        },
+        "original": {
+          "type": "fragment",
+          "thresholdVelocity": 780,
+          "aboveTissueMul": 1.45,
+          "belowTissueMul": 0.65,
+          "aboveBleedMul": 1.25,
+          "belowBleedMul": 0.85,
+          "aboveShockMul": 1.15,
+          "belowShockMul": 0.85
+        },
+        "matches": true
+      },
+      {
+        "id": "556_m855",
+        "requested": {
+          "type": "yaw",
+          "thresholdVelocity": 760
+        },
+        "original": {
+          "type": "yaw",
+          "thresholdVelocity": 760,
+          "aboveTissueMul": 1.2,
+          "belowTissueMul": 0.75,
+          "aboveBleedMul": 1.15,
+          "belowBleedMul": 0.85,
+          "aboveShockMul": 1.1,
+          "belowShockMul": 0.9
+        },
+        "matches": true
+      },
+      {
+        "id": "556_m855a1",
+        "requested": {
+          "type": "controlled_fragment",
+          "thresholdVelocity": 720
+        },
+        "original": {
+          "type": "controlled_fragment",
+          "thresholdVelocity": 720,
+          "aboveTissueMul": 1.25,
+          "belowTissueMul": 0.85,
+          "aboveBleedMul": 1.15,
+          "belowBleedMul": 0.9,
+          "aboveShockMul": 1.1,
+          "belowShockMul": 0.95
+        },
+        "matches": true
+      },
+      {
+        "id": "556_m856_tracer",
+        "requested": {
+          "type": "yaw",
+          "thresholdVelocity": 660
+        },
+        "original": {
+          "type": "yaw",
+          "thresholdVelocity": 660,
+          "aboveTissueMul": 1,
+          "belowTissueMul": 0.85,
+          "aboveBleedMul": 1,
+          "belowBleedMul": 0.85,
+          "aboveShockMul": 1,
+          "belowShockMul": 0.88,
+          "estimatedThreshold": true,
+          "debugNote": "estimated threshold (SIDE-AMMO-2A)"
+        },
+        "matches": true
+      },
+      {
+        "id": "556_m856a1_tracer",
+        "requested": {
+          "type": "controlled_fragment",
+          "thresholdVelocity": 670
+        },
+        "original": {
+          "type": "controlled_fragment",
+          "thresholdVelocity": 670,
+          "aboveTissueMul": 1.08,
+          "belowTissueMul": 0.88,
+          "aboveBleedMul": 1.08,
+          "belowBleedMul": 0.85,
+          "aboveShockMul": 1.05,
+          "belowShockMul": 0.88,
+          "estimatedThreshold": true,
+          "debugNote": "estimated threshold (SIDE-AMMO-2A)"
+        },
+        "matches": true
+      },
+      {
+        "id": "556_m995_ap",
+        "requested": {
+          "type": "penetrator",
+          "thresholdVelocity": 700
+        },
+        "original": {
+          "type": "penetrator",
+          "thresholdVelocity": 700,
+          "aboveTissueMul": 1.05,
+          "belowTissueMul": 0.95,
+          "aboveBleedMul": 1,
+          "belowBleedMul": 0.95,
+          "aboveShockMul": 1,
+          "belowShockMul": 0.95
+        },
+        "matches": true
+      },
+      {
+        "id": "556_mk255_rrlp",
+        "requested": {
+          "type": "frangible",
+          "thresholdVelocity": 800
+        },
+        "original": {
+          "type": "frangible",
+          "thresholdVelocity": 800,
+          "aboveTissueMul": 1.5,
+          "belowTissueMul": 0.4,
+          "aboveBleedMul": 1.2,
+          "belowBleedMul": 0.65,
+          "aboveShockMul": 1.1,
+          "belowShockMul": 0.7
+        },
+        "matches": true
+      },
+      {
+        "id": "556_mk262_mod1",
+        "requested": {
+          "type": "fragment",
+          "thresholdVelocity": 700
+        },
+        "original": {
+          "type": "fragment",
+          "thresholdVelocity": 700,
+          "aboveTissueMul": 1.3,
+          "belowTissueMul": 0.8,
+          "aboveBleedMul": 1.2,
+          "belowBleedMul": 0.85,
+          "aboveShockMul": 1.1,
+          "belowShockMul": 0.85
+        },
+        "matches": true
+      },
+      {
+        "id": "556_mk318_sost",
+        "requested": {
+          "type": "barrier_blind",
+          "thresholdVelocity": 680
+        },
+        "original": {
+          "type": "barrier_blind",
+          "thresholdVelocity": 680,
+          "aboveTissueMul": 1.3,
+          "belowTissueMul": 0.95,
+          "aboveBleedMul": 1.2,
+          "belowBleedMul": 1,
+          "aboveShockMul": 1.15,
+          "belowShockMul": 0.95
+        },
+        "matches": true
+      },
+      {
+        "id": "556_hp",
+        "requested": {
+          "type": "expand",
+          "thresholdVelocity": 770
+        },
+        "original": {
+          "type": "expand",
+          "thresholdVelocity": 770,
+          "aboveTissueMul": 1.35,
+          "belowTissueMul": 0.65,
+          "aboveBleedMul": 1.25,
+          "belowBleedMul": 0.8,
+          "aboveShockMul": 1.15,
+          "belowShockMul": 0.85
+        },
+        "matches": true
+      },
+      {
+        "id": "556_varmageddon",
+        "requested": {
+          "type": "fragment",
+          "thresholdVelocity": 800
+        },
+        "original": {
+          "type": "fragment",
+          "thresholdVelocity": 800,
+          "aboveTissueMul": 1.55,
+          "belowTissueMul": 0.5,
+          "aboveBleedMul": 1.3,
+          "belowBleedMul": 0.7,
+          "aboveShockMul": 1.15,
+          "belowShockMul": 0.75
+        },
+        "matches": true
+      },
+      {
+        "id": "545_ps_gs",
+        "requested": {
+          "type": "yaw",
+          "thresholdVelocity": 740
+        },
+        "original": {
+          "type": "yaw",
+          "thresholdVelocity": 740,
+          "aboveTissueMul": 1.2,
+          "belowTissueMul": 0.8,
+          "aboveBleedMul": 1.1,
+          "belowBleedMul": 0.9,
+          "aboveShockMul": 1.1,
+          "belowShockMul": 0.9
+        },
+        "matches": true
+      },
+      {
+        "id": "545_pp_gs",
+        "requested": {
+          "type": "yaw",
+          "thresholdVelocity": 740
+        },
+        "original": {
+          "type": "yaw",
+          "thresholdVelocity": 740,
+          "aboveTissueMul": 1.2,
+          "belowTissueMul": 0.8,
+          "aboveBleedMul": 1.1,
+          "belowBleedMul": 0.9,
+          "aboveShockMul": 1.1,
+          "belowShockMul": 0.9
+        },
+        "matches": true
+      },
+      {
+        "id": "545_bp_gs",
+        "requested": {
+          "type": "penetrator",
+          "thresholdVelocity": 680
+        },
+        "original": {
+          "type": "penetrator",
+          "thresholdVelocity": 680,
+          "aboveTissueMul": 1.05,
+          "belowTissueMul": 0.95,
+          "aboveBleedMul": 1,
+          "belowBleedMul": 0.95,
+          "aboveShockMul": 1,
+          "belowShockMul": 0.95
+        },
+        "matches": true
+      },
+      {
+        "id": "545_bs_gs",
+        "requested": {
+          "type": "penetrator",
+          "thresholdVelocity": 680
+        },
+        "original": {
+          "type": "penetrator",
+          "thresholdVelocity": 680,
+          "aboveTissueMul": 1.05,
+          "belowTissueMul": 0.95,
+          "aboveBleedMul": 1,
+          "belowBleedMul": 0.95,
+          "aboveShockMul": 1,
+          "belowShockMul": 0.95
+        },
+        "matches": true
+      },
+      {
+        "id": "545_ppbs_gs",
+        "requested": {
+          "type": "small_caliber_ap",
+          "thresholdVelocity": 740
+        },
+        "original": {
+          "type": "small_caliber_ap",
+          "thresholdVelocity": 740,
+          "aboveTissueMul": 0.9,
+          "belowTissueMul": 0.78,
+          "aboveBleedMul": 0.88,
+          "belowBleedMul": 0.76,
+          "aboveShockMul": 0.9,
+          "belowShockMul": 0.78,
+          "estimatedThreshold": true,
+          "debugNote": "estimated threshold (SIDE-AMMO-2A)"
+        },
+        "matches": true
+      },
+      {
+        "id": "545_7n40",
+        "requested": {
+          "type": "fragment",
+          "thresholdVelocity": 730
+        },
+        "original": {
+          "type": "fragment",
+          "thresholdVelocity": 730,
+          "aboveTissueMul": 1.15,
+          "belowTissueMul": 0.82,
+          "aboveBleedMul": 1.18,
+          "belowBleedMul": 0.8,
+          "aboveShockMul": 1.1,
+          "belowShockMul": 0.85,
+          "estimatedThreshold": true,
+          "debugNote": "estimated threshold (SIDE-AMMO-2A)"
+        },
+        "matches": true
+      },
+      {
+        "id": "545_prs_gs",
+        "requested": {
+          "type": "frangible",
+          "thresholdVelocity": 600
+        },
+        "original": {
+          "type": "frangible",
+          "thresholdVelocity": 600,
+          "aboveTissueMul": 1.05,
+          "belowTissueMul": 0.7,
+          "aboveBleedMul": 1.05,
+          "belowBleedMul": 0.7,
+          "aboveShockMul": 0.95,
+          "belowShockMul": 0.75,
+          "estimatedThreshold": true,
+          "debugNote": "estimated threshold (SIDE-AMMO-2A)"
+        },
+        "matches": true
+      },
+      {
+        "id": "545_us_gs",
+        "requested": {
+          "type": "subsonic_standard",
+          "thresholdVelocity": 300
+        },
+        "original": {
+          "type": "subsonic_standard",
+          "thresholdVelocity": 300,
+          "aboveTissueMul": 1.02,
+          "belowTissueMul": 0.92,
+          "aboveBleedMul": 0.98,
+          "belowBleedMul": 0.9,
+          "aboveShockMul": 1,
+          "belowShockMul": 0.92,
+          "estimatedThreshold": true,
+          "debugNote": "[0.39.4] standard subsonic (저속 소구경 FMJ, heavy 아님)"
+        },
+        "matches": true
+      },
+      {
+        "id": "545_fmj",
+        "requested": {
+          "type": "yaw",
+          "thresholdVelocity": 660
+        },
+        "original": {
+          "type": "yaw",
+          "thresholdVelocity": 660,
+          "aboveTissueMul": 1,
+          "belowTissueMul": 0.85,
+          "aboveBleedMul": 1,
+          "belowBleedMul": 0.85,
+          "aboveShockMul": 1,
+          "belowShockMul": 0.88,
+          "estimatedThreshold": true,
+          "debugNote": "estimated threshold (SIDE-AMMO-2A)"
+        },
+        "matches": true
+      },
+      {
+        "id": "545_hp",
+        "requested": {
+          "type": "expand",
+          "thresholdVelocity": 540
+        },
+        "original": {
+          "type": "expand",
+          "thresholdVelocity": 540,
+          "aboveTissueMul": 1.18,
+          "belowTissueMul": 0.82,
+          "aboveBleedMul": 1.2,
+          "belowBleedMul": 0.8,
+          "aboveShockMul": 1.1,
+          "belowShockMul": 0.85,
+          "estimatedThreshold": true,
+          "debugNote": "estimated threshold (5.45 rifle HP/SP; not pistol JHP threshold)"
+        },
+        "matches": true
+      },
+      {
+        "id": "545_sp",
+        "requested": {
+          "type": "expand",
+          "thresholdVelocity": 540
+        },
+        "original": {
+          "type": "expand",
+          "thresholdVelocity": 540,
+          "aboveTissueMul": 1.18,
+          "belowTissueMul": 0.82,
+          "aboveBleedMul": 1.2,
+          "belowBleedMul": 0.8,
+          "aboveShockMul": 1.1,
+          "belowShockMul": 0.85,
+          "estimatedThreshold": true,
+          "debugNote": "estimated threshold (5.45 rifle HP/SP; not pistol JHP threshold)"
+        },
+        "matches": true
+      },
+      {
+        "id": "545_7t3_tracer",
+        "requested": {
+          "type": "yaw",
+          "thresholdVelocity": 660
+        },
+        "original": {
+          "type": "yaw",
+          "thresholdVelocity": 660,
+          "aboveTissueMul": 1,
+          "belowTissueMul": 0.85,
+          "aboveBleedMul": 1,
+          "belowBleedMul": 0.85,
+          "aboveShockMul": 1,
+          "belowShockMul": 0.88,
+          "estimatedThreshold": true,
+          "debugNote": "estimated threshold (SIDE-AMMO-2A)"
+        },
+        "matches": true
+      },
+      {
+        "id": "545_7bt4_aptracer",
+        "requested": {
+          "type": "small_caliber_ap",
+          "thresholdVelocity": 740
+        },
+        "original": {
+          "type": "small_caliber_ap",
+          "thresholdVelocity": 740,
+          "aboveTissueMul": 0.9,
+          "belowTissueMul": 0.78,
+          "aboveBleedMul": 0.88,
+          "belowBleedMul": 0.76,
+          "aboveShockMul": 0.9,
+          "belowShockMul": 0.78,
+          "estimatedThreshold": true,
+          "debugNote": "estimated threshold (SIDE-AMMO-2A)"
+        },
+        "matches": true
+      }
+    ]
+  },
+  "inheritedSources": [
+    "docs/medical-s1-sources.json: M193/AK74 도판 및 유효손상량 정의",
+    "docs/medical-s2-sources.json: 폐/뼈 밀도, 국소 뼈효과, CNS enclosure, 단발 구조문턱"
+  ],
+  "sourceVsTuningRules": [
+    "출처의 도판은 그 탄/젤라틴/속도 조건만 직접 뒷받침한다. 같은 유형이나 구경에 빌려주는 것은family/estimate 근사다.",
+    "Cd/k·길이비·AP늦은yaw·확대율·frangible분해비/깊이·controlled일관성은게임튜닝, 임상·제조사 실측값 아님.",
+    "원본type/threshold는 바이트 보존한다. typedprofile의 threshold게이트와 최초조직진입클래스의부위간유지는3D모델설계다.",
+    "공통C는게임HP단위환산이며독립생체검증이나사망발수출처가아님."
+  ],
+  "m855Decision": {
+    "type": "yaw",
+    "thresholdVelocity": 760,
+    "classification": "원본 유지 + 사용자 지정",
+    "projectileFragmentation": false,
+    "boneSecondaryFragments": "기존 S2 국소 뼈 조각 별개 경로 보존",
+    "researchOnly": true,
+    "userDecisionRequiredToChangeType": true
+  },
+  "inheritedLimits": [
+    "S1/S2보정곡선의literal재현과실제새typedprofile의동작을구분.",
+    "7N6둘째공동지름/AK47두봉우리/완전권총도판의기존형상한계를이번합격으로바꾸지않음.",
+    "gelatin모델은사람의개별탄상태확률을직접검증한자료가아님."
+  ],
+  "typedBehavior": {
+    "classification": "출처도판차용 + 사용자설계 + 유형공통튜닝",
+    "runtimeValues": {
+      "ruleId": "terminal-types-s3",
+      "calibers": [
+        "5.56x45mm",
+        "5.45x39mm"
+      ],
+      "source": "CATALOG.AMMO_TERMINAL_EFFECT: original type and thresholdVelocity",
+      "lengthRatioClassification": "tuning: caliber × shared type mean length ratio; donor figure ratios for yaw/fragment",
+      "referenceHelpers": "gelatinProfile and WOUND_PROFILES retain literal S1/S2 reference curves; live typed tissue profiles are separate",
+      "typeDefaults": {
+        "yaw": {
+          "yawDonor": "same-caliber figure",
+          "lengthRatio556": 3.3391915641476273,
+          "lengthRatio545": 4.553571428571428,
+          "fragmentFraction": 0,
+          "expansionAreaScale": 1,
+          "dragScale": 1,
+          "cavityScale": 1
+        },
+        "fragment": {
+          "yawDonor": "m193",
+          "lengthRatio": 3.3391915641476273,
+          "fragmentFraction": 0.36,
+          "fragmentRangeM": 0.13,
+          "fragmentYawRad": 0.17453292519943295,
+          "fragmentOnsetDepthM": null,
+          "expansionAreaScale": 1,
+          "dragScale": 1,
+          "cavityScale": 1
+        },
+        "controlled_fragment": {
+          "yawDonor": "m193",
+          "lengthRatio": 3.3391915641476273,
+          "fragmentFraction": 0.36,
+          "fragmentRangeM": 0.13,
+          "fragmentYawRad": 0,
+          "fragmentOnsetDepthM": 0.12,
+          "expansionAreaScale": 1,
+          "dragScale": 1,
+          "cavityScale": 1
+        },
+        "barrier_blind": {
+          "yawDonor": "m193",
+          "lengthRatio": 3.3391915641476273,
+          "fragmentFraction": 0.36,
+          "fragmentRangeM": 0.13,
+          "fragmentYawRad": 0,
+          "fragmentOnsetDepthM": 0.12,
+          "expansionAreaScale": 1,
+          "dragScale": 1,
+          "cavityScale": 1
+        },
+        "penetrator": {
+          "yawDonor": "m193",
+          "yawKnotsM": [
+            [
+              0,
+              0
+            ],
+            [
+              0.28,
+              0
+            ],
+            [
+              0.55,
+              1.5707963267948966
+            ],
+            [
+              0.8,
+              3.141592653589793
+            ]
+          ],
+          "lengthRatio": 4.5,
+          "fragmentFraction": 0,
+          "expansionAreaScale": 1,
+          "dragScale": 0.45,
+          "cavityScale": 0.65
+        },
+        "small_caliber_ap": {
+          "yawDonor": "m193",
+          "yawKnotsM": [
+            [
+              0,
+              0
+            ],
+            [
+              0.28,
+              0
+            ],
+            [
+              0.55,
+              1.5707963267948966
+            ],
+            [
+              0.8,
+              3.141592653589793
+            ]
+          ],
+          "lengthRatio": 4.5,
+          "fragmentFraction": 0,
+          "expansionAreaScale": 1,
+          "dragScale": 0.45,
+          "cavityScale": 0.65
+        },
+        "expand": {
+          "yawDonor": "same-caliber figure below threshold",
+          "yawKnotsM": [
+            [
+              0,
+              0
+            ],
+            [
+              0.005,
+              0
+            ],
+            [
+              0.035,
+              1.5707963267948966
+            ],
+            [
+              2.56,
+              1.5707963267948966
+            ]
+          ],
+          "lengthRatio": 3,
+          "fragmentFraction": 0,
+          "expansionAreaScale": 3.2,
+          "dragScale": 1,
+          "cavityScale": 1
+        },
+        "frangible": {
+          "yawDonor": "same-caliber figure below threshold",
+          "yawKnotsM": [
+            [
+              0,
+              0
+            ],
+            [
+              0.005,
+              0
+            ],
+            [
+              0.035,
+              1.5707963267948966
+            ],
+            [
+              2.56,
+              1.5707963267948966
+            ]
+          ],
+          "lengthRatio": 3,
+          "fragmentFraction": 0.9,
+          "fragmentRangeM": 0.06,
+          "fragmentYawRad": 0,
+          "fragmentOnsetDepthM": 0.015,
+          "expansionAreaScale": 1,
+          "dragScale": 1,
+          "cavityScale": 1
+        },
+        "subsonic_standard": {
+          "yawDonor": "same-caliber figure",
+          "lengthRatio556": 3.3391915641476273,
+          "lengthRatio545": 4.553571428571428,
+          "fragmentFraction": 0,
+          "expansionAreaScale": 1,
+          "dragScale": 1,
+          "cavityScale": 1
+        }
+      },
+      "consistency": "controlled_fragment and barrier_blind use a fixed donor-onset depth, rather than a yaw-amplitude fragmentation gate; deterministic shared tuning, not a measured reliability distribution",
+      "thresholdPolicy": "first occupied tissue entry selects the original threshold class; that class follows the same projectile across parts",
+      "yawThresholdPolicy": "yaw and subsonic_standard use the donor depth curve at all speeds. Original thresholdVelocity remains recorded; it does not switch yaw off. Their original high/low tissue-damage multipliers are not used by the S3 physical HP calculation.",
+      "expansionBelowThreshold": "use same-caliber donor yaw without expansion; preserve the shared expand-type mean length ratio. Occupied depth and inherited yaw never reset between body parts.",
+      "classification": "original type/threshold; user-designed type behavior; shared game tuning for lengths, AP, expansion, frangibility and controlled fragmentation",
+      "reversePortCandidate": true
+    },
+    "ammoGrades": {
+      "556_223_fmj": {
+        "type": "yaw",
+        "thresholdVelocity": 760,
+        "grade": "family",
+        "donorProfileId": "m193",
+        "lengthRatio": 3.3391915641476273
+      },
+      "556_m193": {
+        "type": "fragment",
+        "thresholdVelocity": 780,
+        "grade": "plate",
+        "donorProfileId": "m193",
+        "lengthRatio": 3.3391915641476273
+      },
+      "556_m855": {
+        "type": "yaw",
+        "thresholdVelocity": 760,
+        "grade": "family",
+        "donorProfileId": "m193",
+        "lengthRatio": 3.3391915641476273
+      },
+      "556_m855a1": {
+        "type": "controlled_fragment",
+        "thresholdVelocity": 720,
+        "grade": "estimate",
+        "donorProfileId": "m193",
+        "lengthRatio": 3.3391915641476273
+      },
+      "556_mk318_sost": {
+        "type": "barrier_blind",
+        "thresholdVelocity": 680,
+        "grade": "estimate",
+        "donorProfileId": "m193",
+        "lengthRatio": 3.3391915641476273
+      },
+      "556_mk255_rrlp": {
+        "type": "frangible",
+        "thresholdVelocity": 800,
+        "grade": "estimate",
+        "donorProfileId": "m193",
+        "lengthRatio": 3
+      },
+      "556_m995_ap": {
+        "type": "penetrator",
+        "thresholdVelocity": 700,
+        "grade": "estimate",
+        "donorProfileId": "m193",
+        "lengthRatio": 4.5
+      },
+      "556_varmageddon": {
+        "type": "fragment",
+        "thresholdVelocity": 800,
+        "grade": "family",
+        "donorProfileId": "m193",
+        "lengthRatio": 3.3391915641476273
+      },
+      "556_hp": {
+        "type": "expand",
+        "thresholdVelocity": 770,
+        "grade": "estimate",
+        "donorProfileId": "m193",
+        "lengthRatio": 3
+      },
+      "556_mk262_mod1": {
+        "type": "fragment",
+        "thresholdVelocity": 700,
+        "grade": "family",
+        "donorProfileId": "m193",
+        "lengthRatio": 3.3391915641476273
+      },
+      "545_hp": {
+        "type": "expand",
+        "thresholdVelocity": 540,
+        "grade": "estimate",
+        "donorProfileId": "ak74",
+        "lengthRatio": 3
+      },
+      "545_prs_gs": {
+        "type": "frangible",
+        "thresholdVelocity": 600,
+        "grade": "estimate",
+        "donorProfileId": "ak74",
+        "lengthRatio": 3
+      },
+      "545_sp": {
+        "type": "expand",
+        "thresholdVelocity": 540,
+        "grade": "estimate",
+        "donorProfileId": "ak74",
+        "lengthRatio": 3
+      },
+      "545_us_gs": {
+        "type": "subsonic_standard",
+        "thresholdVelocity": 300,
+        "grade": "family",
+        "donorProfileId": "ak74",
+        "lengthRatio": 4.553571428571428
+      },
+      "545_fmj": {
+        "type": "yaw",
+        "thresholdVelocity": 660,
+        "grade": "family",
+        "donorProfileId": "ak74",
+        "lengthRatio": 4.553571428571428
+      },
+      "545_ps_gs": {
+        "type": "yaw",
+        "thresholdVelocity": 740,
+        "grade": "plate",
+        "donorProfileId": "ak74",
+        "lengthRatio": 4.553571428571428
+      },
+      "545_pp_gs": {
+        "type": "yaw",
+        "thresholdVelocity": 740,
+        "grade": "family",
+        "donorProfileId": "ak74",
+        "lengthRatio": 4.553571428571428
+      },
+      "545_bp_gs": {
+        "type": "penetrator",
+        "thresholdVelocity": 680,
+        "grade": "estimate",
+        "donorProfileId": "m193",
+        "lengthRatio": 4.5
+      },
+      "545_bs_gs": {
+        "type": "penetrator",
+        "thresholdVelocity": 680,
+        "grade": "estimate",
+        "donorProfileId": "m193",
+        "lengthRatio": 4.5
+      },
+      "545_7n40": {
+        "type": "fragment",
+        "thresholdVelocity": 730,
+        "grade": "estimate",
+        "donorProfileId": "m193",
+        "lengthRatio": 3.3391915641476273
+      },
+      "545_ppbs_gs": {
+        "type": "small_caliber_ap",
+        "thresholdVelocity": 740,
+        "grade": "estimate",
+        "donorProfileId": "m193",
+        "lengthRatio": 4.5
+      },
+      "556_m856_tracer": {
+        "type": "yaw",
+        "thresholdVelocity": 660,
+        "grade": "family",
+        "donorProfileId": "m193",
+        "lengthRatio": 3.3391915641476273
+      },
+      "556_m856a1_tracer": {
+        "type": "controlled_fragment",
+        "thresholdVelocity": 670,
+        "grade": "estimate",
+        "donorProfileId": "m193",
+        "lengthRatio": 3.3391915641476273
+      },
+      "545_7t3_tracer": {
+        "type": "yaw",
+        "thresholdVelocity": 660,
+        "grade": "family",
+        "donorProfileId": "ak74",
+        "lengthRatio": 4.553571428571428
+      },
+      "545_7bt4_aptracer": {
+        "type": "small_caliber_ap",
+        "thresholdVelocity": 740,
+        "grade": "estimate",
+        "donorProfileId": "m193",
+        "lengthRatio": 4.5
+      }
+    },
+    "dataGradeMeaning": "plate/family/estimate는근거종류이며시험합격등급아님"
+  },
+  "runtimeSourceCommit": "a4fe65bf3217db63ffd0aa174bbbd3db8a7bbd60",
+  "runtimeHashes": {
+    "apps/training/src/wound-channel.js": "a3abf8c206bc469780943aa27dae9c2e0e5f6e15716ad753523df16c2f670083",
+    "apps/training/src/wound-s3-types.js": "a596dc2b4ab6c72ef4651ff4ed2cc69fb2d430a360ef3485e506105eeb622a31",
+    "apps/training/src/medical-s3-effects.js": "d790ed08279ff87fb15f605bb77586f50893adba69d93cbcf62521d756e69a0a",
+    "apps/training/src/medical.js": "575ea1be6568e81474eb3f7956a6eb6abe0698dac5523c0efc842a10099e734d",
+    "apps/training/src/medical-v2.js": "f95ebee678a5925c73bd347be8c915f5effc11a74af45ae40de2d5a1b586e62a",
+    "apps/training/src/damage-index-s3.js": "9591e936e2adc6eede2c0adef76d2fdfb34b7dfbb88e27d1046f743bf9047eb2"
+  },
+  "referencePreservation": {
+    "referenceHelpers": "5종 gelatinProfile literal wholeJSON equal v40",
+    "liveM193": "source943m/s,actualregistrymass: all physical fields bit-exact v40",
+    "live7N6": "source935m/s,actualregistrymass: stopDepth .4468001046243593m,energy1499.2958750000003J,effectiveVolume .0005062489519640263m3 exactly equal v40;117 local floating-point fields differ at most5.0022e-12 J/m due to caliber×length-ratio operation ordering",
+    "limits": "7N6livewholeJSONbitidentity를주장하지않음. originalthreshold740/unusedfragmentationEligible메타데이터도다르며파편비는0. Literalreferencehelper보존과새typedlive모형은구별."
+  },
+  "fixedSourceBuild": {
+    "sourceCommit": "a4fe65bf3217db63ffd0aa174bbbd3db8a7bbd60",
+    "html": {
+      "bytes": 34579863,
+      "sha256": "5c26d94a204fb40213bc68b9e33f0a7388b2b7f9cc93ea310b7e58df585d3443"
+    }
+  },
+  "calibrationEvidence": {
+    "coefficient": 0.10996950326980938,
+    "goalsMet": 12,
+    "rays": 21,
+    "allGoalsMet": false,
+    "globalCoefficientFeasibility": false,
+    "requiredMinimumInclusive": 0.20388279324191408,
+    "requiredMaximumExclusive": 0.06430826598692424,
+    "fittedInstalledFloat64BitsIdentical": true,
+    "float64LittleEndian": "01e8191cf626bc3f",
+    "maximumHpFormulaError": 7.105427357601002e-15,
+    "evidence": {
+      "path": "downloads/checks-s3-v41/calibration.json",
+      "bytes": 525600,
+      "sha256": "5f161d88684816b539a6fb6b9d14c4bcb80342bad2774a6f679321d0db5c2931"
+    }
+  },
+  "clinicalEvidence": {
+    "summary": {
+      "path": "downloads/checks-s3-v41/report-summary.json",
+      "bytes": 31839,
+      "sha256": "9167ace1213ef75779bcadbb6dba06b225f7e56b88d49b9ab0de8022a356005a"
+    },
+    "organOnlyIntegrity": {
+      "path": "downloads/checks-s3-v41/organ-only-integrity.json",
+      "bytes": 14277,
+      "sha256": "2b904947359588f656bf93968aa9f018423bf0d993001cd85a92b741c0c33848"
+    },
+    "cases": 777,
+    "matchedPhysicalChannels": 777,
+    "ischemicLoadAndFunctionImpairmentRetained": true
+  },
+  "acceptancePassed": false,
+  "deliveryStatus": "tracked separately in downloads/delivery-physical-damage-s3-v41.json",
+  "performanceEvidence": {
+    "path": "downloads/checks-s3-v41/performance/performance.json",
+    "actualPerHitP95BudgetPassed": false,
+    "individualPartMicroP95BudgetPassed": true,
+    "s3V40MedianFrameRatioWithin1_5": true,
+    "comparisonNotPureOverheadSwitch": true,
+    "full60HzGameplayClaimed": false
+  }
+}

@@ -1,0 +1,2289 @@
+{
+  "version": "medical-s1-v39",
+  "status": "Frozen runtime and full evidence captured; acceptance failures explicitly reported; experimental build",
+  "baseline": "5f1236aa84c9a9a5da5a907ec7a7b417aac223de",
+  "runtimeSourceCommit": "4e4f6bc326fe350ce18f1ba9f1ec777d0c58bbee",
+  "checkedKST": "2026-10-16",
+  "scope": "Independent3D medical-v2, legacy+2D preserved; no automatic reverse port; flight/penetration/protection/actualbodyexit and base damage/partHP remain original",
+  "sourceLedger": "docs/medical-s1-sources.json",
+  "calibrationInputLedger": "docs/medical-s1-calibration-inputs.json",
+  "pipelineAudit": "docs/training-s1-pipeline-audit.md",
+  "entries": [
+    {
+      "id": "S1-independent",
+      "originalFunction": "3D medical adapter architecture",
+      "originalSource": "docs/training-brief.md; apps/training/src/medical.js; medical-v2.js",
+      "before": "S0 independent3D with immutable2D source and retained legacy declarations",
+      "after": "Keep same policy; add separate wound-channel model and3D physiology adapter. No automatic2D port.",
+      "reason": "S1 scope",
+      "evidence": "사용자 지시; 원본 보존",
+      "dependenciesFor2D": "Reverse port requires separately authorized design and compatible geometry/state",
+      "candidate2D": "아니오",
+      "2D 역이식 후보": "아니오"
+    },
+    {
+      "id": "S1-channel",
+      "originalFunction": "computeWoundChannel / integrate",
+      "originalSource": "apps/training/src/wound-channel.js; medical.js",
+      "before": "S0 used actual chord and retained residual-energy/body resistance but had no axial permanent/temporary/fragment channel",
+      "after": "5mm1D depth cells track analytical drag-based speed, main/fragment mass, yaw, energy loss and cavity radii. All are shadow medical state; no assignment to trace residuals or actual exit speed.",
+      "reason": "Model local damage without replacing flight/body-exit outcome",
+      "evidence": "출처: EWS/Fackler anatomy concepts,1050kg/m³ reference muscle in Geant4; 튜닝: gelatin1000,Cd,k,operational20m/s stop,maxradius.15m,max512steps and waveform",
+      "dependenciesFor2D": "Needs actual occupied tissue intervals, per-part entry speed/mass, local offsets, separate shadow state",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S1-part-isolation",
+      "originalFunction": "TrainingMedical.record / computeWoundChannel",
+      "originalSource": "apps/training/src/medical.js; protection.js resolveBodyPath (preserved)",
+      "before": "Existing resolveBodyPath already apportioned energy by each part and exposed part.velocityInMps / part.energyShareJ",
+      "after": "Each m integrates only this part length; next part starts original part.velocityInMps. New-model predicted output is report-only. Shadow yaw/mass/fragment state carries occupied tissue depth, excluding air gaps.",
+      "reason": "User addendum: local m and prior-body deceleration",
+      "evidence": "원본: part velocities/energy/path preserved. 튜닝: shadow continuity",
+      "dependenciesFor2D": "Must port per-part actual energy accounting, not one m for entire person. body path or shadow resets must not restore muzzle velocity",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S1-armor-input",
+      "originalFunction": "TrainingMedical.record / computeWoundChannel",
+      "originalSource": "medical.js; unchanged protection.js and generated legacy-protection.js",
+      "before": "Armor3D adapter converts remaining penetration fraction into existing velocity; body consumes its residual speed. Packet includes integrity/breakup/kind/stability hints but no generally measured deformed diameter/length or yaw radians",
+      "after": "Read actual body/part entry speed after armor and existing intervening flight. Record armor history. Set armorDeformationApplied=false and armorYawApplied=false; no conversion of packet breakup/stability into S1initial shape/yaw.",
+      "reason": "User addendum excludes armor-induced deformation and initial yaw",
+      "evidence": "원본: residual speed/history and altered flight direction. 사용자 범위: no new armor-yaw/deformation",
+      "dependenciesFor2D": "Needs exact upstream residual state, not catalogue speed; preserve actual armor outcome and direction",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S1-cavities",
+      "originalFunction": "integrate / organ overlap accumulation",
+      "originalSource": "wound-channel.js; internal-anatomy.js",
+      "before": "S0 used only direct chords; nearMisses was limited2cm",
+      "after": "Permanent radius from projected frontal/side area. TC radius=k√(dE/dx); sparse fragment-track volume distinct from outer reach. Weighted tissueTC plus permanent/fragment volumes produce effective damage.",
+      "reason": "Measure heterogeneous anatomical injury along each part",
+      "evidence": "출처: temporary-cavity volume/energy association in simulants and tissue qualitative order. 튜닝: square-root functional form,k,1D surface-gap/axial overlap,fragmentFillFraction and all numeric tissue ratios",
+      "dependenciesFor2D": "Requires geometry surface gap/depth intervals, organ volumes and tissue categories; no per-cell3D calls",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S1-yaw-fragment",
+      "originalFunction": "yawAt / integrate / woundProfile",
+      "originalSource": "wound-channel.js; preserved src/data/ammunition-legacy.js terminalEffect values",
+      "before": "No explicit medical shadow yaw/fragment state; original terminalEffect.thresholdVelocity M193780fragment/M855760yaw served original above/below effect groups",
+      "after": "Piecewise depth yaw knots; fragmentation requires entry threshold and yaw condition. M193 data donor also used for M855, preserving actual game mass. M193780/M855760 are reused as unverified S1fragment thresholds, with original semantics disclosed. Frozen114cartridge map supplies original effective diameter; donor length scales with diameter as tuning. Explicitfragment/expandingfamily may use donor fragmentation; penetratorFMJ does not blindly inherit donorfragment fraction.",
+      "reason": "Fackler calibrated axial curve; no invented primary-paper threshold",
+      "evidence": "출처(도판):AK74/M193/AK47/M80 charts and36%M193fragment fraction. 추정: M855/donor mapping. 원본값 차용튜닝:780/760m/s and all threshold reuse; yawknots/cloud shape 튜닝",
+      "dependenciesFor2D": "Need registered ammo identity, mass, calibrated profile, shadow history; no original registry mutation",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S1-local-damage",
+      "originalFunction": "TrainingMedical.record ev.tissueDamage",
+      "originalSource": "medical.js; wound-channel.js",
+      "before": "HPloss used original part.damageIn×ammoMedicalProfile.tissueDamageMul",
+      "after": "m=clamp(effectiveVolume/referencePartVolume,.1,1); ev.tissueDamage=original part.damageIn×original tissueDamageMul×m. No raw ammo damage/part maxHP edits. m=1 remains old HP input.",
+      "reason": "S1 bounded reduction; base damage/HP calibration belongs toS2",
+      "evidence": "튜닝: reference volumes per part, .1floor/1cap requested. 원본: rawDamage/tissueDamageMul unchanged",
+      "dependenciesFor2D": "Needs explicit tissueDamage override; do not reduce raw damage and accidentally alter fracture/rng/wound evidence",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S1-organ-severity",
+      "originalFunction": "applyWoundChannelEffectsS1 / createMedicalS1Slots",
+      "originalSource": "medical-s1-effects.js; medical-v2.js",
+      "before": "S0/retained original physiological severity and monitor-only organ fields were not local cavity-volume fractions",
+      "after": "Organ severity=clamp(effectiveVolume/shapeVolume×gain); regenerate all injury effects and aggregate profiles from severity. Actual direct and modeledTC/fragment damage remain distinguished; no fake internalHits.",
+      "reason": "Make new anatomy volume input reach real medical consumers",
+      "evidence": "튜닝: gain, response coefficients, aggregate caps, volumes are fitted collider approximations rather than measured anatomical organ volumes",
+      "dependenciesFor2D": "Need physiological effects plus source evidence, vascular evidence and original medical tick; rewriting severity display alone is insufficient",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S1-neuro-bone",
+      "originalFunction": "cavityNeuroTargetS1 / existing criticalAnatomyS0",
+      "originalSource": "medical-s1-effects.js; medical-s0.js; medical-v2.js",
+      "before": "S0 direct actual cerebrum immediateCC0; brainstem immediate arrest; direct fracture/spinal rules",
+      "after": "Retain actual direct brain/brainstem and bone/spinal rules. TC-only brain continuously caps target by modeled severity, does not invoke direct CNS shortcut. TC-only spinal remains record-only; noTC fracture.",
+      "reason": "Avoid treating a modeled cavity as a direct bullet intersection",
+      "evidence": "원본/S0: direct rules. 튜닝: continuousTCbrain target. 사용자범위: noTCfracture",
+      "dependenciesFor2D": "Requires exact actual-vs-modeled evidence and original fracture inputs; cavity records may not become direct confirmed hits",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S1-heart",
+      "originalFunction": "applyCardiacPumpS0 / consciousnessTargetV2",
+      "originalSource": "medical-s0.js; medical-v2.js; medical-s1-effects.js",
+      "before": "S0 heart chord/residualEnergy normalizedpump loss, cerebral reserve tau4s; representative pureheart collapse4.933s",
+      "after": "S1 organ volume severity drives pump loss. For direct cardiac damage pumpSeverity=clamp(severity×3); cavity-only uses severity. Per injury loss=.99×pumpSeverity, remaining pump multiplies across wounds. Cerebral reserve tau8s for S1channel wounds; compatibility withoutS1 retains tau4s. Final clinical table is separate.",
+      "reason": "S1 requests7–15s interval after geometry-based cardiac injury",
+      "evidence": "출처: Rossen1943mean6.8s cerebralocclusion differs from gunshot; Patrick1989qualitative10–15s action interval. tau/gains/pump mapping 튜닝, not literature fit",
+      "dependenciesFor2D": "Needs volume severity,pump state, freshCO/MAP tick,cerebral reserve, original action gates; no duplicate pump multiplication",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S1-aorta",
+      "originalFunction": "aortaFlowS1 / finalizeBleedingProfileWithEvidence",
+      "originalSource": "medical-s1-effects.js; unchanged original MAP bleeding pulse",
+      "before": "S0 actual aorta representative collapse66.6s; original major-vessel model",
+      "after": "Read fitted collider diameter and organ severity; openingArea=π(d/2)²×severity, Q=.62×A×sqrt(2×93mmHg×133.322/1060), cap5250/60×1.7=148.75mL/s. Seed half of capped flow into original cavity-bleeding path to retain existing MAP pulse; coefficients/collider size are game approximations. Final clinical time in QA.",
+      "reason": "S1 improves thoracic-aorta injury relative to femoral artery",
+      "evidence": "출처:OpenStax restingCO5.25L/min; 원본:MAP93mmHg and collider. 튜닝:orificeCd,openingfraction,blooddensity,cap,seedratio; collider is not measured lumen",
+      "dependenciesFor2D": "Needs positive modeled vessel volume, diameter source, hemorrhage compartment, old pressure-driven bleeding; no claim of clinically exact hole/flow",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S1-candidate-cache",
+      "originalFunction": "intersectInternalBody cavityCandidates",
+      "originalSource": "internal-anatomy.js",
+      "before": "Existing single3D annotation per occupied body path supplied original internalHits and≤2cm nearMisses",
+      "after": "Within the same query loop append nonbone candidates up to.15m with axial intervals/surface distance/shape volume; keep old arrays field-for-field unchanged.",
+      "reason": "TC may reach farther than original2cm near-miss cache",
+      "evidence": "원본:original direct/near arrays preserved. 튜닝/근사:radius envelope,chainvolume,one minimum surface gap",
+      "dependenciesFor2D": "Depends on3D ellipsoids/capsulechains; 2D would need an independent geometrical representation",
+      "candidate2D": "아니오",
+      "2D 역이식 후보": "아니오"
+    },
+    {
+      "id": "S1-debug",
+      "originalFunction": "createInternalModel wound visualization",
+      "originalSource": "internal-model.js; combat-actor.js; main.js",
+      "before": "Only anatomy primitives under existing internal-regions checkbox",
+      "after": "Last hit permanent channel, TC envelope, fragment extent and per-part m use existing toggle; bounded display sampling, cosmetic only. Actual1280x720/844x390 checkbox, threecolors, per-partm, clinical equality and ragdoll-follow evidence captured in debug.json.",
+      "reason": "User visibility requirement",
+      "evidence": "튜닝: visualization sampling/colors; no calculation side effect",
+      "dependenciesFor2D": "3D bone/world transform and rendering; not medical port logic",
+      "candidate2D": "아니오",
+      "2D 역이식 후보": "아니오"
+    },
+    {
+      "id": "S1-budget",
+      "originalFunction": "1D timing / lookup fallback and200shots/s scenario",
+      "originalSource": "scripts/check-training-s1-performance.mjs; wound-channel.js",
+      "before": "No S1 wound calculation overhead",
+      "after": "Initial direct integration1000actualinputs exceeded.1ms budget(median.1130ms,p95.4877ms), so frozen runtime eagerly builds114cartridges×2fragmentation-speed classes×513depth samples atmoduleload; numericarrays4,678,560B. Runtime uses depth interpolation/analyticvelocity scaling. Final isolated measured shot/load/frame results are recorded separately.",
+      "reason": "User.1msbudget and10shooters×1200RPM×10s load",
+      "evidence": "튜닝: .1ms budget and1.5framecriterion. LUT interpolation comparison1000actualinputs: maxm.0019476, shadowexit.6981m/s, organseverity.018588,3positive-small-volumeIDdifferences; not numericalidentity. Final measured timing artifact takes priority. Fixed old-pool maxorganseverity.018588 is separate from final fresh-pool.01404378075. Final fresh timing medians.015453/.015574ms,p95.050627/.047391ms,max.279961/.191909ms; strictmaximum.1ms targetnotmet.",
+      "dependenciesFor2D": "Performance artifacts/fixtures; no2Dmedical logic",
+      "candidate2D": "아니오",
+      "2D 역이식 후보": "아니오"
+    }
+  ],
+  "validation": {
+    "gelatin": {
+      "artifact": "downloads/checks-s1-v39/gelatin.json",
+      "primaryProfileAgreement": true,
+      "fullProfileAgreement": false,
+      "notes": "Four primary rifle peak/diameter/stopping targets within readout error; AK74secondary diameter and AK47two-lobe shape fail; no complete pistol source."
+    },
+    "distanceEffects": {
+      "artifact": "downloads/checks-s1-v39/distance.json",
+      "cases": 30,
+      "passed": true,
+      "fragmentationBracketsM": {
+        "M855thighLung": [
+          100,
+          200
+        ],
+        "M855liverAfterArm": [
+          50,
+          100
+        ]
+      },
+      "notes": "Five sampled ranges; not an exact continuous fragmentation range."
+    },
+    "s0Matrix240": {
+      "artifact": "downloads/checks-s1-v39/comparison.json",
+      "cases": 240,
+      "classificationCounts": {
+        "PASS": 63,
+        "RECORDED": 140,
+        "REPORT_ONLY": 8,
+        "BLOCKED_BY_ARMOR": 29
+      },
+      "terminalAndArmorExactPairs": 240,
+      "partChannels": 212,
+      "mRange": [
+        0.1,
+        1
+      ],
+      "maximumNextOriginalEntryVelocityErrorMps": 1.1369e-13,
+      "maximumChannelEntryVelocityErrorMps": 0,
+      "notes": "240pairs is coverage; only63 are classified clinicalPASS. No claim all240are clinicalacceptancepasses.",
+      "benchClinicalCriteriaPassed": true,
+      "faceScope": "All16frozen face-jaw bench fixtures had no collapse/UC through120s. Separate browser face-jaw path fails early-collapse objective; the fixedbench does not establish allfacepaths."
+    },
+    "heartAortaLung": {
+      "artifact": "downloads/checks-s1-v39/matrix-after-summary.json",
+      "heartActualCases": 8,
+      "heartCollapseRangeS": [
+        8.65,
+        8.666666666666668
+      ],
+      "aortaActualCases": 8,
+      "aortaUnconsciousRangeS": [
+        28.383333333333333,
+        30.0
+      ],
+      "lungStanding7N6At5m": {
+        "m": 0.2754415,
+        "v38UnconsciousS": 10.616666666666667,
+        "s1UnconsciousS": 39.1,
+        "v38ArrestS": 94.25,
+        "s1ArrestWithin120S": false
+      }
+    },
+    "exitVelocityComparison": {
+      "artifact": "downloads/checks-s1-v39/exit-velocities.json",
+      "partChannels": 212,
+      "shadowStoppedBeforeExit": 0,
+      "unresolvedShortIntegration": 0,
+      "rawIntegrationMinusOriginalExitRangeMps": [
+        -678.6172702255426,
+        369.00814092342534
+      ],
+      "diagnosticExitMinusOriginalExitRangeMps": [
+        -678.6172702255426,
+        369.00814092342534
+      ],
+      "reportOnlyStopPolicy": "If1D integration stops at/below20m/s before part exit, diagnostic exit0; retain rawintegrationendfield. No such stop in current212channels.",
+      "actualStateReplaced": false
+    },
+    "shotPerformance": {
+      "artifact": "downloads/checks-s1-v39/performance/performance.json",
+      "environment": {
+        "node": "v24.19.0",
+        "platform": "linux",
+        "arch": "x64",
+        "cpuModel": "AMD EPYC 9V74 80-Core Processor",
+        "logicalCpuCount": 5,
+        "availableParallelism": 4
+      },
+      "measurementCompleted": true,
+      "targets": {
+        "modelMaximumWithin0_1Ms": false,
+        "modelP95Within0_1Ms": true,
+        "onOffMedianFrameWithin1_5": true,
+        "eventQuietCpuMedianWithin1_5": false,
+        "fullGameplayFrameBudgetVerified": false,
+        "note": "passed means the measurement tape and conservation assertions completed, not that every target passed. Node medical-only quiet timing does not include the normal renderer/AI/physics frame cost."
+      },
+      "schedule": {
+        "durationS": 10,
+        "ticks": 600,
+        "dtS": 0.016666666666666666,
+        "shooters": 10,
+        "rpmEach": 1200,
+        "shotsEach": 200,
+        "totalShots": 2000,
+        "shotsPerSecond": 200
+      },
+      "micro": [
+        {
+          "count": 1000,
+          "medianMs": 0.015452999999979511,
+          "p95Ms": 0.05062700000053155,
+          "maxMs": 0.27996100000018487,
+          "overBudgetCalls": 12,
+          "microInputsUnique": 1000,
+          "multiPartStateInputs": 332,
+          "lengthRangeM": [
+            6.171007214824872e-05,
+            0.8340502394774993
+          ],
+          "stepCountRange": [
+            1,
+            167
+          ],
+          "cavityCandidateCountRange": [
+            0,
+            45
+          ]
+        },
+        {
+          "count": 1000,
+          "medianMs": 0.01557400000092457,
+          "p95Ms": 0.04739100000006147,
+          "maxMs": 0.19190900000103284,
+          "overBudgetCalls": 3,
+          "microInputsUnique": 1000,
+          "multiPartStateInputs": 332,
+          "lengthRangeM": [
+            6.171007214824872e-05,
+            0.8340502394774993
+          ],
+          "stepCountRange": [
+            1,
+            167
+          ],
+          "cavityCandidateCountRange": [
+            0,
+            45
+          ]
+        }
+      ],
+      "onOffFrameRatios": [
+        0.988718138519937,
+        1.0561292565583873
+      ],
+      "eventToMedicalOnlyQuietRatios": [
+        25776.97766174642,
+        24023.621551911772
+      ],
+      "onOneDTimePerTick": [
+        {
+          "count": 600,
+          "minMs": 0.08593899999686982,
+          "medianMs": 0.156314999992901,
+          "p95Ms": 0.27734700000291923,
+          "maxMs": 1.7131980000049225,
+          "totalMs": 102.83165300017572
+        },
+        {
+          "count": 600,
+          "minMs": 0.0819439999977476,
+          "medianMs": 0.15807800000766292,
+          "p95Ms": 0.2794710000162013,
+          "maxMs": 0.6074229999940144,
+          "totalMs": 98.72556399976747
+        }
+      ],
+      "onTraceGeometryTerminalTimePerTick": [
+        {
+          "count": 600,
+          "minMs": 63.89578299999994,
+          "medianMs": 77.18129199999385,
+          "p95Ms": 101.14404400000058,
+          "maxMs": 141.4634870000009,
+          "totalMs": 48449.501314000285
+        },
+        {
+          "count": 600,
+          "minMs": 64.3034239999979,
+          "medianMs": 79.93894,
+          "p95Ms": 107.51362399999925,
+          "maxMs": 143.87560199998552,
+          "totalMs": 50540.51473000002
+        }
+      ],
+      "alivePostmortemDivergence": {
+        "on": [
+          94,
+          1906
+        ],
+        "off": [
+          199,
+          1801
+        ],
+        "note": "Clinical outcomes differ; do not interpret an on/offratio below1as a pure speedup."
+      },
+      "newPoolDirectComparison": {
+        "damageMultiplier": 0.0019475868572914612,
+        "predictedExitVelocityMps": 0.6980844889110358,
+        "organSeverity": 0.014043780749829447,
+        "temporaryRadiusM": 0.001978316716103847,
+        "permanentRadiusM": 0.00020330338500976512,
+        "fragmentRadiusM": 5.814251514592306e-05,
+        "effectiveVolumeM3": 4.86896714322867e-07
+      },
+      "newPoolOrganIdDifferences": 3,
+      "lutCreationOnlyTimeMs": [
+        15.004346000000027,
+        16.55352400000001
+      ]
+    },
+    "fullRegression": {
+      "artifact": "downloads/checks-s1-v39/tests.log",
+      "tests": 270,
+      "passed": 270,
+      "failed": 0
+    },
+    "qSixInvariants": {
+      "artifact": "downloads/checks-s1-v39/invariants.json",
+      "scenarios": 17,
+      "checks": 1101784,
+      "passed": true
+    },
+    "cleanMuscle": {
+      "artifact": "downloads/checks-s1-v39/clean-muscle.json",
+      "cases": 4,
+      "occupiedLengthMmRange": [
+        4.98,
+        7.02
+      ],
+      "m": 0.1,
+      "effectiveOrgans": 0,
+      "durationS": 900,
+      "allAliveAwakeStanding": true,
+      "bloodPercentRange": [
+        94.6,
+        97.41
+      ]
+    },
+    "runtimeHashesStable": {
+      "runtimeFiles": 96,
+      "atStartAndEndIdentical": true
+    },
+    "baseline": {
+      "artifact": "downloads/checks-s1-v39/baseline.log",
+      "bytes": 3641864,
+      "sha256": "ff330c641f9720e3a960adfd84ee084ea06f215366e88e7f03e14803a176f90d",
+      "identical": true
+    },
+    "gameplayFaceObjective": {
+      "status": "Observed failure in completed actual gameplay capture; runtime unchanged",
+      "artifact": "downloads/checks-s1-v39/live.json",
+      "directBrainIntersections": 0,
+      "directBrainstemIntersections": 0,
+      "v38NoCollapseDurationS": 15,
+      "s1CollapseS": 0.5833333333333334,
+      "initialConsciousness": 40,
+      "directBrainInjuryLatched": false,
+      "modeledIndirectBrainstemSeverity": [
+        1,
+        0.6737167
+      ],
+      "mechanism": "TC-only brainstem injury reduces continuous consciousness target to0; high MAP does not prevent this modeled CNS effect.",
+      "passed": false,
+      "runtimeChangedAfterFinding": false
+    },
+    "actualShotFramePerformance": {
+      "artifact": "downloads/checks-s1-v39/frame-performance.json",
+      "passed": true,
+      "objectivePassed": false,
+      "objectiveRatio": 1.5,
+      "environment": {
+        "viewport": {
+          "width": 844,
+          "height": 390
+        },
+        "resolution": [
+          844,
+          390
+        ],
+        "quality": "balanced",
+        "softwareRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36"
+      },
+      "trials": [
+        {
+          "trial": 1,
+          "normalMedianMs": 8.299999998882413,
+          "shotFrameMs": 269.90000000037253,
+          "ratio": 32.51807229358004,
+          "objectivePassed": false
+        },
+        {
+          "trial": 2,
+          "normalMedianMs": 240.2999999988824,
+          "shotFrameMs": 768.9000000003725,
+          "ratio": 3.1997503121262945,
+          "objectivePassed": false
+        },
+        {
+          "trial": 3,
+          "normalMedianMs": 254.09999999962747,
+          "shotFrameMs": 212.5,
+          "ratio": 0.8362849271952442,
+          "objectivePassed": true
+        }
+      ],
+      "notes": "Actual inventory first hit, unarmored fresh target on real Sector04floor; 60GPU-fenced warm frames and40ordinary frames per trial. Existing trace and software renderer dominate. All goals do not pass."
+    },
+    "debugDisplay": {
+      "artifact": "downloads/checks-s1-v39/debug.json",
+      "viewports": [
+        [
+          1280,
+          720
+        ],
+        [
+          844,
+          390
+        ]
+      ],
+      "threeColorsAndPartM": true,
+      "clinicalOnOffEqual": true,
+      "boneFollowMaxErrorM": 1.4479375128337633e-14,
+      "passed": true
+    },
+    "rangeRegression": {
+      "artifact": "downloads/checks-s1-v39/browser.json",
+      "baseline": "5f1236aa84c9a9a5da5a907ec7a7b417aac223de",
+      "ticks": 600,
+      "shots": 6,
+      "rowsExact": true,
+      "springsExact": true,
+      "playerPoses": 12,
+      "passed": true
+    },
+    "offline": {
+      "artifact": "downloads/checks-s1-v39/offline.json",
+      "viewports": [
+        [
+          1280,
+          720
+        ],
+        [
+          844,
+          390
+        ]
+      ],
+      "exactStandaloneHTML": true,
+      "nativeInput": true,
+      "errors": 0,
+      "externalRequests": 0,
+      "passed": true
+    },
+    "existingCombatRegression": {
+      "artifacts": [
+        "play.json",
+        "player-fire.json",
+        "restart.json",
+        "standing.json"
+      ],
+      "passed": true,
+      "standingDynamic": false,
+      "standingWeaponDrop": false
+    }
+  },
+  "limitations": [
+    "M855 curve is M193 donor; no dedicated M855 source profile.",
+    "Primary-paper numeric fragmentation thresholds unverified; legacy780/760 reused with changed semantic meaning as tuning.",
+    "Pistol source has30cm composite lower bound only; model stop/TC numeric reference is entirely estimated tuning.",
+    "Multiple lobes are visible for AK74/AK47; final secondary-lobe fit must be reported, not hidden by matching the global peak alone.",
+    "Cd/k are fitted homogeneous-material coefficients; predictedexit/stop is shadow-only and cannot replace actualbodyresistance.",
+    "Organ volumes/surface-gap overlap are geometric1D approximations, not measured clinical injury volumes.",
+    "LUT depth interpolation changes three small positive boundary organ-overlap IDs in1000actualinputs; do not call identical to direct integration. Actual flight/bodyexit unchanged.",
+    "Separate real browser face-jaw trajectory, with no directbrain/brainstem intersection, causesTC-driven unconsciousness/ragdoll at0.5833s(v38no collapse15s). Fixed240facebench remainsclear120s; do not generalize its criteriaPASS to allfacepaths."
+  ],
+  "sourceHashes": {
+    "apps/training/src/combat-actor.js": "9b094ce6cca2bedac8fad8f653ed0b271ad46e6ed5ce76b96e940aeabb59e8e6",
+    "apps/training/src/generated/wound-profile-map.json": "6d714418a7fb8ab3efcbc50366b3a64c65cefd4f9dcfe4f6646867916359d650",
+    "apps/training/src/internal-anatomy.js": "539f459f0fa477dcfac19c3ebfcf069324219214c6012bd8c67c2ae0d6a8417b",
+    "apps/training/src/internal-model.js": "bb852d17af46cb7b302292395dc8ab13d448965f2a4821f06c7fc4c223a99416",
+    "apps/training/src/main.js": "d0a739d9d82bbeadd178e2ea883721cdabacbfd4ec27eeaf90002ee0c31469ae",
+    "apps/training/src/medical-s0.js": "aa1265745b8e20734943f36a4fd7d35c24bff18939b141b08e6c174f76072b50",
+    "apps/training/src/medical-s1-effects.js": "dc2203abc453ff6c02e55cc2475e8595c108e736b99ad9f9ebf225e8d6fc45c6",
+    "apps/training/src/medical-v2.js": "769c253955e8f6149766d2363792c5cb7adb8a984d16f18ee76e3dd37297f146",
+    "apps/training/src/medical.js": "2413bd394725460c754753cb12bd1a6cf683855c2924d4caf39802c1275ee6a0",
+    "apps/training/src/wound-channel.js": "2feebfbb340f636748baf29e8127bc90fd4b2c8ef5e5bd7bae89aa9479e4ee80"
+  },
+  "values": {
+    "stepM": 0.005,
+    "densityKgM3": 1050,
+    "gelDensityKgM3": 1000,
+    "stopVelocityMps": 20,
+    "maxRadiusM": 0.15,
+    "maxSteps": 512,
+    "organSeverityGain": 1,
+    "muscleCoefficient": 0.4,
+    "fragmentFillFraction": 0.025,
+    "fragmentYawRad": 0.17453292519943295,
+    "referenceVolumesM3": {
+      "head": 0.00045,
+      "neck": 0.00025,
+      "chest": 0.001,
+      "abdomen": 0.001,
+      "leftArm": 0.00045,
+      "rightArm": 0.00045,
+      "leftLeg": 0.0008,
+      "rightLeg": 0.0008
+    },
+    "tissueCoefficients": {
+      "lung": 0.15,
+      "muscle": 0.4,
+      "skin": 0.4,
+      "fat": 0.4,
+      "bowel": 0.4,
+      "stomach": 0.4,
+      "bladder": 0.4,
+      "vessel": 0.12,
+      "liver": 0.9,
+      "spleen": 0.9,
+      "kidney": 0.9,
+      "brain": 1,
+      "brainstem": 1,
+      "spinal_cord": 0.4,
+      "airway": 0.4,
+      "esophagus": 0.4,
+      "heart_hook_only": 0.4,
+      "heart": 0.4
+    }
+  },
+  "physiologyValues": {
+    "heartCerebralReserveTauS": 8,
+    "heartDirectPumpSensitivityGain": 3,
+    "cavityBrainTargetLoss": 1,
+    "aortaDiameterM": 0.025,
+    "bloodDensityKgM3": 1060,
+    "orificeDischargeCoefficient": 0.62,
+    "referenceMapMmHg": 93,
+    "mmHgToPa": 133.322,
+    "restingCardiacOutputMlMin": 5250,
+    "aortaFlowReserve": 1.7,
+    "aortaOpeningAreaFractionAtFullSeverity": 1,
+    "aortaInternalSeedFraction": 0.5,
+    "lung": {
+      "breathingDrain": 0.1,
+      "oxygenDrain": 0.06,
+      "pneumothoraxBoost": 0.15,
+      "hemothoraxBoost": 0.15,
+      "internalBleedBoost": 0.1
+    },
+    "solid": {
+      "internalBleedBoost": 0.16,
+      "shockBoost": 0.08
+    },
+    "vessel": {
+      "majorVesselGain": 1.2,
+      "shockBoost": 0.14,
+      "preArrestBoost": 0.1,
+      "internalBleedBoost": 0.28,
+      "externalBleedBoost": 0.24
+    },
+    "hollow": {
+      "internalBleedBoost": 0.04,
+      "shockBoost": 0.04
+    },
+    "airway": {
+      "breathingDrain": 0.15,
+      "oxygenDrain": 0.08
+    },
+    "cardiac": {
+      "rhythmRiskBoost": 0.4,
+      "perfusingRhythmPenalty": 0.12
+    }
+  },
+  "fittedProfiles": {
+    "ak74": {
+      "diameterM": 0.0056,
+      "lengthM": 0.0255,
+      "massKg": 0.0034,
+      "velocity": 935,
+      "penetrationM": 0.52,
+      "peakM": 0.1,
+      "diameterTCM": 0.145,
+      "yaw": [
+        [
+          0,
+          0
+        ],
+        [
+          0.06,
+          0
+        ],
+        [
+          0.125,
+          1.5707963267948966
+        ],
+        [
+          0.19,
+          3.141592653589793
+        ],
+        [
+          0.29,
+          3.141592653589793
+        ],
+        [
+          0.39,
+          4.71238898038469
+        ],
+        [
+          0.47,
+          6.283185307179586
+        ]
+      ],
+      "fragmentVelocityMps": null,
+      "fragmentFraction": 0,
+      "fragmentRangeM": 0,
+      "id": "ak74",
+      "cd": 0.37976191218327865,
+      "k": 0.0004997525164296275,
+      "fragmentRadiusM": 0.035,
+      "yawScale": 1,
+      "classification": "tuning fit to source figure; borrowed cartridge structures remain estimates"
+    },
+    "m193": {
+      "diameterM": 0.00569,
+      "lengthM": 0.019,
+      "massKg": 0.0036,
+      "velocity": 943,
+      "penetrationM": 0.36,
+      "peakM": 0.185,
+      "diameterTCM": 0.14,
+      "yaw": [
+        [
+          0,
+          0
+        ],
+        [
+          0.12,
+          0
+        ],
+        [
+          0.276,
+          1.5707963267948966
+        ],
+        [
+          0.38,
+          3.141592653589793
+        ]
+      ],
+      "fragmentVelocityMps": 780,
+      "fragmentFraction": 0.36,
+      "fragmentRangeM": 0.13,
+      "id": "m193",
+      "cd": 0.4128582416395045,
+      "k": 0.0006376079705329877,
+      "fragmentRadiusM": 0.035,
+      "yawScale": 1.3,
+      "classification": "tuning fit to source figure; borrowed cartridge structures remain estimates"
+    },
+    "ak47": {
+      "diameterM": 0.00792,
+      "lengthM": 0.026,
+      "massKg": 0.00789,
+      "velocity": 713,
+      "penetrationM": 0.74,
+      "peakM": 0.41,
+      "diameterTCM": 0.14,
+      "yaw": [
+        [
+          0,
+          0
+        ],
+        [
+          0.25,
+          0
+        ],
+        [
+          0.65,
+          1.5707963267948966
+        ],
+        [
+          0.8500000000000001,
+          3.141592653589793
+        ]
+      ],
+      "fragmentVelocityMps": null,
+      "fragmentFraction": 0,
+      "fragmentRangeM": 0,
+      "id": "ak47",
+      "cd": 0.31636966045637327,
+      "k": 0.0009621637913007018,
+      "fragmentRadiusM": 0.035,
+      "yawScale": 2,
+      "classification": "tuning fit to source figure; borrowed cartridge structures remain estimates"
+    },
+    "m80": {
+      "diameterM": 0.00782,
+      "lengthM": 0.028,
+      "massKg": 0.0097,
+      "velocity": 862,
+      "penetrationM": 0.64,
+      "peakM": 0.28,
+      "diameterTCM": 0.185,
+      "yaw": [
+        [
+          0,
+          0
+        ],
+        [
+          0.16,
+          0
+        ],
+        [
+          0.5020000000000001,
+          1.5707963267948966
+        ],
+        [
+          0.6730000000000002,
+          3.141592653589793
+        ]
+      ],
+      "fragmentVelocityMps": null,
+      "fragmentFraction": 0,
+      "fragmentRangeM": 0,
+      "id": "m80",
+      "cd": 0.4258677181848447,
+      "k": 0.0008122561168634475,
+      "fragmentRadiusM": 0.035,
+      "yawScale": 1.9000000000000001,
+      "classification": "tuning fit to source figure; borrowed cartridge structures remain estimates"
+    },
+    "pistol": {
+      "diameterM": 0.009,
+      "lengthM": 0.015,
+      "massKg": 0.0075,
+      "velocity": 342,
+      "penetrationM": 0.6,
+      "peakM": 0,
+      "diameterTCM": 0.04,
+      "yaw": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "fragmentVelocityMps": null,
+      "fragmentFraction": 0,
+      "fragmentRangeM": 0,
+      "id": "pistol",
+      "cd": 1.1156873365175801,
+      "k": 0.0003141068530080672,
+      "fragmentRadiusM": 0.035,
+      "yawScale": 1,
+      "classification": "estimate: no verified stop depth/TC diameter"
+    }
+  },
+  "gelatinOutputs": [
+    {
+      "profileId": "ak74",
+      "sourceImpactVelocityMps": 935,
+      "calibratedCd": 0.37976191218327865,
+      "k": 0.0004997525164296275,
+      "stopVelocityThresholdMps": 20,
+      "predictedPenetrationM": 0.5200000000000004,
+      "maximumTemporaryDepthM": 0.09750000000000002,
+      "maximumTemporaryDiameterM": 0.145,
+      "fragmentDepthM": null,
+      "sourceReadout": {
+        "penetrationM": 0.52,
+        "yawOnsetDepthM": 0.06,
+        "maximumTemporaryDepthM": 0.1,
+        "maximumTemporaryDiameterM": 0.145
+      },
+      "tuningReference": null,
+      "yawOnsetDepthM": 0.06,
+      "fragmentEndDepthM": null,
+      "secondaryLobePrediction": {
+        "depthM": 0.3425000000000002,
+        "diameterM": 0.025163564861264618
+      }
+    },
+    {
+      "profileId": "m193",
+      "sourceImpactVelocityMps": 943,
+      "calibratedCd": 0.4128582416395045,
+      "k": 0.0006376079705329877,
+      "stopVelocityThresholdMps": 20,
+      "predictedPenetrationM": 0.3600000000000002,
+      "maximumTemporaryDepthM": 0.18250000000000008,
+      "maximumTemporaryDiameterM": 0.14,
+      "fragmentDepthM": 0.13500000000000004,
+      "sourceReadout": {
+        "penetrationM": 0.36,
+        "yawOnsetDepthM": 0.12,
+        "maximumTemporaryDepthM": 0.185,
+        "maximumTemporaryDiameterM": 0.14
+      },
+      "tuningReference": null,
+      "yawOnsetDepthM": 0.12,
+      "fragmentEndDepthM": 0.265
+    },
+    {
+      "profileId": "ak47",
+      "sourceImpactVelocityMps": 713,
+      "calibratedCd": 0.31636966045637327,
+      "k": 0.0009621637913007018,
+      "stopVelocityThresholdMps": 20,
+      "predictedPenetrationM": 0.7400000000000005,
+      "maximumTemporaryDepthM": 0.38250000000000023,
+      "maximumTemporaryDiameterM": 0.14,
+      "fragmentDepthM": null,
+      "sourceReadout": {
+        "penetrationM": 0.74,
+        "yawOnsetDepthM": 0.25,
+        "maximumTemporaryDepthM": 0.41,
+        "maximumTemporaryDiameterM": 0.14
+      },
+      "tuningReference": null,
+      "yawOnsetDepthM": 0.25,
+      "fragmentEndDepthM": null,
+      "firstLobePrediction": {
+        "depthM": 0.3475000000000002,
+        "diameterM": 0.13647158824283886
+      },
+      "secondLobePrediction": {
+        "depthM": 0.38250000000000023,
+        "diameterM": 0.14
+      }
+    },
+    {
+      "profileId": "m80",
+      "sourceImpactVelocityMps": 862,
+      "calibratedCd": 0.4258677181848447,
+      "k": 0.0008122561168634475,
+      "stopVelocityThresholdMps": 20,
+      "predictedPenetrationM": 0.6400000000000005,
+      "maximumTemporaryDepthM": 0.27750000000000014,
+      "maximumTemporaryDiameterM": 0.185,
+      "fragmentDepthM": null,
+      "sourceReadout": {
+        "penetrationM": 0.64,
+        "yawOnsetDepthM": 0.16,
+        "maximumTemporaryDepthM": 0.28,
+        "maximumTemporaryDiameterM": 0.185
+      },
+      "tuningReference": null,
+      "yawOnsetDepthM": 0.16,
+      "fragmentEndDepthM": null
+    },
+    {
+      "profileId": "pistol",
+      "sourceImpactVelocityMps": 342,
+      "calibratedCd": 1.1156873365175801,
+      "k": 0.0003141068530080672,
+      "stopVelocityThresholdMps": 20,
+      "predictedPenetrationM": 0.6050000000000004,
+      "maximumTemporaryDepthM": 0.0025,
+      "maximumTemporaryDiameterM": 0.04,
+      "fragmentDepthM": null,
+      "sourceReadout": null,
+      "tuningReference": {
+        "penetrationM": 0.6,
+        "maximumTemporaryDiameterM": 0.04,
+        "classification": "estimate; no verified complete pistol figure"
+      },
+      "yawOnsetDepthM": 2,
+      "fragmentEndDepthM": null
+    }
+  ],
+  "runtimeMappings": [
+    {
+      "ammoId": "9mm_115gr",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.00901,
+      "lengthM": 0.015016666666666668,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(완전 도판 미확인)",
+      "mappingNote": "도판과 게임의입사속도/질량차이는프로파일설명참고.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "9mm_124gr",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.00901,
+      "lengthM": 0.015016666666666668,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "9mm_m882",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.00901,
+      "lengthM": 0.015016666666666668,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "9mm_7n21",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.00901,
+      "lengthM": 0.015016666666666668,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "9mm_7n31",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.00901,
+      "lengthM": 0.015016666666666668,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "9mm_jhp",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.00901,
+      "lengthM": 0.015016666666666668,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "9mm_jhp_p",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.00901,
+      "lengthM": 0.015016666666666668,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "9mm_rip",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.00901,
+      "lengthM": 0.015016666666666668,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "556_223_fmj",
+      "profileId": "m193",
+      "borrowed": true,
+      "diameterM": 0.0057,
+      "lengthM": 0.019033391915641476,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": 780
+    },
+    {
+      "ammoId": "556_m193",
+      "profileId": "m193",
+      "borrowed": false,
+      "diameterM": 0.0057,
+      "lengthM": 0.019033391915641476,
+      "fragmentFraction": 0.36,
+      "mappingClassification": "출처 도판 근접값; 게임 질량/속도 차이 기록",
+      "mappingNote": "도판과 게임의입사속도/질량차이는프로파일설명참고.",
+      "fragmentationThresholdMps": 780
+    },
+    {
+      "ammoId": "556_m855",
+      "profileId": "m193",
+      "borrowed": true,
+      "diameterM": 0.0057,
+      "lengthM": 0.019033391915641476,
+      "fragmentFraction": 0.36,
+      "mappingClassification": "추정(M193 도판 차용, EWS유사패턴본문)",
+      "mappingNote": "M193 figure proxy; M855 steel/lead construction differs;760m/s legacy yaw threshold reused as unverified fragmentation tuning. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": 760
+    },
+    {
+      "ammoId": "556_m855a1",
+      "profileId": "m193",
+      "borrowed": true,
+      "diameterM": 0.0057,
+      "lengthM": 0.019033391915641476,
+      "fragmentFraction": 0.36,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": 780
+    },
+    {
+      "ammoId": "556_mk318_sost",
+      "profileId": "m193",
+      "borrowed": true,
+      "diameterM": 0.0057,
+      "lengthM": 0.019033391915641476,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": 780
+    },
+    {
+      "ammoId": "556_mk255_rrlp",
+      "profileId": "m193",
+      "borrowed": true,
+      "diameterM": 0.0057,
+      "lengthM": 0.019033391915641476,
+      "fragmentFraction": 0.36,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": 780
+    },
+    {
+      "ammoId": "556_m995_ap",
+      "profileId": "m193",
+      "borrowed": true,
+      "diameterM": 0.0057,
+      "lengthM": 0.019033391915641476,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": 780
+    },
+    {
+      "ammoId": "556_varmageddon",
+      "profileId": "m193",
+      "borrowed": true,
+      "diameterM": 0.0057,
+      "lengthM": 0.019033391915641476,
+      "fragmentFraction": 0.36,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": 780
+    },
+    {
+      "ammoId": "556_hp",
+      "profileId": "m193",
+      "borrowed": true,
+      "diameterM": 0.0057,
+      "lengthM": 0.019033391915641476,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": 780
+    },
+    {
+      "ammoId": "556_mk262_mod1",
+      "profileId": "m193",
+      "borrowed": true,
+      "diameterM": 0.0057,
+      "lengthM": 0.019033391915641476,
+      "fragmentFraction": 0.36,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": 780
+    },
+    {
+      "ammoId": "545_hp",
+      "profileId": "ak74",
+      "borrowed": true,
+      "diameterM": 0.0056,
+      "lengthM": 0.025500000000000002,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "545_prs_gs",
+      "profileId": "ak74",
+      "borrowed": true,
+      "diameterM": 0.0056,
+      "lengthM": 0.025500000000000002,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "545_sp",
+      "profileId": "ak74",
+      "borrowed": true,
+      "diameterM": 0.0056,
+      "lengthM": 0.025500000000000002,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "545_us_gs",
+      "profileId": "ak74",
+      "borrowed": true,
+      "diameterM": 0.0056,
+      "lengthM": 0.025500000000000002,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "545_fmj",
+      "profileId": "ak74",
+      "borrowed": true,
+      "diameterM": 0.0056,
+      "lengthM": 0.025500000000000002,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "545_ps_gs",
+      "profileId": "ak74",
+      "borrowed": false,
+      "diameterM": 0.0056,
+      "lengthM": 0.025500000000000002,
+      "fragmentFraction": 0,
+      "mappingClassification": "출처 도판 근접값; 게임 질량/속도 차이 기록",
+      "mappingNote": "도판과 게임의입사속도/질량차이는프로파일설명참고.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "545_pp_gs",
+      "profileId": "ak74",
+      "borrowed": true,
+      "diameterM": 0.0056,
+      "lengthM": 0.025500000000000002,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "545_bp_gs",
+      "profileId": "ak74",
+      "borrowed": true,
+      "diameterM": 0.0056,
+      "lengthM": 0.025500000000000002,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "545_bs_gs",
+      "profileId": "ak74",
+      "borrowed": true,
+      "diameterM": 0.0056,
+      "lengthM": 0.025500000000000002,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "545_7n40",
+      "profileId": "ak74",
+      "borrowed": true,
+      "diameterM": 0.0056,
+      "lengthM": 0.025500000000000002,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "545_ppbs_gs",
+      "profileId": "ak74",
+      "borrowed": true,
+      "diameterM": 0.0056,
+      "lengthM": 0.025500000000000002,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "762x39_hp",
+      "profileId": "ak47",
+      "borrowed": true,
+      "diameterM": 0.00785,
+      "lengthM": 0.025770202020202016,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "762x39_sp",
+      "profileId": "ak47",
+      "borrowed": true,
+      "diameterM": 0.00785,
+      "lengthM": 0.025770202020202016,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "762x39_us",
+      "profileId": "ak47",
+      "borrowed": true,
+      "diameterM": 0.00785,
+      "lengthM": 0.025770202020202016,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "762x39_ps",
+      "profileId": "ak47",
+      "borrowed": false,
+      "diameterM": 0.00785,
+      "lengthM": 0.025770202020202016,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "도판과 게임의입사속도/질량차이는프로파일설명참고.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "762x39_pp",
+      "profileId": "ak47",
+      "borrowed": true,
+      "diameterM": 0.00785,
+      "lengthM": 0.025770202020202016,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "762x39_bp",
+      "profileId": "ak47",
+      "borrowed": true,
+      "diameterM": 0.00785,
+      "lengthM": 0.025770202020202016,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "762_308_fmj",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00782,
+      "lengthM": 0.028,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "762_m80",
+      "profileId": "m80",
+      "borrowed": false,
+      "diameterM": 0.00782,
+      "lengthM": 0.028,
+      "fragmentFraction": 0,
+      "mappingClassification": "출처 도판 근접값; 게임 질량/속도 차이 기록",
+      "mappingNote": "도판과 게임의입사속도/질량차이는프로파일설명참고.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "762_m80a1",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00782,
+      "lengthM": 0.028,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "762_m61_ap",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00782,
+      "lengthM": 0.028,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "762_m993_ap",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00782,
+      "lengthM": 0.028,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "12g_00buck",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.008400000000000001,
+      "lengthM": 0.030076726342711003,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 단일pellet/slug/flechette상태에적용하는미검증차용; 산탄총전체가M80이라는뜻아님.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "12g_slug",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.012,
+      "lengthM": 0.04296675191815857,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 단일pellet/slug/flechette상태에적용하는미검증차용; 산탄총전체가M80이라는뜻아님.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "12g_flechette",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.0015,
+      "lengthM": 0.005370843989769821,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음. 단일pellet/slug/flechette상태에적용하는미검증차용; 산탄총전체가M80이라는뜻아님.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "4.6_dm11_ap_sx",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.0046500000000000005,
+      "lengthM": 0.007750000000000001,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "4.6_action_sx",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.0046500000000000005,
+      "lengthM": 0.007750000000000001,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "4.6_fmj_sx",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.0046500000000000005,
+      "lengthM": 0.007750000000000001,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "4.6_jsp_sx",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.0046500000000000005,
+      "lengthM": 0.007750000000000001,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "4.6_subsonic_sx",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.0046500000000000005,
+      "lengthM": 0.007750000000000001,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "5.7_ss190",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.0057,
+      "lengthM": 0.009500000000000001,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "5.7_l191_tracer",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.0057,
+      "lengthM": 0.009500000000000001,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "5.7_ss192_jhp",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.0057,
+      "lengthM": 0.009500000000000001,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "5.7_sb193_subsonic",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.0057,
+      "lengthM": 0.009500000000000001,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "5.7_r37f",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.0057,
+      "lengthM": 0.009500000000000001,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "9mm_luger_tracer",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.00901,
+      "lengthM": 0.015016666666666668,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "9x21_sp10_7n29",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.00901,
+      "lengthM": 0.015016666666666668,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "9x21_sp11_7n28",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.00901,
+      "lengthM": 0.015016666666666668,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "9x21_sp12_jhp",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.00901,
+      "lengthM": 0.015016666666666668,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "9x21_sp13_7bt3",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.00901,
+      "lengthM": 0.015016666666666668,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "9x21_7n42",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.00901,
+      "lengthM": 0.015016666666666668,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "9x21_7u4_subsonic",
+      "profileId": "pistol",
+      "borrowed": true,
+      "diameterM": 0.00901,
+      "lengthM": 0.015016666666666668,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "9x39_sp5_7n8",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00925,
+      "lengthM": 0.03312020460358056,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "9x39_sp6_7n9",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00925,
+      "lengthM": 0.03312020460358056,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "9x39_pab9",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00925,
+      "lengthM": 0.03312020460358056,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "9x39_bp_7n12",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00925,
+      "lengthM": 0.03312020460358056,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "300blk_vmax_110",
+      "profileId": "ak47",
+      "borrowed": true,
+      "diameterM": 0.00762,
+      "lengthM": 0.02501515151515151,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "300blk_fmj_147",
+      "profileId": "ak47",
+      "borrowed": true,
+      "diameterM": 0.00762,
+      "lengthM": 0.02501515151515151,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "300blk_m62_tracer",
+      "profileId": "ak47",
+      "borrowed": true,
+      "diameterM": 0.00762,
+      "lengthM": 0.02501515151515151,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "300blk_cbj",
+      "profileId": "ak47",
+      "borrowed": true,
+      "diameterM": 0.00762,
+      "lengthM": 0.02501515151515151,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "300blk_ap_hardcore",
+      "profileId": "ak47",
+      "borrowed": true,
+      "diameterM": 0.00762,
+      "lengthM": 0.02501515151515151,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "300blk_220_subsonic",
+      "profileId": "ak47",
+      "borrowed": true,
+      "diameterM": 0.00762,
+      "lengthM": 0.02501515151515151,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "556_m856_tracer",
+      "profileId": "m193",
+      "borrowed": true,
+      "diameterM": 0.0057,
+      "lengthM": 0.019033391915641476,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": 780
+    },
+    {
+      "ammoId": "556_m856a1_tracer",
+      "profileId": "m193",
+      "borrowed": true,
+      "diameterM": 0.0057,
+      "lengthM": 0.019033391915641476,
+      "fragmentFraction": 0.36,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": 780
+    },
+    {
+      "ammoId": "545_7t3_tracer",
+      "profileId": "ak74",
+      "borrowed": true,
+      "diameterM": 0.0056,
+      "lengthM": 0.025500000000000002,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "545_7bt4_aptracer",
+      "profileId": "ak74",
+      "borrowed": true,
+      "diameterM": 0.0056,
+      "lengthM": 0.025500000000000002,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "762x39_t45m_tracer",
+      "profileId": "ak47",
+      "borrowed": true,
+      "diameterM": 0.00785,
+      "lengthM": 0.025770202020202016,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "762x51_m62_tracer",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00782,
+      "lengthM": 0.028,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "762x51_m948_slap",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00782,
+      "lengthM": 0.028,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "762x54r_lps_gzh",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00792,
+      "lengthM": 0.02835805626598465,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "762x54r_t46m",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00792,
+      "lengthM": 0.02835805626598465,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "762x54r_7n1",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00792,
+      "lengthM": 0.02835805626598465,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "762x54r_7bt1",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00792,
+      "lengthM": 0.02835805626598465,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "762x54r_7n14_snb",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00792,
+      "lengthM": 0.02835805626598465,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "762x54r_7n37_bs",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00792,
+      "lengthM": 0.02835805626598465,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "68x51_sig_fmj",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.007,
+      "lengthM": 0.02506393861892583,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "68x51_sig_hybrid",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.007,
+      "lengthM": 0.02506393861892583,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "68x51_xm1186",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.007,
+      "lengthM": 0.02506393861892583,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "68x51_xm1188_rra",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.007,
+      "lengthM": 0.02506393861892583,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "68x51_xm1184_ap",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.007,
+      "lengthM": 0.02506393861892583,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "93x64_fmj",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.009300000000000001,
+      "lengthM": 0.03329923273657289,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "93x64_sp",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.009300000000000001,
+      "lengthM": 0.03329923273657289,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "93x64_9sn_7n33_ap",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.009300000000000001,
+      "lengthM": 0.03329923273657289,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "338lm_fmj",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00859,
+      "lengthM": 0.03075703324808184,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "338lm_ap",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00859,
+      "lengthM": 0.03075703324808184,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "338lm_tacx",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00859,
+      "lengthM": 0.03075703324808184,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "338lm_ucw_subsonic",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00859,
+      "lengthM": 0.03075703324808184,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "338nm_fmj",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00859,
+      "lengthM": 0.03075703324808184,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "338nm_ap",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00859,
+      "lengthM": 0.03075703324808184,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "127x55_ps12",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.01295,
+      "lengthM": 0.04636828644501278,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "127x55_ps12a",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.01295,
+      "lengthM": 0.04636828644501278,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "127x55_ps12b",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.01295,
+      "lengthM": 0.04636828644501278,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "127x99_m33_ball",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.01295,
+      "lengthM": 0.04636828644501278,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "127x99_m17_tracer",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.01295,
+      "lengthM": 0.04636828644501278,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "127x99_m8_api",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.01295,
+      "lengthM": 0.04636828644501278,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "127x99_m20_apit",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.01295,
+      "lengthM": 0.04636828644501278,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "127x99_mk211_heiap",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.01295,
+      "lengthM": 0.04636828644501278,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "127x99_m903_slap",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.01295,
+      "lengthM": 0.04636828644501278,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "127x108_b32_api",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.01298,
+      "lengthM": 0.04647570332480819,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "127x108_bzt44_apit",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.01298,
+      "lengthM": 0.04647570332480819,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "127x108_mdz_hei",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.01298,
+      "lengthM": 0.04647570332480819,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "30_06_m2_ball",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00782,
+      "lengthM": 0.028,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "30_06_m2_ap",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00782,
+      "lengthM": 0.028,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "30_06_m25_tracer",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00782,
+      "lengthM": 0.028,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "30_06_sp",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00782,
+      "lengthM": 0.028,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝.",
+      "fragmentationThresholdMps": null
+    },
+    {
+      "ammoId": "30_06_m72_match",
+      "profileId": "m80",
+      "borrowed": true,
+      "diameterM": 0.00782,
+      "lengthM": 0.028,
+      "fragmentFraction": 0,
+      "mappingClassification": "추정(구조·구경 계열 차용)",
+      "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor.",
+      "fragmentationThresholdMps": null
+    }
+  ],
+  "lookupTable": {
+    "mode": "eager cartridge × fragmentation-speed-class unit-cavity curves; depth interpolation + analytic v² scaling",
+    "cartridges": 114,
+    "speedClasses": 2,
+    "depthStepM": 0.005,
+    "depthSamples": 513,
+    "maximumDepthM": 2.56,
+    "scalarBytes": 4678560,
+    "interpolation": "linear at 5 mm depth; exact per-cell energy accounting; custom mass uses attenuation exponent rescaling",
+    "directFallback": "explicit computeWoundChannelDirect export for QA; registered live cartridges use eager tables",
+    "loadTimePolicy": "loadTimeMs is timing data; final isolated performance artifact reports it, excluded from deterministic export snapshot"
+  },
+  "calibrationAssessment": {
+    "primaryRifleTargetsWithinReadoutError": true,
+    "wholeProfileReproduced": false,
+    "ak74SecondaryLobe": {
+      "sourceDepthM": 0.37,
+      "sourceDiameterM": 0.12,
+      "predictedDepthM": 0.3425,
+      "predictedDiameterM": 0.025163564861264618,
+      "diameterResidualM": -0.09483643513873538,
+      "passed": false
+    },
+    "ak47SecondaryLobes": {
+      "sourcePeakDepthsM": [
+        0.28,
+        0.41
+      ],
+      "model": "one broad maximum at .3825m; distinct two lobes not reproduced",
+      "passed": false
+    },
+    "pistolFullSourceProfileAvailable": false
+  },
+  "localTuningConstants": {
+    "physiologicAggregateCaps": {
+      "breathingDrain": 0.25,
+      "oxygenDrain": 0.18,
+      "pneumothoraxBoost": 0.4,
+      "hemothoraxBoost": 0.4,
+      "internalBleedBoost": 0.5,
+      "externalBleedBoost": 0.4,
+      "majorVesselMul": 2.6,
+      "shockBoost": 0.3,
+      "preArrestBoost": 0.3,
+      "rhythmRiskBoost": 0.6,
+      "perfusingRhythmPenalty": 0.3
+    },
+    "lungChestTraumaRiskScaling": {
+      "pneumothoraxRisk": 0.45,
+      "hemothoraxRisk": 0.5,
+      "likelyAboveSeverity": 0.7
+    },
+    "organGeometryOverlapApproximation": {
+      "crossSectionLengthMinimumCubeRootFactor": 0.5,
+      "surfaceProjection": "minimum cached surface gap plus axial gap",
+      "uniformFragmentTrackFillFraction": 0.025
+    },
+    "classification": "All are3D game tuning; no claimed measured clinical constants."
+  },
+  "serializationNotes": "Infinity is JSON null in fittedProfiles.fragmentVelocityMps for nonfragmenting donors; fragmentFraction0 distinguishes that case from an unverified empirical threshold.",
+  "build": {
+    "html": "dist/CQB_Training.html",
+    "bytes": 34512595,
+    "sha256": "1233623f86b8f6e25e19cc81f13c263c4b76cc1d7292f21e6b8f50a7f352da9d",
+    "increaseOverV38Bytes": 91981,
+    "artifact": "downloads/checks-s1-v39/build.log"
+  }
+}

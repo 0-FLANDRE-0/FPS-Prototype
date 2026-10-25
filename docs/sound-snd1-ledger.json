@@ -1,0 +1,544 @@
+{
+  "ruleId": "sound-snd1",
+  "version": "snd1-v46",
+  "baseline": "b9d577e92de1470d7112c7673f41cfccff9fc288",
+  "automatic2DPort": false,
+  "entries": [
+    {
+      "id": "assets",
+      "classification": "원본 + 튜닝",
+      "values": {
+        "sourceZip": "CQB_Sound_Assets_1.zip",
+        "preparedBytes": 1093484,
+        "clips": 58,
+        "format": "mono48k PCM16 WAV",
+        "preRollMs": 8,
+        "fadesMs": [
+          6,
+          12
+        ],
+        "rawPreserved": true
+      },
+      "evidence": "sound-credits.json / prepared/manifest.json / assets.csv / excluded.csv",
+      "2D 역이식 후보": "예",
+      "dependenciesFor2D": "replaceable codec/sprite loader; preserve per-file provenance"
+    },
+    {
+      "id": "footsteps",
+      "classification": "원본(하중 배율) + 튜닝",
+      "values": {
+        "sourceLoadClassThresholdKg": [
+          8,
+          13,
+          18
+        ],
+        "loadMul": [
+          0.85,
+          1,
+          1.15,
+          1.3
+        ],
+        "modeledLoad": "armor13.7kg + AK3.6kg=17.3kg, heavy; inventory bag contents excluded",
+        "surfaceDbOffset": {
+          "concrete": 0,
+          "wood": 3,
+          "thin_metal": 7,
+          "tile": 2
+        },
+        "gearProbability": {
+          "walk": 0.45,
+          "run": 0.85,
+          "crouch": 0.18
+        },
+        "playerTiming": "existing gaitPhase/pi crossings independent of camera impact setting",
+        "enemyTiming": "240Hz measured clip ankle floor-band minima; min+15mm band, +35mm rearm; fallback speed interval0.7m/step"
+      },
+      "evidence": "src/simulation/unit-update.js:801; src/combat/hit-tables-injuries.js:getLoadClass; foot-contacts.json",
+      "2D 역이식 후보": "예",
+      "dependenciesFor2D": "surface metadata separate from ballistics; ankle/phase clock adapter"
+    },
+    {
+      "id": "source-levels",
+      "classification": "튜닝 + 출처 참고",
+      "values": {
+        "gunshot1mDb": 160,
+        "walk1mDb": 58,
+        "run1mDb": 67,
+        "crouch1mDb": 47,
+        "gear1mDb": 51,
+        "reload1mDb": 53,
+        "impact1mDb": 75,
+        "crack1mDb": 140
+      },
+      "evidence": "PMC9008157: M16 approximated157dBSPL; location unspecified. 160@1m and all other levels are tuning.",
+      "2D 역이식 후보": "예",
+      "dependenciesFor2D": "uncompressed physical dB event envelope, not existing noise radius"
+    },
+    {
+      "id": "propagation",
+      "classification": "출처(공식) + 튜닝(저작/근사)",
+      "values": {
+        "speedMps": 343,
+        "bandsHz": [
+          500,
+          2000,
+          4000
+        ],
+        "temperatureC": 20,
+        "RHpercent": 50,
+        "pressureKPa": 101.325,
+        "spreading": "20log10(max(1,d))",
+        "air": "ISO9613-1 equation, molar humidity in percent",
+        "wallTL": "max(0,20log10(density*nominalThickness*frequency)-47)",
+        "densityKgM3": {
+          "concrete": 2300,
+          "drywall": 800,
+          "wood": 650,
+          "thin_metal": 7850,
+          "steel": 7850,
+          "glass": 2500
+        },
+        "portal": "shortest geometrically visible chain; final aperture apparent source; open-area energy fraction",
+        "diffraction": "10log10(1+20*2*detour*f/c)*sin(turn/2), Maekawa-inspired tuning",
+        "closedPanel": "(1-openness)*mass-law transmission energy plus open-path energy",
+        "componentCullDb": 10
+      },
+      "evidence": "ISO reference, OSHA point-source rule, Maekawa bibliographic reference; existing wall geometry unchanged",
+      "2D 역이식 후보": "예",
+      "dependenciesFor2D": "3D room/portal/segment intersection adapter; do not port -47/nominal densities as empirical STC"
+    },
+    {
+      "id": "reverb-playback",
+      "classification": "출처(表/Sabine) + 튜닝",
+      "values": {
+        "virtualCeilingM": 3.2,
+        "RT60": "0.161*V/sum(surfaceArea*absorption), openings escape with alpha1",
+        "RTcapS": 2.5,
+        "IRmaxDurationS": 1.2,
+        "IRFadeOutMs": 20,
+        "convolvers": 3,
+        "wetEnergy": "min(.6,.2*RT60mid); source+receiver, same room once",
+        "sourceReverb": "linear IR send after path EQ/panner, commutes with fixed linear path filters; shared room buses",
+        "panner": "HRTF, rolloffFactor0",
+        "playbackDb": "clamp(-42+.32*(receivedDb-40),-48,-2), below20dB omitted",
+        "voices": 24,
+        "scheduleLookaheadS": 0.05,
+        "quietVoiceFadeMs": 4,
+        "microphoneDefault": 70,
+        "microphone": "140Hz HP,6500Hz LP,compressor(-22dB,knee12,ratio5,attack3ms,release120ms),hard saturation2.8x; parallel dry/wet; output limiter",
+        "componentPlaybackShare": "one gain from combined physical level; each component gets sqrt(physical component energy / total energy)"
+      },
+      "evidence": "Acoustic.ua absorption reference / Sabine source; all playback magnitudes/caps/EQ are tuning",
+      "2D 역이식 후보": "예",
+      "dependenciesFor2D": "bounded audio buses; rendering never alters AI physical dB"
+    },
+    {
+      "id": "crack",
+      "classification": "출처(마하 기하) + 튜닝(세기/파형)",
+      "values": {
+        "equation": "sin(theta)=343/localSpeed; emission s=projection-b/sqrt(M²-1)",
+        "speed": "linear interpolation of actual chord endpoints; reject <=343 at emission point",
+        "timing": "actual chord flight time + acoustic route delay",
+        "maxMissM": 12,
+        "minMissM": 0.05,
+        "sourceDb": "140-15log10(max(.25,missM))",
+        "durationS": "clamp(.0006+missM*.00002,.0006,.0012)",
+        "waveform": "procedural bipolar N-wave, short ramps",
+        "observerSpecific": true
+      },
+      "evidence": "OpenStax shock-wave geometry; no claimed Whitham calibration",
+      "2D 역이식 후보": "예",
+      "dependenciesFor2D": "read-only completed projectile segments and receiver-specific arrival path"
+    },
+    {
+      "id": "hearing",
+      "classification": "원본(2D 확률 구조) + 튜닝(레벨/노출)",
+      "values": {
+        "backgroundDb": 30,
+        "marginDb": 8,
+        "marginScaleDb": 35,
+        "suppressionOver50": 0.7,
+        "painOver60": 0.75,
+        "wall": 0.7,
+        "deaf": 0.12,
+        "footError": 1.3,
+        "baseErrorM": 0.4,
+        "farErrorM": 1.75,
+        "wallError": 1.6,
+        "loss": "1-exp(-dose)",
+        "doseIncrement": ".012*10^((receivedWithReverb-140)/10)*(duration/.12), cap8",
+        "recoveryTauS": 18,
+        "mask": "max(previous,exposureDb-55), decays12dB/s",
+        "hearingThresholdLossDb": 25,
+        "deafGate": 0.65,
+        "playback": "LP cutoff20000→900Hz, gain1→.35, tinnitus5100Hz gain0→.012",
+        "independentOfAudioMute": true,
+        "audioRNG": "combat LCG with isolated streams; no Math.random",
+        "AIrng": "existing enemy.random LCG"
+      },
+      "evidence": "src/simulation/noise-projectile-effects.js:tickNoiseEvents; PMC9008157 TTS16–48h and PMC10301916",
+      "2D 역이식 후보": "예",
+      "dependenciesFor2D": "keep temporary hearing state separate from medical; no permanent deafness or medical changes"
+    },
+    {
+      "id": "AI-integration",
+      "classification": "원본(소음 기억/위협 구조) + 튜닝(3D 대응)",
+      "values": {
+        "events": [
+          "gunshot",
+          "footstep_walk",
+          "footstep_run",
+          "footstep_crawl",
+          "reload",
+          "impact",
+          "crack"
+        ],
+        "AIOnlyNoSamples": [
+          "reload",
+          "impact"
+        ],
+        "connected": [
+          "lastHeardNoise",
+          "confidence",
+          "threatDirection",
+          "watch facing/aim",
+          "visual target retains precedence; no blind firing"
+        ],
+        "notConnected": [
+          "guardNoise tactical positioning",
+          "investigateNoise pathfinding",
+          "portal danger maps",
+          "room-clear/peek tactics",
+          "noise-danger zones and cooperative blackboard"
+        ],
+        "pause": "simulation queue freezes with game, context suspended in menu/inventory",
+        "dataOnlyFuture": [
+          "door",
+          "window"
+        ],
+        "confidenceDecayPerS": 0.08,
+        "confidenceDiscard": 0.05,
+        "threatTimerS": 2,
+        "resumeEntryAfterNoiseExpiry": true
+      },
+      "evidence": "NOISE_TYPE_PROFILE / emitNoise / tickNoiseEvents / maybeReactToNoise / CombatDecision",
+      "2D 역이식 후보": "예",
+      "dependenciesFor2D": "3D has no investigation planner; no fake tactical states"
+    },
+    {
+      "id": "shared-physical-events",
+      "classification": "사용자 설계값",
+      "values": {
+        "onePhysicalEventForAIAndPlayback": true,
+        "AIBeforePlaybackCompression": true,
+        "medicalAndBallisticsUnchanged": true,
+        "soundMuteDoesNotDisableAI": true,
+        "soundOffStartupCreatesNoAudioContext": true,
+        "rawRecordingsPreservedProcessedOnlyInHTML": true
+      },
+      "evidence": "docs/training-snd1-instructions.md sections1/3/7/9/10",
+      "2D 역이식 후보": "예",
+      "dependenciesFor2D": "room/portal geometry and deferred event arrival adapter; preserve separate audio RNG and medical state"
+    }
+  ],
+  "runtimeSourceCommit": "5a882ab770e09a3cfd973b34acf1fada1d2d7b4e",
+  "validation": {
+    "tests": 348,
+    "assets": {
+      "bytes": 1093484,
+      "clips": 58,
+      "groups": [
+        {
+          "group": "concrete_walk",
+          "count": 12,
+          "minDurationS": 0.2,
+          "maxDurationS": 0.2,
+          "prePeakMaxDbFS": -6.009366457638734,
+          "postPeakMaxDbFS": -1.1103465569966273,
+          "preRMSMeanDbFS": -32.81032448824245,
+          "postRMSMeanDbFS": -22.91785752928655,
+          "originalFloorMeanDbFS": -53.157405686490925,
+          "postQuietTailMeanDbFS": -50.71345090674169
+        },
+        {
+          "group": "concrete_aux",
+          "count": 1,
+          "minDurationS": 0.22,
+          "maxDurationS": 0.22,
+          "prePeakMaxDbFS": -3.3273338048356136,
+          "postPeakMaxDbFS": -1.1103465569966273,
+          "preRMSMeanDbFS": -25.87880083230192,
+          "postRMSMeanDbFS": -23.418890496673512,
+          "originalFloorMeanDbFS": -45.63708648608901,
+          "postQuietTailMeanDbFS": -36.42601608988486
+        },
+        {
+          "group": "concrete_run",
+          "count": 12,
+          "minDurationS": 0.19,
+          "maxDurationS": 0.19,
+          "prePeakMaxDbFS": -2.3732378405706362,
+          "postPeakMaxDbFS": -1.1103465569966262,
+          "preRMSMeanDbFS": -25.16062311400002,
+          "postRMSMeanDbFS": -22.01257541920414,
+          "originalFloorMeanDbFS": -54.13241654830918,
+          "postQuietTailMeanDbFS": -49.41910231667996
+        },
+        {
+          "group": "wood_walk",
+          "count": 10,
+          "minDurationS": 0.25,
+          "maxDurationS": 0.25,
+          "prePeakMaxDbFS": -10.590778296808558,
+          "postPeakMaxDbFS": -1.1103465569966273,
+          "preRMSMeanDbFS": -31.528399974757967,
+          "postRMSMeanDbFS": -22.05599434175265,
+          "originalFloorMeanDbFS": -95.80286669689592,
+          "postQuietTailMeanDbFS": -52.602205413317925
+        },
+        {
+          "group": "metal_walk",
+          "count": 10,
+          "minDurationS": 0.25,
+          "maxDurationS": 0.25,
+          "prePeakMaxDbFS": -1.2094244765955746,
+          "postPeakMaxDbFS": -1.1103465569966273,
+          "preRMSMeanDbFS": -24.29323466003294,
+          "postRMSMeanDbFS": -22.28753956648102,
+          "originalFloorMeanDbFS": -53.19924289759556,
+          "postQuietTailMeanDbFS": -39.18099783254068
+        },
+        {
+          "group": "tile_walk",
+          "count": 1,
+          "minDurationS": 0.2,
+          "maxDurationS": 0.2,
+          "prePeakMaxDbFS": -12.880506454478269,
+          "postPeakMaxDbFS": -1.1103465569966262,
+          "preRMSMeanDbFS": -37.78432819001757,
+          "postRMSMeanDbFS": -26.19592283437044,
+          "originalFloorMeanDbFS": -200.0,
+          "postQuietTailMeanDbFS": -41.78111966336515
+        },
+        {
+          "group": "gear",
+          "count": 6,
+          "minDurationS": 0.09,
+          "maxDurationS": 0.09,
+          "prePeakMaxDbFS": -5.966758647364161,
+          "postPeakMaxDbFS": -6.04538412406419,
+          "preRMSMeanDbFS": -37.827579154823134,
+          "postRMSMeanDbFS": -26.529623512707115,
+          "originalFloorMeanDbFS": -61.664421395555394,
+          "postQuietTailMeanDbFS": -34.94835175320867
+        },
+        {
+          "group": "m4",
+          "count": 6,
+          "minDurationS": 0.125,
+          "maxDurationS": 0.125,
+          "prePeakMaxDbFS": 2.738241652001423,
+          "postPeakMaxDbFS": -6.291654722454699,
+          "preRMSMeanDbFS": -8.159816957107632,
+          "postRMSMeanDbFS": -18.113500631289348,
+          "originalFloorMeanDbFS": -200.0,
+          "postQuietTailMeanDbFS": -26.04406259108521
+        }
+      ],
+      "excluded": 364
+    },
+    "propagationPairs": 16,
+    "opennessCases": 21,
+    "ranges": [
+      {
+        "distanceM": 100,
+        "delayS": 0.2915451895043732,
+        "bandDb": [
+          115.16786703000889,
+          115.54342357888365,
+          110.04374711400055
+        ]
+      },
+      {
+        "distanceM": 300,
+        "delayS": 0.8746355685131195,
+        "bandDb": [
+          105.07981510862795,
+          104.02359536675081,
+          94.56821633432878
+        ]
+      },
+      {
+        "distanceM": 500,
+        "delayS": 1.4577259475218658,
+        "bandDb": [
+          100.09721328931315,
+          97.6092172566841,
+          84.19813565672312
+        ]
+      }
+    ],
+    "cracks": [
+      {
+        "ammoId": "556_m855",
+        "muzzleVelocityMps": 879,
+        "segmentCount": 113,
+        "crack": {
+          "position": [
+            40,
+            2.2678714182983697,
+            -295.63382057795917
+          ],
+          "emissionTimeS": 0.40958495937861367,
+          "arrivalTimeS": 0.4166787576395218,
+          "missDistanceM": 2.0143113311412018,
+          "localSpeedMps": 611.4693070495239,
+          "machAngleDeg": 34.12110238916896,
+          "direction": [
+            -0.8219720346742716,
+            -0.09540160130367098,
+            0.5614806396325106
+          ],
+          "sourceDb": 135.4381010632367,
+          "durationS": 0.000640286226622824
+        },
+        "boomArrivalS": 0.8746562193869174,
+        "traceFlightTimeS": 0.6813530620392254
+      },
+      {
+        "ammoId": "545_us_gs",
+        "muzzleVelocityMps": 305,
+        "segmentCount": 97,
+        "crack": null,
+        "boomArrivalS": 0.8746562193869174,
+        "traceFlightTimeS": 0.8063372386325182
+      }
+    ],
+    "fallbackClips": [
+      "run backward left",
+      "run backward",
+      "run left",
+      "walk crouching backward",
+      "walk crouching left"
+    ],
+    "muteInvariantExact": true,
+    "offContextCreated": 0,
+    "voiceCapTest": {
+      "maxVoices": 24,
+      "maxConvolvers": 3,
+      "dropped": 7,
+      "voiceSteals": 48
+    },
+    "regression": {
+      "ticks": 600,
+      "shots": 6,
+      "exact": true,
+      "baseline": "b9d577e92de1470d7112c7673f41cfccff9fc288"
+    },
+    "performance": [
+      {
+        "width": 1280,
+        "emittedPlayerShots": 100,
+        "emittedEnemyShots": 15,
+        "footsteps": 10,
+        "normalWorkMedianMs": 4.199999999254942,
+        "stressWorkMedianMs": 8.5,
+        "stressWorkP95Ms": 21.700000002980232,
+        "stressWorkMaxMs": 21.700000002980232,
+        "normalFramePeriodMedianMs": 507.8999999985099,
+        "stressFramePeriodMedianMs": 508.1000000014901,
+        "stressFramePeriodP95Ms": 605.6999999992549,
+        "workRatio": 2.023809524168537,
+        "soundTickP95Ms": 5.800000000745058,
+        "maxVoices": 14,
+        "maxConvolvers": 3,
+        "dropped": 0,
+        "voiceSteals": 0,
+        "decodeMisses": 0,
+        "decodeErrors": 0,
+        "maxRecentArrivalLatenessS": 0.5491695475771001,
+        "renderCalls": 150,
+        "triangles": 126019
+      },
+      {
+        "width": 844,
+        "emittedPlayerShots": 100,
+        "emittedEnemyShots": 15,
+        "footsteps": 10,
+        "normalWorkMedianMs": 4.099999997764826,
+        "stressWorkMedianMs": 7.199999999254942,
+        "stressWorkP95Ms": 23.399999998509884,
+        "stressWorkMaxMs": 23.399999998509884,
+        "normalFramePeriodMedianMs": 226.20000000298023,
+        "stressFramePeriodMedianMs": 286,
+        "stressFramePeriodP95Ms": 482.19999999925494,
+        "workRatio": 1.7560975617512502,
+        "soundTickP95Ms": 17.800000000745058,
+        "maxVoices": 11,
+        "maxConvolvers": 3,
+        "dropped": 0,
+        "voiceSteals": 0,
+        "decodeMisses": 0,
+        "decodeErrors": 0,
+        "maxRecentArrivalLatenessS": 0.4286695475771003,
+        "renderCalls": 146,
+        "triangles": 125971
+      }
+    ],
+    "recordings": {
+      "passedFiniteAndAudible": true,
+      "measurements": [
+        {
+          "width": 1280,
+          "decodedDurationS": 5.28,
+          "peakDbFS": 2.368856470259689,
+          "rmsDbFS": -14.108813238832967,
+          "maxNearSilentGap80to2000HzS": 0,
+          "thresholdDbFS": -65,
+          "finite": true,
+          "note": "Digital low-band energy continuity only; reverb/tinnitus may bridge gaps. Not proof of subjective no dropout."
+        },
+        {
+          "width": 844,
+          "decodedDurationS": 5.1,
+          "peakDbFS": 1.8477170099784324,
+          "rmsDbFS": -12.598516259422786,
+          "maxNearSilentGap80to2000HzS": 0,
+          "thresholdDbFS": -65,
+          "finite": true,
+          "note": "Digital low-band energy continuity only; reverb/tinnitus may bridge gaps. Not proof of subjective no dropout."
+        }
+      ],
+      "warning": "Cadence and subjective playback continuity require actual device testing; CPU render work excludes asynchronous GPU/timer waits."
+    },
+    "uninterruptedRealtimeCadenceVerified": false
+  },
+  "sourceHashes": {
+    "apps/training/src/sound-acoustics.js": "31db3bd70a2583f2fde7bdd7694456946eb4222b3716c905e00d7275ca4d2174",
+    "apps/training/src/sound-world.js": "0d981c1cfdfd99a534af67eda5cf17386f2fbfd861e6ab4bf1c19b8a7adb0e9a",
+    "apps/training/src/sound-hearing.js": "1b529778d571e52380a9c51ddcf7b4e3741a76c1d88d8697e29e19d0ca388653",
+    "apps/training/src/sound.js": "0dee341aebd68d9f737a822b9f7f0f6dfa639e3c352fdf62bf4d67e4cadf5428",
+    "apps/training/src/sound-debug.js": "5753de171487095d396e22d67b3f64321d30e6c61c7a1adb4a3f6ae0524e8428",
+    "apps/training/src/main.js": "060197819d5c0283b47298648e17ab9de64504c3056a47b349d284eeb810fea3",
+    "apps/training/src/fx.js": "513e6a41781d41f9b1abf986cba0a1485e86b51e6333e8ffad41196a251fbfc1",
+    "apps/training/src/combat.js": "59599ecb1970b074211c2558b08ff95a34e550c1715a87d55f912b611b8aa5ff",
+    "apps/training/src/combat-decision.js": "1aa53fc5a978d87b9b0dc43a6485e432b4b96f96368de31040688ffba207ae1d",
+    "apps/training/src/settings.js": "d04b7c08f6e877f42667e941be75b213478d924ad383eaabb82483f81380b0eb"
+  },
+  "limitations": [
+    "음원 원본 8개와 목록을 바이트 보존했다. PCM16·모노 48 kHz 조각 58개, 총 1093484 B다. 원본 녹음의 피크/RMS/배경 추정값과 조각별 전후 값·제외 이유는 CSV에 있다. 조각의 조용한 꼬리값은 독립적인 배경 소음 측정값이 아니다.",
+    "금속 클리핑 조각은 제외했다. M4는 클리핑이 적은 6발의 125 ms 블라스트를 사용하고 녹음 잔향 꼬리는 제외했다. 클리핑 복원은 하지 않았다. 콘크리트는 하이패스와 약한 게이트를 사용했다.",
+    "AK·디버그 AK는 M4 음높이/EQ 변형의 임시 대체다. 타일은 1개 샘플의 변형이며 추가 샘플이 필요하다. 나무·금속·타일 뛰기와 앉아 걷기는 걷기 샘플의 튜닝이다. 재장전·탄착은 AI 청각 전용이며 재생 샘플이 없다.",
+    "AI의 감지 확률·제압/통증/이명 배율·위치 오차·신뢰도는 2D 구조를 유지했다. 반경 대신 압축 전 물리 레벨 여유를 사용한다. 기존 enemy.random을 사용하며 재생·장비 이벤트의 난수 스트림을 분리해 음소거가 AI 입력을 바꾸지 않는다. 의료 상태를 수정하지 않는다.",
+    "감각 결과는 lastHeardNoise·위협 방향·watch 주시에 연결한다. 시야가 우선이며 소리만으로 발사하지 않는다. 조사 경로 찾기·전술 경계 위치 선정·위험구역/협동 기억은 3D 대응 상태가 없어 연결하지 않았다.",
+    "적 이동 클립 32개를 240 Hz로 검사하고 바닥 근처 발목 최저점/들림을 이용한다. 접지를 안정적으로 추출하지 못한 다음 5개 클립은 속도 간격으로 대체한다: run backward left, run backward, run left, walk crouching backward, walk crouching left. 초기 블렌드에서 아직 이동 클립이 활성화되지 않았으면 소리를 만들지 않는다.",
+    "343 m/s 음속, ISO 9613-1 대역 흡수, 기존 벽 재질·두께의 질량 법칙 근사를 사용한다. 명목 밀도와 -47 dB 상수는 측정 STC가 아닌 근사 튜닝이다. Maekawa 서지는 확인했지만 원문 경험식을 재현한 것은 아니며, 회절 각도·Fresnel 근사값은 튜닝이다.",
+    "총성 160 dB@1m는 튜닝이다. M16 157 dB SPL 문헌은 측정 위치가 1m인지 확인하지 못했다. MIL-STD의 노출 한계를 총기 음원 레벨로 사용하지 않았다. 발소리·마스킹·배경 소음 레벨도 튜닝이다.",
+    "Sector04는 음향상 3.2 m 가상 천장을 쓴다. 시각 천장이나 문/창 콜라이더를 추가하지 않았다. 열린 포털은 방에서 에너지가 빠져나가는 면적으로 포함한다. 잔향은 Sabine RT60의 중간 대역을 쓰는 확률 IR이며 2.5 s RT/1.2 s IR 길이·3개 컨볼버 상한은 모바일 튜닝이다.",
+    "포털과 벽 성분을 에너지로 합하고 같은 물리 결과를 청각과 재생에 사용한다. 재생만 압축한다. 패너 감쇠는 0이며 HRTF 청취자는 실제 카메라를 따른다. 폐쇄 포털·유리 투과는 데이터/합성 검사만 지원하며 새 문·창문은 없다.",
+    "크랙은 실제 곡선 탄도의 국소 초속·비행 시각과 마하 기하를 읽는다. 마하 방출점의 소리도 기존 전파를 거친다. 세기·N파 길이는 튜닝이며 Whitham의 보정된 압력식을 주장하지 않는다.",
+    "청력 노출량·먹먹함·이명·18초 회복 시정수는 게임 튜닝이다. 문헌의 실제 회복은 16–48시간 등이며 게임 결과는 청력 손상을 예측하는 지표가 아니다.",
+    "성능 부하는 렌더링된 적 1명 장면에 1200 RPM + AK 3 Hz + 발소리 2 Hz 소리 이벤트를 넣는 합성 시험이다. 실제 총기 발사 속도나 자율 AI 연사 속도를 변경한 시험이 아니다. CPU 작업 시간과 실제 프레임 간격을 별도로 기록한다. 녹음에서 신호가 이어져도 잔향·이명이 빈 구간을 채울 수 있어 주관적 무끊김을 증명하지 않는다.",
+    "Android/iOS 실기기는 미검증이다. Chromium/SwiftShader의 두 해상도·오프라인 실행과 실제 WebAudio PCM 디코드/재생 경로를 확인했다. 이전 젤라틴·사격 성능의 한계를 해결했다고 주장하지 않는다."
+  ]
+}

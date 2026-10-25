@@ -1,0 +1,24 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';
+import {Inventory} from '../apps/training/src/inventory.js';import {FPS_HANDLING} from '../apps/training/src/handling-animation.js';import {readGLB} from '../scripts/training-soldier-skin.mjs';
+const create=(id,empty=false)=>{const i=new Inventory({nativeHandling:true});if(id==='ak74m'){i.switchWeapon(1);i.step(2);}if(empty)for(let n=0;n<30;n++)assert.ok(i.fire());return i;};
+const conserved=i=>{const counts=i.roundCounts();for(const [id,n] of Object.entries(i.initialByAmmo))assert.equal((counts[id]||0)+(i.spent[id]||0),n,id);};
+test('3D native handling durations match uploaded clips; source magazine events precede clip completion',async()=>{
+ for(const [id,file,prefix] of [['m4a1','animated_fps_m4a4.glb','Armature|'],['ak74m','fps_ak-74m_animations.glb','AK_']]){const {g}=readGLB(await readFile('apps/training/assets/source/'+file));for(const p of [FPS_HANDLING[id].draw,FPS_HANDLING[id].reload,FPS_HANDLING[id].emptyReload].filter(Boolean)){const a=g.animations.find(c=>c.name.endsWith(prefix+p.clip)||c.name.endsWith(p.clip));assert.ok(a,p.clip);const duration=Math.max(...a.samplers.map(s=>g.accessors[s.input].max[0]));assert.equal(p.duration,duration);if(p.removeAt){assert.ok(p.removeAt<p.insertAt);assert.ok(p.insertAt<p.duration);if(p.feedAt)assert.ok(p.insertAt<p.feedAt&&p.feedAt<p.duration);}}}
+});
+test('native magazine removal, seating and chamber feed commit at clip events and stay gated until animation ends',()=>{
+ for(const id of ['m4a1','ak74m'])for(const empty of [false,true]){const i=create(id,empty);assert.equal(i.beginReload(),true);const a=i.action,incoming=a.incomingId,outgoing=a.outgoingId;i.step(a.removeAt-1e-6);assert.equal(i.magazine.instanceId,outgoing);i.step(2e-6);assert.equal(i.magazine,null);assert.equal(i.items.get(outgoing).owner,'bag');i.step(a.insertAt-a.elapsed-1e-6);assert.equal(i.magazine,null);i.step(2e-6);assert.equal(i.magazine.instanceId,incoming);assert.equal(i.fire(),null);if(empty){i.step(a.feedAt-a.elapsed-1e-6);assert.equal(i.weapon.chamber,null);i.step(2e-6);assert.ok(i.weapon.chamber);}i.step(a.duration-a.elapsed+1e-6);assert.equal(i.action,null);assert.ok(i.fire());conserved(i);}
+});
+test('native reload cancellation around every ownership event and insert-only suffix preserve all rounds',()=>{
+ for(const id of ['m4a1','ak74m'])for(const empty of [false,true]){for(const phase of ['start','removeBefore','removeAfter','insertBefore','insertAfter','feedBefore','feedAfter','end']){const i=create(id,empty);i.beginReload();const a=i.action,t={start:0,removeBefore:a.removeAt-1e-6,removeAfter:a.removeAt+1e-6,insertBefore:a.insertAt-1e-6,insertAfter:a.insertAt+1e-6,feedBefore:(a.feedAt??a.insertAt)-1e-6,feedAfter:(a.feedAt??a.insertAt)+1e-6,end:a.duration+.001}[phase];i.step(t);i.cancel();conserved(i);assert.ok([...i.items.values()].every(v=>v.owner!=='hand:reload'));}
+  const i=create(id,empty);i.removeMagazine();i.step(i.action.duration+.001);assert.equal(i.magazine,null);i.beginReload();const a=i.action;assert.equal(a.kind,'insert');assert.ok(a.animation.sourceStart>0);i.step(a.duration+.001);assert.equal(i.action,null);assert.ok(i.magazine);conserved(i);
+ }
+});
+test('native weapon switch completes the outgoing hide and incoming draw before allowing firing',()=>{
+ for(const from of ['m4a1','ak74m']){const i=create(from),to=from==='m4a1'?'ak74m':'m4a1';assert.equal(i.switchWeapon(to==='ak74m'?1:0),true);const a=i.action;assert.equal(a.duration,FPS_HANDLING[from].hide.duration+FPS_HANDLING[to].draw.duration);i.step(a.lowerDuration-1e-6);assert.equal(i.weapon.definitionId,from);i.step(2e-6);assert.equal(i.weapon.definitionId,to);assert.equal(i.fire(),null);i.step(a.duration-a.elapsed+.001);assert.ok(i.fire());conserved(i);}
+});
+test('display gestures stay inside fixed arm reach without stretching or detaching the wrist',async()=>{
+ const T=await import('three'),{reachableHandGoal,solveArm}=await import('../apps/training/src/arm-ik.js');
+ const root=new T.Group(),upper=new T.Bone(),fore=new T.Bone(),hand=new T.Bone();root.add(upper);upper.add(fore);fore.add(hand);fore.position.set(.28,0,0);hand.position.set(.26,0,0);root.updateMatrixWorld(true);
+ const raw=new T.Vector3(.8,-.2,.15),goal=reachableHandGoal(upper,fore,hand,raw);assert.ok(goal.distanceTo(raw)>.1);assert.ok(Math.abs(goal.length()-.54*.985)<1e-10);
+ const before=[fore.position.clone(),hand.position.clone()];const result=solveArm(upper,fore,hand,goal,new T.Vector3(0,-.3,0));assert.equal(result.unreachableM,0);assert.ok(hand.getWorldPosition(new T.Vector3()).distanceTo(goal)<1e-6);assert.deepEqual([fore.position,hand.position],before);assert.deepEqual(upper.scale.toArray(),[1,1,1]);assert.deepEqual(fore.scale.toArray(),[1,1,1]);assert.equal(hand.parent,fore);
+});

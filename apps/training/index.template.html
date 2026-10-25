@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="theme-color" content="#101716">
+<title>CQB FIELD LAB — M4A1</title>
+<style>/* @training:styles */</style>
+</head>
+<body>
+<canvas id="world" aria-label="3D 사격 훈련장"></canvas>
+<div id="lens" aria-hidden="true"></div>
+<div id="lookZone" aria-label="드래그하여 시점과 총 방향 조절"></div>
+<aside id="bleedingDebug" hidden aria-label="몸속 출혈 디버그"><details><summary>출혈 · <span id="bleedingDebugTarget">H01</span></summary><div id="bleedingDebugContent"></div></details></aside>
+<div id="hud">
+  <header class="topbar">
+    <div class="record"><i></i><span>REC</span><b id="clock">00:00</b></div>
+    <button id="medicalButton" class="menu-button" data-command="medical" aria-label="나의 의료 상태">✚</button>
+    <button id="inventoryButton" class="menu-button" data-command="inventory" aria-label="인벤토리">▣</button>
+    <button class="menu-button" data-command="pause" aria-label="일시정지 및 설정">Ⅱ</button>
+  </header>
+  <aside id="statusHUD" aria-label="신체 상태와 스태미나"></aside>
+  <div id="score"><span class="tiny-label">적중 / 발사</span><strong><span id="hitCount">00</span><em>/</em><span id="shotCount">00</span></strong></div>
+  <div id="aimGuide" hidden aria-hidden="true"></div>
+  <div id="hitFeedback" aria-hidden="true">＋</div>
+  <div id="toast" role="status"></div>
+  <div id="barrierResult" hidden role="status" aria-live="polite"></div>
+  <div id="trajectoryLegend" class="trajectory-key" hidden aria-label="탄 궤적 색상"><span data-trajectory-state="initial">일반</span><span data-trajectory-state="penetrated">장애물 관통</span><span data-trajectory-state="ricochet">도탄 후</span><span data-trajectory-state="armor">방호구 관통</span><span data-trajectory-state="body">인체 관통</span></div>
+  <div id="armorLegend" class="armor-key" hidden aria-label="방호 영역 색상"><span data-armor-kind="soft">소프트아머</span><span data-armor-kind="plate">플레이트</span><span data-armor-kind="helmet">헬멧</span></div>
+  <button id="lootButton" class="interaction-button" data-command="interact" hidden><strong id="interactionLabel">탄약상자</strong><span><span id="interactionAction">열기</span> <kbd>F</kbd></span></button>
+  <div id="combatStatus" class="combat-status" hidden>전투 훈련 · 적 1명</div>
+  <div id="hitDirection" class="hit-direction" hidden aria-label="피격 방향">▲</div>
+  <div id="moveZone" aria-label="이동 패드"><div class="stick-ring"><span class="stick-center"></span><div id="stickKnob"></div></div><span class="control-caption">MOVE</span></div>
+  <button id="sprintButton" data-command="sprint" aria-label="달리기 전환" aria-pressed="false"><span>»</span><small>달리기</small></button>
+  <div id="leanControls" aria-label="기울이기"><button id="leanLeftButton" aria-label="왼쪽 기울이기 · Q" aria-pressed="false"><span>↶</span><small>왼쪽</small></button><button id="leanRightButton" aria-label="오른쪽 기울이기 · E" aria-pressed="false"><span>↷</span><small>오른쪽</small></button></div>
+  <div class="weapon-readout"><span><b id="weaponName">M4A1</b> <i id="ammoType">M855</i></span><div><strong id="ammo">30</strong><b>/</b><span id="reserve">780</span></div><small id="chamberStatus">탄창 29 + 약실 1</small><div id="opticControls" hidden aria-label="조준경 배율"><button id="zoomOutButton" aria-label="누르는 동안 배율 낮추기 · Z">−</button><span id="opticMagnification">1.0×</span><button id="zoomInButton" aria-label="누르는 동안 배율 높이기 · X">＋</button></div><button id="fireModeButton" data-command="fireMode" aria-label="사격 모드 변경">AUTO</button><button id="switchWeaponButton" data-command="switchWeapon" aria-label="다른 주무기로 전환">주무기 ↔ AK</button><button id="debugWeaponButton" data-command="debugWeapon" aria-label="3번 슬롯 · 디버그 AK 선택" aria-pressed="false">3 · DBG AK</button><button id="debugAmmoTab" class="debug-ammo-tab" aria-controls="debugAmmoScreen" aria-expanded="false" hidden><strong>디버그 탄약 선택</strong><small id="debugAmmoCurrent">7N6 · ∞</small></button><small id="weaponStatus">READY</small><div id="reloadTrack"><span id="reloadFill"></span></div></div>
+  <div class="action-controls">
+    <button id="adsButton" data-command="ads" aria-label="조준 전환"><span class="button-icon">◎</span><small>조준</small></button>
+    <button id="crouchButton" data-command="crouch" aria-label="앉기 전환"><span class="button-icon">⌄</span><small>앉기</small></button>
+    <button id="reloadButton" data-command="reload" aria-label="재장전"><span class="button-icon">↻</span><small>장전</small></button>
+  </div>
+  <button id="fireButton" aria-label="누르고 드래그하여 사격과 조준"><span class="fire-symbol"><i></i></span><small>FIRE</small></button>
+  <div class="bottom-note">CQB / FREE AIM<span>PROTOTYPE 01</span></div>
+</div>
+<section id="menuScreen" class="overlay">
+  <div class="menu-panel">
+    <div class="eyebrow"><span></span> CQB TACTICAL / FIELD LAB</div>
+    <h1 id="menuTitle">느끼고.<br><em>조준하고.</em> 쏘다.</h1>
+    <p id="menuDescription">M4A1·AK-74M·SCAR-H 사격·관통 훈련장<br>근거리 훈련과 100–500 m 장거리 사격.</p>
+    <div class="menu-meta"><span>SECTOR 01</span><span>M4A1</span><span>FREE AIM</span></div>
+    <button id="startButton" disabled>훈련장 준비 중… <span>→</span></button>
+    <p class="control-help">왼쪽 패드로 이동 · 오른쪽 드래그로 시점 · ↶/↷ 기울이기<br>사격 버튼을 누른 채 드래그하면 사격과 조준을 함께 합니다.</p>
+    <div class="aim-presets"><button id="shortRangeButton">근거리 사격장</button><button id="longRangeButton">100–500 m 장거리</button><button id="combatRangeButton">Sector04 · 전투 구역</button><button id="killhouseRangeButton">Sector05 · 킬하우스</button></div>
+    <p class="setting-hint">장거리 표적의 거리는 사격선 기준입니다. 멀리 갈수록 위로 조준해 낙차를 보정하세요.</p>
+    <details id="settings"><summary>조작·화면·훈련 설정 <span>＋</span></summary>
+      <p class="setting-caption">총이 먼저 움직이고 시점이 따라옵니다.</p>
+      <div class="aim-presets" aria-label="카메라 움직임 프리셋"><button data-aim-preset="steady">안정형</button><button data-aim-preset="balanced">중간</button><button data-aim-preset="bodycam">바디캠</button></div>
+      <div class="setting-row"><label for="sensitivity">시점·조준 감도 <output id="sensitivityValue">100%</output></label><input id="sensitivity" type="range" min="25" max="200" step="5" value="100"></div>
+      <div class="setting-row"><label for="adsSensitivity">ADS 감도 <output id="adsSensitivityValue">55%</output></label><input id="adsSensitivity" type="range" min="25" max="100" step="5" value="55"></div>
+      <div class="setting-row"><label for="treatmentMode">의료 처치</label><select id="treatmentMode"><option value="game">게임</option><option value="realistic">리얼리스틱</option><option value="reality">현실</option></select></div>
+      <div class="setting-row"><label for="medicalModel">의료 계산</label><select id="medicalModel"><option value="v2">현재 (v2)</option><option value="legacy">기존 (legacy)</option></select></div>
+      <p class="setting-hint">의료 계산을 바꾸면 H01의 의료 기록이 초기화됩니다.</p>
+      <div class="setting-row"><label for="mouseAdsMode">PC 우클릭 조준</label><select id="mouseAdsMode"><option value="toggle">토글</option><option value="hold">누르는 동안 유지</option></select></div>
+      <p class="setting-hint">화면 조준 버튼은 항상 토글입니다.</p>
+      <div class="setting-row"><label for="leanMode">기울이기 · Q/E와 화면 버튼</label><select id="leanMode"><option value="hold">누르는 동안</option><option value="toggle">토글</option></select></div>
+      <div class="setting-row"><label for="cameraFollow">시점 추종 속도 <output id="cameraFollowValue">3.5</output></label><input id="cameraFollow" type="range" min="1" max="25" step="0.5" value="3.5"></div>
+      <p class="setting-hint">추종 속도가 낮을수록 시점이 천천히 따라옵니다.</p>
+      <div class="setting-row"><label for="freeAim">총·시점 이탈 범위 <output id="freeAimValue">20°</output></label><input id="freeAim" type="range" min="3" max="25" step="1" value="20"></div>
+      <div class="setting-row"><label for="weaponResponse">총기 반응 속도 <output id="weaponResponseValue">12</output></label><input id="weaponResponse" type="range" min="4" max="25" step="1" value="12"></div>
+      <div class="setting-row"><label for="lensStrength">렌즈 왜곡 <output id="lensStrengthValue">70%</output></label><input id="lensStrength" type="range" min="0" max="100" step="1" value="70"></div>
+      <div class="setting-row"><label for="lensFov">바디캠 화각 <output id="lensFovValue">120°</output></label><input id="lensFov" type="range" min="90" max="140" step="1" value="120"></div>
+      <div class="setting-row"><label for="fov">시야각 <output id="fovValue">66°</output></label><input id="fov" type="range" min="60" max="85" step="1" value="66"></div>
+      <div class="setting-row"><label for="scarMaterialStrength">SCAR 표면 질감 <output id="scarMaterialStrengthValue">50%</output></label><input id="scarMaterialStrength" type="range" min="0" max="100" step="1" value="50"></div><div class="setting-row"><label for="scopeFocus">조준경 집중 <output id="scopeFocusValue">100%</output></label><input id="scopeFocus" type="range" min="0" max="100" step="1" value="100"></div>
+      <div class="setting-row"><label for="weaponSize">비조준 총기 크기 <output id="weaponSizeValue">115%</output></label><input id="weaponSize" type="range" min="100" max="155" step="1" value="115"></div>
+      <div class="setting-row"><label for="weaponHeight">비조준 총기 높이 <output id="weaponHeightValue">-1 cm</output></label><input id="weaponHeight" type="range" min="-4" max="4" step="0.5" value="-1"></div>
+      <div class="setting-row"><label for="weaponMotion">총기 움직임 <output id="weaponMotionValue">100%</output></label><input id="weaponMotion" type="range" min="0" max="160" step="5" value="100"></div>
+      <div class="setting-row"><label for="motion">화면 흔들림</label><input id="motion" type="range" min="0" max="1.2" step="0.1" value="0.7"></div>
+      <div class="setting-row"><label for="medicalEffects">화면 효과 강도 <output id="medicalEffectsValue">100%</output></label><input id="medicalEffects" type="range" min="0" max="100" step="1" value="100"></div>
+      <div class="setting-row"><label for="stepImpact">발걸음 충격 <output id="stepImpactValue">100%</output></label><input id="stepImpact" type="range" min="0" max="150" step="1" value="100"></div>
+      <div class="setting-row"><label for="quality">화질</label><select id="quality"><option value="balanced">균형</option><option value="low">절약</option></select></div>
+      <div class="setting-row"><label for="fpsLimit">프레임 제한</label><select id="fpsLimit"><option value="30">30 FPS</option><option value="60">60 FPS</option></select></div>
+      <div class="setting-row"><label for="sound">사운드</label><input id="sound" type="checkbox" checked></div>
+      <div class="setting-row"><label for="bodycamMic">바디캠 마이크 효과 <output id="bodycamMicValue">70%</output></label><input id="bodycamMic" type="range" min="0" max="100" step="1" value="70"></div>
+      <div class="setting-row"><label for="aiDisplay">AI 표시</label><input id="aiDisplay" type="checkbox"></div>
+      <div class="setting-row"><label for="soundPaths">소리 경로 표시</label><input id="soundPaths" type="checkbox"></div>
+      <div class="setting-row"><label for="guide">조준 가이드</label><input id="guide" type="checkbox"></div>
+      <div class="setting-row"><label for="trajectories">탄 궤적 표시</label><input id="trajectories" type="checkbox" aria-describedby="trajectoryHint"></div>
+      <p id="trajectoryHint" class="setting-hint">중력·공기저항으로 휘어지는 실제 사격 경로를 표시합니다. 최근 5초·최대 24발, 장애물 너머까지 보입니다.</p>
+      <div class="trajectory-key setting-trajectory-key"><span data-trajectory-state="initial">일반</span><span data-trajectory-state="penetrated">장애물 관통</span><span data-trajectory-state="ricochet">도탄 후</span><span data-trajectory-state="armor">방호구 관통</span><span data-trajectory-state="body">인체 관통</span></div>
+      <p class="setting-hint">H01은 A 자세로 고정한 피격·방호 확인용 표적입니다. 몸속 판정 표시를 켜면 가까이에서 표적 기록을 확인할 수 있습니다.</p>
+      <div class="setting-row"><label for="skeletonRegions">뼈대 표시</label><input id="skeletonRegions" type="checkbox"></div>
+      <div class="setting-row"><label for="internalRegions">몸속 판정 표시</label><input id="internalRegions" type="checkbox"></div>
+      <div class="setting-row"><label for="hitRegions">피격 구역 표시</label><input id="hitRegions" type="checkbox" aria-describedby="hitRegionHint"></div>
+      <p id="hitRegionHint" class="setting-hint">병사 표적의 판정 영역을 표시합니다. 좌우는 병사 기준입니다.</p>
+      <div class="setting-row"><label for="softArmorRegions">소프트아머 영역 표시</label><input id="softArmorRegions" type="checkbox" aria-describedby="armorRegionHint"></div>
+      <div class="setting-row"><label for="plateRegions">플레이트 영역 표시</label><input id="plateRegions" type="checkbox" aria-describedby="armorRegionHint"></div>
+      <div class="setting-row"><label for="helmetRegions">헬멧 피복 표시</label><input id="helmetRegions" type="checkbox" aria-describedby="armorRegionHint"></div>
+      <p id="armorRegionHint" class="setting-hint">소프트아머는 초록, Br4 플레이트는 주황, 6B47 헬멧은 파랑입니다. 표시를 꺼도 방호는 적용됩니다.</p>
+      <button id="resetPreferences" class="text-button">감도·총기·카메라·훈련 표시 초기화</button>
+      <p class="desktop-help">PC: WASD 이동 · Shift 유지/달리기 버튼 전환 · 좌클릭 사격 · 우클릭 조준 · Q/E 기울이기 · R 장전/취소 · C 앉기 · Tab 인벤토리 · F 상호작용 · B 사격 모드 · Z/X 배율 · 1/2 일반 무기 · 3 디버그 AK · P 마우스 고정<br>터치: 이동 패드를 위로 깊게 밀면 달리기 · 살짝 내리면 걷기 · 달리기 버튼으로 전환 · ‘3 · DBG AK’로 디버그 총기 선택<br>디버그 탄약: 좌측 상단 탭 → 표의 행을 눌러 즉시 장전 · 표는 좌우/상하 스크롤<br>인벤토리: 좌클릭 드래그로 이동 · 장착된 총 우클릭으로 탄창 메뉴</p>
+    </details>
+    <details id="medicalPanel" hidden><summary>의료 디버그 <span>＋</span></summary><label for="medicalTargetSelect">기록 대상</label><select id="medicalTargetSelect"><option value="H01">H01 · 병사 표적</option></select><button id="myMedicalButton" class="text-button" hidden>나의 의료 상태</button><button id="medicalCloseButton" class="text-button">훈련으로 돌아가기 →</button><div id="medicalContent" class="medical-content" aria-label="상처 및 의료 상태"></div></details>
+    <div class="menu-links"><button id="resetButton">훈련 초기화</button><button id="fullscreenButton">전체화면</button><button id="creditsButton">모델 크레딧</button></div>
+    <p class="scope-note">기존 표적 3개 · 관통 시험장 8개 · 병사 표적 1개.<br>H01: 6B45 소프트아머 · Br4 플레이트 · 6B47 헬멧.<br>방호·인체 관통과 원본 의료 상태를 기록합니다. H01은 A 자세에 고정됩니다.</p>
+    <div id="errorText" role="alert" hidden></div>
+  </div>
+  <div class="menu-decor" aria-hidden="true"><span>01</span><p>WEAPON<br>&amp; CAMERA.</p><div></div></div>
+</section>
+<section id="inventoryScreen" class="overlay inventory-overlay" hidden aria-label="인벤토리">
+  <div class="inventory-panel">
+    <header class="inventory-header"><div class="field-tabs" role="tablist" aria-label="장비와 의료"><button id="equipmentTab" role="tab" aria-selected="true" aria-controls="inventoryColumns">장비/인벤토리</button><button id="medicalTab" role="tab" aria-selected="false" aria-controls="medicalColumns" tabindex="-1">의료</button></div><span class="patient-label">환자 · <b id="patientName">나</b></span><small id="inventoryTotal"></small><button data-command="pause" aria-label="일시정지 및 설정">Ⅱ</button><button id="closeInventory" aria-label="화면 닫기">닫기 ×</button></header>
+    <div id="inventoryColumns" class="inventory-columns field-columns" role="tabpanel" aria-labelledby="equipmentTab">
+      <section id="inventoryEquipment" class="field-column"><div id="equipmentStorage"><h3>몸에 끼는 장비</h3><div class="worn-equipment"><div class="worn-card"><small>헬멧 · 읽기 전용</small><strong id="helmetEquipmentName"></strong></div><div class="worn-card"><small>방탄복 · 읽기 전용</small><strong id="vestEquipmentName"></strong><p id="vestEquipmentDetail"></p></div><div class="empty-equipment"><span>전술조끼 · 비어 있음</span><span>벨트 · 비어 있음</span><span>배낭 · 비어 있음</span></div></div><h3>무기</h3>
+      <article id="weaponM4" class="weapon-equipment"><header><strong id="weaponM4Name">M4A1</strong><button id="equipmentPrimary">사용 중</button></header><p id="weaponM4Summary"></p><div id="weaponM4Live"></div><div id="weaponM4Optic" class="inactive-optic"></div></article>
+      <article id="weaponAK" class="weapon-equipment"><header><strong id="weaponAKName">AK-74M</strong><button id="equipmentSecondary">사용</button></header><p id="weaponAKSummary"></p><div id="weaponAKLive"></div><div id="weaponAKOptic" class="inactive-optic"></div></article><p id="debugEquipmentCard" hidden></p><p id="equipmentWeight"></p>
+      <div id="equipmentLiveParking" hidden><div id="equipmentSlot" data-equipment="primary" aria-label="현재 주무기 장착 슬롯"></div><div id="opticSlot" data-equipment="optic" role="group" aria-label="현재 무기의 조준경 슬롯"></div></div></div></section>
+      <section id="inventoryStorageHost" class="field-column"><div id="playerStorage"><div class="grid-heading"><strong>내 가방</strong><span>6 × 5</span></div><div id="playerGrid" class="inventory-grid" data-owner="bag" aria-label="내 인벤토리 격자"></div></div></section>
+      <section id="inventoryExternal" class="field-column"><div class="grid-heading"><strong id="containerTitle">주변 보관함</strong><span id="containerCount"></span></div><p id="containerHint">탄약상자 가까이에서 열 수 있습니다.</p><div id="containerGrid" class="inventory-grid" data-owner="container:ammo-crate" aria-label="탄약상자 격자" hidden></div><p class="inventory-hint">탄약 → 탄창: 삽탄 · 탄창 → 총: 장착<br>조준경 → M4: 장착<br>화면을 열어도 시간은 흐릅니다.</p></section>
+    </div>
+    <div id="medicalColumns" class="field-columns" role="tabpanel" aria-labelledby="medicalTab" hidden>
+      <section id="medicalBody" class="field-column"><div class="body-face"><button id="bodyFront" aria-pressed="true">앞</button><button id="bodyBack" aria-pressed="false">뒤</button><button id="medicalAllParts">전체</button></div><svg id="medicalSilhouette" viewBox="0 0 110 240" aria-label="신체 부위와 피부 상처"><g class="medical-body-paths"></g><g id="medicalMarkers"></g></svg><div id="markerPicker" class="marker-picker" hidden></div><p class="marker-legend">● 입구　○ 출구　━ 스침<br><span>● 미처치</span>　<span class="treated">● 처치됨</span>　<span class="interrupted">● 중단됨</span><br>═ 지혈대　▰ 붕대　▧ 거즈</p><div id="medicalPartList" class="medical-part-list"></div><details id="medicalEquipment"><summary>장착 장비</summary><div id="medicalEquipmentHost"></div></details></section>
+      <section id="medicalMiddle" class="field-column"><h3 id="medicalRegionTitle">전체 신체 · 상처</h3><div id="medicalWounds"></div><h3>현재 느끼는 상태</h3><div id="medicalObservations"></div><p id="medicalPartTreatment" class="medical-muted"></p><details id="medicalDebug" hidden><summary>의료 디버그</summary><div id="medicalDebugContent" class="medical-content"></div></details></section>
+      <section id="medicalItems" class="field-column"><div class="medical-sources" aria-label="물품 출처"><button aria-pressed="true">나</button><button disabled>환자</button><button disabled>주변</button></div><div id="medicalStorageHost"></div></section>
+    </div>
+    <div id="containerWindows" aria-label="열린 의료 파우치"></div>
+    <div id="itemMenu" hidden><strong id="itemMenuTitle"></strong><div><button id="insertMagazine">탄창 삽입</button><button id="removeMagazine">탄창 제거</button><button id="rackWeapon">약실 장전</button><button id="equipWeapon">총을 가방에 넣기</button><button id="unpackMagazine">탄약 꺼내기</button><button id="installOptic">현재 총에 조준경 장착</button><button id="removeOptic">조준경 분리 → 가방</button><button id="closeItemMenu" aria-label="아이템 메뉴 닫기">×</button></div></div>
+    <div class="inventory-selection"><span id="selectionHint">아이템 선택 → 빈 칸 선택 · 선택한 아이템을 다시 누른 채 끌어 이동</span><button id="selectedItemMenu" hidden>아이템 메뉴</button><button id="clearSelection">선택 해제</button></div>
+    <footer id="inventoryAction" hidden><span id="actionLabel"></span><div><i id="actionFill"></i></div><button id="cancelAction">동작 취소</button></footer>
+  </div>
+</section>
+<section id="debugAmmoScreen" class="overlay debug-ammo-overlay" role="dialog" aria-modal="true" aria-labelledby="debugAmmoTitle" hidden>
+  <div class="debug-ammo-panel">
+    <header class="debug-ammo-header"><div><h2 id="debugAmmoTitle">디버그 AK · 탄약 선택</h2><p id="debugAmmoSelected" role="status"></p></div><button id="closeDebugAmmo" aria-label="탄약 선택 닫기">닫기 ×</button></header>
+    <div class="debug-ammo-options">
+      <label>방호 재질<select id="debugAmmoMaterial"><option value="fabric">직물</option><option value="aramid">아라미드</option><option value="pe">PE</option><option value="aluminum">알루미늄</option><option value="steel">강철</option><option value="titanium">티타늄</option><option value="ceramic">세라믹</option><option value="composite" selected>복합재</option></select></label>
+      <label for="debugVelocity">직접 입력 총구 속도 (m/s)<input id="debugVelocity" type="number" min="1" max="5000" step="any" inputmode="decimal" placeholder="레지스트리 기준" aria-describedby="debugAmmoError"></label>
+      <button id="resetDebugVelocity">기준 속도로</button>
+      <label class="debug-auto-zero"><input id="debugAutoZero" type="checkbox">선택 탄 기준 자동 영점</label>
+    </div>
+    <p class="debug-ammo-note">행을 누르면 즉시 장전 · ∞ 무한 탄창 · 자동 영점 기본 끔(AK 원래 영점 유지) · 디버그용, 현실값 아님.</p>
+    <p class="debug-ammo-note">원본 2D 표의 Class 1–7은 순수 재질의 방호 대표값, 칸의 0–6은 관통 등급입니다. 0: 20발 이상 / 6: 1발 이내 · 좌우·상하로 스크롤하세요.</p>
+    <p class="debug-ammo-note debug-index-note">피해 지수: 근육 등가 블록 첫 30 cm · 두 거리 모두 M855 10 m = 100 · 기준 초속 사용(직접 입력 무관). S3에서 25종은 공동량으로 몸 HP를 계산하며, 나머지는 미보정입니다.</p>
+    <p id="debugAmmoError" role="alert"></p>
+    <div id="debugAmmoScroll" class="debug-ammo-scroll" tabindex="0" aria-label="모든 탄약 표 · 상하 및 좌우 스크롤"><table id="debugAmmoTable" aria-label="원본 레지스트리 전체 탄약 및 재질별 관통 등급"></table></div>
+  </div>
+</section>
+<section id="aiPanelScreen" class="screen ai-panel" hidden aria-label="킬하우스 투입 패널">
+ <div class="menu-panel"><h2>SECTOR 05 · 적 투입</h2>
+ <label>인원<select id="aiCount"><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+ <label>숙련도<select id="aiSkill"><option value="recruit">신병</option><option value="regular" selected>일반</option><option value="elite">정예</option></select></label>
+ <label>배치<select id="aiPlacement"><option value="rooms">방 분산</option><option value="main">중앙 큰 방</option><option value="corridor">복도 끝</option></select></label>
+ <label>기본 행동<select id="aiBehavior"><option value="patrol">순찰</option><option value="guard">위치 지키기</option></select></label>
+ <label>자세 시험<select id="aiPosture"><option value="stand">서기</option><option value="crouch">앉기</option><option value="left">왼쪽 기울이기</option><option value="right">오른쪽 기울이기</option></select></label>
+ <div class="aim-presets"><label>훈련 무기(변경 시 장비 재지급) <select id="aiPlayerWeapon"><option value="m4a1">M4A1</option><option value="scar_h">FN SCAR-H STD</option></select></label><button id="aiDeployButton">투입</button><button id="aiPanelClose">닫기</button></div>
+ </div></section>
+<section id="playerDownScreen" class="overlay player-down" hidden><div class="menu-panel"><span class="eyebrow">전투 훈련</span><h1 id="playerDownTitle">전투 불능</h1><p id="playerDownReason"></p><button id="combatRestartButton">재시작 · 구역 밖으로</button><button id="downMedicalButton" class="text-button">나의 의료 상태</button></div></section>
+<pre id="soundDebug" class="sound-debug" hidden aria-label="소리 전파와 AI 청각 정보"></pre>
+<section id="creditsScreen" class="overlay" hidden><div class="credits-panel"><span class="eyebrow">MODEL / ATTRIBUTION</span><h2>사운드 · SND1</h2><p>Freesound: <a href="https://freesound.org/s/777607/">#777607 yannsauvin</a> · <a href="https://freesound.org/s/778502/">#778502 blondpanda</a> · <a href="https://freesound.org/s/816019/">#816019 qubodup</a> · <a href="https://freesound.org/s/459970/">#459970 florianreichelt</a> · <a href="https://freesound.org/s/398937/">#398937 softdistortionfx</a> · <a href="https://freesound.org/s/477357/">#477357 nuff3</a>. 라이선스 확인 필요.</p><p>장비: YouTube Sound Effect - Sound FX · 설명란 무료 표기(사용자 확인), 주소 추가 필요. M4 녹음: 출처 불명, 개인용 임시, 공개 전 교체. AK·디버그 AK: M4 변형의 임시 대체, 교체 예정. 타일: 단일 샘플 변형, 추가 샘플 필요.</p><p>원본 보존, 짧은 조각·필터·음량·페이드 가공. 치수·전파와 재생 압축의 출처/튜닝은 sound-credits.json 및 SND1 대장 참조.</p><h2>M4A1</h2><p>모델 제작: <a href="https://sketchfab.com/Firewarden" target="_blank" rel="noopener">Firewarden3D</a></p><p><a href="https://sketchfab.com/3d-models/m4a1-40d8ef818c7549a896371cbb1f64fec6" target="_blank" rel="noopener">Sketchfab 원본</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p><p class="credit-note">사용자 제공 GLB에서 총기 한 개와 빈 탄피를 추출했습니다. 전시용 객체를 제외하고 모델 축을 정렬했으며 원본 형상·텍스처를 유지했습니다. 움직임과 사격 효과를 추가했습니다.</p><h2>M4·AK 공통 팔 / M4 애니메이션</h2><p>모델·애니메이션: <a href="https://sketchfab.com/teenjust500" target="_blank" rel="noopener">JUST</a></p><p><a href="https://sketchfab.com/3d-models/animated-fps-m4a4-a82fbbb731724390bc88d38940b8b01c" target="_blank" rel="noopener">Sketchfab 원본</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p><p class="credit-note">제공된 M4A4 모델의 팔·손 뼈대와 장전·사격·꺼내기·넣기 클립을 사용했습니다. M4A1과 AK에 같은 팔·손을 사용하고 총기별 접점과 동작을 맞췄습니다. 원본 M4A4 총기·카메라는 제외했습니다. 텍스처를 WebP로 변환했습니다.</p><h2>SCAR-H STD</h2><p><a href="https://sketchfab.com/3d-models/low-poly-fn-scar-h-std-9b282cdeded349b5b0111ee1e7aba223">D_U: 총기 모델</a> · <a href="https://sketchfab.com/3d-models/scar-h-first-person-fps-animated-404b16a45a224163850df34a20391739">Jainesh Pathak: 애니메이션</a> · CC BY 4.0</p><p class="credit-note">총기 메시 교체·크기 보정·클립 분할·공통 팔 리타깃·정점 양자화·절차 재질을 적용했습니다. 원본 팔·텍스처와 전시 탄은 제외했습니다.</p><h2>AK-74M / 동작 원본</h2><p>애니메이션: <a href="https://sketchfab.com/ccransh" target="_blank" rel="noopener">Cransh</a> · AK 모델: creationwasteland · 팔 모델: DJMaesen / bumstrum</p><p><a href="https://sketchfab.com/3d-models/fps-ak-74m-animations-94be8385c402474cacd39bc096c6ca14" target="_blank" rel="noopener">Sketchfab 원본</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p><p class="credit-note">카메라·표시 노드 제거, 943 mm 크기/축 보정, 손·가늠자 마커, WebP 텍스처, 팔 IK를 적용했습니다. AK 원본 팔 메시·텍스처를 제외하고 공통 팔에 자세·손가락 동작을 옮겼습니다.</p><h2>EOTECH Vudu 1–6×24</h2><p>모델 제작: <a href="https://sketchfab.com/Se_Oscar_Ya" target="_blank" rel="noopener">Se_Oscar_Ya</a></p><p><a href="https://sketchfab.com/3d-models/eotech-vudu-1-6x24-2d2f9025c2374f39a9155b7dc5f89e68" target="_blank" rel="noopener">Sketchfab 원본</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p><p class="credit-note">제공된 모델을 270 mm 크기와 게임 좌표계로 정렬하고 본체·마운트·유리를 유지했습니다. 텍스처를 WebP로 변환했으며 M4 장착·분리와 렌즈 확대 영상을 추가했습니다.</p><p class="credit-note">SR3 내부 눈금: <a href="https://cdn.shopify.com/s/files/1/0698/3044/3191/files/Vudu_Reticle_Manual_SR2-3_RevB_98e2cd9b-6729-466e-91da-e502b3c21fdc.pdf?v=1763358308" target="_blank" rel="noopener">EOTECH SR2/SR3 공식 도면</a> · ©2021 EOTECH. 확인된 각도 치수의 비공개 개인 프로젝트용 재현입니다. 모델의 CC BY 라이선스와 별도입니다.</p><h2>EOTECH XPS3-0 HWS</h2><p>모델 제작: <a href="https://sketchfab.com/Andruxa-snajper" target="_blank" rel="noopener">Andruxa-snajper</a></p><p><a href="https://sketchfab.com/3d-models/eotech-xps3-0-holographic-sight-ver40-4efb1b416b6a413ebaeb0ed60fd3c2a2" target="_blank" rel="noopener">Sketchfab 원본</a> · <a href="https://sketchfab.com/licenses" target="_blank" rel="noopener">Sketchfab Standard</a></p><p class="credit-note">95.25 mm 길이와 게임 좌표계로 정렬하고 유리 재질을 분리했습니다. 모델에 그려진 조준선 대신 무한원 홀로그램 조준선(68 MOA 링·1 MOA 점)을 셰이더로 그립니다. 텍스처를 WebP로 변환했습니다. 비공개 개인 프로젝트용입니다.</p><h2>Trijicon ACOG TA31 4×32</h2><p>모델 제작: <a href="https://sketchfab.com/jeandiz" target="_blank" rel="noopener">Mateusz Woliński</a></p><p><a href="https://sketchfab.com/3d-models/acog-b2eedf78173343c2b9e47d94618824e7" target="_blank" rel="noopener">Sketchfab 원본</a> · <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p><p class="credit-note">RMR·RMR 마운트·킬플래시·모델 조준선·접안 유리를 제거하고 151.89 mm 길이로 정렬했습니다. 투과 재질을 일반 재질로 바꾸고 텍스처를 WebP로 변환했습니다. 비상업 라이선스이므로 비공개 개인 프로젝트에서만 사용합니다.</p><p class="credit-note">.223 Chevron 조준선: <a href="https://www.trijicon.com/uploads/product-uploads/product-downloads/223_Chevron_Reticle_Dimensions4x32.pdf" target="_blank" rel="noopener">Trijicon 공식 치수 도면</a> · 비공개 개인 프로젝트용 재현입니다.</p><h2>Soldier Character</h2><p>모델 제작: <a href="https://sketchfab.com/nazidefenseforceofficial" target="_blank" rel="noopener">Muhamad Mirza Arrafi</a></p><p><a href="https://sketchfab.com/3d-models/soldier-character-dc88bfc47861426e8132b7b8d5174b48" target="_blank" rel="noopener">Sketchfab 원본</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p><p class="credit-note">제공된 GLB의 원본 형상·텍스처를 유지하고 실행 시 키를 1.8m로 조정했습니다. 정적 부위 판정을 추가했으며 보이는 장비의 방호 기능은 아직 없습니다.</p><p class="credit-note">Three.js — MIT · Rapier — Apache 2.0<br>총성은 이 프로토타입에서 합성한 임시 사운드입니다.</p><button id="closeCredits">돌아가기 →</button></div></section>
+<section id="portraitGuard"><div class="rotate-icon">↻</div><h2>가로로 돌려주세요</h2><p>두 손으로 움직이고 조준하는 훈련장입니다.<br>가로화면에서 훈련을 시작할 수 있습니다.</p></section>
+<script id="weapon-data" type="application/octet-stream">/* @training:model */</script>
+<script id="fps-data" type="application/octet-stream">/* @training:fps */</script>
+<script id="scar-data" type="application/octet-stream">/* @training:scar */</script>
+<script id="shared-arms-data" type="application/octet-stream">/* @training:m4arms */</script>
+<script id="optic-data" type="application/octet-stream">/* @training:optic */</script>
+<script id="optic-xps3-data" type="application/octet-stream">/* @training:xps3 */</script>
+<script id="optic-acog-data" type="application/octet-stream">/* @training:acog */</script>
+<script id="soldier-data" type="application/octet-stream">/* @training:soldier */</script>
+<script id="third-party-licenses" type="application/json">/* @training:licenses */</script>
+<script>/* @training:script */</script>
+<script id="sound-sprite" type="application/octet-stream">/* @training:sound */</script>
+</body>
+</html>

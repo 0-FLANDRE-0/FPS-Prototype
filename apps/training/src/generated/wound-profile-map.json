@@ -1,0 +1,1028 @@
+{
+  "9mm_115gr": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.00901,
+    "classification": "추정(완전 도판 미확인)",
+    "legacyBehavior": "round_fmj",
+    "fragmentAllowed": false,
+    "mappingNote": "도판과 게임의입사속도/질량차이는프로파일설명참고."
+  },
+  "9mm_124gr": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.00901,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "round_fmj",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "9mm_m882": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.00901,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "round_fmj",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "9mm_7n21": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.00901,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "pistol_penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "9mm_7n31": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.00901,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "pistol_penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "9mm_jhp": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.00901,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "deform",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "9mm_jhp_p": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.00901,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "deform",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "9mm_rip": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.00901,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "fragment",
+    "fragmentAllowed": true,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "556_223_fmj": {
+    "profileId": "m193",
+    "referenceProfile": "m193",
+    "diameterM": 0.0057,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "normal",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "556_m193": {
+    "profileId": "m193",
+    "referenceProfile": "m193",
+    "diameterM": 0.0057,
+    "classification": "출처 도판 근접값; 게임 질량/속도 차이 기록",
+    "legacyBehavior": "normal",
+    "fragmentAllowed": true,
+    "mappingNote": "도판과 게임의입사속도/질량차이는프로파일설명참고."
+  },
+  "556_m855": {
+    "profileId": "m193",
+    "referenceProfile": "m855_proxy_m193",
+    "diameterM": 0.0057,
+    "classification": "추정(M193 도판 차용, EWS유사패턴본문)",
+    "legacyBehavior": "penetrator_unstable",
+    "fragmentAllowed": true,
+    "mappingNote": "핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "556_m855a1": {
+    "profileId": "m193",
+    "referenceProfile": "m193",
+    "diameterM": 0.0057,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "penetrator",
+    "fragmentAllowed": true,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "556_mk318_sost": {
+    "profileId": "m193",
+    "referenceProfile": "m193",
+    "diameterM": 0.0057,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "barrier_blind",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "556_mk255_rrlp": {
+    "profileId": "m193",
+    "referenceProfile": "m193",
+    "diameterM": 0.0057,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "frangible",
+    "fragmentAllowed": true,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "556_m995_ap": {
+    "profileId": "m193",
+    "referenceProfile": "m193",
+    "diameterM": 0.0057,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "556_varmageddon": {
+    "profileId": "m193",
+    "referenceProfile": "m193",
+    "diameterM": 0.0057,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "fragment",
+    "fragmentAllowed": true,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "556_hp": {
+    "profileId": "m193",
+    "referenceProfile": "m193",
+    "diameterM": 0.0057,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "deform",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "556_mk262_mod1": {
+    "profileId": "m193",
+    "referenceProfile": "m193",
+    "diameterM": 0.0057,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "precision",
+    "fragmentAllowed": true,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "545_hp": {
+    "profileId": "ak74",
+    "referenceProfile": "ak74_7n6",
+    "diameterM": 0.0056,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "deform",
+    "fragmentAllowed": true,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "545_prs_gs": {
+    "profileId": "ak74",
+    "referenceProfile": "ak74_7n6",
+    "diameterM": 0.0056,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "frangible",
+    "fragmentAllowed": true,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "545_sp": {
+    "profileId": "ak74",
+    "referenceProfile": "ak74_7n6",
+    "diameterM": 0.0056,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "deform",
+    "fragmentAllowed": true,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "545_us_gs": {
+    "profileId": "ak74",
+    "referenceProfile": "ak74_7n6",
+    "diameterM": 0.0056,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "subsonic",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "545_fmj": {
+    "profileId": "ak74",
+    "referenceProfile": "ak74_7n6",
+    "diameterM": 0.0056,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "normal",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "545_ps_gs": {
+    "profileId": "ak74",
+    "referenceProfile": "ak74_7n6",
+    "diameterM": 0.0056,
+    "classification": "출처 도판 근접값; 게임 질량/속도 차이 기록",
+    "legacyBehavior": "unstable",
+    "fragmentAllowed": false,
+    "mappingNote": "도판과 게임의입사속도/질량차이는프로파일설명참고."
+  },
+  "545_pp_gs": {
+    "profileId": "ak74",
+    "referenceProfile": "ak74_7n6",
+    "diameterM": 0.0056,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "penetrator_unstable",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "545_bp_gs": {
+    "profileId": "ak74",
+    "referenceProfile": "ak74_7n6",
+    "diameterM": 0.0056,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "545_bs_gs": {
+    "profileId": "ak74",
+    "referenceProfile": "ak74_7n6",
+    "diameterM": 0.0056,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "545_7n40": {
+    "profileId": "ak74",
+    "referenceProfile": "ak74_7n6",
+    "diameterM": 0.0056,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "precision",
+    "fragmentAllowed": true,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "545_ppbs_gs": {
+    "profileId": "ak74",
+    "referenceProfile": "ak74_7n6",
+    "diameterM": 0.0056,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "762x39_hp": {
+    "profileId": "ak47",
+    "referenceProfile": "ak47_ps",
+    "diameterM": 0.00785,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "deform",
+    "fragmentAllowed": true,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "762x39_sp": {
+    "profileId": "ak47",
+    "referenceProfile": "ak47_ps",
+    "diameterM": 0.00785,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "deform",
+    "fragmentAllowed": true,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "762x39_us": {
+    "profileId": "ak47",
+    "referenceProfile": "ak47_ps",
+    "diameterM": 0.00785,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "subsonic",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "762x39_ps": {
+    "profileId": "ak47",
+    "referenceProfile": "ak47_ps",
+    "diameterM": 0.00785,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "normal_heavy",
+    "fragmentAllowed": false,
+    "mappingNote": "도판과 게임의입사속도/질량차이는프로파일설명참고."
+  },
+  "762x39_pp": {
+    "profileId": "ak47",
+    "referenceProfile": "ak47_ps",
+    "diameterM": 0.00785,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "762x39_bp": {
+    "profileId": "ak47",
+    "referenceProfile": "ak47_ps",
+    "diameterM": 0.00785,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "762_308_fmj": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00782,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "normal_fast",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "762_m80": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00782,
+    "classification": "출처 도판 근접값; 게임 질량/속도 차이 기록",
+    "legacyBehavior": "full_power",
+    "fragmentAllowed": false,
+    "mappingNote": "도판과 게임의입사속도/질량차이는프로파일설명참고."
+  },
+  "762_m80a1": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00782,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "penetrator",
+    "fragmentAllowed": true,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "762_m61_ap": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00782,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "762_m993_ap": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00782,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "12g_00buck": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.008400000000000001,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "buckshot",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 단일pellet/slug/flechette상태에적용하는미검증차용; 산탄총전체가M80이라는뜻아님."
+  },
+  "12g_slug": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.012,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "normal_heavy",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 단일pellet/slug/flechette상태에적용하는미검증차용; 산탄총전체가M80이라는뜻아님."
+  },
+  "12g_flechette": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.0015,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "penetrator_unstable",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음. 단일pellet/slug/flechette상태에적용하는미검증차용; 산탄총전체가M80이라는뜻아님."
+  },
+  "4.6_dm11_ap_sx": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.0046500000000000005,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "pdw_penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "4.6_action_sx": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.0046500000000000005,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "deform",
+    "fragmentAllowed": true,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "4.6_fmj_sx": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.0046500000000000005,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "pdw_ball",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시."
+  },
+  "4.6_jsp_sx": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.0046500000000000005,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "deform",
+    "fragmentAllowed": true,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "4.6_subsonic_sx": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.0046500000000000005,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "subsonic",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시."
+  },
+  "5.7_ss190": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.0057,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "pdw_penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "5.7_l191_tracer": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.0057,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "pdw_penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "5.7_ss192_jhp": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.0057,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "deform",
+    "fragmentAllowed": true,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "5.7_sb193_subsonic": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.0057,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "subsonic",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시."
+  },
+  "5.7_r37f": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.0057,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "fragment",
+    "fragmentAllowed": true,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "9mm_luger_tracer": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.00901,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "round_fmj",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "9x21_sp10_7n29": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.00901,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "pistol_penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "9x21_sp11_7n28": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.00901,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "round_fmj",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "9x21_sp12_jhp": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.00901,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "deform",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "9x21_sp13_7bt3": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.00901,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "pistol_penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "9x21_7n42": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.00901,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "pistol_penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "9x21_7u4_subsonic": {
+    "profileId": "pistol",
+    "referenceProfile": "pistol_fmj_partial",
+    "diameterM": 0.00901,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "subsonic",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "9x39_sp5_7n8": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00925,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "heavy_subsonic",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시."
+  },
+  "9x39_sp6_7n9": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00925,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "slow_penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "9x39_pab9": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00925,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "slow_penetrator_unstable",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "9x39_bp_7n12": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00925,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "slow_penetrator_high",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "300blk_vmax_110": {
+    "profileId": "ak47",
+    "referenceProfile": "ak47_ps",
+    "diameterM": 0.00762,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "fragment",
+    "fragmentAllowed": true,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "300blk_fmj_147": {
+    "profileId": "ak47",
+    "referenceProfile": "ak47_ps",
+    "diameterM": 0.00762,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "normal_heavy",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "300blk_m62_tracer": {
+    "profileId": "ak47",
+    "referenceProfile": "ak47_ps",
+    "diameterM": 0.00762,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "tracer_ball",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "300blk_cbj": {
+    "profileId": "ak47",
+    "referenceProfile": "ak47_ps",
+    "diameterM": 0.00762,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "sabot_penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "300blk_ap_hardcore": {
+    "profileId": "ak47",
+    "referenceProfile": "ak47_ps",
+    "diameterM": 0.00762,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "300blk_220_subsonic": {
+    "profileId": "ak47",
+    "referenceProfile": "ak47_ps",
+    "diameterM": 0.00762,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "heavy_subsonic",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "556_m856_tracer": {
+    "profileId": "m193",
+    "referenceProfile": "m193",
+    "diameterM": 0.0057,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "tracer_ball",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "556_m856a1_tracer": {
+    "profileId": "m193",
+    "referenceProfile": "m193",
+    "diameterM": 0.0057,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "tracer_epr",
+    "fragmentAllowed": true,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "545_7t3_tracer": {
+    "profileId": "ak74",
+    "referenceProfile": "ak74_7n6",
+    "diameterM": 0.0056,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "tracer_ball",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "545_7bt4_aptracer": {
+    "profileId": "ak74",
+    "referenceProfile": "ak74_7n6",
+    "diameterM": 0.0056,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "tracer_ap",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "762x39_t45m_tracer": {
+    "profileId": "ak47",
+    "referenceProfile": "ak47_ps",
+    "diameterM": 0.00785,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "tracer_ball",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "762x51_m62_tracer": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00782,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "tracer_ball",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "762x51_m948_slap": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00782,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "sabot_tungsten_ap",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "762x54r_lps_gzh": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00792,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "normal_heavy",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "762x54r_t46m": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00792,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "tracer_ball",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "762x54r_7n1": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00792,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "precision_heavy",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "762x54r_7bt1": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00792,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "tracer_ap",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "762x54r_7n14_snb": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00792,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "762x54r_7n37_bs": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00792,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "tungsten_ap",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "68x51_sig_fmj": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.007,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "full_power_ball",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시."
+  },
+  "68x51_sig_hybrid": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.007,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "barrier_blind",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "68x51_xm1186": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.007,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "modern_epr",
+    "fragmentAllowed": true,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "68x51_xm1188_rra": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.007,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "reduced_range_ball",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시."
+  },
+  "68x51_xm1184_ap": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.007,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "tungsten_ap",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "93x64_fmj": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.009300000000000001,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "magnum_ball",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시."
+  },
+  "93x64_sp": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.009300000000000001,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "deform_heavy",
+    "fragmentAllowed": true,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "93x64_9sn_7n33_ap": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.009300000000000001,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "large_penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "338lm_fmj": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00859,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "magnum_ball",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시."
+  },
+  "338lm_ap": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00859,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "tungsten_ap",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "338lm_tacx": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00859,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "deform_heavy",
+    "fragmentAllowed": true,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "338lm_ucw_subsonic": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00859,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "heavy_subsonic",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시."
+  },
+  "338nm_fmj": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00859,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "magnum_ball",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시."
+  },
+  "338nm_ap": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00859,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "tungsten_ap",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "127x55_ps12": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.01295,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "heavy_subsonic",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시."
+  },
+  "127x55_ps12a": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.01295,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "fragment_heavy",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "127x55_ps12b": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.01295,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "slow_large_penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "127x99_m33_ball": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.01295,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "anti_material_ball",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시."
+  },
+  "127x99_m17_tracer": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.01295,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "anti_material_tracer_ball",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시."
+  },
+  "127x99_m8_api": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.01295,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "anti_material_api",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "127x99_m20_apit": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.01295,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "anti_material_api_t",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "127x99_mk211_heiap": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.01295,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "anti_material_heiap",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "127x99_m903_slap": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.01295,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "sabot_tungsten_ap",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "127x108_b32_api": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.01298,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "anti_material_api",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "127x108_bzt44_apit": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.01298,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "anti_material_api_t",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "127x108_mdz_hei": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.01298,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "hei_shell",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. Donor와탄구조·질량·길이·속도차가큼. 보정검증탄아님; 수치외삽한계명시."
+  },
+  "30_06_m2_ball": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00782,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "full_power_ball",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "30_06_m2_ap": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00782,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "penetrator",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. 핵심재/외피/관통자별조직거동자료없음; donor파편율직접복사근거없음."
+  },
+  "30_06_m25_tracer": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00782,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "tracer_ball",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  },
+  "30_06_sp": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00782,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "deform_heavy",
+    "fragmentAllowed": true,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor. FMJ도판으로팽창/분해/현대EPR특유거동을검증할수없음. 별도파편/변형계수는튜닝."
+  },
+  "30_06_m72_match": {
+    "profileId": "m80",
+    "referenceProfile": "m80",
+    "diameterM": 0.00782,
+    "classification": "추정(구조·구경 계열 차용)",
+    "legacyBehavior": "precision_heavy",
+    "fragmentAllowed": false,
+    "mappingNote": "개별 도판 미확인; 같은 구경/가장 가까운 탄형 donor."
+  }
+}

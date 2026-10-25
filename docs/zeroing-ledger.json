@@ -1,0 +1,499 @@
+{
+  "ruleId": "fixed-sight-zero-v1",
+  "sources": [
+    {
+      "id": "tc",
+      "classification": "출처",
+      "title": "TC 3-22.9 Rifle and Carbine, 13 May 2016, Change 3 July 2019",
+      "url": "https://archive.org/download/arn-19927-tc-3-22x-9-c-3-final-web/ARN19927_TC_3-22x9_C3_FINAL_WEB.pdf",
+      "publisher": "Headquarters Department of the Army; public mirror of Army document",
+      "page": "7-12 §7-36 (PDF130), E-2 §E-9/10 (PDF216)",
+      "quotes": [
+        "The 300 meter zero is the Army standard and works in all tactical situations, including close quarters combat.",
+        "The only way to rely on a 300-m hit, is to confirm a 300-m zero."
+      ],
+      "application": "M4 iron and XPS3 manual adoption; no independently verified EOTECH XPS3 zero recommendation",
+      "httpStatus": 200,
+      "bytes": 14328641,
+      "sha256": "268941c0ed41e71e6aa838e39a84f54b7cde853d66f75852b95469f0f0344354",
+      "checkedAt": "2026-10-11 UTC"
+    },
+    {
+      "id": "acog",
+      "classification": "출처",
+      "title": "Trijicon 4x32 .223 Chevron Reticle Dimensions",
+      "url": "https://www.trijicon.com/uploads/product-uploads/product-downloads/223_Chevron_Reticle_Dimensions4x32.pdf",
+      "page": "PDF1",
+      "quotes": [
+        "ZERO at 100m"
+      ],
+      "application": "TA31-D-100309 among SKUs on drawing; chevron tip at optic axis",
+      "httpStatus": 200,
+      "bytes": 86678,
+      "sha256": "abddcabce31007b7f9f183905ea808e328bb46ab4df41f73a040bd851bce88c7",
+      "checkedAt": "2026-10-11 UTC"
+    },
+    {
+      "id": "vudu",
+      "classification": "출처",
+      "title": "EOTECH Vudu SR2/SR3 VD1905 RevB, April 2021",
+      "url": "https://cdn.shopify.com/s/files/1/0698/3044/3191/files/Vudu_Reticle_Manual_SR2-3_RevB_98e2cd9b-6729-466e-91da-e502b3c21fdc.pdf?v=1763358308",
+      "page": "printed8 (PDF8), printed9 (PDF9)",
+      "quotes": [
+        "All drops are calculated with a 100 yard zero.",
+        "75 grain, 2900 fps, .395 BC, 1.5\" sight height"
+      ],
+      "application": "SR3 center; source BTHP differs from game M855 mass 4.02g and speed879m/s",
+      "httpStatus": 200,
+      "bytes": 416139,
+      "sha256": "6e510daea3dfe303b57c56c84c68bcc245895c9315d2ffc14be499113f05d878",
+      "checkedAt": "2026-10-11 UTC"
+    },
+    {
+      "id": "ak",
+      "classification": "출처",
+      "title": "AK74/RPK74 Руководство, Voenizdat 1984 (2nd stereotyped edition)",
+      "url": "https://ru.djvu.online/file/VdNjJdWnyUBdn",
+      "retrieval": "https://r.jina.ai/https://ru.djvu.online/file/VdNjJdWnyUBdn",
+      "representation": "public source OCR transcription via reader, not independently scanned PDF",
+      "httpStatus": 200,
+      "bytes": 362166,
+      "sha256": "4d4b50590fe5eb3406d8fd98ec7d60ebc2cd660b3fc4a63c5c3b6fcc2f0e5977",
+      "checkedAt": "2026-10-11 UTC",
+      "page": "§13 pp39–40; §80–81 pp98–99; Appendix4(a) p190",
+      "quotes": [
+        "У автомата, кроме того, на прицельной планке нанесена буква «П» — постоянная установка прицела, примерно соответствующая прицелу 4 (дальности стрельбы 440 м).",
+        "Дальность стрельбы 100 м, прицел 3, целик 0.",
+        "выше точки прицеливания при стрельбе из автомата на расстоянии 13 см"
+      ],
+      "table": "Appendix4(a): distance columns50/100/150/200/250/300/350/400m; sight4 row11/24/33/38/37/32/20/0cm",
+      "application": "P approximately sight4 per text; use source sight4 +24cm at100m as explicit manual adoption. Normal-fire check +13cm is sight3, never mislabeled P. P-specific exact 100m mean offset not supplied."
+    }
+  ],
+  "presets": [
+    {
+      "weaponId": "m4a1",
+      "distanceM": 300,
+      "offsetM": 0,
+      "referenceAmmoId": "556_m855",
+      "sourceId": "tc",
+      "sightPoint": "iron marker line",
+      "classification": "출처 준용"
+    },
+    {
+      "weaponId": "m4a1",
+      "opticId": "eotech_xps3_0",
+      "distanceM": 300,
+      "offsetM": 0,
+      "referenceAmmoId": "556_m855",
+      "sourceId": "tc",
+      "sightPoint": "central dot / optical axis",
+      "classification": "교범 준용"
+    },
+    {
+      "weaponId": "m4a1",
+      "opticId": "trijicon_ta31",
+      "distanceM": 100,
+      "offsetM": 0,
+      "referenceAmmoId": "556_m855",
+      "sourceId": "acog",
+      "sightPoint": "chevron tip / optical axis",
+      "classification": "출처 준용"
+    },
+    {
+      "weaponId": "m4a1",
+      "opticId": "vudu_1_6x24",
+      "distanceM": 91.44,
+      "offsetM": 0,
+      "referenceAmmoId": "556_m855",
+      "sourceId": "vudu",
+      "sightPoint": "central dot / optical axis",
+      "classification": "출처 준용"
+    },
+    {
+      "weaponId": "ak74m",
+      "distanceM": 100,
+      "offsetM": 0.24,
+      "referenceAmmoId": "545_ps_gs",
+      "sourceId": "ak",
+      "sightPoint": "iron marker line, P approximately4",
+      "classification": "교범 준용: П≈4, 표4(a)의4/100m+24cm",
+      "normalFireCheck": {
+        "sightSetting": "3",
+        "distanceM": 100,
+        "offsetCm": 13,
+        "applied": false
+      },
+      "pApproximation": true
+    }
+  ],
+  "pending": [],
+  "originalValues": {
+    "classification": "원본",
+    "velocity": "unchanged catalog + shotBallistics",
+    "dragRetention": ".94 /100m rifle_light unchanged",
+    "gravity": 9.81,
+    "flight": "existing RK4/chord arrival, no changed equations"
+  },
+  "tuning": {
+    "classification": "튜닝",
+    "geometry": "unchanged supplied model markers and existing rail mounts, scale1 stationary ADS",
+    "sprintEntry": 0.97,
+    "sprintExit": 0.82,
+    "solverToleranceMm": 0.1,
+    "zeroAngle": "numerical result from game model, not real-world measured rifle angle",
+    "akPMapping": "Explicit approximate P→4 adoption from §13; exact P-specific100m offset not available"
+  },
+  "visualAlignment": "v29 ADS marker alignment retained under visualAlignment. No sightCorrection in ballistic direction. Apply theta once about weapon +X starting from actual sight axis, rather than barrel -Z.",
+  "geometryBasis": "scale 1, stationary ADS; rear sight/ocular at origin, level sight -Z",
+  "calculation": {
+    "flightRuleId": "cqb-retention-quadratic-gravity-v1",
+    "method": "production RK4 flightChord + swept arrival interpolation; bisection",
+    "toleranceMm": 0.1,
+    "actualSolveToleranceMm": 0.00001,
+    "fixedReferenceRound": true,
+    "runtimeSolves": 0,
+    "gravity": 9.81,
+    "limits": {
+      "gravity": 9.81,
+      "maxStepS": 0.008333333333333333,
+      "maxChordM": 4,
+      "maxSteps": 2048,
+      "maxTimeS": 12,
+      "maxDistanceM": 620
+    }
+  },
+  "results": {
+    "m4a1": {
+      "weaponId": "m4a1",
+      "distanceM": 300,
+      "offsetM": 0,
+      "referenceAmmoId": "556_m855",
+      "sourceId": "tc",
+      "sightPoint": "iron marker line",
+      "classification": "출처 준용",
+      "thetaRad": 0.0026725670881569377,
+      "thetaMrad": 2.6725670881569377,
+      "sightHeightMm": 63.663266917915934,
+      "muzzleVelocityMps": 879,
+      "residualMm": -0.0000027985274116517148,
+      "iterations": 30,
+      "geometry": {
+        "rear": [
+          0,
+          0.1266834,
+          0.155173
+        ],
+        "front": [
+          0,
+          0.1235896,
+          -0.2284125
+        ],
+        "muzzleInLevelSightFrame": [
+          0,
+          -0.06366326691791593,
+          -0.5607046944782059
+        ]
+      },
+      "retentionPer100M": 0.8855627070193814
+    },
+    "eotech_xps3_0": {
+      "weaponId": "m4a1",
+      "opticId": "eotech_xps3_0",
+      "distanceM": 300,
+      "offsetM": 0,
+      "referenceAmmoId": "556_m855",
+      "sourceId": "tc",
+      "sightPoint": "central dot / optical axis",
+      "classification": "교범 준용",
+      "thetaRad": 0.0026880925521254534,
+      "thetaMrad": 2.6880925521254535,
+      "sightHeightMm": 68.02074878151618,
+      "muzzleVelocityMps": 879,
+      "residualMm": -0.000005228254974245193,
+      "iterations": 29,
+      "geometry": {
+        "rear": [
+          0,
+          0.12652074878151617,
+          0.057
+        ],
+        "front": [
+          0,
+          0.12652074878151617,
+          0.042620000000000005
+        ],
+        "muzzleInLevelSightFrame": [
+          0,
+          -0.06802074878151618,
+          -0.462
+        ]
+      },
+      "retentionPer100M": 0.8855627070193814
+    },
+    "trijicon_ta31": {
+      "weaponId": "m4a1",
+      "opticId": "trijicon_ta31",
+      "distanceM": 100,
+      "offsetM": 0,
+      "referenceAmmoId": "556_m855",
+      "sourceId": "acog",
+      "sightPoint": "chevron tip / optical axis",
+      "classification": "출처 준용",
+      "thetaRad": 0.0013427310436964033,
+      "thetaMrad": 1.3427310436964033,
+      "sightHeightMm": 65.36074878151618,
+      "muzzleVelocityMps": 879,
+      "residualMm": 0.000009994740757327805,
+      "iterations": 28,
+      "geometry": {
+        "rear": [
+          0,
+          0.12386074878151618,
+          0.192
+        ],
+        "front": [
+          0,
+          0.12386074878151618,
+          0.06648000000000001
+        ],
+        "muzzleInLevelSightFrame": [
+          0,
+          -0.06536074878151618,
+          -0.597
+        ]
+      },
+      "retentionPer100M": 0.8855627070193814
+    },
+    "vudu_1_6x24": {
+      "weaponId": "m4a1",
+      "opticId": "vudu_1_6x24",
+      "distanceM": 91.44,
+      "offsetM": 0,
+      "referenceAmmoId": "556_m855",
+      "sourceId": "vudu",
+      "sightPoint": "central dot / optical axis",
+      "classification": "출처 준용",
+      "thetaRad": 0.0013493610173463822,
+      "thetaMrad": 1.3493610173463821,
+      "sightHeightMm": 66.0928573404149,
+      "muzzleVelocityMps": 879,
+      "residualMm": 0.000009062364353027135,
+      "iterations": 28,
+      "geometry": {
+        "rear": [
+          0,
+          0.12459285734041489,
+          0.145
+        ],
+        "front": [
+          0,
+          0.12459285734041489,
+          -0.10394691887253504
+        ],
+        "muzzleInLevelSightFrame": [
+          0,
+          -0.0660928573404149,
+          -0.55
+        ]
+      },
+      "retentionPer100M": 0.8855627070193814
+    },
+    "ak74m": {
+      "weaponId": "ak74m",
+      "distanceM": 100,
+      "offsetM": 0.24,
+      "referenceAmmoId": "545_ps_gs",
+      "sourceId": "ak",
+      "sightPoint": "iron marker line, P approximately4",
+      "classification": "교범 준용: П≈4, 표4(a)의4/100m+24cm",
+      "normalFireCheck": {
+        "sightSetting": "3",
+        "distanceM": 100,
+        "offsetCm": 13,
+        "applied": false
+      },
+      "pApproximation": true,
+      "thetaRad": 0.003510976284742355,
+      "thetaMrad": 3.510976284742355,
+      "sightHeightMm": 45.52728095706615,
+      "muzzleVelocityMps": 890,
+      "residualMm": -0.0000016903019262048957,
+      "iterations": 27,
+      "geometry": {
+        "rear": [
+          -0.00034,
+          0.04775,
+          -0.009243
+        ],
+        "front": [
+          -0.000335,
+          0.046139,
+          -0.372982
+        ],
+        "muzzleInLevelSightFrame": [
+          0.0003137221631193859,
+          -0.045527280957066145,
+          -0.4568041229794897
+        ]
+      },
+      "retentionPer100M": 0.94
+    }
+  },
+  "report": {
+    "m4Iron": [
+      {
+        "distanceM": 25,
+        "heightCm": -0.2227167859229792
+      },
+      {
+        "distanceM": 50,
+        "heightCm": 5.228201634367264
+      },
+      {
+        "distanceM": 100,
+        "heightCm": 13.393351033577733
+      },
+      {
+        "distanceM": 200,
+        "heightCm": 17.056612546575764
+      },
+      {
+        "distanceM": 300,
+        "heightCm": -2.798527411651715e-7
+      },
+      {
+        "distanceM": 400,
+        "heightCm": -43.47718049141272
+      },
+      {
+        "distanceM": 500,
+        "heightCm": -120.64383627124653
+      }
+    ],
+    "xps3": [
+      {
+        "distanceM": 25,
+        "heightCm": -0.5973441630772863
+      },
+      {
+        "distanceM": 50,
+        "heightCm": 4.889097545833667
+      },
+      {
+        "distanceM": 100,
+        "heightCm": 13.124689951839741
+      },
+      {
+        "distanceM": 200,
+        "heightCm": 16.925074569125833
+      },
+      {
+        "distanceM": 300,
+        "heightCm": -5.228254974245193e-7
+      },
+      {
+        "distanceM": 400,
+        "heightCm": -43.35135604224669
+      },
+      {
+        "distanceM": 500,
+        "heightCm": -120.40026180817569
+      }
+    ],
+    "acog": [
+      {
+        "distanceM": 400,
+        "mark": 7.8,
+        "unit": "MOA",
+        "gameDropCm": 96.73882527413997,
+        "gameDrop": 8.314073395245554,
+        "error": 0.5140733952455543,
+        "errorCm": 5.981548429853817,
+        "outsideLiveRange": false
+      },
+      {
+        "distanceM": 500,
+        "mark": 12.6,
+        "unit": "MOA",
+        "gameDropCm": 187.1896379592866,
+        "gameDrop": 12.870151339324151,
+        "error": 0.27015133932415125,
+        "errorCm": 3.9292458818226805,
+        "outsideLiveRange": false
+      },
+      {
+        "distanceM": 600,
+        "mark": 18.7,
+        "unit": "MOA",
+        "gameDropCm": 320.5943772050232,
+        "gameDrop": 18.36852994234362,
+        "error": -0.3314700576563787,
+        "errorCm": -5.785412046372528,
+        "outsideLiveRange": false
+      },
+      {
+        "distanceM": 700,
+        "mark": 26.4,
+        "unit": "MOA",
+        "gameDropCm": 508.77151111082384,
+        "gameDrop": 24.985668888505845,
+        "error": -1.4143311114941532,
+        "errorCm": -28.800466122805062,
+        "outsideLiveRange": true
+      },
+      {
+        "distanceM": 800,
+        "mark": 35.8,
+        "unit": "MOA",
+        "gameDropCm": 766.8011404063348,
+        "gameDrop": 32.9498427665887,
+        "error": -2.850157233411295,
+        "errorCm": -66.33280644075592,
+        "outsideLiveRange": true
+      }
+    ],
+    "vudu": [
+      {
+        "distanceM": 365.76,
+        "mark": 2,
+        "unit": "mrad",
+        "gameDropCm": 73.77782185078937,
+        "gameDrop": 2.0171074417724553,
+        "error": 0.017107441772455267,
+        "errorCm": 0.6257243146333025,
+        "outsideLiveRange": false
+      },
+      {
+        "distanceM": 457.2,
+        "mark": 3,
+        "unit": "mrad",
+        "gameDropCm": 143.6285051373818,
+        "gameDrop": 3.141470530511035,
+        "error": 0.1414705305110351,
+        "errorCm": 6.4680936559004465,
+        "outsideLiveRange": false
+      },
+      {
+        "distanceM": 548.64,
+        "mark": 4.1,
+        "unit": "mrad",
+        "gameDropCm": 245.82170791875134,
+        "gameDrop": 4.480534830560263,
+        "error": 0.38053483056026316,
+        "errorCm": 20.87804748302824,
+        "outsideLiveRange": false
+      }
+    ],
+    "causes": [
+      "v30 used original .94/100m; v31 uses 3D 5.56 manufacturer BDC inverse-fit tuning, not a measured drag curve",
+      "M855 registry velocity 925 m/s becomes 879 m/s through unchanged M4 factor .95 and legacy rounding",
+      "SR3 design 75gr/2900fps/BC .395 and 1.5 inch sight height differ from game M855/model mount",
+      "ACOG drawing .223/5.56 calibration and real atmospheric/G1/G7 model are not this retention model"
+    ],
+    "ffpZoomIndependent": true,
+    "flightChanged": true,
+    "flightChange": "3D 5.56-only retention override; RK4/geometry/other calibers unchanged",
+    "extrapolation": "700/800m tables only, same equations; live range remains 620m"
+  }
+}

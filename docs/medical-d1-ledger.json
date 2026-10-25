@@ -1,0 +1,164 @@
+{
+  "version": "medical-feedback-d1-v51",
+  "runtimeSourceCommit": "0971a7fa0823aaf4ed9806514976d993b5161109",
+  "baseline": "9e1d4cfd50fa049e4d2eeb597f1388d95fbef1dc",
+  "instructionSHA256": "e0b32c66af07eff108bf24db1daed2bbf0e1b7a44f0ff076338347f8533e4d7f",
+  "physiologyReadOnly": true,
+  "automatic2DPort": false,
+  "entries": [
+    {
+      "item": "성능 기여 분해",
+      "classification": "원본",
+      "source": "generated/legacy-medical.js:updateMedicalPerformanceMultipliers",
+      "factors": {
+        "arms": ".4+.6*(.4*min(L,R)+.6*mean(L,R))",
+        "pain": "1-perceivedPain/100*.35",
+        "adrenaline": ">.7:1-(a-.7)*.6; else1",
+        "panic": "1-panic*.4",
+        "breathing": ".5+.5*breathingEfficiency/100",
+        "consciousness": ".4+.6*consciousness/100",
+        "heartRate": ">150:1-min(.25,(HR-150)/100); else1",
+        "perfusion": ".5+min(.5,tissuePerfusion*.5)"
+      },
+      "note": "기여는 현재 원본 항목을 읽는다. 총 진폭 기준은 원본이 저장한 aimMul을 쓰므로 원본 갱신 순서로 항목 재구성과1틱 차이가 날 수 있다.",
+      "2D 역이식 후보": "아니오(이미 원본)"
+    },
+    {
+      "item": "총 흔들림",
+      "classification": "사용자 설계 + 출처(8–12Hz 대역) + 튜닝(각도/시간)",
+      "values": {
+        "ruleId": "medical-feedback-d1",
+        "tremorHz": 10,
+        "panicHz": 8.7,
+        "painHz": 0.37,
+        "driftHz": 0.13,
+        "curveRad": 0.018,
+        "curvePower": 0.7,
+        "maxSwayRad": 0.08,
+        "armDropM": 0.045,
+        "sprintLegFunction": 0.65,
+        "limpAsymmetry": 0.25,
+        "limpDipM": 0.025,
+        "orthostaticS": 30,
+        "orthostaticRiseS": 1.5,
+        "maxAuditoryExclusionDb": 12,
+        "minimumAuditoryHz": 2500,
+        "minimumFovDeg": 30,
+        "impairedSightM": 50
+      },
+      "equation": "base=min(.08,.018*(1/aimMul-1)^.7); each=base*(1-factor)/hypot(all losses); partArm=.01*max(masked arm pain)/100; crash=.012*crash; thorax=.006*max(masked chest,abdomen pain)/100",
+      "frequenciesHz": {
+        "adrYaw": 10,
+        "adrPitch": 10.7,
+        "panic": 8.7,
+        "pain": 0.37,
+        "slowPitch": 0.29,
+        "perfusionDrift": 0.13,
+        "breath": ".35+dyspnea*.5+thoraxPain*.3",
+        "heart": "HR/60 above150"
+      },
+      "attachment": "stock pivot; part-side roll=(Rpain-Lpain)/100*.012; drop=(1-armFn)*.045+maxArmPain/100*.012; sway after motion preset, no extra player spread",
+      "2D 역이식 후보": "아니오(3D 표현)"
+    },
+    {
+      "item": "부위 통증·동작",
+      "classification": "원본 통증/배율 + 사용자 설계 + 튜닝",
+      "equations": {
+        "mask": "partPain=raw*(1-painMasking); abdomen raw=max(part.pain,abdomenPainFloor)",
+        "fallback": "부위 pain 없을 때 해당 부위 상처 수/전체 상처 수 × 전체 pain",
+        "severe": "perceived>=80: all base action rates capped .35",
+        "handling": "min(originalHandling,severe)/(1+maxArmPain/100*.5+crash*.6)",
+        "reload": "min(originalReload,severe)/(1+maxArmPain/100*.5+crash*.65)",
+        "move": "min(originalMove,severe); original already contains crash -15%",
+        "stance": "min(originalStance,severe); existing view-height response13×rate",
+        "limp": "clamp(.7*maskedLegPain/100+.8*(1-legFunction),0,1)",
+        "asymmetricPhase": "phase += dt*rate*(1+.25*(Llimp-Rlimp)*sin(phase*2π))",
+        "contactDip": "-.025*contactSideLimp metres; exp decay .12s",
+        "sprint": "both leg perceivedPain<30, function>=.65, global pain<80"
+      },
+      "2D 역이식 후보": "예(부위 통증/속도 문턱;3D IK/위상은 제외)"
+    },
+    {
+      "item": "각성·청각 배제",
+      "classification": "원본 상태 읽기 + 사용자 설계 + 튜닝",
+      "attention": "clamp(max(0,adrenaline-.55,combatArousal-.55)/.45*.6+panic*.5)",
+      "blur": ".65*attention; stressDark=.12*attention",
+      "maxDb": 12,
+      "minLowpassHz": 2500,
+      "combination": "player gain=min(v46gain,10^(-exclusionDb/20)); lowpass=min(v46Hz,20000-17500*exclusionDb/12); tinnitus unchanged; AI threshold adds max(loss*25,exclusionDb), not sum; existing pain hearing penalty reads perceivedPain",
+      "source": "medical-d1-sources.json#ojp",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "item": "출혈/저관류 시야",
+      "classification": "출처(기전·일반 순서) + 사용자 설계 + 튜닝(모든 문턱)",
+      "drive": "clamp(max((75-MAP)/35,(.9-perfusion)/.55,(.9-oxygenDelivery)/.55,(90-consciousness)/65))",
+      "curves": {
+        "desaturation": "smoothstep(.05,.35,drive)",
+        "peripheralDark": ".98*smoothstep(.15,.65,drive)",
+        "tunnel": "smoothstep(.35,.8,drive)",
+        "blackout": "smoothstep(.72,.95,drive); stage blackout when alpha>=.99",
+        "eyelids": "severity=smoothstep descending75→20cons; period6−4severity; duty .12+.55severity; sin² only within duty",
+        "orthostatic": "risePeak=clamp(loss/.35)*clamp(max(0,(95-MAP)/45)+.4*loss)*.55; peak*(1-exp(-age/1.5))*(1-age/30)^2; white=.8*orthostatic"
+      },
+      "doesNotWrite": [
+        "consciousness",
+        "unconscious/down/arrest/death",
+        "blood",
+        "MAP"
+      ],
+      "2D 역이식 후보": "예(표현 문턱)"
+    },
+    {
+      "item": "AI 변환",
+      "classification": "원본 기준값/의료 배율 + 튜닝",
+      "base": "combat-config.js",
+      "equations": {
+        "floor": "baseFloor/aimMul",
+        "start": "baseStart/sqrt(aimMul)",
+        "convergence": "baseConvergence*aimMul",
+        "reaction": "baseReaction/reactionMul (including original moderate-adrenaline benefit)",
+        "aimWait": ".4/handlingRate",
+        "shotInterval": "baseInterval/handlingRate",
+        "reload": "nativeDuration/reloadRate, animation progress synchronized",
+        "walk": "1.4*moveRate; same gait asymmetry",
+        "FOV": "max(30,120*(1-.4attention)*(1-.5tunnel))",
+        "range": "if visionDrive>0:50*(1-smoothstep(.15,.92,drive)); else original unbounded",
+        "detection": "1-smoothstep(.15,.92,drive); original deterministic RNG; healthy consumes no new draws"
+      },
+      "2D 역이식 후보": "예(3D 감각/물리 제외)"
+    },
+    {
+      "item": "화면 효과 강도·기존 패스",
+      "classification": "사용자 설계 + 튜닝",
+      "default": 100,
+      "range": [
+        0,
+        100
+      ],
+      "screenOnly": true,
+      "maximumFullscreenPasses": 1,
+      "identityPassWhenLensDisabled": true,
+      "scopeCoverage": "PiP composited into main view before existing lens pass",
+      "2D 역이식 후보": "예(설정/시야 효과)"
+    }
+  ],
+  "preservation": {
+    "sources": 173,
+    "assets": 35,
+    "embeddedBlocks": 8,
+    "formulasAndDamageAndCollapseExact": true
+  },
+  "limitations": [
+    "시야·각도·주파수 선택·청각 감쇠·AI 변환 및 동작 계수는 게임 튜닝이다. 임상적 출혈량/혈압의 증상 문턱이나 실측 명중률을 재현한 값으로 해석하지 않는다.",
+    "Artwohl 원문 PDF는 접근 제한으로 확보하지 못했다. 공식 OJP NCJ197365 초록에서157명 조사와 소리 감소84%/증폭16%만 확인했다. 터널비전 보고 비율은 확인하지 못해 인용하지 않았고 이 비율을 게임 발생 확률로 쓰지 않는다.",
+    "항공의학의 점진적 +Gz 시각 소실 순서를 설계 근거로 삼았다. 모든 상황에서 시각 전조가 의식 소실에 앞선다는 임상 법칙은 아니다. 색 빠짐을 맨 앞에 둔 것과 MAP/관류/산소 문턱은 사용자 설계와 튜닝이다.",
+    "기립성 문헌에서 기립15초 이내 발생과 시각 증상은 확인했다.1.5초 상승·30초 회복은 확인한 문헌의 지속시간 수치가 아니며 튜닝이다.0/20/35% 손실은 기존 생리 보상30초 후에 시험했다.",
+    "화면 캡처는 실제 사격으로 생성한 의료 상태를 P01 표시 소비자에 재생한 것이다. 동작 시간 측정도 같은 부상 입력을 고정해 악화가 타이밍 비교에 섞이지 않게 했다. 최종 HTML의 실제 적 사격→플레이어 피격→의료 흐름은 별도 offline.json/PNG로 검증했다.",
+    "앉기/서기 시간은 기존 시점 높이 전환 속도를 줄인다. 기존 이동 캡슐의 높이 교체 시점은 보존했다. 플레이어 표현은 직전 고정 틱의 의료 결과를 사용하므로 최대1틱(16.7ms) 표시 지연이 있다. 입력 반응 지연은 없다.",
+    "총알 추가 분산은 없다. 조준선/총구가 움직인 현재 총 자세가 발사 방향을 정한다. 적은 기존 AI 각도 오차 경로를 의료 배율로 바꾸며 v50의 별도 부상 가산식은 제거해 이중 벌점을 피했다.",
+    "팔/다리의 작은 단독 근육상은 위협 종료 후 통증 가림이 풀려도 기존 생리가 탈진을 만들지 않을 수 있다. 복부 근육상/출혈 사례에서는 기존 crash가 나타났다. HP0 복부는 통증 바닥95라도 기존 아드레날린 가림 후 느끼는 통증을 쓰며95를 강제로 느끼게 하지 않는다.",
+    "소리 PCM·전파·물리 노출/청력 누적·이명은 보존했다. 건강 상태의 네이티브 WebAudio 출력은 부동소수 처리 오차를 수치로 보고하며 바이트 동일 PCM 출력이라고 주장하지 않는다. 부상 상태의 청각 출력/AI 문턱 변화는 의도한 D1 효과다.",
+    "성능은 Chromium ANGLE SwiftShader의 render+gl.finish 표본이다. 실행별 변동이 있어 효과가 켜졌을 때 더 빠른 수치도 개선으로 주장하지 않는다. 실제 Android/iOS 조작감·GPU/발열·실시간 연사 성능은 미검증이다."
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "version": "medical-s0-v38",
+  "baseline": "3c1e39af2480a5efe4ff95c15f85d2832eec49c0",
+  "runtimeSourceCommit": "2ccb0623e3f5b499ee76a7ad8c02b15b6c2ea926",
+  "scope": "Independent3D medical-v2;2D src, legacy declarations, animations, rigid-body physics and terminal equations frozen",
+  "values": {
+    "heartReferenceChordM": 0.04,
+    "maximumPumpLoss": 0.99,
+    "heartCerebralReserveTauS": 4,
+    "failedPumpThreshold": 0.05
+  },
+  "entries": [
+    {
+      "id": "S0-0",
+      "originalFunction": "3D medical architecture",
+      "originalSource": "docs/training-q-instructions.md; docs/training-r-instructions.md; apps/training/src/medical-v2.js",
+      "before": "3D-first slots constrained by retained2D formulas",
+      "after": "Independent3D anatomy physiology; immutable2D src and retained legacy declarations; no automatic reverse port",
+      "reason": "User S0 policy amendment",
+      "evidence": "사용자 지시",
+      "dependenciesFor2D": "No port is authorized",
+      "candidate2D": "아니오",
+      "2D 역이식 후보": "아니오"
+    },
+    {
+      "id": "S0-5a",
+      "originalFunction": "criticalAnatomyS0 / consciousnessTargetV2 / syncLegacyCombatState",
+      "originalSource": "apps/training/src/medical-s0.js; apps/training/src/medical-v2.js; retained generated engine buildOrganInjuryModel2670 / applyDamageEvent5719",
+      "before": "brain_injury geometry was confirmed-only; no organ model. Helmet-passed7N6 actualbrain105.6mm leftheadHP12.523/CC60 and no collapse",
+      "after": "Only positive actual occupied brain intervals latch permanentCC/target0, brain_injury down reason. Brainstem separately latches apnea+immediate arrest brainstem_injury. No near-miss or zero-length activation.",
+      "reason": "Actual geometry-to-physiology gap",
+      "evidence": "설계 기대/튜닝: every cerebral chord immediately incapacitates; not a universally proved clinical rule. EWS2018ch15pp216–217 distinguishes outcomes and primary/secondary mechanisms; Patrick reprint TheHumanTarget gives qualitative CNS incapacitation.",
+      "dependenciesFor2D": "actual internal chord/evidence equivalent, consciousness/target, downReason, arrestReason; no geometry-free part-name fallback",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S0-head-localization",
+      "originalFunction": "geometricHeadS0 / localizedHeadLifeS0 / TrainingMedical.record",
+      "originalSource": "apps/training/src/medical-s0.js; apps/training/src/medical.js; retained summary head-HP shortcut",
+      "before": "A face/jaw shot could exhaust aggregate head35HP and immediately kill without brain intersection",
+      "after": "For skin-entering occupied3D head geometry only, preserve traumaHP but remove unconditional head-HP death. Brain flags govern CNS effects. Nonbrain jaw retains generic40point transient decrease with floor20 and preimpactCC snapshot; same life terms omit only the head shortcut. Nonoccupied blunt/compatibility calls retain old shortcut.",
+      "reason": "Separate face/jaw/scalp from true CNS damage and retain helmet-blunt compatibility",
+      "evidence": "튜닝/사용자 기대; geometric actual-head source guard is original-path validation",
+      "dependenciesFor2D": "needs reliable brain-vs-face localization and a preimpactCC snapshot; ordinary2D aggregateheadHP lacks this evidence",
+      "candidate2D": "아니오",
+      "2D 역이식 후보": "아니오"
+    },
+    {
+      "id": "S0-brain-arrest",
+      "originalFunction": "updateVitalsFromHemodynamics / syncLegacyCombatState",
+      "originalSource": "apps/training/src/medical-v2.js",
+      "before": "headHP0 immediate dead; no separate brainstem primitive",
+      "after": "Cerebrum alone has no invented fixed arrest/death timer: retained hemorrhage/hypoxia arrest predicates still apply. Brainstem starts arrest immediately. Death follows existing continuous300s ARREST_TO_DEATH_S, not direct headHP. Persistent unconsciousness can outlast the120s cerebral trial.",
+      "reason": "User declines damage-dependent brain death times inS0",
+      "evidence": "원본300s; cerebral arrest predicates retained original/Q/R2; brainstem immediate arrest is 설계 기대/튜닝, not a claimed universal clinical time",
+      "dependenciesFor2D": "brain flags, existing arrest holds and elapsed time",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S0-5b",
+      "originalFunction": "applyCardiacPumpS0 / consciousnessTargetV2",
+      "originalSource": "apps/training/src/medical-s0.js; apps/training/src/medical-v2.js; original heart_hook_only monitorOnly organ entry",
+      "before": "Heart overlap remained monitorOnly heart_candidate and rhythm risk; no mechanical pump loss. Pure actual heart shot remained standing through120s",
+      "after": "For each actual cardiac chord loss=.99*clamp(length/.04m)*clamp(original residualEnergyFactor,.25,1). Remaining pump=product(1-loss). Apply once to fresh originalCO/SV/pulse/MAP each tick; recalculate perfusion/O2 from flow. Cerebral MAP/O2 reserves follow actual values exponentially with tau4s; unchangedQ curve uses reserves for this injury only.",
+      "reason": "Separate retained blood-loss effects from damaged pump and permit a brief conscious interval",
+      "evidence": "All pump normalization/.99/.25/4s coefficients are 튜닝. Patrick1989 reprint TheHumanTarget10–15s is a broad design anchor; Rossen1943p528 reports mean6.8s after cerebral occlusion, a different experiment, not a fit of tau4s.",
+      "dependenciesFor2D": "positive heart evidence, chord length, residualEnergyFactor, hemodynamics, cerebral reserve state",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S0-cardiac-action",
+      "originalFunction": "updateMedicalPerformanceMultipliers / syncLegacyCombatState",
+      "originalSource": "apps/training/src/medical-v2.js",
+      "before": "Original instantaneous low-SBP gate could blockP01 even while the new cardiac brain reserve retained consciousness",
+      "after": "During isolated cardiac reserve withCC>=30, hypotension/critical-status alone do not down; retain walking if limb support is intact. Existing30 consciousness down and20 unconscious thresholds remain. Never restore a femur/spinal lost leg. Near-zero pump<=.05, unconsciousness andO2<.25 enter cardiac_pump_failure arrest.",
+      "reason": "Preserve the requested conscious action interval through the same summary interface",
+      "evidence": "튜닝 linkage, original30/20/.25 thresholds; failed-pump threshold.05 tuning",
+      "dependenciesFor2D": "medical summary flags, limb function, cerebral reserve, arrest reason",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S0-femur",
+      "originalFunction": "criticalAnatomyS0",
+      "originalSource": "apps/training/src/medical-s0.js; existing actual fractureEvidence",
+      "before": "Actual femur fracture could collapse via near-zero leg function but leave downReason unset; mean leg function could still permit walking",
+      "after": "Only actual femur geometry plus occurred fracture latches affected function0/canWalkfalse, retains conscious shoot/crawl predicates, and reports weight_bearing_fracture through the original muscle summary.",
+      "reason": "Required weight-bearing failure with consciousness retained",
+      "evidence": "사용자 설계 기대; no new fracture chance or bone resistance",
+      "dependenciesFor2D": "confirmed fracture plus femur ownership, limb function, down reason",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S0-brainstem-shape",
+      "originalFunction": "buildInternalAnatomy / internal profile generator",
+      "originalSource": "scripts/generate-internal-profile.mjs; apps/training/src/internal-profile.json",
+      "before": "75 internal shapes; no brainstem primitive",
+      "after": "76 shapes: preserve every old shape, add brainstem ellipsoid in measured head frame center[0,.34,-.52], radii ratios[.17,.14,.18], fitted by the original containment method.",
+      "reason": "Brainstem must have separate actual hit evidence",
+      "evidence": "튜닝 normalized ratios, not a clinical atlas; original head mesh/rig/body resistance unchanged",
+      "dependenciesFor2D": "3D bone/mesh fitting has no direct2D equivalent",
+      "candidate2D": "아니오",
+      "2D 역이식 후보": "아니오"
+    }
+  ],
+  "sources": [
+    {
+      "id": "ews2018",
+      "url": "https://medcoe.army.mil/pfw-images/dbimages/Ch%2015.pdf",
+      "publisherIndex": "https://medcoe.army.mil/borden-tb-ews/",
+      "location": "Chapter15 pp216–217 (PDF4–5), pp219–220 (PDF7–8)",
+      "verified": "2026-10-16 KST; opened official PDF and downloaded HTTP200",
+      "supports": "Anatomic pathway/outcomes differ; brainstem/deep injury may cause profound coma; penetrating injury is not uniformly fatal or uniformly immediate",
+      "classification": "출처: qualitative only"
+    },
+    {
+      "id": "patrick1989",
+      "url": "https://gunnerynetwork.com/reference_material/hwfe.html",
+      "location": "The Human Target, paragraphs beginning Physiologically and For example (HTMLlines88–89)",
+      "verified": "2026-10-16 KST; full original-text reprint opened; an official FBI PDF was not verified, setec PDF503",
+      "supports": "CNS mechanism and10–15s voluntary-action design anchor after destroyed heart; not a guarantee for every cardiac wound",
+      "classification": "출처: primary report text on a third-party reprint"
+    },
+    {
+      "id": "rossen1943",
+      "url": "https://litfl.com/wp-content/uploads/2019/09/Rossen-1943-Acute-Arrest-of-Cerebral-Circulation-in-Man.pdf",
+      "doi": "10.1001/archneurpsyc.1943.02290230022002",
+      "location": "p524 discussion (PDF15), p528 Conclusions (PDF19)",
+      "verified": "2026-10-16 KST; original19-page paper PDF opened and downloaded HTTP200",
+      "supports": "mean6.8s loss of consciousness under cerebral circulation occlusion; not a gunshot pump-damage coefficient",
+      "classification": "출처: physiological time anchor, not model calibration"
+    },
+    {
+      "id": "dimaio",
+      "title": "DiMaio, Gunshot Wounds, brain chapter",
+      "verified": false,
+      "classification": "Not available as verified full original text; no claimed quote/page/numeric input"
+    }
+  ],
+  "tests": "Final verification and240pairedcases in downloads/checks-s0-v38; complete clinical fields at0.1s in gzip matrices",
+  "limitations": [
+    "Cerebral immediate incapacitation and brainstem arrest are specified game rules; no cavitation model",
+    "Cerebrum-only injuries need not reach arrest during120s; no extra death timer",
+    "Original vascular collapse may be slower than the design expectation; report without altering R2",
+    "Original helmet blunt feedback may cause tiny HP/bruise changes despite zero penetrating body track"
+  ]
+}

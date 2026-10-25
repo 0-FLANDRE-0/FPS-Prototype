@@ -1,0 +1,79 @@
+{
+  "version": "ai1-senses-v67",
+  "checkedUTC": "2026-10-23",
+  "rows": [
+    {
+      "id": "vision",
+      "classification": "출처",
+      "title": "Rosenholtz (2016), Capabilities and Limitations of Peripheral Vision",
+      "url": "https://doi.org/10.1146/annurev-vision-082114-035733",
+      "verified": "주변시의 군집/정보 손실과 인식 한계 검토. 120도·발견 누적 계수 자체를 실측값으로 제공하지 않는다.",
+      "use": "주변시/낮은 노출에서 탐지를 늦추는 방향만 참고. 모든 함수/계수는 튜닝."
+    },
+    {
+      "id": "simpleRT",
+      "classification": "출처",
+      "title": "Woods et al. (2015), Factors influencing the latency of simple reaction time",
+      "url": "https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2015.00131/full",
+      "verified": "하드웨어 지연 보정 시 연령군 단순 시각 반응 약200–222ms. 고대비 자극/버튼 과제.",
+      "use": "notice .19–.24s의 규모 참고. 전투 반응·총 들기 지연으로 실측 주장하지 않음."
+    },
+    {
+      "id": "choiceRT",
+      "classification": "출처",
+      "title": "Woods et al. (2015), Age-related slowing of response selection and production in a visual choice reaction time task",
+      "url": "https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2015.00193/full",
+      "verified": "Experiment2 자극별 평균527/529/571/576ms. 단순 반응과 선택 반응을 구분하는 연구.",
+      "use": "인지/결정 지연의 존재와 수백ms 규모 참고. 단계 분해와 숙련도 배율은 튜닝."
+    },
+    {
+      "id": "hick",
+      "classification": "출처",
+      "title": "Hick (1952), On the Rate of Gain of Information",
+      "url": "https://doi.org/10.1080/17470215208416600",
+      "verified": "선택 반응과 정보량의 관계. 총격전 전용 식이 아니다.",
+      "use": "notice→recognize→decide 모듈 경계의 정성적 배경."
+    },
+    {
+      "id": "fitts",
+      "classification": "출처",
+      "title": "Fitts (1954), The information capacity of the human motor system in controlling the amplitude of movement",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/13174710/",
+      "doi": "10.1037/h0055392",
+      "verified": "목표 폭/이동 진폭과 동작 시간의 관계. 소총 PD 계수를 직접 제공하지 않음.",
+      "use": "log2(1+A/W) 계열만 참고. .10/.085s·PD·과회전 모두 튜닝."
+    },
+    {
+      "id": "interception",
+      "classification": "출처",
+      "title": "Target capture strategy selection in a simulated marksmanship task (2019)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6773950/",
+      "verified": "시뮬레이션 이동 표적에 추적/매복 전략과 예측을 연구. 플라스틱 레이저 권총·소규모 투영 표적·초보자 조건.",
+      "use": "속도 추정/예측이 조준 과정에 들어가는 정성 근거. 모든 사람이 일정 비율로 앞보기를 덜 한다는 직접 근거는 확보하지 못함. lead .25+.6c는 튜닝."
+    },
+    {
+      "id": "closeShooting",
+      "classification": "출처",
+      "title": "Lewinski et al. (2015), The real risks during deadly police shootouts: Accuracy of the naïve shooter",
+      "url": "https://doi.org/10.1177/1461355715582975",
+      "verified": "공개 초록: 247명, 3–75ft 고정 표적 시험. 3–15ft에서 숙련/초보 차이가 작음. 전문/중간 경험 그룹과 초보 그룹, 근거리 머리/몸통 분포 비교.",
+      "use": "근거리 비조준 사격의 별도 AK 실측 속도/각오차 계수로 사용할 자료는 확보하지 못함. hip 경계·준비 시간·인지 오차 모두 튜닝. 실전 명중률과 구분."
+    },
+    {
+      "id": "rand",
+      "classification": "출처",
+      "title": "Rostker et al. (2008), RAND MG-717-NYPD",
+      "url": "https://www.rand.org/pubs/monographs/MG717.html",
+      "pdf": "https://www.rand.org/content/dam/rand/pubs/monographs/2008/RAND_MG717.pdf",
+      "verified": "본문 2장 p14 (PDF44쪽): 1998–2006 NYPD gunfights18%, 상대 반격 없는 사건30%. 서로 다른 실전 집단이고 사격장 자격 사격 점수가 아니다.",
+      "use": "측정 결과의 참고 비교. AK 소총·통제된 노출·이동 조건의 합성 명중률을 이 수치에 강제로 맞추지 않음."
+    },
+    {
+      "id": "pairInterval",
+      "classification": "튜닝",
+      "title": "근거리 2발 사이0.25s",
+      "verified": "이번 검색에서 이 값을 AK/전투 일반의 표준 실측값으로 확정할 1차 자료를 확보하지 못함.",
+      "use": "사용자 제시 시작값을 게임 튜닝으로 채택. 자동 연사는 원본 AK650RPM 사용."
+    }
+  ]
+}

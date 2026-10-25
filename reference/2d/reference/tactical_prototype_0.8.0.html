@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Tactical AI Prototype 0.8.0</title>
+<style>
+  :root{
+    --bg:#14170f; --panel:#1b1f16; --line:#2c3324;
+    --amber:#c9a227; --amber-dim:#8a731c;
+    --ally:#3c7a8c; --enemy:#a83c3c;
+    --text:#d8d3c0; --text-dim:#8a8878;
+    --mem:#7fd4c1; --frontier:#4a90c2;
+    --unk:#a06fc4; --bad:#d4574e;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:'Consolas','Courier New',monospace;
+    display:flex; height:100vh; height:100dvh; overflow:hidden;
+    -webkit-user-select:none; user-select:none; overscroll-behavior:none;
+  }
+  #sidebar{
+    width:300px; background:var(--panel); border-right:1px solid var(--line);
+    padding:16px; display:flex; flex-direction:column; gap:12px; overflow-y:auto;
+  }
+  h1{
+    font-size:13px; letter-spacing:2px; color:var(--amber); margin:0 0 4px 0;
+    text-transform:uppercase; border-bottom:1px solid var(--line); padding-bottom:10px;
+  }
+  h1 span{display:block;font-size:10px;color:var(--text-dim);letter-spacing:1px;margin-top:4px;}
+  .group{display:flex;flex-direction:column;gap:6px;}
+  .group-label{font-size:10px;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px;}
+  button{
+    background:#20241a; border:1px solid var(--line); color:var(--text);
+    font-family:inherit; font-size:12px; padding:9px 10px; text-align:left;
+    cursor:pointer; letter-spacing:0.5px; display:flex; align-items:center; gap:8px;
+    transition:background 0.12s, border-color 0.12s;
+  }
+  button:hover{background:#262b1e;border-color:var(--amber-dim);}
+  button.active{background:#2e2a12;border-color:var(--amber);color:var(--amber);}
+  .btnrow{display:flex;gap:6px;}
+  .btnrow button{flex:1;justify-content:center;padding:9px 4px;font-size:11.5px;}
+  .swatch{width:10px;height:10px;flex-shrink:0;border-radius:2px;}
+  .sw-ally{background:var(--ally);} .sw-enemy{background:var(--enemy);}
+  .sw-cover{background:#5c5c52;} .sw-del{background:#3a1414;border:1px solid #a83c3c;}
+  .sw-obs{background:var(--amber);}
+  .field{display:flex;flex-direction:column;gap:3px;font-size:11px;color:var(--text-dim);}
+  .field-row{display:flex;justify-content:space-between;}
+  .field-row b{color:var(--text);font-weight:normal;}
+  input[type=range]{width:100%;accent-color:var(--amber);}
+  select{background:#20241a;border:1px solid var(--line);color:var(--text);font-family:inherit;font-size:12px;padding:6px;}
+  label.chk{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--text-dim);cursor:pointer;}
+  .readout{
+    font-size:11px;color:var(--text-dim);line-height:1.7;
+    border:1px solid var(--line);background:#171b12;padding:9px 10px;
+  }
+  .readout .det{color:var(--text);}
+  .readout .ok{color:var(--mem);}
+  .readout .warn{color:var(--bad);}
+  .readout .unkc{color:var(--unk);}
+  .readout .dim{color:#6b6d5c;}
+  .readout .hot{color:var(--amber);}
+  #wallList{max-height:170px;overflow-y:auto;}
+  #wallList .row{padding:3px 0;border-bottom:1px solid #232a1c;}
+  #wallList .row:last-child{border-bottom:none;}
+  .bar{display:inline-block;height:5px;background:#2a3126;vertical-align:middle;width:38px;margin:0 5px;position:relative;}
+  .bar i{display:block;height:100%;background:var(--mem);}
+  .legend{font-size:10px;color:var(--text-dim);line-height:1.9;border-top:1px solid var(--line);padding-top:10px;}
+  .lc{display:inline-block;width:14px;height:0;border-top:3px solid;vertical-align:middle;margin-right:6px;}
+  .dotc{display:inline-block;width:7px;height:7px;background:var(--amber);vertical-align:middle;margin-right:6px;}
+  .dotf{display:inline-block;width:7px;height:7px;border:2px solid var(--frontier);border-radius:50%;vertical-align:middle;margin-right:6px;}
+  .dotu{display:inline-block;width:7px;height:7px;border:2px dashed var(--unk);border-radius:50%;vertical-align:middle;margin-right:6px;}
+  #canvasWrap{flex:1;position:relative;}
+  canvas{display:block;background:var(--bg);cursor:crosshair;touch-action:none;}
+  #menuBtn{
+    display:none; position:absolute; top:10px; left:10px; z-index:20;
+    width:42px; height:42px; padding:0; align-items:center; justify-content:center;
+    background:rgba(27,31,22,0.94); border:1px solid var(--amber-dim);
+    color:var(--amber); font-size:17px;
+  }
+  #scrim{display:none;position:fixed;inset:0;z-index:9;background:rgba(0,0,0,0.45);}
+  #scrim.show{display:block;}
+  #hint{
+    position:absolute;bottom:14px;left:14px;font-size:11px;color:var(--text-dim);
+    background:rgba(20,23,15,0.88);padding:8px 12px;border:1px solid var(--line);
+    pointer-events:none;max-width:400px;line-height:1.6;
+  }
+  #stateTag{
+    position:absolute;top:12px;right:12px;font-size:11px;
+    background:rgba(20,23,15,0.9);border:1px solid var(--line);
+    padding:6px 10px;color:var(--text-dim);pointer-events:none;line-height:1.6;
+  }
+  #stateTag b{color:var(--amber);font-weight:normal;}
+  @media (max-width:820px){
+    #sidebar{
+      position:fixed;left:0;top:0;bottom:0;z-index:10;width:88%;max-width:340px;
+      transform:translateX(-102%);transition:transform 0.2s ease;
+      box-shadow:3px 0 20px rgba(0,0,0,0.55);
+    }
+    #sidebar.open{transform:translateX(0);}
+    #menuBtn{display:flex;}
+    #hint{max-width:none;right:14px;font-size:10.5px;bottom:10px;left:10px;}
+    #stateTag{top:auto;bottom:64px;right:10px;font-size:10.5px;}
+    button{padding:11px 10px;font-size:12.5px;}
+    input[type=range]{height:26px;}
+  }
+</style>
+</head>
+<body>
+
+<div id="sidebar">
+  <h1>TACTICAL PROTOTYPE<span>v0.8.0 — spatial perception closure</span></h1>
+
+  <div class="group">
+    <div class="group-label">시뮬레이션</div>
+    <button id="autoBtn">자동 탐색</button>
+    <div class="btnrow">
+      <button id="pauseBtn">일시정지</button>
+      <button id="stepBtn">한 스텝</button>
+    </div>
+    <div class="field">
+      <div class="field-row"><span>이동 속도</span><b id="spdVal">90</b></div>
+      <input type="range" id="speed" min="20" max="220" value="90">
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-label">AI 상태</div>
+    <div class="readout" id="agentPanel">관찰자 없음</div>
+  </div>
+
+  <div class="group">
+    <div class="group-label">섹터 판정</div>
+    <div class="readout" id="sectorPanel">-</div>
+  </div>
+
+  <div class="group">
+    <div class="group-label">감각기관 출력</div>
+    <div class="readout" id="sensorPanel"><span class="dim">관찰자 없음</span></div>
+  </div>
+
+  <div class="group">
+    <div class="group-label">기억한 벽 (확신도)</div>
+    <div class="readout" id="wallList"><span class="dim">아직 없음</span></div>
+  </div>
+
+  <div class="group">
+    <div class="group-label">배치</div>
+    <button data-mode="ally"><span class="swatch sw-ally"></span>아군 배치</button>
+    <button data-mode="enemy"><span class="swatch sw-enemy"></span>적 배치</button>
+    <button data-mode="cover"><span class="swatch sw-cover"></span>벽 배치</button>
+    <button data-mode="delete"><span class="swatch sw-del"></span>삭제</button>
+    <div class="btnrow">
+      <button id="oriH" class="active">가로</button>
+      <button id="oriV">세로</button>
+    </div>
+    <div class="field">
+      <span>겉보기 재질</span>
+      <select id="clsSelect">
+        <option value="wall">전신 벽 (시야·탄·이동 차단)</option>
+        <option value="cover">반높이 엄폐 (넘겨봄 / 탄·이동 차단)</option>
+        <option value="window">창문 (넘겨봄 / 탄 일부 / 이동 차단)</option>
+        <option value="rail">난간 (넘겨봄 / 탄 통과 / 이동 차단)</option>
+      </select>
+      <select id="matSelect">
+        <option value="콘크리트">콘크리트</option>
+        <option value="벽돌">벽돌</option>
+        <option value="목재">목재</option>
+        <option value="금속판">금속판</option>
+      </select>
+    </div>
+    <div class="field">
+      <div class="field-row"><span>배치 길이</span><b id="lenVal">3칸</b></div>
+      <input type="range" id="wallLen" min="1" max="10" value="3">
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="group-label">관찰자 / 감각</div>
+    <button data-mode="observer"><span class="swatch sw-obs"></span>관찰자 지정</button>
+    <div id="modeStatus" style="font-size:10px;color:#8a8878;line-height:1.5;padding:1px 0 3px;"></div>
+    <div class="field">
+      <div class="field-row"><span>시야각</span><b id="fovVal">110°</b></div>
+      <input type="range" id="fov" min="20" max="360" value="110">
+    </div>
+    <div class="field">
+      <div class="field-row"><span>탐지 광선 수</span><b id="rayVal">36</b></div>
+      <input type="range" id="rayCount" min="4" max="200" value="36">
+    </div>
+    <div class="field">
+      <div class="field-row"><span>탐지 거리</span><b id="rangeVal">420</b></div>
+      <input type="range" id="range" min="80" max="1000" value="420">
+    </div>
+    <div class="field">
+      <div class="field-row"><span>기억 반감기</span><b id="tauVal">14초</b></div>
+      <input type="range" id="tau" min="3" max="60" value="14">
+    </div>
+    <label class="chk"><input type="checkbox" id="doorway" checked> 문간 효과 사용</label>
+  </div>
+
+  <div class="group">
+    <div class="group-label">시험 장면 / 검증</div>
+    <select id="fixtureSelect">
+      <option value="longWall">긴 직선 벽</option>
+      <option value="lCorner">L자 모서리</option>
+      <option value="twinOpenings">가까운 두 개구부</option>
+      <option value="corridor">좁은 복도</option>
+      <option value="occludedWall">부분 가림 벽</option>
+    </select>
+    <button id="loadFixture">시험 장면 불러오기</button>
+    <button id="runTests">감각 회귀검사</button>
+    <div class="readout" id="testPanel"><span class="dim">아직 실행 안 함</span></div>
+  </div>
+
+  <div class="group">
+    <div class="group-label">표시</div>
+    <label class="chk"><input type="checkbox" id="showTruth" checked> 실제 지형</label>
+    <label class="chk"><input type="checkbox" id="showPoly" checked> 시야 다각형</label>
+    <label class="chk"><input type="checkbox" id="showRays"> 탐지 광선</label>
+    <label class="chk"><input type="checkbox" id="showNames" checked> 벽 이름표</label>
+    <label class="chk"><input type="checkbox" id="showOpen" checked> 개구부 / Unknown</label>
+    <label class="chk"><input type="checkbox" id="showGoal" checked> 목표 / 경로</label>
+    <button id="resetMem">AI 기억 초기화</button>
+    <button id="clearAll">전체 초기화</button>
+  </div>
+
+  <div class="legend">
+    <span class="lc" style="border-color:#7fd4c1"></span>확정 기억 &nbsp; <span class="lc" style="border-color:#4a90c2"></span>불확실 기억<br>
+    <span class="lc" style="border-color:#6b6d5c"></span>낡은 기억 &nbsp; <span class="lc" style="border-color:#d4574e"></span>오인식<br>
+    <span class="dotc"></span>확정 모서리 &nbsp; <span class="dotf"></span>프론티어<br>
+    <span class="dotu"></span>Unknown 섹터
+  </div>
+</div>
+
+<div id="canvasWrap">
+  <canvas id="c"></canvas>
+  <button id="menuBtn">☰</button>
+  <div id="stateTag"></div>
+  <div id="hint">희소 레이로 면 후보를 발견하고, 계속 바라볼수록 관측 구간이 확장됩니다. 수동 조작: 끌어 이동 / 길게 눌러 회전.</div>
+</div>
+<div id="scrim"></div>
+
+<script>
+const canvas=document.getElementById('c'), ctx=canvas.getContext('2d'), wrap=document.getElementById('canvasWrap');
+const PLACE_GRID=40;
+
+function resize(){ canvas.width=wrap.clientWidth; canvas.height=wrap.clientHeight; }
+window.addEventListener('resize',resize);
+window.addEventListener('orientationchange',()=>setTimeout(resize,120));
+
+const sidebarEl=document.getElementById('sidebar'), scrimEl=document.getElementById('scrim');
+function closeDrawer(){ sidebarEl.classList.remove('open'); scrimEl.classList.remove('show'); }
+document.getElementById('menuBtn').addEventListener('click',()=>{
+  const o=sidebarEl.classList.toggle('open'); scrimEl.classList.toggle('show',o);
+});
+scrimEl.addEventListener('click',closeDrawer);
+
+// ---------- world ----------
+let mode='ally';
+let entities=[], walls=[], wallSeq=0, observer=null;
+let orientation='H';
+
+// ---------- AI memory / perception output ----------
+let aiWalls=[], aiWallSeq=0;
+let unknowns=[], unkSeq=0;
+let sectorInfo={known:false,closed:false,openings:[]};
+let faceAttention=new Map(), entityAttention=new Map();
+let visibleSurfaceObservations=[], visibleEntityObservations=[];
+let perceptionSnapshot={version:'0.8.0',timestamp:0,visibleSurfaces:[],rememberedSurfaces:[],detectedOpenings:[],unknownAreas:[],visibleEntities:[]};
+let prevObserverPos=null, crossedOpeningThisFrame=null;
+let lastDoorway=-99, doorwayFlash=-99, doorwayPos={x:-9999,y:-9999};
+
+// ---------- sim clock / control ----------
+let simTime=0, paused=false, autoMode=false, stepOnce=false, lastFrame=performance.now();
+
+// ---------- agent ----------
+let agent={state:'IDLE',goal:null,path:null,pathIdx:0,scanRot:0,stuck:0,slideSide:0,bestDist:0,since:0,replan:0};
+
+let debugRays=[], visPoly=[];
+let dragTarget=null, dragStart=null, placingNew=null;
+let moveTarget=null, pressStart=null, pressTimer=null, rotateMode=false;
+let isTouch=false;
+const HOLD_MS=280;
+
+// a surface blocks three different things, and they are not the same thing.
+// height decides burial culling: a taller object hides a shorter one's face, not vice versa.
+const SURFACE_CLASS={
+  wall  :{label:'전신 벽',    sight:true,  ballistic:1.00, movement:true, height:2.0, fill:'rgba(58,56,47,0.5)',  edge:'rgba(92,92,82,0.45)'},
+  cover :{label:'반높이 엄폐', sight:false, ballistic:1.00, movement:true, height:1.0, fill:'rgba(74,86,60,0.34)', edge:'rgba(126,150,96,0.55)'},
+  window:{label:'창문',       sight:false, ballistic:0.35, movement:true, height:2.0, fill:'rgba(60,84,96,0.26)', edge:'rgba(110,164,186,0.55)'},
+  rail  :{label:'난간',       sight:false, ballistic:0.00, movement:true, height:1.0, fill:'rgba(84,74,54,0.24)', edge:'rgba(150,128,88,0.5)'}
+};
+function clsOf(w){ return SURFACE_CLASS[w&&w.cls]||SURFACE_CLASS.wall; }
+const CONF_FLOOR=0.08, MEMORY_CONFIRMED=0.62, MEMORY_UNCERTAIN=0.30;
+const DOORWAY_AGE=9.0, AGENT_R=13;
+const SENSOR_VERSION='0.8.0';
+
+function setMode(m){
+  mode=m;
+  document.querySelectorAll('[data-mode]').forEach(x=>x.classList.toggle('active',x.dataset.mode===m));
+  document.getElementById('modeStatus').textContent =
+    (m===null)?'조작 모드 — 끌어 이동 / 길게 눌러 회전':'배치 모드 — 같은 버튼 다시 누르면 해제';
+}
+document.querySelectorAll('[data-mode]').forEach(b=>{
+  b.addEventListener('click',()=>{ setMode(mode===b.dataset.mode?null:b.dataset.mode); closeDrawer(); });
+});
+setMode('ally');
+
+const fovInput=document.getElementById('fov'), rayCountInput=document.getElementById('rayCount'),
+      rangeInput=document.getElementById('range'), lenInput=document.getElementById('wallLen'),
+      tauInput=document.getElementById('tau'), speedInput=document.getElementById('speed');
+fovInput.addEventListener('input',()=>document.getElementById('fovVal').textContent=fovInput.value+'°');
+rayCountInput.addEventListener('input',()=>document.getElementById('rayVal').textContent=rayCountInput.value);
+rangeInput.addEventListener('input',()=>document.getElementById('rangeVal').textContent=rangeInput.value);
+lenInput.addEventListener('input',()=>document.getElementById('lenVal').textContent=lenInput.value+'칸');
+tauInput.addEventListener('input',()=>document.getElementById('tauVal').textContent=tauInput.value+'초');
+speedInput.addEventListener('input',()=>document.getElementById('spdVal').textContent=speedInput.value);
+
+document.getElementById('oriH').addEventListener('click',()=>{
+  orientation='H';
+  document.getElementById('oriH').classList.add('active');
+  document.getElementById('oriV').classList.remove('active');
+});
+document.getElementById('oriV').addEventListener('click',()=>{
+  orientation='V';
+  document.getElementById('oriV').classList.add('active');
+  document.getElementById('oriH').classList.remove('active');
+});
+
+const autoBtn=document.getElementById('autoBtn'), pauseBtn=document.getElementById('pauseBtn');
+autoBtn.addEventListener('click',()=>{
+  autoMode=!autoMode;
+  autoBtn.classList.toggle('active',autoMode);
+  autoBtn.textContent = autoMode?'자동 탐색 (켜짐)':'자동 탐색';
+  if(autoMode){ agent.state='IDLE'; agent.goal=null; }
+});
+pauseBtn.addEventListener('click',()=>{
+  paused=!paused;
+  pauseBtn.classList.toggle('active',paused);
+  pauseBtn.textContent=paused?'재개':'일시정지';
+});
+document.getElementById('stepBtn').addEventListener('click',()=>{ stepOnce=true; });
+
+function resetMemory(){
+  aiWalls=[];unknowns=[];aiWallSeq=0;unkSeq=0;
+  sectorInfo={known:false,closed:false,openings:[]};
+  faceAttention=new Map(); entityAttention=new Map(); visibleSurfaceObservations=[]; visibleEntityObservations=[];
+  perceptionSnapshot={version:SENSOR_VERSION,timestamp:simTime,visibleSurfaces:[],rememberedSurfaces:[],detectedOpenings:[],unknownAreas:[],visibleEntities:[]};
+  prevObserverPos=null; crossedOpeningThisFrame=null;
+  lastDoorway=-99; doorwayFlash=-99; doorwayPos={x:-9999,y:-9999};
+  goalBan=new Map(); visitGrid=new Map();
+  agent={state:'IDLE',goal:null,path:null,pathIdx:0,scanRot:0,stuck:0,slideSide:0,bestDist:0,since:0,replan:0};
+}
+document.getElementById('resetMem').addEventListener('click',resetMemory);
+document.getElementById('clearAll').addEventListener('click',()=>{
+  entities=[];walls=[];observer=null;wallSeq=0;resetMemory();
+});
+
+function snap(v){ return Math.round(v/PLACE_GRID)*PLACE_GRID; }
+function findEntityAt(x,y){ const R=isTouch?26:16; return entities.find(e=>Math.hypot(e.x-x,e.y-y)<R); }
+function findWallAt(x,y){ return walls.find(w=>x>=w.x&&x<=w.x+w.w&&y>=w.y&&y<=w.y+w.h); }
+
+// merge touching same-material walls into one rect
+function mergeWalls(){
+  let changed=true;
+  while(changed){
+    changed=false;
+    for(let i=0;i<walls.length&&!changed;i++){
+      for(let j=i+1;j<walls.length;j++){
+        const a=walls[i], b=walls[j];
+        if(a.material!==b.material||(a.cls||'wall')!==(b.cls||'wall')) continue;
+        if(Math.abs(a.y-b.y)<0.6 && Math.abs(a.h-b.h)<0.6){
+          const a2=a.x+a.w, b2=b.x+b.w;
+          if(a.x<=b2+0.6 && b.x<=a2+0.6){
+            const lo=Math.min(a.x,b.x), hi=Math.max(a2,b2);
+            a.x=lo; a.w=hi-lo; walls.splice(j,1); changed=true; break;
+          }
+        }
+        if(Math.abs(a.x-b.x)<0.6 && Math.abs(a.w-b.w)<0.6){
+          const a2=a.y+a.h, b2=b.y+b.h;
+          if(a.y<=b2+0.6 && b.y<=a2+0.6){
+            const lo=Math.min(a.y,b.y), hi=Math.max(a2,b2);
+            a.y=lo; a.h=hi-lo; walls.splice(j,1); changed=true; break;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ---------- input ----------
+canvas.addEventListener('pointerdown',(e)=>{
+  e.preventDefault();
+  try{ canvas.setPointerCapture(e.pointerId); }catch(err){}
+  isTouch=(e.pointerType==='touch');
+  const r=canvas.getBoundingClientRect(), x=e.clientX-r.left, y=e.clientY-r.top;
+
+  if(mode===null||mode==='observer'){
+    const hit=findEntityAt(x,y);
+    if(hit){
+      observer=hit; moveTarget=hit; pressStart={x,y}; rotateMode=false;
+      clearTimeout(pressTimer);
+      pressTimer=setTimeout(()=>{ if(moveTarget) rotateMode=true; },HOLD_MS);
+    }else if(mode==='observer'){ observer=null; }
+    return;
+  }
+  if(mode==='delete'){
+    const he=findEntityAt(x,y);
+    if(he){ if(observer===he) observer=null; entities=entities.filter(t=>t!==he); return; }
+    const hw=findWallAt(x,y);
+    if(hw){ walls=walls.filter(t=>t!==hw); return; }
+    return;
+  }
+  if(mode==='cover'){
+    const n=parseInt(lenInput.value);
+    const long=PLACE_GRID*n, thin=PLACE_GRID;
+    const w = orientation==='H'
+      ? {x:snap(x)-long/2, y:snap(y)-thin/2, w:long, h:thin}
+      : {x:snap(x)-thin/2, y:snap(y)-long/2, w:thin, h:long};
+    walls.push({id:'W'+String(++wallSeq).padStart(2,'0'),...w,material:document.getElementById('matSelect').value,cls:document.getElementById('clsSelect').value});
+    mergeWalls();
+    return;
+  }
+  if(mode==='ally'||mode==='enemy'){
+    const ex=findEntityAt(x,y);
+    if(ex){ dragTarget=ex; dragStart={x,y}; return; }
+    const ent={type:mode,x,y,facing:-Math.PI/2};
+    entities.push(ent); placingNew=ent; dragStart={x,y};
+    return;
+  }
+});
+canvas.addEventListener('pointermove',(e)=>{
+  e.preventDefault();
+  const r=canvas.getBoundingClientRect(), x=e.clientX-r.left, y=e.clientY-r.top;
+  if(moveTarget){
+    if(rotateMode){
+      const dx=x-moveTarget.x, dy=y-moveTarget.y;
+      if(Math.hypot(dx,dy)>(isTouch?12:7)) moveTarget.facing=Math.atan2(dy,dx);
+    }else{
+      if(Math.hypot(x-pressStart.x,y-pressStart.y)>(isTouch?12:5)) clearTimeout(pressTimer);
+      moveTarget.x=x; moveTarget.y=y;
+    }
+    return;
+  }
+  if(!dragStart) return;
+  const t=placingNew||dragTarget; if(!t) return;
+  const dx=x-t.x, dy=y-t.y;
+  if(Math.hypot(dx,dy)>4) t.facing=Math.atan2(dy,dx);
+});
+function endPress(){ dragStart=null;dragTarget=null;placingNew=null;clearTimeout(pressTimer);moveTarget=null;rotateMode=false; }
+window.addEventListener('pointerup',endPress);
+window.addEventListener('pointercancel',endPress);
+canvas.addEventListener('contextmenu',e=>e.preventDefault());
+canvas.addEventListener('wheel',(e)=>{ if(!observer)return; e.preventDefault(); observer.facing+=(e.deltaY>0?0.1:-0.1); },{passive:false});
+
+// ---------- geometry ----------
+function wallFaces(w){
+  return [
+    {a:{x:w.x,y:w.y},b:{x:w.x+w.w,y:w.y},n:{x:0,y:-1}},
+    {a:{x:w.x+w.w,y:w.y},b:{x:w.x+w.w,y:w.y+w.h},n:{x:1,y:0}},
+    {a:{x:w.x+w.w,y:w.y+w.h},b:{x:w.x,y:w.y+w.h},n:{x:0,y:1}},
+    {a:{x:w.x,y:w.y+w.h},b:{x:w.x,y:w.y},n:{x:-1,y:0}}
+  ];
+}
+// exposed portions of a face: the parts whose OUTWARD side is not buried in another wall
+function exposedIntervals(face,others,selfHeight){
+  const ax=face.a.x, ay=face.a.y;
+  const dx=face.b.x-ax, dy=face.b.y-ay;
+  const px=ax+face.n.x*1.2, py=ay+face.n.y*1.2;   // probe just outside the surface
+  const covered=[];
+  for(const w of others){
+    if(clsOf(w).height<selfHeight-1e-6) continue;   // a shorter object cannot bury a taller face
+    let t0=0,t1=1,ok=true;
+    if(Math.abs(dx)<1e-9){
+      if(!(px>w.x+0.02 && px<w.x+w.w-0.02)) ok=false;
+    }else{
+      const l=(w.x+0.02-px)/dx, h=(w.x+w.w-0.02-px)/dx;
+      t0=Math.max(t0,Math.min(l,h)); t1=Math.min(t1,Math.max(l,h));
+    }
+    if(ok){
+      if(Math.abs(dy)<1e-9){
+        if(!(py>w.y+0.02 && py<w.y+w.h-0.02)) ok=false;
+      }else{
+        const l=(w.y+0.02-py)/dy, h=(w.y+w.h-0.02-py)/dy;
+        t0=Math.max(t0,Math.min(l,h)); t1=Math.min(t1,Math.max(l,h));
+      }
+    }
+    if(ok && t1>t0) covered.push([t0,t1]);
+  }
+  covered.sort((a,b)=>a[0]-b[0]);
+  const out=[]; let cur=0;
+  for(const c of covered){
+    if(c[0]>cur+1e-4) out.push([cur,Math.min(c[0],1)]);
+    cur=Math.max(cur,c[1]);
+    if(cur>=1) break;
+  }
+  if(cur<1-1e-4) out.push([cur,1]);
+  return out.filter(iv=>iv[1]-iv[0]>0.004);
+}
+let _segCache=null,_cornerCache=null,_sig=NaN;
+function _strHash(str){ let h=2166136261; for(let i=0;i<str.length;i++){ h^=str.charCodeAt(i); h=Math.imul(h,16777619); } return h>>>0; }
+function wallSig(){
+  let v=walls.length*7919+canvas.width*13+canvas.height*17;
+  for(const w of walls) v+=w.x*3+w.y*5+w.w*7+w.h*11+_strHash((w.cls||'wall')+'|'+(w.material||''))%100003;
+  return v;
+}
+function allSegments(){
+  const sig=wallSig();
+  if(_segCache&&sig===_sig) return _segCache;
+  const out=[];
+  walls.forEach(w=>{
+    const others=walls.filter(o=>o!==w), C=clsOf(w);
+    wallFaces(w).forEach((f,i)=>{
+      exposedIntervals(f,others,C.height).forEach(iv=>{
+        out.push({
+          x1:f.a.x+(f.b.x-f.a.x)*iv[0], y1:f.a.y+(f.b.y-f.a.y)*iv[0],
+          x2:f.a.x+(f.b.x-f.a.x)*iv[1], y2:f.a.y+(f.b.y-f.a.y)*iv[1],
+          wallId:w.id, face:i, nx:f.n.x, ny:f.n.y, material:w.material,
+          cls:w.cls||'wall', blocksSight:C.sight, ballistic:C.ballistic, seeOver:!C.sight
+        });
+      });
+    });
+  });
+  const W=canvas.width, H=canvas.height;
+  out.push(
+    {x1:0,y1:0,x2:W,y2:0,      wallId:'BND',face:0,nx:0,ny:1, material:'외곽',cls:'wall',blocksSight:true,ballistic:1,seeOver:false},
+    {x1:W,y1:0,x2:W,y2:H,      wallId:'BND',face:1,nx:-1,ny:0,material:'외곽',cls:'wall',blocksSight:true,ballistic:1,seeOver:false},
+    {x1:W,y1:H,x2:0,y2:H,      wallId:'BND',face:2,nx:0,ny:-1,material:'외곽',cls:'wall',blocksSight:true,ballistic:1,seeOver:false},
+    {x1:0,y1:H,x2:0,y2:0,      wallId:'BND',face:3,nx:1,ny:0, material:'외곽',cls:'wall',blocksSight:true,ballistic:1,seeOver:false}
+  );
+  _segCache=out; _cornerCache=null; _sig=sig;
+  return out;
+}
+function sightSegments(){ return allSegments().filter(s=>s.blocksSight!==false); }
+function allCorners(){
+  const segs=allSegments();
+  if(_cornerCache) return _cornerCache;
+  const c=[];
+  segs.forEach(s=>{ if(s.blocksSight===false) return; c.push({x:s.x1,y:s.y1},{x:s.x2,y:s.y2}); });
+  _cornerCache=c; return c;
+}
+function rayHit(ox,oy,ang,maxD,segs){
+  const dx=Math.cos(ang),dy=Math.sin(ang);
+  let best=maxD,hit=null;
+  for(const s of segs){
+    const sx=s.x2-s.x1, sy=s.y2-s.y1, den=dx*sy-dy*sx;
+    if(Math.abs(den)<1e-9) continue;
+    const ex=s.x1-ox, ey=s.y1-oy;
+    const t1=(sy*ex-sx*ey)/den, t2=(dy*ex-dx*ey)/den;
+    if(t1>=0&&t1<best&&t2>=-0.0005&&t2<=1.0005){ best=t1; hit=s; }
+  }
+  return {dist:best,seg:hit};
+}
+// see-over surfaces are detected but do not terminate the ray
+function rayScan(ox,oy,ang,maxD,segs){
+  const dx=Math.cos(ang),dy=Math.sin(ang),hits=[];
+  for(const s of segs){
+    const sx=s.x2-s.x1, sy=s.y2-s.y1, den=dx*sy-dy*sx;
+    if(Math.abs(den)<1e-9) continue;
+    const ex=s.x1-ox, ey=s.y1-oy;
+    const t1=(sy*ex-sx*ey)/den, t2=(dy*ex-dx*ey)/den;
+    if(t1>=0&&t1<maxD&&t2>=-0.0005&&t2<=1.0005) hits.push({seg:s,dist:t1});
+  }
+  hits.sort((a,b)=>a.dist-b.dist);
+  let sightDist=maxD, cut=hits.length;
+  for(let i=0;i<hits.length;i++){
+    if(hits[i].seg.blocksSight!==false){ sightDist=hits[i].dist; cut=i+1; break; }
+  }
+  return {hits:hits.slice(0,cut),sightDist};
+}
+function normRel(a){ while(a>Math.PI)a-=2*Math.PI; while(a<-Math.PI)a+=2*Math.PI; return a; }
+
+function computeVisPoly(ox,oy,facing,fov,maxD,segs,corners){
+  const half=fov/2, full=fov>=Math.PI*2-0.01, angs=[];
+  for(const c of corners){
+    const a=Math.atan2(c.y-oy,c.x-ox);
+    if(full||Math.abs(normRel(a-facing))<=half) angs.push(a-0.0002,a,a+0.0002);
+  }
+  const filler=full?72:Math.max(12,Math.round(fov/Math.PI*40));
+  for(let i=0;i<=filler;i++) angs.push(full?(i/filler)*Math.PI*2:facing-half+(fov*i/filler));
+  const pts=angs.map(a=>{
+    const rel=full?normRel(a-facing)+Math.PI*2:normRel(a-facing);
+    const h=rayHit(ox,oy,a,maxD,segs);
+    return {rel,x:ox+Math.cos(a)*h.dist,y:oy+Math.sin(a)*h.dist};
+  });
+  pts.sort((p,q)=>p.rel-q.rel);
+  return pts;
+}
+function pointVisible(ox,oy,px,py,segs,facing,fov,maxD){
+  const dx=px-ox,dy=py-oy,d=Math.hypot(dx,dy);
+  if(d>maxD||d<1e-6) return false;
+  if(fov<Math.PI*2-0.01 && Math.abs(normRel(Math.atan2(dy,dx)-facing))>fov/2) return false;
+  const ux=dx/d,uy=dy/d, tx=px-ux*0.6,ty=py-uy*0.6, limit=Math.hypot(tx-ox,ty-oy);
+  for(const s of segs){
+    if(s.blocksSight===false) continue;
+    const sx=s.x2-s.x1, sy=s.y2-s.y1, den=ux*sy-uy*sx;
+    if(Math.abs(den)<1e-9) continue;
+    const ex=s.x1-ox, ey=s.y1-oy;
+    const t1=(sy*ex-sx*ey)/den, t2=(uy*ex-ux*ey)/den;
+    if(t1>0.001&&t1<limit-0.001&&t2>=0.0005&&t2<=0.9995) return false;
+  }
+  return true;
+}
+function visibilitySampleCount(face){
+  const L=Math.hypot(face.b.x-face.a.x,face.b.y-face.a.y);
+  return Math.max(12,Math.min(96,Math.ceil(L/10)));
+}
+function faceVisibleSpans(face,ox,oy,segs,facing,fov,maxD){
+  const N=visibilitySampleCount(face);
+  const at=t=>({x:face.a.x+(face.b.x-face.a.x)*t,y:face.a.y+(face.b.y-face.a.y)*t});
+  const vis=[];
+  for(let i=0;i<=N;i++){ const p=at(i/N); vis.push(pointVisible(ox,oy,p.x,p.y,segs,facing,fov,maxD)); }
+  const spans=[]; let start=null;
+  for(let i=0;i<=N;i++){
+    if(vis[i]&&start===null) start=i;
+    if((!vis[i]||i===N)&&start!==null){
+      const endI=vis[i]?i:i-1;
+      let t0=start/N,t1=endI/N;
+      if(start>0) t0=refine(ox,oy,segs,facing,fov,maxD,(start-1)/N,start/N,at);
+      if(endI<N)  t1=refine(ox,oy,segs,facing,fov,maxD,(endI+1)/N,endI/N,at);
+      if(t1-t0>0.008) spans.push({t0:Math.min(t0,t1),t1:Math.max(t0,t1)});
+      start=null;
+    }
+  }
+  return spans;
+}
+function refine(ox,oy,segs,facing,fov,maxD,tInv,tVis,at){
+  let lo=tInv,hi=tVis;
+  for(let k=0;k<7;k++){ const m=(lo+hi)/2,p=at(m);
+    if(pointVisible(ox,oy,p.x,p.y,segs,facing,fov,maxD)) hi=m; else lo=m; }
+  return hi;
+}
+
+function clamp01(v){ return Math.max(0,Math.min(1,v)); }
+function surfaceGeomKey(seg){
+  return seg.wallId+'#'+seg.face+'@'+[seg.x1,seg.y1,seg.x2,seg.y2].map(v=>Math.round(v*10)/10).join(',');
+}
+function segmentParam(seg,x,y){
+  const dx=seg.x2-seg.x1,dy=seg.y2-seg.y1,L2=dx*dx+dy*dy;
+  return L2>1e-9?clamp01(((x-seg.x1)*dx+(y-seg.y1)*dy)/L2):0;
+}
+function mergeIntervals(items){
+  if(!items.length) return [];
+  const a=items.map(iv=>[Math.min(iv[0],iv[1]),Math.max(iv[0],iv[1])]).sort((x,y)=>x[0]-y[0]);
+  const out=[a[0].slice()];
+  for(let i=1;i<a.length;i++){
+    const last=out[out.length-1],cur=a[i];
+    if(cur[0]<=last[1]+1e-5) last[1]=Math.max(last[1],cur[1]);
+    else out.push(cur.slice());
+  }
+  return out;
+}
+function intersectIntervals(a,b){
+  const out=[];
+  for(const x of a) for(const y of b){
+    const lo=Math.max(x[0],y[0]),hi=Math.min(x[1],y[1]);
+    if(hi-lo>0.002) out.push([lo,hi]);
+  }
+  return mergeIntervals(out);
+}
+function orient2(a,b,c){ return (b.x-a.x)*(c.y-a.y)-(b.y-a.y)*(c.x-a.x); }
+function pointOnSegment(p,a,b){
+  return Math.abs(orient2(a,b,p))<1e-6 && p.x>=Math.min(a.x,b.x)-1e-6 && p.x<=Math.max(a.x,b.x)+1e-6 && p.y>=Math.min(a.y,b.y)-1e-6 && p.y<=Math.max(a.y,b.y)+1e-6;
+}
+function segmentsCrossInclusive(a,b,c,d){
+  const o1=orient2(a,b,c),o2=orient2(a,b,d),o3=orient2(c,d,a),o4=orient2(c,d,b);
+  if(((o1>0)!==(o2>0))&&((o3>0)!==(o4>0))) return true;
+  return pointOnSegment(c,a,b)||pointOnSegment(d,a,b)||pointOnSegment(a,c,d)||pointOnSegment(b,c,d);
+}
+function crossesGate(prev,cur,gateA,gateB){
+  if(Math.hypot(cur.x-prev.x,cur.y-prev.y)<1.5) return false;
+  const a=orient2(gateA,gateB,prev),b=orient2(gateA,gateB,cur);
+  if(Math.abs(a)<1e-5||Math.abs(b)<1e-5) return segmentsCrossInclusive(prev,cur,gateA,gateB)&&Math.abs(a-b)>1e-4;
+  return (a>0)!==(b>0)&&segmentsCrossInclusive(prev,cur,gateA,gateB);
+}
+function angleDistance(a,b){ return Math.abs(normRel(a-b)); }
+function openingWidth(op){ return op.gateA&&op.gateB?Math.hypot(op.gateB.x-op.gateA.x,op.gateB.y-op.gateA.y):999; }
+function openingGateAngle(op){ return op.gateA&&op.gateB?Math.atan2(op.gateB.y-op.gateA.y,op.gateB.x-op.gateA.x):op.mid+Math.PI/2; }
+function gateEndDistance(u,op){
+  if(!u.gateA||!u.gateB||!op.gateA||!op.gateB) return null;
+  const d=(p,q)=>Math.hypot(p.x-q.x,p.y-q.y);
+  return Math.min(d(u.gateA,op.gateA)+d(u.gateB,op.gateB), d(u.gateA,op.gateB)+d(u.gateB,op.gateA))/2;
+}
+function openingMatchScore(u,op){
+  // the gate ends are world coordinates, so they identify the opening itself.
+  // bearing and width both move with the observer and with what it happens to remember,
+  // so they only break ties.
+  const ends=gateEndDistance(u,op);
+  const center=Math.hypot(u.ix-op.ix,u.iy-op.iy);
+  const anchor=ends!==null?Math.min(ends,center*0.9):center;
+  const gateAngle=angleDistance(u.gateAngle??openingGateAngle(u),openingGateAngle(op))*26;
+  const bearing=angleDistance(u.mid??0,op.mid??0)*7;
+  const width=Math.abs((u.width??openingWidth(u))-openingWidth(op))*0.12;
+  const sideBonus=(u.leftWall&&op.leftWall&&u.leftWall===op.leftWall?24:0)+(u.rightWall&&op.rightWall&&u.rightWall===op.rightWall?24:0);
+  return anchor+gateAngle+bearing+width-sideBonus;
+}
+function unknownFinished(u){ return u.state==='observedBeyond'||u.state==='crossed'; }
+
+// ---------- AI naming ----------
+const PERP_TOL=5, GAP_TOL=9, NORMAL_TOL=0.95, COLLINEAR_GAP=260;
+function projOn(w,px,py){ return (px-w.ox)*w.ux+(py-w.oy)*w.uy; }
+function perpOn(w,px,py){ return Math.abs((px-w.ox)*w.nx+(py-w.oy)*w.ny); }
+
+// same surface = same line + same facing + same material.
+// a patch seen further along that line is the SAME wall seen elsewhere, not a new one.
+function sameSurface(w,obs){
+  if(w.material!==obs.material) return false;
+  if((w.cls||'wall')!==(obs.cls||'wall')) return false;
+  if(w.nx*obs.nx+w.ny*obs.ny<NORMAL_TOL) return false;
+  return perpOn(w,obs.x1,obs.y1)<=PERP_TOL && perpOn(w,obs.x2,obs.y2)<=PERP_TOL;
+}
+function matchAiWall(obs){
+  let best=null,bestGap=Infinity;
+  for(const w of aiWalls){
+    if(!sameSurface(w,obs)) continue;
+    const p1=projOn(w,obs.x1,obs.y1), p2=projOn(w,obs.x2,obs.y2);
+    const lo=Math.min(p1,p2), hi=Math.max(p1,p2);
+    const gap=Math.max(w.tMin-hi, lo-w.tMax, 0);
+    if(gap>COLLINEAR_GAP) continue;
+    if(gap<bestGap){ bestGap=gap; best=w; }
+  }
+  return best;
+}
+// a patch beyond an already-confirmed corner is genuinely a different surface
+function matchAiWallStrict(obs){
+  const w=matchAiWall(obs);
+  if(!w) return null;
+  const p1=projOn(w,obs.x1,obs.y1), p2=projOn(w,obs.x2,obs.y2);
+  const lo=Math.min(p1,p2), hi=Math.max(p1,p2);
+  if(hi<w.tMin && w.minCorner && w.tMin-hi>GAP_TOL) return null;
+  if(lo>w.tMax && w.maxCorner && lo-w.tMax>GAP_TOL) return null;
+  return w;
+}
+function absorbObservation(obs,trueId,faceKey){
+  let w=matchAiWallStrict(obs);
+  const strength=clamp01(obs.strength??0.5);
+  if(!w){
+    const dx=obs.x2-obs.x1,dy=obs.y2-obs.y1,L=Math.hypot(dx,dy);
+    if(L<2) return null;
+    w={name:'M-'+String(++aiWallSeq).padStart(2,'0'),material:obs.material,
+       ox:obs.x1,oy:obs.y1,ux:dx/L,uy:dy/L,nx:obs.nx,ny:obs.ny,
+       tMin:0,tMax:L,minCorner:obs.c1,maxCorner:obs.c2,
+       cls:obs.cls||'wall',blocksSight:obs.blocksSight!==false,ballistic:obs.ballistic??1,
+       trueIds:new Set([trueId]),trueFaces:new Set([faceKey]),
+       firstSeen:simTime,lastSeen:simTime,evidence:0.34+strength*0.18,observations:1};
+    aiWalls.push(w);
+    return w;
+  }
+  const p1=projOn(w,obs.x1,obs.y1), p2=projOn(w,obs.x2,obs.y2);
+  const lo=Math.min(p1,p2), hi=Math.max(p1,p2);
+  const loC=(p1<p2)?obs.c1:obs.c2, hiC=(p1<p2)?obs.c2:obs.c1;
+  if(lo<w.tMin-0.6){ w.tMin=lo; w.minCorner=loC; } else if(loC&&lo-w.tMin<2) w.minCorner=true;
+  if(hi>w.tMax+0.6){ w.tMax=hi; w.maxCorner=hiC; } else if(hiC&&w.tMax-hi<2) w.maxCorner=true;
+  w.trueIds.add(trueId); w.trueFaces.add(faceKey); w.lastSeen=simTime;
+  w.observations=(w.observations||0)+1;
+  w.evidence=Math.min(1,(w.evidence??0.45)+(1-(w.evidence??0.45))*(0.035+strength*0.09));
+  return w;
+}
+// ----- negative evidence: seeing THROUGH a remembered wall disproves it -----
+function raySegPoint(p,q,a,b){
+  const r={x:q.x-p.x,y:q.y-p.y}, s={x:b.x-a.x,y:b.y-a.y};
+  const den=r.x*s.y-r.y*s.x;
+  if(Math.abs(den)<1e-9) return null;
+  const t=((a.x-p.x)*s.y-(a.y-p.y)*s.x)/den;
+  const u=((a.x-p.x)*r.y-(a.y-p.y)*r.x)/den;
+  if(t<0||t>1||u<0||u>1) return null;
+  return {x:p.x+r.x*t,y:p.y+r.y*t};
+}
+const HOLE_MARGIN=5, MIN_PIECE=9;
+function reconcileMemory(rays){
+  if(!observer||!aiWalls.length||!rays.length) return;
+  const born=[];
+  for(const w of aiWalls){
+    if(w.blocksSight===false) continue;   // rays are SUPPOSED to pass through this one
+    const A={x:w.ox+w.ux*w.tMin,y:w.oy+w.uy*w.tMin};
+    const B={x:w.ox+w.ux*w.tMax,y:w.oy+w.uy*w.tMax};
+    const holes=[];
+    for(const r of rays){
+      const clear=r.dist-2.0;           // the ray travelled this far unobstructed
+      if(clear<=3) continue;
+      const P={x:observer.x,y:observer.y};
+      const Q={x:P.x+Math.cos(r.ang)*clear,y:P.y+Math.sin(r.ang)*clear};
+      const hit=raySegPoint(P,Q,A,B);
+      if(hit) holes.push(projOn(w,hit.x,hit.y));
+    }
+    if(!holes.length) continue;
+    // punch the disproved spans out of this memory
+    const cuts=mergeIntervals(holes.map(t=>[t-HOLE_MARGIN,t+HOLE_MARGIN]));
+    const pieces=[]; let cur=w.tMin;
+    for(const c of cuts){
+      if(c[1]<=w.tMin||c[0]>=w.tMax) continue;
+      if(c[0]>cur+MIN_PIECE) pieces.push([cur,c[0]]);
+      cur=Math.max(cur,c[1]);
+    }
+    if(w.tMax>cur+MIN_PIECE) pieces.push([cur,w.tMax]);
+    if(!pieces.length){ w.doomed=true; continue; }
+    const [f0,f1]=pieces[0];
+    const keptMin=f0<=w.tMin+0.5?w.minCorner:true;   // a cut end IS a corner — it was seen past
+    const keptMax=f1>=w.tMax-0.5?w.maxCorner:true;
+    for(let i=1;i<pieces.length;i++){
+      const [g0,g1]=pieces[i];
+      born.push({name:'M-'+String(++aiWallSeq).padStart(2,'0'),material:w.material,
+        ox:w.ox,oy:w.oy,ux:w.ux,uy:w.uy,nx:w.nx,ny:w.ny,
+        cls:w.cls,blocksSight:w.blocksSight,ballistic:w.ballistic,
+        tMin:g0,tMax:g1,
+        minCorner:true,maxCorner:g1>=w.tMax-0.5?w.maxCorner:true,
+        trueIds:new Set(),trueFaces:new Set(),
+        firstSeen:w.firstSeen,lastSeen:w.lastSeen,
+        evidence:Math.max(CONF_FLOOR,(w.evidence??0.5)*0.75),observations:Math.max(1,Math.round((w.observations||1)/2))});
+    }
+    w.tMin=f0; w.tMax=f1; w.minCorner=keptMin; w.maxCorner=keptMax;
+    w.evidence=Math.max(CONF_FLOOR,(w.evidence??0.5)*0.75);
+    if(pieces.length>1){ w.trueIds=new Set(); w.trueFaces=new Set(); }
+  }
+  if(born.length) aiWalls=aiWalls.concat(born);
+  if(aiWalls.some(w=>w.doomed)) aiWalls=aiWalls.filter(w=>!w.doomed);
+}
+// ----- thickness is not observed directly; it is inferred from seeing both sides -----
+const MATERIAL_RESIST={'콘크리트':1.00,'벽돌':0.72,'금속판':0.88,'목재':0.30,'외곽':1.00};
+const MAX_PLAUSIBLE_THICKNESS=150;
+function updateThicknessEstimates(){
+  for(const w of aiWalls){ w.thickness=null; w.thicknessFrom=null; }
+  for(let i=0;i<aiWalls.length;i++){
+    for(let j=i+1;j<aiWalls.length;j++){
+      const a=aiWalls[i],b=aiWalls[j];
+      if(a.material!==b.material||(a.cls||'wall')!==(b.cls||'wall')) continue;
+      if(a.nx*b.nx+a.ny*b.ny>-0.95) continue;                 // the two faces must look opposite ways
+      const bm=(b.tMin+b.tMax)/2, bmx=b.ox+b.ux*bm, bmy=b.oy+b.uy*bm;
+      const off=(bmx-a.ox)*a.nx+(bmy-a.oy)*a.ny;              // b sits behind a's outward side
+      const th=-off;
+      if(th<1||th>MAX_PLAUSIBLE_THICKNESS) continue;
+      const p1=projOn(a,b.ox+b.ux*b.tMin,b.oy+b.uy*b.tMin);
+      const p2=projOn(a,b.ox+b.ux*b.tMax,b.oy+b.uy*b.tMax);
+      const lo=Math.min(p1,p2),hi=Math.max(p1,p2);
+      const overlap=Math.min(hi,a.tMax)-Math.max(lo,a.tMin);
+      if(overlap<Math.min(24,(a.tMax-a.tMin)*0.35)) continue; // must be the same stretch of surface
+      const conf=Math.min(wallConf(a),wallConf(b));
+      if(!a.thickness||conf>a.thicknessConf){ a.thickness=th; a.thicknessConf=conf; a.thicknessFrom=b.name; }
+      if(!b.thickness||conf>b.thicknessConf){ b.thickness=th; b.thicknessConf=conf; b.thicknessFrom=a.name; }
+    }
+  }
+}
+function ballisticResistanceEstimate(w){
+  const mat=MATERIAL_RESIST[w.material]??0.6;
+  const clsBall=(w.ballistic??1);
+  if(w.thickness==null) return {value:mat*clsBall*0.5,thicknessKnown:false,note:'두께 미상 — 겉보기 재질만'};
+  return {value:Math.min(1,mat*clsBall*Math.min(1,w.thickness/45)),thicknessKnown:true,note:null};
+}
+const FRAGMENT_LEN=26, FRAGMENT_OBS=6, FRAGMENT_TTL=6;
+function pruneMemory(){
+  if(aiWalls.length<4) return;
+  aiWalls=aiWalls.filter(w=>{
+    const age=simTime-w.lastSeen;
+    const len=w.tMax-w.tMin;
+    // a short scrap seen only a couple of times and not re-confirmed is sensor noise
+    if(len<FRAGMENT_LEN&&(w.observations||0)<FRAGMENT_OBS&&age>FRAGMENT_TTL) return false;
+    // anything decayed to the floor and long unseen stops being part of the map
+    if(wallConfidenceAt(w)<=CONF_FLOOR+0.005&&age>FRAGMENT_TTL*5) return false;
+    return true;
+  });
+}
+function wallConfidenceAt(w,now=simTime,tauOverride=null){
+  const tau=tauOverride??parseFloat(tauInput.value);
+  const dt=Math.max(0,now-w.lastSeen);
+  const evidence=Math.max(CONF_FLOOR,Math.min(1,w.evidence??1));
+  return CONF_FLOOR+(evidence-CONF_FLOOR)*Math.exp(-dt/tau);
+}
+function wallConf(w){ return wallConfidenceAt(w); }
+function wallMemoryState(w){
+  const c=wallConf(w);
+  return c>=MEMORY_CONFIRMED?'confirmed':c>=MEMORY_UNCERTAIN?'uncertain':'stale';
+}
+function aiWallSegments(minConfidence=MEMORY_UNCERTAIN,filter=null){
+  return aiWalls.map(w=>({w,c:wallConf(w)})).filter(x=>x.c>=minConfidence&&(!filter||filter(x.w))).map(({w,c})=>({
+    x1:w.ox+w.ux*w.tMin,y1:w.oy+w.uy*w.tMin,
+    x2:w.ox+w.ux*w.tMax,y2:w.oy+w.uy*w.tMax,ref:w,confidence:c,memoryState:wallMemoryState(w),
+    blocksSight:w.blocksSight!==false,cls:w.cls||'wall'
+  }));
+}
+// what the AI believes blocks its LINE OF SIGHT — this is what decides sector closure
+function aiSightSegments(minConfidence=MEMORY_UNCERTAIN){ return aiWallSegments(minConfidence,w=>w.blocksSight!==false); }
+
+// ---------- sector / opening memory ----------
+const SECTOR_RAYS=160, FAR=1600, MIN_GAP_RAYS=3, UNK_MATCH_SCORE=118, UNK_APPROACH=72;
+function updateUnknownStates(){
+  if(!observer) return;
+  const truthSegs=allSegments();
+  const fov=parseFloat(fovInput.value)*Math.PI/180, maxD=parseFloat(rangeInput.value);
+  crossedOpeningThisFrame=null;
+  for(const u of unknowns){
+    const d=Math.hypot(u.ix-observer.x,u.iy-observer.y);
+    if(u.state==='detected'&&d<UNK_APPROACH) u.state='approached';
+    if(prevObserverPos&&u.gateA&&u.gateB&&crossesGate(prevObserverPos,observer,u.gateA,u.gateB)){
+      u.state='crossed'; u.crossedAt=simTime; u.visited=true; crossedOpeningThisFrame=u;
+    }else if(u.state==='approached'&&Math.hypot(u.ax-observer.x,u.ay-observer.y)<parseFloat(rangeInput.value)*0.8 && pointVisible(observer.x,observer.y,u.ax,u.ay,truthSegs,observer.facing,fov,maxD)){
+      u.state='observedBeyond'; u.observedBeyondAt=simTime; u.visited=true;
+    }
+    u.visited=unknownFinished(u);
+  }
+  pruneUnknowns();
+}
+const UNK_RESOLVED_TTL=8, UNK_STALE_TTL=25;
+function pruneUnknowns(){
+  unknowns=unknowns.filter(u=>{
+    const idle=simTime-u.lastSeen;
+    if(unknownFinished(u)&&idle>UNK_RESOLVED_TTL) return false;   // dealt with, stop tracking
+    if(idle>UNK_STALE_TTL) return false;                          // no longer detectable at all
+    return true;
+  });
+}
+function analyzeSector(){
+  if(!observer){ sectorInfo={known:false,closed:false,openings:[]}; return; }
+  const memSegs=aiSightSegments(MEMORY_UNCERTAIN), solidSegs=aiWallSegments(MEMORY_UNCERTAIN), hits=[];
+  for(let i=0;i<SECTOR_RAYS;i++){
+    const a=(i/SECTOR_RAYS)*Math.PI*2;
+    const h=rayHit(observer.x,observer.y,a,FAR,memSegs);
+    hits.push({a,esc:!h.seg,seg:h.seg,x:observer.x+Math.cos(a)*h.dist,y:observer.y+Math.sin(a)*h.dist});
+  }
+  const esc=hits.map(h=>h.esc), ranges=[];
+  if(esc.every(v=>v)) ranges.push({s:0,e:SECTOR_RAYS-1,n:SECTOR_RAYS,full:true});
+  else if(esc.some(v=>v)){
+    const start=esc.findIndex(v=>!v); let cur=null;
+    for(let k=0;k<SECTOR_RAYS;k++){
+      const i=(start+k)%SECTOR_RAYS;
+      if(esc[i]){ if(!cur) cur={s:i,e:i,n:1}; else { cur.e=i; cur.n++; } }
+      else if(cur){ ranges.push(cur); cur=null; }
+    }
+    if(cur) ranges.push(cur);
+  }
+  const openings=[];
+  for(const r of ranges){
+    if(!r.full && r.n<MIN_GAP_RAYS) continue;
+    const midIdx=(r.s+Math.floor((r.n-1)/2))%SECTOR_RAYS;
+    const mid=hits[midIdx].a;
+    let gateA=null,gateB=null,gateD,leftWall=null,rightWall=null;
+    if(r.full){ gateD=120; }
+    else{
+      const before=hits[(r.s-1+SECTOR_RAYS)%SECTOR_RAYS], after=hits[(r.e+1)%SECTOR_RAYS];
+      gateA={x:before.x,y:before.y}; gateB={x:after.x,y:after.y};
+      leftWall=before.seg?.ref?.name||null; rightWall=after.seg?.ref?.name||null;
+      gateD=Math.max(30,Math.min(Math.hypot(gateA.x-observer.x,gateA.y-observer.y),Math.hypot(gateB.x-observer.x,gateB.y-observer.y)));
+    }
+    const ix=observer.x+Math.cos(mid)*gateD, iy=observer.y+Math.sin(mid)*gateD;
+    // the ray escapes the SIGHT map, but something see-over may still bar the way — stop in front of it
+    const bar=rayHit(observer.x,observer.y,mid,gateD+55,solidSegs);
+    const reach=bar.seg?Math.max(28,bar.dist-26):gateD+55;
+    const pa=inArena({x:observer.x+Math.cos(mid)*reach,y:observer.y+Math.sin(mid)*reach});
+    const op={mid,span:r.n*(2*Math.PI/SECTOR_RAYS),ax:pa.x,ay:pa.y,ix,iy,gateA,gateB,full:!!r.full,leftWall,rightWall};
+    op.width=openingWidth(op); op.gateAngle=openingGateAngle(op); openings.push(op);
+  }
+  for(const op of openings){
+    let m=null,best=UNK_MATCH_SCORE;
+    for(const u of unknowns){
+      const score=openingMatchScore(u,op);
+      if(score<best){ best=score; m=u; }
+    }
+    if(m){
+      m.ix=m.ix*0.78+op.ix*0.22; m.iy=m.iy*0.78+op.iy*0.22;
+      m.ax=op.ax;m.ay=op.ay;m.gateA=op.gateA;m.gateB=op.gateB;m.mid=op.mid;m.width=op.width;m.gateAngle=op.gateAngle;
+      m.leftWall=op.leftWall;m.rightWall=op.rightWall;m.lastSeen=simTime;m.matchScore=best;op.unk=m;
+    }else{
+      const u={name:'UNK-'+String(++unkSeq).padStart(2,'0'),ix:op.ix,iy:op.iy,ax:op.ax,ay:op.ay,
+        gateA:op.gateA,gateB:op.gateB,mid:op.mid,width:op.width,gateAngle:op.gateAngle,leftWall:op.leftWall,rightWall:op.rightWall,
+        state:'detected',visited:false,firstSeen:simTime,lastSeen:simTime};
+      unknowns.push(u);op.unk=u;
+    }
+  }
+  updateUnknownStates();
+  const sightKnown=memSegs.length>0;
+  let solidEscapes=0;
+  if(solidSegs.length) for(let i=0;i<SECTOR_RAYS;i+=2){
+    const a=(i/SECTOR_RAYS)*Math.PI*2;
+    if(!rayHit(observer.x,observer.y,a,FAR,solidSegs).seg) solidEscapes++;
+  }
+  sectorInfo={
+    known:solidSegs.length>0,
+    closed:openings.length===0&&sightKnown,
+    sightClosed:openings.length===0&&sightKnown,
+    solidClosed:solidSegs.length>0&&solidEscapes===0,
+    openings
+  };
+}
+
+// ---------- sensing ----------
+const ID_THRESHOLD=0.55, ID_FULL=1.15;
+function senseVisibleEntities(segs,facing,fov,maxD,dt){
+  const out=[];
+  for(const [k,a] of entityAttention){ if(simTime-a.lastSeen>0.001) a.acc=Math.max(0,a.acc*Math.exp(-dt*0.55)); if(a.acc<0.02&&simTime-a.lastSeen>6) entityAttention.delete(k); }
+  for(let i=0;i<entities.length;i++){
+    const e=entities[i]; if(e===observer) continue;
+    const r=10,pts=[[0,0],[r,0],[-r,0],[0,r],[0,-r]];
+    let seen=0;
+    for(const [dx,dy] of pts) if(pointVisible(observer.x,observer.y,e.x+dx,e.y+dy,segs,facing,fov,maxD)) seen++;
+    if(!seen) continue;
+    const dist=Math.hypot(e.x-observer.x,e.y-observer.y);
+    const frac=seen/pts.length;
+    const rel=fov>=Math.PI*2-0.01?0.4:Math.abs(normRel(Math.atan2(e.y-observer.y,e.x-observer.x)-facing))/(fov/2||1);
+    const centrality=clamp01(1-rel);
+    const key='entity-'+i;
+    const att=entityAttention.get(key)||{acc:0,lastSeen:simTime};
+    // recognising WHO it is takes exposure: a glimpse at the edge of vision is just a shape
+    att.acc=Math.min(2.2,att.acc+dt*(0.35+centrality*1.5)*frac*clamp01(1-dist/maxD*0.6));
+    att.lastSeen=simTime; entityAttention.set(key,att);
+    const idConf=clamp01(att.acc/ID_FULL);
+    const identified=idConf>=ID_THRESHOLD;
+    out.push({
+      id:key, x:e.x, y:e.y, facing:e.facing,
+      identity: identified?e.type:'unknown',
+      identityConfidence:+idConf.toFixed(3),
+      silhouetteOnly:!identified,
+      visibleFraction:frac,
+      confidence:clamp01(frac*(1-dist/maxD*0.35)),
+      distance:+dist.toFixed(1),
+      observedAt:simTime
+    });
+  }
+  return out;
+}
+function buildPerceptionSnapshot(){
+  perceptionSnapshot={
+    version:SENSOR_VERSION,timestamp:+simTime.toFixed(4),observer:observer?{x:observer.x,y:observer.y,facing:observer.facing}:null,
+    visibleSurfaces:visibleSurfaceObservations.map(o=>({...o})),
+    rememberedSurfaces:aiWalls.map(w=>({id:w.name,start:{x:w.ox+w.ux*w.tMin,y:w.oy+w.uy*w.tMin},end:{x:w.ox+w.ux*w.tMax,y:w.oy+w.uy*w.tMax},normal:{x:w.nx,y:w.ny},materialGuess:w.material,surfaceClass:w.cls||'wall',blocksSight:w.blocksSight!==false,ballisticBlock:w.ballistic??1,coverClass:(w.blocksSight!==false?'full':((w.ballistic??1)>=0.9?'partial':((w.ballistic??1)>0?'light':'none'))),geometryConfidence:wallConf(w),memoryState:wallMemoryState(w),thicknessEstimate:w.thickness!=null?+w.thickness.toFixed(1):null,thicknessSource:w.thicknessFrom||null,ballisticResistance:ballisticResistanceEstimate(w),minCornerConfirmed:!!w.minCorner,maxCornerConfirmed:!!w.maxCorner,firstObservedAt:w.firstSeen,lastObservedAt:w.lastSeen})),
+    sector:{sightClosed:!!sectorInfo.sightClosed,solidClosed:!!sectorInfo.solidClosed,openingCount:sectorInfo.openings.length},
+    detectedOpenings:sectorInfo.openings.map(op=>({id:op.unk?.name||null,center:{x:op.ix,y:op.iy},beyond:{x:op.ax,y:op.ay},gateA:op.gateA,gateB:op.gateB,width:op.width,direction:op.mid,state:op.unk?.state||'detected'})),
+    unknownAreas:unknowns.map(u=>({id:u.name,center:{x:u.ix,y:u.iy},beyond:{x:u.ax,y:u.ay},gateA:u.gateA,gateB:u.gateB,width:u.width,direction:u.mid,state:u.state,firstObservedAt:u.firstSeen,lastObservedAt:u.lastSeen})),
+    visibleEntities:visibleEntityObservations.map(e=>({...e}))
+  };
+}
+function sense(dt=1/60){
+  if(!observer){ visPoly=[];debugRays=[];visibleSurfaceObservations=[];visibleEntityObservations=[];analyzeSector();buildPerceptionSnapshot();return; }
+  const segs=allSegments();
+  const fov=parseFloat(fovInput.value)*Math.PI/180,maxD=parseFloat(rangeInput.value),nRays=parseInt(rayCountInput.value),full=fov>=Math.PI*2-0.01;
+  visPoly=computeVisPoly(observer.x,observer.y,observer.facing,fov,maxD,segs,allCorners());
+  debugRays=[];visibleSurfaceObservations=[];
+  const hitsBySeg=new Map();
+  for(let i=0;i<nRays;i++){
+    const ang=full?(i/nRays)*Math.PI*2:observer.facing-fov/2+(nRays>1?fov*i/(nRays-1):fov/2);
+    const scan=rayScan(observer.x,observer.y,ang,maxD,segs);
+    debugRays.push({ang,dist:scan.sightDist,hit:scan.sightDist<maxD-0.5,passed:scan.hits.filter(h=>h.seg.blocksSight===false).length});
+    const rel=full?0:Math.abs(normRel(ang-observer.facing))/(fov/2||1);
+    const centrality=full?0.55:clamp01(1-rel);
+    for(const h of scan.hits){
+      const hx=observer.x+Math.cos(ang)*h.dist,hy=observer.y+Math.sin(ang)*h.dist;
+      if(!hitsBySeg.has(h.seg)) hitsBySeg.set(h.seg,[]);
+      hitsBySeg.get(h.seg).push({t:segmentParam(h.seg,hx,hy),centrality});
+    }
+  }
+  for(const [key,a] of faceAttention){
+    if(simTime-a.lastSeen>0.001) a.attention=Math.max(0,a.attention*Math.exp(-dt*1.35));
+    if(a.attention<0.01&&simTime-a.lastSeen>2) faceAttention.delete(key);
+  }
+  const observedNow=new Set();
+  for(const [seg,samples] of hitsBySeg){
+    const mx=(seg.x1+seg.x2)/2,my=(seg.y1+seg.y2)/2;
+    const facingMe=seg.nx*(observer.x-mx)+seg.ny*(observer.y-my)>0;
+    // a full wall only shows the face turned toward you.
+    // something you look down on shows its whole footprint — the far edge just reads weaker.
+    if(!facingMe && !seg.seeOver) continue;
+    const farFace=!facingMe;
+    const key=surfaceGeomKey(seg),maxCentral=Math.max(...samples.map(x=>x.centrality));
+    const att=faceAttention.get(key)||{attention:0,lastSeen:simTime};
+    att.attention=Math.min(1.6,att.attention+dt*(0.65+maxCentral*1.8+Math.min(0.5,samples.length*0.06)));att.lastSeen=simTime;faceAttention.set(key,att);
+    const L=Math.hypot(seg.x2-seg.x1,seg.y2-seg.y1)||1,radiusPx=5+att.attention*28;
+    const sensed=mergeIntervals(samples.map(p=>[clamp01(p.t-radiusPx/L),clamp01(p.t+radiusPx/L)]));
+    const face={a:{x:seg.x1,y:seg.y1},b:{x:seg.x2,y:seg.y2},n:{x:seg.nx,y:seg.ny}};
+    const visible=faceVisibleSpans(face,observer.x,observer.y,segs,observer.facing,fov,maxD).map(sp=>[sp.t0,sp.t1]);
+    for(const iv of intersectIntervals(sensed,visible)){
+      const t0=iv[0],t1=iv[1];
+      const strength=clamp01((0.28+maxCentral*0.42+att.attention*0.18)*(farFace?0.55:1));
+      const obs={x1:face.a.x+(face.b.x-face.a.x)*t0,y1:face.a.y+(face.b.y-face.a.y)*t0,x2:face.a.x+(face.b.x-face.a.x)*t1,y2:face.a.y+(face.b.y-face.a.y)*t1,c1:t0<=0.012,c2:t1>=0.988,nx:seg.nx,ny:seg.ny,material:seg.material,strength,cls:seg.cls,blocksSight:seg.blocksSight,ballistic:seg.ballistic};
+      const rw=absorbObservation(obs,seg.wallId,seg.wallId+'#'+seg.face);
+      if(rw){observedNow.add(rw.name);visibleSurfaceObservations.push({id:rw.name,faceId:seg.wallId+'#'+seg.face,start:{x:obs.x1,y:obs.y1},end:{x:obs.x2,y:obs.y2},normal:{x:seg.nx,y:seg.ny},materialGuess:seg.material,confidence:strength,observedAt:simTime});}
+    }
+  }
+  visibleEntityObservations=senseVisibleEntities(segs,observer.facing,fov,maxD,dt);
+  reconcileMemory(debugRays);
+  pruneMemory();
+  updateThicknessEstimates();
+  analyzeSector();
+  if(document.getElementById('doorway').checked&&crossedOpeningThisFrame&&simTime-lastDoorway>2.5){
+    aiWalls.forEach(w=>{if(!observedNow.has(w.name))w.lastSeen-=DOORWAY_AGE;});
+    lastDoorway=simTime;doorwayFlash=simTime;doorwayPos={x:observer.x,y:observer.y};
+  }
+  prevObserverPos={x:observer.x,y:observer.y};
+  buildPerceptionSnapshot();
+}
+
+function getPerceptionSnapshot(){ return JSON.parse(JSON.stringify(perceptionSnapshot)); }
+// ---------- agent behaviour ----------
+function circleRectPush(px,py,r,w){
+  const cx=Math.max(w.x,Math.min(px,w.x+w.w)), cy=Math.max(w.y,Math.min(py,w.y+w.h));
+  const dx=px-cx, dy=py-cy, d=Math.hypot(dx,dy);
+  if(d>=r) return null;
+  if(d>1e-6) return {x:cx+dx/d*r, y:cy+dy/d*r};
+  const left=px-w.x, right=w.x+w.w-px, top=py-w.y, bot=w.y+w.h-py;
+  const m=Math.min(left,right,top,bot);
+  if(m===left) return {x:w.x-r,y:py};
+  if(m===right) return {x:w.x+w.w+r,y:py};
+  if(m===top) return {x:px,y:w.y-r};
+  return {x:px,y:w.y+w.h+r};
+}
+function resolveCollisions(px,py){
+  for(let k=0;k<3;k++){
+    let moved=false;
+    for(const w of walls){
+      const p=circleRectPush(px,py,AGENT_R,w);
+      if(p){ px=p.x; py=p.y; moved=true; }
+    }
+    if(!moved) break;
+  }
+  px=Math.max(AGENT_R,Math.min(canvas.width-AGENT_R,px));
+  py=Math.max(AGENT_R,Math.min(canvas.height-AGENT_R,py));
+  return {x:px,y:py};
+}
+let goalBan=new Map();
+function banned(label){ const t=goalBan.get(label); return t!==undefined && simTime<t; }
+
+// ----- planning on the AI's own remembered map -----
+function segCross(p,q,r,t){
+  const d1=(q.x-p.x)*(r.y-p.y)-(q.y-p.y)*(r.x-p.x);
+  const d2=(q.x-p.x)*(t.y-p.y)-(q.y-p.y)*(t.x-p.x);
+  const d3=(t.x-r.x)*(p.y-r.y)-(t.y-r.y)*(p.x-r.x);
+  const d4=(t.x-r.x)*(q.y-r.y)-(t.y-r.y)*(q.x-r.x);
+  return ((d1>0)!==(d2>0)) && ((d3>0)!==(d4>0));
+}
+function edgeClear(a,b,segs){
+  const dx=b.x-a.x, dy=b.y-a.y, L=Math.hypot(dx,dy);
+  if(L<1e-6) return true;
+  const px=-dy/L*AGENT_R, py=dx/L*AGENT_R;
+  const lanes=[[a,b],
+    [{x:a.x+px,y:a.y+py},{x:b.x+px,y:b.y+py}],
+    [{x:a.x-px,y:a.y-py},{x:b.x-px,y:b.y-py}]];
+  for(const s of segs){
+    const r={x:s.x1,y:s.y1}, t={x:s.x2,y:s.y2};
+    for(const ln of lanes) if(segCross(ln[0],ln[1],r,t)) return false;
+  }
+  return true;
+}
+function inArena(p){
+  const m=AGENT_R+3;
+  return {x:Math.max(m,Math.min(canvas.width-m,p.x)), y:Math.max(m,Math.min(canvas.height-m,p.y))};
+}
+function navNodes(goal){
+  const CLEAR=AGENT_R+8;
+  const nodes=[{x:observer.x,y:observer.y}];
+  aiWalls.forEach(w=>{
+    [[w.tMin,-1],[w.tMax,1]].forEach(([t,s])=>{
+      const ex=w.ox+w.ux*t, ey=w.oy+w.uy*t;
+      nodes.push(inArena({x:ex+w.ux*s*CLEAR+w.nx*CLEAR, y:ey+w.uy*s*CLEAR+w.ny*CLEAR}));
+      nodes.push(inArena({x:ex+w.ux*s*CLEAR-w.nx*CLEAR, y:ey+w.uy*s*CLEAR-w.ny*CLEAR}));
+    });
+  });
+  // openings the AI already knows are passable make good waypoints
+  unknowns.forEach(u=>{ nodes.push(inArena({x:u.ix,y:u.iy})); });
+  let mid=nodes.slice(1);
+  if(mid.length>46){
+    mid.sort((a,b)=>Math.hypot(a.x-observer.x,a.y-observer.y)-Math.hypot(b.x-observer.x,b.y-observer.y));
+    mid=mid.slice(0,46);
+  }
+  return [nodes[0],...mid,inArena({x:goal.x,y:goal.y})];
+}
+function planPath(goal){
+  const segs=aiWallSegments();
+  const nodes=navNodes(goal), N=nodes.length, G=N-1;
+  if(edgeClear(nodes[0],nodes[G],segs)) return [nodes[G]];
+  const adj=Array.from({length:N},()=>[]);
+  for(let i=0;i<N;i++) for(let j=i+1;j<N;j++){
+    if(edgeClear(nodes[i],nodes[j],segs)){
+      const c=Math.hypot(nodes[i].x-nodes[j].x,nodes[i].y-nodes[j].y);
+      adj[i].push([j,c]); adj[j].push([i,c]);
+    }
+  }
+  const dist=new Array(N).fill(Infinity), prev=new Array(N).fill(-1), done=new Array(N).fill(false);
+  dist[0]=0;
+  for(let k=0;k<N;k++){
+    let u=-1,best=Infinity;
+    for(let i=0;i<N;i++) if(!done[i]&&dist[i]<best){best=dist[i];u=i;}
+    if(u<0||u===G) break;
+    done[u]=true;
+    for(const [v,c] of adj[u]) if(dist[u]+c<dist[v]){ dist[v]=dist[u]+c; prev[v]=u; }
+  }
+  let end=G;
+  if(dist[G]===Infinity){
+    // unreachable on the current map — head for the closest point it can reach
+    let bd=Infinity; end=-1;
+    for(let i=1;i<N-1;i++){
+      if(dist[i]===Infinity) continue;
+      const d=Math.hypot(nodes[i].x-goal.x,nodes[i].y-goal.y);
+      if(d<bd){ bd=d; end=i; }
+    }
+    if(end<0||bd>Math.hypot(nodes[0].x-goal.x,nodes[0].y-goal.y)-20) return null;
+  }
+  const path=[]; let cur=end;
+  while(cur>0){ path.push(nodes[cur]); cur=prev[cur]; if(cur<0) return null; }
+  return path.reverse();
+}
+
+function pickGoal(){
+  if(!observer) return null;
+  const cands=[];
+  unknowns.filter(u=>!unknownFinished(u)).forEach(u=>{
+    if(banned(u.name)) return;
+    const d=Math.hypot(u.ax-observer.x,u.ay-observer.y);
+    cands.push({x:u.ax,y:u.ay,kind:'unknown',label:u.name,ref:u,score:2.4/(70+d)});
+  });
+  aiWalls.forEach(w=>{
+    const c=wallConf(w);
+    if(c>0.45||banned(w.name)) return;
+    const t=(w.tMin+w.tMax)/2;
+    const gx=w.ox+w.ux*t+w.nx*58, gy=w.oy+w.uy*t+w.ny*58;
+    const d=Math.hypot(gx-observer.x,gy-observer.y);
+    cands.push({x:gx,y:gy,kind:'recheck',label:w.name,ref:w,score:(1-c)*0.55/(70+d)});
+  });
+  if(!cands.length) return null;
+  cands.sort((a,b)=>b.score-a.score);
+  // keep only goals the AI believes it can actually reach
+  for(const g of cands.slice(0,6)){
+    const p=planPath(g);
+    if(p){ g.path=p; return g; }
+  }
+  return null;
+}
+const PATROL_CELL=90;
+let visitGrid=new Map();
+function markVisit(){
+  if(!observer) return;
+  visitGrid.set(Math.floor(observer.x/PATROL_CELL)+','+Math.floor(observer.y/PATROL_CELL),simTime);
+}
+function patrolGoal(){
+  const cands=[];
+  for(let gx=0;gx*PATROL_CELL<canvas.width;gx++){
+    for(let gy=0;gy*PATROL_CELL<canvas.height;gy++){
+      const x=gx*PATROL_CELL+PATROL_CELL/2, y=gy*PATROL_CELL+PATROL_CELL/2;
+      if(x>canvas.width-AGENT_R||y>canvas.height-AGENT_R) continue;
+      const label='순찰 '+gx+','+gy;
+      if(banned(label)) continue;
+      const d=Math.hypot(x-observer.x,y-observer.y);
+      if(d<70) continue;
+      const age=simTime-(visitGrid.get(gx+','+gy)??-600);
+      cands.push({x,y,kind:'patrol',label,ref:null,score:age/(120+d)});
+    }
+  }
+  cands.sort((a,b)=>b.score-a.score);
+  for(const c of cands.slice(0,14)){
+    const p=planPath(c);
+    if(p){ c.path=p; return c; }
+  }
+  return null;
+}
+function turnToward(target,dt,rate){
+  const diff=normRel(target-observer.facing);
+  observer.facing+=Math.sign(diff)*Math.min(Math.abs(diff),rate*dt);
+}
+function stepMove(ux,uy,step,g){
+  let np=resolveCollisions(observer.x+ux*step,observer.y+uy*step);
+  let moved=Math.hypot(np.x-observer.x,np.y-observer.y);
+  if(moved>=step*0.5){ agent.slideSide=0; return {np,moved,dir:Math.atan2(uy,ux),blocked:false}; }
+  const base=Math.atan2(uy,ux), offs=[0.85,1.45,2.1];
+  let order;
+  if(agent.slideSide>0) order=[...offs,...offs.map(o=>-o)];
+  else if(agent.slideSide<0) order=[...offs.map(o=>-o),...offs];
+  else order=[0.85,-0.85,1.45,-1.45,2.1,-2.1];
+  for(const off of order){
+    const a=base+off;
+    const cand=resolveCollisions(observer.x+Math.cos(a)*step,observer.y+Math.sin(a)*step);
+    const m=Math.hypot(cand.x-observer.x,cand.y-observer.y);
+    if(m<step*0.5) continue;
+    if(!agent.slideSide) agent.slideSide=Math.sign(off);
+    return {np:cand,moved:m,dir:a,blocked:true};
+  }
+  return {np,moved,dir:base,blocked:true};
+}
+function startGoal(g){
+  agent.goal=g; agent.state='SEEK'; agent.stuck=0; agent.slideSide=0;
+  agent.path=g.path||[{x:g.x,y:g.y}]; agent.pathIdx=0;
+  agent.bestDist=Math.hypot(agent.path[0].x-observer.x,agent.path[0].y-observer.y);
+  agent.since=simTime; agent.replan=simTime+2.5; agent.knownCount=aiWalls.length;
+}
+function abandonGoal(g,sec){
+  goalBan.set(g.label,simTime+sec);
+  if(g.kind==='unknown'&&g.ref){ g.ref.state='observedBeyond'; g.ref.visited=true; }
+  agent.state='SCAN'; agent.scanRot=0; agent.stuck=0; agent.slideSide=0; agent.path=null;
+}
+function updateAgent(dt){
+  if(!observer) return;
+  const speed=parseFloat(speedInput.value);
+
+  markVisit();
+  if(agent.state==='IDLE'){
+    const g=pickGoal()||patrolGoal();
+    if(g) startGoal(g);
+    else { observer.facing+=0.55*dt; return; }
+  }
+
+  if(agent.state==='SEEK'){
+    const g=agent.goal;
+    if(!g||!agent.path){ agent.state='IDLE'; return; }
+    if(g.kind==='unknown'&&unknownFinished(g.ref)){ agent.state='IDLE'; agent.goal=null; agent.path=null; return; }
+
+    if(simTime>agent.replan){
+      const p=planPath(g);
+      if(p){ agent.path=p; agent.pathIdx=0; agent.bestDist=Math.hypot(p[0].x-observer.x,p[0].y-observer.y); }
+      agent.replan=simTime+2.5;
+    }
+
+    let wp=agent.path[agent.pathIdx];
+    if(!wp){ agent.state='SCAN'; agent.scanRot=0; return; }
+    let dx=wp.x-observer.x, dy=wp.y-observer.y, d=Math.hypot(dx,dy);
+    if(d<22){
+      agent.pathIdx++;
+      if(agent.pathIdx>=agent.path.length){ agent.state='SCAN'; agent.scanRot=0; return; }
+      wp=agent.path[agent.pathIdx];
+      dx=wp.x-observer.x; dy=wp.y-observer.y; d=Math.hypot(dx,dy);
+      agent.bestDist=d; agent.stuck=0;
+    }
+    const step=speed*dt;
+    const r=stepMove(dx/d,dy/d,step,wp);
+    observer.x=r.np.x; observer.y=r.np.y;
+    // while blocked, look INTO the obstacle so the sensor can actually learn it
+    turnToward(r.blocked?Math.atan2(dy,dx):r.dir,dt,3.4);
+    if(d<agent.bestDist-1.5){ agent.bestDist=d; agent.stuck=0; }
+    else agent.stuck+=dt;
+    // learning a new wall invalidates the plan immediately
+    if(aiWalls.length!==agent.knownCount){
+      agent.knownCount=aiWalls.length;
+      if(r.blocked) agent.replan=0;
+    }
+    if(agent.stuck>1.4){
+      const p=planPath(g);
+      if(p&&(agent.path.length!==p.length||Math.hypot(p[0].x-agent.path[0].x,p[0].y-agent.path[0].y)>6)){
+        agent.path=p; agent.pathIdx=0; agent.bestDist=Math.hypot(p[0].x-observer.x,p[0].y-observer.y);
+        agent.stuck=0; agent.slideSide=0; agent.replan=simTime+2.5;
+      } else if(agent.stuck>3.0) abandonGoal(g,18);
+    }
+    if(simTime-agent.since>20) abandonGoal(g,18);
+    return;
+  }
+
+  if(agent.state==='SCAN'){
+    const rate=3.0;
+    observer.facing+=rate*dt; agent.scanRot+=rate*dt;
+    const need=parseFloat(fovInput.value)>=350?0.9:Math.PI*2;
+    if(agent.scanRot>=need){
+      if(agent.goal) goalBan.set(agent.goal.label,simTime+7);
+      agent.state='IDLE'; agent.goal=null; agent.path=null;
+    }
+  }
+}
+
+// ---------- fixtures / self tests ----------
+function addFixtureWall(x,y,w,h,material='콘크리트',cls='wall'){
+  walls.push({id:'W'+String(++wallSeq).padStart(2,'0'),x,y,w,h,material,cls});
+}
+function loadFixture(name){
+  entities=[];walls=[];observer=null;wallSeq=0;resetMemory();
+  const W=canvas.width,H=canvas.height,cx=W*0.5,cy=H*0.5;
+  const ent={type:'ally',x:Math.max(70,W*0.2),y:cy,facing:0};entities.push(ent);observer=ent;setMode(null);
+  if(name==='longWall') addFixtureWall(W*0.58,H*0.23,40,H*0.54);
+  if(name==='lCorner'){
+    addFixtureWall(W*0.52,H*0.28,40,H*0.38);addFixtureWall(W*0.52,H*0.28,W*0.22,40);
+  }
+  if(name==='twinOpenings'){
+    const y=cy-20,x0=W*0.38,total=W*0.48,gap=64,seg=(total-gap*2)/3;
+    addFixtureWall(x0,y,seg,40);addFixtureWall(x0+seg+gap,y,seg,40);addFixtureWall(x0+(seg+gap)*2,y,seg,40);
+    ent.x=cx;ent.y=H*0.78;ent.facing=-Math.PI/2;
+  }
+  if(name==='corridor'){
+    addFixtureWall(W*0.32,H*0.28,W*0.55,35);addFixtureWall(W*0.32,H*0.68,W*0.55,35);
+    ent.x=W*0.38;ent.y=cy;ent.facing=0;
+  }
+  if(name==='occludedWall'){
+    addFixtureWall(W*0.67,H*0.25,35,H*0.5);addFixtureWall(W*0.48,H*0.43,55,55,'목재');
+    ent.x=W*0.22;ent.y=cy;ent.facing=0;
+  }
+  _segCache=null;_cornerCache=null;_sig=NaN;
+  sense(1/60);
+}
+function runPerceptionSelfTests(){
+  const tests=[]; const test=(name,fn)=>{try{tests.push({name,ok:!!fn()});}catch(e){tests.push({name,ok:false,error:String(e)});}};
+  test('구간 병합',()=>JSON.stringify(mergeIntervals([[0,.2],[.19,.4],[.7,.8]]))===JSON.stringify([[0,.4],[.7,.8]]));
+  test('관측·가시 구간 교집합',()=>{const r=intersectIntervals([[.1,.4]],[[.25,.8]]);return r.length===1&&Math.abs(r[0][0]-.25)<1e-6&&Math.abs(r[0][1]-.4)<1e-6;});
+  test('개구부 실제 횡단',()=>crossesGate({x:0,y:0},{x:10,y:0},{x:5,y:-5},{x:5,y:5}));
+  test('회전만으로 횡단 안 함',()=>!crossesGate({x:0,y:0},{x:0,y:0},{x:5,y:-5},{x:5,y:5}));
+  test('긴 면은 샘플 증가',()=>visibilitySampleCount({a:{x:0,y:0},b:{x:500,y:0}})>visibilitySampleCount({a:{x:0,y:0},b:{x:50,y:0}}));
+  test('기억 상태 단계',()=>{const w={lastSeen:0,evidence:1};const c0=wallConfidenceAt(w,0,10),c1=wallConfidenceAt(w,12,10),c2=wallConfidenceAt(w,40,10);return c0>=MEMORY_CONFIRMED&&c1<MEMORY_CONFIRMED&&c1>=MEMORY_UNCERTAIN&&c2<MEMORY_UNCERTAIN;});
+  test('가까운 다른 방향 개구부 분리',()=>{const u={ix:0,iy:0,mid:0,width:40,gateAngle:Math.PI/2};const same={ix:8,iy:5,mid:.04,gateA:{x:8,y:-20},gateB:{x:8,y:20}};const other={ix:8,iy:5,mid:Math.PI/2,gateA:{x:-12,y:5},gateB:{x:28,y:5}};return openingMatchScore(u,same)<openingMatchScore(u,other);});
+  test('반높이 엄폐는 광선을 멈추지 않음',()=>{
+    const segs=[{x1:100,y1:-50,x2:100,y2:50,blocksSight:false,cls:'cover'},{x1:200,y1:-50,x2:200,y2:50,blocksSight:true,cls:'wall'}];
+    const r=rayScan(0,0,0,400,segs);
+    return Math.abs(r.sightDist-200)<1 && r.hits.length===2;
+  });
+  test('전신 벽은 광선을 멈춤',()=>{
+    const segs=[{x1:100,y1:-50,x2:100,y2:50,blocksSight:true,cls:'wall'},{x1:200,y1:-50,x2:200,y2:50,blocksSight:true,cls:'wall'}];
+    const r=rayScan(0,0,0,400,segs);
+    return Math.abs(r.sightDist-100)<1 && r.hits.length===1;
+  });
+  test('넘겨보는 표면도 탐지는 됨',()=>{
+    const segs=[{x1:100,y1:-50,x2:100,y2:50,blocksSight:false,cls:'cover'}];
+    return rayScan(0,0,0,400,segs).hits.length===1;
+  });
+  test('시야 차단은 등급 full, 넘겨봄은 아님',()=>
+    SURFACE_CLASS.wall.sight===true && SURFACE_CLASS.cover.sight===false &&
+    SURFACE_CLASS.cover.movement===true && SURFACE_CLASS.rail.ballistic===0);
+  test('두께 확인 시 관통 저항 상승',()=>{
+    const unknown=ballisticResistanceEstimate({material:'콘크리트',ballistic:1,thickness:null});
+    const known=ballisticResistanceEstimate({material:'콘크리트',ballistic:1,thickness:60});
+    return unknown.thicknessKnown===false && known.thicknessKnown===true && known.value>unknown.value;
+  });
+  test('재질이 무를수록 저항 낮음',()=>
+    ballisticResistanceEstimate({material:'목재',ballistic:1,thickness:40}).value <
+    ballisticResistanceEstimate({material:'콘크리트',ballistic:1,thickness:40}).value);
+  test('첫 관측은 아직 미식별',()=>ID_THRESHOLD>0 && ID_FULL>ID_THRESHOLD && (0.05/ID_FULL)<ID_THRESHOLD);
+  test('출력 스냅샷 JSON 안전',()=>{JSON.stringify(getPerceptionSnapshot());return Array.isArray(getPerceptionSnapshot().rememberedSurfaces);});
+  const pass=tests.filter(t=>t.ok).length;
+  const panel=document.getElementById('testPanel');
+  if(panel) panel.innerHTML='<span class="'+(pass===tests.length?'ok':'warn')+'">'+pass+'/'+tests.length+' PASS</span><br>'+tests.map(t=>(t.ok?'✓ ':'✗ ')+t.name).join('<br>');
+  return {pass,total:tests.length,tests};
+}
+document.getElementById('loadFixture').addEventListener('click',()=>loadFixture(document.getElementById('fixtureSelect').value));
+document.getElementById('runTests').addEventListener('click',runPerceptionSelfTests);
+window.TacticalPerception={version:SENSOR_VERSION,getSnapshot:getPerceptionSnapshot,runSelfTests:runPerceptionSelfTests,loadFixture};
+
+// ---------- panels ----------
+let tick=0;
+function renderPanels(){
+  tick++; if(tick%10!==0) return;
+
+  const ap=document.getElementById('agentPanel');
+  if(!observer) ap.innerHTML='<span class="dim">관찰자 없음</span>';
+  else{
+    const st={IDLE:'대기 / 목표 선택',SEEK:'이동 중',SCAN:'주변 관찰 중'}[agent.state];
+    let h='상태: <span class="hot">'+st+'</span>';
+    if(agent.goal) h+='<br>목표: <span class="det">'+agent.goal.label+'</span> <span class="dim">('+(agent.goal.kind==='unknown'?'미확인 구역':'재확인')+')</span>';
+    else h+='<br>목표: <span class="dim">없음</span>';
+    const avg=aiWalls.length?aiWalls.reduce((s,w)=>s+wallConf(w),0)/aiWalls.length:0;
+    h+='<br>평균 확신도: <span class="det">'+avg.toFixed(2)+'</span>';
+    h+='<br>경과: <span class="dim">'+simTime.toFixed(1)+'초</span>';
+    if(simTime-doorwayFlash<1.6) h+='<br><span class="warn">▲ 문간 효과 — 이전 공간 기억 흐려짐</span>';
+    ap.innerHTML=h;
+  }
+
+  const sp=document.getElementById('sectorPanel');
+  if(!observer||!sectorInfo.known) sp.innerHTML='<span class="dim">아직 관측 없음</span>';
+  else{
+    const ops=sectorInfo.openings;
+    let h=sectorInfo.closed?'판정: <span class="ok">폐쇄 섹터</span>':'판정: <span class="warn">열린 섹터 — 개구부 '+ops.length+'</span>';
+    h+='<br>기억한 벽: <span class="det">'+aiWalls.length+'</span>';
+    h+='<br>Unknown: <span class="unkc">'+unknowns.length+'</span> (미확인 '+unknowns.filter(u=>!unknownFinished(u)).length+')';
+    const merged=aiWalls.filter(w=>w.trueIds.size>1).length;
+    if(merged) h+='<br><span class="warn">병합 오인식 '+merged+'건</span>';
+    sp.innerHTML=h;
+  }
+
+  const sensor=document.getElementById('sensorPanel');
+  if(!observer) sensor.innerHTML='<span class="dim">관찰자 없음</span>';
+  else{
+    const counts={confirmed:0,uncertain:0,stale:0}; aiWalls.forEach(w=>counts[wallMemoryState(w)]++);
+    sensor.innerHTML='현재 표면: <span class="det">'+visibleSurfaceObservations.length+'</span>'+
+      '<br>보이는 개체: <span class="det">'+visibleEntityObservations.length+'</span>'+
+      '<br>기억: <span class="ok">확정 '+counts.confirmed+'</span> / <span class="unkc">불확실 '+counts.uncertain+'</span> / <span class="dim">낡음 '+counts.stale+'</span>'+
+      '<br>출력 API: <span class="hot">TacticalPerception.getSnapshot()</span>';
+  }
+
+  const wl=document.getElementById('wallList');
+  if(!aiWalls.length) wl.innerHTML='<span class="dim">아직 없음</span>';
+  else{
+    wl.innerHTML=aiWalls.slice().sort((a,b)=>wallConf(a)-wallConf(b)).map(w=>{
+      const c=wallConf(w), bad=w.trueIds.size>1,state=wallMemoryState(w);
+      const ends=(w.minCorner?'■':'○')+'—'+(w.maxCorner?'■':'○');
+      const cls=bad?'warn':state==='confirmed'?'ok':state==='uncertain'?'unkc':'dim';
+      return '<div class="row"><span class="'+cls+'">'+w.name+'</span>'+
+             '<span class="bar"><i style="width:'+Math.round(c*100)+'%"></i></span>'+
+             '<span class="det">'+c.toFixed(2)+'</span> '+ends+
+             ' <span class="dim">'+w.material+'</span></div>';
+    }).join('');
+  }
+
+  const tag=document.getElementById('stateTag');
+  if(!observer) tag.textContent='';
+  else tag.innerHTML='<b>'+(autoMode?(paused?'일시정지':'자동'):'수동')+'</b> · '+
+      {IDLE:'대기',SEEK:'이동',SCAN:'관찰'}[agent.state]+
+      (agent.goal?' → '+agent.goal.label:'');
+}
+
+// ---------- drawing ----------
+function drawGrid(){
+  ctx.strokeStyle='#1c2117'; ctx.lineWidth=1;
+  for(let x=0;x<canvas.width;x+=PLACE_GRID){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,canvas.height);ctx.stroke();}
+  for(let y=0;y<canvas.height;y+=PLACE_GRID){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(canvas.width,y);ctx.stroke();}
+}
+function drawVisPoly(){
+  if(!observer||visPoly.length<2) return;
+  ctx.beginPath(); ctx.moveTo(observer.x,observer.y);
+  visPoly.forEach(p=>ctx.lineTo(p.x,p.y)); ctx.closePath();
+  ctx.fillStyle='rgba(120,180,190,0.05)'; ctx.fill();
+  ctx.strokeStyle='rgba(120,180,190,0.14)'; ctx.lineWidth=1; ctx.stroke();
+}
+function drawRays(){
+  if(!observer) return;
+  debugRays.forEach(r=>{
+    ctx.beginPath(); ctx.moveTo(observer.x,observer.y);
+    ctx.lineTo(observer.x+Math.cos(r.ang)*r.dist,observer.y+Math.sin(r.ang)*r.dist);
+    ctx.strokeStyle=r.hit?'rgba(201,162,39,0.4)':'rgba(140,150,130,0.08)';
+    ctx.lineWidth=1; ctx.stroke();
+  });
+}
+function drawTruth(){
+  walls.forEach(w=>{
+    const C=clsOf(w);
+    ctx.fillStyle=C.fill; ctx.strokeStyle=C.edge; ctx.lineWidth=1;
+    ctx.fillRect(w.x,w.y,w.w,w.h); ctx.strokeRect(w.x,w.y,w.w,w.h);
+    if(!C.sight){
+      ctx.save(); ctx.beginPath(); ctx.rect(w.x,w.y,w.w,w.h); ctx.clip();
+      ctx.strokeStyle=C.edge; ctx.lineWidth=1; ctx.globalAlpha=0.55;
+      for(let i=-w.h;i<w.w;i+=7){ ctx.beginPath(); ctx.moveTo(w.x+i,w.y); ctx.lineTo(w.x+i+w.h,w.y+w.h); ctx.stroke(); }
+      ctx.restore();
+    }
+    return;
+    ctx.fillStyle='rgba(58,56,47,0.45)'; ctx.strokeStyle='rgba(92,92,82,0.4)'; ctx.lineWidth=1;
+    ctx.fillRect(w.x,w.y,w.w,w.h); ctx.strokeRect(w.x,w.y,w.w,w.h);
+  });
+}
+function drawAiWalls(){
+  const showNames=document.getElementById('showNames').checked;
+  aiWalls.forEach(w=>{
+    const c=wallConf(w), bad=w.trueIds.size>1,state=wallMemoryState(w);
+    const x1=w.ox+w.ux*w.tMin,y1=w.oy+w.uy*w.tMin;
+    const x2=w.ox+w.ux*w.tMax,y2=w.oy+w.uy*w.tMax;
+    const alpha=0.22+c*0.78;
+    ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2);
+    if(state!=='confirmed') ctx.setLineDash(state==='uncertain'?[7,4]:[3,6]);
+    ctx.strokeStyle=bad?'rgba(212,87,78,'+alpha+')':state==='confirmed'?'rgba(127,212,193,'+alpha+')':state==='uncertain'?'rgba(74,144,194,'+alpha+')':'rgba(107,109,92,'+alpha+')';
+    ctx.lineWidth=1.6+c*2.4; ctx.lineCap='round'; ctx.stroke();
+    ctx.lineCap='butt'; ctx.setLineDash([]);
+    drawEnd(x1,y1,w.minCorner,-w.ux,-w.uy,c);
+    drawEnd(x2,y2,w.maxCorner,w.ux,w.uy,c);
+    if(showNames){
+      ctx.fillStyle=(bad?'rgba(212,87,78,':state==='confirmed'?'rgba(127,212,193,':state==='uncertain'?'rgba(74,144,194,':'rgba(107,109,92,')+(0.3+c*0.65)+')';
+      ctx.font='10px Consolas'; ctx.textAlign='center'; ctx.textBaseline='middle';
+      ctx.fillText(w.name,(x1+x2)/2+w.nx*13,(y1+y2)/2+w.ny*13);
+      ctx.textAlign='start'; ctx.textBaseline='alphabetic';
+    }
+  });
+}
+function drawEnd(x,y,isCorner,dx,dy,c){
+  const a=0.3+c*0.7;
+  if(isCorner){ ctx.fillStyle='rgba(201,162,39,'+a+')'; ctx.fillRect(x-3.5,y-3.5,7,7); }
+  else{
+    ctx.beginPath(); ctx.setLineDash([3,3]);
+    ctx.moveTo(x,y); ctx.lineTo(x+dx*12,y+dy*12);
+    ctx.strokeStyle='rgba(74,144,194,'+a+')'; ctx.lineWidth=2; ctx.stroke(); ctx.setLineDash([]);
+    ctx.beginPath(); ctx.arc(x,y,3.6,0,Math.PI*2);
+    ctx.strokeStyle='rgba(74,144,194,'+a+')'; ctx.lineWidth=2; ctx.stroke();
+  }
+}
+function drawOpenings(){
+  if(!observer) return;
+  sectorInfo.openings.forEach(op=>{
+    if(op.gateA&&op.gateB){
+      ctx.beginPath(); ctx.moveTo(observer.x,observer.y);
+      ctx.lineTo(op.gateA.x,op.gateA.y); ctx.lineTo(op.gateB.x,op.gateB.y); ctx.closePath();
+      ctx.fillStyle='rgba(160,111,196,0.07)'; ctx.fill();
+    }
+  });
+  unknowns.forEach(u=>{
+    const dim=unknownFinished(u);
+    const main=dim?'rgba(160,111,196,0.3)':u.state==='approached'?'rgba(190,150,220,0.95)':'rgba(160,111,196,0.9)';
+    if(u.gateA&&u.gateB){
+      ctx.beginPath(); ctx.setLineDash([6,4]);
+      ctx.moveTo(u.gateA.x,u.gateA.y); ctx.lineTo(u.gateB.x,u.gateB.y);
+      ctx.strokeStyle=main; ctx.lineWidth=2.5; ctx.stroke(); ctx.setLineDash([]);
+    }else{
+      ctx.beginPath(); ctx.setLineDash([4,4]); ctx.arc(u.ix,u.iy,15,0,Math.PI*2);
+      ctx.strokeStyle=main; ctx.lineWidth=2; ctx.stroke(); ctx.setLineDash([]);
+    }
+    ctx.fillStyle=dim?'rgba(160,111,196,0.32)':'rgba(190,150,220,0.95)';
+    ctx.font='10px Consolas'; ctx.textAlign='center';
+    ctx.fillText(u.name+' · '+u.state,u.ix,u.iy-19); ctx.textAlign='start';
+  });
+}
+function drawGoal(){
+  if(!observer||!agent.goal) return;
+  const g=agent.goal;
+  if(agent.path&&agent.path.length){
+    ctx.beginPath(); ctx.moveTo(observer.x,observer.y);
+    agent.path.forEach(p=>ctx.lineTo(p.x,p.y));
+    ctx.setLineDash([6,5]);
+    ctx.strokeStyle='rgba(201,162,39,0.45)'; ctx.lineWidth=1.5; ctx.stroke(); ctx.setLineDash([]);
+    agent.path.forEach((p,i)=>{
+      if(i===agent.path.length-1) return;
+      ctx.beginPath(); ctx.arc(p.x,p.y,3,0,Math.PI*2);
+      ctx.fillStyle='rgba(201,162,39,0.55)'; ctx.fill();
+    });
+  }
+  ctx.beginPath(); ctx.arc(g.x,g.y,8,0,Math.PI*2);
+  ctx.strokeStyle='rgba(201,162,39,0.9)'; ctx.lineWidth=2; ctx.stroke();
+  ctx.beginPath(); ctx.arc(g.x,g.y,2.5,0,Math.PI*2);
+  ctx.fillStyle='rgba(201,162,39,0.9)'; ctx.fill();
+}
+function drawEntity(e){
+  const r=14, col=e.type==='ally'?'#3c7a8c':'#a83c3c', bri=e.type==='ally'?'#5fb8d1':'#e05656';
+  ctx.beginPath(); ctx.arc(e.x,e.y,r,e.facing+Math.PI-0.9,e.facing+Math.PI+0.9);
+  ctx.strokeStyle='rgba(255,255,255,0.15)'; ctx.lineWidth=3; ctx.stroke();
+  ctx.beginPath(); ctx.arc(e.x,e.y,r,0,Math.PI*2);
+  ctx.fillStyle=col; ctx.fill(); ctx.strokeStyle=bri; ctx.lineWidth=2; ctx.stroke();
+  const tx=e.x+Math.cos(e.facing)*(r+10), ty=e.y+Math.sin(e.facing)*(r+10);
+  const a1=e.facing+Math.PI/2, a2=e.facing-Math.PI/2;
+  ctx.beginPath(); ctx.moveTo(tx,ty);
+  ctx.lineTo(e.x+Math.cos(a1)*6+Math.cos(e.facing)*r,e.y+Math.sin(a1)*6+Math.sin(e.facing)*r);
+  ctx.lineTo(e.x+Math.cos(a2)*6+Math.cos(e.facing)*r,e.y+Math.sin(a2)*6+Math.sin(e.facing)*r);
+  ctx.closePath(); ctx.fillStyle=bri; ctx.fill();
+  if(e===observer){
+    ctx.beginPath(); ctx.arc(e.x,e.y,22,0,Math.PI*2);
+    ctx.strokeStyle='#c9a227'; ctx.lineWidth=2; ctx.setLineDash([4,3]); ctx.stroke(); ctx.setLineDash([]);
+    if(agent.state==='SCAN'){
+      ctx.beginPath(); ctx.arc(e.x,e.y,27,e.facing-0.5,e.facing+0.5);
+      ctx.strokeStyle='rgba(201,162,39,0.8)'; ctx.lineWidth=3; ctx.stroke();
+    }
+  }
+  if(e===moveTarget&&rotateMode){
+    ctx.beginPath(); ctx.arc(e.x,e.y,30,0,Math.PI*2);
+    ctx.strokeStyle='rgba(201,162,39,0.85)'; ctx.lineWidth=2; ctx.stroke();
+  }
+}
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  drawGrid();
+  if(document.getElementById('showPoly').checked) drawVisPoly();
+  if(document.getElementById('showTruth').checked) drawTruth();
+  if(document.getElementById('showRays').checked) drawRays();
+  if(document.getElementById('showOpen').checked) drawOpenings();
+  if(document.getElementById('showGoal').checked) drawGoal();
+  drawAiWalls();
+  entities.forEach(drawEntity);
+}
+
+// ---------- loop ----------
+function loop(now){
+  let dt=(now-lastFrame)/1000; lastFrame=now;
+  dt=Math.min(dt,0.05);
+  const advancing = !paused || stepOnce;
+  if(advancing){
+    const step = stepOnce ? 1/60 : dt;
+    simTime+=step;
+    if(autoMode && !moveTarget) updateAgent(step);
+    sense(step);
+    stepOnce=false;
+  }
+  draw(); renderPanels();
+  requestAnimationFrame(loop);
+}
+resize(); requestAnimationFrame(loop);
+</script>
+</body>
+</html>

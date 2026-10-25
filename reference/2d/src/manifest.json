@@ -1,0 +1,551 @@
+{
+  "schemaVersion": 1,
+  "template": "src/index.template.html",
+  "styles": [
+    "src/styles/application.css"
+  ],
+  "scripts": [
+    {
+      "path": "src/runtime/scale.js",
+      "role": "거리 단위와 맵 작성 helper",
+      "originalLines": [
+        2462,
+        2499
+      ]
+    },
+    {
+      "path": "src/data/equipment-base.js",
+      "role": "장비 공통 데이터와 방호 helper",
+      "originalLines": [
+        2500,
+        2759
+      ]
+    },
+    {
+      "path": "src/data/body-armor.js",
+      "role": "방탄복 registry와 source switch",
+      "originalLines": [
+        2760,
+        3181
+      ]
+    },
+    {
+      "path": "src/data/helmets.js",
+      "role": "헬멧·부착 보호구 registry와 validation",
+      "originalLines": [
+        3182,
+        3754
+      ]
+    },
+    {
+      "path": "src/combat/visor-accessories.js",
+      "role": "바이저 시야·내구도와 추가 보호구",
+      "originalLines": [
+        3755,
+        4219
+      ]
+    },
+    {
+      "path": "src/data/plates.js",
+      "role": "플레이트 legacy·registry·builder",
+      "originalLines": [
+        4220,
+        5256
+      ]
+    },
+    {
+      "path": "src/combat/armor-durability.js",
+      "role": "방호 재질 손상·운동에너지·내구도",
+      "originalLines": [
+        5257,
+        6315
+      ]
+    },
+    {
+      "path": "src/presentation/armor-shapes.js",
+      "role": "방호구 표시용 좌표와 shape 데이터",
+      "originalLines": [
+        6316,
+        6818
+      ]
+    },
+    {
+      "path": "src/data/ammunition-legacy.js",
+      "role": "탄약 legacy·terminal·lore·skill 초기 데이터",
+      "originalLines": [
+        6819,
+        8316
+      ]
+    },
+    {
+      "path": "src/data/weapons.js",
+      "role": "총기 registry·파츠·무기 운용",
+      "originalLines": [
+        8317,
+        9393
+      ]
+    },
+    {
+      "path": "src/combat/hit-tables-injuries.js",
+      "role": "피격 부위·부상 무기 운용·하중·고통",
+      "originalLines": [
+        9394,
+        10028
+      ]
+    },
+    {
+      "path": "src/combat/armor-resolution.js",
+      "role": "방호·내구도·RNG·백커 판정",
+      "originalLines": [
+        10029,
+        11458
+      ]
+    },
+    {
+      "path": "src/validation/presets-closures.js",
+      "role": "기존 preset 검증과 closure suite",
+      "originalLines": [
+        11459,
+        15458
+      ]
+    },
+    {
+      "path": "src/data/ammunition-registry.js",
+      "role": "탄약 registry·source switch·보조 테이블",
+      "originalLines": [
+        15459,
+        17557
+      ]
+    },
+    {
+      "path": "src/combat/damage-outcomes.js",
+      "role": "관통·피해 결과·상처 연결",
+      "originalLines": [
+        17558,
+        18066
+      ]
+    },
+    {
+      "path": "src/combat/accuracy.js",
+      "role": "명중률과 조준 품질",
+      "originalLines": [
+        18067,
+        18220
+      ]
+    },
+    {
+      "path": "src/combat/spread.js",
+      "role": "발사 퍼짐·이동사격",
+      "originalLines": [
+        18221,
+        18351
+      ]
+    },
+    {
+      "path": "src/combat/ballistics.js",
+      "role": "재질·장벽 관통·도탄·continuation ray",
+      "originalLines": [
+        18352,
+        19280
+      ]
+    },
+    {
+      "path": "src/combat/ammo-reload.js",
+      "role": "탄약·장전·사격 모드",
+      "originalLines": [
+        19281,
+        19623
+      ]
+    },
+    {
+      "path": "src/combat/impact-address.js",
+      "role": "피격 주소와 coverage 판정",
+      "originalLines": [
+        19624,
+        21048
+      ]
+    },
+    {
+      "path": "src/presentation/impact-labels.js",
+      "role": "피격 주소 표시 라벨",
+      "originalLines": [
+        21049,
+        21365
+      ]
+    },
+    {
+      "path": "src/reports/battle-report.js",
+      "role": "AAR 전투 사건 기록",
+      "originalLines": [
+        21366,
+        22106
+      ]
+    },
+    {
+      "path": "src/combat/impact-resolution.js",
+      "role": "피격 계산·방호·인체·AAR 연결",
+      "originalLines": [
+        22107,
+        22854
+      ]
+    },
+    {
+      "path": "src/world/doors-tactical-actions.js",
+      "role": "문·진입·연막 전술 행동",
+      "originalLines": [
+        22855,
+        23756
+      ]
+    },
+    {
+      "path": "src/world/maps.js",
+      "role": "맵 프리셋",
+      "originalLines": [
+        23757,
+        24151
+      ]
+    },
+    {
+      "path": "src/world/obscurants.js",
+      "role": "먼지·연막·감각·표시",
+      "originalLines": [
+        24152,
+        24710
+      ]
+    },
+    {
+      "path": "src/world/geometry-pathfinding.js",
+      "role": "기하·충돌·A* 경로",
+      "originalLines": [
+        24711,
+        25464
+      ]
+    },
+    {
+      "path": "src/runtime/game-state.js",
+      "role": "장벽 재질 helper와 GAME 전역 상태",
+      "originalLines": [
+        25465,
+        25718
+      ]
+    },
+    {
+      "path": "src/medical/foundation.js",
+      "role": "유닛 상수·medical factory·부위 키",
+      "originalLines": [
+        25719,
+        26050
+      ]
+    },
+    {
+      "path": "src/medical/wound-metadata.js",
+      "role": "상처 메타·주소·치료 profile",
+      "originalLines": [
+        26051,
+        26647
+      ]
+    },
+    {
+      "path": "src/medical/body-trauma.js",
+      "role": "인체 궤적·장기 후보·출혈 분류",
+      "originalLines": [
+        26648,
+        27742
+      ]
+    },
+    {
+      "path": "src/medical/physiologic-injury.js",
+      "role": "생리적 손상과 혈관 증거",
+      "originalLines": [
+        27743,
+        28241
+      ]
+    },
+    {
+      "path": "src/medical/part-destruction.js",
+      "role": "부위 파괴·기능 상한·출혈 profile",
+      "originalLines": [
+        28242,
+        28852
+      ]
+    },
+    {
+      "path": "src/medical/wound-clusters.js",
+      "role": "산탄 상처 집계·클러스터·처치 비용",
+      "originalLines": [
+        28853,
+        29556
+      ]
+    },
+    {
+      "path": "src/medical/wound-pipeline.js",
+      "role": "상처 정규화·draft·commit·지속 출혈",
+      "originalLines": [
+        29557,
+        30340
+      ]
+    },
+    {
+      "path": "src/medical/damage-physiology.js",
+      "role": "급성 피격·지속 생리·의식·legacy 동기화",
+      "originalLines": [
+        30341,
+        31949
+      ]
+    },
+    {
+      "path": "src/presentation/ecg.js",
+      "role": "심전도 표시",
+      "originalLines": [
+        31950,
+        32438
+      ]
+    },
+    {
+      "path": "src/runtime/unit-factory.js",
+      "role": "유닛 factory",
+      "originalLines": [
+        32439,
+        32803
+      ]
+    },
+    {
+      "path": "src/game/setup-editor.js",
+      "role": "미션 구성·맵 편집",
+      "originalLines": [
+        32804,
+        33317
+      ]
+    },
+    {
+      "path": "src/presentation/log.js",
+      "role": "게임 로그와 DOM 출력",
+      "originalLines": [
+        33318,
+        33331
+      ]
+    },
+    {
+      "path": "src/input/pointer.js",
+      "role": "기존 Canvas 터치·포인터 입력",
+      "originalLines": [
+        33332,
+        33715
+      ]
+    },
+    {
+      "path": "src/ai/visibility.js",
+      "role": "가시성·인지 snapshot",
+      "originalLines": [
+        33716,
+        34116
+      ]
+    },
+    {
+      "path": "src/simulation/threat-throwables.js",
+      "role": "위협 인지·투척·수류탄 반응",
+      "originalLines": [
+        34117,
+        35406
+      ]
+    },
+    {
+      "path": "src/ai/spatial-perception.js",
+      "role": "공간 인지 closure와 자체 검증",
+      "originalLines": [
+        35407,
+        38384
+      ]
+    },
+    {
+      "path": "src/ai/memory-topology.js",
+      "role": "기억·표면·방·문턱·소음 도착 방향",
+      "originalLines": [
+        38385,
+        41190
+      ]
+    },
+    {
+      "path": "src/ai/utility.js",
+      "role": "행동 점수·선택·재평가",
+      "originalLines": [
+        41191,
+        43461
+      ]
+    },
+    {
+      "path": "src/ai/cover-portal-risk.js",
+      "role": "문간 위험과 관측 엄폐",
+      "originalLines": [
+        43462,
+        44452
+      ]
+    },
+    {
+      "path": "src/combat/explosions-fragments.js",
+      "role": "섬광·폭압·파편 피격",
+      "originalLines": [
+        44453,
+        45341
+      ]
+    },
+    {
+      "path": "src/simulation/noise-projectile-effects.js",
+      "role": "소음·기억 사격·특수 탄약 효과",
+      "originalLines": [
+        45342,
+        47020
+      ]
+    },
+    {
+      "path": "src/combat/fire-control.js",
+      "role": "발사 시점·fire control·단발·산탄",
+      "originalLines": [
+        47021,
+        48145
+      ]
+    },
+    {
+      "path": "src/medical/treatment.js",
+      "role": "처치·자원·예약·끌기",
+      "originalLines": [
+        48146,
+        49564
+      ]
+    },
+    {
+      "path": "src/ai/commands-threat.js",
+      "role": "위협 증거·명령 권한",
+      "originalLines": [
+        49565,
+        49946
+      ]
+    },
+    {
+      "path": "src/simulation/unit-update.js",
+      "role": "공통 유닛 tick·의료·AI·이동·사격",
+      "originalLines": [
+        49947,
+        50988
+      ]
+    },
+    {
+      "path": "src/combat/cover-fire.js",
+      "role": "엄호사격",
+      "originalLines": [
+        50989,
+        51283
+      ]
+    },
+    {
+      "path": "src/game/results.js",
+      "role": "기존 승패",
+      "originalLines": [
+        51284,
+        51311
+      ]
+    },
+    {
+      "path": "src/presentation/canvas-renderer.js",
+      "role": "2D 맵·유닛·효과 렌더링",
+      "originalLines": [
+        51312,
+        53045
+      ]
+    },
+    {
+      "path": "src/presentation/hud.js",
+      "role": "명부·카드·상태 UI",
+      "originalLines": [
+        53046,
+        53551
+      ]
+    },
+    {
+      "path": "src/input/buttons.js",
+      "role": "게임 버튼 입력",
+      "originalLines": [
+        53552,
+        53657
+      ]
+    },
+    {
+      "path": "src/presentation/aar.js",
+      "role": "AAR·손상지도·투척 선택 UI",
+      "originalLines": [
+        53658,
+        55340
+      ]
+    },
+    {
+      "path": "src/presentation/loadout.js",
+      "role": "장비·숙련도·대원별 로드아웃 UI",
+      "originalLines": [
+        55341,
+        56188
+      ]
+    },
+    {
+      "path": "src/presentation/coverage.js",
+      "role": "방호 정보와 탄약표",
+      "originalLines": [
+        56189,
+        57523
+      ]
+    },
+    {
+      "path": "src/presentation/armor-analysis.js",
+      "role": "대화형 방호 분석과 로드아웃 이벤트",
+      "originalLines": [
+        57524,
+        58704
+      ]
+    },
+    {
+      "path": "src/runtime/main-loop.js",
+      "role": "기존 RAF·가변 dt 루프",
+      "originalLines": [
+        58705,
+        58742
+      ]
+    },
+    {
+      "path": "src/runtime/init.js",
+      "role": "부팅·validator·플레이트 오버레이 이벤트",
+      "originalLines": [
+        58743,
+        58800
+      ]
+    },
+    {
+      "path": "src/presentation/medical-overlay.js",
+      "role": "의료 오버레이·상처·처치 표시",
+      "originalLines": [
+        58801,
+        59892
+      ]
+    },
+    {
+      "path": "src/input/overlay-events.js",
+      "role": "장비·의료·방호 분석 이벤트",
+      "originalLines": [
+        59893,
+        60131
+      ]
+    },
+    {
+      "path": "src/presentation/debug-panel.js",
+      "role": "모바일 디버그 패널",
+      "originalLines": [
+        60132,
+        60500
+      ]
+    }
+  ],
+  "baseline": {
+    "path": "CQB_Tactical.html",
+    "commit": "cef2ff00b3a3eb68719b4127003b8c90ef62629a",
+    "gitBlob": "ff20dc25c9835698c7a90653014d0fe0d51eda30",
+    "sha256": "ff330c641f9720e3a960adfd84ee084ea06f215366e88e7f03e14803a176f90d"
+  }
+}

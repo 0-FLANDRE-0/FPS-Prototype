@@ -1,0 +1,337 @@
+{
+  "ruleId": "care-m4-v60",
+  "baseline": "ae2cedcc809ada1a4098cddb535cc697f27ec4f8",
+  "parameters": {
+    "values": {
+      "ruleId": "self-care-m4-v60",
+      "defaultMode": "realistic",
+      "sealSeconds": 25,
+      "needleSeconds": 12,
+      "txaSeconds": 20,
+      "foamSeconds": 30,
+      "backSealMultiplier": 1.8,
+      "needleRadius": 0.065,
+      "needleDrainPerS": 0.35,
+      "ventDrainPerS": 0.015,
+      "needleRecurrenceChance": 0.35,
+      "needleRecurrenceMinS": 90,
+      "needleRecurrenceMaxS": 300,
+      "needleReachFailure": {
+        "anterior": 0.08,
+        "lateral": 0.02
+      },
+      "iatrogenicPneumo": 0.12,
+      "foamPain": 40,
+      "txaWindowS": 10800,
+      "classification": "사용자 모드 설계; 시간·확률·허용 반경·출혈 계수 튜닝; 임상 치료 지침 아님"
+    },
+    "profiles": {
+      "game": {
+        "ruleId": "self-care-m3-v59",
+        "catSeconds": {
+          "leg": 5,
+          "arm": 4
+        },
+        "oneHandMultiplier": 1.65,
+        "bandageSeconds": 5,
+        "gauzePackingSeconds": 4,
+        "gauzePressureSeconds": 10,
+        "resumeSetupSeconds": 1.5,
+        "aboveWoundM": 0.065,
+        "catResidual": 0,
+        "looseArteryGain": 0,
+        "looseVeinFactor": 1,
+        "catPain": 70,
+        "bandage": {
+          "artery": 0.3,
+          "vein": 0,
+          "capillary": 0
+        },
+        "gauze": {
+          "artery": 0,
+          "vein": 0,
+          "capillary": 0
+        },
+        "manualPressure": {
+          "artery": 0.15,
+          "vein": 0.15,
+          "capillary": 0.15
+        },
+        "interruptedGauzeGain": 0.25,
+        "classification": "다리 CAT37.5초 연구 중앙값·180초 압박 제조사 출처; 위팔28초; 적용 시간·계수·배율·통증은 튜닝, 위치/중단/구성은 사용자 설계값",
+        "reversePortCandidate": true,
+        "automatic2DPort": false
+      },
+      "realistic": {
+        "ruleId": "self-care-m3-v59",
+        "catSeconds": {
+          "leg": 15,
+          "arm": 12
+        },
+        "oneHandMultiplier": 1.65,
+        "bandageSeconds": 12,
+        "gauzePackingSeconds": 10,
+        "gauzePressureSeconds": 45,
+        "resumeSetupSeconds": 1.5,
+        "aboveWoundM": 0.065,
+        "catResidual": 5e-05,
+        "looseArteryGain": 0.35,
+        "looseVeinFactor": 0.15,
+        "catPain": 70,
+        "bandage": {
+          "artery": 0.5,
+          "vein": 0.02,
+          "capillary": 0.01
+        },
+        "gauze": {
+          "artery": 5e-05,
+          "vein": 5e-05,
+          "capillary": 5e-05
+        },
+        "manualPressure": {
+          "artery": 0.15,
+          "vein": 0.15,
+          "capillary": 0.15
+        },
+        "interruptedGauzeGain": 0.25,
+        "classification": "다리 CAT37.5초 연구 중앙값·180초 압박 제조사 출처; 위팔28초; 적용 시간·계수·배율·통증은 튜닝, 위치/중단/구성은 사용자 설계값",
+        "reversePortCandidate": true,
+        "automatic2DPort": false
+      },
+      "reality": {
+        "ruleId": "self-care-m3-v59",
+        "catSeconds": {
+          "arm": 28,
+          "leg": 37.5
+        },
+        "oneHandMultiplier": 1.65,
+        "bandageSeconds": 30,
+        "gauzePackingSeconds": 30,
+        "gauzePressureSeconds": 180,
+        "resumeSetupSeconds": 1.5,
+        "aboveWoundM": 0.065,
+        "catResidual": 5e-05,
+        "looseArteryGain": 0.35,
+        "looseVeinFactor": 0.15,
+        "catPain": 70,
+        "bandage": {
+          "artery": 0.8,
+          "vein": 0.15,
+          "capillary": 0.1
+        },
+        "gauze": {
+          "artery": 0.03,
+          "vein": 0.05,
+          "capillary": 0.1
+        },
+        "manualPressure": {
+          "artery": 0.15,
+          "vein": 0.15,
+          "capillary": 0.15
+        },
+        "interruptedGauzeGain": 0.25,
+        "classification": "다리 CAT37.5초 연구 중앙값·180초 압박 제조사 출처; 위팔28초; 적용 시간·계수·배율·통증은 튜닝, 위치/중단/구성은 사용자 설계값",
+        "reversePortCandidate": true,
+        "automatic2DPort": false
+      }
+    },
+    "systemic": {
+      "game": {
+        "txaDelay": 5,
+        "txa": 0.5,
+        "txaArtery": 0.9,
+        "foamDelay": 3,
+        "foam": 0,
+        "foamArtery": 0.5
+      },
+      "realistic": {
+        "txaDelay": 30,
+        "txa": 0.75,
+        "txaArtery": 1,
+        "foamDelay": 15,
+        "foam": 0.0365869140625,
+        "foamArtery": 0.8
+      },
+      "reality": {
+        "txaDelay": 600,
+        "txa": 0.95,
+        "txaArtery": 1,
+        "foamDelay": 30,
+        "foam": 0.9,
+        "foamArtery": 1
+      }
+    },
+    "pouch": {
+      "id": "medic-pouch",
+      "name": "위생병 파우치",
+      "shortName": "복부 키트",
+      "description": "TXA·실험용 복부 폼 · 의료 물품 전용",
+      "kind": "medicalContainer",
+      "size": {
+        "w": 1,
+        "h": 2
+      },
+      "grid": {
+        "cols": 2,
+        "rows": 2
+      },
+      "weightKg": 0.12,
+      "packageMm": [
+        180,
+        90,
+        80
+      ],
+      "source": "M4 prototype pouch tuning; depth-stacked envelopes, not a marketed kit"
+    },
+    "extraItems": {
+      "txa": {
+        "id": "txa",
+        "name": "TXA 투여 세트",
+        "shortName": "TXA",
+        "description": "전신 항섬유소용해 처치 · 현장 투여 단순화.",
+        "target": "전체",
+        "packageMm": [
+          100,
+          30,
+          20
+        ],
+        "weightKg": 0.07002332211875001,
+        "size": {
+          "w": 1,
+          "h": 2
+        },
+        "source": "M4 prototype envelope/mass tuning",
+        "units": 1,
+        "kind": "medicalSupply"
+      },
+      "foam": {
+        "id": "foam",
+        "name": "실험용 복부 지혈 폼",
+        "shortName": "복부 폼",
+        "description": "복강용 실험 기술 · 후복막에는 효과 없음.",
+        "target": "복부",
+        "packageMm": [
+          160,
+          60,
+          40
+        ],
+        "weightKg": 0.2999379546625,
+        "size": {
+          "w": 1,
+          "h": 2
+        },
+        "source": "M4 experimental delivery envelope/mass tuning",
+        "units": 1,
+        "kind": "medicalSupply"
+      }
+    }
+  },
+  "classification": [
+    {
+      "change": "Three modes/default realistic/policy frozen atstart; resume impairment refreshed in frozen mode",
+      "kind": "사용자 설계값",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "change": "M3 reality",
+      "kind": "원본(v59) + M3 source/tuning labels retained; no false all-source classification",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "change": "Realistic duration/effects and reversible pack use maxima",
+      "kind": "튜닝·게임 허용",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "change": "Game durations/zero correct-source flow/multiple units per unchanged pack mass and footprint",
+      "kind": "게임 허용",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "change": "3D chest open-input coefficient(1-covered holes ratio), tension vent and needle outflow",
+      "kind": "사용자 설계값·튜닝; existing chest equation terms retained",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "change": "TXA<=3h condition",
+      "kind": "출처CRASH-2 + late no-benefit only game simplification",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "change": "TXA IV/IO/self-access abstract20s;effects .5/.75/.95 and600s reality delay",
+      "kind": "게임 허용·튜닝, NOT mortality RR or clinical onset",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "change": "Foam peritoneal-only/no retroperitoneal all modes; reality10% reduction",
+      "kind": "사용자 설계값·튜닝; animal evidence only",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "change": "Realistic foam coefficient numerical fit to2700s mean first-down after delivery; fitfixtures listed in abdomen-fit.json",
+      "kind": "튜닝(사용자 목표 역산)",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "change": "Prototype pouch1×2/inside2×2, two depth-stacked delivery envelopes",
+      "kind": "튜닝; envelope sizes not marketed-device facts",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "change": "Inventory depleted pack disappears, spent ledger retained for mode max-minus-used; CAT ownership/recovery unchanged",
+      "kind": "사용자 설계값",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "change": "D2 equipment mass input13.7kg remains; new pouch presentation mass not added to this calibration input",
+      "kind": "원본 보존·한계",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    }
+  ],
+  "formulaPreservation": {
+    "original2D": true,
+    "ballisticArmorHPWound": true,
+    "B1rawAndClotAndPerfusion": true,
+    "physiologyD2": true,
+    "newControl": "existing B1 treatmentControlFactor, per lesion before CO cap. Systemic coefficient applies only designated source destinations. No retroperitoneal foam."
+  },
+  "chestCodePath": [
+    "scripts/training-medical.mjs injects3D-only chestCareInput/chestCareTension into generated legacy updateChestTrauma",
+    "open-driven progression and positive tension input multiplied by1-coverage; vent/needle air drain before original breathing target",
+    "medical-b1.applyHemothoraxB1 still builds side chest compartments fromoriginal wounds and hemothorax pools",
+    "TrainingMedical.tick appends small no-tension real needle complication to chest output; noHP/bleeding/wound created",
+    "M1 observations read residual uncovered openings and actual breathing/tension; no diagnostic side/risk numbers in normal UI",
+    "Bilateral shared wounds: side-specific copies of chest input state only, one wound/source set; skin bind-x assigns each side opening. Untreated returns original list and model."
+  ],
+  "compatibility": "No treatment: no lazy treatment keys; M3 reality medical records/samples byte exact v59. Inventory consumable ownership legitimately changes per new uses requirement.",
+  "reversePortCandidate": true,
+  "automatic2DPort": false,
+  "physicalPhoneTested": false,
+  "sourceRequirementsComplete": false,
+  "outOfScope": [
+    "M5NPA/airway/other patients",
+    "AAJT",
+    "fluids/transfusion/analgesics/evacuation treatment",
+    "M6gear grids",
+    "AIcare",
+    "longCATdamage/compartment syndrome"
+  ],
+  "limitations": [
+    "Walking D2 compensation can keep conscious movement beyond3600s; only stationary reference pair was fitted to45min.",
+    "Original M855 liver-central includes renal/retroperitoneal cavity injury and is not rescued indefinitely by peritoneal-only foam.",
+    "Prototype delivery envelopes/mass are tuning, D2 comparison still uses13.7kg.",
+    "Changing training sectors disposes the patient; applied effects block transition until removal/reset."
+  ]
+}

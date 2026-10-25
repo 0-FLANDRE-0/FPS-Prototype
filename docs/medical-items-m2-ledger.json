@@ -1,0 +1,285 @@
+{
+  "version": "medical-items-m2-v58",
+  "baseline": "61573dd1e6b1b04a8ff0dbabdd5ab85f229d81a4",
+  "entries": [
+    {
+      "classification": "사용자 설계값",
+      "subject": "Six medicalSupply items in one IFAK; CAT inside; no gloves/tape; outer footprint2x2; no treatment effects",
+      "reversePortCandidate": true
+    },
+    {
+      "classification": "출처",
+      "subject": "Product packaged dimensions and mass; ounce conversion28.349523125g/oz; TT pouch primary product page differs from older catalog",
+      "supplies": {
+        "cat": {
+          "id": "cat",
+          "name": "CAT Gen7 지혈대",
+          "shortName": "CAT",
+          "description": "팔다리 출혈용 지혈대.",
+          "target": "팔다리 영역",
+          "packageMm": [
+            165.1,
+            60.96,
+            38.1
+          ],
+          "weightKg": 0.07654371243750001,
+          "size": {
+            "w": 1,
+            "h": 2
+          },
+          "source": "https://www.narescue.com/all-products/massive-hemorrhage/combat-application-tourniquet-c-a-t.html",
+          "units": 1,
+          "kind": "medicalSupply"
+        },
+        "gauze": {
+          "id": "gauze",
+          "name": "QuikClot Combat Gauze",
+          "shortName": "거즈",
+          "description": "카올린 함유 지혈거즈.",
+          "target": "상처",
+          "packageMm": [
+            139.7,
+            127,
+            15.875
+          ],
+          "weightKg": 0.022679618500000005,
+          "size": {
+            "w": 2,
+            "h": 2
+          },
+          "source": "https://www.narescue.com/outdoor-adventure-products/combat-gauze.html",
+          "units": 1,
+          "kind": "medicalSupply"
+        },
+        "bandage": {
+          "id": "bandage",
+          "name": "NAR ETD 4인치 압박붕대",
+          "shortName": "압박붕대",
+          "description": "흡수 패드가 있는 탄력 압박붕대.",
+          "target": "상처",
+          "packageMm": [
+            114.3,
+            63.5,
+            44.45
+          ],
+          "weightKg": 0.07370876012500001,
+          "size": {
+            "w": 1,
+            "h": 2
+          },
+          "source": "https://www.narescue.com/all-products/4-emergency-trauma-dressing-etd.html",
+          "units": 1,
+          "kind": "medicalSupply"
+        },
+        "seal": {
+          "id": "seal",
+          "name": "HyFin Vent Compact 흉부 씰",
+          "shortName": "흉부 씰",
+          "description": "통기형 흉부 씰 2개 세트.",
+          "target": "가슴 상태",
+          "packageMm": [
+            167.64,
+            98.425,
+            3.302
+          ],
+          "weightKg": 0.043941760843750004,
+          "size": {
+            "w": 2,
+            "h": 2
+          },
+          "source": "https://www.narescue.com/hyfin-vent-compact-chest-seal-twin-pack.html",
+          "units": 2,
+          "kind": "medicalSupply"
+        },
+        "needle": {
+          "id": "needle",
+          "name": "NAR ARS 14G 감압 키트",
+          "shortName": "감압 키트",
+          "description": "보호 튜브에 든 14G 감압 키트.",
+          "target": "가슴 상태",
+          "packageMm": [
+            144.78,
+            20.32,
+            17.78
+          ],
+          "weightKg": 0.017009713875,
+          "size": {
+            "w": 1,
+            "h": 2
+          },
+          "source": "https://www.narescue.com/military-products/respirations/ars-for-needle-decompression-3-26.html",
+          "units": 1,
+          "kind": "medicalSupply"
+        },
+        "npa": {
+          "id": "npa",
+          "name": "NAR NPA 28F·윤활제",
+          "shortName": "NPA",
+          "description": "윤활제가 동봉된 비인두 기도기.",
+          "target": "기도",
+          "packageMm": [
+            152.4,
+            40.64,
+            12.7
+          ],
+          "weightKg": 0.0141747615625,
+          "size": {
+            "w": 1,
+            "h": 2
+          },
+          "source": "https://www.narescue.com/all-products/naso-with-lubricant-packet.html",
+          "units": 1,
+          "kind": "medicalSupply"
+        }
+      },
+      "pouch": {
+        "id": "ifak",
+        "name": "IFAK",
+        "shortName": "IFAK",
+        "description": "개인 의료 파우치 · 의료 물품 전용",
+        "kind": "medicalContainer",
+        "size": {
+          "w": 2,
+          "h": 2
+        },
+        "grid": {
+          "cols": 4,
+          "rows": 4
+        },
+        "weightKg": 0.159,
+        "packageMm": [
+          190,
+          130,
+          64
+        ],
+        "source": "https://tasmaniantigerusa.com/medic-equipment/ifak-pouches/tt-tac-ifak-pouch-m",
+        "modelReference": "TT TAC IFAK POUCH M; 사용자 지정 구성, 미군 IFAK II 전체 재현 아님"
+      },
+      "reversePortCandidate": true
+    },
+    {
+      "classification": "튜닝 / 사용자 설계값",
+      "subject": "90mm nominal medical-package grid; requested3x3 fails16requiredcells;4x4temporary internal organizer chosen and reported; external2x2 user override (not a physical unfolded area/volume simulation)",
+      "values": {
+        "ruleId": "medical-items-m2-v58",
+        "cellMm": 90,
+        "doubleTapMs": 350,
+        "dragThresholdPx": 7,
+        "ifakGrid": {
+          "cols": 4,
+          "rows": 4
+        },
+        "requestedGrid": {
+          "cols": 3,
+          "rows": 3
+        },
+        "ifakSize": {
+          "w": 2,
+          "h": 2
+        },
+        "classification": "사용자 구성/외부2x2; 포장 치수/무게 출처;90mm 격자·내부4x4 튜닝"
+      },
+      "placement": [
+        [
+          "gauze",
+          0,
+          0
+        ],
+        [
+          "seal",
+          2,
+          0
+        ],
+        [
+          "cat",
+          0,
+          2
+        ],
+        [
+          "bandage",
+          1,
+          2
+        ],
+        [
+          "needle",
+          2,
+          2
+        ],
+        [
+          "npa",
+          3,
+          2
+        ]
+      ],
+      "reversePortCandidate": true
+    },
+    {
+      "classification": "원본",
+      "subject": "Same InventoryUI selection/motion/destination/drop/run and Inventory action paths; container ownership resolver extends rootOwner; source flow arithmetic and compatibility rates retained so clinical timeline exact",
+      "reversePortCandidate": true
+    },
+    {
+      "classification": "튜닝",
+      "subject": "Verified two skin openings85%external/15%internal, one opening40%/60%; compartment capacity/pressure/firmness are game proxies, no feedback to bleeding/circulation",
+      "values": {
+        "ruleId": "limb-routing-m2-v58",
+        "throughInternal": 0.15,
+        "oneOpeningInternal": 0.6,
+        "pressureStart": 0.5,
+        "firmFullness": 0.75,
+        "capacitiesMl": {
+          "upperLeg": 1250,
+          "lowerLeg": 750,
+          "upperArm": 500,
+          "forearm": 250
+        },
+        "classification": "튜닝;골절 출혈량 참고 상한은 실제 구획 압력/용량 실측값이 아님"
+      },
+      "reversePortCandidate": true
+    },
+    {
+      "classification": "사용자 설계값 / 원본",
+      "subject": "M1 no treatment, active time in both tabs, no additional keybinds; D2 equipment mass input13.7kg unchanged; own-container mass includes contents exactly once",
+      "reversePortCandidate": true
+    },
+    {
+      "classification": "튜닝",
+      "subject": "350ms double tap,7px existing item drag; independent title pointer capture;8px viewport margin; one window per container; fixed gun cards and read-only armor profile",
+      "reversePortCandidate": true
+    },
+    {
+      "classification": "원본 UI 입력 방식 준용 / 튜닝",
+      "subject": "Actual offline Chromium reproduced missing compatibility click after item drag. UI controls activate through original click commands on touch/pen pointer release; suppress only following native compatibility click. Mouse/keyboard remain original. Shared item drag engine is unchanged.",
+      "values": {
+        "tapMotionPx": 7,
+        "compatibilitySuppressionMs": 700,
+        "windowMarginPx": 8,
+        "windowWidthPx": {
+          "desktop": 264,
+          "shortScreen": 220
+        },
+        "windowGridCellPx": {
+          "desktop": 52,
+          "shortScreen": 44
+        },
+        "closeButtonMinPx": 44
+      },
+      "reversePortCandidate": true
+    }
+  ],
+  "routingContract": {
+    "storage": "weak sidecar keyed by medical object: openings/compartments/source distributions; TrainingMedical.limbRouting read-only copies",
+    "medicalChangedFields": [
+      "bloodPoolsMl"
+    ],
+    "clinicalUnchanged": "source raw/actual flow and cumulativeMl, compatibility external/internal summaries, wound/HP, bloodMl, all hemodynamics/consciousness/arrest/death and D2 inputs",
+    "m3Consumer": "Use sourceId and limbRouting.sources/segments to address real destination fractions. Original destination and compatibility external/internal summaries remain the v57 clinical bookkeeping inputs, not the routed observation.",
+    "unverifiedOpening": "Keep original internal destination when M1 has no verified skin entry; no fabricated external drainage or pressure-to-flow change. Closed/unverified overflow capacity cannot be physically resolved while total flow is fixed; retained as an explicit fallback, not counted as verified-cap success.",
+    "pressure": "fraction starts falling after50%fullness, linear to0 atcapacity; all open excess volume drains externally; no compartment syndrome effects",
+    "capacityMeaning": "Fracture hemorrhage estimates inform tuning; these are not measured anatomical compartment compliance/capacities",
+    "capacityReachedAt": "Time only if mathematical cap is hit. Real900s cases can stop bleeding before reaching the cap; null means not reached."
+  },
+  "automatic2DPort": false,
+  "physicalPhoneTested": false,
+  "treatmentsImplemented": false
+}

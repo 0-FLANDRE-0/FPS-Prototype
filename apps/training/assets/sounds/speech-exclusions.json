@@ -1,0 +1,26 @@
+{
+  "ruleId": "concrete-speech-regions-v49",
+  "sourceSha256": "86c3e5661400a88af8d6990da75b7cb320a972e820c0869da275582cddec69e8",
+  "source": "footsteps/concrete_walk_boots__freesound-777607-yannsauvin.flac",
+  "method": "faster-whisper base/int8 CPU detected French speech16.70–19.40,20.00–21.24,22.20–23.50,24.54–25.68s and uncertain vocal fragments52.98–53.06s. Add350ms guard and merge overlapping ranges; reject only candidate crops intersecting these intervals.",
+  "excludedIntervalsS": [
+    [
+      16.35,
+      21.59
+    ],
+    [
+      21.85,
+      23.85
+    ],
+    [
+      24.19,
+      26.03
+    ],
+    [
+      52.63,
+      53.41
+    ]
+  ],
+  "noSpeechSeparationClaim": true,
+  "asrCannotProveOtherIntervalsSpeechFree": true
+}

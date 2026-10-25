@@ -1,0 +1,1926 @@
+{
+  "version": "w1-v69",
+  "baseline": "580e5de16312ae347089a3f3c029ada14b1d2b2f",
+  "dateUTC": "2026-10-24",
+  "classifications": [
+    "출처",
+    "원본",
+    "튜닝",
+    "사용자 설계값",
+    "게임 허용"
+  ],
+  "reversePortCandidate": true,
+  "automatic2DPort": false,
+  "scope": "3D SCAR-H and7.62x51 terminal/flight data only; fixedC and all medical/armor/penetration equations preserved",
+  "values": {
+    "id": "scar_h",
+    "name": "FN SCAR-H STD",
+    "weightKg": 3.63,
+    "overallLengthM": 0.969,
+    "barrelLengthM": 0.4064,
+    "rateOfFire": 600,
+    "officialRateRange": [
+      550,
+      650
+    ],
+    "magazineCapacity": 20,
+    "emptyMagazineKg": 0.25,
+    "hardwareSource": "https://fnherstal.com/app/uploads/technical-data-fn-scar-h-mk2-1.pdf",
+    "hardwareNote": "Current FN Mk2 STD16-inch specification adopted; provided family mesh generation not identified.600RPM retains original within official550–650 range.",
+    "emptyMagazineClassification": "tuning: reliable empty-mass primary specification not located;0.25kg provisional steel20-round magazine",
+    "barrelRatio": 0.9365526965103983,
+    "barrelRatioSource": "Bill Marr2014 Winchester147FMJ:2837fps22in,2682fps16.5in; final half-inch extrapolates local17→16.5in slope50fps/in. Ratio borrowed for other loads, explicitly tuning.",
+    "referenceBarrelM": 0.5588,
+    "referenceRangeM": 23.7744,
+    "sourceVelocityMps": {
+      "762_308_fmj": 850,
+      "762_m80": 838.2,
+      "762_m80a1": 850,
+      "762_m61_ap": 838.2,
+      "762_m993_ap": 909.8280000000001,
+      "762x51_m62_tracer": 838.2,
+      "762x51_m948_slap": 1210
+    },
+    "referenceRangeByAmmo": {
+      "762_308_fmj": 0,
+      "762_m80": 23.7744,
+      "762_m80a1": 0,
+      "762_m61_ap": 23.7744,
+      "762_m993_ap": 23.7744,
+      "762x51_m62_tracer": 23.7744,
+      "762x51_m948_slap": 0
+    },
+    "velocitySources": {
+      "762_m80": "TM43-0001-27 printed11-17:2750fps@78ft;22in test barrel from external M80 technical reference",
+      "762_m61_ap": "TM43-0001-27 printed11-7:2750fps@78ft;22in borrowed test-barrel condition, not specified on this page",
+      "762x51_m62_tracer": "TM43-0001-27 printed11-9:2750fps@78ft;22in borrowed test-barrel condition",
+      "762_m993_ap": "TM43-0001-27 Change2 printed11-33:2985fps@78ft;22in barrel is borrowing, not specified on page",
+      "762_308_fmj": "original registry850; nominal130gr label conflicts with9.5g registry mass; exact manufacturer/load/test barrel not identified, same ratio tuning",
+      "762_m80a1": "original registry850 retained pending verified official velocity/test conditions; same ratio tuning",
+      "762x51_m948_slap": "original registry1210 retained; official velocity/barrel not verified, same ratio for sabot is tuning"
+    },
+    "g7BC": {
+      "762_m80": 0.2,
+      "762_m993_ap": 0.176
+    },
+    "rejectedG7": {
+      "762x51_m948_slap": {
+        "value": 0.165,
+        "reason": "CBJ generic SLAP comparison is not verified M948; NOT used; resolved original rifle_heavy retention retained"
+      }
+    },
+    "g7Source": "CBJ Tech2021 Subcaliber Technology p3: calculated comparison BCs,24in V0 reference; SLAP is generic comparison, M948 equivalence unverified",
+    "materials": {
+      "defaultStrength": 50,
+      "maximumStrength": 100,
+      "noiseScale": 850,
+      "colorAmplitude": 0.035,
+      "roughnessAmplitude": 0.09,
+      "normalAmplitude": 0.035,
+      "metalNormalAmplitude": 0.008,
+      "edgeWear": 0.32,
+      "aoStrength": 0.22
+    },
+    "audio": {
+      "rate": 0.84,
+      "lowShelfDb": 5,
+      "highShelfDb": -6,
+      "levelDeltaDb": 3.5,
+      "classification": "temporary M4 processing/game allowance; same SND1 propagation/hearing, source level tuning"
+    },
+    "classification": "manufacturer facts + original registry + measured same-class barrel ratio borrowing/tuning + user design/game allowance",
+    "reversePortCandidate": true
+  },
+  "originalWeapon": {
+    "id": "scar_h",
+    "display": {
+      "name": "SCAR-H",
+      "type": "small",
+      "group": "Rifle",
+      "tableOrder": 6
+    },
+    "ammo": {
+      "caliber": "7.62x51mm",
+      "ammoId": "762_m80",
+      "defaultAmmoId": "762_m80",
+      "allowedAmmoIds": [
+        "762_308_fmj",
+        "762_m80",
+        "762_m80a1",
+        "762_m61_ap",
+        "762_m993_ap",
+        "762x51_m62_tracer",
+        "762x51_m948_slap"
+      ]
+    },
+    "action": {
+      "fireMode": "semi",
+      "supportsFireModes": [
+        "semi",
+        "burst",
+        "full"
+      ],
+      "defaultFireMode": "auto",
+      "fireCooldown": 1.05,
+      "rateOfFire": 600,
+      "burstCount": 3,
+      "fullAutoCount": 4,
+      "fullAutoMin": 3,
+      "fullAutoMax": 5,
+      "burstShotDelay": 0.1
+    },
+    "handling": {
+      "accuracy": 0.6,
+      "range": 2800,
+      "falloffStart": 300,
+      "handling": 0.8,
+      "recoilBase": 2,
+      "spreadBaseDeg": 2.4,
+      "spreadMinDeg": 0.55,
+      "spreadMaxDeg": 12,
+      "spreadMovingMul": 2.5,
+      "spreadSuppressionMul": 2.6,
+      "suppressionHit": 7,
+      "suppressionMiss": 3
+    },
+    "ballistic": {
+      "damage": 5,
+      "penetration": 55,
+      "damageScale": 1.1,
+      "velocityMul": 1
+    },
+    "reload": {
+      "magazineSize": 20,
+      "reserveMags": 5,
+      "reloadTime": 3,
+      "tacticalReloadTime": 2.4
+    },
+    "physical": {
+      "weightKg": 3.7
+    },
+    "ui": {
+      "showInLoadout": true
+    }
+  },
+  "weapon": {
+    "id": "scar_h",
+    "display": {
+      "name": "FN SCAR-H STD",
+      "type": "small",
+      "group": "Rifle",
+      "tableOrder": 6
+    },
+    "ammo": {
+      "caliber": "7.62x51mm",
+      "ammoId": "762_m80",
+      "defaultAmmoId": "762_m80",
+      "allowedAmmoIds": [
+        "762_308_fmj",
+        "762_m80",
+        "762_m80a1",
+        "762_m61_ap",
+        "762_m993_ap",
+        "762x51_m62_tracer",
+        "762x51_m948_slap"
+      ]
+    },
+    "action": {
+      "fireMode": "semi",
+      "supportsFireModes": [
+        "safe",
+        "full",
+        "semi"
+      ],
+      "defaultFireMode": "auto",
+      "fireCooldown": 1.05,
+      "rateOfFire": 600,
+      "burstCount": 0,
+      "fullAutoCount": 4,
+      "fullAutoMin": 3,
+      "fullAutoMax": 5,
+      "burstShotDelay": 0.1
+    },
+    "handling": {
+      "accuracy": 0.6,
+      "range": 2800,
+      "falloffStart": 300,
+      "handling": 0.8,
+      "recoilBase": 2,
+      "spreadBaseDeg": 2.4,
+      "spreadMinDeg": 0.55,
+      "spreadMaxDeg": 12,
+      "spreadMovingMul": 2.5,
+      "spreadSuppressionMul": 2.6,
+      "suppressionHit": 7,
+      "suppressionMiss": 3
+    },
+    "ballistic": {
+      "damage": 5,
+      "penetration": 55,
+      "damageScale": 1.1,
+      "velocityMul": 1
+    },
+    "reload": {
+      "magazineSize": 20,
+      "reserveMags": 5,
+      "reloadTime": 3,
+      "tacticalReloadTime": 2.4
+    },
+    "physical": {
+      "weightKg": 3.63,
+      "overallLengthM": 0.969
+    },
+    "ui": {
+      "showInLoadout": true
+    }
+  },
+  "originalAmmo": {
+    "762_308_fmj": {
+      "ammo": {
+        "id": "762_308_fmj",
+        "name": ".308 Win FMJ 130gr",
+        "shortName": ".308 FMJ",
+        "type": "small",
+        "caliber": "7.62x51mm",
+        "desc": "7.62 / 사냥용 FMJ / 큰 피해 / 큰 반동",
+        "penetration": 40,
+        "damage": 73,
+        "velocity": 850,
+        "suppression": 1.5,
+        "recoil": 1.8,
+        "materialPenPenalty": {
+          "fabric": 0,
+          "aramid": 2,
+          "pe": 8,
+          "steel": 8,
+          "aluminum": 6,
+          "titanium": 10,
+          "ceramic": 11,
+          "composite": 11
+        },
+        "barrierPenMul": 1.05,
+        "barrierStability": 1.1,
+        "barrierDamageRetention": 0.9,
+        "ricochetMul": 1.25,
+        "barrierBehavior": "normal_fast",
+        "accuracyMul": 1,
+        "stoppingPower": 1.3,
+        "painMul": 1.3,
+        "armorDamagePct": 55,
+        "energyClass": "full_power_rifle",
+        "projectileMassG": 9.5,
+        "projectile": {
+          "massG": 9.5
+        },
+        "terminalProfile": {
+          "family": "rifle_ball",
+          "woundChannel": "normal",
+          "overpenetrationTendency": "high",
+          "yawTendency": "medium",
+          "fragmentationTendency": "low",
+          "armorAfterEffect": "low",
+          "tissueCrushMul": 1.05,
+          "temporaryCavityMul": 1.1,
+          "boneBreakMul": 1.1,
+          "exitWoundMul": 1.05,
+          "retainedProjectileChance": 0.06,
+          "futureMedicalHook": true
+        },
+        "velocityDragClass": "rifle_heavy",
+        "terminalEffect": {
+          "type": "full_power",
+          "thresholdVelocity": 600,
+          "aboveTissueMul": 1.1,
+          "belowTissueMul": 0.9,
+          "aboveBleedMul": 1.05,
+          "belowBleedMul": 0.95,
+          "aboveShockMul": 1.05,
+          "belowShockMul": 0.95
+        }
+      },
+      "terminal": {
+        "type": "full_power",
+        "thresholdVelocity": 600,
+        "aboveTissueMul": 1.1,
+        "belowTissueMul": 0.9,
+        "aboveBleedMul": 1.05,
+        "belowBleedMul": 0.95,
+        "aboveShockMul": 1.05,
+        "belowShockMul": 0.95
+      }
+    },
+    "762_m80": {
+      "ammo": {
+        "id": "762_m80",
+        "name": "7.62 M80",
+        "shortName": "M80",
+        "type": "small",
+        "caliber": "7.62x51mm",
+        "desc": "7.62 / 표준 군용탄 / 큰 피해·제압 / 큰 반동",
+        "penetration": 44,
+        "damage": 78,
+        "velocity": 833,
+        "suppression": 2,
+        "recoil": 2.4,
+        "materialPenPenalty": {
+          "fabric": 0,
+          "aramid": 2,
+          "pe": 6,
+          "steel": 8,
+          "aluminum": 6,
+          "titanium": 10,
+          "ceramic": 11,
+          "composite": 11
+        },
+        "barrierPenMul": 1.25,
+        "barrierStability": 1.35,
+        "barrierDamageRetention": 1,
+        "ricochetMul": 1.45,
+        "barrierBehavior": "full_power",
+        "accuracyMul": 1,
+        "stoppingPower": 1.35,
+        "painMul": 1.35,
+        "armorDamagePct": 55,
+        "energyClass": "full_power_rifle",
+        "projectileMassG": 9.5,
+        "projectile": {
+          "massG": 9.5
+        },
+        "terminalProfile": {
+          "family": "rifle_ball",
+          "woundChannel": "normal",
+          "overpenetrationTendency": "high",
+          "yawTendency": "medium",
+          "fragmentationTendency": "low",
+          "armorAfterEffect": "low",
+          "tissueCrushMul": 1.05,
+          "temporaryCavityMul": 1.1,
+          "boneBreakMul": 1.1,
+          "exitWoundMul": 1.05,
+          "retainedProjectileChance": 0.06,
+          "futureMedicalHook": true
+        },
+        "velocityDragClass": "rifle_heavy",
+        "terminalEffect": {
+          "type": "full_power",
+          "thresholdVelocity": 600,
+          "aboveTissueMul": 1.1,
+          "belowTissueMul": 0.9,
+          "aboveBleedMul": 1.05,
+          "belowBleedMul": 0.95,
+          "aboveShockMul": 1.05,
+          "belowShockMul": 0.95
+        }
+      },
+      "terminal": {
+        "type": "full_power",
+        "thresholdVelocity": 600,
+        "aboveTissueMul": 1.1,
+        "belowTissueMul": 0.9,
+        "aboveBleedMul": 1.05,
+        "belowBleedMul": 0.95,
+        "aboveShockMul": 1.05,
+        "belowShockMul": 0.95
+      }
+    },
+    "762_m80a1": {
+      "ammo": {
+        "id": "762_m80a1",
+        "name": "7.62 M80A1 EPR",
+        "shortName": "M80A1 EPR",
+        "type": "small",
+        "caliber": "7.62x51mm",
+        "desc": "7.62 / 고관통탄 / 재질 상성 적음 / 큰 반동",
+        "penetration": 60,
+        "damage": 74,
+        "velocity": 850,
+        "suppression": 1.8,
+        "recoil": 2.3,
+        "materialPenPenalty": {
+          "fabric": 0,
+          "aramid": 0,
+          "pe": 2,
+          "steel": 4,
+          "aluminum": 3,
+          "titanium": 6,
+          "ceramic": 7,
+          "composite": 6
+        },
+        "barrierPenMul": 1.35,
+        "barrierStability": 1.6,
+        "barrierDamageRetention": 1.05,
+        "ricochetMul": 1.45,
+        "barrierBehavior": "penetrator",
+        "accuracyMul": 1.02,
+        "stoppingPower": 1.3,
+        "painMul": 1.25,
+        "armorDamagePct": 68,
+        "energyClass": "full_power_rifle",
+        "projectileMassG": 8.4,
+        "projectile": {
+          "massG": 8.4
+        },
+        "terminalProfile": {
+          "family": "controlled_fragment",
+          "woundChannel": "fragmenting",
+          "overpenetrationTendency": "medium",
+          "yawTendency": "high",
+          "fragmentationTendency": "medium",
+          "armorAfterEffect": "medium",
+          "tissueCrushMul": 1.05,
+          "temporaryCavityMul": 1.2,
+          "boneBreakMul": 1.05,
+          "exitWoundMul": 1.05,
+          "retainedProjectileChance": 0.05,
+          "futureMedicalHook": true
+        },
+        "velocityDragClass": "ap_streamlined",
+        "terminalEffect": {
+          "type": "controlled_fragment",
+          "thresholdVelocity": 620,
+          "aboveTissueMul": 1.2,
+          "belowTissueMul": 0.9,
+          "aboveBleedMul": 1.1,
+          "belowBleedMul": 0.95,
+          "aboveShockMul": 1.1,
+          "belowShockMul": 0.95
+        }
+      },
+      "terminal": {
+        "type": "controlled_fragment",
+        "thresholdVelocity": 620,
+        "aboveTissueMul": 1.2,
+        "belowTissueMul": 0.9,
+        "aboveBleedMul": 1.1,
+        "belowBleedMul": 0.95,
+        "aboveShockMul": 1.1,
+        "belowShockMul": 0.95
+      }
+    },
+    "762_m61_ap": {
+      "ammo": {
+        "id": "762_m61_ap",
+        "name": "7.62 M61 AP",
+        "shortName": "M61",
+        "type": "small",
+        "caliber": "7.62x51mm",
+        "desc": "7.62 / AP / 강철 관통자 / 고관통",
+        "penetration": 63,
+        "damage": 70,
+        "velocity": 855,
+        "suppression": 1.9,
+        "recoil": 2.6,
+        "materialPenPenalty": {
+          "fabric": 0,
+          "aramid": 0,
+          "pe": 1,
+          "steel": 2,
+          "aluminum": 1,
+          "titanium": 4,
+          "ceramic": 5,
+          "composite": 4
+        },
+        "barrierPenMul": 1.4,
+        "barrierStability": 1.65,
+        "barrierDamageRetention": 1,
+        "ricochetMul": 1.7,
+        "barrierBehavior": "penetrator",
+        "accuracyMul": 1.02,
+        "stoppingPower": 1.1,
+        "painMul": 1.05,
+        "armorDamagePct": 75,
+        "energyClass": "full_power_rifle",
+        "projectileMassG": 9.8,
+        "projectile": {
+          "massG": 9.8
+        },
+        "terminalProfile": {
+          "family": "rifle_ap",
+          "woundChannel": "narrow",
+          "overpenetrationTendency": "high",
+          "yawTendency": "low",
+          "fragmentationTendency": "none",
+          "armorAfterEffect": "high",
+          "tissueCrushMul": 0.85,
+          "temporaryCavityMul": 0.95,
+          "boneBreakMul": 1,
+          "exitWoundMul": 0.9,
+          "retainedProjectileChance": 0.04,
+          "futureMedicalHook": true
+        },
+        "velocityDragClass": "ap_streamlined",
+        "terminalEffect": {
+          "type": "penetrator",
+          "thresholdVelocity": 600,
+          "aboveTissueMul": 1.05,
+          "belowTissueMul": 0.95,
+          "aboveBleedMul": 1,
+          "belowBleedMul": 0.95,
+          "aboveShockMul": 1,
+          "belowShockMul": 0.95
+        }
+      },
+      "terminal": {
+        "type": "penetrator",
+        "thresholdVelocity": 600,
+        "aboveTissueMul": 1.05,
+        "belowTissueMul": 0.95,
+        "aboveBleedMul": 1,
+        "belowBleedMul": 0.95,
+        "aboveShockMul": 1,
+        "belowShockMul": 0.95
+      }
+    },
+    "762_m993_ap": {
+      "ammo": {
+        "id": "762_m993_ap",
+        "name": "7.62 M993 AP",
+        "shortName": "M993",
+        "type": "small",
+        "caliber": "7.62x51mm",
+        "desc": "7.62 / AP / 텅스텐 관통자 / 최상위 관통탄",
+        "penetration": 72,
+        "damage": 68,
+        "velocity": 910,
+        "suppression": 2,
+        "recoil": 2.8,
+        "materialPenPenalty": {
+          "fabric": 0,
+          "aramid": 0,
+          "pe": 0,
+          "steel": 2,
+          "aluminum": 1,
+          "titanium": 4,
+          "ceramic": 5,
+          "composite": 4
+        },
+        "barrierPenMul": 1.55,
+        "barrierStability": 1.95,
+        "barrierDamageRetention": 0.95,
+        "ricochetMul": 1.7,
+        "barrierBehavior": "penetrator",
+        "accuracyMul": 1.02,
+        "stoppingPower": 1.05,
+        "painMul": 1,
+        "armorDamagePct": 85,
+        "energyClass": "full_power_rifle",
+        "projectileMassG": 8.2,
+        "projectile": {
+          "massG": 8.2
+        },
+        "terminalProfile": {
+          "family": "high_power_ap",
+          "woundChannel": "narrow",
+          "overpenetrationTendency": "high",
+          "yawTendency": "low",
+          "fragmentationTendency": "none",
+          "armorAfterEffect": "high",
+          "tissueCrushMul": 0.92,
+          "temporaryCavityMul": 0.98,
+          "boneBreakMul": 1.1,
+          "exitWoundMul": 0.9,
+          "retainedProjectileChance": 0.03,
+          "futureMedicalHook": true
+        },
+        "velocityDragClass": "ap_streamlined",
+        "terminalEffect": {
+          "type": "penetrator",
+          "thresholdVelocity": 600,
+          "aboveTissueMul": 1.05,
+          "belowTissueMul": 0.95,
+          "aboveBleedMul": 1,
+          "belowBleedMul": 0.95,
+          "aboveShockMul": 1,
+          "belowShockMul": 0.95
+        }
+      },
+      "terminal": {
+        "type": "penetrator",
+        "thresholdVelocity": 600,
+        "aboveTissueMul": 1.05,
+        "belowTissueMul": 0.95,
+        "aboveBleedMul": 1,
+        "belowBleedMul": 0.95,
+        "aboveShockMul": 1,
+        "belowShockMul": 0.95
+      }
+    },
+    "762x51_m62_tracer": {
+      "ammo": {
+        "id": "762x51_m62_tracer",
+        "name": "7.62×51mm M62 Tracer",
+        "shortName": "M62",
+        "type": "small",
+        "caliber": "7.62x51mm",
+        "desc": "M80 기반 예광탄. 기관총 탄착 추적용으로 직접 성능은 M80보다 약간 낮다.",
+        "penetration": 40,
+        "damage": 72,
+        "velocity": 830,
+        "suppression": 1,
+        "recoil": 1.3,
+        "materialPenPenalty": {
+          "fabric": 0,
+          "aramid": 2,
+          "pe": 7,
+          "steel": 9,
+          "aluminum": 6,
+          "titanium": 10,
+          "ceramic": 12,
+          "composite": 11
+        },
+        "barrierPenMul": 0.72,
+        "barrierStability": 0.56,
+        "barrierDamageRetention": 0.66,
+        "ricochetMul": 1.12,
+        "barrierBehavior": "tracer_ball",
+        "accuracyMul": 0.98,
+        "stoppingPower": 1.1,
+        "painMul": 1,
+        "armorDamagePct": 39,
+        "energyClass": "full_power_rifle",
+        "projectileType": "tracer",
+        "projectileMassG": 9.2,
+        "projectile": {
+          "projectileType": "tracer",
+          "massG": 9.2
+        },
+        "terminalProfile": {
+          "family": "rifle_ball",
+          "woundChannel": "normal",
+          "overpenetrationTendency": "high",
+          "yawTendency": "medium",
+          "fragmentationTendency": "low",
+          "armorAfterEffect": "low",
+          "tissueCrushMul": 1.05,
+          "temporaryCavityMul": 1.1,
+          "boneBreakMul": 1.1,
+          "exitWoundMul": 1.05,
+          "retainedProjectileChance": 0.06,
+          "futureMedicalHook": true
+        },
+        "terminalEffect": {
+          "type": "full_power",
+          "thresholdVelocity": 620,
+          "aboveTissueMul": 1.1,
+          "belowTissueMul": 0.9,
+          "aboveBleedMul": 1.05,
+          "belowBleedMul": 0.95,
+          "aboveShockMul": 1.05,
+          "belowShockMul": 0.95,
+          "estimatedThreshold": true,
+          "debugNote": "estimated threshold (SIDE-AMMO-2A)"
+        }
+      },
+      "terminal": {
+        "type": "full_power",
+        "thresholdVelocity": 620,
+        "aboveTissueMul": 1.1,
+        "belowTissueMul": 0.9,
+        "aboveBleedMul": 1.05,
+        "belowBleedMul": 0.95,
+        "aboveShockMul": 1.05,
+        "belowShockMul": 0.95,
+        "estimatedThreshold": true,
+        "debugNote": "estimated threshold (SIDE-AMMO-2A)"
+      }
+    },
+    "762x51_m948_slap": {
+      "ammo": {
+        "id": "762x51_m948_slap",
+        "name": "7.62×51mm M948 SLAP",
+        "shortName": "M948 SLAP",
+        "type": "small",
+        "caliber": "7.62x51mm",
+        "desc": "사보트식 경장갑 관통 특수탄. 1210 m/s 초고속 소구경 텅스텐 관통자로 하드타겟에 특화되며, 일반 7.62보다 조직피해는 좁고 깊다.",
+        "penetration": 87,
+        "damage": 58,
+        "velocity": 1210,
+        "suppression": 1,
+        "recoil": 1.3,
+        "materialPenPenalty": {
+          "fabric": 0,
+          "aramid": 0,
+          "pe": 0,
+          "steel": 1,
+          "aluminum": 0,
+          "titanium": 3,
+          "ceramic": 5,
+          "composite": 4
+        },
+        "barrierPenMul": 1.3,
+        "barrierStability": 1,
+        "barrierDamageRetention": 0.9,
+        "ricochetMul": 1.33,
+        "barrierBehavior": "sabot_tungsten_ap",
+        "accuracyMul": 0.98,
+        "stoppingPower": 0.86,
+        "painMul": 0.78,
+        "armorDamagePct": 78,
+        "energyClass": "full_power_rifle",
+        "projectileMassG": 4.02,
+        "projectile": {
+          "massG": 4.02
+        },
+        "terminalProfile": {
+          "family": "sabot",
+          "woundChannel": "pin_hole",
+          "overpenetrationTendency": "very_high",
+          "yawTendency": "none",
+          "fragmentationTendency": "none",
+          "armorAfterEffect": "very_high",
+          "tissueCrushMul": 0.75,
+          "temporaryCavityMul": 0.9,
+          "boneBreakMul": 1.05,
+          "exitWoundMul": 0.75,
+          "retainedProjectileChance": 0.01,
+          "futureMedicalHook": true
+        },
+        "terminalEffect": {
+          "type": "sabot_penetrator",
+          "thresholdVelocity": 900,
+          "aboveTissueMul": 0.88,
+          "belowTissueMul": 0.72,
+          "aboveBleedMul": 0.84,
+          "belowBleedMul": 0.68,
+          "aboveShockMul": 0.92,
+          "belowShockMul": 0.75,
+          "estimatedThreshold": true,
+          "debugNote": "estimated threshold (SIDE-AMMO-2A)"
+        }
+      },
+      "terminal": {
+        "type": "sabot_penetrator",
+        "thresholdVelocity": 900,
+        "aboveTissueMul": 0.88,
+        "belowTissueMul": 0.72,
+        "aboveBleedMul": 0.84,
+        "belowBleedMul": 0.68,
+        "aboveShockMul": 0.92,
+        "belowShockMul": 0.75,
+        "estimatedThreshold": true,
+        "debugNote": "estimated threshold (SIDE-AMMO-2A)"
+      }
+    }
+  },
+  "terminal": {
+    "762_308_fmj": {
+      "ammoId": "762_308_fmj",
+      "caliber": "7.62x51mm",
+      "type": "full_power",
+      "override": null,
+      "thresholdVelocity": 600,
+      "originalTerminalEffect": {
+        "type": "full_power",
+        "thresholdVelocity": 600,
+        "aboveTissueMul": 1.1,
+        "belowTissueMul": 0.9,
+        "aboveBleedMul": 1.05,
+        "belowBleedMul": 0.95,
+        "aboveShockMul": 1.05,
+        "belowShockMul": 0.95
+      },
+      "grade": "estimate",
+      "donorProfileId": "m80",
+      "typeDefaults": {
+        "yawDonor": "m80",
+        "lengthRatio": 3.580562659846547,
+        "fragmentFraction": 0,
+        "expansionAreaScale": 1,
+        "dragScale": 1,
+        "cavityScale": 1
+      },
+      "lengthRatio": 3.580562659846547,
+      "classification": {
+        "type": "original",
+        "thresholdVelocity": "original (including original estimatedThreshold annotations)",
+        "behavior": "user design + shared tuning",
+        "lengthRatio": "shared type tuning",
+        "grade": "source traceability, not a validation score"
+      }
+    },
+    "762_m80": {
+      "ammoId": "762_m80",
+      "caliber": "7.62x51mm",
+      "type": "full_power",
+      "override": null,
+      "thresholdVelocity": 600,
+      "originalTerminalEffect": {
+        "type": "full_power",
+        "thresholdVelocity": 600,
+        "aboveTissueMul": 1.1,
+        "belowTissueMul": 0.9,
+        "aboveBleedMul": 1.05,
+        "belowBleedMul": 0.95,
+        "aboveShockMul": 1.05,
+        "belowShockMul": 0.95
+      },
+      "grade": "estimate",
+      "donorProfileId": "m80",
+      "typeDefaults": {
+        "yawDonor": "m80",
+        "lengthRatio": 3.580562659846547,
+        "fragmentFraction": 0,
+        "expansionAreaScale": 1,
+        "dragScale": 1,
+        "cavityScale": 1
+      },
+      "lengthRatio": 3.580562659846547,
+      "classification": {
+        "type": "original",
+        "thresholdVelocity": "original (including original estimatedThreshold annotations)",
+        "behavior": "user design + shared tuning",
+        "lengthRatio": "shared type tuning",
+        "grade": "source traceability, not a validation score"
+      }
+    },
+    "762_m80a1": {
+      "ammoId": "762_m80a1",
+      "caliber": "7.62x51mm",
+      "type": "controlled_fragment",
+      "override": null,
+      "thresholdVelocity": 620,
+      "originalTerminalEffect": {
+        "type": "controlled_fragment",
+        "thresholdVelocity": 620,
+        "aboveTissueMul": 1.2,
+        "belowTissueMul": 0.9,
+        "aboveBleedMul": 1.1,
+        "belowBleedMul": 0.95,
+        "aboveShockMul": 1.1,
+        "belowShockMul": 0.95
+      },
+      "grade": "estimate",
+      "donorProfileId": "m80",
+      "typeDefaults": {
+        "yawDonor": "m80",
+        "lengthRatio": 3.3391915641476273,
+        "fragmentFraction": 0.36,
+        "fragmentRangeM": 0.17866432337434096,
+        "fragmentYawRad": 0,
+        "fragmentOnsetDepthM": 0.16492091388400704,
+        "expansionAreaScale": 1,
+        "dragScale": 1,
+        "cavityScale": 1
+      },
+      "lengthRatio": 3.3391915641476273,
+      "classification": {
+        "type": "original",
+        "thresholdVelocity": "original (including original estimatedThreshold annotations)",
+        "behavior": "user design + shared tuning",
+        "lengthRatio": "shared type tuning",
+        "grade": "source traceability, not a validation score"
+      }
+    },
+    "762_m61_ap": {
+      "ammoId": "762_m61_ap",
+      "caliber": "7.62x51mm",
+      "type": "penetrator",
+      "override": null,
+      "thresholdVelocity": 600,
+      "originalTerminalEffect": {
+        "type": "penetrator",
+        "thresholdVelocity": 600,
+        "aboveTissueMul": 1.05,
+        "belowTissueMul": 0.95,
+        "aboveBleedMul": 1,
+        "belowBleedMul": 0.95,
+        "aboveShockMul": 1,
+        "belowShockMul": 0.95
+      },
+      "grade": "estimate",
+      "donorProfileId": "m80",
+      "typeDefaults": {
+        "yawDonor": "m80",
+        "yawKnotsM": [
+          [
+            0,
+            0
+          ],
+          [
+            0.3848154657293498,
+            0
+          ],
+          [
+            0.7558875219683657,
+            1.5707963267948966
+          ],
+          [
+            1.0994727592267137,
+            3.141592653589793
+          ]
+        ],
+        "lengthRatio": 4.5,
+        "fragmentFraction": 0,
+        "expansionAreaScale": 1,
+        "dragScale": 0.45,
+        "cavityScale": 0.65
+      },
+      "lengthRatio": 4.5,
+      "classification": {
+        "type": "original",
+        "thresholdVelocity": "original (including original estimatedThreshold annotations)",
+        "behavior": "user design + shared tuning",
+        "lengthRatio": "shared type tuning",
+        "grade": "source traceability, not a validation score"
+      }
+    },
+    "762_m993_ap": {
+      "ammoId": "762_m993_ap",
+      "caliber": "7.62x51mm",
+      "type": "penetrator",
+      "override": null,
+      "thresholdVelocity": 600,
+      "originalTerminalEffect": {
+        "type": "penetrator",
+        "thresholdVelocity": 600,
+        "aboveTissueMul": 1.05,
+        "belowTissueMul": 0.95,
+        "aboveBleedMul": 1,
+        "belowBleedMul": 0.95,
+        "aboveShockMul": 1,
+        "belowShockMul": 0.95
+      },
+      "grade": "estimate",
+      "donorProfileId": "m80",
+      "typeDefaults": {
+        "yawDonor": "m80",
+        "yawKnotsM": [
+          [
+            0,
+            0
+          ],
+          [
+            0.3848154657293498,
+            0
+          ],
+          [
+            0.7558875219683657,
+            1.5707963267948966
+          ],
+          [
+            1.0994727592267137,
+            3.141592653589793
+          ]
+        ],
+        "lengthRatio": 4.5,
+        "fragmentFraction": 0,
+        "expansionAreaScale": 1,
+        "dragScale": 0.45,
+        "cavityScale": 0.65
+      },
+      "lengthRatio": 4.5,
+      "classification": {
+        "type": "original",
+        "thresholdVelocity": "original (including original estimatedThreshold annotations)",
+        "behavior": "user design + shared tuning",
+        "lengthRatio": "shared type tuning",
+        "grade": "source traceability, not a validation score"
+      }
+    },
+    "762x51_m62_tracer": {
+      "ammoId": "762x51_m62_tracer",
+      "caliber": "7.62x51mm",
+      "type": "full_power",
+      "override": null,
+      "thresholdVelocity": 620,
+      "originalTerminalEffect": {
+        "type": "full_power",
+        "thresholdVelocity": 620,
+        "aboveTissueMul": 1.1,
+        "belowTissueMul": 0.9,
+        "aboveBleedMul": 1.05,
+        "belowBleedMul": 0.95,
+        "aboveShockMul": 1.05,
+        "belowShockMul": 0.95,
+        "estimatedThreshold": true,
+        "debugNote": "estimated threshold (SIDE-AMMO-2A)"
+      },
+      "grade": "estimate",
+      "donorProfileId": "m80",
+      "typeDefaults": {
+        "yawDonor": "m80",
+        "lengthRatio": 3.580562659846547,
+        "fragmentFraction": 0,
+        "expansionAreaScale": 1,
+        "dragScale": 1,
+        "cavityScale": 1
+      },
+      "lengthRatio": 3.580562659846547,
+      "classification": {
+        "type": "original",
+        "thresholdVelocity": "original (including original estimatedThreshold annotations)",
+        "behavior": "user design + shared tuning",
+        "lengthRatio": "shared type tuning",
+        "grade": "source traceability, not a validation score"
+      }
+    },
+    "762x51_m948_slap": {
+      "ammoId": "762x51_m948_slap",
+      "caliber": "7.62x51mm",
+      "type": "sabot_penetrator",
+      "override": null,
+      "thresholdVelocity": 900,
+      "originalTerminalEffect": {
+        "type": "sabot_penetrator",
+        "thresholdVelocity": 900,
+        "aboveTissueMul": 0.88,
+        "belowTissueMul": 0.72,
+        "aboveBleedMul": 0.84,
+        "belowBleedMul": 0.68,
+        "aboveShockMul": 0.92,
+        "belowShockMul": 0.75,
+        "estimatedThreshold": true,
+        "debugNote": "estimated threshold (SIDE-AMMO-2A)"
+      },
+      "grade": "estimate",
+      "donorProfileId": "m80",
+      "typeDefaults": {
+        "yawDonor": "m80",
+        "yawKnotsM": [
+          [
+            0,
+            0
+          ],
+          [
+            0.27852372583479795,
+            0
+          ],
+          [
+            0.5471001757469245,
+            1.5707963267948966
+          ],
+          [
+            0.7957820738137082,
+            3.141592653589793
+          ]
+        ],
+        "lengthRatio": 4.5,
+        "diameterOverrideM": 0.00566,
+        "coreMassOverrideKg": 0.0035,
+        "fragmentFraction": 0,
+        "expansionAreaScale": 1,
+        "dragScale": 0.45,
+        "cavityScale": 0.65,
+        "classification": "W1 tuning: .223 core diameter secondary reference; 3.5g core and length=4.5diam provisional; no primary core mass/length found"
+      },
+      "lengthRatio": 4.5,
+      "classification": {
+        "type": "original",
+        "thresholdVelocity": "original (including original estimatedThreshold annotations)",
+        "behavior": "user design + shared tuning",
+        "lengthRatio": "shared type tuning",
+        "grade": "source traceability, not a validation score"
+      }
+    }
+  },
+  "ballistics": {
+    "762_308_fmj": {
+      "ammoId": "762_308_fmj",
+      "weaponId": "scar_h",
+      "projectileMassKg": 0.0095,
+      "projectileCount": 1,
+      "muzzleVelocityMps": 796.0697920338386,
+      "projectileMomentumNs": 7.562663024321466,
+      "muzzleEnergyJ": 3010.2037904967947,
+      "weaponMassKg": 3.63,
+      "kinetics": {
+        "hasKinetics": true,
+        "massG": 9.5,
+        "massKg": 0.0095,
+        "projectileCount": 1,
+        "massBasis": "single_projectile",
+        "impactVelocityMps": 796.0697920338386,
+        "initialVelocityMps": 796.0697920338386,
+        "velocityRatio": 1,
+        "impactEnergyJ": 3010.2,
+        "initialEnergyJ": 3010.2,
+        "energyRatio": 1,
+        "impactMomentumNs": 7.563,
+        "initialMomentumNs": 7.563,
+        "momentumRatio": 1,
+        "totalImpactEnergyJ": 3010.2,
+        "totalImpactMomentumNs": 7.563
+      }
+    },
+    "762_m80": {
+      "ammoId": "762_m80",
+      "weaponId": "scar_h",
+      "projectileMassKg": 0.0095,
+      "projectileCount": 1,
+      "muzzleVelocityMps": 802.4641225043774,
+      "projectileMomentumNs": 7.623409163791585,
+      "muzzleEnergyJ": 3058.756172556922,
+      "weaponMassKg": 3.63,
+      "kinetics": {
+        "hasKinetics": true,
+        "massG": 9.5,
+        "massKg": 0.0095,
+        "projectileCount": 1,
+        "massBasis": "single_projectile",
+        "impactVelocityMps": 802.4641225043774,
+        "initialVelocityMps": 802.4641225043774,
+        "velocityRatio": 1,
+        "impactEnergyJ": 3058.76,
+        "initialEnergyJ": 3058.76,
+        "energyRatio": 1,
+        "impactMomentumNs": 7.623,
+        "initialMomentumNs": 7.623,
+        "momentumRatio": 1,
+        "totalImpactEnergyJ": 3058.76,
+        "totalImpactMomentumNs": 7.623
+      }
+    },
+    "762_m80a1": {
+      "ammoId": "762_m80a1",
+      "weaponId": "scar_h",
+      "projectileMassKg": 0.008400000000000001,
+      "projectileCount": 1,
+      "muzzleVelocityMps": 796.0697920338386,
+      "projectileMomentumNs": 6.686986253084245,
+      "muzzleEnergyJ": 2661.653877912956,
+      "weaponMassKg": 3.63,
+      "kinetics": {
+        "hasKinetics": true,
+        "massG": 8.4,
+        "massKg": 0.008400000000000001,
+        "projectileCount": 1,
+        "massBasis": "single_projectile",
+        "impactVelocityMps": 796.0697920338386,
+        "initialVelocityMps": 796.0697920338386,
+        "velocityRatio": 1,
+        "impactEnergyJ": 2661.65,
+        "initialEnergyJ": 2661.65,
+        "energyRatio": 1,
+        "impactMomentumNs": 6.687,
+        "initialMomentumNs": 6.687,
+        "momentumRatio": 1,
+        "totalImpactEnergyJ": 2661.65,
+        "totalImpactMomentumNs": 6.687
+      }
+    },
+    "762_m61_ap": {
+      "ammoId": "762_m61_ap",
+      "weaponId": "scar_h",
+      "projectileMassKg": 0.009800000000000001,
+      "projectileCount": 1,
+      "muzzleVelocityMps": 792.6743096942324,
+      "projectileMomentumNs": 7.7682082350034785,
+      "muzzleEnergyJ": 3078.829550121217,
+      "weaponMassKg": 3.63,
+      "kinetics": {
+        "hasKinetics": true,
+        "massG": 9.8,
+        "massKg": 0.009800000000000001,
+        "projectileCount": 1,
+        "massBasis": "single_projectile",
+        "impactVelocityMps": 792.6743096942324,
+        "initialVelocityMps": 792.6743096942324,
+        "velocityRatio": 1,
+        "impactEnergyJ": 3078.83,
+        "initialEnergyJ": 3078.83,
+        "energyRatio": 1,
+        "impactMomentumNs": 7.768,
+        "initialMomentumNs": 7.768,
+        "momentumRatio": 1,
+        "totalImpactEnergyJ": 3078.83,
+        "totalImpactMomentumNs": 7.768
+      }
+    },
+    "762_m993_ap": {
+      "ammoId": "762_m993_ap",
+      "weaponId": "scar_h",
+      "projectileMassKg": 0.008199999999999999,
+      "projectileCount": 1,
+      "muzzleVelocityMps": 872.7040236649968,
+      "projectileMomentumNs": 7.156172994052973,
+      "muzzleEnergyJ": 3122.6104829764085,
+      "weaponMassKg": 3.63,
+      "kinetics": {
+        "hasKinetics": true,
+        "massG": 8.2,
+        "massKg": 0.008199999999999999,
+        "projectileCount": 1,
+        "massBasis": "single_projectile",
+        "impactVelocityMps": 872.7040236649968,
+        "initialVelocityMps": 872.7040236649968,
+        "velocityRatio": 1,
+        "impactEnergyJ": 3122.61,
+        "initialEnergyJ": 3122.61,
+        "energyRatio": 1,
+        "impactMomentumNs": 7.156,
+        "initialMomentumNs": 7.156,
+        "momentumRatio": 1,
+        "totalImpactEnergyJ": 3122.61,
+        "totalImpactMomentumNs": 7.156
+      }
+    },
+    "762x51_m62_tracer": {
+      "ammoId": "762x51_m62_tracer",
+      "weaponId": "scar_h",
+      "projectileMassKg": 0.0092,
+      "projectileCount": 1,
+      "muzzleVelocityMps": 794.6501218039442,
+      "projectileMomentumNs": 7.310781120596286,
+      "muzzleEnergyJ": 2904.756553981907,
+      "weaponMassKg": 3.63,
+      "kinetics": {
+        "hasKinetics": true,
+        "massG": 9.2,
+        "massKg": 0.0092,
+        "projectileCount": 1,
+        "massBasis": "single_projectile",
+        "impactVelocityMps": 794.6501218039442,
+        "initialVelocityMps": 794.6501218039442,
+        "velocityRatio": 1,
+        "impactEnergyJ": 2904.76,
+        "initialEnergyJ": 2904.76,
+        "energyRatio": 1,
+        "impactMomentumNs": 7.311,
+        "initialMomentumNs": 7.311,
+        "momentumRatio": 1,
+        "totalImpactEnergyJ": 2904.76,
+        "totalImpactMomentumNs": 7.311
+      }
+    },
+    "762x51_m948_slap": {
+      "ammoId": "762x51_m948_slap",
+      "weaponId": "scar_h",
+      "projectileMassKg": 0.004019999999999999,
+      "projectileCount": 1,
+      "muzzleVelocityMps": 1133.228762777582,
+      "projectileMomentumNs": 4.555579626365879,
+      "muzzleEnergyJ": 2581.2569318606825,
+      "weaponMassKg": 3.63,
+      "kinetics": {
+        "hasKinetics": true,
+        "massG": 4.02,
+        "massKg": 0.004019999999999999,
+        "projectileCount": 1,
+        "massBasis": "single_projectile",
+        "impactVelocityMps": 1133.228762777582,
+        "initialVelocityMps": 1133.228762777582,
+        "velocityRatio": 1,
+        "impactEnergyJ": 2581.26,
+        "initialEnergyJ": 2581.26,
+        "energyRatio": 1,
+        "impactMomentumNs": 4.556,
+        "initialMomentumNs": 4.556,
+        "momentumRatio": 1,
+        "totalImpactEnergyJ": 2581.26,
+        "totalImpactMomentumNs": 4.556
+      }
+    }
+  },
+  "geometry": {
+    "markers": {
+      "muzzle": [
+        0,
+        0,
+        -0.5116
+      ],
+      "breech": [
+        0.019,
+        -0.016,
+        0.057
+      ],
+      "sight": [
+        0,
+        0.09364,
+        0.2004
+      ],
+      "frontSight": [
+        0,
+        0.088443,
+        -0.245
+      ],
+      "grip": [
+        0.018,
+        -0.065,
+        0.19
+      ]
+    },
+    "contacts": {
+      "stock": [
+        0,
+        0.005,
+        0.4574
+      ],
+      "rightGrip": [
+        0.018,
+        -0.065,
+        0.19
+      ],
+      "leftGrip": [
+        -0.027,
+        -0.045,
+        -0.075
+      ],
+      "railY": 0.052,
+      "magazine": [
+        0,
+        -0.093,
+        0.036
+      ]
+    },
+    "classification": "메시 측정 + 접점 선택 튜닝, manufacturer sight height not asserted",
+    "rearAperture": "Rear orthographic projected triangle union: bounded circular hole91.352..95.928mm, center93.640mm; lower87.95mm slot is not the aperture. Front post tip88.443mm. Rail52.015mm measured, mounting52.000mm tuning.",
+    "quantizationGridM": 5e-06,
+    "maximumPositionErrorM": 4.1335502549185995e-06,
+    "fullMagazineAlignment": {
+      "rotationZRad": -1.5707963267948966,
+      "classification": "메시 측정·정렬",
+      "proof": "Loaded round copper must point forward(-Z) from brass and remain at the upper feed end. Opposite90deg rotation aligns bounds but puts rounds at the bottom/back; rejected."
+    }
+  },
+  "handling": {
+    "draw": {
+      "clip": "Draw",
+      "duration": 2
+    },
+    "hide": {
+      "clip": "Draw",
+      "duration": 2,
+      "reverse": true
+    },
+    "reload": {
+      "clip": "Reload",
+      "duration": 2.7,
+      "removeAt": 0.47,
+      "insertAt": 1.43,
+      "insertStart": 0.47
+    },
+    "emptyReload": {
+      "clip": "Reload_full",
+      "duration": 4.566666984558106,
+      "removeAt": 1.0333333333,
+      "insertAt": 2.1666666667,
+      "feedAt": 3.7333333333,
+      "insertStart": 1.0333333333
+    }
+  },
+  "mass": {
+    "m4a1": {
+      "weaponKg": 3.5418,
+      "carriedKg": 39.745256719681244
+    },
+    "scar_h": {
+      "weaponKg": 4.449999999999999,
+      "carriedKg": 41.51795671968125
+    }
+  },
+  "zeroing": {
+    "iron": {
+      "weaponId": "scar_h",
+      "opticId": null,
+      "referenceAmmoId": "762_m80",
+      "distanceM": 300,
+      "offsetM": 0,
+      "classification": "source: FN SCAR16S/17S owner manual2016 printed17,25m/300m zero; 300m far zero used",
+      "thetaRad": 0.003086123429238796,
+      "thetaMrad": 3.0861234292387962,
+      "sightHeightMm": 85.32645939258967,
+      "muzzleVelocityMps": 802.4641225043774,
+      "residualMm": 2.1138677284288088e-06,
+      "iterations": 29,
+      "geometry": {
+        "rear": [
+          0,
+          0.09364,
+          0.2004
+        ],
+        "front": [
+          0,
+          0.088443,
+          -0.245
+        ],
+        "muzzleInLevelSightFrame": [
+          0,
+          -0.08532645939258966,
+          -0.7130440694147345
+        ]
+      },
+      "retentionPer100M": 0.95,
+      "bdc": [
+        {
+          "distanceM": 100,
+          "heightM": 0.14097327847169405,
+          "lateralM": 0,
+          "velocityMps": 728.7645737886891,
+          "energyJ": 2522.7145690446955,
+          "timeS": 0.12983985342029136,
+          "steps": 25,
+          "dropMOA": -4.846301117905463
+        },
+        {
+          "distanceM": 300,
+          "heightM": 2.1138677284288088e-09,
+          "lateralM": 0,
+          "velocityMps": 592.549697794799,
+          "energyJ": 1667.7969356943615,
+          "timeS": 0.43427325127677074,
+          "steps": 75,
+          "dropMOA": -2.4223139857575443e-08
+        },
+        {
+          "distanceM": 400,
+          "heightM": -0.46483795555869695,
+          "lateralM": 0,
+          "velocityMps": 529.9465221260272,
+          "energyJ": 1334.0057524889908,
+          "timeS": 0.6127198915125123,
+          "steps": 101,
+          "dropMOA": 3.99498615328874
+        },
+        {
+          "distanceM": 500,
+          "heightM": -1.2810178310533242,
+          "lateralM": 0,
+          "velocityMps": 470.4054055709899,
+          "energyJ": 1051.0859165544357,
+          "timeS": 0.8129945586900281,
+          "steps": 126,
+          "dropMOA": 8.80761055294634
+        },
+        {
+          "distanceM": 600,
+          "heightM": -2.543486170250348,
+          "lateralM": 0,
+          "velocityMps": 414.0025149684406,
+          "energyJ": 814.1408914009209,
+          "timeS": 1.0396071094120214,
+          "steps": 153,
+          "dropMOA": 14.573014986937517
+        },
+        {
+          "distanceM": 700,
+          "heightM": -4.382512551681707,
+          "lateralM": 0,
+          "velocityMps": 361.53869142038246,
+          "energyJ": 620.873570621322,
+          "timeS": 1.2981890728502767,
+          "steps": 184,
+          "dropMOA": 21.522530759060636
+        },
+        {
+          "distanceM": 800,
+          "heightM": -6.975739934972212,
+          "lateralM": 0,
+          "velocityMps": 322.6055855372007,
+          "energyJ": 494.35322814405055,
+          "timeS": 1.5932196751679706,
+          "steps": 219,
+          "dropMOA": 29.9752746088499
+        }
+      ]
+    },
+    "eotech_xps3_0": {
+      "weaponId": "scar_h",
+      "opticId": "eotech_xps3_0",
+      "referenceAmmoId": "762_m80",
+      "distanceM": 300,
+      "offsetM": 0,
+      "classification": "existing optic zero rule; SCAR M80 reference",
+      "thetaRad": 0.0030993571132421497,
+      "thetaMrad": 3.09935711324215,
+      "sightHeightMm": 88.8383783572455,
+      "muzzleVelocityMps": 802.4641225043774,
+      "residualMm": 6.323761676932165e-07,
+      "iterations": 28,
+      "geometry": {
+        "rear": [
+          0,
+          0.0888383783572455,
+          0.057
+        ],
+        "front": [
+          0,
+          0.0888383783572455,
+          0.042620000000000005
+        ],
+        "muzzleInLevelSightFrame": [
+          0,
+          -0.0888383783572455,
+          -0.5686000000000001
+        ]
+      },
+      "retentionPer100M": 0.95,
+      "bdc": [
+        {
+          "distanceM": 100,
+          "heightM": 0.13898613379376848,
+          "lateralM": 0,
+          "velocityMps": 728.6603858960422,
+          "energyJ": 2521.993300377303,
+          "timeS": 0.13003777340588488,
+          "steps": 25,
+          "dropMOA": -4.777988249765906
+        },
+        {
+          "distanceM": 300,
+          "heightM": 6.323761676932165e-10,
+          "lateralM": 0,
+          "velocityMps": 592.4569672704114,
+          "energyJ": 1667.2749758194534,
+          "timeS": 0.4345168187808615,
+          "steps": 76,
+          "dropMOA": -7.2464970946957015e-09
+        },
+        {
+          "distanceM": 400,
+          "heightM": -0.46397919682663935,
+          "lateralM": 0,
+          "velocityMps": 529.8581113621144,
+          "energyJ": 1333.5606863370772,
+          "timeS": 0.6129930794850443,
+          "steps": 101,
+          "dropMOA": 3.9876056755923743
+        },
+        {
+          "distanceM": 500,
+          "heightM": -1.2794048159984492,
+          "lateralM": 0,
+          "velocityMps": 470.32135363298397,
+          "energyJ": 1050.7103344950212,
+          "timeS": 0.8133022368092174,
+          "steps": 126,
+          "dropMOA": 8.796520351058849
+        },
+        {
+          "distanceM": 600,
+          "heightM": -2.5412743456716274,
+          "lateralM": 0,
+          "velocityMps": 413.92344662902735,
+          "energyJ": 813.8299434289529,
+          "timeS": 1.0399563867724866,
+          "steps": 153,
+          "dropMOA": 14.56034239313194
+        },
+        {
+          "distanceM": 700,
+          "heightM": -4.379926248388514,
+          "lateralM": 0,
+          "velocityMps": 361.4664653023005,
+          "energyJ": 620.6255263061612,
+          "timeS": 1.2985890054256488,
+          "steps": 184,
+          "dropMOA": 21.509829748327697
+        },
+        {
+          "distanceM": 800,
+          "heightM": -6.973051079567693,
+          "lateralM": 0,
+          "velocityMps": 322.5734217291944,
+          "energyJ": 494.2546589288833,
+          "timeS": 1.593667450422196,
+          "steps": 219,
+          "dropMOA": 29.963720981985144
+        }
+      ]
+    },
+    "trijicon_ta31": {
+      "weaponId": "scar_h",
+      "opticId": "trijicon_ta31",
+      "referenceAmmoId": "762_m80",
+      "distanceM": 100,
+      "offsetM": 0,
+      "classification": "existing optic zero rule; SCAR M80 reference",
+      "thetaRad": 0.0016748461872339246,
+      "thetaMrad": 1.6748461872339246,
+      "sightHeightMm": 86.1783783572455,
+      "muzzleVelocityMps": 802.4641225043774,
+      "residualMm": 9.481566982558979e-07,
+      "iterations": 28,
+      "geometry": {
+        "rear": [
+          0,
+          0.08617837835724551,
+          0.192
+        ],
+        "front": [
+          0,
+          0.08617837835724551,
+          0.06648000000000001
+        ],
+        "muzzleInLevelSightFrame": [
+          0,
+          -0.08617837835724551,
+          -0.7036
+        ]
+      },
+      "retentionPer100M": 0.95,
+      "bdc": [
+        {
+          "distanceM": 100,
+          "heightM": 9.481566982558979e-10,
+          "lateralM": 0,
+          "velocityMps": 728.7596719076803,
+          "energyJ": 2522.6806321452013,
+          "timeS": 0.12985233886512104,
+          "steps": 25,
+          "dropMOA": -3.259522627627323e-08
+        },
+        {
+          "distanceM": 300,
+          "heightM": -0.4232677036094574,
+          "lateralM": 0,
+          "velocityMps": 592.5490753102441,
+          "energyJ": 1667.7934315923703,
+          "timeS": 0.4342875648923517,
+          "steps": 75,
+          "dropMOA": 4.850287385849757
+        },
+        {
+          "distanceM": 400,
+          "heightM": -1.0292592386446684,
+          "lateralM": 0,
+          "velocityMps": 529.9478544775042,
+          "energyJ": 1334.012460210222,
+          "timeS": 0.6127355094039433,
+          "steps": 101,
+          "dropMOA": 8.845812036936792
+        },
+        {
+          "distanceM": 500,
+          "heightM": -1.9865967465008731,
+          "lateralM": 0,
+          "velocityMps": 470.4086509563764,
+          "energyJ": 1051.1004197493403,
+          "timeS": 0.8130117538056342,
+          "steps": 126,
+          "dropMOA": 13.658761226957967
+        },
+        {
+          "distanceM": 600,
+          "heightM": -3.390229977748231,
+          "lateralM": 0,
+          "velocityMps": 414.00759096697584,
+          "energyJ": 814.1608555468242,
+          "timeS": 1.039626394361457,
+          "steps": 153,
+          "dropMOA": 19.424380212493077
+        },
+        {
+          "distanceM": 700,
+          "heightM": -5.370433619722708,
+          "lateralM": 0,
+          "velocityMps": 361.54539716924694,
+          "energyJ": 620.8966025177754,
+          "timeS": 1.2982113600929954,
+          "steps": 184,
+          "dropMOA": 26.374040880784822
+        },
+        {
+          "distanceM": 800,
+          "heightM": -8.104859210738958,
+          "lateralM": 0,
+          "velocityMps": 322.61025904374833,
+          "energyJ": 494.3675513913034,
+          "timeS": 1.5932476911071158,
+          "steps": 219,
+          "dropMOA": 34.826875478889825
+        }
+      ]
+    },
+    "vudu_1_6x24": {
+      "weaponId": "scar_h",
+      "opticId": "vudu_1_6x24",
+      "referenceAmmoId": "762_m80",
+      "distanceM": 91.44,
+      "offsetM": 0,
+      "classification": "existing optic zero rule; SCAR M80 reference",
+      "thetaRad": 0.0016910943388938901,
+      "thetaMrad": 1.6910943388938902,
+      "sightHeightMm": 86.91048691614422,
+      "muzzleVelocityMps": 802.4641225043774,
+      "residualMm": 6.652493522523416e-06,
+      "iterations": 26,
+      "geometry": {
+        "rear": [
+          0,
+          0.08691048691614423,
+          0.145
+        ],
+        "front": [
+          0,
+          0.08691048691614423,
+          -0.10394691887253504
+        ],
+        "muzzleInLevelSightFrame": [
+          0,
+          -0.08691048691614423,
+          -0.6566000000000001
+        ]
+      },
+      "retentionPer100M": 0.95,
+      "bdc": [
+        {
+          "distanceM": 100,
+          "heightM": 0.0008836900957953958,
+          "lateralM": 0,
+          "velocityMps": 728.7257543700316,
+          "energyJ": 2522.445819140315,
+          "timeS": 0.12991674081872479,
+          "steps": 25,
+          "dropMOA": -0.030379027731161783
+        },
+        {
+          "distanceM": 300,
+          "heightM": -0.4193476450577836,
+          "lateralM": 0,
+          "velocityMps": 592.5188922850774,
+          "energyJ": 1667.6235291449923,
+          "timeS": 0.4343667337244746,
+          "steps": 75,
+          "dropMOA": 4.805366912352615
+        },
+        {
+          "distanceM": 400,
+          "heightM": -1.0238669394180417,
+          "lateralM": 0,
+          "velocityMps": 529.9190291976884,
+          "energyJ": 1333.8673431526472,
+          "timeS": 0.6128244084825691,
+          "steps": 101,
+          "dropMOA": 8.799468944040289
+        },
+        {
+          "distanceM": 500,
+          "heightM": -1.9797648357305255,
+          "lateralM": 0,
+          "velocityMps": 470.3812308784154,
+          "energyJ": 1050.9778862227924,
+          "timeS": 0.8131118766394426,
+          "steps": 126,
+          "dropMOA": 13.61178920754554
+        },
+        {
+          "distanceM": 600,
+          "heightM": -3.3820090418655875,
+          "lateralM": 0,
+          "velocityMps": 413.9817799995685,
+          "energyJ": 814.0593423151529,
+          "timeS": 1.0397400528459262,
+          "steps": 153,
+          "dropMOA": 19.377279219662654
+        },
+        {
+          "distanceM": 700,
+          "heightM": -5.360896642327007,
+          "lateralM": 0,
+          "velocityMps": 361.52180220423014,
+          "energyJ": 620.8155639777237,
+          "timeS": 1.2983414969387286,
+          "steps": 184,
+          "dropMOA": 26.327206899348223
+        },
+        {
+          "distanceM": 800,
+          "heightM": -8.094094609284696,
+          "lateralM": 0,
+          "velocityMps": 322.5997357123618,
+          "energyJ": 494.3353000380069,
+          "timeS": 1.593393368754866,
+          "steps": 219,
+          "dropMOA": 34.78062275254506
+        }
+      ]
+    }
+  },
+  "bdc": {
+    "acog": [
+      {
+        "distanceM": 400,
+        "markMOA": 7.8,
+        "dropMOA": 8.845812036936792,
+        "errorMOA": 1.045812036936792,
+        "dropCm": 102.92592386446684
+      },
+      {
+        "distanceM": 500,
+        "markMOA": 12.6,
+        "dropMOA": 13.658761226957967,
+        "errorMOA": 1.0587612269579676,
+        "dropCm": 198.6596746500873
+      },
+      {
+        "distanceM": 600,
+        "markMOA": 18.7,
+        "dropMOA": 19.424380212493077,
+        "errorMOA": 0.7243802124930774,
+        "dropCm": 339.0229977748231
+      },
+      {
+        "distanceM": 700,
+        "markMOA": 26.4,
+        "dropMOA": 26.374040880784822,
+        "errorMOA": -0.025959119215176685,
+        "dropCm": 537.0433619722708
+      },
+      {
+        "distanceM": 800,
+        "markMOA": 35.8,
+        "dropMOA": 34.826875478889825,
+        "errorMOA": -0.9731245211101722,
+        "dropCm": 810.4859210738958
+      }
+    ],
+    "vudu": [
+      {
+        "yards": 400,
+        "distanceM": 365.76,
+        "markMrad": 2,
+        "dropMrad": 2.136248316630445,
+        "errorMrad": 0.13624831663044512
+      },
+      {
+        "yards": 500,
+        "distanceM": 457.2,
+        "markMrad": 3,
+        "dropMrad": 3.329508087867564,
+        "errorMrad": 0.329508087867564
+      },
+      {
+        "yards": 600,
+        "distanceM": 548.64,
+        "markMrad": 4.1,
+        "dropMrad": 4.73703013140381,
+        "errorMrad": 0.6370301314038107
+      }
+    ]
+  },
+  "animation": {
+    "sourceRig": "85joints, different names/axes/digit order from AK; common113-joint arm mesh unchanged",
+    "digitOrder": [
+      0,
+      2,
+      3,
+      1,
+      4
+    ],
+    "retarget": "Per-weapon palm calibration. SCAR authored bind fingers already have idle bend; map anatomical segment directions to target bind, then preserve animated rotation deltas. AK path unchanged. No native gun/camera recoil.",
+    "mechanicalShot": "Source0.4s retimed to0.1s; Slide/Trigger/right index tracks only. Last-round rear hold uses sourceSlideY0.0955686, empty reload releases by source10.833s.",
+    "reload": "tactical4.4..7.1=2.7s; empty7.1..11.666666985=4.566666985s, includes0.833s return omitted by approximate brief.",
+    "walkRun": "No source walk/run/inspect; existing M4 common locomotion/procedural gun path.",
+    "triggerPivotRetarget": "Replacement trigger top hinge is measured and rebased in the unanimated rest translation; original rotation keys unchanged. See model.json."
+  },
+  "sound": "Temporary M4 rate0.84,700Hz low shelf+5dB,2800Hz high shelf-6dB,physical source+3.5dB tuning; identical SND1 propagation and AI hearing. Energy ratio reference in ballistics report; no actual SCAR recording.",
+  "limitations": [
+    "M80A1/.308/M948 primary velocity+barrel conditions not verified; original reference speeds and borrowed barrel ratio explicitly tuning. .308130gr label conflicts with original9.5g; preserved.",
+    "TM pages specify78ft velocity, not barrel;22in is explicit borrowing.",
+    "M80A1 wound onset/cloud range scaled7.62/5.56; AP yaw/length tuning. M948 core5.66mm/3.5g/4.5diam provisional; no primary core dimensional specification located.",
+    "M948 G7.165 genericSLAP rejected; original drag retained. M80/M993 BC source is shape-calculated manufacturer comparison, not measured BC.",
+    "Magazine0.25kg provisional tuning; uploaded mesh generation unknown, currentMk2STD hardware data adopted.",
+    "Existing player firing has no independent randomMOA dispersion draw; no new draw/formula introduced. Recoil-induced group envelope reported without retuning.",
+    "Software Chromium touch viewport only, no physical phone FPS guarantee.",
+    "Material0 uses same shader program with zero influence; measured on/off timing includes software-render variance, not an isolated GPU speedup claim.",
+    "M62 예광제 연소로 인한 무게중심 변화의 정량 자료를 확인하지 못함; 이번에는 full_power만 사용하고 CG 변화 모형은 추가하지 않음."
+  ],
+  "sources": "docs/w1-sources.json",
+  "evidence": "downloads/checks-w1-v69",
+  "delivery": {
+    "game": "downloads/CQB-Training.zip",
+    "checks": "downloads/CQB-Training-checks-W1.zip",
+    "eachLimitBytes": 20000000
+  },
+  "changeClassification": [
+    {
+      "item": "무기·탄속·G7·7.62종류 데이터",
+      "classification": "출처 / 원본 / 튜닝 / 사용자 설계값",
+      "reversePortCandidate": true
+    },
+    {
+      "item": "임시 SCAR 총성 처리",
+      "classification": "튜닝 / 게임 허용",
+      "reversePortCandidate": true
+    },
+    {
+      "item": "공통 팔·저용량 메시·트리거 피벗·탄창 정렬",
+      "classification": "출처 메시 / 리타깃·연결점 튜닝 / 사용자 설계값",
+      "reversePortCandidate": false
+    },
+    {
+      "item": "절차 재질·정점AO/볼록 모서리",
+      "classification": "튜닝 / 사용자 설계값",
+      "reversePortCandidate": false
+    },
+    {
+      "item": "3D레일·광학 기하·고정 영점",
+      "classification": "출처 / 메시 측정 / 튜닝",
+      "reversePortCandidate": false
+    },
+    {
+      "item": "훈련 무기 선택·격자·공급",
+      "classification": "사용자 설계값 / 게임 허용",
+      "reversePortCandidate": false
+    }
+  ],
+  "legacyDragClasses": {
+    "762_308_fmj": "rifle_heavy",
+    "762_m80": "rifle_heavy",
+    "762_m80a1": "ap_streamlined",
+    "762_m61_ap": "ap_streamlined",
+    "762_m993_ap": "ap_streamlined",
+    "762x51_m62_tracer": "rifle_heavy",
+    "762x51_m948_slap": "rifle_heavy"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "sources": [
+    {
+      "title": "low-poly FN SCAR-H STD",
+      "author": "D_U",
+      "sourceUrl": "https://sketchfab.com/3d-models/low-poly-fn-scar-h-std-9b282cdeded349b5b0111ee1e7aba223",
+      "sha256": "c71f79bb1d2c9f408166d4437b296f5b6e9ac929cfc748bfec50ee0987f3b4f3"
+    },
+    {
+      "title": "SCAR-H first person fps animated",
+      "author": "Jainesh Pathak",
+      "sourceUrl": "https://sketchfab.com/3d-models/scar-h-first-person-fps-animated-404b16a45a224163850df34a20391739",
+      "sha256": "de7881fa7381f4e9d5c4efbd3140e06c2221c7a43db02a21805d0557e9c4cac3"
+    }
+  ],
+  "changes": "Weapon-only low-poly replacement normalized to969mm; original85-bone animation driver, split/end-preserving reduced keys,5um geometry grid, custom vertex AO/convex-edge bake, procedural no-image materials; palm/finger retarget to existing113-bone common arms; no original arms or textures. Originals preserved."
+}

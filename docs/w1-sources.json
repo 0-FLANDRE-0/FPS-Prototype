@@ -1,0 +1,107 @@
+{
+  "checkedUTC": "2026-10-24",
+  "sources": [
+    {
+      "id": "fn-std",
+      "classification": "출처",
+      "url": "https://fnherstal.com/app/uploads/technical-data-fn-scar-h-mk2-1.pdf",
+      "facts": {
+        "STD_barrel_m": 0.4064,
+        "length_extended_m": 0.969,
+        "mass_without_mag_kg": 3.63,
+        "RPM_range": [
+          550,
+          650
+        ],
+        "magazine": 20
+      },
+      "qualification": "Current Mk2 STD manufacturer data; uploaded mesh generation not established. Do not identify the mesh as Mk2."
+    },
+    {
+      "id": "fn-manual",
+      "classification": "출처",
+      "url": "https://s3.amazonaws.com/files.ammunitiondepot.com/fn-firearms/carbines-discontinued/fn-scar-16s-17s-owners-manual-2016.pdf",
+      "quote": "These mechanical settings will allow you to obtain a 25m/300m zero.",
+      "location": "printed17, mechanical zero",
+      "application": "M80 far zero300m, no claim simultaneous25m zero for every load"
+    },
+    {
+      "id": "tm43",
+      "classification": "출처",
+      "url": "https://www.bulletpicker.com/pdf/TM-43-0001-27.pdf",
+      "facts": {
+        "M61": "printed11-7,2750fps@78ft",
+        "M62": "printed11-9,2750fps@78ft",
+        "M80": "printed11-17,2750fps@78ft",
+        "M993": "Change2 printed11-33,2985fps@78ft"
+      },
+      "limitation": "These pages do not state test-barrel length.22in is borrowed convention, not a verified condition on these pages. Registry projectile masses preserved."
+    },
+    {
+      "id": "marr-barrel",
+      "classification": "출처 + 튜닝(외삽·타탄 차용)",
+      "url": "https://rifleshooter.com/2014/12/308-winchester-7-62x51mm-nato-barrel-length-versus-velocity-28-to-16-5/",
+      "facts": {
+        "Winchester147FMJ_fps": {
+          "22in": 2837,
+          "17in": 2707,
+          "16.5in": 2682
+        },
+        "shots_per_length": 5,
+        "temperature_F": 47
+      },
+      "derivation": "16in=2682-25=2657fps, extrapolated from17→16.5in; ratio2657/2837. Other7.62loads includingSLAP borrow this ratio as tuning."
+    },
+    {
+      "id": "bc",
+      "classification": "출처(계산 비교표), 실측 BC 아님",
+      "url": "https://www.cbjtech.com/wp-content/uploads/2021/03/CBJ-Subcaliber-Technology.pdf",
+      "location": "p3, calculated shape BC comparisons",
+      "usedG7": {
+        "M80": 0.2,
+        "M993": 0.176
+      },
+      "rejected": {
+        "generic_SLAP": 0.165,
+        "why": "Not verifiedM948; fallback original drag class used"
+      }
+    },
+    {
+      "id": "g7-table",
+      "classification": "공개 표준 항력표 / 표준 대기 상수",
+      "url": "https://github.com/o-murphy/py-ballisticcalc/blob/master/py_ballisticcalc/drag_tables.py",
+      "facts": "G7 Cd vsMach reference data. Linear interpolation; rho1.225kg/m3,sound340.294m/s,BC(lb/in2)×703.0695796391593=kg/m2; deceleration=rho*pi*Cd*v²/(8*BC_SI). ExistingRK4/gravity/chords unchanged."
+    },
+    {
+      "id": "construction",
+      "classification": "출처(제조사 카탈로그·2차 확인)",
+      "url": "https://blog.scopelist.com/wp-content/uploads/FN/FNAmerica_Catalog.pdf",
+      "facts": "Hard-anodized monolithic aluminum receiver; polymer stock; folding front/rear iron sights. Material assignment follows original material/color groups; actual wear amounts are tuning."
+    },
+    {
+      "id": "construction-secondary",
+      "classification": "출처(2차)",
+      "url": "https://www.americanrifleman.org/content/fn-scar-17s/",
+      "facts": "Aluminum upper,polymer lower. Steel-class parts retain original material/roughness; wear proxy is tuning."
+    },
+    {
+      "id": "s1-m80",
+      "classification": "기존 출처 그림 판독 + 원본 적합",
+      "url": "https://archive.org/download/EmergencyWarSurgery_201902/Emergency-War-Surgery.pdf",
+      "existingLedger": "docs/medical-s1-sources.json",
+      "facts": "M80 no fragment donor: yaw0 through.16m,pi/2 at.502m,pi at.673m. These are existing fitted knots, not raw.34/.43m seed. Literal gelatin reference JSON preserved."
+    },
+    {
+      "id": "slap-unknown",
+      "classification": "2차 참고 / 핵심 제원 미확인",
+      "url": "https://forum.cartridgecollectors.org/t/7-62mm-nato-slap-tracer-questions/7398?page=2",
+      "facts": "Reported62gr can include sabot, so it is not reliable core mass. No primary core diameter/length/mass verified. Core5.66mm,3.5g,length=4.5diam are explicitly provisional tuning."
+    },
+    {
+      "id": "m80a1-unknown",
+      "classification": "공식 자료 확인, 정량 상처/탄속 조건 미확인",
+      "url": "https://www.dote.osd.mil/Portals/97/pub/reports/FY2014/army/2014m80a1.pdf",
+      "facts": "No quantitative yaw/fragment-depth or verified velocity/test-barrel pair adopted; original850m/s and same-class barrel ratio tuning, donor onset/range scaled7.62/5.56."
+    }
+  ]
+}

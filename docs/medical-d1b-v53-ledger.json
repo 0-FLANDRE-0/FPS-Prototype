@@ -1,0 +1,701 @@
+{
+  "version": "medical-feedback-d1b-v53",
+  "sourceCommit": "adeb0b617a0d95f4c16ac8830dc63612eff8d8f4",
+  "baseline": "eca57299c7c798b8c3bc86aa7b62ba0f5efec74d",
+  "items": [
+    {
+      "item": "곡선 눈꺼풀",
+      "classification": [
+        "사용자 설계값",
+        "튜닝"
+      ],
+      "values": {
+        "classification": "정성 근거: Lempert/Caffier/Prkachin; 모든 시간·속도 문턱·형상: 튜닝",
+        "declineSmoothingS": 5,
+        "rapidDeclinePointsPerS": 4,
+        "drowsyConfirmationS": 4.2,
+        "drowsyConsciousness": [
+          80,
+          22
+        ],
+        "painSquintRange": [
+          30,
+          95
+        ],
+        "painSquintMaximum": 0.65,
+        "painRiseThresholdPerS": 10,
+        "painReflexPainPower": 0.7,
+        "painReflexRateScale": 180,
+        "painReflexRefractoryS": 0.35,
+        "painReflexS": [
+          0.035,
+          0.045,
+          0.12
+        ],
+        "shapeReferenceAspect": 1.7777777777777777,
+        "boundaryFeather": 0.13
+      },
+      "sources": [
+        "lempert-1994",
+        "caffier-2003",
+        "prkachin-1992"
+      ],
+      "2D 역이식 후보": "곡선 마스크·의식 하강 추정·통증 찡그림 FSM. 2D 렌더러에 별도 연결.",
+      "notes": "의식 5s 평활·4 points/s 급성 문턱·4.2s 느린 하강 확인. 선택 단발 사례에 대한 튜닝이며 임상 분류기가 아니다. 급성일 때 졸음형만 억제하고, 의식이 남아 있는 통증 찡그림은 별도로 허용한다."
+    },
+    {
+      "item": "혈액량과 관류의 최댓값 시야",
+      "classification": [
+        "출처",
+        "원본",
+        "사용자 설계값",
+        "튜닝"
+      ],
+      "values": {
+        "classification": "ρgh 원리/IOP 관찰값: 출처; 시야 문턱/기본 자세 높이: 튜닝",
+        "bloodDensityKgM3": 1060,
+        "gravityMps2": 9.81,
+        "paPerMmHg": 133.322387415,
+        "intraocularPressureMmHg": 14.1,
+        "standingEyeAboveHeartM": 0.35,
+        "crouchedEyeAboveHeartM": 0.28,
+        "tunnelRetinalPressureMmHg": [
+          48,
+          20
+        ],
+        "blackoutRetinalPressureMmHg": [
+          28,
+          10
+        ],
+        "tunnelDelivery": [
+          0.75,
+          0.35
+        ],
+        "blackoutDelivery": [
+          0.48,
+          0.2
+        ]
+      },
+      "sources": [
+        "retina-eye-pressure"
+      ],
+      "2D 역이식 후보": "MAP/관류/산소의 읽기·max 합성. 눈–심장 높이는 2D 자세 어댑터가 필요.",
+      "notes": "흑백화/주변 어둠 및 부족률 터널30–44.5%/암전38–44.5%는 v52 보존. ρgh와 눈 높이 MAP/안압 원리를 사용한다. 대표 IOP14.1 선택과 모든 시각 문턱은 튜닝. 실제 3D fitted heart center와 눈 높이 차이를 매 틱 읽고, 래그돌에서도 signed 높이를 사용한다."
+    },
+    {
+      "item": "결정론 파형과 조준 유지",
+      "classification": [
+        "출처",
+        "원본",
+        "튜닝"
+      ],
+      "values": {
+        "waves": {
+          "classification": "튜닝; 생리적 떨림 8–12Hz 대역만 문헌 근거",
+          "tremorBandHz": [
+            8,
+            12
+          ],
+          "tremorComponents": 48,
+          "tremorYawRmsAtAdrenaline1Rad": 0.00045,
+          "tremorPitchRatio": 0.7,
+          "panicTremorRad": 0.0003,
+          "amplitudeModulation": 0.18,
+          "breathInhaleFraction": 0.38,
+          "breathPeriodJitter": 0.08,
+          "heartbeatIntervalJitter": 0.035,
+          "screenRmsAtAdrenaline1CssPx": 0.65
+        },
+        "hold": {
+          "frequencyRadS": 9,
+          "dampingRatio": 0.82,
+          "minimumStrength": 0.28,
+          "lapsePeriodS": 3.8,
+          "maxAlignmentLoss": 0.42,
+          "alignmentResponse": 5,
+          "maxErrorRad": 0.012,
+          "fractalGain": 0.96,
+          "adrenalineImpairment": 0.075
+        }
+      },
+      "sources": [
+        "tremor"
+      ],
+      "2D 역이식 후보": "연속 아드레날린 떨림·3옥타브·비대칭 숨/심박 펄스·서보 교란. 2D aimMul은 그대로 유지할 수 있다.",
+      "notes": "48개 비정수 주파수/고정 위상 합성으로 8–12Hz 대역 잡음을 근사하고 느린 진폭 변조를 건다. 단일 사인파가 아니다. yaw RMS 기준0.45mrad@A1, pitch×.7; 통합 조준선 RMS는 아래 실측표. 조준 서보 밖에서 더한다. 기존 가림/통증/성능/AI 식은 보존. 플레이어의 직접 adrenaline 채널·유지 교란은 연속값이며, legacy .7 문턱은 AI/performance 값으로 남긴다."
+    },
+    {
+      "item": "아드레날린 화면",
+      "classification": [
+        "사용자 설계값",
+        "튜닝"
+      ],
+      "values": {
+        "sharpenRange": [
+          0.15,
+          0.85
+        ],
+        "gain": 1.65,
+        "darkOvershootLinearRatio": 0.22,
+        "localContrast": 0.08,
+        "screenRmsPerAxisCssPxAtA1": 0.65,
+        "extraSharpenSamples": 4
+      },
+      "sources": [
+        "artwohl-2002"
+      ],
+      "2D 역이식 후보": "포스트 효과와 화면 강도 연결. 3D PiP와 무관하게 이식 가능.",
+      "notes": "Artwohl 원문/명료도 비율 미확보. 따라서 확률이나 인과의 실측 주장 없이 사용자 요청 효과로 구현한다. 기존 렌즈 한 패스에서 중심 샤프닝/밝은 테두리/작은 화면 이동을 합성하고 PiP도 포함한다. 효과0이면 추가 탭을 분기로 생략한다. CSS px로 해상도에 독립인 이동량을 사용한다."
+    },
+    {
+      "item": "보존 범위",
+      "classification": [
+        "원본"
+      ],
+      "values": {
+        "sources": 185,
+        "assetFiles": 35,
+        "embeddedBlocks": 8,
+        "unchangedAIHearingHandlingSamples": 95343
+      },
+      "2D 역이식 후보": "없음: 원본 2D 및 임상·탄도·관통·방호·HP·쓰러짐 판정은 이번 작업에서 변경하지 않음.",
+      "notes": "AI는 별도의 v52 혈액량-only 시야 환산을 사용한다. 플레이어 관류 시야를 적 탐지 배율로 넘기지 않는다. 소리/청력/이명/손가락/래그돌 물리 소스와 자산을 보존한다."
+    }
+  ],
+  "measurements": {
+    "version": "medical-feedback-d1b-v53",
+    "baseline": "eca57299c7c798b8c3bc86aa7b62ba0f5efec74d",
+    "sourceCommit": "adeb0b617a0d95f4c16ac8830dc63612eff8d8f4",
+    "passed": true,
+    "sourceRequirementsComplete": false,
+    "unverifiedSourceRequirements": [
+      "Artwohl original visual-clarity percentage",
+      "Caffier full-text measured durations",
+      "universal aviation eye-level pressure thresholds"
+    ],
+    "clinical": [
+      {
+        "name": "heart",
+        "classification": "acute",
+        "peakDeclinePointsPerS": 8.309590125000474,
+        "firstDrowsyS": null,
+        "rapidAtS": 3.7333333333333334,
+        "lastFullDrowsyClosureS": null,
+        "blackoutS": 0.016666666666666666,
+        "unconsciousS": 8.65,
+        "blackoutLeadS": 8.633333333333333,
+        "directStructures": "heart"
+      },
+      {
+        "name": "brainstem",
+        "classification": "acute",
+        "peakDeclinePointsPerS": 19.966703672860355,
+        "firstDrowsyS": null,
+        "rapidAtS": 0,
+        "lastFullDrowsyClosureS": null,
+        "blackoutS": 0,
+        "unconsciousS": 0,
+        "blackoutLeadS": 0,
+        "directStructures": "brainstem"
+      },
+      {
+        "name": "thoracic-aorta",
+        "classification": "acute",
+        "peakDeclinePointsPerS": 4.048200723058605,
+        "firstDrowsyS": null,
+        "rapidAtS": 10.133333333333333,
+        "lastFullDrowsyClosureS": null,
+        "blackoutS": 0.26666666666666666,
+        "unconsciousS": 27.616666666666667,
+        "blackoutLeadS": 27.35,
+        "directStructures": "thoracic-aorta"
+      },
+      {
+        "name": "femoral-complete",
+        "classification": "slow",
+        "peakDeclinePointsPerS": 3.85243954394982,
+        "firstDrowsyS": 19.666666666666668,
+        "rapidAtS": null,
+        "lastFullDrowsyClosureS": 81.9,
+        "blackoutS": 76.38333333333334,
+        "unconsciousS": 81.9,
+        "blackoutLeadS": 5.516666666666666,
+        "directStructures": "left-femoral"
+      },
+      {
+        "name": "liver-central",
+        "classification": "slow",
+        "peakDeclinePointsPerS": 1.5354978063954012,
+        "firstDrowsyS": 92.03333333333333,
+        "rapidAtS": null,
+        "lastFullDrowsyClosureS": 535.7833333333333,
+        "blackoutS": 503.8833333333333,
+        "unconsciousS": 535.7833333333333,
+        "blackoutLeadS": 31.899999999999977,
+        "directStructures": "liver"
+      },
+      {
+        "name": "lung-only",
+        "classification": "slow",
+        "peakDeclinePointsPerS": 1.361127028383878,
+        "firstDrowsyS": 21.8,
+        "rapidAtS": null,
+        "lastFullDrowsyClosureS": null,
+        "blackoutS": null,
+        "unconsciousS": null,
+        "blackoutLeadS": null,
+        "directStructures": "left-lung"
+      }
+    ],
+    "blackoutDrivers": [
+      {
+        "case": "heart",
+        "time": 0.016666666666666666,
+        "consciousness": 99.98804875183158,
+        "bloodLoss": 1.0783451032003732e-05,
+        "map": 0.9417778278031919,
+        "perfusion": 0.010146627580251168,
+        "oxygen": 0.008078654853371052,
+        "decline": 0.002386270306995657,
+        "rapid": false,
+        "drowsyEnabled": false,
+        "stage": 0,
+        "closure": 0,
+        "painClosure": 0.1360254654971599,
+        "volumeTunnel": 0,
+        "perfusionTunnel": 1,
+        "tunnel": 1,
+        "tunnelDriver": "perfusion",
+        "volumeBlackout": 0,
+        "perfusionBlackout": 1,
+        "blackout": 1,
+        "blackoutDriver": "perfusion",
+        "eyeMAP": -26.35678823125705,
+        "hydrostaticMmHg": 27.298566059060242,
+        "lyingEyeMAP": 0.9417778278031919,
+        "lyingBlackout": 1,
+        "isUnconscious": false
+      },
+      {
+        "case": "brainstem",
+        "time": 0,
+        "consciousness": 0,
+        "bloodLoss": 0,
+        "map": 0,
+        "perfusion": 0,
+        "oxygen": 0,
+        "decline": 19.966703672860355,
+        "rapid": true,
+        "drowsyEnabled": false,
+        "stage": 0,
+        "closure": 0,
+        "painClosure": 0,
+        "volumeTunnel": 0,
+        "perfusionTunnel": 1,
+        "tunnel": 1,
+        "tunnelDriver": "perfusion",
+        "volumeBlackout": 0,
+        "perfusionBlackout": 1,
+        "blackout": 1,
+        "blackoutDriver": "perfusion",
+        "eyeMAP": -27.298566059060242,
+        "hydrostaticMmHg": 27.298566059060242,
+        "lyingEyeMAP": 0,
+        "lyingBlackout": 1,
+        "isUnconscious": true
+      },
+      {
+        "case": "thoracic-aorta",
+        "time": 0.26666666666666666,
+        "consciousness": 99.92340540533245,
+        "bloodLoss": 0.0027342975192244934,
+        "map": 52.41114067503243,
+        "perfusion": 0.5244533944978209,
+        "oxygen": 0.4483027623756674,
+        "decline": 0.014978664587437655,
+        "rapid": false,
+        "drowsyEnabled": false,
+        "stage": 0,
+        "closure": 0,
+        "painClosure": 0,
+        "volumeTunnel": 0,
+        "perfusionTunnel": 1,
+        "tunnel": 1,
+        "tunnelDriver": "perfusion",
+        "volumeBlackout": 0,
+        "perfusionBlackout": 0.9908624491325531,
+        "blackout": 0.9908624491325531,
+        "blackoutDriver": "perfusion",
+        "eyeMAP": 25.112574615972186,
+        "hydrostaticMmHg": 27.298566059060242,
+        "lyingEyeMAP": 52.41114067503243,
+        "lyingBlackout": 0.03554423839203927,
+        "isUnconscious": false
+      },
+      {
+        "case": "femoral-complete",
+        "time": 76.38333333333334,
+        "consciousness": 26.42045532706166,
+        "bloodLoss": 0.44119259599339744,
+        "map": 64.80483397629662,
+        "perfusion": 0.4054299761684569,
+        "oxygen": 0.4648869785516112,
+        "decline": 0.07202147657784702,
+        "rapid": false,
+        "drowsyEnabled": true,
+        "stage": 4,
+        "closure": 0.6582377611616294,
+        "painClosure": 0,
+        "volumeTunnel": 0.9979677675153863,
+        "perfusionTunnel": 0.9592028065901498,
+        "tunnel": 0.9979677675153863,
+        "tunnelDriver": "blood-volume",
+        "volumeBlackout": 0.9901087057124186,
+        "perfusionBlackout": 0.17500259477289254,
+        "blackout": 0.9901087057124186,
+        "blackoutDriver": "blood-volume",
+        "eyeMAP": 37.50626791723638,
+        "hydrostaticMmHg": 27.298566059060242,
+        "lyingEyeMAP": 64.80483397629662,
+        "lyingBlackout": 0.9901087057124186,
+        "isUnconscious": false
+      },
+      {
+        "case": "liver-central",
+        "time": 503.8833333333333,
+        "consciousness": 27.147750999509242,
+        "bloodLoss": 0.4411747228580821,
+        "map": 65.57815024810262,
+        "perfusion": 0.4101749498648574,
+        "oxygen": 0.4691574548783717,
+        "decline": 0.016129144108973634,
+        "rapid": false,
+        "drowsyEnabled": true,
+        "stage": 4,
+        "closure": 0.5878780399935412,
+        "painClosure": 0,
+        "volumeTunnel": 0.9979488144472151,
+        "perfusionTunnel": 0.9398066719026644,
+        "tunnel": 0.9979488144472151,
+        "tunnelDriver": "blood-volume",
+        "volumeBlackout": 0.9900175267915744,
+        "perfusionBlackout": 0.1555476625255241,
+        "blackout": 0.9900175267915744,
+        "blackoutDriver": "blood-volume",
+        "eyeMAP": 38.279584189042374,
+        "hydrostaticMmHg": 27.298566059060242,
+        "lyingEyeMAP": 65.57815024810262,
+        "lyingBlackout": 0.9900175267915744,
+        "isUnconscious": false
+      }
+    ],
+    "adrenalineRMS": [
+      {
+        "version": "v52",
+        "adrenaline": 0,
+        "rmsMrad": 0.0,
+        "peakHz": 0.0,
+        "bandFraction": 0.0,
+        "largestBandBinFraction": 0.0
+      },
+      {
+        "version": "v53",
+        "adrenaline": 0,
+        "rmsMrad": 0.0,
+        "peakHz": 0.0,
+        "bandFraction": 0.0,
+        "largestBandBinFraction": 0.0
+      },
+      {
+        "version": "v52",
+        "adrenaline": 0.3,
+        "rmsMrad": 0.0,
+        "peakHz": 0.0,
+        "bandFraction": 0.0,
+        "largestBandBinFraction": 0.0
+      },
+      {
+        "version": "v53",
+        "adrenaline": 0.3,
+        "rmsMrad": 0.16481532674595217,
+        "peakHz": 11.42578125,
+        "bandFraction": 0.9897759847988197,
+        "largestBandBinFraction": 0.027922112721989602
+      },
+      {
+        "version": "v52",
+        "adrenaline": 0.5,
+        "rmsMrad": 0.0,
+        "peakHz": 0.0,
+        "bandFraction": 0.0,
+        "largestBandBinFraction": 0.0
+      },
+      {
+        "version": "v53",
+        "adrenaline": 0.5,
+        "rmsMrad": 0.2746922112432536,
+        "peakHz": 11.42578125,
+        "bandFraction": 0.9897759847988195,
+        "largestBandBinFraction": 0.027922112721989606
+      },
+      {
+        "version": "v52",
+        "adrenaline": 0.8,
+        "rmsMrad": 0.07860940905155275,
+        "peakHz": 10.01953125,
+        "bandFraction": 0.9999999989275136,
+        "largestBandBinFraction": 0.3871516334071459
+      },
+      {
+        "version": "v53",
+        "adrenaline": 0.8,
+        "rmsMrad": 0.43950753798920583,
+        "peakHz": 11.42578125,
+        "bandFraction": 0.9897759847988191,
+        "largestBandBinFraction": 0.02792211272198961
+      },
+      {
+        "version": "v52",
+        "adrenaline": 1,
+        "rmsMrad": 0.18822471882691444,
+        "peakHz": 10.01953125,
+        "bandFraction": 0.9732849550400992,
+        "largestBandBinFraction": 0.38715163391609386
+      },
+      {
+        "version": "v53",
+        "adrenaline": 1,
+        "rmsMrad": 0.5493844224865072,
+        "peakHz": 11.42578125,
+        "bandFraction": 0.9897759847988195,
+        "largestBandBinFraction": 0.027922112721989606
+      }
+    ],
+    "arms": [
+      {
+        "injury": "arm-single",
+        "rmsRatio": 1.1374176678493988,
+        "v52RMSMrad": 0.390689407235628,
+        "v52ACF0.25s": 0.9579478224825971,
+        "v52ACF0.5s": 0.8403146247878188,
+        "v52ACF1.0s": 0.47435216381970297,
+        "v53RMSMrad": 0.4443770344314121,
+        "v53ACF0.25s": 0.9287388977707763,
+        "v53ACF0.5s": 0.7572315239057402,
+        "v53ACF1.0s": 0.38323542784351894
+      },
+      {
+        "injury": "arm-severe",
+        "rmsRatio": 0.9760523306234288,
+        "v52RMSMrad": 5.57001559079134,
+        "v52ACF0.25s": 0.9415494397986518,
+        "v52ACF0.5s": 0.7804403183235975,
+        "v52ACF1.0s": 0.2921863055134698,
+        "v53RMSMrad": 5.436626699000722,
+        "v53ACF0.25s": 0.929539578785201,
+        "v53ACF0.5s": 0.7516363117171837,
+        "v53ACF1.0s": 0.3022958098476967
+      }
+    ],
+    "performance": [
+      {
+        "viewportWidth": 1280,
+        "viewportHeight": 720,
+        "strength": 0,
+        "samples": 24,
+        "medianMs": 806.6500000022352,
+        "p95Ms": 860.2900000009686,
+        "maximumMs": 963.9000000022352
+      },
+      {
+        "viewportWidth": 1280,
+        "viewportHeight": 720,
+        "strength": 100,
+        "samples": 24,
+        "medianMs": 822.3499999977648,
+        "p95Ms": 884.3349999997764,
+        "maximumMs": 909.4000000022352
+      },
+      {
+        "viewportWidth": 844,
+        "viewportHeight": 390,
+        "strength": 0,
+        "samples": 24,
+        "medianMs": 284.2999999988824,
+        "p95Ms": 307.3099999997765,
+        "maximumMs": 314
+      },
+      {
+        "viewportWidth": 844,
+        "viewportHeight": 390,
+        "strength": 100,
+        "samples": 24,
+        "medianMs": 304.8999999985099,
+        "p95Ms": 550.3200000001116,
+        "maximumMs": 578.3999999985099
+      }
+    ],
+    "unchangedAIHearingHandlingSamples": 95343,
+    "protectedSourceCount": 185,
+    "allAssetFilesExact": 35,
+    "allEmbeddedBlocksExact": 8,
+    "sharpenEdge": {
+      "passed": true,
+      "rows": [
+        {
+          "sharpness": 0,
+          "line": [
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192
+          ]
+        },
+        {
+          "sharpness": 0.5,
+          "line": [
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            136,
+            134,
+            199,
+            196,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192
+          ]
+        },
+        {
+          "sharpness": 1,
+          "line": [
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            139,
+            133,
+            129,
+            204,
+            200,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192,
+            192
+          ]
+        }
+      ],
+      "maximumBrightOvershoot8Bit": 12,
+      "maximumDarkOvershoot8Bit": 10,
+      "method": "Production createLens with a controlled two-gray edge, zero jitter, identity warp on both paths; readPixels at the central scanline. Isolates sharpening from exposure/scene/micro motion."
+    },
+    "limitations": [
+      "Lempert와 Prkachin은 원저 PubMed 초록을 확인했다. Lempert 출판사 본문은403이다. Caffier 출판사 원저 초록은 확인했으나 본문 실측 ms값은 구독 미리보기라 확보하지 못했다. 모든 게임 시간은 튜닝이다.",
+      "Artwohl(2002) FBI 원문은 공식 경로들에서403으로 미확보했다. 명료도 보고 비율을 지어내거나 다른 연구의 비율로 대체하지 않았다. 아드레날린 샤프닝은 사용자 요청/튜닝이다.",
+      "망막 관류 논문은 원문을 확인했다. 고G에서 눈 높이 MAP가 IOP보다 낮으면 망막 관류가 멈춘다는 원리와 IOP14.1±1.6mmHg 관찰값을 사용한다. 외상·출혈의 보편적 눈 높이 회색시야/암전 mmHg 문턱은 확보하지 못해 튜닝으로 둔다.",
+      "의식 하강 분류는 선택된7N6 단발 고정 경로에 맞춘 게임 튜닝이다. 통증·쇼크·뼈·후속 생리 반응을 제거하지 않은 실제 traceShot 결과다. 전체 인구나 다른 부상 경로에서의 임상적 민감도/특이도를 검증한 것이 아니다.",
+      "뇌간 피격은 기존 엔진이 같은 순간 의식/순환을 정지시킨다. 미래 피격을 예상하지 않으므로 암전이 의식 소실보다 먼저 올 수 없다(선행0s). 이 사실을 바꾸기 위해 의료 판정을 지연하지 않았다.",
+      "대동맥 사례는 흉강 출혈을 함께 만든다. 관류 시야 표의 혈흉 사례로 사용한다. 약한 폐 단독 사례는900s 내 의식 소실/블랙아웃이 없어 선행 시간을 계산하지 않는다. 암전 시각은 최초 >=.99이며, 일시 회복 여부는 전체 시간축에 보존한다.",
+      "눈–심장 높이는 현재 fitted organ center와 실제 눈 좌표의 y차다. 카메라의 절대 월드 높이를 빼지 않는다. 한 틱 전 자세를 읽어 다음 물리/스키닝 단계로 넘어가는60Hz 지연이 있다.",
+      "주파수/진폭/각도/마스크 형상/서보·호흡·심박·화면 효과는 게임 연출이다. 스펙트럼의 최대 bin 비율은 Welch2048/120Hz 기준이며, 유한48성분 합성의 수학적 백색 잡음과 구별한다.",
+      "전체 RMS에는 새 잔떨림과 기존 부상 저주파가 같이 들어간다. 팔1발 약+14%, 심한 팔 부상 약−2%로 선택 QA 범위±20% 안이다. 저주파 자기상관은.25/.5/1s를 모두 기록하며 모든 지연에서 감소했다고 주장하지 않는다.",
+      "프레임 시간은 Chromium/SwiftShader에서 동일6x PiP 장면을 렌더하고 gl.finish+1px readPixels로 완료를 강제한24샘플/조건이다. 실제 기기 FPS나60Hz 달성을 뜻하지 않으며 소프트웨어 렌더의 큰 절대값/p95도 그대로 공개한다.",
+      "임상 시간축 CSV는0.1s 표본/소수6자리이며, 이벤트 최초 시각은 원래60Hz 자료에서 검출한다. 원시JSON.gz에는 전체60Hz/원래 부동소수점 정밀도를 보존하며 RMS/스펙트럼/극값을 반올림 CSV에서 다시 계산하지 않는다.",
+      "원시JSON.gz/개별PNG는 저장소에 보존하고 실행 ZIP에는 요약표/CSV/SVG와 선택 비교 시트를 넣는다. 실제 Android/iOS 기기 청감·조작감·GPU 성능은 미검증이다."
+    ]
+  },
+  "sources": "docs/medical-d1b-sources.json"
+}

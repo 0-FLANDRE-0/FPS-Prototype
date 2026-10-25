@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0a0e12">
+<title>CQB TACTICAL — Plan & Execute</title>
+<style>/* @cqb:styles */</style>
+</head>
+<body>
+  <!-- ===== 버전 표시 (BETA Ver. X.YY.Z — 업데이트마다 수동 변경) ===== -->
+  <div id="versionBadge">BETA Ver. 0.40.4-CCHK2-WIP1-R2</div>
+  <div id="portraitWarn">
+    <div>
+      <span class="icon">📱⟳</span>
+      ROTATE DEVICE<br><br>
+      <span style="font-size:11px; color:#6b7780;">CQB 시뮬레이터는 가로화면 전용입니다</span>
+    </div>
+  </div>
+
+  <div id="loadoutScreen" class="show">
+    <div class="ld-title">CQB · MISSION SETUP</div>
+    <div class="ld-subtitle">팀 단위 장비 / 숙련도 설정</div>
+
+    <div class="ld-mapsel">
+      <span class="ld-mapsel-label">맵</span>
+      <button class="ld-mapsel-btn on" data-map="cqb">CQB 시설</button>
+      <button class="ld-mapsel-btn"    data-map="apartment">아파트 층</button>
+      <button class="ld-mapsel-btn"    data-map="corridor">복도 시설</button>
+      <button class="ld-mapsel-btn"    data-map="warehouse">창고</button>
+      <button class="ld-mapsel-btn"    data-map="range">사격장 (테스트)</button>
+    </div>
+
+    <div class="ld-tabs">
+      <button class="ld-tab on" data-tab="loadout">▣ 장비</button>
+      <button class="ld-tab"    data-tab="weaponsetup">▣ 총기 셋팅</button>
+      <button class="ld-tab"    data-tab="coverage">▣ 방호 정보</button>
+      <button class="ld-tab"    data-tab="skill">▣ 숙련도</button>
+      <button class="ld-tab"    data-tab="ammoinfo">▣ 탄약 정보</button>
+    </div>
+
+    <!-- TAB: LOADOUT -->
+    <div class="ld-tab-content on" data-tab="loadout">
+      <div class="ld-teams">
+        <div class="ld-team friend">
+          <div class="ld-team-title">▲ FRIENDLY</div>
+          <div class="ld-op-scopebar" data-team="friend"></div>
+          <div class="ld-op-summary" data-team="friend"></div>
+          <div class="ld-row">
+            <div class="ld-row-label">주무기</div>
+            <div class="ld-cycler" data-team="friend" data-slot="weapon">
+              
+              <div class="ld-cycler-value"><div class="ld-name"></div><div class="ld-desc"></div></div>
+              <span class="ld-card-arrow">›</span>
+            </div>
+          </div>
+          <div class="ld-row">
+            <div class="ld-row-label">보조무기</div>
+            <div class="ld-cycler" data-team="friend" data-slot="secondaryWeapon">
+              
+              <div class="ld-cycler-value"><div class="ld-name"></div><div class="ld-desc"></div></div>
+              <span class="ld-card-arrow">›</span>
+            </div>
+          </div>
+          <div class="ld-row">
+            <div class="ld-row-label">방탄복</div>
+            <div class="ld-cycler" data-team="friend" data-slot="bodyArmor">
+              
+              <div class="ld-cycler-value"><div class="ld-name"></div><div class="ld-desc"></div></div>
+              <span class="ld-card-arrow">›</span>
+            </div>
+          </div>
+          <div class="ld-row">
+            <div class="ld-row-label">헬멧</div>
+            <div class="ld-cycler" data-team="friend" data-slot="helmet">
+              
+              <div class="ld-cycler-value"><div class="ld-name"></div><div class="ld-desc"></div></div>
+              <span class="ld-card-arrow">›</span>
+            </div>
+          </div>
+          <div class="ld-row">
+            <div class="ld-row-label">살상용 수류탄</div>
+            <div class="ld-cycler" data-team="friend" data-slot="lethalGrenade">
+              
+              <div class="ld-cycler-value"><div class="ld-name"></div><div class="ld-desc"></div></div>
+              <span class="ld-card-arrow">›</span>
+            </div>
+          </div>
+        </div>
+        <div class="ld-team enemy">
+          <div class="ld-team-title">▼ HOSTILE</div>
+          <div class="ld-op-scopebar" data-team="enemy"></div>
+          <div class="ld-op-summary" data-team="enemy"></div>
+          <div class="ld-row">
+            <div class="ld-row-label">주무기</div>
+            <div class="ld-cycler" data-team="enemy" data-slot="weapon">
+              
+              <div class="ld-cycler-value"><div class="ld-name"></div><div class="ld-desc"></div></div>
+              <span class="ld-card-arrow">›</span>
+            </div>
+          </div>
+          <div class="ld-row">
+            <div class="ld-row-label">보조무기</div>
+            <div class="ld-cycler" data-team="enemy" data-slot="secondaryWeapon">
+              
+              <div class="ld-cycler-value"><div class="ld-name"></div><div class="ld-desc"></div></div>
+              <span class="ld-card-arrow">›</span>
+            </div>
+          </div>
+          <div class="ld-row">
+            <div class="ld-row-label">방탄복</div>
+            <div class="ld-cycler" data-team="enemy" data-slot="bodyArmor">
+              
+              <div class="ld-cycler-value"><div class="ld-name"></div><div class="ld-desc"></div></div>
+              <span class="ld-card-arrow">›</span>
+            </div>
+          </div>
+          <div class="ld-row">
+            <div class="ld-row-label">헬멧</div>
+            <div class="ld-cycler" data-team="enemy" data-slot="helmet">
+              
+              <div class="ld-cycler-value"><div class="ld-name"></div><div class="ld-desc"></div></div>
+              <span class="ld-card-arrow">›</span>
+            </div>
+          </div>
+          <div class="ld-row">
+            <div class="ld-row-label">살상용 수류탄</div>
+            <div class="ld-cycler" data-team="enemy" data-slot="lethalGrenade">
+              
+              <div class="ld-cycler-value"><div class="ld-name"></div><div class="ld-desc"></div></div>
+              <span class="ld-card-arrow">›</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: WEAPON SETUP (총기 셋팅) -->
+    <div class="ld-tab-content" data-tab="weaponsetup">
+      <div id="weaponSetupBody" class="ws-body"></div>
+    </div>
+
+    <!-- TAB: SKILL -->
+    <div class="ld-tab-content" data-tab="skill">
+      <div class="ld-teams">
+        <div class="ld-team friend">
+          <div class="ld-team-title">▲ FRIENDLY</div>
+          <div class="ld-row">
+            <div class="ld-row-label">숙련도</div>
+            <div class="ld-cycler" data-team="friend" data-slot="skill">
+              <button class="ld-cycler-arrow" data-dir="-1">‹</button>
+              <div class="ld-cycler-value"><div class="ld-name"></div><div class="ld-desc"></div></div>
+              <button class="ld-cycler-arrow" data-dir="1">›</button>
+            </div>
+            <div class="ld-skill-stats" data-team="friend">
+              <div class="ld-stat"><div class="ld-stat-label">반응</div><div class="ld-stat-value" data-key="reaction">–</div></div>
+              <div class="ld-stat"><div class="ld-stat-label">조준</div><div class="ld-stat-value" data-key="aimSpeed">–</div></div>
+              <div class="ld-stat"><div class="ld-stat-label">명중</div><div class="ld-stat-value" data-key="accuracy">–</div></div>
+              <div class="ld-stat"><div class="ld-stat-label">약점</div><div class="ld-stat-value" data-key="weakspot">–</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="ld-team enemy">
+          <div class="ld-team-title">▼ HOSTILE</div>
+          <div class="ld-row">
+            <div class="ld-row-label">숙련도</div>
+            <div class="ld-cycler" data-team="enemy" data-slot="skill">
+              <button class="ld-cycler-arrow" data-dir="-1">‹</button>
+              <div class="ld-cycler-value"><div class="ld-name"></div><div class="ld-desc"></div></div>
+              <button class="ld-cycler-arrow" data-dir="1">›</button>
+            </div>
+            <div class="ld-skill-stats" data-team="enemy">
+              <div class="ld-stat"><div class="ld-stat-label">반응</div><div class="ld-stat-value" data-key="reaction">–</div></div>
+              <div class="ld-stat"><div class="ld-stat-label">조준</div><div class="ld-stat-value" data-key="aimSpeed">–</div></div>
+              <div class="ld-stat"><div class="ld-stat-label">명중</div><div class="ld-stat-value" data-key="accuracy">–</div></div>
+              <div class="ld-stat"><div class="ld-stat-label">약점</div><div class="ld-stat-value" data-key="weakspot">–</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: COVERAGE — 방호 범위 시각화 -->
+    <div class="ld-tab-content" data-tab="coverage">
+      <div class="cov-top">
+        <div class="cov-group">
+          <span class="cov-label">아군 / 적군</span>
+          <div class="cov-side-buttons">
+            <button class="cov-side-btn on" data-side="friend">아군</button>
+            <button class="cov-side-btn"    data-side="enemy">적군</button>
+          </div>
+        </div>
+        <div class="cov-group">
+          <span class="cov-label">방향</span>
+          <div class="cov-aspect-buttons">
+            <button class="cov-aspect-btn on" data-aspect="front">정면</button>
+            <button class="cov-aspect-btn"    data-aspect="side">측면</button>
+            <button class="cov-aspect-btn"    data-aspect="rear">후면</button>
+          </div>
+        </div>
+      </div>
+      <div class="ld-op-scopebar" id="covOpScopeBar" style="padding:0 6px"></div>
+      <div class="ld-op-summary" id="covOpScopeLabel" style="margin:4px 6px"></div>
+      <div class="cov-current">
+        <span id="covCurArmor">—</span>
+        <span class="cov-cur-sep">·</span>
+        <span id="covCurHelmet">—</span>
+      </div>
+
+      <!-- 플레이트 선택 — 슬롯 카드 클릭 → 오버레이 -->
+      <div class="cov-plates">
+        <div class="cov-plate-row cov-plate-card" data-plate-card="frontPlate">
+          <span class="cov-plate-label">앞</span>
+          <span class="cov-plate-name" id="covFrontPlateName">—</span>
+          <span class="cov-plate-card-arrow">›</span>
+        </div>
+        <div class="cov-plate-row cov-plate-card" data-plate-card="backPlate">
+          <span class="cov-plate-label">뒤</span>
+          <span class="cov-plate-name" id="covBackPlateName">—</span>
+          <span class="cov-plate-card-arrow">›</span>
+        </div>
+        <div class="cov-plate-row cov-plate-card" data-plate-card="sidePlate">
+          <span class="cov-plate-label">사이드</span>
+          <span class="cov-plate-name" id="covSidePlateName">—</span>
+          <span class="cov-plate-card-arrow">›</span>
+        </div>
+      </div>
+
+      <!-- 추가 보호구 선택 -->
+      <div class="cov-plates cov-accessories">
+        <div class="cov-plate-row">
+          <span class="cov-plate-label">낭심</span>
+          <button class="cov-plate-cyc cov-plate-prev" data-acc-slot="groinGuard">‹</button>
+          <span class="cov-plate-name" id="covGroinName">—</span>
+          <button class="cov-plate-cyc cov-plate-next" data-acc-slot="groinGuard">›</button>
+        </div>
+        <div class="cov-plate-row">
+          <span class="cov-plate-label">어깨</span>
+          <button class="cov-plate-cyc cov-plate-prev" data-acc-slot="shoulderGuard">‹</button>
+          <span class="cov-plate-name" id="covShoulderName">—</span>
+          <button class="cov-plate-cyc cov-plate-next" data-acc-slot="shoulderGuard">›</button>
+        </div>
+        <div class="cov-plate-row">
+          <span class="cov-plate-label">목</span>
+          <button class="cov-plate-cyc cov-plate-prev" data-acc-slot="neckGuard">‹</button>
+          <span class="cov-plate-name" id="covNeckName">—</span>
+          <button class="cov-plate-cyc cov-plate-next" data-acc-slot="neckGuard">›</button>
+        </div>
+        <div class="cov-plate-row">
+          <span class="cov-plate-label">바이저</span>
+          <button class="cov-plate-cyc cov-plate-prev" data-acc-slot="visor">‹</button>
+          <span class="cov-plate-name" id="covVisorName">—</span>
+          <button class="cov-plate-cyc cov-plate-next" data-acc-slot="visor">›</button>
+        </div>
+        <div class="cov-plate-row">
+          <span class="cov-plate-label">SLAAP</span>
+          <button class="cov-plate-cyc cov-plate-prev" data-acc-slot="slaap">‹</button>
+          <span class="cov-plate-name" id="covSlaapName">—</span>
+          <button class="cov-plate-cyc cov-plate-next" data-acc-slot="slaap">›</button>
+        </div>
+      </div>
+
+      <div class="cov-stage">
+        <!-- 헬멧 (머리) -->
+        <div class="cov-fig">
+          <div class="cov-fig-title">머리</div>
+          <svg viewBox="0 0 100 60" class="cov-svg cov-svg-head" preserveAspectRatio="xMidYMid meet">
+            <g id="covHeadSilhouette"></g>
+            <g id="covHelmetPanels"></g>
+          </svg>
+        </div>
+        <!-- 방탄복 (상반신) -->
+        <div class="cov-fig cov-fig-torso">
+          <div class="cov-fig-title">상반신</div>
+          <svg viewBox="0 0 100 100" class="cov-svg" preserveAspectRatio="xMidYMid meet">
+            <g id="covTorsoSilhouette"></g>
+            <g id="covArmorPanels"></g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="cov-legend">
+        <span class="cov-leg cov-leg-hard">■ 하드 플레이트</span>
+        <span class="cov-leg cov-leg-soft">■ 소프트 아머 / 캐리어</span>
+        <span class="cov-leg cov-leg-none">■ 비방호 (노출)</span>
+      </div>
+
+      <div class="cov-detail" id="covDetail">
+        <div class="cov-detail-empty">패널을 탭하면 상세 정보가 표시됩니다</div>
+      </div>
+
+      <div class="cov-minilog" id="covMiniLog"></div>
+    </div>
+
+    <!-- TAB: AMMO INFO -->
+    <div class="ld-tab-content" data-tab="ammoinfo">
+      <div class="ai-mat-bar">
+        <span class="ai-mat-label">기준 재질</span>
+        <div class="ai-mat-buttons" id="aiMatButtons">
+          <button class="ai-mat-btn" data-mat="fabric">비방호</button>
+          <button class="ai-mat-btn" data-mat="aramid">아라미드</button>
+          <button class="ai-mat-btn" data-mat="pe">초고분자량</button>
+          <button class="ai-mat-btn" data-mat="aluminum">알루미늄</button>
+          <button class="ai-mat-btn" data-mat="steel">강철</button>
+          <button class="ai-mat-btn" data-mat="titanium">티타늄</button>
+          <button class="ai-mat-btn" data-mat="ceramic">세라믹</button>
+          <button class="ai-mat-btn on" data-mat="composite">복합소재</button>
+        </div>
+      </div>
+      <div class="ai-table-wrap">
+        <table class="ai-table" id="aiTable"></table>
+      </div>
+      <div class="ai-legend">
+        <span>관통등급</span>
+        <span class="ai-pip g0">0</span>
+        <span class="ai-pip g1">1</span>
+        <span class="ai-pip g2">2</span>
+        <span class="ai-pip g3">3</span>
+        <span class="ai-pip g4">4</span>
+        <span class="ai-pip g5">5</span>
+        <span class="ai-pip g6">6</span>
+        <span style="color:#6b7780; margin-left:6px;">평균 저지 발수: 6=즉시 / 0=20+발</span>
+      </div>
+    </div>
+
+    <button class="ld-start" id="btnStartMission">▶ 미션 시작</button>
+  </div>
+
+  <div id="app">
+    <div id="topRow">
+      <div id="mapArea">
+        <canvas id="canvas"></canvas>
+        <div class="top-overlay">
+          <div id="phasePill" class="pill paused"><span class="dot"></span>PLAN</div>
+          <div id="missionPill" class="pill">FRIEND 4 / ENEMY 4</div>
+        </div>
+        <div id="hint" class="hint" style="display:none;"></div>
+        <div id="log"></div>
+        <!-- 배치 패널 — 배치 모드 ON + PLAN 단계일 때만 표시 -->
+        <div id="placePanel" class="place-panel">
+          <div class="place-row">
+            <div class="place-label">대상</div>
+            <div class="place-btns">
+              <button class="place-btn" data-pt="reactive">반격 적</button>
+              <button class="place-btn" data-pt="passive">표적</button>
+              <button class="place-btn" data-pt="fullCover">시야차단</button>
+              <button class="place-btn" data-pt="halfCover">반높이</button>
+              <button class="place-btn" data-pt="floorPaint">바닥칠</button>
+              <button class="place-btn place-del" data-pt="floorErase">바닥지움</button>
+              <button class="place-btn place-del" data-pt="delete">삭제</button>
+            </div>
+          </div>
+          <div class="place-row" id="placeCoverRow">
+            <div class="place-label">종류</div>
+            <div class="place-btns" id="placeCoverBtns">
+              <!-- 동적 렌더링 -->
+            </div>
+          </div>
+          <div class="place-row" id="placeFloorRow" style="display:none">
+            <div class="place-label">재질</div>
+            <div class="place-btns" id="placeFloorBtns">
+              <button class="place-btn" data-floor="concrete">콘크리트</button>
+              <button class="place-btn" data-floor="tile">타일</button>
+              <button class="place-btn" data-floor="wood">목재</button>
+              <button class="place-btn" data-floor="rubble">잔해</button>
+              <button class="place-btn" data-floor="dirt">흙</button>
+              <button class="place-btn" data-floor="sand">모래</button>
+              <button class="place-btn" data-floor="compacted_dirt">다짐흙</button>
+              <button class="place-btn" data-floor="carpet">카펫</button>
+              <button class="place-btn" data-floor="metal">금속</button>
+              <button class="place-btn" data-floor="wet_floor">젖은바닥</button>
+              <button class="place-btn" id="btnFloorBrush">브러시: 중</button>
+            </div>
+          </div>
+          <div class="place-row" id="placeEditRow">
+            <div class="place-label">편집</div>
+            <div class="place-btns">
+              <button class="place-btn" id="btnRotateCcw">⟲ 90°</button>
+              <button class="place-btn" id="btnRotateCw">⟳ 90°</button>
+              <button class="place-btn place-del" id="btnDeleteSelected">선택 삭제</button>
+              <button class="place-btn" id="btnDeselectCover">해제</button>
+            </div>
+          </div>
+          <div class="place-row" id="placeCustomRow" style="display:none">
+            <div class="place-label">커스텀</div>
+            <div class="place-btns" id="placeCustomBtns">
+              <button class="place-btn" id="btnMatPrev">‹ 재질</button>
+              <button class="place-btn" id="btnMatNext">재질 ›</button>
+              <button class="place-btn" id="btnLenDn">길이 −</button>
+              <button class="place-btn" id="btnLenUp">길이 +</button>
+              <button class="place-btn" id="btnThkDn">두께 −</button>
+              <button class="place-btn" id="btnThkUp">두께 +</button>
+            </div>
+          </div>
+          <div class="place-row" id="placeEditInfoRow" style="display:none">
+            <div class="place-label">값</div>
+            <div class="place-btns"><span id="placeEditInfo" style="font-size:11px;color:#cdd6df;line-height:1.5"></span></div>
+          </div>
+        </div>
+        <div id="banner">
+          <div class="title" id="bannerTitle"></div>
+          <div class="sub" id="bannerSub"></div>
+        </div>
+
+        <!-- 응급처치 메뉴 — downed 친군 클릭 시 표시 -->
+        <div id="medicMenu" class="medic-menu">
+          <div class="medic-title" id="medicTitle">—</div>
+          <div class="medic-status" id="medicStatus"></div>
+          <div class="medic-row" id="medicMain">
+            <button class="medic-btn" data-action="treat">응급처치</button>
+            <button class="medic-btn" data-action="drag">끌기</button>
+            <button class="medic-btn medic-cancel" data-action="close">취소</button>
+          </div>
+          <div class="medic-row medic-sub" id="medicSub">
+            <button class="medic-btn" data-treat="tourniquet">지혈대</button>
+            <button class="medic-btn" data-treat="pressure_bandage">압박붕대</button>
+            <button class="medic-btn" data-treat="painkiller">진통제</button>
+            <button class="medic-btn medic-cancel" data-treat="back">← 뒤로</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="actCol">
+        <button class="btn primary" id="btnPlayPause">▶ EXECUTE</button>
+        <button class="btn toggle" id="btnFacingMode">방향 SET</button>
+        <button class="btn toggle" id="btnPlaceMode">배치 MODE</button>
+        <button class="btn warn" id="btnClearPath">경로 ✕</button>
+        <button class="btn" id="btnDeselect">선택 해제</button>
+        <button class="btn danger" id="btnReset">리셋</button>
+      </div>
+    </div>
+
+    <!-- 배치 패널이 mapArea 안으로 옮겨짐 — 이 자리에는 더 이상 없음 -->
+
+    <div id="bottomBar">
+      <div id="rosterBar"></div>
+      <div id="unitInfo" class="empty">대원을 선택하세요</div>
+      <div id="quickActions">
+        <button class="qa-btn" id="btnFireModeGlobal">모드<br><span id="fmCurGlobal">AUTO</span></button>
+        <button class="qa-btn point" id="btnPointFireGlobal">⊕ POINT<br>FIRE</button>
+        <button class="qa-btn reload" id="btnReloadGlobal">⟳ 재장전</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 수류탄 선택 오버레이 -->
+  <div id="throwableSelectOverlay" class="ps-overlay" style="display:none;">
+    <div class="ps-modal" style="max-width:540px;">
+      <div class="ps-header">
+        <div class="ps-title" id="tsTitle">투척 장비 선택</div>
+        <button class="ps-close" id="tsCloseBtn">✕</button>
+      </div>
+      <div class="ps-body" style="flex-direction:row;">
+        <div class="ts-list" id="tsList" style="width:38%;background:#0a1218;border-right:1px solid #1f2a32;overflow-y:auto;"></div>
+        <div class="ts-detail" id="tsDetail" style="flex:1;padding:10px 14px;overflow-y:auto;"></div>
+      </div>
+      <div class="ps-footer">
+        <button class="ps-btn-cancel" id="tsCancelBtn">닫기</button>
+        <button class="ps-btn-cancel" id="tsApplyBtn" style="background:#2a4030;border-color:#4a7050;color:#80d090;">사용</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 의료 오버레이 -->
+  <div id="medicOverlay" class="ps-overlay" style="display:none;">
+    <div class="ps-modal med-modal">
+      <div class="ps-header">
+        <div class="ps-title" id="medTitle">의료 처치</div>
+        <button class="ps-close" id="medCloseBtn">✕</button>
+      </div>
+      <div class="ps-body med-body-v2">
+        <!-- 좌측: 신체(원+사각형) + 부위 중앙 박스 overlay -->
+        <div class="med-panel med-panel-body">
+          <div class="med-body-container" id="medBodyContainer">
+            <svg viewBox="0 0 100 200" preserveAspectRatio="xMidYMid meet" id="medSilhouetteSvg">
+              <!-- 머리 (원, 크게) -->
+              <circle class="med-part" data-part="head" cx="50" cy="18" r="14"/>
+              <!-- 목 (작은 사각형) -->
+              <rect class="med-part" data-part="neck" x="45" y="32" width="10" height="8" rx="1"/>
+              <!-- 가슴 (큰 사각형) -->
+              <rect class="med-part" data-part="chest" x="28" y="40" width="44" height="38" rx="3"/>
+              <!-- 복부 (사각형) -->
+              <rect class="med-part" data-part="abdomen" x="32" y="78" width="36" height="26" rx="3"/>
+              <!-- 우측 팔 (세로 직사각형) -->
+              <rect class="med-part" data-part="right_arm" x="14" y="42" width="14" height="58" rx="4"/>
+              <!-- 좌측 팔 -->
+              <rect class="med-part" data-part="left_arm" x="72" y="42" width="14" height="58" rx="4"/>
+              <!-- 우측 다리 (세로 직사각형, 길게) -->
+              <rect class="med-part" data-part="right_leg" x="32" y="104" width="16" height="72" rx="4"/>
+              <!-- 좌측 다리 -->
+              <rect class="med-part" data-part="left_leg" x="52" y="104" width="16" height="72" rx="4"/>
+              <!-- Leader lines (작은 부위 박스를 옆으로 치웠을 때 연결선) — JS로 동적 추가 -->
+              <g id="medLeaderLines"></g>
+            </svg>
+            <!-- 부위별 박스 overlay -->
+            <div class="med-body-overlay" id="medBodyOverlay"></div>
+          </div>
+        </div>
+        <!-- 중앙: 선택 부위 세부 → 전신 vitals → 적용 처치 → 부위 요약 (단일 스크롤) -->
+        <div class="med-panel med-panel-center">
+          <div class="med-detail-scroll" id="medDetailScroll"></div>
+        </div>
+        <!-- 우측: 처치 버튼 -->
+        <div class="med-panel med-panel-treat">
+          <div class="med-treat-area" id="medTreatArea"></div>
+          <div class="med-footer-v2">
+            <button class="ps-btn-cancel" id="medDragBtn" style="display:none;">끌기</button>
+            <button class="ps-btn-cancel" id="medStopDragBtn" style="display:none;">끌기 중단</button>
+            <button class="ps-btn-cancel" id="medCancelBtn">닫기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 로드아웃 선택 오버레이 (무기/방탄복/헬멧/탄종 공용) -->
+  <div id="loadoutSelectOverlay" class="ps-overlay" style="display:none;">
+    <div class="ps-modal">
+      <div class="ps-header">
+        <div class="ps-title" id="lsTitle">선택</div>
+        <button class="ps-close" id="lsCloseBtn">✕</button>
+      </div>
+      <div class="ps-body">
+        <div class="ps-list" id="lsList"></div>
+        <div class="ps-detail">
+          <div id="lsDetailContent"></div>
+          <div class="ps-footer">
+            <button class="ps-btn-cancel" id="lsCancelBtn">취소</button>
+            <button class="ps-btn-equip" id="lsEquipBtn">사용</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 플레이트 선택 오버레이 -->
+  <div id="plateSelectOverlay" class="ps-overlay" style="display:none;">
+    <div class="ps-modal">
+      <div class="ps-header">
+        <div class="ps-title" id="psTitle">플레이트 선택</div>
+        <button class="ps-close" id="psCloseBtn">✕</button>
+      </div>
+      <div class="ps-body">
+        <div class="ps-list" id="psList"></div>
+        <div class="ps-detail">
+          <div id="psDetailContent"></div>
+          <div class="ps-footer">
+            <button class="ps-btn-cancel" id="psCancelBtn">취소</button>
+            <button class="ps-btn-equip" id="psEquipBtn">넣기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 방호 분석 오버레이 -->
+  <div id="armorAnalysisOverlay" class="aa-overlay" style="display:none;">
+    <div class="aa-modal">
+      <div class="aa-header">
+        <div class="aa-title" id="aaTitle">방호 분석</div>
+        <button class="aa-close" id="aaCloseBtn">✕</button>
+      </div>
+      <div class="aa-body aa-body-v2">
+        <!-- 좌측: 얇은 2-탭 (조건 / 그래프·결과) -->
+        <div class="aa-left-tabbed">
+          <div class="aa-tabbar">
+            <button class="aa-tab on" data-tab="config">조건</button>
+            <button class="aa-tab" data-tab="result">그래프·결과</button>
+          </div>
+          <div class="aa-tab-content">
+            <!-- 탭 A: 조건 -->
+            <div class="aa-tab-pane" data-pane="config">
+              <div class="aa-section">
+                <div class="aa-section-title">방호구 정보</div>
+                <div id="aaArmorInfo"></div>
+              </div>
+              <div class="aa-section">
+                <div class="aa-section-title">탄종 선택</div>
+                <div class="aa-ammo-row">
+                  <button class="aa-cyc" id="aaAmmoPrev">‹</button>
+                  <div class="aa-ammo-name" id="aaAmmoName">—</div>
+                  <button class="aa-cyc" id="aaAmmoNext">›</button>
+                </div>
+                <div id="aaAmmoInfo"></div>
+              </div>
+              <div class="aa-section">
+                <div class="aa-section-title">거리</div>
+                <div class="aa-dur-row">
+                  <input type="range" min="0" max="500" step="5" value="50" id="aaDistanceSlider" class="aa-dur-slider">
+                  <div class="aa-dur-val" id="aaDistanceVal">50m</div>
+                </div>
+                <div class="aa-quick-row">
+                  <button class="aa-quick" data-dist="5">5m</button>
+                  <button class="aa-quick" data-dist="25">25m</button>
+                  <button class="aa-quick" data-dist="50">50m</button>
+                  <button class="aa-quick" data-dist="100">100m</button>
+                  <button class="aa-quick" data-dist="200">200m</button>
+                </div>
+                <div id="aaKineticInfo" style="margin-top:4px;"></div>
+              </div>
+              <div class="aa-section">
+                <div class="aa-section-title">입사 방향</div>
+                <div class="aa-zone-row" id="aaAspectRow">
+                  <button class="aa-aspect-btn on" data-aspect="front">정면</button>
+                  <button class="aa-aspect-btn" data-aspect="side">측면</button>
+                  <button class="aa-aspect-btn" data-aspect="rear">후면</button>
+                </div>
+              </div>
+              <div class="aa-section">
+                <div class="aa-section-title">초기 내구도</div>
+                <div class="aa-dur-row">
+                  <input type="range" min="0" max="100" step="1" value="100" id="aaDurSlider" class="aa-dur-slider">
+                  <div class="aa-dur-val" id="aaDurVal">100%</div>
+                </div>
+                <button class="aa-btn-small" id="aaDurReset">현재 내구도로</button>
+              </div>
+              <!-- K6-3 zone selector (visorHitTable일 때만) -->
+              <div class="aa-section" id="aaZoneSection" style="display:none;">
+                <div class="aa-section-title">K6-3 영역</div>
+                <div class="aa-zone-row" id="aaZoneRow"></div>
+              </div>
+            </div>
+            <!-- 탭 B: 그래프·결과 -->
+            <div class="aa-tab-pane" data-pane="result" hidden>
+              <div class="aa-section">
+                <div class="aa-section-title">내구도별 유효 방호수치</div>
+                <svg id="aaGraph" viewBox="0 0 400 280" preserveAspectRatio="xMidYMid meet" class="aa-graph"></svg>
+                <div class="aa-legend">
+                  <span class="aa-legend-item"><span class="aa-legend-color" style="background:#80c0ff"></span>방호 곡선</span>
+                  <span class="aa-legend-item"><span class="aa-legend-color" style="background:#ff9a3a"></span>유효 관통</span>
+                  <span class="aa-legend-item"><span class="aa-legend-color" style="background:#ffe066"></span>현재 내구도</span>
+                </div>
+              </div>
+              <div class="aa-section">
+                <div class="aa-section-title">사격 결과</div>
+                <div id="aaResultInfo"></div>
+              </div>
+              <div class="aa-section">
+                <div class="aa-section-title">피격 로그</div>
+                <div id="aaHitLog"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 우측: 사격 시각화 스테이지 -->
+        <div class="aa-right aa-stage-panel">
+          <div class="aa-fire-toolbar">
+            <button class="aa-btn-small" id="aaAimModeBtn">🎯 피격점</button>
+            <button class="aa-fire-btn" id="aaFireOneBtn">1발</button>
+            <button class="aa-fire-btn" id="aaFire3Btn">3발</button>
+            <button class="aa-fire-btn" id="aaFire5Btn">5발</button>
+            <button class="aa-btn-small" id="aaResetTestBtn" style="color:#ff9090;border-color:#6a3030;">초기화</button>
+          </div>
+          <div class="aa-stage-toolbar" id="aaStageToolbar">
+            <button class="aa-view-btn on" id="aaViewCoverage" data-view="coverage">방호범위</button>
+            <button class="aa-view-btn" id="aaViewDurability" data-view="durability">내구도</button>
+            <button class="aa-view-btn" id="aaViewLocalDamage" data-view="local">국부손상</button>
+            <button class="aa-view-btn" id="aaViewHitLog" data-view="log">로그</button>
+          </div>
+          <div class="aa-stage-wrap">
+            <svg id="aaStageSvg" viewBox="0 0 100 120" preserveAspectRatio="xMidYMid meet"></svg>
+          </div>
+          <div id="aaStageInfo"></div>
+          <div id="aaDamageLegend" class="aa-legend"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>/* @cqb:scripts */</script>
+</body>
+</html>

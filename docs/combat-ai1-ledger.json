@@ -1,0 +1,654 @@
+{
+  "version": "ai1-v32",
+  "baseline": "22174f7c46082194f3790bbfa8e85fbc2223c7f3",
+  "scope": "Sector04 / one AK enemy / player hit proxy / passive ragdoll",
+  "sources": [
+    {
+      "id": "winter",
+      "url": "https://www.kinovea.org/tools/references/2009%20-%20Winter%20-%20Table%204.1%20-%20Anthropometric%20data.pdf",
+      "httpStatus": 200,
+      "bytes": 614995,
+      "sha256": "bd7302455fdd5a505587e1c8a4f0ffad5708452613741b4027dd55867daab15f",
+      "checkedAt": "2026-10-12 Asia/Seoul",
+      "classification": "출처",
+      "use": "Winter2009 Table4.1 p86, Dempster-derived segment masses"
+    },
+    {
+      "id": "rom-aaos",
+      "url": "https://goniometer.io/rom-chart.pdf",
+      "httpStatus": 200,
+      "bytes": 30718,
+      "sha256": "d16b73539f24b99f635e31076221df7c8638f4811452b0afccd272d20c2bf468",
+      "checkedAt": "2026-10-12 Asia/Seoul",
+      "classification": "출처",
+      "use": "Public reproduction of AAOS1965/Norkin&White5th2016 ROM reference; not original book scan"
+    },
+    {
+      "id": "rom-aaos-page",
+      "url": "https://goniometer.io/range-of-motion",
+      "httpStatus": 200,
+      "bytes": 26513,
+      "sha256": "981348cf2e8cd8d94a580b7210e353c75d2f126e45a89467ad9f313d0fb3eff2",
+      "checkedAt": "2026-10-12 Asia/Seoul",
+      "classification": "출처",
+      "use": "Public reproduction of AAOS1965/Norkin&White5th2016 ROM reference; not original book scan"
+    },
+    {
+      "id": "rom-spine",
+      "url": "https://www.dshs.wa.gov/sites/default/files/2026-07/13-585a.pdf",
+      "httpStatus": 200,
+      "bytes": 171328,
+      "sha256": "af6b43220e179e0b5ca72d17bb25558288a64eb9bfaa967beb03e3b7ca83440a",
+      "checkedAt": "2026-10-12 Asia/Seoul",
+      "classification": "출처",
+      "use": "Washington DSHS13-585A rev03/2014, back flexion90/extension25/lateral25"
+    }
+  ],
+  "sourceValues": {
+    "segmentMassFractions": {
+      "pelvis": 0.142,
+      "spine": 0.139,
+      "chest": 0.216,
+      "head_neck": 0.081,
+      "upperArm": 0.028,
+      "forearm": 0.016,
+      "hand": 0.006,
+      "thigh": 0.1,
+      "shank": 0.0465,
+      "foot": 0.0145
+    },
+    "jointROMDeg": {
+      "torso": {
+        "flexion": 90,
+        "extension": 25,
+        "lateral": 25,
+        "rotation": 0
+      },
+      "shoulder": {
+        "flexion": 180,
+        "extension": 60,
+        "abduction": 180,
+        "adduction": 40,
+        "internalRotation": 70,
+        "externalRotation": 90
+      },
+      "elbow": {
+        "flexion": 150,
+        "extension": 0
+      },
+      "hip": {
+        "flexion": 120,
+        "extension": 30,
+        "abduction": 45,
+        "adduction": 30,
+        "internalRotation": 45,
+        "externalRotation": 45
+      },
+      "knee": {
+        "flexion": 135,
+        "extension": 0
+      },
+      "neck": {
+        "flexion": 45,
+        "extension": 45,
+        "lateral": 45,
+        "rotation": 60
+      },
+      "wrist": {
+        "flexion": 80,
+        "extension": 70,
+        "radial": 20,
+        "ulnar": 30
+      },
+      "ankle": {
+        "dorsiflexion": 20,
+        "plantarflexion": 50,
+        "inversion": 35,
+        "eversion": 15
+      }
+    },
+    "caveats": [
+      "Thorax PC and abdomen/pelvis LC rows retain the source table method annotations; individual rig joints are not new direct measurements",
+      "Head+neck .081 stays exact; split between two capsules by volume is geometric tuning",
+      "Two spine joints each get half the chart back envelope; distribution is geometric tuning",
+      "Back axial rotation is not specified by DSHS; AI-1 locks it to the captured pose as a stage restriction, not a clinical0-degree claim",
+      "Neutral-axis mapping to the simplified rig is a game adapter, not a full musculoskeletal solver"
+    ]
+  },
+  "original": {
+    "kitMass": {
+      "bodyMassKg": 80,
+      "bodyMassClassification": "튜닝 — 사용자 선택 80kg 기본 체중",
+      "entries": [
+        {
+          "itemId": "armor_6b45_basic_test",
+          "slot": "vest",
+          "weightKg": 5.3,
+          "classification": "원본 게임 레지스트리",
+          "source": "src/data/body-armor.js",
+          "bones": [
+            {
+              "bone": "chest",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "plate_granit_br4",
+          "slot": "front",
+          "weightKg": 2.7,
+          "classification": "원본 게임 레지스트리",
+          "source": "src/data/plates.js",
+          "bones": [
+            {
+              "bone": "chest",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "plate_granit_br4",
+          "slot": "rear",
+          "weightKg": 2.7,
+          "classification": "원본 게임 레지스트리",
+          "source": "src/data/plates.js",
+          "bones": [
+            {
+              "bone": "chest",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "helmet_6b47_test",
+          "slot": "helmet",
+          "weightKg": 1.15,
+          "classification": "원본 게임 레지스트리",
+          "source": "src/data/helmets.js",
+          "bones": [
+            {
+              "bone": "head",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "6b45_neck",
+          "slot": "neck",
+          "weightKg": 0.45,
+          "classification": "원본 게임 레지스트리",
+          "source": "src/data/body-armor.js",
+          "bones": [
+            {
+              "bone": "chest",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "6b45_groin",
+          "slot": "groin",
+          "weightKg": 0.55,
+          "classification": "원본 게임 레지스트리",
+          "source": "src/data/body-armor.js",
+          "bones": [
+            {
+              "bone": "pelvis",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "6b45_shoulder",
+          "slot": "shoulder",
+          "weightKg": 0.85,
+          "classification": "원본 게임 레지스트리",
+          "source": "src/data/body-armor.js",
+          "bones": [
+            {
+              "bone": "leftUpperArm",
+              "share": 0.5
+            },
+            {
+              "bone": "rightUpperArm",
+              "share": 0.5
+            }
+          ]
+        }
+      ],
+      "equipmentByBone": {
+        "chest": 11.149999999999999,
+        "head": 1.15,
+        "pelvis": 0.55,
+        "leftUpperArm": 0.425,
+        "rightUpperArm": 0.425
+      },
+      "equipmentMassKg": 13.7,
+      "totalRagdollMassKg": 93.7,
+      "weaponMassKg": 3.6,
+      "weaponClassification": "원본 AK-74M physical.weightKg; 별도 낙하 강체",
+      "totalWithHeldWeaponKg": 97.3,
+      "mappingClassification": "기존 방호 메시 부착 뼈에 배분; 양쪽 어깨 보호구는 원본 쌍 장비 .85kg을 절반씩; 분절 배분은 공간 어댑터",
+      "deduplication": "Four vest soft meshes count as one vest; front/back neck meshes count as one collar; two shoulder meshes count as one pair; two distinct plates each count once",
+      "omitted": "Decorative pouches/knee covers have no equipped registry item in H01; no invented item mass. Ammo/inventory load beyond the specified armor kit is deferred"
+    },
+    "clips": {
+      "asset": "existing soldier-data",
+      "bones": 24,
+      "names": [
+        "standing",
+        "aim",
+        "crouch",
+        "walk"
+      ],
+      "authored": "Existing v9-derived clips/skin, not animations in the originally uploaded unrigged soldier model",
+      "walkInPlace": true,
+      "durationS": 1.2
+    },
+    "ammoId": "545_ps_gs",
+    "weaponId": "ak74m",
+    "magazineRounds": 30,
+    "zeroing": "existing AK П theta; no recalculation",
+    "reloadEmptyS": 3.498333454,
+    "reloadTacticalS": 2.648333311,
+    "body": "same 21 mesh regions and internal anatomy as H01",
+    "armor": "same default6B45/2×GranitBr4/6B47/collar/groin/shoulder pair as H01",
+    "equationsUnchanged": [
+      "RK4/3D retention override",
+      "traceShot",
+      "body resistance",
+      "plate/soft/helmet/ricochet",
+      "medical v2/R/R2",
+      "2D legacy"
+    ]
+  },
+  "tuning": {
+    "combat": {
+      "sector": "04",
+      "spawn": {
+        "x": 73.2,
+        "z": 5
+      },
+      "panel": {
+        "id": "combat-panel",
+        "at": [
+          71.78,
+          1.2,
+          4
+        ],
+        "size": [
+          0.1,
+          0.5,
+          0.4
+        ],
+        "range": 1.8
+      },
+      "enemySpawn": [
+        79,
+        0,
+        -7.4
+      ],
+      "route": [
+        [
+          80.1,
+          0,
+          -7.4
+        ],
+        [
+          80.1,
+          0,
+          -4.2
+        ],
+        [
+          75.8,
+          0,
+          -4.2
+        ],
+        [
+          74.5,
+          0,
+          -3
+        ]
+      ],
+      "roomSizeM": [
+        6,
+        8
+      ],
+      "walkSpeedMps": 1.4,
+      "visionFovDeg": 120,
+      "reactionS": [
+        0.25,
+        0.45
+      ],
+      "shotIntervalS": [
+        0.25,
+        0.5
+      ],
+      "aimStartDeg": 8,
+      "aimFloorDeg": 0.35,
+      "aimConvergencePerS": 4.5,
+      "bodyMassKg": 80,
+      "rounds": 30,
+      "ammoId": "545_ps_gs",
+      "maximumEnemies": 1
+    },
+    "roomBoxes": [
+      {
+        "kind": "floor",
+        "nominalThicknessM": 0.3,
+        "id": "combat-floor",
+        "at": [
+          75.5,
+          -0.15,
+          -0.2
+        ],
+        "size": [
+          11,
+          0.3,
+          18
+        ],
+        "material": "concrete",
+        "penetrable": false
+      },
+      {
+        "kind": "barrier",
+        "nominalThicknessM": 0.3,
+        "id": "combat-west",
+        "at": [
+          70.85,
+          1.6,
+          -3
+        ],
+        "size": [
+          0.3,
+          3.2,
+          8.3
+        ],
+        "material": "concrete",
+        "penetrable": false
+      },
+      {
+        "kind": "barrier",
+        "nominalThicknessM": 0.3,
+        "id": "combat-back",
+        "at": [
+          74,
+          1.6,
+          -7.15
+        ],
+        "size": [
+          6.3,
+          3.2,
+          0.3
+        ],
+        "material": "concrete",
+        "penetrable": false
+      },
+      {
+        "kind": "barrier",
+        "nominalThicknessM": 0.3,
+        "id": "combat-spawn-divider-back",
+        "at": [
+          77.15,
+          1.6,
+          -6.15
+        ],
+        "size": [
+          0.3,
+          3.2,
+          2.3
+        ],
+        "material": "concrete",
+        "penetrable": false
+      },
+      {
+        "kind": "barrier",
+        "nominalThicknessM": 0.3,
+        "id": "combat-spawn-divider-front",
+        "at": [
+          77.15,
+          1.6,
+          -0.85
+        ],
+        "size": [
+          0.3,
+          3.2,
+          5.1
+        ],
+        "material": "concrete",
+        "penetrable": false
+      },
+      {
+        "kind": "barrier",
+        "nominalThicknessM": 0.3,
+        "id": "combat-entry-baffle",
+        "at": [
+          78.9,
+          1.6,
+          -2.85
+        ],
+        "size": [
+          3.6,
+          3.2,
+          0.3
+        ],
+        "material": "concrete",
+        "penetrable": false
+      },
+      {
+        "kind": "barrier",
+        "nominalThicknessM": 0.3,
+        "id": "combat-hidden-spawn-baffle",
+        "at": [
+          78.45,
+          1.6,
+          -5.7
+        ],
+        "size": [
+          2.5,
+          3.2,
+          0.3
+        ],
+        "material": "concrete",
+        "penetrable": false
+      },
+      {
+        "kind": "barrier",
+        "nominalThicknessM": 0.3,
+        "id": "combat-spawn-east",
+        "at": [
+          80.65,
+          1.6,
+          -5.55
+        ],
+        "size": [
+          0.3,
+          3.2,
+          7.3
+        ],
+        "material": "concrete",
+        "penetrable": false
+      },
+      {
+        "kind": "barrier",
+        "nominalThicknessM": 0.3,
+        "id": "combat-spawn-back",
+        "at": [
+          79,
+          1.6,
+          -9.15
+        ],
+        "size": [
+          3.6,
+          3.2,
+          0.3
+        ],
+        "material": "concrete",
+        "penetrable": false
+      },
+      {
+        "kind": "barrier",
+        "nominalThicknessM": 0.025,
+        "id": "combat-front-drywall",
+        "at": [
+          72.05,
+          1.6,
+          1.05
+        ],
+        "size": [
+          2.1,
+          3.2,
+          0.025
+        ],
+        "material": "drywall",
+        "penetrable": true
+      },
+      {
+        "kind": "barrier",
+        "nominalThicknessM": 0.018,
+        "id": "combat-front-plywood",
+        "at": [
+          75.95,
+          1.6,
+          1.05
+        ],
+        "size": [
+          2.1,
+          3.2,
+          0.018
+        ],
+        "material": "wood",
+        "penetrable": true
+      },
+      {
+        "kind": "barrier",
+        "nominalThicknessM": 0.25,
+        "id": "combat-hall-west",
+        "at": [
+          71.6,
+          1.6,
+          4.95
+        ],
+        "size": [
+          0.25,
+          3.2,
+          7.8
+        ],
+        "material": "concrete",
+        "penetrable": false
+      },
+      {
+        "kind": "barrier",
+        "nominalThicknessM": 0.25,
+        "id": "combat-hall-east",
+        "at": [
+          76.4,
+          1.6,
+          4.95
+        ],
+        "size": [
+          0.25,
+          3.2,
+          7.8
+        ],
+        "material": "concrete",
+        "penetrable": false
+      },
+      {
+        "kind": "barrier",
+        "nominalThicknessM": 0.3,
+        "id": "combat-hall-end",
+        "at": [
+          74,
+          1.6,
+          8.85
+        ],
+        "size": [
+          5,
+          3.2,
+          0.3
+        ],
+        "material": "concrete",
+        "penetrable": false
+      },
+      {
+        "kind": "barrier",
+        "nominalThicknessM": 0.45,
+        "id": "combat-low-cover",
+        "at": [
+          74,
+          0.48,
+          -0.6
+        ],
+        "size": [
+          1.3,
+          0.96,
+          0.45
+        ],
+        "material": "concrete",
+        "penetrable": false
+      }
+    ],
+    "ragdoll": {
+      "bodyMassKg": 80,
+      "strength": 0,
+      "friction": 1.1,
+      "restitution": 0,
+      "linearDamping": 2,
+      "angularDamping": 4,
+      "contactSkinM": 0.003,
+      "additionalSolverIterations": 32,
+      "passiveTorsoSplit": true
+    },
+    "sourceUnit": "bodyMass80kg explicitly selected by user; physical mass only, existing physiology/blood volume unchanged",
+    "extraAimAcquisitionS": 0.4,
+    "medicalError": "(floor+(start-floor)*exp(-4.5*t)) × (1+3*consciousnessDeficit+1.5*pain/100+4*armFunctionDeficit+min(2,bleed/12))",
+    "muzzleAim": "Iteratively use actual gun muzzle to aim at sight target; retain existing AK zero elevation",
+    "headEyeLocalM": [
+      0,
+      0.057,
+      0.065
+    ],
+    "IK": "Existing two-bone solver; minimum proximal reach adapter only when needed, wrist goal never clamped",
+    "reload": "lowered gun pose only; no finger/magazine manipulation clip exists",
+    "recoilRad": 0.018,
+    "recoilDecayPerS": 25,
+    "hitImpulseRad": 0.035,
+    "hitImpulseDurationS": 0.25,
+    "hitImpulseDecayPerS": 18,
+    "playerHitShakeRad": 0.022,
+    "playerHitLifeS": 0.35,
+    "soundGain": "1/(1+distanceM/8)",
+    "impactRagdoll": "existing projectile momentum passed to hit bone after initial handoff; game coupling",
+    "movementCapsule": "enemy .62m half-height/.23m radius; disables at ragdoll",
+    "drop": {
+      "mass": "original AK physical3.6kg",
+      "linearDamping": 0.25,
+      "angularDamping": 0.6,
+      "friction": 0.8,
+      "restitution": 0.08
+    }
+  },
+  "interfaces": {
+    "senses": "sampleCombatSenses -> visible[], rays[], target {part,point}",
+    "judgment": "CombatDecision.step -> move/aim/fire/reloaded/target/state; replaceable by future original2D AI",
+    "actions": "moveCombatActor / aimErrorDeg / aimCombatAK / fireCombatActor -> existing traceShot event",
+    "passivePD": "PassiveJoint.setPD(axis,targetRad,{kp,kd,maxForce,strength}); axis3/4/5 angular; strength/kp/kd/maxForce0 in phase1; Rapier0.21 rawSet limits and motor max-force APIs"
+  },
+  "player": {
+    "hiddenLayers": "all six soldier mesh nodes layer4, main and lens layer0; debug geometry layer0 controlled by existing settings",
+    "eye": "root correction to camera eye",
+    "feet": "same ankle baseline kept on floor by two-bone leg IK",
+    "hands": "actual shared FPS wrist markers, <=3cm goal; no finger bones in proxy",
+    "selfCollision": "scoped own sensors excluded from trace; no own proxy solid collider; sensors excluded from movement",
+    "gunHitVolume": "omitted in phase1 for player/held enemy/dropped weapon; physical falling weapon collides with environment"
+  },
+  "limitations": [
+    "One enemy, fixed route, temporary judgment; no original2D AI logic imported",
+    "No authored reload/death/closed AK finger grip; existing clips + permitted procedural motion + physical ragdoll",
+    "No muscle torque; passive limits only. Self-ragdoll contacts disabled to avoid intersecting approximate adjacent capsules; environmental friction enabled",
+    "Body+gear93.7kg; held AK3.6kg separate97.3kg. Ammo and unslotted decorative pouches not assigned invented weight",
+    "No player ragdoll, treatment, revive or pain/bleed aim modifier in phase1",
+    "Physical Android/iOS device and sustained performance not verified; browser viewports/metrics are emulated"
+  ]
+}

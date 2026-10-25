@@ -1,0 +1,49 @@
+{
+  "version": "footstep-cleanup-v48",
+  "baseline": "e3a52105ecac56dee748651a02d7540295d36197",
+  "runtimeSourceCommit": "1684d298e52f98da7f356cdd1748e13f8799d1db",
+  "automatic2DPort": false,
+  "classification": "사용자 제보 + 튜닝",
+  "request": "콘크리트 발소리 같은 소리에 말소리가 들려 해당 소리를 빼 달라는 사용자 요청",
+  "removed": {
+    "groups": [
+      "concrete_walk",
+      "concrete_run"
+    ],
+    "clips": 24,
+    "freesoundIds": [
+      777607,
+      816019
+    ],
+    "method": "두 녹음에서 만든 모든 조각을 sprite와 런타임 선택 목록에서 제외. 원본 업로드 파일은 저장소에 보존. 음성 구간 검출/분리/소거 성공을 주장하지 않는다."
+  },
+  "replacement": {
+    "sourceId": 778502,
+    "source": "별도 단발 concrete_walk_single 녹음",
+    "group": "concrete_aux",
+    "sample": "concrete_aux-00",
+    "count": 1,
+    "walkPitch": 1,
+    "runPitch": 1.08,
+    "crouchPitch": 0.95,
+    "classification": "원본 단발 샘플 + 튜닝",
+    "existingPitchAndGainRandomization": true,
+    "limitations": "단일 샘플이므로 반복감이 늘어남. 추가 깨끗한 녹음은 후속."
+  },
+  "preservation": {
+    "otherClipsByteIdentical": 34,
+    "gunshotV47BytesAndPlaybackTuningExact": true,
+    "physicalSourceDbAndNoiseEventsExact": true,
+    "medicalBallisticArmorExact": true,
+    "protectedSources": 182,
+    "originalFiles": 9
+  },
+  "evidence": [
+    "downloads/checks-footstep-v48/preservation.json",
+    "downloads/checks-footstep-v48/selection.json",
+    "downloads/checks-footstep-v48/browser.json",
+    "downloads/checks-footstep-v48/offline.json"
+  ],
+  "2D 역이식 후보": "예",
+  "dependenciesFor2D": "소리 재생 데이터만 교체. 물리 dB/AI 소리 이벤트를 바꾸지 않아도 됨."
+}

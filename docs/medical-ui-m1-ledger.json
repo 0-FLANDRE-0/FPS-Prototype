@@ -1,0 +1,141 @@
+{
+  "version": "medical-ui-m1-v57",
+  "baseline": "4065fc745ed155251c2043a47ee8566e9da1f0e7",
+  "precedence": "User M1 directive takes priority over UX A and technical reference B; M2–M6 are placeholders only",
+  "entries": [
+    {
+      "classification": "사용자 설계값",
+      "subject": "Common3columns, self only, active time in both tabs, blocked movement/fire/look, retained pause/down freeze",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "classification": "원본",
+      "subject": "D2 eight body paths and health colors; original InventoryUI selection/drop/action commands and6x5bag; all retained medical/trace/HP/bleeding formulas and records",
+      "reversePortCandidate": false
+    },
+    {
+      "classification": "튜닝",
+      "subject": "Observations / chart projection / update cadence / overlap selection / marker colors",
+      "values": {
+        "ruleId": "medical-ui-m1-v57",
+        "columnFractions": [
+          0.25,
+          0.35,
+          0.4
+        ],
+        "refreshS": 0.25,
+        "markerOverlapUnits": 10,
+        "externalStopMlS": 0.01,
+        "externalFlowMlS": 0.5,
+        "swellingMl": 40,
+        "severeSwellingMl": 150,
+        "breathingEfficiency": 85,
+        "severeBreathingEfficiency": 60,
+        "tensionAir": 0.15,
+        "dizzinessConsciousness": 85,
+        "dizzinessPerfusion": 0.75,
+        "blurStrength": 0.15,
+        "hearingLoss": 0.15,
+        "concussionSymptoms": 0.15,
+        "treatmentColors": {
+          "untreated": "#e99dff",
+          "treated": "#68dceb",
+          "interrupted": "#b8abff"
+        },
+        "classification": "표시 문턱/투영/레이아웃 튜닝; 처치·의료 효과 없음"
+      },
+      "reversePortCandidate": true
+    },
+    {
+      "classification": "기록 추가 / 튜닝",
+      "subject": "Exact part endpoint + fitted mesh outward normal → unposed bind coordinates, weak sidecar only; original exitAddress remained an entry copy with_exit; neither core snapshot nor trace modified",
+      "values": {
+        "ruleId": "medical-surface-m1-v57",
+        "probeM": 0.003,
+        "surfaceToleranceM": 0.001,
+        "grazeMaxPathM": 0.04,
+        "grazeMaxDepthM": 0.004,
+        "grazeMaxNormalDot": 0.35,
+        "classification": "기존 충돌 결과 기록 / 스침 분류 튜닝"
+      },
+      "reversePortCandidate": false
+    },
+    {
+      "classification": "사용자 설계값",
+      "subject": "Untreated/treated/interrupted view schema; all untreated now; resume/remove controls disabled; source tabs patient/nearby disabled; no supplies or effects",
+      "reversePortCandidate": true
+    }
+  ],
+  "observations": [
+    [
+      "external",
+      "only unique external IDs; artery with positive flow → spurt; >.01mL/s and<.5 → seep, >=.5 → flow; <=.01 → stopped",
+      "튜닝"
+    ],
+    [
+      "swelling",
+      "attributed limb_compartment cumulative volume capped by retained pool;40/150mL mild/marked",
+      "튜닝"
+    ],
+    [
+      "chest-air",
+      "retained chestWallOpen flag; no internal injury/volume label",
+      "원본"
+    ],
+    [
+      "breathing",
+      "efficiency<85/60 or tensionAir>=.15",
+      "튜닝"
+    ],
+    [
+      "bone",
+      "existing S2 comminution/amputation or actual S2 bone evidence plus existing fracture flag",
+      "원본 상태 읽기"
+    ],
+    [
+      "pain",
+      "part.pain after retained masking;0/30/60/80 gates, no numeric pain in normal view",
+      "원본D1 + 튜닝 표현"
+    ],
+    [
+      "dizziness",
+      "consciousness<85 or perfusion<.75",
+      "튜닝"
+    ],
+    [
+      "vision",
+      "D1b/v56 displayed tunnel/blackout or blur>=.15",
+      "원본 단계 / 튜닝 표시"
+    ],
+    [
+      "hearing",
+      "existing hearing loss or D2 concussion symptom>=.15",
+      "튜닝"
+    ]
+  ],
+  "geometry": {
+    "frontBack": "sign of unposed skin normal z; back chart mirrors x",
+    "torso": "2D authored chart rectangles and bind bounds",
+    "limbs": "original24bone + derived middle-finger joint chain projected to authored2D chains; normal offsets retained",
+    "graze": "short channel<=40mm, abs(normal dot direction)<=.35, max nearest-skin distance at25/50/75%<=4mm; classification only",
+    "unknown": "Missing geometry is labelled unavailable, never a fabricated exit; incomplete-range path is not labelled retained"
+  },
+  "timing": {
+    "UIHz": 4,
+    "physicsHz": 60,
+    "gameplayDeferred": false,
+    "tabScrollAndSelectionRetained": true,
+    "openTabsSkipOccluded3DDraw": true
+  },
+  "futurePatient": {
+    "wristPulse": null,
+    "responsiveness": null,
+    "runtimeThresholdMmHg": null,
+    "enabled": false,
+    "literature": "docs/medical-ui-m1-sources.json; historical80mmHg claim disputed, not implemented"
+  },
+  "medicalFormulaChanges": false,
+  "sourceRequirementsComplete": false,
+  "physicalPhoneTested": false
+}

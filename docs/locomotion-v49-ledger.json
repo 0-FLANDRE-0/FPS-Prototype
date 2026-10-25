@@ -1,0 +1,117 @@
+{
+  "version": "locomotion-audio-v49",
+  "runtimeSourceCommit": "aad91fc99f11b8d5669e3d194808aaff9ca5c1e0",
+  "baseline": "35543ccd7af19dc3bf04857124b4ee2cfce913a5",
+  "automatic2DPort": false,
+  "entries": [
+    {
+      "item": "걷기·달리기·앉아 걷기",
+      "classification": "원본",
+      "source": "기존 Mixamo 리타깃 clips; docs/enemy-animation-ledger.json",
+      "change": "같은 전신 애니메이션을 플레이어 판정 몸에도 샘플링. 이동 방향 혼합과 실제 속도에 따른 재생률 사용. 새 애니메이션/메시 없음.",
+      "2D 역이식 후보": "아니오"
+    },
+    {
+      "item": "부츠 접지",
+      "classification": "원본 메쉬 측정 + 튜닝",
+      "source": "변경하지 않은 soldier-fingers GLB; foot bone weight > .7인 밑창 하단15mm 정점 좌우54개",
+      "values": {
+        "touchM": 0.012,
+        "liftM": 0.025,
+        "maxPenetrationM": 0.025,
+        "supportMaxMps": 0.05
+      },
+      "change": "실제 밑창 FK 최저점에서 지면 ray. 들렸던 발이 지지 방향으로 접지할 때만 발소리. 주기 타이머/발목 최저점 대체 제거.",
+      "2D 역이식 후보": "아니오"
+    },
+    {
+      "item": "시점·총·팔",
+      "classification": "원본 몸 애니메이션 + 표현 튜닝",
+      "values": {
+        "minRate": 0.25,
+        "maxRate": 2.4,
+        "headTranslationGain": 0.65,
+        "weaponTranslationGain": 0.75,
+        "weaponRotationGain": 0.35,
+        "translationLimitM": 0.035,
+        "rotationLimitRad": 0.065
+      },
+      "change": "몸 머리·가슴의 주기 평균 대비 변위/회전, 공통 걸음 phase를 FPS에 사용. 접지 시점에 기존 발걸음 충격 spring. 반동 물리 수식 보존.",
+      "2D 역이식 후보": "아니오"
+    },
+    {
+      "item": "플레이어 판정 몸",
+      "classification": "튜닝",
+      "change": "발목 위치 보존 + 골반 도달 범위 보정 + spine/chest eye IK + 팔 IK. 눈/손/발목 검사와 팔다리 길이 단위 테스트.",
+      "maxErrorM": {
+        "eye": 3.3306690738754696e-16,
+        "hands": 5.566381381700763e-16,
+        "ankles": 5.617076402713773e-16
+      },
+      "2D 역이식 후보": "아니오"
+    },
+    {
+      "item": "콘크리트 걷기 복원",
+      "classification": "사용자 제보 + 원음 ASR 구간 분석 + 선택 튜닝",
+      "source": "Freesound777607; 원본 파일 보존",
+      "policy": {
+        "ruleId": "concrete-speech-regions-v49",
+        "sourceSha256": "86c3e5661400a88af8d6990da75b7cb320a972e820c0869da275582cddec69e8",
+        "source": "footsteps/concrete_walk_boots__freesound-777607-yannsauvin.flac",
+        "method": "faster-whisper base/int8 CPU detected French speech16.70–19.40,20.00–21.24,22.20–23.50,24.54–25.68s and uncertain vocal fragments52.98–53.06s. Add350ms guard and merge overlapping ranges; reject only candidate crops intersecting these intervals.",
+        "excludedIntervalsS": [
+          [
+            16.35,
+            21.59
+          ],
+          [
+            21.85,
+            23.85
+          ],
+          [
+            24.19,
+            26.03
+          ],
+          [
+            52.63,
+            53.41
+          ]
+        ],
+        "noSpeechSeparationClaim": true,
+        "asrCannotProveOtherIntervalsSpeechFree": true
+      },
+      "change": "말소리 구간과 겹친 기존3조각만 교체. 걷기12개·달리기12개 복원. 음원 전체 삭제/음성 소거 방식 아님.",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "item": "철 바닥 끝 감쇠",
+      "classification": "원음 + 튜닝",
+      "source": "Freesound398937; 원본 파일 보존",
+      "values": {
+        "durationS": 0.6,
+        "cosineFadeS": 0.18,
+        "isolatedClips": 6,
+        "nextOnsetMinGapS": 0.67,
+        "normalizationWindowS": 0.25
+      },
+      "change": "다음 발소리가 섞이지 않는 긴 조각6개로 교체. 첫250ms RMS로 정규화해 긴 꼬리로 인한 과증폭 방지.",
+      "2D 역이식 후보": "예"
+    }
+  ],
+  "preserved": {
+    "formulasAnd2D": true,
+    "protectedSourceFiles": 176,
+    "originalSoundFiles": 9,
+    "modelBlocks": 7,
+    "v47GunshotPCMs": 6,
+    "v47GunshotAndHearingTuning": true,
+    "v47OtherUnchangedPCMs": 45
+  },
+  "limitations": [
+    "실제 Android/iOS 및 스피커/헤드폰 청감은 미검증이다. 알려진 말소리 구간과 겹친 조각을 제외했으며 음성만 분리하거나 전체 원음의 무음성을 보증하지 않는다.",
+    "짧은 발소리 미리듣기 ASR은 입력 길이를 벗어나는 반복 문장을 생성해 판정 근거에서 제외했다. 원음 ASR 위치와 여유 구간을 기준으로 조각을 선택했고 VAD 결과도 참고 자료로만 보존한다.",
+    "소프트웨어 렌더 환경이다. CPU 고정 틱 비용과 실제 실시간 FPS/소리 간격은 다르며, 기존 실시간 연사 성능 한계를 해결했다고 주장하지 않는다.",
+    "새 몸 애니메이션 때문에 이동 중 시점·총구·탄 방향과 발소리 시각/위치는 의도적으로 달라진다. 정지 600틱도 극소 자세 차이가 남으며 완전 동일 판정이 아니다.",
+    "1인칭 낮은 눈높이에 맞추기 위해 대리 몸의 골반·몸통 IK를 사용한다. 팔다리 길이는 보존하지만 기존 어깨 어댑터 보정은 유지한다. H01은 고정 표적 자세 그대로다."
+  ]
+}

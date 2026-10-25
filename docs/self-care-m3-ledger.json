@@ -1,0 +1,429 @@
+{
+  "version": "self-care-m3-v59",
+  "baseline": "44942e7dac4701abf408a39eca6aba69a49b8e65",
+  "scope": "본인 CAT/압박붕대/지혈거즈; M4/M5/M6 미구현",
+  "values": {
+    "ruleId": "self-care-m3-v59",
+    "catSeconds": {
+      "arm": 28,
+      "leg": 37.5
+    },
+    "oneHandMultiplier": 1.65,
+    "bandageSeconds": 30,
+    "gauzePackingSeconds": 30,
+    "gauzePressureSeconds": 180,
+    "resumeSetupSeconds": 1.5,
+    "aboveWoundM": 0.065,
+    "catResidual": 5e-05,
+    "looseArteryGain": 0.35,
+    "looseVeinFactor": 0.15,
+    "catPain": 70,
+    "bandage": {
+      "artery": 0.8,
+      "vein": 0.15,
+      "capillary": 0.1
+    },
+    "gauze": {
+      "artery": 0.03,
+      "vein": 0.05,
+      "capillary": 0.1
+    },
+    "manualPressure": {
+      "artery": 0.15,
+      "vein": 0.15,
+      "capillary": 0.15
+    },
+    "interruptedGauzeGain": 0.25,
+    "classification": "다리 CAT37.5초 연구 중앙값·180초 압박 제조사 출처; 위팔28초; 적용 시간·계수·배율·통증은 튜닝, 위치/중단/구성은 사용자 설계값",
+    "reversePortCandidate": true,
+    "automatic2DPort": false
+  },
+  "ifak": {
+    "ruleId": "medical-items-m3-v59",
+    "cellMm": "M2 retained nominal label; M3 footprints do not use physical90mm proportion",
+    "doubleTapMs": 350,
+    "dragThresholdPx": 7,
+    "ifakGrid": {
+      "cols": 3,
+      "rows": 3
+    },
+    "requestedGrid": {
+      "cols": 3,
+      "rows": 3
+    },
+    "ifakSize": {
+      "w": 2,
+      "h": 2
+    },
+    "classification": "사용자 구성/외부2x2; 제품 치수/무게 출처; 내부 격자는 정리 공간의 추상화, 실제 크기 비례 아님(게임 허용)",
+    "supplies": {
+      "cat": {
+        "id": "cat",
+        "name": "CAT Gen7 지혈대",
+        "shortName": "CAT",
+        "description": "팔다리 출혈용 지혈대.",
+        "target": "팔다리 영역",
+        "packageMm": [
+          165.1,
+          60.96,
+          38.1
+        ],
+        "weightKg": 0.07654371243750001,
+        "size": {
+          "w": 1,
+          "h": 1
+        },
+        "source": "https://www.narescue.com/all-products/massive-hemorrhage/combat-application-tourniquet-c-a-t.html",
+        "units": 1,
+        "kind": "medicalSupply"
+      },
+      "gauze": {
+        "id": "gauze",
+        "name": "QuikClot Combat Gauze",
+        "shortName": "거즈",
+        "description": "카올린 함유 지혈거즈.",
+        "target": "상처",
+        "packageMm": [
+          139.7,
+          127,
+          15.875
+        ],
+        "weightKg": 0.022679618500000005,
+        "size": {
+          "w": 1,
+          "h": 2
+        },
+        "source": "https://www.narescue.com/outdoor-adventure-products/combat-gauze.html",
+        "units": 1,
+        "kind": "medicalSupply"
+      },
+      "bandage": {
+        "id": "bandage",
+        "name": "NAR ETD 4인치 압박붕대",
+        "shortName": "압박붕대",
+        "description": "흡수 패드가 있는 탄력 압박붕대.",
+        "target": "상처",
+        "packageMm": [
+          114.3,
+          63.5,
+          44.45
+        ],
+        "weightKg": 0.07370876012500001,
+        "size": {
+          "w": 1,
+          "h": 1
+        },
+        "source": "https://www.narescue.com/all-products/4-emergency-trauma-dressing-etd.html",
+        "units": 1,
+        "kind": "medicalSupply"
+      },
+      "seal": {
+        "id": "seal",
+        "name": "HyFin Vent Compact 흉부 씰",
+        "shortName": "흉부 씰",
+        "description": "통기형 흉부 씰 2개 세트.",
+        "target": "가슴 상태",
+        "packageMm": [
+          167.64,
+          98.425,
+          3.302
+        ],
+        "weightKg": 0.043941760843750004,
+        "size": {
+          "w": 1,
+          "h": 2
+        },
+        "source": "https://www.narescue.com/hyfin-vent-compact-chest-seal-twin-pack.html",
+        "units": 2,
+        "kind": "medicalSupply"
+      },
+      "needle": {
+        "id": "needle",
+        "name": "NAR ARS 14G 감압 키트",
+        "shortName": "감압 키트",
+        "description": "보호 튜브에 든 14G 감압 키트.",
+        "target": "가슴 상태",
+        "packageMm": [
+          144.78,
+          20.32,
+          17.78
+        ],
+        "weightKg": 0.017009713875,
+        "size": {
+          "w": 1,
+          "h": 1
+        },
+        "source": "https://www.narescue.com/military-products/respirations/ars-for-needle-decompression-3-26.html",
+        "units": 1,
+        "kind": "medicalSupply"
+      },
+      "npa": {
+        "id": "npa",
+        "name": "NAR NPA 28F·윤활제",
+        "shortName": "NPA",
+        "description": "윤활제가 동봉된 비인두 기도기.",
+        "target": "기도",
+        "packageMm": [
+          152.4,
+          40.64,
+          12.7
+        ],
+        "weightKg": 0.0141747615625,
+        "size": {
+          "w": 1,
+          "h": 1
+        },
+        "source": "https://www.narescue.com/all-products/naso-with-lubricant-packet.html",
+        "units": 1,
+        "kind": "medicalSupply"
+      }
+    },
+    "pouch": {
+      "id": "ifak",
+      "name": "IFAK",
+      "shortName": "IFAK",
+      "description": "개인 의료 파우치 · 의료 물품 전용",
+      "kind": "medicalContainer",
+      "size": {
+        "w": 2,
+        "h": 2
+      },
+      "grid": {
+        "cols": 3,
+        "rows": 3
+      },
+      "weightKg": 0.159,
+      "packageMm": [
+        190,
+        130,
+        64
+      ],
+      "source": "https://tasmaniantigerusa.com/medic-equipment/ifak-pouches/tt-tac-ifak-pouch-m",
+      "modelReference": "TT TAC IFAK POUCH M; 사용자 지정 구성, 미군 IFAK II 전체 재현 아님"
+    },
+    "contentsKg": 0.32460203978125,
+    "totalKg": 0.48360203978125
+  },
+  "entries": [
+    {
+      "id": "protected",
+      "classification": [
+        "원본"
+      ],
+      "rule": "2D/탄도/관통/방호/HP/상처통로/기존 생리 수식·자산 그대로",
+      "reversePortCandidate": false,
+      "automatic2DPort": false
+    },
+    {
+      "id": "state",
+      "classification": [
+        "사용자 설계값"
+      ],
+      "rule": "의료 상태에 lazy appliedTreatments; 매 틱 B1 읽기; 같은 요청 함수; 본인만",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "id": "flow",
+      "classification": [
+        "원본",
+        "튜닝"
+      ],
+      "rule": "기존 raw orifice/closure/perfusion 계산 뒤 병변 계수; 제어된 합에 기존 CO/가용혈액 cap 식. 원래 병변면적 가중치 보존",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "id": "external-only",
+      "classification": [
+        "원본",
+        "사용자 설계값"
+      ],
+      "rule": "압박붕대: M2 실제 외부 성분만. 거즈: 검증된 열린 사지 통로 병변 자체를 줄인 뒤 M2 그대로 분배; 몸통은 복합 ooze의 외부 성분만. 직접 체강 혈관/장기 계수1. CAT은 체강/접합부 source 제외 원위 사지만. source.destination/pool은 기존 호환 분류.",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "id": "cat-location",
+      "classification": [
+        "출처",
+        "튜닝"
+      ],
+      "rule": "TCCC high&tight/2–3in proximal;65mm 선택. 원래24본 바인드 체인 투영/길이; world y 무관. 정확한 상처 위는 실제 상처 선택 필수, 부위만 선택하면 high&tight",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "id": "cat-time",
+      "classification": [
+        "출처",
+        "튜닝"
+      ],
+      "rule": "다리37.5초=Beaven2018 허벅지 자가 적용 중앙값. 팔28초·한 손1.65는 튜닝; 정확한 대응 시간 미확인",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "id": "cat-effect",
+      "classification": [
+        "튜닝",
+        "사용자 설계값",
+        "게임 허용"
+      ],
+      "rule": "완료는 성공적 완전 조임, 잔여0.00005; 미완료 동맥1+.35p/정맥1-.85p. 연구92%는 별도 확률로 이식하지 않음",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "id": "cat-function-pain",
+      "classification": [
+        "사용자 설계값",
+        "튜닝",
+        "게임 허용"
+      ],
+      "rule": "감은 사지 기능0/통증70 오버레이; HP·장시간 허혈 손상 없음. 제거 후 원래 상처 기능 계산/통증 감쇠",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "id": "bandage",
+      "classification": [
+        "튜닝"
+      ],
+      "rule": "30초; 동맥.8/정맥.15/삼출.1. 중단은 완성 효과의45%×진도",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "id": "gauze",
+      "classification": [
+        "출처",
+        "튜닝"
+      ],
+      "rule": "채우기30초 튜닝 + 제조사 압박180초. 배율≥1. 압박 중 외부.15, 완료 동맥.03/정맥.05/삼출.1; 중단1-.25p. 붕대 계수와 곱",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "id": "timing",
+      "classification": [
+        "사용자 설계값",
+        "튜닝"
+      ],
+      "rule": "시작/재개 시 기능·통증·D1진폭·의식·관류 배율 고정; 한 팔 분쇄/절단이면 한 손, 둘이면 불가. 의식 소실 불가; 재개 준비1.5초",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "id": "transactions",
+      "classification": [
+        "사용자 설계값",
+        "게임 허용"
+      ],
+      "rule": "사용 중 전용 owner; 거즈/붕대 즉시개봉 소모/제거폐기. CAT 원래 자가컨테이너/가방 회수; 빈칸 없으면 제거 거부/효과 유지",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "id": "ifak",
+      "classification": [
+        "사용자 설계값",
+        "게임 허용",
+        "출처"
+      ],
+      "rule": "CAT2개,3x3 9칸 추상화, 외부2x2. 실제 크기 비례 아님. 제품 무게는M2+CAT1개;483.602g",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "id": "input",
+      "classification": [
+        "사용자 설계값",
+        "튜닝"
+      ],
+      "rule": "치료 중 양손 잠금/시선자유/총기가림; hit(방호구 포함)/move/sprint/weapon/cancel중단. 치료는 화면닫아도 계속, 기존pause에서는 정지",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "id": "pointer-lock",
+      "classification": [
+        "사용자 설계값"
+      ],
+      "rule": "신뢰된 닫기 버튼·키 입력 안 동기요청. Esc제외, 실패 후 다음좌클릭 재시도만 수행; 터치/펜 제외",
+      "reversePortCandidate": false,
+      "automatic2DPort": false
+    },
+    {
+      "id": "debug-junction",
+      "classification": [
+        "게임 허용"
+      ],
+      "rule": "9mm35m/s 실제 traceShot/record로 경부 접합부 시험, 현실 탄속 아님",
+      "reversePortCandidate": false,
+      "automatic2DPort": false
+    },
+    {
+      "id": "conscious-down-live-care",
+      "classification": [
+        "튜닝",
+        "게임 허용"
+      ],
+      "rule": "실제 플레이에서 대퇴동맥 출혈은 완성 전 저혈압으로 쓰러질 수 있다. 진행 중 처치가 있으면 down상태에서도 기존 fixed-step 세계를 계속 돌린다. NPC는 기존대로 쓰러진 플레이어를 사격하지 않는다. 중단/완료되면 기존 down정지로 돌아간다. 정지 메뉴는 항상 정지. HUD는 down화면 위에 표시. 의료/래그돌 수식 그대로.",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "id": "observed-increase",
+      "classification": [
+        "튜닝"
+      ],
+      "rule": "실제 제어 source유량이 같은 현재 혈역학/구멍의 계수1 유량보다1e-9mL/s 이상 크면 열린 상처에 더 많이 흐름을 표시. 생리 계산에 역입력 없음.",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    {
+      "id": "sector-ownership",
+      "classification": [
+        "튜닝",
+        "게임 허용"
+      ],
+      "rule": "기존 구역 이동은 환자 인스턴스를 폐기한다. in-use 의료 물품이 있으면 구역 이동 전에 차단하고 제거/전체초기화를 안내해 복제/분실을 방지한다. 일반 무처치 이동은 기존대로.",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    }
+  ],
+  "deferred": [
+    "M4 seals/needle/abdomen/NPA",
+    "M5 other patients",
+    "M6 equipment grids",
+    "2h pressure damage",
+    "compartment syndrome",
+    "AI care",
+    "analgesia/TXA"
+  ],
+  "sourceRequirementsComplete": false,
+  "implementationTuning": {
+    "classification": "튜닝",
+    "timeMultiplierWeights": {
+      "armFunctionLoss": 1.1,
+      "pain": 0.8,
+      "D1Amplitude": 0.35,
+      "consciousnessLoss": 0.8,
+      "perfusionLoss": 0.7
+    },
+    "tremorReferenceRad": 0.004,
+    "interruptedBandageEffectGain": 0.45,
+    "catPlacementM": {
+      "highOffset": 0.015,
+      "minimumOffset": 0.005,
+      "nearExistingThreshold": 0.035,
+      "secondProximalShift": 0.025
+    },
+    "UICompatibilityClick": {
+      "milliseconds": 700,
+      "samePointPixels": 8
+    },
+    "downCareSimulation": "active care continues fixed-step after conscious collapse; no active care retains original down freeze; pause menu always freezes"
+  }
+}

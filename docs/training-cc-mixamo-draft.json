@@ -1,0 +1,694 @@
+{
+  "inputSha256": "f00982db81b70687f89803fa1427f4caf99c324d64b6a0992ebf769ab054e71c",
+  "runtimeEnabled": false,
+  "bones": [
+    {
+      "name": "_rootJoint",
+      "parent": "Object_5",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "RL_BoneRoot_00",
+      "parent": "_rootJoint",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_Hip_01",
+      "parent": "RL_BoneRoot_00",
+      "mixamo": "mixamorig:Hips",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_Pelvis_02",
+      "parent": "CC_Base_Hip_01",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_L_Thigh_03",
+      "parent": "CC_Base_Pelvis_02",
+      "mixamo": "mixamorig:LeftUpLeg",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_L_Calf_04",
+      "parent": "CC_Base_L_Thigh_03",
+      "mixamo": "mixamorig:LeftLeg",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_L_Foot_05",
+      "parent": "CC_Base_L_Calf_04",
+      "mixamo": "mixamorig:LeftFoot",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_L_ToeBaseShareBone_06",
+      "parent": "CC_Base_L_Foot_05",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_L_ToeBase_07",
+      "parent": "CC_Base_L_Foot_05",
+      "mixamo": "mixamorig:LeftToeBase",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_L_PinkyToe1_08",
+      "parent": "CC_Base_L_ToeBase_07",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_L_RingToe1_09",
+      "parent": "CC_Base_L_ToeBase_07",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_L_MidToe1_010",
+      "parent": "CC_Base_L_ToeBase_07",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_L_IndexToe1_011",
+      "parent": "CC_Base_L_ToeBase_07",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_L_BigToe1_012",
+      "parent": "CC_Base_L_ToeBase_07",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_L_CalfTwist01_013",
+      "parent": "CC_Base_L_Calf_04",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_L_CalfTwist02_014",
+      "parent": "CC_Base_L_CalfTwist01_013",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_L_KneeShareBone_015",
+      "parent": "CC_Base_L_Calf_04",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_L_ThighTwist01_016",
+      "parent": "CC_Base_L_Thigh_03",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_L_ThighTwist02_017",
+      "parent": "CC_Base_L_ThighTwist01_016",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_R_Thigh_018",
+      "parent": "CC_Base_Pelvis_02",
+      "mixamo": "mixamorig:RightUpLeg",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_R_ThighTwist01_019",
+      "parent": "CC_Base_R_Thigh_018",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_R_ThighTwist02_020",
+      "parent": "CC_Base_R_ThighTwist01_019",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_R_Calf_021",
+      "parent": "CC_Base_R_Thigh_018",
+      "mixamo": "mixamorig:RightLeg",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_R_Foot_022",
+      "parent": "CC_Base_R_Calf_021",
+      "mixamo": "mixamorig:RightFoot",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_R_ToeBase_023",
+      "parent": "CC_Base_R_Foot_022",
+      "mixamo": "mixamorig:RightToeBase",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_R_PinkyToe1_024",
+      "parent": "CC_Base_R_ToeBase_023",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_R_BigToe1_025",
+      "parent": "CC_Base_R_ToeBase_023",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_R_IndexToe1_026",
+      "parent": "CC_Base_R_ToeBase_023",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_R_MidToe1_027",
+      "parent": "CC_Base_R_ToeBase_023",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_R_RingToe1_028",
+      "parent": "CC_Base_R_ToeBase_023",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_R_ToeBaseShareBone_029",
+      "parent": "CC_Base_R_Foot_022",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_R_KneeShareBone_030",
+      "parent": "CC_Base_R_Calf_021",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_R_CalfTwist01_031",
+      "parent": "CC_Base_R_Calf_021",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_R_CalfTwist02_032",
+      "parent": "CC_Base_R_CalfTwist01_031",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_Waist_033",
+      "parent": "CC_Base_Hip_01",
+      "mixamo": "mixamorig:Spine",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_Spine01_034",
+      "parent": "CC_Base_Waist_033",
+      "mixamo": "mixamorig:Spine1",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_Spine02_035",
+      "parent": "CC_Base_Spine01_034",
+      "mixamo": "mixamorig:Spine2",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_NeckTwist01_036",
+      "parent": "CC_Base_Spine02_035",
+      "mixamo": "mixamorig:Neck",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_NeckTwist02_037",
+      "parent": "CC_Base_NeckTwist01_036",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_Head_038",
+      "parent": "CC_Base_NeckTwist02_037",
+      "mixamo": "mixamorig:Head",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_FacialBone_039",
+      "parent": "CC_Base_Head_038",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_JawRoot_040",
+      "parent": "CC_Base_FacialBone_039",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_Tongue01_041",
+      "parent": "CC_Base_JawRoot_040",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_Tongue02_042",
+      "parent": "CC_Base_Tongue01_041",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_Tongue03_043",
+      "parent": "CC_Base_Tongue02_042",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_Teeth02_044",
+      "parent": "CC_Base_JawRoot_040",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_R_Eye_045",
+      "parent": "CC_Base_FacialBone_039",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_L_Eye_046",
+      "parent": "CC_Base_FacialBone_039",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_UpperJaw_047",
+      "parent": "CC_Base_FacialBone_039",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_Teeth01_048",
+      "parent": "CC_Base_UpperJaw_047",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_L_Clavicle_049",
+      "parent": "CC_Base_Spine02_035",
+      "mixamo": "mixamorig:LeftShoulder",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_L_Upperarm_050",
+      "parent": "CC_Base_L_Clavicle_049",
+      "mixamo": "mixamorig:LeftArm",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_L_Forearm_051",
+      "parent": "CC_Base_L_Upperarm_050",
+      "mixamo": "mixamorig:LeftForeArm",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_L_ForearmTwist01_052",
+      "parent": "CC_Base_L_Forearm_051",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_L_ForearmTwist02_053",
+      "parent": "CC_Base_L_ForearmTwist01_052",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_L_ElbowShareBone_054",
+      "parent": "CC_Base_L_Forearm_051",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_L_Hand_055",
+      "parent": "CC_Base_L_Forearm_051",
+      "mixamo": "mixamorig:LeftHand",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_L_Mid1_056",
+      "parent": "CC_Base_L_Hand_055",
+      "mixamo": "mixamorig:LeftHandMiddle1",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_L_Mid2_057",
+      "parent": "CC_Base_L_Mid1_056",
+      "mixamo": "mixamorig:LeftHandMiddle2",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_L_Mid3_058",
+      "parent": "CC_Base_L_Mid2_057",
+      "mixamo": "mixamorig:LeftHandMiddle3",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_L_Index1_059",
+      "parent": "CC_Base_L_Hand_055",
+      "mixamo": "mixamorig:LeftHandIndex1",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_L_Index2_060",
+      "parent": "CC_Base_L_Index1_059",
+      "mixamo": "mixamorig:LeftHandIndex2",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_L_Index3_061",
+      "parent": "CC_Base_L_Index2_060",
+      "mixamo": "mixamorig:LeftHandIndex3",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_L_Ring1_062",
+      "parent": "CC_Base_L_Hand_055",
+      "mixamo": "mixamorig:LeftHandRing1",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_L_Ring2_063",
+      "parent": "CC_Base_L_Ring1_062",
+      "mixamo": "mixamorig:LeftHandRing2",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_L_Ring3_064",
+      "parent": "CC_Base_L_Ring2_063",
+      "mixamo": "mixamorig:LeftHandRing3",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_L_Pinky1_065",
+      "parent": "CC_Base_L_Hand_055",
+      "mixamo": "mixamorig:LeftHandPinky1",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_L_Pinky2_066",
+      "parent": "CC_Base_L_Pinky1_065",
+      "mixamo": "mixamorig:LeftHandPinky2",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_L_Pinky3_067",
+      "parent": "CC_Base_L_Pinky2_066",
+      "mixamo": "mixamorig:LeftHandPinky3",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_L_Thumb1_068",
+      "parent": "CC_Base_L_Hand_055",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_L_Thumb2_069",
+      "parent": "CC_Base_L_Thumb1_068",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_L_Thumb3_070",
+      "parent": "CC_Base_L_Thumb2_069",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_L_UpperarmTwist01_071",
+      "parent": "CC_Base_L_Upperarm_050",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_L_UpperarmTwist02_072",
+      "parent": "CC_Base_L_UpperarmTwist01_071",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_R_Clavicle_073",
+      "parent": "CC_Base_Spine02_035",
+      "mixamo": "mixamorig:RightShoulder",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_R_Upperarm_074",
+      "parent": "CC_Base_R_Clavicle_073",
+      "mixamo": "mixamorig:RightArm",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_R_UpperarmTwist01_075",
+      "parent": "CC_Base_R_Upperarm_074",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_R_UpperarmTwist02_076",
+      "parent": "CC_Base_R_UpperarmTwist01_075",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_R_Forearm_077",
+      "parent": "CC_Base_R_Upperarm_074",
+      "mixamo": "mixamorig:RightForeArm",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_R_ForearmTwist01_078",
+      "parent": "CC_Base_R_Forearm_077",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_R_ForearmTwist02_079",
+      "parent": "CC_Base_R_ForearmTwist01_078",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_R_ElbowShareBone_080",
+      "parent": "CC_Base_R_Forearm_077",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_R_Hand_081",
+      "parent": "CC_Base_R_Forearm_077",
+      "mixamo": "mixamorig:RightHand",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_R_Mid1_082",
+      "parent": "CC_Base_R_Hand_081",
+      "mixamo": "mixamorig:RightHandMiddle1",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_R_Mid2_083",
+      "parent": "CC_Base_R_Mid1_082",
+      "mixamo": "mixamorig:RightHandMiddle2",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_R_Mid3_084",
+      "parent": "CC_Base_R_Mid2_083",
+      "mixamo": "mixamorig:RightHandMiddle3",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_R_Ring1_085",
+      "parent": "CC_Base_R_Hand_081",
+      "mixamo": "mixamorig:RightHandRing1",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_R_Ring2_086",
+      "parent": "CC_Base_R_Ring1_085",
+      "mixamo": "mixamorig:RightHandRing2",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_R_Ring3_087",
+      "parent": "CC_Base_R_Ring2_086",
+      "mixamo": "mixamorig:RightHandRing3",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_R_Thumb1_088",
+      "parent": "CC_Base_R_Hand_081",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_R_Thumb2_089",
+      "parent": "CC_Base_R_Thumb1_088",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_R_Thumb3_090",
+      "parent": "CC_Base_R_Thumb2_089",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_R_Index1_091",
+      "parent": "CC_Base_R_Hand_081",
+      "mixamo": "mixamorig:RightHandIndex1",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_R_Index2_092",
+      "parent": "CC_Base_R_Index1_091",
+      "mixamo": "mixamorig:RightHandIndex2",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_R_Index3_093",
+      "parent": "CC_Base_R_Index2_092",
+      "mixamo": "mixamorig:RightHandIndex3",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_R_Pinky1_094",
+      "parent": "CC_Base_R_Hand_081",
+      "mixamo": "mixamorig:RightHandPinky1",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_R_Pinky2_095",
+      "parent": "CC_Base_R_Pinky1_094",
+      "mixamo": "mixamorig:RightHandPinky2",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_R_Pinky3_096",
+      "parent": "CC_Base_R_Pinky2_095",
+      "mixamo": "mixamorig:RightHandPinky3",
+      "role": "draft mapped; rest-axis correction required"
+    },
+    {
+      "name": "CC_Base_R_RibsTwist_097",
+      "parent": "CC_Base_Spine02_035",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_R_Breast_098",
+      "parent": "CC_Base_R_RibsTwist_097",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_L_RibsTwist_099",
+      "parent": "CC_Base_Spine02_035",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "CC_Base_L_Breast_0100",
+      "parent": "CC_Base_L_RibsTwist_099",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "Pouch1_0101",
+      "parent": "CC_Base_Waist_033",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "Pouch1.001_0102",
+      "parent": "Pouch1_0101",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "Pouch1.002_0103",
+      "parent": "Pouch1.001_0102",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "Pouch2_0104",
+      "parent": "CC_Base_Waist_033",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "Pouch2.001_0105",
+      "parent": "Pouch2_0104",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "Pouch2.002_0106",
+      "parent": "Pouch2.001_0105",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "Pouch3_0107",
+      "parent": "CC_Base_Waist_033",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "Pouch3.001_0108",
+      "parent": "Pouch3_0107",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "Pouch3.002_0109",
+      "parent": "Pouch3.001_0108",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "Pouch4_0110",
+      "parent": "CC_Base_Waist_033",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "Pouch4.001_0111",
+      "parent": "Pouch4_0110",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    },
+    {
+      "name": "Pouch4.002_0112",
+      "parent": "Pouch4.001_0111",
+      "mixamo": null,
+      "role": "keep helper; not automatically merged or renamed"
+    }
+  ],
+  "missing": [
+    "mixamorig:LeftHandThumb1/2/3",
+    "mixamorig:RightHandThumb1/2/3"
+  ]
+}

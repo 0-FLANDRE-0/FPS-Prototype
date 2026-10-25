@@ -1,0 +1,2027 @@
+{
+  "method": "Retain all24v44single-ray fixtures unchanged; new rays selected only by actual geometric direct hits of liver+hepatic vein+IVC or liver+portal trunk, standing5m. No medical time/flow target in selection.",
+  "rows": [
+    {
+      "name": "liver-central",
+      "ammoId": "545_ps_gs",
+      "target": [
+        99.95248548787544,
+        1.1126264547307467,
+        -0.05870518666028494
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "hit": {
+        "id": "liver",
+        "kind": "organ",
+        "identifier": "liver_candidate",
+        "bone": "spine",
+        "domain": "abdomen",
+        "vesselKind": null,
+        "organ": "liver",
+        "cordRegion": null,
+        "candidate": "liver_candidate",
+        "centerlineDistanceM": 0.000026477360595940393,
+        "distanceM": 0,
+        "closestDepthM": 0.16857734369879523,
+        "bulletRadiusM": 0.0028,
+        "volumeM3": 0.00023893417643646898,
+        "volumeMethod": "ellipsoid 4πabc/3",
+        "enclosureBoneIds": [],
+        "surfaceDistanceM": 0.0028,
+        "actualIntersection": true,
+        "cavityRadiusMaxM": 0.15,
+        "cavityIntervals": [
+          [
+            0,
+            0.22725585127456768
+          ]
+        ],
+        "direct": true,
+        "enclosurePenetrated": true,
+        "temporaryCavityAttenuation": 1,
+        "concussionRisk": 0,
+        "coefficient": 0.9,
+        "permanentVolumeM3": 0.000010618421494891987,
+        "temporaryVolumeM3": 0.00023893417643646898,
+        "fragmentVolumeM3": 0,
+        "boneSecondaryFragmentVolumeM3": 0,
+        "effectiveVolumeM3": 0.00022565918028771408,
+        "severity": 0.9444407813618717
+      },
+      "otherDirect": [],
+      "otherOrgans": [
+        {
+          "id": "bowel",
+          "severity": 0.06583165158592466
+        }
+      ],
+      "parts": [
+        "leftArm",
+        "abdomen"
+      ],
+      "candidates": [
+        {
+          "target": [
+            99.95248548787544,
+            1.1126264547307467,
+            -0.05870518666028494
+          ],
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "otherDirect": [],
+          "otherOrgans": [
+            {
+              "id": "bowel",
+              "severity": 0.06583165158592466
+            }
+          ],
+          "parts": [
+            "leftArm",
+            "abdomen"
+          ],
+          "severity": 0.9444407813618717
+        },
+        {
+          "target": [
+            99.95248548787544,
+            1.1126264547307467,
+            -0.05870518666028494
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "otherDirect": [],
+          "otherOrgans": [
+            {
+              "id": "right-kidney",
+              "severity": 0.19739033726801114
+            }
+          ],
+          "parts": [
+            "abdomen",
+            "leftArm"
+          ],
+          "severity": 0.943895281334825
+        },
+        {
+          "target": [
+            99.95248548787544,
+            1.1126264547307467,
+            -0.05870518666028494
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "otherDirect": [
+            {
+              "id": "lumbar-spinal-cord",
+              "severity": 0.5057047116114926
+            }
+          ],
+          "otherOrgans": [
+            {
+              "id": "lumbar-spinal-cord",
+              "severity": 0.5057047116114926
+            }
+          ],
+          "parts": [
+            "rightArm",
+            "abdomen"
+          ],
+          "severity": 0.8380071910489433
+        },
+        {
+          "target": [
+            99.95248548787544,
+            1.1126264547307467,
+            -0.05870518666028494
+          ],
+          "direction": [
+            -1,
+            0,
+            0
+          ],
+          "otherDirect": [
+            {
+              "id": "lumbar-spinal-cord",
+              "severity": 1
+            }
+          ],
+          "otherOrgans": [
+            {
+              "id": "left-kidney",
+              "severity": 0.05536166023383883
+            },
+            {
+              "id": "thoracic-esophagus",
+              "severity": 0.4
+            },
+            {
+              "id": "lumbar-spinal-cord",
+              "severity": 1
+            },
+            {
+              "id": "abdominal-esophagus",
+              "severity": 0.39999999999999997
+            },
+            {
+              "id": "right-kidney",
+              "severity": 0.10879176342073593
+            },
+            {
+              "id": "bowel",
+              "severity": 0.00013714959173010113
+            }
+          ],
+          "parts": [
+            "abdomen",
+            "rightArm"
+          ],
+          "severity": 0.8614898030580187
+        }
+      ],
+      "frozenFromV44": true
+    },
+    {
+      "name": "liver-graze",
+      "ammoId": "545_ps_gs",
+      "target": [
+        99.91048548787543,
+        1.1126264547307467,
+        -0.05870518666028494
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "hit": {
+        "id": "liver",
+        "kind": "organ",
+        "identifier": "liver_candidate",
+        "bone": "spine",
+        "domain": "abdomen",
+        "vesselKind": null,
+        "organ": "liver",
+        "cordRegion": null,
+        "candidate": "liver_candidate",
+        "centerlineDistanceM": 0.04200000904367087,
+        "distanceM": 0,
+        "closestDepthM": 0.07903336501813166,
+        "bulletRadiusM": 0.0028,
+        "volumeM3": 0.00023893417643646898,
+        "volumeMethod": "ellipsoid 4πabc/3",
+        "enclosureBoneIds": [],
+        "surfaceDistanceM": 0.0028,
+        "actualIntersection": true,
+        "cavityRadiusMaxM": 0.15,
+        "cavityIntervals": [
+          [
+            0,
+            0.13667658266607963
+          ]
+        ],
+        "direct": true,
+        "enclosurePenetrated": true,
+        "temporaryCavityAttenuation": 1,
+        "concussionRisk": 0,
+        "coefficient": 0.9,
+        "permanentVolumeM3": 0.0000044208878581549,
+        "temporaryVolumeM3": 0.00023893417643646898,
+        "fragmentVolumeM3": 0,
+        "boneSecondaryFragmentVolumeM3": 0,
+        "effectiveVolumeM3": 0.000219461646650977,
+        "severity": 0.918502534564495
+      },
+      "offsetM": 0.042,
+      "frozenFromV44": true
+    },
+    {
+      "name": "spleen-central",
+      "ammoId": "545_ps_gs",
+      "target": [
+        100.08583720352674,
+        1.1325289154920106,
+        0.0653383963356084
+      ],
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "hit": {
+        "id": "spleen",
+        "kind": "organ",
+        "identifier": "spleen_candidate",
+        "bone": "spine",
+        "domain": "abdomen",
+        "vesselKind": null,
+        "organ": "spleen",
+        "cordRegion": null,
+        "candidate": "spleen_candidate",
+        "centerlineDistanceM": 0.00002566370628791365,
+        "distanceM": 0,
+        "closestDepthM": 0.15377609105443746,
+        "bulletRadiusM": 0.0028,
+        "volumeM3": 0.00008423974538251564,
+        "volumeMethod": "ellipsoid 4πabc/3",
+        "enclosureBoneIds": [],
+        "surfaceDistanceM": 0.0028,
+        "actualIntersection": true,
+        "cavityRadiusMaxM": 0.15,
+        "cavityIntervals": [
+          [
+            0,
+            0.18343395351446337
+          ]
+        ],
+        "direct": true,
+        "enclosurePenetrated": true,
+        "temporaryCavityAttenuation": 1,
+        "concussionRisk": 0,
+        "coefficient": 0.9,
+        "permanentVolumeM3": 0.000002345879025175541,
+        "temporaryVolumeM3": 0.00008423974538251564,
+        "fragmentVolumeM3": 0,
+        "boneSecondaryFragmentVolumeM3": 0,
+        "effectiveVolumeM3": 0.00007816164986943962,
+        "severity": 0.9278476509458021
+      },
+      "otherDirect": [],
+      "otherOrgans": [],
+      "parts": [
+        "rightArm",
+        "abdomen"
+      ],
+      "candidates": [
+        {
+          "target": [
+            100.08583720352674,
+            1.1325289154920106,
+            0.0653383963356084
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "otherDirect": [],
+          "otherOrgans": [],
+          "parts": [
+            "rightArm",
+            "abdomen"
+          ],
+          "severity": 0.9278476509458021
+        },
+        {
+          "target": [
+            100.08583720352674,
+            1.1325289154920106,
+            0.0653383963356084
+          ],
+          "direction": [
+            -1,
+            0,
+            0
+          ],
+          "otherDirect": [],
+          "otherOrgans": [],
+          "parts": [
+            "abdomen",
+            "rightArm"
+          ],
+          "severity": 0.9254812704073152
+        },
+        {
+          "target": [
+            100.08583720352674,
+            1.1325289154920106,
+            0.0653383963356084
+          ],
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "otherDirect": [
+            {
+              "id": "left-radial",
+              "severity": 1
+            }
+          ],
+          "otherOrgans": [],
+          "parts": [
+            "leftArm",
+            "abdomen"
+          ],
+          "severity": 0.9611597501465808
+        },
+        {
+          "target": [
+            100.08583720352674,
+            1.1325289154920106,
+            0.0653383963356084
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "otherDirect": [
+            {
+              "id": "left-radial",
+              "severity": 0.6389597727247976
+            }
+          ],
+          "otherOrgans": [
+            {
+              "id": "thoracic-esophagus",
+              "severity": 0.4
+            },
+            {
+              "id": "abdominal-esophagus",
+              "severity": 0.39999999999999997
+            },
+            {
+              "id": "left-kidney",
+              "severity": 0.9
+            }
+          ],
+          "parts": [
+            "abdomen",
+            "leftArm"
+          ],
+          "severity": 0.9429848357873434
+        }
+      ],
+      "frozenFromV44": true
+    },
+    {
+      "name": "left-kidney-central",
+      "ammoId": "545_ps_gs",
+      "target": [
+        100.11040204589955,
+        1.0890615127550674,
+        0.033311424836018115
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "hit": {
+        "id": "left-kidney",
+        "kind": "organ",
+        "identifier": "kidney_candidate",
+        "bone": "spine",
+        "domain": "abdomen",
+        "vesselKind": null,
+        "organ": "kidney",
+        "cordRegion": null,
+        "candidate": "kidney_candidate",
+        "centerlineDistanceM": 0.000018738339572046947,
+        "distanceM": 0,
+        "closestDepthM": 0.11551385081723758,
+        "bulletRadiusM": 0.0028,
+        "volumeM3": 0.00003082407919431941,
+        "volumeMethod": "ellipsoid 4πabc/3",
+        "enclosureBoneIds": [],
+        "surfaceDistanceM": 0.0028,
+        "actualIntersection": true,
+        "cavityRadiusMaxM": 0.15,
+        "cavityIntervals": [
+          [
+            0,
+            0.1698108004773815
+          ]
+        ],
+        "direct": true,
+        "enclosurePenetrated": true,
+        "temporaryCavityAttenuation": 1,
+        "concussionRisk": 0,
+        "coefficient": 0.9,
+        "permanentVolumeM3": 0.000004790149280947148,
+        "temporaryVolumeM3": 0.00003082407919431941,
+        "fragmentVolumeM3": 0,
+        "boneSecondaryFragmentVolumeM3": 0,
+        "effectiveVolumeM3": 0.000032531820555834615,
+        "severity": 1
+      },
+      "otherDirect": [],
+      "otherOrgans": [
+        {
+          "id": "spleen",
+          "severity": 0.9
+        }
+      ],
+      "parts": [
+        "abdomen"
+      ],
+      "candidates": [
+        {
+          "target": [
+            100.11040204589955,
+            1.0890615127550674,
+            0.033311424836018115
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "otherDirect": [],
+          "otherOrgans": [
+            {
+              "id": "spleen",
+              "severity": 0.9
+            }
+          ],
+          "parts": [
+            "abdomen"
+          ],
+          "severity": 1
+        },
+        {
+          "target": [
+            100.11040204589955,
+            1.0890615127550674,
+            0.033311424836018115
+          ],
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "otherDirect": [],
+          "otherOrgans": [
+            {
+              "id": "spleen",
+              "severity": 0.9
+            }
+          ],
+          "parts": [
+            "abdomen"
+          ],
+          "severity": 0.9752519376305454
+        },
+        {
+          "target": [
+            100.11040204589955,
+            1.0890615127550674,
+            0.033311424836018115
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "otherDirect": [],
+          "otherOrgans": [
+            {
+              "id": "liver",
+              "severity": 0.7670874038883987
+            },
+            {
+              "id": "bowel",
+              "severity": 0.35560937778351254
+            }
+          ],
+          "parts": [
+            "rightArm",
+            "abdomen"
+          ],
+          "severity": 0.16273294430693494
+        },
+        {
+          "target": [
+            100.11040204589955,
+            1.0890615127550674,
+            0.033311424836018115
+          ],
+          "direction": [
+            -1,
+            0,
+            0
+          ],
+          "otherDirect": [],
+          "otherOrgans": [
+            {
+              "id": "spleen",
+              "severity": 0.9
+            },
+            {
+              "id": "bowel",
+              "severity": 0.4
+            }
+          ],
+          "parts": [
+            "abdomen",
+            "rightArm"
+          ],
+          "severity": 0.9311660998169995
+        }
+      ],
+      "frozenFromV44": true
+    },
+    {
+      "name": "right-kidney-central",
+      "ammoId": "545_ps_gs",
+      "target": [
+        99.9957989919186,
+        1.0806290048748814,
+        -0.12653729117624685
+      ],
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "hit": {
+        "id": "right-kidney",
+        "kind": "organ",
+        "identifier": "kidney_candidate",
+        "bone": "spine",
+        "domain": "abdomen",
+        "vesselKind": null,
+        "organ": "kidney",
+        "cordRegion": null,
+        "candidate": "kidney_candidate",
+        "centerlineDistanceM": 0.000022489205333013197,
+        "distanceM": 0,
+        "closestDepthM": 0.10487250472518361,
+        "bulletRadiusM": 0.0028,
+        "volumeM3": 0.000029743373160297302,
+        "volumeMethod": "ellipsoid 4πabc/3",
+        "enclosureBoneIds": [],
+        "surfaceDistanceM": 0.0028,
+        "actualIntersection": true,
+        "cavityRadiusMaxM": 0.15,
+        "cavityIntervals": [
+          [
+            0,
+            0.14878670378508863
+          ]
+        ],
+        "direct": true,
+        "enclosurePenetrated": true,
+        "temporaryCavityAttenuation": 1,
+        "concussionRisk": 0,
+        "coefficient": 0.9,
+        "permanentVolumeM3": 0.000005170343958733461,
+        "temporaryVolumeM3": 0.000029743373160297302,
+        "fragmentVolumeM3": 0,
+        "boneSecondaryFragmentVolumeM3": 0,
+        "effectiveVolumeM3": 0.000031939379803001034,
+        "severity": 1
+      },
+      "otherDirect": [],
+      "otherOrgans": [
+        {
+          "id": "liver",
+          "severity": 0.9
+        }
+      ],
+      "parts": [
+        "rightArm",
+        "abdomen"
+      ],
+      "candidates": [
+        {
+          "target": [
+            99.9957989919186,
+            1.0806290048748814,
+            -0.12653729117624685
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "otherDirect": [],
+          "otherOrgans": [
+            {
+              "id": "liver",
+              "severity": 0.9
+            }
+          ],
+          "parts": [
+            "rightArm",
+            "abdomen"
+          ],
+          "severity": 1
+        },
+        {
+          "target": [
+            99.9957989919186,
+            1.0806290048748814,
+            -0.12653729117624685
+          ],
+          "direction": [
+            -1,
+            0,
+            0
+          ],
+          "otherDirect": [],
+          "otherOrgans": [
+            {
+              "id": "liver",
+              "severity": 0.9
+            }
+          ],
+          "parts": [
+            "abdomen",
+            "rightArm"
+          ],
+          "severity": 0.953563642753897
+        },
+        {
+          "target": [
+            99.9957989919186,
+            1.0806290048748814,
+            -0.12653729117624685
+          ],
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "otherDirect": [],
+          "otherOrgans": [
+            {
+              "id": "bowel",
+              "severity": 0.4
+            },
+            {
+              "id": "liver",
+              "severity": 0.9
+            }
+          ],
+          "parts": [
+            "abdomen"
+          ],
+          "severity": 0.17003767069178785
+        },
+        {
+          "target": [
+            99.9957989919186,
+            1.0806290048748814,
+            -0.12653729117624685
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "otherDirect": [],
+          "otherOrgans": [
+            {
+              "id": "liver",
+              "severity": 0.9
+            },
+            {
+              "id": "abdominal-esophagus",
+              "severity": 0.39999999999999997
+            },
+            {
+              "id": "bowel",
+              "severity": 0.24115992742336062
+            }
+          ],
+          "parts": [
+            "abdomen"
+          ],
+          "severity": 0.9311687828557768
+        }
+      ],
+      "frozenFromV44": true
+    },
+    {
+      "name": "carotid",
+      "ammoId": "545_ps_gs",
+      "target": [
+        100.02567827106851,
+        1.499941788123789,
+        -0.021007106526726174
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "frozenFromV44": true
+    },
+    {
+      "name": "femoral-complete",
+      "ammoId": "545_ps_gs",
+      "target": [
+        99.94073764584587,
+        0.7434418942724186,
+        0.2085913275107532
+      ],
+      "direction": [
+        -0.7670066732669654,
+        -0.039538200410272284,
+        -0.6404197794199206
+      ],
+      "frozenFromV44": true
+    },
+    {
+      "name": "thoracic-aorta",
+      "ammoId": "545_ps_gs",
+      "target": [
+        100.10657149976916,
+        1.2357919634113241,
+        -0.06596997594369527
+      ],
+      "direction": [
+        0.7843929806739096,
+        0.09161459788032844,
+        -0.6134610153259334
+      ],
+      "frozenFromV44": true
+    },
+    {
+      "name": "heart",
+      "ammoId": "545_ps_gs",
+      "target": [
+        99.99832775168026,
+        1.3106277094389,
+        -0.023506806614581488
+      ],
+      "direction": [
+        0.7071067811865475,
+        0,
+        -0.7071067811865476
+      ],
+      "frozenFromV44": true
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "545_ps_gs",
+      "target": [
+        100.14119085436698,
+        1.2599807028132186,
+        0.19603455432250383
+      ],
+      "direction": [
+        -0.7670066732669654,
+        -0.039538200410272284,
+        -0.6404197794199206
+      ],
+      "frozenFromV44": true
+    },
+    {
+      "name": "femoral-partial",
+      "ammoId": "545_ps_gs",
+      "target": [
+        99.94833764584587,
+        0.7434418942724186,
+        0.2085913275107532
+      ],
+      "direction": [
+        -0.7670066732669654,
+        -0.039538200410272284,
+        -0.6404197794199206
+      ],
+      "coverage": 0.7801669519711142,
+      "discovery": [
+        {
+          "offsetM": 0,
+          "type": "complete_transection",
+          "coverage": 1
+        },
+        {
+          "offsetM": 0.0004,
+          "type": "complete_transection",
+          "coverage": 1
+        },
+        {
+          "offsetM": 0.0008,
+          "type": "complete_transection",
+          "coverage": 1
+        },
+        {
+          "offsetM": 0.0012000000000000001,
+          "type": "complete_transection",
+          "coverage": 1
+        },
+        {
+          "offsetM": 0.0016,
+          "type": "complete_transection",
+          "coverage": 1
+        },
+        {
+          "offsetM": 0.002,
+          "type": "complete_transection",
+          "coverage": 1
+        },
+        {
+          "offsetM": 0.0024000000000000002,
+          "type": "complete_transection",
+          "coverage": 1
+        },
+        {
+          "offsetM": 0.0028,
+          "type": "complete_transection",
+          "coverage": 1
+        },
+        {
+          "offsetM": 0.0032,
+          "type": "complete_transection",
+          "coverage": 1
+        },
+        {
+          "offsetM": 0.0036000000000000003,
+          "type": "complete_transection",
+          "coverage": 1
+        },
+        {
+          "offsetM": 0.004,
+          "type": "complete_transection",
+          "coverage": 1
+        },
+        {
+          "offsetM": 0.0044,
+          "type": "complete_transection",
+          "coverage": 1
+        },
+        {
+          "offsetM": 0.0048000000000000004,
+          "type": "complete_transection",
+          "coverage": 0.9822349443527655
+        },
+        {
+          "offsetM": 0.005200000000000001,
+          "type": "complete_transection",
+          "coverage": 0.9538721949355178
+        },
+        {
+          "offsetM": 0.0056,
+          "type": "complete_transection",
+          "coverage": 0.9255094455186943
+        },
+        {
+          "offsetM": 0.006,
+          "type": "complete_transection",
+          "coverage": 0.8971466961003368
+        },
+        {
+          "offsetM": 0.0064,
+          "type": "complete_transection",
+          "coverage": 0.8687839466832591
+        },
+        {
+          "offsetM": 0.0068000000000000005,
+          "type": "complete_transection",
+          "coverage": 0.8404211972649339
+        },
+        {
+          "offsetM": 0.007200000000000001,
+          "type": "complete_transection",
+          "coverage": 0.8085297013881106
+        },
+        {
+          "offsetM": 0.0076,
+          "type": "partial_laceration",
+          "coverage": 0.7801669519711142
+        }
+      ],
+      "frozenFromV44": true
+    },
+    {
+      "name": "inferior-vena-cava",
+      "ammoId": "545_ps_gs",
+      "target": [
+        100.03220715924274,
+        1.0598476782409287,
+        -0.06899097783292785
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "frozenFromV44": true
+    },
+    {
+      "name": "liver-posterior",
+      "ammoId": "545_ps_gs",
+      "target": [
+        100.03839053013228,
+        1.1189532625005294,
+        -0.07727659682917695
+      ],
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "direct": [
+        "liver",
+        "hepatic-vein-trunk",
+        "abdominal-vena-cava"
+      ],
+      "organs": [
+        {
+          "id": "liver",
+          "direct": false,
+          "severity": 0.007389648258211084
+        },
+        {
+          "id": "liver",
+          "direct": true,
+          "severity": 0.6273306358226671
+        }
+      ],
+      "required": [
+        "hepatic-vein-trunk",
+        "liver",
+        "abdominal-vena-cava"
+      ]
+    },
+    {
+      "name": "portal-crossing",
+      "ammoId": "545_ps_gs",
+      "target": [
+        99.98558710076263,
+        1.0792178990027064,
+        -0.028494483263894938
+      ],
+      "direction": [
+        -0.7071067811865475,
+        0,
+        -0.7071067811865475
+      ],
+      "direct": [
+        "portal-vein",
+        "liver"
+      ],
+      "organs": [
+        {
+          "id": "spleen",
+          "direct": false,
+          "severity": 0.9
+        },
+        {
+          "id": "left-kidney",
+          "direct": false,
+          "severity": 0.9
+        },
+        {
+          "id": "bowel",
+          "direct": false,
+          "severity": 0.4
+        },
+        {
+          "id": "liver",
+          "direct": true,
+          "severity": 0.012769582004293007
+        }
+      ],
+      "required": [
+        "portal-vein",
+        "liver"
+      ]
+    },
+    {
+      "name": "liver-central",
+      "ammoId": "556_m855",
+      "target": [
+        99.95248548787544,
+        1.1126264547307467,
+        -0.05870518666028494
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "hit": {
+        "id": "liver",
+        "kind": "organ",
+        "identifier": "liver_candidate",
+        "bone": "spine",
+        "domain": "abdomen",
+        "vesselKind": null,
+        "organ": "liver",
+        "cordRegion": null,
+        "candidate": "liver_candidate",
+        "centerlineDistanceM": 0.00001936995325751748,
+        "distanceM": 0,
+        "closestDepthM": 0.14632773698360108,
+        "bulletRadiusM": 0.00285,
+        "volumeM3": 0.00023893417643646898,
+        "volumeMethod": "ellipsoid 4πabc/3",
+        "enclosureBoneIds": [],
+        "surfaceDistanceM": 0.00285,
+        "actualIntersection": true,
+        "cavityRadiusMaxM": 0.15,
+        "cavityIntervals": [
+          [
+            0,
+            0.22726161716903315
+          ]
+        ],
+        "direct": true,
+        "enclosurePenetrated": true,
+        "temporaryCavityAttenuation": 1,
+        "concussionRisk": 0,
+        "coefficient": 0.9,
+        "permanentVolumeM3": 0.0000028512758683101905,
+        "temporaryVolumeM3": 0.00023893417643646898,
+        "fragmentVolumeM3": 4.1472185344892386e-7,
+        "boneSecondaryFragmentVolumeM3": 0,
+        "effectiveVolumeM3": 0.0002183067565145812,
+        "severity": 0.9136690270536812
+      },
+      "otherDirect": [],
+      "otherOrgans": [
+        {
+          "id": "right-kidney",
+          "severity": 0.8191249762295442
+        }
+      ],
+      "parts": [
+        "abdomen",
+        "leftArm"
+      ],
+      "candidates": [
+        {
+          "target": [
+            99.95248548787544,
+            1.1126264547307467,
+            -0.05870518666028494
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "otherDirect": [],
+          "otherOrgans": [
+            {
+              "id": "right-kidney",
+              "severity": 0.8191249762295442
+            }
+          ],
+          "parts": [
+            "abdomen",
+            "leftArm"
+          ],
+          "severity": 0.9136690270536812
+        },
+        {
+          "target": [
+            99.95248548787544,
+            1.1126264547307467,
+            -0.05870518666028494
+          ],
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "otherDirect": [],
+          "otherOrgans": [
+            {
+              "id": "right-kidney",
+              "severity": 0.9
+            }
+          ],
+          "parts": [
+            "leftArm",
+            "abdomen"
+          ],
+          "severity": 0.935700344020815
+        },
+        {
+          "target": [
+            99.95248548787544,
+            1.1126264547307467,
+            -0.05870518666028494
+          ],
+          "direction": [
+            -1,
+            0,
+            0
+          ],
+          "otherDirect": [
+            {
+              "id": "lumbar-spinal-cord",
+              "severity": 1
+            }
+          ],
+          "otherOrgans": [
+            {
+              "id": "lumbar-spinal-cord",
+              "severity": 1
+            },
+            {
+              "id": "abdominal-esophagus",
+              "severity": 0.39999999999999997
+            },
+            {
+              "id": "right-kidney",
+              "severity": 0.9
+            },
+            {
+              "id": "bowel",
+              "severity": 0.014161765520080697
+            }
+          ],
+          "parts": [
+            "abdomen",
+            "rightArm"
+          ],
+          "severity": 0.9556755304681215
+        },
+        {
+          "target": [
+            99.95248548787544,
+            1.1126264547307467,
+            -0.05870518666028494
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "otherDirect": [
+            {
+              "id": "lumbar-spinal-cord",
+              "severity": 1
+            }
+          ],
+          "otherOrgans": [
+            {
+              "id": "bowel",
+              "severity": 0.038713409021142405
+            },
+            {
+              "id": "right-kidney",
+              "severity": 0.9
+            },
+            {
+              "id": "abdominal-esophagus",
+              "severity": 0.39999999999999997
+            },
+            {
+              "id": "lumbar-spinal-cord",
+              "severity": 1
+            }
+          ],
+          "parts": [
+            "rightArm",
+            "abdomen"
+          ],
+          "severity": 0.9343339820521661
+        }
+      ],
+      "frozenFromV44": true
+    },
+    {
+      "name": "liver-graze",
+      "ammoId": "556_m855",
+      "target": [
+        99.99448548787544,
+        1.1126264547307467,
+        -0.05870518666028494
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "hit": {
+        "id": "liver",
+        "kind": "organ",
+        "identifier": "liver_candidate",
+        "bone": "spine",
+        "domain": "abdomen",
+        "vesselKind": null,
+        "organ": "liver",
+        "cordRegion": null,
+        "candidate": "liver_candidate",
+        "centerlineDistanceM": 0.04200000446660956,
+        "distanceM": 0,
+        "closestDepthM": 0.11961599960076241,
+        "bulletRadiusM": 0.00285,
+        "volumeM3": 0.00023893417643646898,
+        "volumeMethod": "ellipsoid 4πabc/3",
+        "enclosureBoneIds": [],
+        "surfaceDistanceM": 0.00285,
+        "actualIntersection": true,
+        "cavityRadiusMaxM": 0.15,
+        "cavityIntervals": [
+          [
+            0,
+            0.26075800696438334
+          ]
+        ],
+        "direct": true,
+        "enclosurePenetrated": true,
+        "temporaryCavityAttenuation": 1,
+        "concussionRisk": 0,
+        "coefficient": 0.9,
+        "permanentVolumeM3": 9.031122653501641e-7,
+        "temporaryVolumeM3": 0.00023893417643646898,
+        "fragmentVolumeM3": 0,
+        "boneSecondaryFragmentVolumeM3": 0,
+        "effectiveVolumeM3": 0.00021594387105817225,
+        "severity": 0.9037797533982767
+      },
+      "offsetM": 0.042,
+      "frozenFromV44": true
+    },
+    {
+      "name": "spleen-central",
+      "ammoId": "556_m855",
+      "target": [
+        100.08583720352674,
+        1.1325289154920106,
+        0.0653383963356084
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "hit": {
+        "id": "spleen",
+        "kind": "organ",
+        "identifier": "spleen_candidate",
+        "bone": "spine",
+        "domain": "abdomen",
+        "vesselKind": null,
+        "organ": "spleen",
+        "cordRegion": null,
+        "candidate": "spleen_candidate",
+        "centerlineDistanceM": 0.000019369953257739946,
+        "distanceM": 0,
+        "closestDepthM": 0.07903450838958856,
+        "bulletRadiusM": 0.00285,
+        "volumeM3": 0.00008423974538251564,
+        "volumeMethod": "ellipsoid 4πabc/3",
+        "enclosureBoneIds": [],
+        "surfaceDistanceM": 0.00285,
+        "actualIntersection": true,
+        "cavityRadiusMaxM": 0.15,
+        "cavityIntervals": [
+          [
+            0,
+            0.18343844847965807
+          ]
+        ],
+        "direct": true,
+        "enclosurePenetrated": true,
+        "temporaryCavityAttenuation": 1,
+        "concussionRisk": 0,
+        "coefficient": 0.9,
+        "permanentVolumeM3": 0.0000014075274022978568,
+        "temporaryVolumeM3": 0.00008423974538251564,
+        "fragmentVolumeM3": 0,
+        "boneSecondaryFragmentVolumeM3": 0,
+        "effectiveVolumeM3": 0.00007722329824656193,
+        "severity": 0.9167085904154453
+      },
+      "otherDirect": [],
+      "otherOrgans": [
+        {
+          "id": "left-kidney",
+          "severity": 0.9
+        }
+      ],
+      "parts": [
+        "abdomen",
+        "rightArm"
+      ],
+      "candidates": [
+        {
+          "target": [
+            100.08583720352674,
+            1.1325289154920106,
+            0.0653383963356084
+          ],
+          "direction": [
+            -1,
+            0,
+            0
+          ],
+          "otherDirect": [],
+          "otherOrgans": [
+            {
+              "id": "left-kidney",
+              "severity": 0.9
+            }
+          ],
+          "parts": [
+            "abdomen",
+            "rightArm"
+          ],
+          "severity": 0.9167085904154453
+        },
+        {
+          "target": [
+            100.08583720352674,
+            1.1325289154920106,
+            0.0653383963356084
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "otherDirect": [],
+          "otherOrgans": [
+            {
+              "id": "left-kidney",
+              "severity": 0.903385139989086
+            }
+          ],
+          "parts": [
+            "rightArm",
+            "abdomen"
+          ],
+          "severity": 0.9945458772116723
+        },
+        {
+          "target": [
+            100.08583720352674,
+            1.1325289154920106,
+            0.0653383963356084
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "otherDirect": [
+            {
+              "id": "left-radial",
+              "severity": 0.621360306337274
+            }
+          ],
+          "otherOrgans": [
+            {
+              "id": "left-kidney",
+              "severity": 0.9
+            }
+          ],
+          "parts": [
+            "abdomen",
+            "leftArm"
+          ],
+          "severity": 0.9821392634878351
+        },
+        {
+          "target": [
+            100.08583720352674,
+            1.1325289154920106,
+            0.0653383963356084
+          ],
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "otherDirect": [
+            {
+              "id": "left-radial",
+              "severity": 1
+            }
+          ],
+          "otherOrgans": [
+            {
+              "id": "left-kidney",
+              "severity": 0.9291325029803374
+            }
+          ],
+          "parts": [
+            "leftArm",
+            "abdomen"
+          ],
+          "severity": 0.9760238136792986
+        }
+      ],
+      "frozenFromV44": true
+    },
+    {
+      "name": "left-kidney-central",
+      "ammoId": "556_m855",
+      "target": [
+        100.11040204589955,
+        1.0890615127550674,
+        0.033311424836018115
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "hit": {
+        "id": "left-kidney",
+        "kind": "organ",
+        "identifier": "kidney_candidate",
+        "bone": "spine",
+        "domain": "abdomen",
+        "vesselKind": null,
+        "organ": "kidney",
+        "cordRegion": null,
+        "candidate": "kidney_candidate",
+        "centerlineDistanceM": 0.000019369953257739526,
+        "distanceM": 0,
+        "closestDepthM": 0.11551376649160011,
+        "bulletRadiusM": 0.00285,
+        "volumeM3": 0.00003082407919431941,
+        "volumeMethod": "ellipsoid 4πabc/3",
+        "enclosureBoneIds": [],
+        "surfaceDistanceM": 0.00285,
+        "actualIntersection": true,
+        "cavityRadiusMaxM": 0.15,
+        "cavityIntervals": [
+          [
+            0,
+            0.16981056191846355
+          ]
+        ],
+        "direct": true,
+        "enclosurePenetrated": true,
+        "temporaryCavityAttenuation": 1,
+        "concussionRisk": 0,
+        "coefficient": 0.9,
+        "permanentVolumeM3": 9.728112401631815e-7,
+        "temporaryVolumeM3": 0.00003082407919431941,
+        "fragmentVolumeM3": 0,
+        "boneSecondaryFragmentVolumeM3": 0,
+        "effectiveVolumeM3": 0.00002871448251505065,
+        "severity": 0.9315601070848033
+      },
+      "otherDirect": [],
+      "otherOrgans": [
+        {
+          "id": "spleen",
+          "severity": 0.9
+        }
+      ],
+      "parts": [
+        "abdomen"
+      ],
+      "candidates": [
+        {
+          "target": [
+            100.11040204589955,
+            1.0890615127550674,
+            0.033311424836018115
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "otherDirect": [],
+          "otherOrgans": [
+            {
+              "id": "spleen",
+              "severity": 0.9
+            }
+          ],
+          "parts": [
+            "abdomen"
+          ],
+          "severity": 0.9315601070848033
+        },
+        {
+          "target": [
+            100.11040204589955,
+            1.0890615127550674,
+            0.033311424836018115
+          ],
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "otherDirect": [],
+          "otherOrgans": [
+            {
+              "id": "spleen",
+              "severity": 0.9
+            }
+          ],
+          "parts": [
+            "abdomen"
+          ],
+          "severity": 0.9315597625436758
+        },
+        {
+          "target": [
+            100.11040204589955,
+            1.0890615127550674,
+            0.033311424836018115
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "otherDirect": [],
+          "otherOrgans": [
+            {
+              "id": "bowel",
+              "severity": 0.4
+            },
+            {
+              "id": "spleen",
+              "severity": 0.911651403466871
+            }
+          ],
+          "parts": [
+            "rightArm",
+            "abdomen"
+          ],
+          "severity": 1
+        },
+        {
+          "target": [
+            100.11040204589955,
+            1.0890615127550674,
+            0.033311424836018115
+          ],
+          "direction": [
+            -1,
+            0,
+            0
+          ],
+          "otherDirect": [],
+          "otherOrgans": [
+            {
+              "id": "spleen",
+              "severity": 0.9
+            },
+            {
+              "id": "bowel",
+              "severity": 0.4
+            },
+            {
+              "id": "liver",
+              "severity": 0.9
+            }
+          ],
+          "parts": [
+            "abdomen",
+            "rightArm"
+          ],
+          "severity": 0.9323723420882594
+        }
+      ],
+      "frozenFromV44": true
+    },
+    {
+      "name": "right-kidney-central",
+      "ammoId": "556_m855",
+      "target": [
+        99.9957989919186,
+        1.0806290048748814,
+        -0.12653729117624685
+      ],
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "hit": {
+        "id": "right-kidney",
+        "kind": "organ",
+        "identifier": "kidney_candidate",
+        "bone": "spine",
+        "domain": "abdomen",
+        "vesselKind": null,
+        "organ": "kidney",
+        "cordRegion": null,
+        "candidate": "kidney_candidate",
+        "centerlineDistanceM": 0.00002321827233450998,
+        "distanceM": 0,
+        "closestDepthM": 0.10487243744362365,
+        "bulletRadiusM": 0.00285,
+        "volumeM3": 0.000029743373160297302,
+        "volumeMethod": "ellipsoid 4πabc/3",
+        "enclosureBoneIds": [],
+        "surfaceDistanceM": 0.00285,
+        "actualIntersection": true,
+        "cavityRadiusMaxM": 0.15,
+        "cavityIntervals": [
+          [
+            0,
+            0.14878643856013973
+          ]
+        ],
+        "direct": true,
+        "enclosurePenetrated": true,
+        "temporaryCavityAttenuation": 1,
+        "concussionRisk": 0,
+        "coefficient": 0.9,
+        "permanentVolumeM3": 0.0000019466838630633385,
+        "temporaryVolumeM3": 0.000029743373160297302,
+        "fragmentVolumeM3": 8.634094507025934e-7,
+        "boneSecondaryFragmentVolumeM3": 0,
+        "effectiveVolumeM3": 0.000029579129158033507,
+        "severity": 0.9944779631624622
+      },
+      "otherDirect": [],
+      "otherOrgans": [
+        {
+          "id": "liver",
+          "severity": 0.13458187251664677
+        }
+      ],
+      "parts": [
+        "rightArm",
+        "abdomen"
+      ],
+      "candidates": [
+        {
+          "target": [
+            99.9957989919186,
+            1.0806290048748814,
+            -0.12653729117624685
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "otherDirect": [],
+          "otherOrgans": [
+            {
+              "id": "liver",
+              "severity": 0.13458187251664677
+            }
+          ],
+          "parts": [
+            "rightArm",
+            "abdomen"
+          ],
+          "severity": 0.9944779631624622
+        },
+        {
+          "target": [
+            99.9957989919186,
+            1.0806290048748814,
+            -0.12653729117624685
+          ],
+          "direction": [
+            -1,
+            0,
+            0
+          ],
+          "otherDirect": [],
+          "otherOrgans": [
+            {
+              "id": "liver",
+              "severity": 0.3137284525795578
+            }
+          ],
+          "parts": [
+            "abdomen",
+            "rightArm"
+          ],
+          "severity": 0.9332099594052631
+        },
+        {
+          "target": [
+            99.9957989919186,
+            1.0806290048748814,
+            -0.12653729117624685
+          ],
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "otherDirect": [],
+          "otherOrgans": [
+            {
+              "id": "bowel",
+              "severity": 0.22089781935317618
+            },
+            {
+              "id": "liver",
+              "severity": 0.9002010147125709
+            }
+          ],
+          "parts": [
+            "abdomen"
+          ],
+          "severity": 1
+        },
+        {
+          "target": [
+            99.9957989919186,
+            1.0806290048748814,
+            -0.12653729117624685
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "otherDirect": [],
+          "otherOrgans": [
+            {
+              "id": "liver",
+              "severity": 0.9
+            },
+            {
+              "id": "bowel",
+              "severity": 0.4
+            }
+          ],
+          "parts": [
+            "abdomen"
+          ],
+          "severity": 0.9323782110592944
+        }
+      ],
+      "frozenFromV44": true
+    },
+    {
+      "name": "carotid",
+      "ammoId": "556_m855",
+      "target": [
+        100.02567827106851,
+        1.499941788123789,
+        -0.021007106526726174
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "frozenFromV44": true
+    },
+    {
+      "name": "femoral-complete",
+      "ammoId": "556_m855",
+      "target": [
+        99.94073764584587,
+        0.7434418942724186,
+        0.2085913275107532
+      ],
+      "direction": [
+        -0.7670066732669654,
+        -0.039538200410272284,
+        -0.6404197794199206
+      ],
+      "frozenFromV44": true
+    },
+    {
+      "name": "thoracic-aorta",
+      "ammoId": "556_m855",
+      "target": [
+        100.10657149976916,
+        1.2357919634113241,
+        -0.06596997594369527
+      ],
+      "direction": [
+        0.7843929806739096,
+        0.09161459788032844,
+        -0.6134610153259334
+      ],
+      "frozenFromV44": true
+    },
+    {
+      "name": "heart",
+      "ammoId": "556_m855",
+      "target": [
+        99.99832775168026,
+        1.3106277094389,
+        -0.023506806614581488
+      ],
+      "direction": [
+        0.7071067811865475,
+        0,
+        -0.7071067811865476
+      ],
+      "frozenFromV44": true
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "556_m855",
+      "target": [
+        100.14119085436698,
+        1.2599807028132186,
+        0.19603455432250383
+      ],
+      "direction": [
+        -0.7670066732669654,
+        -0.039538200410272284,
+        -0.6404197794199206
+      ],
+      "frozenFromV44": true
+    },
+    {
+      "name": "femoral-partial",
+      "ammoId": "556_m855",
+      "target": [
+        99.94273764584587,
+        0.7434418942724186,
+        0.2085913275107532
+      ],
+      "direction": [
+        -0.7670066732669654,
+        -0.039538200410272284,
+        -0.6404197794199206
+      ],
+      "coverage": 0.7840464930232853,
+      "discovery": [
+        {
+          "offsetM": 0,
+          "type": "complete_transection",
+          "coverage": 0.8538827088533816
+        },
+        {
+          "offsetM": 0.0004,
+          "type": "complete_transection",
+          "coverage": 0.8538827088533816
+        },
+        {
+          "offsetM": 0.0008,
+          "type": "complete_transection",
+          "coverage": 0.8538827088533816
+        },
+        {
+          "offsetM": 0.0012000000000000001,
+          "type": "complete_transection",
+          "coverage": 0.8407720711203777
+        },
+        {
+          "offsetM": 0.0016,
+          "type": "complete_transection",
+          "coverage": 0.8124092820716386
+        },
+        {
+          "offsetM": 0.002,
+          "type": "partial_laceration",
+          "coverage": 0.7840464930232853
+        }
+      ],
+      "frozenFromV44": true
+    },
+    {
+      "name": "inferior-vena-cava",
+      "ammoId": "556_m855",
+      "target": [
+        100.03220715924274,
+        1.0598476782409287,
+        -0.06899097783292785
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "frozenFromV44": true
+    },
+    {
+      "name": "liver-posterior",
+      "ammoId": "556_m855",
+      "target": [
+        100.03839053013228,
+        1.1189532625005294,
+        -0.07727659682917695
+      ],
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "direct": [
+        "liver",
+        "hepatic-vein-trunk",
+        "abdominal-vena-cava"
+      ],
+      "organs": [
+        {
+          "id": "liver",
+          "direct": true,
+          "severity": 0.9421882903232776
+        },
+        {
+          "id": "right-kidney",
+          "direct": false,
+          "severity": 0.9
+        },
+        {
+          "id": "abdominal-esophagus",
+          "direct": false,
+          "severity": 0.39999999999999997
+        }
+      ],
+      "required": [
+        "hepatic-vein-trunk",
+        "liver",
+        "abdominal-vena-cava"
+      ]
+    },
+    {
+      "name": "portal-crossing",
+      "ammoId": "556_m855",
+      "target": [
+        99.98558710076263,
+        1.0792178990027064,
+        -0.028494483263894938
+      ],
+      "direction": [
+        -0.7071067811865475,
+        0,
+        -0.7071067811865475
+      ],
+      "direct": [
+        "portal-vein",
+        "liver"
+      ],
+      "organs": [
+        {
+          "id": "spleen",
+          "direct": false,
+          "severity": 0.9
+        },
+        {
+          "id": "left-kidney",
+          "direct": false,
+          "severity": 0.9
+        },
+        {
+          "id": "bowel",
+          "direct": false,
+          "severity": 0.4
+        },
+        {
+          "id": "abdominal-esophagus",
+          "direct": false,
+          "severity": 0.39999999999999997
+        },
+        {
+          "id": "liver",
+          "direct": true,
+          "severity": 0.9251554393962328
+        }
+      ],
+      "required": [
+        "portal-vein",
+        "liver"
+      ]
+    }
+  ]
+}

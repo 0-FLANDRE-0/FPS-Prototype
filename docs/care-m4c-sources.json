@@ -1,0 +1,29 @@
+{
+  "version": "care-m4c-v62",
+  "inheritedSourceAudit": "docs/self-care-m3-sources.json",
+  "newMedicalSourceClaims": false,
+  "entries": [
+    {
+      "classification": "출처",
+      "id": "CG-IFU200",
+      "url": "https://quikclot.com/QuikClot-2020/IFU/Military/200QuikClotCombatGauze.pdf",
+      "quote": "Continue to apply pressure for 3 minutes or until bleeding stops.",
+      "use": "Preserves existing reality180s, not compressed mode times. Existing v59 source verification retained; not newly fetched for M4c."
+    },
+    {
+      "classification": "사용자 설계값",
+      "source": "docs/training-m4c-instructions.md",
+      "use": "Fixed vs manual stages, mode caps and explicit realistic times."
+    },
+    {
+      "classification": "튜닝/게임 허용",
+      "source": "docs/care-m4c-ledger.json",
+      "use": "Game-mode shortened times and98% one-hand completed pressure efficacy; no clinical quantitative claim."
+    },
+    {
+      "classification": "원본",
+      "sourceCommit": "5eeffa97d950586c8c5fea5a5cff09549d3792fc",
+      "use": "Reality hand application, fixed drug timing, infusion speed, all untreated physiology and2D retained."
+    }
+  ]
+}

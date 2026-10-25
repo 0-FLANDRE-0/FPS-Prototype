@@ -1,0 +1,299 @@
+{
+  "version": "care-m4b-v61",
+  "baseline": "2b5a0c04632a926de48896fb214a0e34f8cdbcc0",
+  "automatic2DPort": false,
+  "original": "B1 원래 유량/응고/CO cap, D2 재분배/운동 혈역학, painMasking×0.65·상한0.85, addPain 진통 누적 감소, 탄도/관통/방호/HP 유지",
+  "userDesign": "모든 모드 자가 처치, OTFC 개수·퍼센트/자동 중단·재개, 전혈500mL 양/속도·줄 빠짐, 별도 파우치",
+  "gameAllowance": "약 시작 압축/자가 투약·자가 수혈/미리 채운 케타민 주사기/표시 공간 추상화; 임상 약동학 아님",
+  "changes": [
+    {
+      "key": "ruleId",
+      "value": "care-m4b-v61",
+      "classification": "사용자 설계값/튜닝",
+      "reversePortCandidate": true
+    },
+    {
+      "key": "backSealRealityMultiplier",
+      "value": 3,
+      "classification": "사용자 설계값/튜닝",
+      "reversePortCandidate": true
+    },
+    {
+      "key": "ventPneumoPerS",
+      "value": 0.006,
+      "classification": "사용자 설계값/튜닝",
+      "reversePortCandidate": true
+    },
+    {
+      "key": "valveChance",
+      "value": 0.1,
+      "classification": "사용자 설계값/튜닝",
+      "reversePortCandidate": true
+    },
+    {
+      "key": "valveThreshold",
+      "value": 0.24,
+      "classification": "사용자 설계값/튜닝",
+      "reversePortCandidate": true
+    },
+    {
+      "key": "valveRisePerS",
+      "value": 0.01,
+      "classification": "사용자 설계값/튜닝",
+      "reversePortCandidate": true
+    },
+    {
+      "key": "walkRebleedGain",
+      "value": 1.0390625,
+      "classification": "사용자 설계값/튜닝",
+      "reversePortCandidate": true
+    },
+    {
+      "key": "sprintRebleedGain",
+      "value": 0.015625,
+      "classification": "사용자 설계값/튜닝",
+      "reversePortCandidate": true
+    },
+    {
+      "key": "otfcDropConsciousness",
+      "value": 65,
+      "classification": "사용자 설계값/튜닝",
+      "reversePortCandidate": true
+    },
+    {
+      "key": "ketamineRepeatS",
+      "value": 1800,
+      "classification": "사용자 설계값/튜닝",
+      "reversePortCandidate": true
+    },
+    {
+      "key": "application",
+      "value": {
+        "pill": {
+          "game": 2,
+          "realistic": 4,
+          "reality": 6
+        },
+        "otfc": {
+          "game": 1,
+          "realistic": 2,
+          "reality": 3
+        },
+        "ketamine": {
+          "game": 2,
+          "realistic": 5,
+          "reality": 10
+        }
+      },
+      "classification": "사용자 설계값/튜닝",
+      "reversePortCandidate": true
+    },
+    {
+      "key": "analgesia",
+      "value": {
+        "pill": 25,
+        "otfc": 60,
+        "ketamine": 75
+      },
+      "classification": "튜닝",
+      "reversePortCandidate": true
+    },
+    {
+      "key": "effects",
+      "value": {
+        "otfcDrowsy": 7,
+        "otfcRespiration": 0.04,
+        "shockAmplification": 1.5,
+        "ketamineDrowsy": 5,
+        "ketamineSympathetic": 0.08,
+        "ketamineDoubleCssPx": 4,
+        "ketamineDizzyCssPx": 2,
+        "ketamineColor": 0.12,
+        "ketamineAudioRate": 0.92
+      },
+      "classification": "튜닝",
+      "reversePortCandidate": true
+    },
+    {
+      "key": "profiles",
+      "value": {
+        "game": {
+          "pillOnset": 10,
+          "otfcOnset": 5,
+          "ketamineOnset": 3,
+          "dissolveS": 60,
+          "connectS": 5,
+          "infuseS": 60,
+          "pillS": 36000,
+          "otfcS": 9000,
+          "ketamineS": 2400,
+          "drugGain": 1.1
+        },
+        "realistic": {
+          "pillOnset": 60,
+          "otfcOnset": 30,
+          "ketamineOnset": 15,
+          "dissolveS": 240,
+          "connectS": 20,
+          "infuseS": 180,
+          "pillS": 28800,
+          "otfcS": 7200,
+          "ketamineS": 1800,
+          "drugGain": 1
+        },
+        "reality": {
+          "pillOnset": 180,
+          "otfcOnset": 120,
+          "ketamineOnset": 60,
+          "dissolveS": 480,
+          "connectS": 60,
+          "infuseS": 480,
+          "pillS": 28800,
+          "otfcS": 7200,
+          "ketamineS": 1800,
+          "drugGain": 0.9
+        }
+      },
+      "classification": "사용자 설계값·게임 허용: 압축된 시작/연결/주입/용해시간; 지속 시간 튜닝; 모드 약물 세기1.1/1/.9 튜닝",
+      "reversePortCandidate": true
+    },
+    {
+      "key": "pouch",
+      "value": {
+        "id": "medic-support",
+        "name": "위생병 파우치",
+        "shortName": "위생병",
+        "description": "진통제·전혈 · 의료 물품 전용",
+        "kind": "medicalContainer",
+        "size": {
+          "w": 2,
+          "h": 1
+        },
+        "grid": {
+          "cols": 3,
+          "rows": 3
+        },
+        "weightKg": 0.18,
+        "packageMm": [
+          200,
+          160,
+          100
+        ],
+        "source": "M4b prototype envelope/mass tuning; inventory footprint is an abstraction"
+      },
+      "classification": "튜닝/게임 허용:200×160×100mm,180g, 외부2×1/내부3×3 추상 격자",
+      "reversePortCandidate": true
+    },
+    {
+      "key": "pill",
+      "value": {
+        "id": "pill",
+        "name": "전투 상처 약 팩",
+        "shortName": "약 팩",
+        "description": "아세트아미노펜650mg×2·멜록시캄15mg · 시작 시간 압축",
+        "target": "전체",
+        "packageMm": [
+          55,
+          45,
+          8
+        ],
+        "weightKg": 0.00992233309375,
+        "size": {
+          "w": 1,
+          "h": 1
+        },
+        "source": "M4b package/mass tuning:10g",
+        "units": 1,
+        "kind": "medicalSupply"
+      },
+      "classification": "구성/용량 사용자 설계값; 포장 크기·포장 무게 튜닝; 의식·호흡·시청각 세기 튜닝",
+      "reversePortCandidate": true
+    },
+    {
+      "key": "otfc",
+      "value": {
+        "id": "otfc",
+        "name": "OTFC 800µg",
+        "shortName": "OTFC",
+        "description": "부분 사용 가능 · 의식 저하 시 자동 중단",
+        "target": "전체",
+        "packageMm": [
+          100,
+          25,
+          15
+        ],
+        "weightKg": 0.00992233309375,
+        "size": {
+          "w": 1,
+          "h": 1
+        },
+        "source": "M4b sealed unit envelope/mass tuning:10g",
+        "units": 1,
+        "kind": "medicalSupply"
+      },
+      "classification": "구성/용량 사용자 설계값; 포장 크기·포장 무게 튜닝; 의식·호흡·시청각 세기 튜닝",
+      "reversePortCandidate": true
+    },
+    {
+      "key": "ketamine",
+      "value": {
+        "id": "ketamine",
+        "name": "케타민 IM 50mg",
+        "shortName": "케타민",
+        "description": "미리 채운 주사기 · 게임 허용",
+        "target": "전체",
+        "packageMm": [
+          120,
+          25,
+          20
+        ],
+        "weightKg": 0.01502524725625,
+        "size": {
+          "w": 1,
+          "h": 1
+        },
+        "source": "M4b prefilled syringe envelope/mass tuning:15g",
+        "units": 1,
+        "kind": "medicalSupply"
+      },
+      "classification": "구성/용량 사용자 설계값; 포장 크기·포장 무게 튜닝; 의식·호흡·시청각 세기 튜닝",
+      "reversePortCandidate": true
+    },
+    {
+      "key": "blood",
+      "value": {
+        "id": "blood",
+        "name": "전혈500mL·수액 세트",
+        "shortName": "전혈500",
+        "description": "양손 연결 후 이동·조준·다른 처치 가능",
+        "target": "전체",
+        "packageMm": [
+          180,
+          120,
+          45
+        ],
+        "weightKg": 0.599875909325,
+        "size": {
+          "w": 1,
+          "h": 2
+        },
+        "source": "M4b 500mL blood≈530g + bag/tubing70g;600g tuning",
+        "units": 1,
+        "kind": "medicalSupply"
+      },
+      "classification": "구성/용량 사용자 설계값; 포장 크기·포장 무게 튜닝; 의식·호흡·시청각 세기 튜닝",
+      "reversePortCandidate": true
+    },
+    {
+      "key": "touchButtonOwnership",
+      "value": "HUD held-node freeze and prevent compatibility mouse press escaping after OTFC removal; inventory grid/drag excluded",
+      "classification": "게임 허용/UI 수정: M3 공통 터치 버튼 경로 보완",
+      "reversePortCandidate": true
+    }
+  ],
+  "limitations": [
+    "긴장성 기흉의 정확한 관통 폐손상 임상 발생률 목표 미확인:valve10% 튜닝",
+    "움직임 계수는 원래D2 보존하에 역산; 걷기 목표와 달리기30% 목표를 동시에 충족하지 못한 경우 표에 실패 표시",
+    "새 물품 포장 무게/크기는 미확인 튜닝; 실제 휴대폰 미검수"
+  ]
+}

@@ -1,0 +1,15 @@
+import{ARMOR_PROFILE}from'./armor-targets.js';import{CATALOG,magazineDefinition}from'./catalog.js';import{WEAPONS}from'./weapon-data.js';import{opticDefinition}from'./optic-data.js';
+const $=id=>document.getElementById(id);
+export class EquipmentUI{
+ constructor(bag){this.bag=bag;$('equipmentPrimary').addEventListener('click',()=>bag.run(()=>{const inv=bag.inventory,w=inv.items.get(inv.weaponSlots[0]);return w?.owner==='bag'&&!inv.primaryId?inv.equip(w.instanceId):inv.switchWeapon(0);}));
+  const helmet=CATALOG.HELMET_REGISTRY[ARMOR_PROFILE.helmet.itemId],vest=CATALOG.BODY_ARMOR_REGISTRY[ARMOR_PROFILE.bodyArmorId],plate=CATALOG.PLATE_REGISTRY[ARMOR_PROFILE.frontPlateId];$('helmetEquipmentName').textContent=helmet.display?.name||'6B47';$('vestEquipmentName').textContent=vest.display?.name||'6B45';$('vestEquipmentDetail').textContent=(plate.display?.name||'Granit Br4')+' · 앞/뒤 플레이트 / 소프트아머 · 전후·측면·목·어깨·낭심';
+ }
+ update(){const inv=this.bag.inventory;let gunsKg=0;
+  for(const[slot,suffix]of[[0,'M4'],[1,'AK']]){const raw=inv.items.get(inv.weaponSlots[slot]),gun=raw&&!raw.owner.startsWith('ground:')?raw:null,active=gun?.instanceId===inv.primaryId,card=$('weapon'+suffix),summary=$('weapon'+suffix+'Summary'),use=$(slot===0?'equipmentPrimary':'equipmentSecondary'),optic=gun?.opticId?inv.items.get(gun.opticId):null,mag=gun?.magazineId?inv.items.get(gun.magazineId):null;card.classList.toggle('active',active);$('weapon'+suffix+'Name').textContent=gun?WEAPONS[gun.definitionId].display.name:'빈 무기 칸';use.textContent=active?'사용 중':gun?.owner==='bag'?'가방 보관':'사용';use.disabled=active||!!inv.action||!gun||gun.owner==='bag'&&!!inv.primaryId;summary.hidden=active;summary.textContent=gun?(gun.owner==='bag'?'가방 보관 · ':'')+(mag?magazineDefinition(mag).name+' · '+mag.rounds.length+'발':'탄창 없음'):'';$('weapon'+suffix+'Optic').hidden=active;$('weapon'+suffix+'Optic').textContent=gun?.definitionId==='ak74m'?'조준경 · 미지원':'조준경 · '+(optic?opticDefinition(optic).name:'없음');
+   if(active){const host=$('weapon'+suffix+'Live');for(const node of[$('equipmentSlot'),$('opticSlot')])if(node.parentElement!==host)host.append(node);$('equipmentSlot').dataset.weaponId=gun.instanceId;$('opticSlot').dataset.weaponId=gun.instanceId;}
+   if(gun&&['bag','equipment:primary','equipment:secondary'].includes(inv.rootOwner(gun)))gunsKg+=(WEAPONS[gun.definitionId].physical.weightKg||0)+(opticDefinition(optic)?.weightKg||0);
+  }
+  if(inv.isDebugWeapon||!inv.weapon){if($('equipmentSlot').parentElement!==$('equipmentLiveParking'))$('equipmentLiveParking').append($('equipmentSlot'),$('opticSlot'));$('equipmentSlot').dataset.weaponId='';$('opticSlot').dataset.weaponId='';if(!inv.weapon)$('weaponM4Live').append($('equipmentSlot'));}
+  $('debugEquipmentCard').hidden=!inv.includeDebug||!this.bag.getDebug?.();$('debugEquipmentCard').textContent='3 · 디버그 AK'+(inv.isDebugWeapon?' · 사용 중':'');$('equipmentWeight').textContent=inv.includeEquipment?'총 휴대 '+inv.carriedMassKg.toFixed(2)+' kg':'총기 '+gunsKg.toFixed(2)+' kg · 의료/IFAK '+inv.medicalWeightKg.toFixed(3)+' kg · 소계 '+(gunsKg+inv.medicalWeightKg).toFixed(3)+' kg';
+ }
+}

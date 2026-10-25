@@ -1,0 +1,279 @@
+{
+  "version": "collapse-motion-v35",
+  "trial": true,
+  "settingToggle": false,
+  "baseline": "cfaabcdef84a7e78ea6aeeef33a867634c2ea1ca",
+  "sources": {
+    "massAndROM": "docs/combat-ai1-ledger.json and docs/training-ai1-v32.md: Winter/Dempster fractions and AAOS/Norkin & White ROM; unchanged",
+    "jointAPI": "pinned @dimforge/rapier3d-compat 0.21.0, raw generic force-based motors",
+    "humanTorqueLiteratureUsed": false
+  },
+  "original": {
+    "mass": {
+      "bodyMassKg": 80,
+      "bodyMassClassification": "튜닝 — 사용자 선택 80kg 기본 체중",
+      "entries": [
+        {
+          "itemId": "armor_6b45_basic_test",
+          "slot": "vest",
+          "weightKg": 5.3,
+          "classification": "원본 게임 레지스트리",
+          "source": "src/data/body-armor.js",
+          "bones": [
+            {
+              "bone": "chest",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "plate_granit_br4",
+          "slot": "front",
+          "weightKg": 2.7,
+          "classification": "원본 게임 레지스트리",
+          "source": "src/data/plates.js",
+          "bones": [
+            {
+              "bone": "chest",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "plate_granit_br4",
+          "slot": "rear",
+          "weightKg": 2.7,
+          "classification": "원본 게임 레지스트리",
+          "source": "src/data/plates.js",
+          "bones": [
+            {
+              "bone": "chest",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "helmet_6b47_test",
+          "slot": "helmet",
+          "weightKg": 1.15,
+          "classification": "원본 게임 레지스트리",
+          "source": "src/data/helmets.js",
+          "bones": [
+            {
+              "bone": "head",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "6b45_neck",
+          "slot": "neck",
+          "weightKg": 0.45,
+          "classification": "원본 게임 레지스트리",
+          "source": "src/data/body-armor.js",
+          "bones": [
+            {
+              "bone": "chest",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "6b45_groin",
+          "slot": "groin",
+          "weightKg": 0.55,
+          "classification": "원본 게임 레지스트리",
+          "source": "src/data/body-armor.js",
+          "bones": [
+            {
+              "bone": "pelvis",
+              "share": 1
+            }
+          ]
+        },
+        {
+          "itemId": "6b45_shoulder",
+          "slot": "shoulder",
+          "weightKg": 0.85,
+          "classification": "원본 게임 레지스트리",
+          "source": "src/data/body-armor.js",
+          "bones": [
+            {
+              "bone": "leftUpperArm",
+              "share": 0.5
+            },
+            {
+              "bone": "rightUpperArm",
+              "share": 0.5
+            }
+          ]
+        }
+      ],
+      "equipmentByBone": {
+        "chest": 11.149999999999999,
+        "head": 1.15,
+        "pelvis": 0.55,
+        "leftUpperArm": 0.425,
+        "rightUpperArm": 0.425
+      },
+      "equipmentMassKg": 13.7,
+      "totalRagdollMassKg": 93.7,
+      "weaponMassKg": 3.6,
+      "weaponClassification": "원본 AK-74M physical.weightKg; 별도 낙하 강체",
+      "totalWithHeldWeaponKg": 97.3,
+      "mappingClassification": "기존 방호 메시 부착 뼈에 배분; 양쪽 어깨 보호구는 원본 쌍 장비 .85kg을 절반씩; 분절 배분은 공간 어댑터",
+      "deduplication": "Four vest soft meshes count as one vest; front/back neck meshes count as one collar; two shoulder meshes count as one pair; two distinct plates each count once",
+      "omitted": "Decorative pouches/knee covers have no equipped registry item in H01; no invented item mass. Ammo/inventory load beyond the specified armor kit is deferred"
+    },
+    "soldier": "v33 54 bones, four native clips; finger GLB and common AK rotations unchanged",
+    "flightProtectionMedical": "original source and generated declarations preserved byte for byte"
+  },
+  "classification": "All new timing/control coefficients are tuning; medical/ballistic/protection equations and finger assets unchanged",
+  "removed": {
+    "standingMuscleMode": true,
+    "hitOrWeaknessDynamicActivation": true,
+    "pelvisTargetBodies": 0,
+    "pelvisSupportJoints": 0,
+    "animationRecovery": true,
+    "armWeaknessWeaponRelease": true
+  },
+  "tuning": {
+    "consciousnessFadeS": 0.45,
+    "legCollapseFadeS": 0.4,
+    "movingThresholdMps": 0.08,
+    "walkReferenceMps": 1.4,
+    "painLoss": 0.12,
+    "mapLoss": 0.16,
+    "mapReference": 93,
+    "mapLow": 45,
+    "minAwakeStrength": 0.62,
+    "selfCollision": true,
+    "activeSolverIterations": 12,
+    "passiveSolverIterations": 12,
+    "activeAngularDamping": 8,
+    "passiveAngularDamping": 8,
+    "flinchRad": 0.075,
+    "flinchS": 0.2,
+    "motors": {
+      "torso": [
+        600,
+        100,
+        200
+      ],
+      "neck": [
+        90,
+        25,
+        40
+      ],
+      "shoulder": [
+        90,
+        16,
+        65
+      ],
+      "elbow": [
+        65,
+        12,
+        45
+      ],
+      "wrist": [
+        12,
+        4,
+        12
+      ],
+      "hip": [
+        450,
+        75,
+        220
+      ],
+      "knee": [
+        400,
+        70,
+        220
+      ],
+      "ankle": [
+        180,
+        140,
+        120
+      ]
+    },
+    "motorLimitInsetRad": 0.015,
+    "standingFlinch": {
+      "source": "v33 short procedural hit impulse",
+      "amountRad": 0.035,
+      "exponentialDecayPerS": 18,
+      "expiryS": 0.25
+    },
+    "clinicalFunctionFailureReadThreshold": 0.12,
+    "stationaryReflexS": 0.22,
+    "slipContactToleranceM": 0.003001,
+    "legacyAnkleContactToleranceM": 0.006,
+    "collapseSpineForwardRad": 0.18,
+    "collapseChestForwardRad": 0.12,
+    "activeLinearDamping": 2,
+    "footFriction": 3,
+    "passiveLinearDamping": 4
+  },
+  "medicalReadMapping": {
+    "collapse": "unconscious/dead/arrest or a leg function0; pain/MAP by themselves do not trigger collapse",
+    "part": "disabled, hp==0, functionRatio<=.12 →0; otherwise functionRatio in [0,1]",
+    "general": "unconscious/dead/arrest →0; otherwise max(.62, consciousness/100*(1-.12*pain/100-.16*clamp((93-MAP)/48)))",
+    "spinal": "existing spinalCordInjury A/B → leg strength0; arm output already contains original cervical cap",
+    "gunRelease": "only on medical collapse, including conscious leg/spinal collapse; no standing arm/general threshold",
+    "envelope": "Capture collapse strength; linear one-way fade over .45s unconscious or .40s leg failure, death/arrest immediately0",
+    "upperBody": "collapse envelope * (unconscious ? 1 : awakeStrength), then all0; awakeStrength reads consciousness/pain/MAP, no standing physics activation",
+    "legGoal": "native walk phase continues for moving fall; goals/motor strength end at envelope0"
+  },
+  "controller": {
+    "normal": "100% kinematic animation; v33 short procedural bone flinch; gun held",
+    "activation": "only medical collapse; precreated17 dynamic segments inherit per-bone linear and angular velocity",
+    "moving": "preserve native walk phase; rate=precollapse horizontal speed/1.4; only leg joints use continued walk target",
+    "stationary": "v34 native crouch mixture while collapse envelope remains positive",
+    "zeroStrength": "all joint motors disabled, no animation/crouch/walk targets, passive gravity, no recovery or pelvis anchor",
+    "bodies": "17 massive segments; no support body/joint; separate3.6kg dropped gun",
+    "fingerPhysics": 0,
+    "fixedRelaxedFingers": true,
+    "ROMReference": "Parent-bone current-pose reference frames; pinned Rapier0.21 generic coordinate center + wrapToPi(2atan2(component,w)-center); no asin/Euler diagnostic substitution",
+    "jointTargetCoordinate": "Captured parent/child joint frames; centered quaternion twist2atan2, same as pinned Rapier0.21 limits/motor targets",
+    "forwardReflex": "Post-collapse only, spine .18rad/chest .12rad PD target lean; game tuning, removed with all goals at strength0",
+    "damping": "Prepared and active linear damping2 preserve original handoff; passive linear damping4 after all muscle goals end. Active/passive angular damping8, post-collapse foot friction3, solver12; all game tuning"
+  },
+  "performance": {
+    "goalRatio": 1.5,
+    "absolute16_7MsRetired": true,
+    "prewarm": "combat sector entry; prepared actor + rigid objects + dropped gun + isolated solver/medical/trace warmup + compile/offscreen first draw",
+    "FX": "70 reusable impact marks, existing22 casing pool,16 pregenerated shot noise buffers; audio nodes still short-lived per shot",
+    "comparison": "same camera normal-frame median for each event, full viewport SwiftShader offscreen work, no physical-phone FPS claim",
+    "finalReport": "downloads/checks-collapse-motion-v35/performance.json",
+    "transitionGoalMet": true,
+    "ordinaryRenderSpikeRemainingMs": 1136.5
+  },
+  "validation": {
+    "mechanicalInputs": "Controlled medical output samples, not clinical trajectories; actual trace/medical integration verified separately",
+    "frames": 61,
+    "intervalS": 0.05,
+    "durationS": 3,
+    "numericDurationS": 6,
+    "cases": [
+      "walking-unconscious",
+      "walking-legloss",
+      "doorway-unconscious",
+      "aiming-unconscious",
+      "crouching-unconscious"
+    ],
+    "motionCOMLimit": "precollapse speed * .8s for moving; existing .6m stationary reference",
+    "standingHit": "actual M193 arm shot plus separate weak-arm/spinal clinical-output fixtures;60ticks animation/gun retention",
+    "trialAcceptance": "all measured failures retained in acceptance.json and report; no assertion of unconditional acceptance",
+    "ROM": "Both versions, standing-prepared/current-pose frame bases, armed/unarmed four native clips,180 pure kinematic ticks each; strict1e-5rad and separate2deg diagnostic; locked-axis residual separated from anatomical range limits",
+    "ROMCaveat": "Configured Rapier joint-coordinate audit, not independent anatomical goniometry; finite solver residual and armed-IK violations are reported, not erased",
+    "slip": "Continuous foot-floor contact episode maximum integral of horizontal |body.velocityAtPoint(contact.point1)|dt; contact distance<=.003001m (existing collider contactSkin3mm +1um numerical epsilon); same method for v34/v35",
+    "legacySlip": "Old ankle-origin horizontal travel within distance<=.006m contact episodes retained as maxFootAnkleTravelM; a rotating/rolling foot can move its origin without true contact slip",
+    "direction": "Final COM displacement compared with pre-collapse travel direction, <=60deg QA tuning; includes post-ground rolling, not instantaneous fall direction",
+    "finalLying": "6s final pose; poseAt3S retained separately, user3s is sheet duration",
+    "tests": 210,
+    "protectedSourceFiles": 168,
+    "results": "All5 final6s lying; legloss3s still folded; moving2 supportplants/.15m contactslip/1.12mCOM pass; legfinalCOM64.47deg misses tuned60deg; ROM/jitter/stationaryCOM failures retained",
+    "htmlBytes": 29604199,
+    "htmlSHA256": "fec2863c6f68036e0b9d7de277145dcc1cef174dbb137005a3d6447b4d4b70eb",
+    "releaseVerifierPassed": true
+  }
+}

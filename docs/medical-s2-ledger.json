@@ -1,0 +1,1314 @@
+{
+  "version": "medical-s2-v40",
+  "status": "Final frozen experimental v40: functional, clinical, provenance and regression checks passed; whole-hit p95 0.1 ms budget missed; inherited full gelatin shape limitations explicitly retained",
+  "baseline": "7e91d9383e59d623709d51af8db62f18c1a7c638",
+  "runtimeSourceCommit": "fefede27e6abd9be538928b4cd06c85300d1fb64",
+  "checkedKST": "2026-10-16",
+  "scope": "독립3D의몸속탄상태통일·조직저항·뼈안공동·구조HP·단발분쇄/절단·예약3번디버그AK. 원본2D·탄데미지·부위HP·비행/벽/방호수식보존.",
+  "automatic2DPort": false,
+  "sourceLedger": "docs/medical-s2-sources.json",
+  "instructions": "docs/training-s2-instructions.md",
+  "entries": [
+    {
+      "id": "S2-body-authoritative",
+      "originalFunction": "3D traceShot body terminal integration",
+      "originalSource": "apps/training/src/ballistics.js; body-channel.js; wound-channel.js",
+      "before": "S1 상처 모델은 의료용 그림자 상태. 실제 몸속 속도는 기존 인체 저항으로 별도 계산.",
+      "after": "몸 안의 속도·질량·yaw·파편·정지/출구 상태를 S2 한 번의 적분으로 산출하고 같은 채널을 의료에 전달. 몸 밖의 기존 비행/벽/방호 경로로 잔여 상태를 반환. 기존 인체 저항은 legacy/비교 경로로 보존.",
+      "classification": "사용자 지정 + 원본 경로 보존",
+      "reason": "두 모델이 같은 운동 에너지를 각기 소비하던 불일치 제거",
+      "evidence": "docs/training-s2-instructions.md#1",
+      "dependenciesFor2D": "2D의 기하 구간 캐시와 상태 패킷을 별도로 설계·검증한 뒤 명시 승인으로 역이식",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S2-part-state",
+      "originalFunction": "Per-part occupied body segments",
+      "originalSource": "apps/training/src/body-channel.js; medical.js; wound-channel.js",
+      "before": "각 부위는 자기 구간을 적분하지만 입사속도는 매번 기존 인체 저항의 값으로 재주입.",
+      "after": "다음 부위는 앞 부위의 새 출구 속도·질량·yaw·변형·파편 상태에서 시작. m은 각 부위 자기 구간으로만 계산. 부위 사이 공기 틈은 조직 깊이에서 제외.",
+      "classification": "사용자 지정 + 모델 설계",
+      "reason": "팔을 지나며 누운 탄을 몸통 앞에서 초기화하지 않음",
+      "evidence": "docs/medical-s2-sources.json#yawCarryPolicy",
+      "dependenciesFor2D": "2D의 기하 구간 캐시와 상태 패킷을 별도로 설계·검증한 뒤 명시 승인으로 역이식",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S2-body-residual-packet",
+      "originalFunction": "Residual projectile packet after body exit",
+      "originalSource": "apps/training/src/body-channel.js; ballistics.js",
+      "before": "원본 인체 저항의 잔여속도·관통/피해 패킷으로 후속 장벽 판정. S1파편은그림자상태.",
+      "after": "새 주탄의 에너지비 ratio=clamp((mOut·vOut²)/(mIn·vIn²),0,1)로 잔여 관통력과 잔여 피해를 각각 곱한다. shot-local ammo 복제본의 projectileMassG를 현재 주탄질량으로 갱신하여 기존 방호 kinetic/wear함수에 넘기며 레지스트리는 불변. 파편구름에너지는 같은 표적의 이어지는 부위에서만 전달하며 벽/방호/다른표적/trace끝에 untracedFragmentEnergyJ로 기록하고 주탄속도에 재주입하지 않음.",
+      "classification": "튜닝(3D 연결 어댑터); 원본 벽/방호 수식 보존",
+      "reason": "새몸속정지/출구상태를후속실제경로에연결하면서주탄/미추적파편에너지를중복소비하지않음",
+      "evidence": "apps/training/src/body-channel.js:resolveBodyChannel; ballistics.js:traceShot; 동일 채널을 medical.js가 재사용",
+      "dependenciesFor2D": "2D잔여패킷에주탄질량·속도와파편에너지장부를명시해별도검증필요",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S2-density",
+      "originalFunction": "Tissue resistance and equivalent depth",
+      "originalSource": "apps/training/src/internal-anatomy.js; wound-channel.js",
+      "before": "균질 S1 연조직 항력. 내부 깊이 구간 캐시는 공동용.",
+      "after": "기존 1회 내부 판정에서 폐/뼈 구간 캐시를 추가해 밀도비로 등가 깊이를 조회. 연조직 기준은 S1과 동일. 폐340, 피질골1920, 해면골1170kg/m³; 같은 G4표에 해면골 없음. 칸마다 3D 조회 없음.",
+      "classification": "출처(폐·피질골 밀도) + 튜닝(해면골·항력 환산)",
+      "reason": "조직별 저항을 구분하면서 기존 젤라틴 보정 유지",
+      "evidence": "docs/medical-s2-sources.json#selectedDensityPolicy",
+      "dependenciesFor2D": "2D의 기하 구간 캐시와 상태 패킷을 별도로 설계·검증한 뒤 명시 승인으로 역이식",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S2-bone-geometry",
+      "originalFunction": "Bone envelope interpretation",
+      "originalSource": "apps/training/src/internal-anatomy.js",
+      "before": "기존 뼈 콜라이더는 실체의 외곽 진단 형상.",
+      "after": "외곽 뼈 구간에서 직접 교차한 내부 신경조직 구간을 빼 저항 캐시를 만든다. 실제 피질층/골수층을 새로 모델링하지 않고 기존 뼈 외곽을 피질골로 근사. 해면골/공기 값은 명시 종류가 있는 입력만 적용.",
+      "classification": "튜닝(콜라이더 기반 균질 근사)",
+      "reason": "두개골/척추 외곽 전체를 뇌/척수까지 꽉 찬 뼈로 세는 과도한 저항 방지",
+      "evidence": "apps/training/src/internal-anatomy.js:tissueIntervalsFromGeometry",
+      "dependenciesFor2D": "2D의 기하 구간 캐시와 상태 패킷을 별도로 설계·검증한 뒤 명시 승인으로 역이식",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S2-bone-extra",
+      "originalFunction": "Bone-triggered yaw/deformation/local debris",
+      "originalSource": "apps/training/src/wound-channel.js",
+      "before": "S1은 직접 뼈 골절만 기존 판정에 전달.",
+      "after": "뼈 통과 시 추가 yaw 등가깊이1.2m/m, 변형 면적 증가4/m·상한1.8배. 뼈 국소 추가 영구손상은 전달에너지/(2×10^7J/m³), 최대 반경.025m 및 해당 TC반경 이내.",
+      "classification": "출처(정성 가능성) + 튜닝(모든 수치)",
+      "reason": "뼈가 탄 거동과 국소 조각 손상에 주는 영향. 독립 원거리 파편탄을 생성하지 않음",
+      "evidence": "docs/medical-s2-sources.json#boneEffectPolicy",
+      "dependenciesFor2D": "2D의 기하 구간 캐시와 상태 패킷을 별도로 설계·검증한 뒤 명시 승인으로 역이식",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S2-cns-enclosure",
+      "originalFunction": "Temporary cavity near enclosed CNS",
+      "originalSource": "apps/training/src/wound-channel.js; medical-s1-effects.js; medical-s0.js",
+      "before": "뼈 바깥 얼굴/턱 경로의 큰 TC가 직접 뇌·뇌간 교차 없이도 생리적 의식 상실을 일으킬 수 있음.",
+      "after": "직접 두개골/척추 교차와 깊이 순서로 내부 신경구조 TC허용. 뼈 밖 TC/비직접 파편 전달계수0. 직접 CNS 교차 무력화는 유지. 차단한TC/장기체적×.25를 concussionRisk0–1로 기록하며 생리 효과 없음.",
+      "classification": "사용자 지정 + 튜닝",
+      "reason": "v39 실제 얼굴 경로의0.5833s 조기 쓰러짐 재발 방지",
+      "evidence": "docs/training-s2-instructions.md#2",
+      "dependenciesFor2D": "2D의 기하 구간 캐시와 상태 패킷을 별도로 설계·검증한 뒤 명시 승인으로 역이식",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S2-head-HP",
+      "originalFunction": "Head HP zero interpretation",
+      "originalSource": "apps/training/src/medical-v2.js; medical-s0.js; medical-s2-effects.js",
+      "before": "총 머리HP0을 생명상태0으로 바꾸는 경로가 있을 수 있음.",
+      "after": "head_structure_destroyed 기록. 뇌/뇌간 직접 손상과 기존 생리가 생사를 결정하며 머리HP0만으로 사망하지 않음.",
+      "classification": "사용자 지정 게임 의미",
+      "reason": "구조 내구도와 CNS생리 손상 분리",
+      "evidence": "docs/training-s2-instructions.md#3",
+      "dependenciesFor2D": "2D의 기하 구간 캐시와 상태 패킷을 별도로 설계·검증한 뒤 명시 승인으로 역이식",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S2-torso-HP",
+      "originalFunction": "Chest/abdomen HP zero interpretation",
+      "originalSource": "apps/training/src/medical-v2.js; medical-s2-effects.js",
+      "before": "부위 파괴·전신 손상이 여러 기존 경로에 흩어져 있음.",
+      "after": "가슴 또는 복부HP0이면 기존 심정지 진입 경로에 원인torso_destroyed를 전달하고 기존300s ARREST_TO_DEATH_S 경로 유지.",
+      "classification": "사용자 지정 + 기존 심정지 경로 사용",
+      "reason": "몸통 구조 파괴의 의미 명확화",
+      "evidence": "docs/training-s2-instructions.md#3",
+      "dependenciesFor2D": "2D의 기하 구간 캐시와 상태 패킷을 별도로 설계·검증한 뒤 명시 승인으로 역이식",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S2-limb-neck-HP",
+      "originalFunction": "Limb and neck HP zero interpretation",
+      "originalSource": "apps/training/src/medical-v2.js; medical-s2-effects.js",
+      "before": "기존 부위 기능/파괴 상태. 목HP0은lifeStatus를5이하로 제한.",
+      "after": "팔/다리HP0은 해당 기능0. 그 자체로 의식/생명을 직접 끊지 않음. 목의 기존lifeStatus≤5규칙 보존; 새 자동 심정지/사망 지름길 없음.",
+      "classification": "사용자 지정 + 원본(목) 유지",
+      "reason": "부위별 구조 내구도 의미 구분; 목은 변경 요청 없음",
+      "evidence": "docs/training-s2-instructions.md#3",
+      "dependenciesFor2D": "2D의 기하 구간 캐시와 상태 패킷을 별도로 설계·검증한 뒤 명시 승인으로 역이식",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S2-comminution",
+      "originalFunction": "Single-hit comminution",
+      "originalSource": "apps/training/src/medical-s2-effects.js",
+      "before": "기존 직접 뼈 교차 기반 골절.",
+      "after": "같은발사이벤트·표적·부위의boneEnergyLostJ prefix≥250J를첫교차하고현재실제뼈교차자격이있을때comminuted. 해당부위기능0·치료없이회복불가 기록. 머리분쇄도자동CNS손상/사망아님. 기존분쇄골절출혈경로사용. TC근접만으로골절을만들지않음.",
+      "classification": "튜닝(250J; 임상 문턱 아님) + 원본 골절 경로",
+      "reason": "분쇄 단계 추가. 기존 직접 뼈 교차 자격 유지",
+      "evidence": "docs/training-s2-instructions.md#4",
+      "dependenciesFor2D": "2D의 기하 구간 캐시와 상태 패킷을 별도로 설계·검증한 뒤 명시 승인으로 역이식",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S2-amputation",
+      "originalFunction": "Single-hit structural limb loss",
+      "originalSource": "apps/training/src/medical-s2-effects.js",
+      "before": "원본 누적 파괴점수는 반복 피격에서partial_traumatic_loss/traumatic_amputation표시 가능.",
+      "after": "같은발사이벤트·표적ID·canonical부위의분리된채널에너지를순서대로합산한다. 팔다리단발prefix전달에너지≥8000J의첫교차때만amputated/혈관절단을발생시킨다. 다른발에걸친누적은금지. 원본누적파괴점수의절단명칭은destroyed로억제하고비교증거보존. 메시분리없음.",
+      "classification": "튜닝(8000J; 임상 문턱 아님)",
+      "reason": "지정 소총/권총 및 모든 비12.7레지스트리탄이 기준속도에서 단발절단에 도달하지 않도록 상한 에너지와 비교",
+      "evidence": "docs/training-s2-instructions.md#4",
+      "dependenciesFor2D": "2D의 기하 구간 캐시와 상태 패킷을 별도로 설계·검증한 뒤 명시 승인으로 역이식",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S2-base-HP-damage",
+      "originalFunction": "Registry HP and ammunition damage",
+      "originalSource": "src/**; apps/training/src/generated/**",
+      "before": "원본 탄 데미지와 부위HP값.",
+      "after": "값 보존. 실제 통일 모델로 탄·부위·거리별 HP감소/0까지발수 및 HP경로를 끈 생리경로 시간을 별도 비교 표로 보고.",
+      "classification": "원본 보존 + 진단 비교",
+      "reason": "이번 작업은 수치 보정의 근거를 마련하고 사용자가 추후 값을 결정",
+      "evidence": "docs/training-s2-instructions.md#5",
+      "dependenciesFor2D": "원본 수치 변경을 하지 않으므로 역이식할 수치 없음",
+      "candidate2D": "아니오",
+      "2D 역이식 후보": "아니오"
+    },
+    {
+      "id": "S2-debug-slot",
+      "originalFunction": "AK debug instrument in reserved slot3",
+      "originalSource": "apps/training/src/debug-weapon.js; inventory.js; main.js; input.js; debug-ammo-ui.js",
+      "before": "일반 무기1/2슬롯. AK는 등록총기와 호환탄만 사용.",
+      "after": "3번칸은일반인벤토리와분리된디버그전용AK인스턴스. 좌상단탄약탭·전체레지스트리표·무한탄창·수동속도·선택탄자동영점토글. 모델/소리/반동은AK그대로. PC3키와모바일전용선택버튼.",
+      "classification": "사용자 지정 디버그용, 현실값 아님",
+      "reason": "같은traceShot/의료경로에서모든탄을시험. 일반장비슬롯으로사용하지않음",
+      "evidence": "docs/training-s2-instructions.md#사용자-추가-요청--디버그-총기",
+      "dependenciesFor2D": "3D모바일HUD/인벤토리의시험도구이며의료수식역이식후보아님",
+      "candidate2D": "아니오",
+      "2D 역이식 후보": "아니오"
+    },
+    {
+      "id": "S2-debug-table",
+      "originalFunction": "Original2D ammunition table fields",
+      "originalSource": "apps/training/src/debug-ammo-ui.js; generated/catalog.js; src/** originalammoUI",
+      "before": "원본2D탄약표의명칭·구경·질량·기준속도·관통스펙.",
+      "after": "레지스트리114탄·17열. 원본2D표의정렬·8재질·Class1–7대표방호값15/25/35/45/55/65/72·0–6관통등급경계를동일생성방호함수로읽는다. 탄명/구경/질량/초속/기준·유효관통/피해/제압/반동/정확도배율/방호피해와등급을표시. 844×390독립양방향스크롤·44px행·터치선택.",
+      "classification": "원본값 표시 + 디버그UI튜닝",
+      "reason": "새탄약수치나가상방호등급을만들지않음",
+      "evidence": "사용자 추가 요청",
+      "dependenciesFor2D": "원본2D표의값은이미2D에존재",
+      "candidate2D": "아니오",
+      "2D 역이식 후보": "아니오"
+    },
+    {
+      "id": "S2-EWS2018-source-correction",
+      "originalFunction": "Documentation source provenance",
+      "originalSource": "docs/medical-s1-sources.json; docs/training-s1-v39.md",
+      "before": "2018공식Chapter1에개별소총도판이없다고보고.",
+      "after": "동일원문PDF12–13쪽의AK47/M16/M80도판존재를시각확인해S2에서정정. 기존2004/Fackler1987보정입력/런타임은불변.",
+      "classification": "출처 조사 오류 정정",
+      "reason": "출처의실제내용과서술일치",
+      "evidence": "docs/medical-s2-sources.json#sourceCorrections",
+      "dependenciesFor2D": "연구출처를이용할때정정내용참조;수치자동역이식없음",
+      "candidate2D": "예",
+      "2D 역이식 후보": "예"
+    },
+    {
+      "id": "S2-debug-AK-magazine-visibility",
+      "originalFunction": "FPS AK magazine hide guard during animated reload",
+      "originalSource": "apps/training/src/fps-arms.js; scripts/build-training.mjs",
+      "before": "animatedAK의탄창표시여부가일반인벤토리탄창존재를따름.파생손그립은원본fps-arms전체파일해시로검증.",
+      "after": "원래조건에정확히!inventory.isDebugWeapon한개만추가하여무한탄창디버그AK의탄창외형을유지. 빌드는정확히그한조건만제거한전체파일이기존SOLDIER_AK_GRIP소스해시와같은지검증.실제파일해시와debugMagazineVisibilityOnly도빌드정보에기록.",
+      "classification": "디버그표시튜닝 + 원본파생자산가드유지",
+      "reason": "일반탄창인스턴스가없는시험총도AK탄창메시를표시하고기존손그립/자세코드무변경을검증",
+      "evidence": "final source fefede27; handling.gripSourceValidation metadata; derived finger GLB/grip bytes unchanged",
+      "dependenciesFor2D": "1인칭렌더표시조건만의변경으로2D의료역이식후보아님",
+      "candidate2D": "아니오",
+      "2D 역이식 후보": "아니오"
+    },
+    {
+      "id": "S2-existing-play-QA-timing",
+      "originalFunction": "Existing player-down overlay regression fixture",
+      "originalSource": "scripts/check-training-ai1-play.mjs",
+      "before": "장벽뒤다리피격후아직쓰러지지않았으면머리를쏘는QA루프에서만다음전투틱을진행. S1fixture는다리후downfalse라해당루프를탔음.",
+      "after": "S2분쇄로다리피격직후의료down이true가되므로재료fixture뒤실제combat1틱을소비해기존오버레이/래그돌전이를관측. fixtureTrigger기록. 런타임은그대로.",
+      "classification": "QA fixture timing adaptation; intentional S2 medical consequence",
+      "reason": "기존보조루프가생략되면서생긴관측시점차이를고치고생산전투틱의결과를검증",
+      "evidence": "downloads/checks-s2-v40/play.json; final source hashes unchanged",
+      "dependenciesFor2D": "테스트관측시점만바뀌므로2D역이식대상아님",
+      "candidate2D": "아니오",
+      "2D 역이식 후보": "아니오"
+    }
+  ],
+  "values": {
+    "densityKgM3": {
+      "soft": 1050,
+      "lung": 340,
+      "cortical": 1920,
+      "trabecular": 1170,
+      "air": 1.20479
+    },
+    "boneYawAdvanceMPerM": 1.2,
+    "boneDeformationAreaPerM": 4,
+    "maxDeformationAreaScale": 1.8,
+    "boneSecondaryFragmentRadiusM": 0.025,
+    "boneSecondaryDamageEnergyDensityJPerM3": 20000000.0,
+    "outsideEnclosureTemporaryCavityFactor": 0,
+    "outsideEnclosureFragmentFactor": 0,
+    "concussionRiskVolumeGain": 0.25,
+    "comminutionBoneEnergyJ": 250,
+    "amputationLimbEnergyJ": 8000,
+    "amputationSingleHitOnly": true,
+    "concussionPhysiologyApplied": false,
+    "amputationBasis": "single projectile event in one target and canonical limb, summed across its disjoint channels; never across events",
+    "comminutionBasis": "same event target part bone-energy prefix; current original positive bone intersection required; first crossing only"
+  },
+  "validation": {
+    "debugUIDOM": {
+      "artifact": "downloads/checks-s2-v40/debug-ui/report.json",
+      "passed": true,
+      "scope": "DOM-only; actual TrainingInput and DebugAmmoUI, no renderer or model",
+      "registryRows": 114,
+      "columns": 17,
+      "screens": [
+        {
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "slot3Button": {
+            "x": 960.953125,
+            "y": 632,
+            "width": 78.21875,
+            "height": 44,
+            "visible": true
+          },
+          "tab": {
+            "x": 227.96875,
+            "y": 15,
+            "width": 132,
+            "height": 45
+          },
+          "checks": {
+            "slot3VisibleMinimum44pxNoOverlap": true,
+            "independentMoveFireOwnership": true,
+            "all114RowsAnd17Columns": true,
+            "selectedRow": true,
+            "nativeTouchBothScrollAxes": true,
+            "finalRowTouchLoad": true,
+            "numericAndAutoZeroCallbacks": true,
+            "rejectedControlsRestoreState": true,
+            "escapeAndInputResume": true
+          }
+        },
+        {
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "slot3Button": {
+            "x": 551.953125,
+            "y": 291,
+            "width": 78.21875,
+            "height": 44,
+            "visible": true
+          },
+          "tab": {
+            "x": 200.96875,
+            "y": 11,
+            "width": 124,
+            "height": 44
+          },
+          "checks": {
+            "slot3VisibleMinimum44pxNoOverlap": true,
+            "independentMoveFireOwnership": true,
+            "all114RowsAnd17Columns": true,
+            "selectedRow": true,
+            "nativeTouchBothScrollAxes": true,
+            "finalRowTouchLoad": true,
+            "numericAndAutoZeroCallbacks": true,
+            "rejectedControlsRestoreState": true,
+            "escapeAndInputResume": true
+          }
+        }
+      ],
+      "actualGameplayCoveredSeparately": true,
+      "evidenceScope": "unchanged UI source reference; final gameplay independently verified"
+    },
+    "gelatin": {
+      "artifact": "downloads/checks-s2-v40/gelatin.json",
+      "passed": true,
+      "profiles": 5,
+      "exactAllProfileFieldsAndSamples": true,
+      "method": "Literal deep equality of all gelatinProfile fields and every 5 mm sample against v39. Original resolveBodyPath is then applied to a 2 m homogeneous occupied block at the same source mass/speed, using three unchanged original body resistance classes. Legacy has no gelatin material: these are explicitly body-class analogues, not fabricated gelatin constants.",
+      "primarySourceAgreementInherited": true,
+      "wholeProfileAgreementInherited": false,
+      "rows": [
+        {
+          "profileId": "ak74",
+          "sourceDepthM": 0.52,
+          "modelDepthM": 0.5200000000000004,
+          "curveSHA256": "895baf31d5516bdc598c280c78688201d5d6d969460083a965d6368e7dc88f61",
+          "legacyBodyAnalogues": [
+            {
+              "part": "chest",
+              "stopDepthM": 0.6,
+              "differenceM": 0.07999999999999996
+            },
+            {
+              "part": "leftArm",
+              "stopDepthM": 0.44999999999999996,
+              "differenceM": -0.07000000000000006
+            },
+            {
+              "part": "leftLeg",
+              "stopDepthM": 0.47727272727272724,
+              "differenceM": -0.04272727272727278
+            }
+          ]
+        },
+        {
+          "profileId": "m193",
+          "sourceDepthM": 0.36,
+          "modelDepthM": 0.3600000000000002,
+          "curveSHA256": "b0a00d752c7fe20d870ba35e88fe5feb82d54fb9994d9d771a93db14408eda52",
+          "legacyBodyAnalogues": [
+            {
+              "part": "chest",
+              "stopDepthM": 0.5485714285714286,
+              "differenceM": 0.1885714285714286
+            },
+            {
+              "part": "leftArm",
+              "stopDepthM": 0.41142857142857137,
+              "differenceM": 0.05142857142857138
+            },
+            {
+              "part": "leftLeg",
+              "stopDepthM": 0.4363636363636363,
+              "differenceM": 0.0763636363636363
+            }
+          ]
+        },
+        {
+          "profileId": "ak47",
+          "sourceDepthM": 0.74,
+          "modelDepthM": 0.7400000000000005,
+          "curveSHA256": "8248b19aacc44d6874d471d403003cd0ef35328dc022846179ea9ce9d94e784c",
+          "legacyBodyAnalogues": [
+            {
+              "part": "chest",
+              "stopDepthM": 0.6171428571428571,
+              "differenceM": -0.12285714285714289
+            },
+            {
+              "part": "leftArm",
+              "stopDepthM": 0.4628571428571428,
+              "differenceM": -0.2771428571428572
+            },
+            {
+              "part": "leftLeg",
+              "stopDepthM": 0.49090909090909085,
+              "differenceM": -0.24909090909090914
+            }
+          ]
+        },
+        {
+          "profileId": "m80",
+          "sourceDepthM": 0.64,
+          "modelDepthM": 0.6400000000000005,
+          "curveSHA256": "c7f45387eacd92152fa783f3eefa0013dd59b9f634730bbc4a2b94553a4f1ac8",
+          "legacyBodyAnalogues": [
+            {
+              "part": "chest",
+              "stopDepthM": 0.7542857142857142,
+              "differenceM": 0.11428571428571421
+            },
+            {
+              "part": "leftArm",
+              "stopDepthM": 0.5657142857142856,
+              "differenceM": -0.0742857142857144
+            },
+            {
+              "part": "leftLeg",
+              "stopDepthM": 0.6,
+              "differenceM": -0.040000000000000036
+            }
+          ]
+        },
+        {
+          "profileId": "pistol",
+          "sourceDepthM": null,
+          "modelDepthM": 0.6050000000000004,
+          "curveSHA256": "cb25d848a13b1b4d849624a8ff1e9d382cb7730db38bb982a01ee519f07e49d6",
+          "legacyBodyAnalogues": [
+            {
+              "part": "chest",
+              "stopDepthM": 0.2914285714285714,
+              "differenceM": null
+            },
+            {
+              "part": "leftArm",
+              "stopDepthM": 0.21857142857142856,
+              "differenceM": null
+            },
+            {
+              "part": "leftLeg",
+              "stopDepthM": 0.23181818181818178,
+              "differenceM": null
+            }
+          ]
+        }
+      ],
+      "operationalStopPolicy": "S2actualbody operationalstopconsumesremaining≤20m/sKEandsetsactualexit0; thisisdistinctfromunchangedgelatinProfilecalibrationexport",
+      "evidenceScope": "final frozen fefede27 replay",
+      "sourceCommit": "fefede27e6abd9be538928b4cd06c85300d1fb64",
+      "legacyCostField": "effectiveCostAtReferenceLength includesoriginalbasebodycost; notapuredimensionlessmultiplier"
+    },
+    "singleHitEnergy": {
+      "artifact": "downloads/checks-s2-v40/energy-limits.json",
+      "passed": true,
+      "registryCartridges": 114,
+      "actualSamples": 342,
+      "method": "114 registered cartridges at registry muzzle velocity, one projectile per trace, no manual velocity override. Three actual standing limb fixture paths each at 1 m. Reported maximum means maximum among these three sampled paths, not exhaustive geometry. Amputation uses same-shot/actor/limb delivered energy summed across disjoint channels, never accumulated multi-shot energy. Both individual channel maxima and whole-limb sums are reported.",
+      "ordinaryGlobalBound": {
+        "formula": "E_limb <= E_projectile <= 0.5*m*(v_registry + g*t_max)^2",
+        "maxTimeS": 12,
+        "gravityMps2": 9.81,
+        "assumptions": "All valid production flight samples are limited to t_max; drag and existing walls/armor only remove energy. The triangle inequality includes possible gravitational acceleration. This bound is conservative, not a predicted impact energy. Applies to registry speeds without manual debug overrides. A manually increased debug speed can exceed 8000 J even for an ordinary cartridge, intentionally unrealistic.",
+        "ordinaryFamilies": [
+          "5.45x39mm",
+          "5.56x45mm",
+          "7.62x39mm",
+          "7.62x51mm",
+          "9x19mm",
+          "9x21mm"
+        ],
+        "ordinaryCartridges": 54,
+        "allOrdinaryProvenBelowThreshold": true
+      },
+      "maximumOrdinaryGravityBoundJ": 4636.302572160002,
+      "maximumOrdinaryGravityBoundAmmoId": "762_m61_ap",
+      "minimumOrdinaryMarginJ": 3363.6974278399985,
+      "observedAmputationSamples": [
+        {
+          "ammoId": "127x99_m33_ball",
+          "fixture": "femur",
+          "parts": [
+            "leftLeg"
+          ],
+          "energyJ": 9674.279795148632
+        },
+        {
+          "ammoId": "127x99_m17_tracer",
+          "fixture": "femur",
+          "parts": [
+            "leftLeg"
+          ],
+          "energyJ": 9017.104913827454
+        },
+        {
+          "ammoId": "127x99_m8_api",
+          "fixture": "femur",
+          "parts": [
+            "leftLeg"
+          ],
+          "energyJ": 9462.646095591035
+        },
+        {
+          "ammoId": "127x99_m20_apit",
+          "fixture": "femur",
+          "parts": [
+            "leftLeg"
+          ],
+          "energyJ": 9440.992727888888
+        },
+        {
+          "ammoId": "127x99_mk211_heiap",
+          "fixture": "femur",
+          "parts": [
+            "leftLeg"
+          ],
+          "energyJ": 10285.64826524862
+        },
+        {
+          "ammoId": "127x99_m903_slap",
+          "fixture": "femur",
+          "parts": [
+            "leftLeg"
+          ],
+          "energyJ": 13654.616191869227
+        },
+        {
+          "ammoId": "127x108_b32_api",
+          "fixture": "femur",
+          "parts": [
+            "leftLeg"
+          ],
+          "energyJ": 8587.733207841258
+        },
+        {
+          "ammoId": "127x108_bzt44_apit",
+          "fixture": "femur",
+          "parts": [
+            "leftLeg"
+          ],
+          "energyJ": 8322.485699571502
+        },
+        {
+          "ammoId": "127x108_mdz_hei",
+          "fixture": "femur",
+          "parts": [
+            "leftLeg"
+          ],
+          "energyJ": 8456.217635768011
+        }
+      ],
+      "allCartridgeDetailedTable": "downloads/checks-s2-v40/energy-limits.json#rows",
+      "sampleMaxMeaning": "maximum ofthreeactualpathsat1m;notexhaustiveanatomicalmaximum",
+      "overriddenVelocityExcludedFromProof": true,
+      "evidenceScope": "final frozen fefede27 replay",
+      "sourceCommit": "fefede27e6abd9be538928b4cd06c85300d1fb64",
+      "additionalPistolPDWEnergyBound": {
+        "source": "downloads/checks-s2-v40/energy-limits.json#rows",
+        "4.6x30mm": {
+          "cartridges": 5,
+          "allBelowThreshold": true,
+          "maximumGravityBoundJ": 848.13507792
+        },
+        "5.7x28mm": {
+          "cartridges": 5,
+          "allBelowThreshold": true,
+          "maximumGravityBoundJ": 707.27279808
+        },
+        "note": "각행의같은비행에너지상한을추가로읽은값; ordinary54군과중복없음; 추가사격/수치변경없음"
+      }
+    },
+    "postBody": {
+      "artifact": "downloads/checks-s2-v40/post-body.json",
+      "passed": true,
+      "method": "Actual standing soldier geometry → production traceShot → actual newly registered rear wall collider or independent second soldier → existing medical record. Same fixed target/direction and shot RNG on v39/S2. New walls use existing 25 mm drywall and 18 mm wood materials and unchanged wall equations. No synthetic damage or body velocity override.",
+      "pairs": 18,
+      "perVersion": [
+        {
+          "version": "v39",
+          "rows": 18,
+          "rearWallsQueried": 12,
+          "rearWallCases": 12,
+          "secondActorsReached": 6,
+          "secondActorCases": 6
+        },
+        {
+          "version": "S2",
+          "rows": 18,
+          "rearWallsQueried": 12,
+          "rearWallCases": 12,
+          "secondActorsReached": 6,
+          "secondActorCases": 6
+        }
+      ],
+      "secondaryCloudPolicy": "S2 cloud energy can continue between parts/paths of the same actor. At a wall/armor/new actor/end it is reported as untracedFragmentEnergyJ and never added to primary velocity or new target fragment energy.",
+      "evidenceScope": "final frozen fefede27 replay",
+      "sourceCommit": "fefede27e6abd9be538928b4cd06c85300d1fb64"
+    },
+    "fullRegression": {
+      "artifact": "downloads/checks-s2-v40/tests.log",
+      "tests": 303,
+      "passed": 303,
+      "failed": 0,
+      "evidenceScope": "final frozen fefede27 runtime"
+    },
+    "baseline": {
+      "artifact": "downloads/checks-s2-v40/baseline.log",
+      "bytes": 3641864,
+      "sha256": "ff330c641f9720e3a960adfd84ee084ea06f215366e88e7f03e14803a176f90d",
+      "identical": true,
+      "evidenceScope": "final frozen fefede27 runtime"
+    },
+    "debugWeaponGameplay": {
+      "artifact": "downloads/checks-s2-v40/debug-browser/report.json",
+      "passed": true,
+      "htmlSha256": "6eea90ecde132f7d4c3e3984ed5287e18b9aef6209227940a5f61c7b12acc065",
+      "method": "Actual game runtime rebundled only with existing external __CQBTest observations; embedded release assets; offline; RAF held for deterministic production tick/fire. Native keyboard/CDP touch and DebugAmmoUI controls. No replaced trace, anatomy, wound or medical result.",
+      "fixture": "H01 original armored rest target; player relocated 5 m in front; breath/walk sway disabled for repeatable aim; recoil and all real ballistic/medical calculations retained. No revival or medical reset during firing.",
+      "errors": 0,
+      "externalRequests": 0,
+      "screens": [
+        {
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "checks": {
+            "nativePc3": true,
+            "nativeMobileSlot3": true,
+            "minimum44px": true,
+            "independentMoveFireOwners": true,
+            "secondaryTouchTab": true,
+            "all114Rows17Columns": true,
+            "nativeBothScrollAxes": true,
+            "finalRowTap": true,
+            "registryReferenceSpeeds": true,
+            "actualMedicalForThreeCalibers": true,
+            "manualVelocityUsedInActualTrace": true,
+            "automaticZeroHipAndAds": true,
+            "unreachableZeroRejected": true,
+            "atLeast31ActualShotsInfinite": true,
+            "originalAKModelRecoilAndSoundPath": true,
+            "ordinaryInventoryOpticAndRoundCountsExact": true,
+            "menuInventoryAndAmmoInputPaused": true
+          },
+          "actualProductionShots": 35,
+          "singleShots": 4,
+          "sustainedShots": 31,
+          "totalMedicalRecords": 37
+        },
+        {
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "checks": {
+            "nativePc3": true,
+            "nativeMobileSlot3": true,
+            "minimum44px": true,
+            "independentMoveFireOwners": true,
+            "secondaryTouchTab": true,
+            "all114Rows17Columns": true,
+            "nativeBothScrollAxes": true,
+            "finalRowTap": true,
+            "registryReferenceSpeeds": true,
+            "actualMedicalForThreeCalibers": true,
+            "manualVelocityUsedInActualTrace": true,
+            "automaticZeroHipAndAds": true,
+            "unreachableZeroRejected": true,
+            "atLeast31ActualShotsInfinite": true,
+            "originalAKModelRecoilAndSoundPath": true,
+            "ordinaryInventoryOpticAndRoundCountsExact": true,
+            "menuInventoryAndAmmoInputPaused": true
+          },
+          "actualProductionShots": 35,
+          "singleShots": 4,
+          "sustainedShots": 31,
+          "totalMedicalRecords": 37
+        }
+      ],
+      "ordinaryInventoryReturnUnchanged": true,
+      "runtimeFileHashes": 107,
+      "sourceAndHTMLUnchanged": true,
+      "notPerformanceMeasurement": true,
+      "evidenceScope": "final frozen fefede27 gameplay capture"
+    },
+    "s0Matrix240": {
+      "artifact": "downloads/checks-s2-v40/comparison.json",
+      "summaryArtifact": "downloads/checks-s2-v40/report-summary.json",
+      "rawSummarySHA256": "7c0c6098506b732c99492a7f0456bbf06952b02869b51d72e5168b9fd4d77ae3",
+      "cases": 240,
+      "channelsBefore": 212,
+      "channelsAfter": 213,
+      "statusCounts": {
+        "PASS": 48,
+        "RECORDED": 165,
+        "TARGET_NOT_REACHED": 27
+      },
+      "heart": {
+        "actualDirectCases": 8,
+        "passedWindowCases": 8,
+        "collapseSeconds": [
+          8.65,
+          8.65,
+          8.666666666666666,
+          8.666666666666666,
+          8.65,
+          8.65,
+          8.666666666666666,
+          8.666666666666666
+        ]
+      },
+      "aorta": {
+        "actualDirectCases": 8,
+        "passedWindowCases": 8,
+        "unconsciousSeconds": [
+          28.383333333333333,
+          29.733333333333334,
+          29.65,
+          29.733333333333334,
+          28.4,
+          30,
+          29.65,
+          29.683333333333334
+        ]
+      },
+      "bodyOutcomes": {
+        "S1": {
+          "body_through_and_through": 194,
+          "near_exit_lodged": 9,
+          "deep_penetration": 8,
+          "surface_only": 1
+        },
+        "S2": {
+          "body_through_and_through": 207,
+          "shallow_entry": 4,
+          "deep_penetration": 2
+        }
+      },
+      "changedPartHPCases": 131,
+      "changedTransitionCases": 53,
+      "beforeAfterActualRayPairsExactlyEqual": 240,
+      "note": "PASS applies only to a declared per-case clinical expectation; RECORDED is not an acceptance claim. New body exits and stopping intentionally differ.",
+      "passedRecordedIntegrity": true,
+      "sourceCommit": "fefede27e6abd9be538928b4cd06c85300d1fb64",
+      "evidenceScope": "final frozen fefede27 replay"
+    },
+    "hpCalibration": {
+      "artifact": "downloads/checks-s2-v40/hp-calibration-ranges.csv",
+      "allCrossedRangesArtifact": "downloads/checks-s2-v40/hp-calibration-all-crossed-ranges.csv",
+      "detailsArtifact": "downloads/checks-s2-v40/hp-calibration-details.csv",
+      "organOnlyArtifact": "downloads/checks-s2-v40/hp-vs-organ.json",
+      "groups": 30,
+      "rangeFixtures": 63,
+      "hpDetailRows": 178,
+      "organOnlyControls": 42,
+      "muzzleVelocitiesMps": {
+        "545_ps_gs": 890,
+        "556_m855": 879,
+        "762x39_ps": 718
+      },
+      "ordinaryTorsoDestroyedArrests": 0,
+      "ordinaryOneHitHP0Cases": 13,
+      "organOnlyTerminalChannelExactPairs": 42,
+      "interpretation": "주표는명명된대표경로에서처음실제로맞은해당부위. 반대편스침등모든부수피격은별도all-crossed표. HP0발수는ceil(시작HP/관측한발감소)의산술값이며생존발수나반복누적장기손상예측이아님.",
+      "counterfactual": "QA memoryhook disablesstructuralarrestgateandholdsHPmax; exactterminalchannelpairs42; notagameplaytoggleorordinaryclinicalprediction",
+      "sourceCommit": "fefede27e6abd9be538928b4cd06c85300d1fb64",
+      "evidenceScope": "final frozen fefede27 replay"
+    },
+    "qSixInvariants": {
+      "artifact": "downloads/checks-s2-v40/invariants.json",
+      "passed": true,
+      "scenarios": 17,
+      "checks": 1101785,
+      "violations": 0,
+      "method": "Actual S2 shot replay. Same six Q invariants as S0 checked every1/60s clinical tick; includes301s brainstem and900s major artery cases. No medical values are injected.",
+      "evidenceScope": "final frozen fefede27 replay"
+    },
+    "sourceRefinalizationRequired": false,
+    "optimizedNumericalPreservation": {
+      "artifact": "downloads/checks-s2-v40/performance-kernel-preservation/kernel-preservation.json",
+      "sourceCommit": "fefede27e6abd9be538928b4cd06c85300d1fb64",
+      "currentSourceSHA256": "c09d9d15d885d216022c6c75ea7f70e6db8c343f1bc1eb95397f7e791eaa8b79",
+      "passed": true,
+      "inputCases": 1000,
+      "scope": "allserializedfieldsforeachtapedinputoutputexactbefore/afterarithmeticoptimization; notaclaimLUTequalstodirectintegration",
+      "referenceSnapshotAndInputTape": "sameperformance-kernel-preservationfolder",
+      "separateGelatinPreservation": "downloads/checks-s2-v40/gelatin.json",
+      "fullClinicalReplayComplete": true
+    },
+    "clinicalGameplay": {
+      "artifact": "downloads/checks-s2-v40/live.json",
+      "sourceCommit": "fefede27e6abd9be538928b4cd06c85300d1fb64",
+      "passed": true,
+      "evidenceScope": "final frozen fefede27 gameplay capture",
+      "actualFaceJaw": {
+        "v39FallS": 0.5833333333333334,
+        "S2FallWithin15S": false,
+        "directBrainIntersections": 0,
+        "directBrainstemIntersections": 0,
+        "concussionRiskRecorded": true,
+        "modeledNeuralSeverity": 0,
+        "concussionPhysiologyApplied": false
+      },
+      "directBrainAndBrainstem": {
+        "fallS": 0.016666666666666666,
+        "ragdollBodies": 17,
+        "weaponDropped": true
+      },
+      "actualHeartFallS": 8.65,
+      "playerBrainDownOverlay": true,
+      "structuralHP0": {
+        "cases": 5,
+        "parts": [
+          "head",
+          "chest",
+          "abdomen",
+          "leftArm",
+          "leftLeg"
+        ],
+        "method": "Repeated identical actual7N6 rays with no elapsed time between shots untilpartHP0; noHP/stateinjection. Explicitstructuralfixture,notrealfirecadenceorsurvivalcount. Thenoneproductioncombattick; torsodeathtransition usesmedical.tick onlyafterphysicalposefreeze.",
+        "headNoBrainIntersectionAlive": true,
+        "limbFunctionZero": true,
+        "torsoArrestReason": "torso_destroyed",
+        "torsoAt299SDead": false,
+        "torsoAt301SDead": true
+      }
+    },
+    "cavityDebug": {
+      "artifact": "downloads/checks-s2-v40/debug.json",
+      "passed": true,
+      "viewports": [
+        [
+          1280,
+          720
+        ],
+        [
+          844,
+          390
+        ]
+      ],
+      "clinicalOnOffEqual": true,
+      "cavityColorsAndPartMultiplier": true,
+      "ragdollBoneFollowing": true,
+      "evidenceScope": "final frozen fefede27 capture; existing checkbox, actual trace/medical"
+    },
+    "reportViewer": {
+      "artifact": "downloads/checks-s2-v40/report-viewer.json",
+      "passed": true,
+      "viewports": [
+        [
+          1280,
+          720
+        ],
+        [
+          844,
+          390
+        ]
+      ],
+      "dataRows": 240,
+      "hpGroups": 30,
+      "organControls": 42,
+      "filtersAndTouchScroll": true,
+      "reportHTMLSHA256": "76c33b9cfc0d505029a6b7d89abcff20e20a9d78b082f351d49592a1c78ab6e8",
+      "evidenceScope": "final data report rendered and reviewed; not game performance"
+    },
+    "rangeRegression": {
+      "artifact": "downloads/checks-s2-v40/browser.json",
+      "baseline": "7e91d9383e59d623709d51af8db62f18c1a7c638",
+      "ticks": 600,
+      "shots": 6,
+      "playerPoses": 12,
+      "passed": true,
+      "evidenceScope": "final frozen fefede27 replay"
+    },
+    "existingCombatRegression": {
+      "artifacts": [
+        "downloads/checks-s2-v40/play.json",
+        "downloads/checks-s2-v40/player-fire.json",
+        "downloads/checks-s2-v40/restart.json",
+        "downloads/checks-s2-v40/standing.json"
+      ],
+      "passed": true,
+      "standingDynamic": false,
+      "standingWeaponDrop": false,
+      "fixtureTimingAdaptation": "oneactualcombattickafterS2materiallegcomminution;QAonly;nofrozenruntimechange",
+      "evidenceScope": "final frozen fefede27; releaseHTML6eea90ec"
+    },
+    "offline": {
+      "artifact": "downloads/checks-s2-v40/offline.json",
+      "passed": true,
+      "viewports": [
+        [
+          1280,
+          720
+        ],
+        [
+          844,
+          390
+        ]
+      ],
+      "exactStandaloneHTML": true,
+      "nativeInput": true,
+      "htmlSha256": "6eea90ecde132f7d4c3e3984ed5287e18b9aef6209227940a5f61c7b12acc065",
+      "errors": 0,
+      "externalRequests": 0,
+      "evidenceScope": "final release HTML"
+    },
+    "performance": {
+      "artifact": "downloads/checks-s2-v40/performance/performance.json",
+      "summaryArtifact": "downloads/checks-s2-v40/performance/performance-summary.md",
+      "hotspotsArtifact": "downloads/checks-s2-v40/performance/hotspots.json",
+      "measurementPassed": true,
+      "sourceCommit": "fefede27e6abd9be538928b4cd06c85300d1fb64",
+      "environment": {
+        "node": "v24.19.0",
+        "platform": "linux",
+        "arch": "x64",
+        "cpuModel": "AMD EPYC 9V74 80-Core Processor",
+        "logicalCpuCount": 5,
+        "availableParallelism": 4
+      },
+      "cpuOnly": true,
+      "includesRenderer": false,
+      "includesAnimationOrRagdoll": false,
+      "method": "600 fixed 1/60-second ticks; 10 logical 1200 RPM emitters, independent phase/shot IDs, 200 shots each. Actual traceShot, posed original anatomical geometry, actual medical record/tick. Dead actor geometry stays posed, but clinical postmortem skipping is retained. Two order-balanced serial repetitions.",
+      "differential": "S2 versus the complete immutable v39 runtime. The reference retains old body resistance plus S1 shadow medical channels; S2 has authoritative channels and S2 HP semantics. This is a physical/clinical model comparison, not a pure overhead off-switch. No null computeWoundChannel, fake substitute physics or product toggle is used. The archived warm argument pool is released before stress; original pre-optimization measurements are retained separately.",
+      "scheduling": {
+        "durationS": 10,
+        "ticks": 600,
+        "dtS": 0.016666666666666666,
+        "shooters": 10,
+        "rpmEach": 1200,
+        "shotsEach": 200,
+        "totalShots": 2000,
+        "shotsPerSecond": 200
+      },
+      "criteria": {
+        "modelPerHitMedianAndP95Ms": 0.1,
+        "comparisonMedianFrameRatioMax": 1.5,
+        "note": "Micro samples are per occupied part; the actual per-shot channel-sum distribution additionally captures every part traversed by a hit. Event/quiet is a medical-only comparator, not a rendered gameplay frame. The 0.1 ms requirement applies to the sum of every occupied-part channel call made by one actual hit, not only the individual-part micro p95."
+      },
+      "performanceTargets": {
+        "modelPerPartMedianAndP95Within0_1Ms": true,
+        "actualPerHitMedianAndP95Within0_1Ms": false,
+        "s2V39MedianFrameWithin1_5": true,
+        "fullGameplayFrameBudgetVerified": false,
+        "gelatinLiteralIdentity": true,
+        "note": "passed means measurement/provenance assertions completed. It does not claim every performance target passes or 60 Hz gameplay."
+      },
+      "microPerPart": [
+        {
+          "repeat": "A",
+          "count": 1000,
+          "medianMs": 0.014532000001054257,
+          "p95Ms": 0.037687000000005355,
+          "maxMs": 0.41654600000038045,
+          "overBudgetCalls": 15,
+          "microInputsUnique": 1000
+        },
+        {
+          "repeat": "B",
+          "count": 1000,
+          "medianMs": 0.013910999998188345,
+          "p95Ms": 0.034802000001946,
+          "maxMs": 0.1627150000022084,
+          "overBudgetCalls": 8,
+          "microInputsUnique": 1000
+        }
+      ],
+      "actualWholeHit": [
+        {
+          "repeat": "A",
+          "count": 2000,
+          "minMs": 0.023175000009359792,
+          "medianMs": 0.05353099999774713,
+          "p95Ms": 0.14167299999826355,
+          "maxMs": 3.8416589999978896,
+          "totalMs": 142.16259400005947
+        },
+        {
+          "repeat": "B",
+          "count": 2000,
+          "minMs": 0.01945000000705477,
+          "medianMs": 0.052659000000858214,
+          "p95Ms": 0.14157300000078976,
+          "maxMs": 10.115716000000248,
+          "totalMs": 147.78870500034463
+        }
+      ],
+      "cpuFrame": [
+        {
+          "repeat": "A",
+          "mode": "v39",
+          "actualShots": 2000,
+          "bodyEntryShots": 2000,
+          "aliveBeforeShots": 94,
+          "postmortemBeforeShots": 1906,
+          "count": 600,
+          "minMs": 65.53019499999937,
+          "medianMs": 79.76138300000457,
+          "p95Ms": 105.10404199999903,
+          "maxMs": 133.08788300000015,
+          "totalMs": 49690.266173000164
+        },
+        {
+          "repeat": "A",
+          "mode": "s2",
+          "actualShots": 2000,
+          "bodyEntryShots": 2000,
+          "aliveBeforeShots": 2000,
+          "postmortemBeforeShots": 0,
+          "count": 600,
+          "minMs": 75.14747100000386,
+          "medianMs": 94.38055200000235,
+          "p95Ms": 122.6998339999991,
+          "maxMs": 226.54331000000093,
+          "totalMs": 58138.34086499995
+        },
+        {
+          "repeat": "B",
+          "mode": "s2",
+          "actualShots": 2000,
+          "bodyEntryShots": 2000,
+          "aliveBeforeShots": 2000,
+          "postmortemBeforeShots": 0,
+          "count": 600,
+          "minMs": 72.51155599999765,
+          "medianMs": 89.58819100000255,
+          "p95Ms": 116.87099899999885,
+          "maxMs": 153.06039099999907,
+          "totalMs": 55407.99176100011
+        },
+        {
+          "repeat": "B",
+          "mode": "v39",
+          "actualShots": 2000,
+          "bodyEntryShots": 2000,
+          "aliveBeforeShots": 94,
+          "postmortemBeforeShots": 1906,
+          "count": 600,
+          "minMs": 65.2534980000055,
+          "medianMs": 79.11190099999658,
+          "p95Ms": 104.31043399999908,
+          "maxMs": 150.41829199999484,
+          "totalMs": 49628.021460999975
+        }
+      ],
+      "ratios": [
+        {
+          "repeat": "A",
+          "s2V39MedianFrameRatio": 1.183286302846541,
+          "within1_5Ratio": true
+        },
+        {
+          "repeat": "B",
+          "s2V39MedianFrameRatio": 1.132423691853978,
+          "within1_5Ratio": true
+        }
+      ],
+      "directVsEquivalentDepth": {
+        "cases": 1000,
+        "maxAbs": {
+          "exitVelocityMps": 0.9643522297897107,
+          "traversedLengthM": 0.0008078974969625008,
+          "stopDepthM": 0.0008078974969625008,
+          "damageMultiplier": 0.0030646860050387303,
+          "energyLostJ": 1.9318821630320144,
+          "boneEnergyLostJ": 3.168407071209785,
+          "boneHitEnergyJ": 3.168407071209785,
+          "boneTraversedLengthM": 0.0001961981624864495,
+          "organSeverity": 0.013349601977988262,
+          "concussionRisk": 0.00011983293533196493,
+          "massKg": 0,
+          "fragmentMassKg": 0,
+          "occupiedDepthM": 0.0008078974969625285,
+          "yawRad": 0.003018262481625733,
+          "equivalentDepthM": 0.000807897496962473,
+          "yawDepthAdvanceM": 0.00023543779498372275,
+          "deformationAreaScale": 0.000784792649945798,
+          "fragmentEnergyJ": 0.3668268719831076
+        },
+        "meanAbs": {
+          "exitVelocityMps": 0.04572604130240686,
+          "damageMultiplier": 6.923414796847557e-05
+        },
+        "stopDivergences": 0,
+        "fragmentDivergences": 0,
+        "organIdDivergences": 2,
+        "boneIdDivergences": 0,
+        "stepCountDivergences": 1,
+        "note": "Identical captured arguments including tissue cache and stateIn; direct cell arithmetic versus eager equivalent-depth LUT. Differences are reported, not hidden."
+      },
+      "optimizationPreservation": {
+        "cases": 1000,
+        "passed": true,
+        "previousSourceSHA256": "bc3f6bd65e52abd03522775e62d67046f9b7402fe114679b3e6a4ab26026eb85",
+        "currentSourceSHA256": "c09d9d15d885d216022c6c75ea7f70e6db8c343f1bc1eb95397f7e791eaa8b79"
+      },
+      "interpretation": "Both whole-hit p95 runs miss0.1ms despite per-part micro passes. All4arms2000/2000 bodyentries and600ticks. CPUframes exclude renderer/AI/ragdoll/audio; no60Hz or full-game frame-budget claim. Clinical alive/postmortem states differ, so ratios are not pure overhead comparisons."
+    },
+    "performanceEvidenceComplete": true
+  },
+  "limitations": [
+    "같은Geant4공식표에해면골값이없어1170kg/m³는명시튜닝. 기존뼈진단외곽은피질골균질근사이며실제피질/골수층을재구성하지않음.",
+    "폐340kg/m³는6명누운FRC평균이며모든자세/흡기량에고정하는항력모델은게임근사.",
+    "뼈추가yaw/변형/파편및분쇄250J/절단8000J는문헌임상문턱이아님.",
+    "S1의AK74두번째공동·AK47두봉우리실패와완전권총도판부재를균질젤라틴보존과함께상속.",
+    "몸속yaw는깊이기반모델.각운동량·부위사이공중안정화·파편별궤적은적분하지않음.",
+    "HP생리비교표의HP관문off는QA메모리후크대조이며제품설정토글이아님.",
+    "디버그AK는탄종별외형/사격음/반동을재현하지않는시험기구.수동속도는현실값아님.",
+    "12ga는레지스트리펠릿질량/개수를표시하나기존trace는트리거당한발경로이며새산탄분산/다중펠릿시뮬레이션을추가하지않음.",
+    "Final whole-hit p95 A0.141673ms/B0.141573ms misses0.1ms although individual-part micro p95 passes. No60Hz gameplay claim.",
+    "Direct integration versus equivalent-depth LUT on1000inputs: maxexitvelocity difference0.964352m/s, stopdepth0.807897mm, m0.003064686, organseverity0.013349602;2organ-IDset differences,0stop/fragmentstate divergences. Do not call numericalidentity."
+  ],
+  "sourceHashes": {
+    "apps/training/src/wound-channel.js": "c09d9d15d885d216022c6c75ea7f70e6db8c343f1bc1eb95397f7e791eaa8b79",
+    "apps/training/src/body-channel.js": "0eec61abe26ff2398129f958063b34b90824972cb1ec1f95c6a5a4247cff63be",
+    "apps/training/src/body-path.js": "d93222fcbf7fba2985262e6c601143ad9975fbb5f9127c3ee63e1fc97bae4287",
+    "apps/training/src/internal-anatomy.js": "165a0909785e2e19bc82e78be4e66794070a91eb406983c6817bc19531e7973f",
+    "apps/training/src/medical.js": "05662fd5f8998d668810f4dc2984859d42c4d5be9fb32f0c19304f207d92780e",
+    "apps/training/src/medical-v2.js": "d7b32a344d2c69587122667e65a00619504cdfe1a9c1f16331117af0a2073c5d",
+    "apps/training/src/medical-s0.js": "aa1265745b8e20734943f36a4fd7d35c24bff18939b141b08e6c174f76072b50",
+    "apps/training/src/medical-s1-effects.js": "daced2a33ef87c0a099fc288d15418f3253f48c9f72b9d87ef12eeb37ea1e24c",
+    "apps/training/src/medical-s2-effects.js": "6de109d6ce083c594016d7359b440043bd36f417841779b477e5260acd575280",
+    "apps/training/src/ballistics.js": "48fb4ba60356141f29cab4ea5e5e01bda91878c8eda9c4e75c86febe8700e2ef",
+    "apps/training/src/debug-weapon.js": "d3fcc4bc6c8b93126dd83e24a7b42f739341d079ecd65c9fd461d5a4524c8ae8",
+    "apps/training/src/debug-ammo-ui.js": "adbe3be21c84c6143d64dae68f4947b610f2ef22bcf0ad29d399d739760c815c",
+    "apps/training/src/inventory.js": "5ae17bb23740409bfed1102fd4805fe93fa3cb57fc9edb15c908b506c314fd67",
+    "apps/training/src/fps-arms.js": "a756d377c3d2e4faadece5b5d157cb7043e31f09acdfacbfbcf9634c3cbfc1b0"
+  },
+  "build": {
+    "html": "dist/CQB_Training.html",
+    "bytes": 34560487,
+    "sha256": "6eea90ecde132f7d4c3e3984ed5287e18b9aef6209227940a5f61c7b12acc065",
+    "increaseOverV39Bytes": 47892,
+    "runtimeSourceCommit": "fefede27e6abd9be538928b4cd06c85300d1fb64",
+    "gripSourceValidation": {
+      "sourceSHA256": {
+        "apps/training/src/fps-arms.js": "a756d377c3d2e4faadece5b5d157cb7043e31f09acdfacbfbcf9634c3cbfc1b0",
+        "apps/training/src/fps-shared-arms.js": "837b7f71499246fd253c6797f402a577a22e1fecb9bd2ca7bce35261ee04e354",
+        "apps/training/src/arm-ik.js": "752a42c89648506e458f904c1fbe31501fbd6bd5a86233e1eaf5b12704e090d7",
+        "apps/training/src/weapon-data.js": "76b73b731aaeb7c704124f2bd606b348204d6a61b383609e7eedf16966504ad7"
+      },
+      "normalAKFingerPoseUnchanged": true,
+      "debugMagazineVisibilityOnly": true
+    },
+    "status": "final frozen runtime build"
+  },
+  "lookupTable": {
+    "scalarBytes": 5614272,
+    "previousS1ScalarBytes": 4678560,
+    "increaseBytes": 935712,
+    "classification": "메모리 사용량; 게임 ZIP의 같은 크기 증가를 뜻하지 않음",
+    "mode": "existing gelatin LUT plus2drag-exponenttables; tissue density equivalent depth; separate boneeffects"
+  },
+  "debugWeaponValues": {
+    "id": "debug-weapon-03",
+    "slotIndex": 2,
+    "slotDisplay": 3,
+    "physicalDefinition": "ak74m",
+    "defaultAmmoId": "545_ps_gs",
+    "velocityRangeMps": [
+      1,
+      5000
+    ],
+    "nullVelocity": "exact CATALOG.AMMO_VELOCITY; noAKvelocitymultiplier",
+    "automaticZeroingDefault": false,
+    "autoZero": {
+      "distanceM": 100,
+      "offsetM": 0.24,
+      "solverGoalM": 1e-08,
+      "cacheCapacity": 256,
+      "classification": "튜닝·게임비행모델기하해;실제탄별실총영점아님"
+    },
+    "handling": "sameAK7N6recoil/render/sound/cadence; nochangebyselectedammo/speed",
+    "ammoMassCount": "computeProjectileKinetics withregistrypelletmass/count",
+    "magazine": "infinite; no inventoryammo/magazine consumption orreload",
+    "classification": "디버그용, 현실값 아님"
+  },
+  "runtimeMetadata": {
+    "ruleId": "body-channel-s2",
+    "values": {
+      "ruleId": "wound-channel-s2",
+      "softDensityKgM3": 1050,
+      "lungDensityKgM3": 340,
+      "corticalBoneDensityKgM3": 1920,
+      "trabecularBoneDensityKgM3": 1170,
+      "airDensityKgM3": 1.20479,
+      "boneYawAdvanceMPerM": 1.2,
+      "boneDeformationAreaPerM": 4,
+      "maxDeformationAreaScale": 1.8,
+      "boneSecondaryFragmentRadiusM": 0.025,
+      "boneSecondaryDamageEnergyDensityJPerM3": 20000000,
+      "outsideEnclosureTemporaryCavityFactor": 0,
+      "outsideEnclosureFragmentFactor": 0,
+      "concussionRiskVolumeGain": 0.25,
+      "densityReference": "muscle1050/cortical1920 Geant4 G4NistMaterialBuilder ICRP; aeratedlung340 Hopkins2007 meanFRC; trabecular1170 explicittuning (absent fromsameGeant4table); air1.20479 reference; density-to-drag is game approximation",
+      "classification": "reference densities plus explicit S2 game tunings"
+    },
+    "structuralValues": {
+      "comminutionBoneEnergyJ": 250,
+      "amputationLimbEnergyJ": 8000,
+      "amputationBasis": "single projectile event in one target and canonical limb, summed across its disjoint channels; never across events",
+      "concussionPhysiologyApplied": false
+    },
+    "lookup": {
+      "mode": "eager cartridge × fragmentation-speed-class curves; S2 tissue-density equivalent depth and analytic v² scaling",
+      "cartridges": 114,
+      "speedClasses": 2,
+      "depthStepM": 0.005,
+      "depthSamples": 513,
+      "maximumDepthM": 2.56,
+      "scalarBytes": 5614272,
+      "interpolation": "linear at 5 mm equivalent depth; cached tissue-boundary subdivision; exact per-cell energy accounting; custom mass/deformation use attenuation exponent rescaling",
+      "directFallback": "explicit computeWoundChannelDirect export for QA; registered live cartridges use eager tables"
+    },
+    "ledger": "docs/medical-s2-ledger.json",
+    "sources": "docs/medical-s2-sources.json",
+    "independent3D": true,
+    "automatic2DPort": false,
+    "authoritativeBodyVelocity": true,
+    "oneIntegrationPerPart": true,
+    "legacyBodyResistanceRetained": true,
+    "classification": "source densities + original gelatin calibration + explicit tissue/bone/structural tuning",
+    "concussionPhysiologyApplied": false
+  },
+  "priorFrozenRuntimeSourceCommit": "c8b1cf4d0ecd6f21bc3b26ee458942e36ac16c27",
+  "fieldSemantics": {
+    "bodyTrajectory.structuralHit": {
+      "ruleId": "structural-hit-s2",
+      "key": [
+        "shotId",
+        "targetId",
+        "partKey"
+      ],
+      "lifetime": "one TrainingMedical.record(event); duplicate-event guard runs before map creation; discarded on return",
+      "fields": [
+        "shotId",
+        "targetId",
+        "partKey",
+        "segmentCount",
+        "energyBeforeJ",
+        "energyLostJ",
+        "boneEnergyBeforeJ",
+        "boneEnergyLostJ",
+        "amputationThresholdCrossed",
+        "comminutionThresholdCrossed"
+      ],
+      "energyLostJ": "prefix total throughthissegment; localchannel.energyLostJ unchanged",
+      "boneEnergyLostJ": "prefix bone-depositedenergy throughthissegment; currentpositiveboneintersectionstillrequired",
+      "effects": "firstcrossingonly; subsequentsegmentsrecordprefix withoutduplicatefracture/vesselseverance"
+    },
+    "wound.s2StructuralTrauma": {
+      "limbEnergyJ": "same-eventpartprefix",
+      "boneEnergyJ": "same-eventpartboneprefix",
+      "localLimbEnergyJ": "onlythissegment",
+      "localBoneEnergyJ": "onlythissegment",
+      "noAccumulationAcrossSeparateShots": true
+    },
+    "concussionRisk": "0..1 record-only; no physiology connection"
+  },
+  "sourceHashesScope": "selected final frozen runtime sources at fefede27; all-runtime preservation guards recorded separately",
+  "packaging": {
+    "deliveryVersion": "unified-tissue-s2-v40",
+    "qaSummaryTablesOnly": true,
+    "rawRecordsIncluded": false,
+    "screenshotsIncluded": false,
+    "included": [
+      "report.html",
+      "report.md",
+      "report-summary.json",
+      "smallcomparison/HP/body/organ/rangeCSVs",
+      "performance-summary.md"
+    ],
+    "rawEvidenceLocation": "GitHub repository downloads/checks-s2-v40; notincludedincompactgameZIP",
+    "limitBytes": 20000000,
+    "verification": "downloads/verification-unified-tissue-s2-v40.json",
+    "deliveryReceipt": "downloads/delivery-unified-tissue-s2-v40.json",
+    "zipSelfHashInEmbeddedDocs": false
+  },
+  "acceptance": {
+    "recordedIntegrityPassed": true,
+    "allRequestedTargetsPassed": false,
+    "wholeHitMedianAndP95BudgetPassed": false,
+    "unmet": [
+      "Actual whole-hit all-part channel p95: A0.141673ms/B0.141573ms exceeds0.1ms"
+    ],
+    "inheritedModelLimitations": [
+      "AK74 secondary-lobe diameter and AK47 distinct two-lobe shape remain S1 failures; homogeneous preservation does not repair those shapes",
+      "Complete pistol source curve not verified"
+    ],
+    "classification": "experimental; no hidden performance or whole-profile reproduction pass"
+  }
+}

@@ -1,0 +1,293 @@
+{
+  "version": "rg1-v68",
+  "baseline": "515cdd114d8adc5bb57db61d5aa6cc85eb6d9819",
+  "scope": "3D only; no Rapier upgrade or multibody migration",
+  "equationsChanged": false,
+  "values": {
+    "maxActive": 4,
+    "highSolverS": 1.5,
+    "lateSolverIterations": 0,
+    "quietLinearMps": 0.15,
+    "quietAngularRadps": 0.5,
+    "quietS": 1,
+    "minimumActiveS": 1.5,
+    "maxLinearMps": 12,
+    "maxAngularRadps": 25,
+    "floorBelowMarginM": 0.15,
+    "floorClearanceM": 0.02,
+    "restQuietAngularRadps": 1.5,
+    "restQuietLinearMps": 0.2,
+    "restDampingAfterS": 2,
+    "restDampingQuietS": 0.25,
+    "restDampingLinear": 64,
+    "restDampingAngular": 256,
+    "restDampingDistal": 512,
+    "playerMembership": 128,
+    "ragdollMemberships": 30
+  },
+  "entries": [
+    {
+      "item": "medical collapse/PD/brace/fingers/mass/ROM/inertia floors",
+      "classification": "원본",
+      "source": "unchanged v67 medical v2 and v36 PD/brace/segment tables; v67 soldier derivative",
+      "change": "none to formulas/targets/assets; lifecycle skips frozen work",
+      "reversePort2D": false
+    },
+    {
+      "item": "player vs collapsed-body collision separation; freeze/wake; finite active budget",
+      "classification": "사용자 설계값·게임 허용",
+      "source": "RG1 sections2/3",
+      "change": "player physical membership128; ragdoll bits2/4/8/16 excluded in contact and movement queries; M6 loot filter adds128, preserving player/loot interaction",
+      "reversePort2D": "freeze/wake policy concept only; no automatic backport"
+    },
+    {
+      "item": "quiet gate and active budget",
+      "classification": "튜닝·게임 허용",
+      "source": "RG1 accepts threshold/seconds/count tuning",
+      "change": "all17 parts below0.15m/s and0.5rad/s continuously1s; after verified supported-lying viscosity, resting numerical gate0.2m/s and1.5rad/s continuously1s after at least1.5s and passive goals off; body disabled, final skeleton/hit sync once; cap4 includes P01, oldest active retires on fifth; forced budget freeze can preserve a mid-fall pose; P01 head-camera fall is protected: retire the oldest NPC first when P01 is oldest",
+      "reversePort2D": "policy concept only"
+    },
+    {
+      "item": "solver window/CCD/velocity/floor recovery/rest damping",
+      "classification": "튜닝",
+      "source": "RG1 sections4/5; official Rapier body/solver APIs",
+      "change": "64 extra for1.5s, then0 extra (world default); all17 CCD;12m/s and25rad/s caps; finite floor bottom minus0.15m triggers whole-assembly lift to floor+0.02m; measured quiet lying contact receives final viscosity; actual mass/COM/inertia floors unchanged",
+      "reversePort2D": false
+    },
+    {
+      "item": "rest damping qualification constants",
+      "classification": "튜닝",
+      "source": "measured residual wrist/hand/foot contact jitter",
+      "change": "passive + existing lying/contact damping; max linear<0.2m/s and angular<1.5rad/s for0.25s after2s; damping64 linear/256angular/512distal; shot restores original saved damping before impulse; legacy10deg error retained as diagnostic but cannot veto settling viscosity",
+      "reversePort2D": false
+    },
+    {
+      "item": "freeze support and shots",
+      "classification": "원본·게임 허용",
+      "source": "existing body/armor TriMesh sensors and exact internal pose cache",
+      "change": "physical capsules disabled; existing anatomical/armor sensors stay at final pose; traceShot/medical path unchanged; real impact wakes existing bodies and reapplies existing momentum",
+      "reversePort2D": "lifecycle concept; no formula backport"
+    },
+    {
+      "item": "latest JS API audit",
+      "classification": "출처",
+      "source": [
+        "https://registry.npmjs.org/@dimforge%2frapier3d-compat",
+        "https://rapier.rs/javascript3d/classes/MultibodyJoint.html",
+        "https://rapier.rs/javascript3d/classes/RevoluteMultibodyJoint.html",
+        "https://github.com/dimforge/rapier.js/blob/master/CHANGELOG.md",
+        "https://github.com/dimforge/rapier/tree/master/typescript"
+      ],
+      "change": "latest stable0.21.0 equals installed; no multibody limit/motor/frame setters; no version change and WASM delta0",
+      "reversePort2D": false
+    }
+  ],
+  "diagnosis": {
+    "confirmed": [
+      "all active bodies retained extra solver64 indefinitely",
+      "player movement query and default capsule group could contact collapsed-body capsules",
+      "old sleep checks required lying/support/ROM/very low velocities and could leave residual work active"
+    ],
+    "notConfirmed": [
+      "whole-body floor tunneling was not reproduced in the v67 scripted30s rubbing/climb scene; cannot claim an exact reproduction"
+    ],
+    "alreadyPresent": [
+      "P01 and enemy17bodies/16joints prebuilt at sector/pool preparation; fall allocates0bodies",
+      "v36 distal/neck/hip inertia floors and real sleep existed",
+      "v52 disabled own movement capsule on player fall"
+    ]
+  },
+  "massAudit": {
+    "min": {
+      "bone": "leftHand",
+      "massKg": 0.48,
+      "inertia": {
+        "x": 0.0059999991208314896,
+        "y": 0.005999999586492777,
+        "z": 0.005999999586492777
+      }
+    },
+    "max": {
+      "bone": "chest",
+      "massKg": 33.03,
+      "inertia": {
+        "x": 0.499491423368454,
+        "y": 0.25171974301338196,
+        "z": 0.499491423368454
+      }
+    },
+    "maxMinRatio": 68.8125,
+    "principalInertiaMaxMinRatio": 400.60115924708697,
+    "segments": [
+      {
+        "bone": "pelvis",
+        "massKg": 11.91,
+        "inertia": {
+          "x": 0.1261560022830963,
+          "y": 0.05952617898583412,
+          "z": 0.1261560022830963
+        }
+      },
+      {
+        "bone": "spine",
+        "massKg": 11.120000000000001,
+        "inertia": {
+          "x": 0.17531903088092804,
+          "y": 0.051830511540174484,
+          "z": 0.17531903088092804
+        }
+      },
+      {
+        "bone": "chest",
+        "massKg": 33.03,
+        "inertia": {
+          "x": 0.499491423368454,
+          "y": 0.25171974301338196,
+          "z": 0.499491423368454
+        }
+      },
+      {
+        "bone": "neck",
+        "massKg": 1.025752925346513,
+        "inertia": {
+          "x": 0.011999998241662979,
+          "y": 0.011999999172985554,
+          "z": 0.011999999172985554
+        }
+      },
+      {
+        "bone": "head",
+        "massKg": 6.604247074653488,
+        "inertia": {
+          "x": 0.043298859149217606,
+          "y": 0.021540222689509392,
+          "z": 0.043298859149217606
+        }
+      },
+      {
+        "bone": "leftUpperArm",
+        "massKg": 2.665,
+        "inertia": {
+          "x": 0.033094700425863266,
+          "y": 0.003871850436553359,
+          "z": 0.033094700425863266
+        }
+      },
+      {
+        "bone": "leftForearm",
+        "massKg": 1.28,
+        "inertia": {
+          "x": 0.011447194032371044,
+          "y": 0.0012468546628952026,
+          "z": 0.011447194032371044
+        }
+      },
+      {
+        "bone": "leftHand",
+        "massKg": 0.48,
+        "inertia": {
+          "x": 0.0059999991208314896,
+          "y": 0.005999999586492777,
+          "z": 0.005999999586492777
+        }
+      },
+      {
+        "bone": "leftUpperLeg",
+        "massKg": 8,
+        "inertia": {
+          "x": 0.2499999701976776,
+          "y": 0.25,
+          "z": 0.2500000298023224
+        }
+      },
+      {
+        "bone": "leftLowerLeg",
+        "massKg": 3.7199999999999998,
+        "inertia": {
+          "x": 0.05696437880396843,
+          "y": 0.005428101867437363,
+          "z": 0.05696437880396843
+        }
+      },
+      {
+        "bone": "leftFoot",
+        "massKg": 1.1600000000000001,
+        "inertia": {
+          "x": 0.0059999991208314896,
+          "y": 0.009307151660323143,
+          "z": 0.009307153522968292
+        }
+      },
+      {
+        "bone": "rightUpperArm",
+        "massKg": 2.665,
+        "inertia": {
+          "x": 0.033094700425863266,
+          "y": 0.003871850436553359,
+          "z": 0.033094700425863266
+        }
+      },
+      {
+        "bone": "rightForearm",
+        "massKg": 1.28,
+        "inertia": {
+          "x": 0.011447194032371044,
+          "y": 0.0012468546628952026,
+          "z": 0.011447194032371044
+        }
+      },
+      {
+        "bone": "rightHand",
+        "massKg": 0.48,
+        "inertia": {
+          "x": 0.0059999991208314896,
+          "y": 0.0059999991208314896,
+          "z": 0.0060000005178153515
+        }
+      },
+      {
+        "bone": "rightUpperLeg",
+        "massKg": 8,
+        "inertia": {
+          "x": 0.24999994039535522,
+          "y": 0.2499999701976776,
+          "z": 0.25
+        }
+      },
+      {
+        "bone": "rightLowerLeg",
+        "massKg": 3.7199999999999998,
+        "inertia": {
+          "x": 0.05696437880396843,
+          "y": 0.005428101867437363,
+          "z": 0.05696437880396843
+        }
+      },
+      {
+        "bone": "rightFoot",
+        "massKg": 1.1600000000000001,
+        "inertia": {
+          "x": 0.005999998189508915,
+          "y": 0.009306932799518108,
+          "z": 0.009307373315095901
+        }
+      }
+    ],
+    "change": "none; no new mass/inertia adjustment"
+  },
+  "sources": [
+    "https://registry.npmjs.org/@dimforge%2frapier3d-compat",
+    "https://rapier.rs/javascript3d/classes/MultibodyJoint.html",
+    "https://rapier.rs/javascript3d/classes/RevoluteMultibodyJoint.html",
+    "https://github.com/dimforge/rapier.js/blob/master/CHANGELOG.md",
+    "https://github.com/dimforge/rapier/tree/master/typescript"
+  ],
+  "limitations": [
+    "actual phones not benchmarked; SwiftShader timing is work duration, not displayFPS",
+    "4-actor first1.5s high solver cost remains; RG1 bounds duration and stops settled work, does not promise zero frame spikes",
+    "historical ROM10deg goal remains unmet in reported cases; no anatomical-ROM or muscle formula changes",
+    "active budget4 is tuning; exceeding it freezes oldest current pose immediately",
+    "floor recovery supports actual finite axis-aligned box floors used by current levels; future sloped/stacked terrain needs a different support query",
+    "v6730s floor tunneling report not reproduced; new player/body physical isolation and injected below-floor recovery verified separately"
+  ]
+}

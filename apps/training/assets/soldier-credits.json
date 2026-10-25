@@ -1,0 +1,11 @@
+{
+  "name": "Soldier Character",
+  "author": "Muhamad Mirza Arrafi",
+  "authorUrl": "https://sketchfab.com/nazidefenseforceofficial",
+  "source": "https://sketchfab.com/3d-models/soldier-character-dc88bfc47861426e8132b7b8d5174b48",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "sourceSha256": "f38f736aa92ca01564cbc3d6526655fc639677eedd2e0b7f939eb4ca3e0d978a",
+  "preparedSha256": "f38f736aa92ca01564cbc3d6526655fc639677eedd2e0b7f939eb4ca3e0d978a",
+  "changes": "Original GLB, geometry and embedded textures retained byte-for-byte. Runtime wrapper centers the model, places its feet on the floor and scales it to 1.8 m. Separate authored A-pose body proxies and a static target hit log are added; visible equipment has no armor behavior."
+}

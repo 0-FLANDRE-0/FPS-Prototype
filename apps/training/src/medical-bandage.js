@@ -11,7 +11,7 @@ export function initBandageResource(item){
 export function bandageProgress(w){const p=w?.bandageRepair;return p?Math.min(1,p.workDone/p.requiredWork):0;}
 export function bandageRequiredWork(m,w){
   if(w.bandageRepair)return w.bandageRepair.requiredWork;
-  const damage=Math.max(0,w.bodyHpDamage?.appliedDamage??w.bodyHpDamage?.damage??w.traumaDamage??0);
+  const damage=Math.max(0,w.bodyHpDamage?.damage??w.bodyHpDamage?.appliedDamage??w.traumaDamage??0);
   let area=0;for(const s of m.bleedSources||[]){
     if(s.destination!=='external'&&s.destination!=='limb_compartment')continue;
     for(const l of s.lesions||[])if(l.woundId===w.id)area+=Math.max(0,l.baseAreaMm2||0);

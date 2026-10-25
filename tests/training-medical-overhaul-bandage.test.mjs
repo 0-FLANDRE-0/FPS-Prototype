@@ -63,6 +63,7 @@ test('reset and medical model replacement release reservations; an unavailable p
 test('workload depends on original injury, never current MAP or instantaneous flow',()=>{
   const x=fresh(),work=bandageRequiredWork(x.m,x.w);x.m.hemodynamics.map=15;for(const s of x.m.bleedSources)s.flowMlPerS=.00001;assert.equal(bandageRequiredWork(x.m,x.w),work);
 });
+test('new severe wounds never become cheaper just because part HP was already exhausted',()=>{const x=fresh();x.w.bodyHpDamage={damage:100,appliedDamage:1};const work=bandageRequiredWork(x.m,x.w);x.w.bodyHpDamage.appliedDamage=0;x.m.bodyParts.leftArm.hp=0;assert.equal(bandageRequiredWork(x.m,x.w),work);assert.ok(work>=68);});
 test('recovery slows near maximum, reaches the exact current maximum, preserves other injuries and adds no blood',()=>{
   const med=new TrainingMedical(),m=med.actor.medical,p=m.bodyParts.leftArm;p.maxHp=60;p.hp=20;p.fracture=true;p.fractureType='hairline';const blood=m.bloodMl;
   startPartRecovery(m,'leftArm',4);stepPartRecovery(med.actor,1,4);assert.equal(p.hp,20);stepPartRecovery(med.actor,1,5);const early=p.hp-20;

@@ -9,27 +9,422 @@
     "physicalProduct": "기존 제품 무게·크기·출처 유지"
   },
   "policy": {
+    "ruleId": "medical-overhaul-bandage-1",
     "seconds": 4,
     "capacity": 100,
     "efficiency": 1,
-    "work": {
-      "base": 8,
-      "hpDamage": 0.6,
-      "originalOpeningAreaMm2": 0.8,
-      "maximum": 400
-    },
-    "recovery": {
-      "hpPerS": 3,
-      "minimumHpPerS": 0.2,
-      "cap": "current part.maxHp; never modified"
-    }
+    "baseWork": 8,
+    "hpDamageWork": 0.6,
+    "openingAreaWork": 0.8,
+    "maxWork": 400,
+    "recoveryHpPerS": 3,
+    "recoveryMinimumHpPerS": 0.2,
+    "classification": "사용자 설계: 고정 시간·완료 시 소비·부분 지혈·점진 회복; 모든 수치는 게임 튜닝"
   },
   "scope": "one bandage, one explicit wound; external flow only; original internal blood loss retained",
-  "verificationStatus": "pending full build/regression/browser",
+  "verificationStatus": "passed",
   "knownPolicies": [
     "Cancel has no consumption or effect; retry starts full4s.",
     "New same-part hit pauses HP recovery until treatment.",
     "No revival or HP0/amputation repair. Bone/organ/destruction restrictions remain.",
     "Existing sector transition reset requirement retained."
+  ],
+  "runtimeSourceCommit": "758c7f484e890c715fd07a0602ae7c111a247c11",
+  "workBasis": "uncapped existing physical HP damage, then applied damage fallback; original eligible vessel opening area; never current HP/MAP/flow",
+  "verification": {
+    "unit": {
+      "tests": 499,
+      "pass": 499,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "passed": true
+    },
+    "v69UntreatedNumerics": {
+      "passed": true,
+      "source": "0-FLANDRE-0/CQB-HTML",
+      "commit": "e46c309c9181f9093efd91798f569074047ad40a",
+      "s0": 240,
+      "single": 28,
+      "channels": 684,
+      "gelatin": 5,
+      "htmlCompared": false
+    },
+    "reference2D": {
+      "passed": true,
+      "sha256": "ff330c641f9720e3a960adfd84ee084ea06f215366e88e7f03e14803a176f90d"
+    },
+    "originalFiles": {
+      "unchanged": 284,
+      "intentionalTreatmentFiles": [
+        "apps/training/src/inventory-ui.js",
+        "apps/training/src/inventory.js",
+        "apps/training/src/medical-b1.js",
+        "apps/training/src/medical-care-effects.js",
+        "apps/training/src/medical-care-modes.js",
+        "apps/training/src/medical-care-state.js",
+        "apps/training/src/medical-care-ui.js",
+        "apps/training/src/medical-care.js",
+        "apps/training/src/medical-view.js",
+        "apps/training/src/medical.js"
+      ]
+    },
+    "stationary600Ticks": {
+      "passed": true,
+      "reports": [
+        {
+          "weapon": "m4a1",
+          "ticks": 600,
+          "shots": 6,
+          "exact": true,
+          "sha256": "da0c21cec0ca8e4169445d0613ff50a591fc2be550ba88dcdc9dd5d9a3fb076e"
+        },
+        {
+          "weapon": "ak74m",
+          "ticks": 600,
+          "shots": 6,
+          "exact": true,
+          "sha256": "c8da8f7d8f1f7c6ec0ca1f211ec9d182194c8f49e7ffdbb1869c70228eef2141"
+        }
+      ]
+    },
+    "nativeOfflineProduction": {
+      "passed": true,
+      "htmlSHA256": "3aa6651b01c40920c1dc2241897c27798939cc0dfee2de478fcbd90b0fdcd1ef",
+      "devices": [
+        {
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "menuFrozen": true,
+          "pointerLockCorrect": true,
+          "settingsSaveAndReset": true
+        },
+        {
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "menuFrozen": true,
+          "pointerLockCorrect": true,
+          "settingsSaveAndReset": true
+        }
+      ]
+    },
+    "medicalUI": {
+      "passed": true,
+      "method": "Offline QA bundle, real bare P01 traceShot; scarce3-unit bandage fixture, no normalized injuries. Native PC click / touch selection, cancel and second-instance continuation. Manual fixed medical ticks with RAF disabled; production HTML smoke tested separately.",
+      "devices": [
+        {
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "actualPartHpBefore": 50.40210087632408,
+          "cancelAndRestartNative": true,
+          "completionUses4s": true,
+          "partial": {
+            "wound": {
+              "ruleId": "medical-overhaul-bandage-1",
+              "requiredWork": 35.854549844759376,
+              "workDone": 3,
+              "lastAppliedAtS": 7.5
+            },
+            "remainingItem": false,
+            "hp": 50.40210087632408
+          },
+          "finalHp": 75,
+          "maxHp": 75,
+          "remainingResource": 67.14545015524062,
+          "recovery": {
+            "ruleId": "medical-overhaul-bandage-1",
+            "active": false,
+            "startedAtS": 11.5,
+            "lastHp": 75,
+            "woundCount": 1,
+            "recoveredHp": 24.597899123681202,
+            "reason": "회복 완료",
+            "completedAtS": 76.33333333333013
+          },
+          "horizontalOverflow": false
+        },
+        {
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "actualPartHpBefore": 50.40210087632408,
+          "cancelAndRestartNative": true,
+          "completionUses4s": true,
+          "partial": {
+            "wound": {
+              "ruleId": "medical-overhaul-bandage-1",
+              "requiredWork": 35.854549844759376,
+              "workDone": 3,
+              "lastAppliedAtS": 7.5
+            },
+            "remainingItem": false,
+            "hp": 50.40210087632408
+          },
+          "finalHp": 75,
+          "maxHp": 75,
+          "remainingResource": 67.14545015524062,
+          "recovery": {
+            "ruleId": "medical-overhaul-bandage-1",
+            "active": false,
+            "startedAtS": 11.5,
+            "lastHp": 75,
+            "woundCount": 1,
+            "recoveredHp": 24.597899123681202,
+            "reason": "회복 완료",
+            "completedAtS": 76.33333333333013
+          },
+          "horizontalOverflow": false
+        }
+      ]
+    },
+    "reducedMaximumFullPipeline": {
+      "passed": true,
+      "initialHp": 20,
+      "currentMaximumHp": 60,
+      "finalHp": 60,
+      "maximumAfterFullMedicalTicks": 60,
+      "method": "Real S0 arm wound, full SelfCare plus TrainingMedical1/60 ticks; independent reduced-max input."
+    }
+  },
+  "representativeClinicalTable": [
+    {
+      "ammoId": "545_ps_gs",
+      "fixture": "arm-muscle",
+      "resource": 100,
+      "initial": {
+        "hp": 66.13790648649749,
+        "maxHp": 75,
+        "bloodMl": 4999.822569952441,
+        "externalFlowMlPerS": 10.67492983173854,
+        "internalFlowMlPerS": 0,
+        "requiredWork": 13.317256108101503
+      },
+      "completed": {
+        "timeS": 4.016666666666658,
+        "used": 13.317256108101503,
+        "remaining": 86.6827438918985,
+        "hemostasisProgress": 1,
+        "externalFlowMlPerS": 0,
+        "internalFlowMlPerS": 0,
+        "hp": 66.13790648649749,
+        "bloodMl": 4962.040243074872
+      },
+      "final": {
+        "hp": 75,
+        "maxHp": 75,
+        "bloodMl": 4962.040243074872,
+        "recoveryAfterCompletionS": 39.3166666666655,
+        "remainingFunction": 0.6,
+        "destructionFunctionalCap": 0.6
+      },
+      "directHits": [],
+      "cavityHits": [
+        "left-brachial",
+        "left-brachial-vein"
+      ],
+      "projectileVelocityOut": 778.8498852234779
+    },
+    {
+      "ammoId": "545_ps_gs",
+      "fixture": "arm-muscle",
+      "resource": 3,
+      "initial": {
+        "hp": 66.13790648649749,
+        "maxHp": 75,
+        "bloodMl": 4999.822569952441,
+        "externalFlowMlPerS": 10.67492983173854,
+        "internalFlowMlPerS": 0,
+        "requiredWork": 13.317256108101503
+      },
+      "completed": {
+        "timeS": 4.016666666666658,
+        "used": 3,
+        "remaining": 0,
+        "hemostasisProgress": 0.22527163070589,
+        "externalFlowMlPerS": 6.120447096334872,
+        "internalFlowMlPerS": 0,
+        "hp": 66.13790648649749,
+        "bloodMl": 4961.938221113362
+      },
+      "final": {
+        "hp": 75,
+        "maxHp": 75,
+        "bloodMl": 4889.5551279135825,
+        "recoveryAfterCompletionS": 39.3166666666655,
+        "remainingFunction": 0.6,
+        "destructionFunctionalCap": 0.6
+      },
+      "directHits": [],
+      "cavityHits": [
+        "left-brachial",
+        "left-brachial-vein"
+      ],
+      "projectileVelocityOut": 778.8498852234779
+    },
+    {
+      "ammoId": "556_m855",
+      "fixture": "arm-muscle",
+      "resource": 100,
+      "initial": {
+        "hp": 61.63322926226839,
+        "maxHp": 75,
+        "bloodMl": 4999.76131833484,
+        "externalFlowMlPerS": 14.378801035580693,
+        "internalFlowMlPerS": 0,
+        "requiredWork": 16.020062442638967
+      },
+      "completed": {
+        "timeS": 4.016666666666658,
+        "used": 16.020062442638967,
+        "remaining": 83.97993755736104,
+        "hemostasisProgress": 1,
+        "externalFlowMlPerS": 0,
+        "internalFlowMlPerS": 0,
+        "hp": 61.63322926226839,
+        "bloodMl": 4948.381098196383
+      },
+      "final": {
+        "hp": 75,
+        "maxHp": 75,
+        "bloodMl": 4948.381098196383,
+        "recoveryAfterCompletionS": 49.58333333333158,
+        "remainingFunction": 0.6,
+        "destructionFunctionalCap": 0.6
+      },
+      "directHits": [],
+      "cavityHits": [
+        "left-brachial"
+      ],
+      "projectileVelocityOut": 786.1188169092363
+    },
+    {
+      "ammoId": "556_m855",
+      "fixture": "arm-muscle",
+      "resource": 3,
+      "initial": {
+        "hp": 61.63322926226839,
+        "maxHp": 75,
+        "bloodMl": 4999.76131833484,
+        "externalFlowMlPerS": 14.378801035580693,
+        "internalFlowMlPerS": 0,
+        "requiredWork": 16.020062442638967
+      },
+      "completed": {
+        "timeS": 4.016666666666658,
+        "used": 3,
+        "remaining": 0,
+        "hemostasisProgress": 0.18726518768211575,
+        "externalFlowMlPerS": 8.706678293354058,
+        "internalFlowMlPerS": 0,
+        "hp": 61.63322926226839,
+        "bloodMl": 4948.235962656488
+      },
+      "final": {
+        "hp": 75,
+        "maxHp": 75,
+        "bloodMl": 4842.943688879069,
+        "recoveryAfterCompletionS": 49.58333333333158,
+        "remainingFunction": 0.6,
+        "destructionFunctionalCap": 0.6
+      },
+      "directHits": [],
+      "cavityHits": [
+        "left-brachial"
+      ],
+      "projectileVelocityOut": 786.1188169092363
+    }
+  ],
+  "fixedTimeMatrix": [
+    {
+      "mode": "game",
+      "condition": "healthy",
+      "seconds": 4
+    },
+    {
+      "mode": "game",
+      "condition": "near-zero-function",
+      "seconds": 4
+    },
+    {
+      "mode": "game",
+      "condition": "one-crushed-arm",
+      "seconds": 4
+    },
+    {
+      "mode": "game",
+      "condition": "pain-and-tremor",
+      "seconds": 4
+    },
+    {
+      "mode": "realistic",
+      "condition": "healthy",
+      "seconds": 4
+    },
+    {
+      "mode": "realistic",
+      "condition": "near-zero-function",
+      "seconds": 4
+    },
+    {
+      "mode": "realistic",
+      "condition": "one-crushed-arm",
+      "seconds": 4
+    },
+    {
+      "mode": "realistic",
+      "condition": "pain-and-tremor",
+      "seconds": 4
+    },
+    {
+      "mode": "reality",
+      "condition": "healthy",
+      "seconds": 4
+    },
+    {
+      "mode": "reality",
+      "condition": "near-zero-function",
+      "seconds": 4
+    },
+    {
+      "mode": "reality",
+      "condition": "one-crushed-arm",
+      "seconds": 4
+    },
+    {
+      "mode": "reality",
+      "condition": "pain-and-tremor",
+      "seconds": 4
+    }
+  ],
+  "build": {
+    "bytes": 39414397,
+    "sha256": "3aa6651b01c40920c1dc2241897c27798939cc0dfee2de478fcbd90b0fdcd1ef",
+    "metadata": "dist/training-build-info.json",
+    "completeOverhaul": false
+  },
+  "reproduce": [
+    "npm ci",
+    "npm run build",
+    "npm test",
+    "npm run verify:reference",
+    "node scripts/verify-v69.mjs --calculations-only",
+    "node scripts/check-medical-bandage.mjs",
+    "node scripts/check-medical-bandage-browser.mjs",
+    "npm run test:browser"
+  ],
+  "limitations": [
+    "Other items and organ follow-up remain v69; not a completed overhaul.",
+    "Bandage stops only verified external wound flow, not internal/cavity flow.",
+    "Existing surface-unverified wounds remain ineligible; the UI test selects an existing surface-verified real ray and never fabricates an opening.",
+    "HP0/amputation repair and surgery deferred; bone/organ/destruction function caps retained.",
+    "Actual phone performance not measured.",
+    "Raw generated screenshots/logs remain ignored under artifacts/qa/medical-overhaul-1."
   ]
 }

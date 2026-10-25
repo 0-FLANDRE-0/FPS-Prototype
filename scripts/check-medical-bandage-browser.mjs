@@ -13,17 +13,24 @@ for(const viewport of [{width:1280,height:720},{width:844,height:390}]){
    const q=__CQBTest;q.settings.sound=false;q.syncPreferences();q.reset();await q.moveCombat();q.physics.relocate({x:40,z:-30});const idle={move:{x:0,y:0},crouch:false,sprint:false,firing:false,firePressed:false};for(let i=0;i<90;i++)q.tick(idle);
    const player=q.combat.player;player.rig.setPose('rest',1);player.sync();q.physics.armorSensors=[];
    const shapes=q.internalWorldShapes(q.physics.internalAnatomies.get('P01'),player.actor),shape=shapes.find(s=>s.id==='left-brachial');
-   const point=new q.T.Vector3(...(shape.center||shape.segments[0].a));point.x+=.025;
-   const direction=new q.T.Vector3(0,0,-1).applyQuaternion(new q.T.Quaternion().setFromAxisAngle(new q.T.Vector3(0,1,0),player.actor.yaw)),ballistics=q.shotBallistics('545_ps_gs','ak74m'),origin=point.clone().addScaledVector(direction,-.6);origin.y+=4.905*(.6/ballistics.muzzleVelocityMps)**2;
-   const trace=q.traceShot(q.physics,origin,direction,ballistics,{shotId:97001,random:()=>.001,simulateFlight:true,maxDistance:1.5,bodyModel:'s2'});q.combat.record({shotId:97001,time:q.combat.clock,origin,direction,ballistics,ammoId:'545_ps_gs',trace});
+   const center=new q.T.Vector3(...(shape.center||shape.segments[0].a)),yaw=new q.T.Quaternion().setFromAxisAngle(new q.T.Vector3(0,1,0),player.actor.yaw),ballistics=q.shotBallistics('545_ps_gs','ak74m');
+   let selected=null;const trials=[];
+   for(const offset of [0,.015,-.015,.03,-.03]){for(const local of [[0,0,-1],[0,0,1],[1,0,0],[-1,0,0]]){
+    const point=center.clone().add(new q.T.Vector3(offset,0,0).applyQuaternion(yaw)),direction=new q.T.Vector3(...local).applyQuaternion(yaw),origin=point.clone().addScaledVector(direction,-.4);origin.y+=4.905*(.4/ballistics.muzzleVelocityMps)**2;
+    const trace=q.traceShot(q.physics,origin,direction,ballistics,{shotId:97001,random:()=>.001,simulateFlight:true,maxDistance:.8,bodyModel:'s2'}),event={shotId:97001,time:q.combat.clock,origin,direction,ballistics,ammoId:'545_ps_gs',trace},probe=new q.ProbeMedical({targetId:'P01'});probe.record(event,q.physics);
+    const wound=probe.actor.medical.wounds.find(w=>w.partKey==='leftArm'),surface=probe.surfaceRecords.find(s=>s.woundId===wound?.id);
+    trials.push({offset,local,parts:probe.actor.medical.wounds.map(w=>w.partKey),entry:!!surface?.entry,hp:probe.actor.medical.bodyParts.leftArm.hp});
+    if(surface?.entry&&probe.actor.medical.wounds.every(w=>w.partKey==='leftArm')&&probe.actor.medical.bodyParts.leftArm.hp>0){selected=event;break;}
+   }if(selected)break;}
+   if(!selected)throw Error('No surface-verified arm ray: '+JSON.stringify(trials));q.combat.record(selected);
    const m=player.medical.actor.medical,w=m.wounds.find(w=>w.partKey==='leftArm');if(!w)throw Error('No actual left arm wound');if(m.isUnconscious||m.isDead||m.cardiacArrest)throw Error('Fixture cannot self-treat');
    q.inventory.items.get('medical:bandage').remaining=3;q.command('medical');q.medicalUI.update(true);q.render(0,1);
    return{woundId:w.id,hp:m.bodyParts.leftArm.hp,maxHp:m.bodyParts.leftArm.maxHp,parts:m.wounds.map(w=>w.partKey),injuries:w.s1OrganDamage};
   });
   console.log('bandage UI real shot',viewport.width,shot.hp);
-  await tap('#playerGrid [data-item="ifak-01"]');await tap('#playerGrid [data-item="ifak-01"]');
+  await tap('#readyStorage [data-item="ifak-01"]');await tap('#readyStorage [data-item="ifak-01"]');
   await tap('.medical-container-window [data-item="medical:bandage"]');await tap(`#medicalWounds [data-select-wound="${shot.woundId}"]`);
-  assert.equal(await p.evaluate(()=>__CQBTest.care.active?.remainingSeconds),4);
+  const startState=await p.evaluate(id=>{const q=__CQBTest;return{active:q.care.active,selected:q.bag.selectedId,error:q.care.lastError,preview:q.care.preview('medical:bandage',{woundId:id}),open:[...q.inventory.openMedicalContainers]};},shot.woundId);console.log('bandage UI start',JSON.stringify(startState));if(!startState.active)await p.screenshot({path:out+'/'+viewport.width+'-failure.png'});assert.equal(startState.active?.remainingSeconds,4);
   await p.evaluate(()=>{const q=__CQBTest;q.care.step(2);const b=q.combat.player.medical;b.tick(2,b.time+2);});await refresh();
   const early=await p.evaluate(()=>{const q=__CQBTest;return{remaining:q.inventory.items.get('medical:bandage').remaining,hp:q.combat.player.medical.actor.medical.bodyParts.leftArm.hp};});assert.equal(early.remaining,3);assert.equal(early.hp,shot.hp);
   await sharp(await p.screenshot()).webp({quality:80}).toFile(`${out}/${viewport.width}-applying.webp`);

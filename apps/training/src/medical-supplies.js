@@ -1,3 +1,4 @@
+import{MO2,productRule}from'./medical-mo2-policy.js';
 // Product package dimensions/mass are sourced; inventory footprints are tuning.
 const oz=28.349523125,freeze=o=>{for(const v of Object.values(o))if(v&&typeof v==='object')freeze(v);return Object.freeze(o);};
 export const MEDICAL_ITEMS=freeze({ruleId:'medical-items-m3-v59',cellMm:90,doubleTapMs:350,dragThresholdPx:7,ifakGrid:{cols:3,rows:3},requestedGrid:{cols:3,rows:3},ifakSize:{w:2,h:2},classification:'사용자 구성/외부2x2; 제품 치수/무게 출처; 내부 격자는 정리 공간의 추상화, 실제 크기 비례 아님(게임 허용)'});
@@ -23,3 +24,11 @@ export const INITIAL_MEDIC_SUPPORT=freeze([['pill',0,0],['otfc',1,0],['otfc',2,0
 export const medicalDefinition=item=>item?.kind==='medicalContainer'?(item.definitionId===MEDIC_POUCH.id?MEDIC_POUCH:item.definitionId===MEDIC_SUPPORT.id?MEDIC_SUPPORT:IFAK):item?.kind==='medicalSupply'?MEDICAL_SUPPLIES[item.definitionId]:null;
 export const isMedicalItem=item=>item?.kind==='medicalSupply'||item?.kind==='medicalContainer';
 export const INITIAL_IFAK_CONTENTS=freeze([['gauze',0,0],['seal',1,0],['cat',2,0],['cat',2,1],['bandage',0,2],['needle',1,2],['npa',2,2]]);
+
+// The sole creation boundary for owned medical consumables. Transfers retain identity and resource.
+export function createMedicalSupply(instanceId,definitionId,owner,cell,restored={}){
+ if(!MEDICAL_SUPPLIES[definitionId])throw Error('Unknown medical product: '+definitionId);
+ const p=productRule(definitionId),remaining=restored.remaining??p.maximum;
+ if(!Number.isFinite(remaining)||remaining<0||remaining>p.maximum)throw Error('Invalid medical resource');
+ return{...restored,instanceId,kind:'medicalSupply',definitionId,owner,...(cell?{cell:{...cell}}:{}),remaining,maximumUses:p.maximum,resourceRuleId:MO2.ruleId,resourceKind:p.resource};
+}

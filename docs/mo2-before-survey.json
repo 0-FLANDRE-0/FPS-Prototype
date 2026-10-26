@@ -1,0 +1,5236 @@
+{
+  "method": "240 original S0 conditions plus28 single paths, actual post-shot1/60 medical step; wound contributions partition shared vessels once. No treatments during distribution.",
+  "sourceCases": 268,
+  "rows": [
+    {
+      "name": "cerebrum",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 19.782184611003547,
+      "qExternal": 19.782184611003547,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 4.165263680961468,
+      "qExternal": 4.165263680961468,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 19.621599681857905,
+      "qExternal": 19.621599681857905,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 4.0949510242167495,
+      "qExternal": 4.0949510242167495,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 26.617045748166227,
+      "qExternal": 26.617045748166227,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 19.992949696768576,
+      "qExternal": 19.992949696768576,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 26.2055415938112,
+      "qExternal": 26.2055415938112,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 10.237778692836773,
+      "qExternal": 10.237778692836773,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": true
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": true
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": true
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": true
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": true
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": true
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": true
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": true
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 9.599420819227557,
+      "qExternal": 9.599420819227557,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 9.599420819227557,
+      "qExternal": 9.599420819227557,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 9.51900181234902,
+      "qExternal": 9.51900181234902,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 9.51900181234902,
+      "qExternal": 9.51900181234902,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 12.909936766112473,
+      "qExternal": 12.909936766112473,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 12.909936766112473,
+      "qExternal": 12.909936766112473,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 12.708896387272992,
+      "qExternal": 12.708896387272992,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 12.708896387272992,
+      "qExternal": 12.708896387272992,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "heart",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 0.5269871603824025,
+      "qExternal": 0,
+      "qInternal": 0.5269871603824025,
+      "sourceKinds": [
+        "vein",
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "heart",
+        "left-lung",
+        "right-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "heart",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 0.5002052261103875,
+      "qExternal": 0,
+      "qInternal": 0.5002052261103875,
+      "sourceKinds": [
+        "vein",
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "heart",
+        "left-lung",
+        "right-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "heart",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 0.4060802066678515,
+      "qExternal": 0,
+      "qInternal": 0.4060802066678515,
+      "sourceKinds": [
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "heart",
+        "right-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "heart",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 0.393175795906074,
+      "qExternal": 0,
+      "qInternal": 0.393175795906074,
+      "sourceKinds": [
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "heart",
+        "right-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "aorta",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 54.66287859936537,
+      "qExternal": 0,
+      "qInternal": 54.66287859936537,
+      "sourceKinds": [
+        "artery",
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "thoracic-aorta",
+        "heart",
+        "left-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "aorta",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 58.1750331874874,
+      "qExternal": 0,
+      "qInternal": 58.1750331874874,
+      "sourceKinds": [
+        "artery",
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "thoracic-aorta",
+        "heart",
+        "left-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "aorta",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 83.63914692756718,
+      "qExternal": 0,
+      "qInternal": 83.63914692756718,
+      "sourceKinds": [
+        "artery",
+        "vein",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "thoracic-aorta",
+        "heart",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "aorta",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 85.70427460680887,
+      "qExternal": 0,
+      "qInternal": 85.70427460680887,
+      "sourceKinds": [
+        "artery",
+        "vein",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "thoracic-aorta",
+        "heart",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 1.0521530555625491,
+      "qExternal": 0,
+      "qInternal": 1.0521530555625491,
+      "sourceKinds": [
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "heart",
+        "left-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 1.0242242180130556,
+      "qExternal": 0,
+      "qInternal": 1.0242242180130556,
+      "sourceKinds": [
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "heart",
+        "left-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 1.3327584861593667,
+      "qExternal": 0,
+      "qInternal": 1.3327584861593667,
+      "sourceKinds": [
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "heart",
+        "left-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 1.1803443412442647,
+      "qExternal": 0,
+      "qInternal": 1.1803443412442647,
+      "sourceKinds": [
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "heart",
+        "left-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 10.691272949662316,
+      "qExternal": 10.691272949662316,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w2",
+      "part": "abdomen",
+      "q": 5.295179030190358,
+      "qExternal": 0,
+      "qInternal": 5.295179030190358,
+      "sourceKinds": [
+        "parenchymal",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "spleen",
+        "liver",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w3",
+      "part": "rightArm",
+      "q": 0.6418780019503988,
+      "qExternal": 0.6418780019503988,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 10.691114112160777,
+      "qExternal": 10.691114112160777,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 10.610946377331759,
+      "qExternal": 10.610946377331759,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w2",
+      "part": "abdomen",
+      "q": 5.207693247001864,
+      "qExternal": 0,
+      "qInternal": 5.207693247001864,
+      "sourceKinds": [
+        "parenchymal",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "spleen",
+        "liver",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w3",
+      "part": "rightArm",
+      "q": 0.6418724418251448,
+      "qExternal": 0.6418724418251448,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 10.610796144500217,
+      "qExternal": 10.610796144500217,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 14.389348478426983,
+      "qExternal": 14.389348478426983,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w2",
+      "part": "abdomen",
+      "q": 16.00177165687785,
+      "qExternal": 0,
+      "qInternal": 16.00177165687785,
+      "sourceKinds": [
+        "parenchymal",
+        "parenchymal",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "spleen",
+        "left-kidney",
+        "liver",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w3",
+      "part": "rightArm",
+      "q": 1.7961614538918833,
+      "qExternal": 1.7961614538918833,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 14.381033586844197,
+      "qExternal": 14.381033586844197,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 14.187692647398618,
+      "qExternal": 14.187692647398618,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w2",
+      "part": "abdomen",
+      "q": 14.469983061154442,
+      "qExternal": 0,
+      "qInternal": 14.469983061154442,
+      "sourceKinds": [
+        "parenchymal",
+        "parenchymal",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "spleen",
+        "left-kidney",
+        "liver",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 14.179674663063897,
+      "qExternal": 14.179674663063897,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 88.94536024305555,
+      "qExternal": 0.27686024224498545,
+      "qInternal": 88.66850000081057,
+      "sourceKinds": [
+        "artery",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "left-femoral",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 88.94536024305555,
+      "qExternal": 0.27686024224498545,
+      "qInternal": 88.66850000081057,
+      "sourceKinds": [
+        "artery",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "left-femoral",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 88.94536024305555,
+      "qExternal": 0.27686024224498545,
+      "qInternal": 88.66850000081057,
+      "sourceKinds": [
+        "artery",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "left-femoral",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 88.94536024305555,
+      "qExternal": 0.27686024224498545,
+      "qInternal": 88.66850000081057,
+      "sourceKinds": [
+        "artery",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "left-femoral",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 88.94536024305555,
+      "qExternal": 0.32406424055328,
+      "qInternal": 88.62129600250226,
+      "sourceKinds": [
+        "artery",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "left-femoral",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 88.94536024305555,
+      "qExternal": 0.32406424055328,
+      "qInternal": 88.62129600250226,
+      "sourceKinds": [
+        "artery",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "left-femoral",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 88.94536024305555,
+      "qExternal": 0.32406424055328,
+      "qInternal": 88.62129600250226,
+      "sourceKinds": [
+        "artery",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "left-femoral",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 88.94536024305555,
+      "qExternal": 0.32406424055328,
+      "qInternal": 88.62129600250226,
+      "sourceKinds": [
+        "artery",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "left-femoral",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 16.549593951879604,
+      "qExternal": 16.549593951879604,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w2",
+      "part": "rightLeg",
+      "q": 1.6547761447324554,
+      "qExternal": 1.6547761447324554,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 16.549593951879604,
+      "qExternal": 16.549593951879604,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w2",
+      "part": "rightLeg",
+      "q": 1.6547761447324554,
+      "qExternal": 1.6547761447324554,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 16.438810157282212,
+      "qExternal": 16.438810157282212,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w2",
+      "part": "rightLeg",
+      "q": 1.6346722257572444,
+      "qExternal": 1.6346722257572444,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 16.438810157282212,
+      "qExternal": 16.438810157282212,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w2",
+      "part": "rightLeg",
+      "q": 1.6346722257572444,
+      "qExternal": 1.6346722257572444,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 26.82290492022969,
+      "qExternal": 26.82290492022969,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w2",
+      "part": "rightLeg",
+      "q": 1.8154790082159487,
+      "qExternal": 1.8154790082159487,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 26.82290492022969,
+      "qExternal": 26.82290492022969,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w2",
+      "part": "rightLeg",
+      "q": 1.8154790082159487,
+      "qExternal": 1.8154790082159487,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 26.430996593471153,
+      "qExternal": 26.430996593471153,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w2",
+      "part": "rightLeg",
+      "q": 1.8154295367525246,
+      "qExternal": 1.8154295367525246,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 26.430996593471153,
+      "qExternal": 26.430996593471153,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w2",
+      "part": "rightLeg",
+      "q": 1.8154295367525246,
+      "qExternal": 1.8154295367525246,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "neck",
+      "q": 31.918017918673474,
+      "qExternal": 31.918017918673474,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "neck",
+      "q": 4.070040577072735,
+      "qExternal": 4.070040577072735,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "neck",
+      "q": 31.666754386917365,
+      "qExternal": 31.666754386917365,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "neck",
+      "q": 3.889590684649383,
+      "qExternal": 3.889590684649383,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "neck",
+      "q": 42.94095237339577,
+      "qExternal": 42.94095237339577,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "neck",
+      "q": 7.62890572728132,
+      "qExternal": 7.62890572728132,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "neck",
+      "q": 42.32796481343593,
+      "qExternal": 42.32796481343593,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "neck",
+      "q": 7.027378250910243,
+      "qExternal": 7.027378250910243,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 1.0073684750127343,
+      "qExternal": 0,
+      "qInternal": 1.0073684750127343,
+      "sourceKinds": [
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "right-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 1.0073684750127343,
+      "qExternal": 0,
+      "qInternal": 1.0073684750127343,
+      "sourceKinds": [
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "right-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 0.9686655509417783,
+      "qExternal": 0,
+      "qInternal": 0.9686655509417783,
+      "sourceKinds": [
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "right-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 0.9686655509417783,
+      "qExternal": 0,
+      "qInternal": 0.9686655509417783,
+      "sourceKinds": [
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "right-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 0.6410167172423055,
+      "qExternal": 0,
+      "qInternal": 0.6410167172423055,
+      "sourceKinds": [
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "right-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 0.6410167172423055,
+      "qExternal": 0,
+      "qInternal": 0.6410167172423055,
+      "sourceKinds": [
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "right-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 0.6117592560064667,
+      "qExternal": 0,
+      "qInternal": 0.6117592560064667,
+      "sourceKinds": [
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "right-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 0.6117592560064667,
+      "qExternal": 0,
+      "qInternal": 0.6117592560064667,
+      "sourceKinds": [
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "right-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 10.67492983173854,
+      "qExternal": 10.67492983173854,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 2.903937856560896,
+      "qExternal": 2.903937856560896,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 10.594788487590622,
+      "qExternal": 10.594788487590622,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 2.77376001731627,
+      "qExternal": 2.77376001731627,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 14.378801035580693,
+      "qExternal": 14.378801035580693,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 5.347288564242872,
+      "qExternal": 5.347288564242872,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 14.177699564651872,
+      "qExternal": 14.177699564651872,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 4.876629493927719,
+      "qExternal": 4.876629493927719,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 10.690578549147695,
+      "qExternal": 10.690578549147695,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 10.690578549147695,
+      "qExternal": 10.690578549147695,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 10.610038875970396,
+      "qExternal": 10.610038875970396,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 10.610038875970396,
+      "qExternal": 10.610038875970396,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 14.381821500865591,
+      "qExternal": 14.381821500865591,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 14.381821500865591,
+      "qExternal": 14.381821500865591,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 14.181013397686828,
+      "qExternal": 14.181013397686828,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 14.181013397686828,
+      "qExternal": 14.181013397686828,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 19.782184611003547,
+      "qExternal": 19.782184611003547,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 4.165263680961468,
+      "qExternal": 4.165263680961468,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 19.621599681857905,
+      "qExternal": 19.621599681857905,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 4.094959853515599,
+      "qExternal": 4.094959853515599,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 26.617045748166227,
+      "qExternal": 26.617045748166227,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 19.992949696768576,
+      "qExternal": 19.992949696768576,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 26.2055415938112,
+      "qExternal": 26.2055415938112,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cerebrum",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 10.237778692836773,
+      "qExternal": 10.237778692836773,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": true
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": true
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": true
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": true
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": true
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": true
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": true
+    },
+    {
+      "name": "brainstem",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": true
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 9.599418536564777,
+      "qExternal": 9.599418536564777,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 9.599418536564777,
+      "qExternal": 9.599418536564777,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 9.518742316434722,
+      "qExternal": 9.518742316434722,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 9.518742316434722,
+      "qExternal": 9.518742316434722,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 12.909935817066222,
+      "qExternal": 12.909935817066222,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 12.909935817066222,
+      "qExternal": 12.909935817066222,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "head",
+      "q": 12.708780120485109,
+      "qExternal": 12.708780120485109,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "face-jaw",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 12.708780120485109,
+      "qExternal": 12.708780120485109,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "heart",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 0.5249815022844132,
+      "qExternal": 0,
+      "qInternal": 0.5249815022844132,
+      "sourceKinds": [
+        "vein",
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "heart",
+        "left-lung",
+        "right-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "heart",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 0.4988841916759569,
+      "qExternal": 0,
+      "qInternal": 0.4988841916759569,
+      "sourceKinds": [
+        "vein",
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "heart",
+        "left-lung",
+        "right-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "heart",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 0.4060801806654277,
+      "qExternal": 0,
+      "qInternal": 0.4060801806654277,
+      "sourceKinds": [
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "heart",
+        "right-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "heart",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 0.4060802280055383,
+      "qExternal": 0,
+      "qInternal": 0.4060802280055383,
+      "sourceKinds": [
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "heart",
+        "right-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "aorta",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 54.67270467381379,
+      "qExternal": 0,
+      "qInternal": 54.67270467381379,
+      "sourceKinds": [
+        "artery",
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "thoracic-aorta",
+        "heart",
+        "left-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "aorta",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 59.055240544428244,
+      "qExternal": 0,
+      "qInternal": 59.055240544428244,
+      "sourceKinds": [
+        "artery",
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "thoracic-aorta",
+        "heart",
+        "left-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "aorta",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 83.64611535359886,
+      "qExternal": 0,
+      "qInternal": 83.64611535359886,
+      "sourceKinds": [
+        "artery",
+        "vein",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "thoracic-aorta",
+        "heart",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "aorta",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 86.31301240007505,
+      "qExternal": 0,
+      "qInternal": 86.31301240007505,
+      "sourceKinds": [
+        "artery",
+        "vein",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "thoracic-aorta",
+        "heart",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 1.0522098023903494,
+      "qExternal": 0,
+      "qInternal": 1.0522098023903494,
+      "sourceKinds": [
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "heart",
+        "left-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 1.0266780656209584,
+      "qExternal": 0,
+      "qInternal": 1.0266780656209584,
+      "sourceKinds": [
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "heart",
+        "left-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 1.332797170875708,
+      "qExternal": 0,
+      "qInternal": 1.332797170875708,
+      "sourceKinds": [
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "heart",
+        "left-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "lung-only",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 1.1808761961834169,
+      "qExternal": 0,
+      "qInternal": 1.1808761961834169,
+      "sourceKinds": [
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "heart",
+        "left-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 47.0203470181386,
+      "qExternal": 0,
+      "qInternal": 47.0203470181386,
+      "sourceKinds": [
+        "vein",
+        "parenchymal",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "portal-vein",
+        "liver",
+        "right-kidney",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 35.66046296142217,
+      "qExternal": 0,
+      "qInternal": 35.66046296142217,
+      "sourceKinds": [
+        "vein",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "portal-vein",
+        "liver",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 49.26564909342158,
+      "qExternal": 0,
+      "qInternal": 49.26564909342158,
+      "sourceKinds": [
+        "vein",
+        "parenchymal",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "portal-vein",
+        "liver",
+        "right-kidney",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 36.41739110499106,
+      "qExternal": 0,
+      "qInternal": 36.41739110499106,
+      "sourceKinds": [
+        "vein",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "portal-vein",
+        "liver",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 29.530078244913923,
+      "qExternal": 0,
+      "qInternal": 29.530078244913923,
+      "sourceKinds": [
+        "vein",
+        "parenchymal",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "portal-vein",
+        "liver",
+        "right-kidney",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 20.65264928598065,
+      "qExternal": 0,
+      "qInternal": 20.65264928598065,
+      "sourceKinds": [
+        "vein",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "portal-vein",
+        "liver",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 34.341144373254,
+      "qExternal": 0,
+      "qInternal": 34.341144373254,
+      "sourceKinds": [
+        "vein",
+        "parenchymal",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "portal-vein",
+        "liver",
+        "right-kidney",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "liver",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 22.987577646036783,
+      "qExternal": 0,
+      "qInternal": 22.987577646036783,
+      "sourceKinds": [
+        "vein",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "portal-vein",
+        "liver",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 88.94536024305555,
+      "qExternal": 0.27686024224498545,
+      "qInternal": 88.66850000081057,
+      "sourceKinds": [
+        "artery",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "left-femoral",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 88.94536024305555,
+      "qExternal": 0.27686024224498545,
+      "qInternal": 88.66850000081057,
+      "sourceKinds": [
+        "artery",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "left-femoral",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 88.94536024305555,
+      "qExternal": 0.27686024224498545,
+      "qInternal": 88.66850000081057,
+      "sourceKinds": [
+        "artery",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "left-femoral",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 88.94536024305555,
+      "qExternal": 0.27686024224498545,
+      "qInternal": 88.66850000081057,
+      "sourceKinds": [
+        "artery",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "left-femoral",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 88.94536024305555,
+      "qExternal": 0.32406424055328,
+      "qInternal": 88.62129600250226,
+      "sourceKinds": [
+        "artery",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "left-femoral",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 88.94536024305555,
+      "qExternal": 0.32406424055328,
+      "qInternal": 88.62129600250226,
+      "sourceKinds": [
+        "artery",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "left-femoral",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 88.94536024305555,
+      "qExternal": 0.32406424055328,
+      "qInternal": 88.62129600250226,
+      "sourceKinds": [
+        "artery",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "left-femoral",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femoral-artery",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 88.94536024305555,
+      "qExternal": 0.32406424055328,
+      "qInternal": 88.62129600250226,
+      "sourceKinds": [
+        "artery",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "left-femoral",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 16.549575818657186,
+      "qExternal": 16.549575818657186,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 16.549575818657186,
+      "qExternal": 16.549575818657186,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 16.438791972759365,
+      "qExternal": 16.438791972759365,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 16.438791972759365,
+      "qExternal": 16.438791972759365,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 26.822927749622373,
+      "qExternal": 26.822927749622373,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 26.822927749622373,
+      "qExternal": 26.822927749622373,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 26.431019091298012,
+      "qExternal": 26.431019091298012,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "femur",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 26.431019091298012,
+      "qExternal": 26.431019091298012,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "neck",
+      "q": 31.918018985842817,
+      "qExternal": 31.918018985842817,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "neck",
+      "q": 4.070040582438957,
+      "qExternal": 4.070040582438957,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "neck",
+      "q": 31.666788803974956,
+      "qExternal": 31.666788803974956,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "neck",
+      "q": 3.8895907856476595,
+      "qExternal": 3.8895907856476595,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "neck",
+      "q": 42.94095279242817,
+      "qExternal": 42.94095279242817,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "neck",
+      "q": 7.6289057409298815,
+      "qExternal": 7.6289057409298815,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "neck",
+      "q": 42.327978403288796,
+      "qExternal": 42.327978403288796,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-A",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "neck",
+      "q": 7.027378549523254,
+      "qExternal": 7.027378549523254,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 16.048430175761975,
+      "qExternal": 0,
+      "qInternal": 16.048430175761975,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w2",
+      "part": "chest",
+      "q": 1.2681777688947622,
+      "qExternal": 0,
+      "qInternal": 1.2681777688947622,
+      "sourceKinds": [
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "heart",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 4.944155376943739,
+      "qExternal": 0,
+      "qInternal": 4.944155376943739,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w2",
+      "part": "chest",
+      "q": 3.5918751372914057,
+      "qExternal": 0,
+      "qInternal": 3.5918751372914057,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 16.175156385594768,
+      "qExternal": 0,
+      "qInternal": 16.175156385594768,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w2",
+      "part": "chest",
+      "q": 1.0416134408575437,
+      "qExternal": 0,
+      "qInternal": 1.0416134408575437,
+      "sourceKinds": [
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "heart",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 3.3495884995120315,
+      "qExternal": 0,
+      "qInternal": 3.3495884995120315,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w2",
+      "part": "chest",
+      "q": 3.461446149129702,
+      "qExternal": 0,
+      "qInternal": 3.461446149129702,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 22.765621167986556,
+      "qExternal": 0,
+      "qInternal": 22.765621167986556,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w2",
+      "part": "chest",
+      "q": 37.95139571048978,
+      "qExternal": 0,
+      "qInternal": 37.95139571048978,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 9.12612688180576,
+      "qExternal": 0,
+      "qInternal": 9.12612688180576,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w2",
+      "part": "chest",
+      "q": 9.160295277804451,
+      "qExternal": 0,
+      "qInternal": 9.160295277804451,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 22.404211206981426,
+      "qExternal": 0,
+      "qInternal": 22.404211206981426,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w2",
+      "part": "chest",
+      "q": 37.037398826708625,
+      "qExternal": 0,
+      "qInternal": 37.037398826708625,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 8.313796639322138,
+      "qExternal": 0,
+      "qInternal": 8.313796639322138,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "cord-B",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w2",
+      "part": "chest",
+      "q": 8.427866941383883,
+      "qExternal": 0,
+      "qInternal": 8.427866941383883,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 10.690923975050094,
+      "qExternal": 10.690923975050094,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w2",
+      "part": "rightArm",
+      "q": 4.543144394466306,
+      "qExternal": 4.543144394466306,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 2.8438568877689554,
+      "qExternal": 2.8438568877689554,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 10.610374742348831,
+      "qExternal": 10.610374742348831,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w2",
+      "part": "rightArm",
+      "q": 4.482836322624663,
+      "qExternal": 4.482836322624663,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 2.7437190909845666,
+      "qExternal": 2.7437190909845666,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 14.380742984319925,
+      "qExternal": 14.380742984319925,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w2",
+      "part": "rightArm",
+      "q": 9.627277522397078,
+      "qExternal": 9.627277522397078,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 5.327280659745549,
+      "qExternal": 5.327280659745549,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 14.17945865457502,
+      "qExternal": 14.17945865457502,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w2",
+      "part": "rightArm",
+      "q": 9.516484382474292,
+      "qExternal": 9.516484382474292,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "arm-muscle",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 4.8566153013623845,
+      "qExternal": 4.8566153013623845,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 10.690578552331155,
+      "qExternal": 10.690578552331155,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 10.690578552331155,
+      "qExternal": 10.690578552331155,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 10.61003889243335,
+      "qExternal": 10.61003889243335,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 10.61003889243335,
+      "qExternal": 10.61003889243335,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 14.38182153650154,
+      "qExternal": 14.38182153650154,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 14.38182153650154,
+      "qExternal": 14.38182153650154,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 14.1810135583889,
+      "qExternal": 14.1810135583889,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "leg-muscle",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 14.1810135583889,
+      "qExternal": 14.1810135583889,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [],
+      "major": false,
+      "vessels": [],
+      "arrest": false
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [],
+      "major": false,
+      "vessels": [],
+      "arrest": false
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [],
+      "major": false,
+      "vessels": [],
+      "arrest": false
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [],
+      "major": false,
+      "vessels": [],
+      "arrest": false
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [],
+      "major": false,
+      "vessels": [],
+      "arrest": false
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "545_ps_gs",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [],
+      "major": false,
+      "vessels": [],
+      "arrest": false
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [],
+      "major": false,
+      "vessels": [],
+      "arrest": false
+    },
+    {
+      "name": "helmet-graze",
+      "ammoId": "556_m855",
+      "distance": 50,
+      "armor": true,
+      "woundId": "w1",
+      "part": "head",
+      "q": 0,
+      "qExternal": 0,
+      "qInternal": 0,
+      "sourceKinds": [],
+      "major": false,
+      "vessels": [],
+      "arrest": false
+    },
+    {
+      "name": "single:liver-central",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 9.8982098262047,
+      "qExternal": 9.8982098262047,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:liver-central",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w2",
+      "part": "abdomen",
+      "q": 14.870618275297728,
+      "qExternal": 0,
+      "qInternal": 14.870618275297728,
+      "sourceKinds": [
+        "vein",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "bowel",
+        "liver",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:liver-graze",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 9.897555860243944,
+      "qExternal": 9.897555860243944,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:liver-graze",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w2",
+      "part": "abdomen",
+      "q": 14.120019390200152,
+      "qExternal": 0,
+      "qInternal": 14.120019390200152,
+      "sourceKinds": [
+        "parenchymal",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "liver",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:spleen-central",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "rightArm",
+      "q": 10.688890708004873,
+      "qExternal": 10.688890708004873,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:spleen-central",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w2",
+      "part": "abdomen",
+      "q": 3.143696962831612,
+      "qExternal": 0,
+      "qInternal": 3.143696962831612,
+      "sourceKinds": [
+        "parenchymal",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "spleen",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:left-kidney-central",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 8.994915610607743,
+      "qExternal": 0,
+      "qInternal": 8.994915610607743,
+      "sourceKinds": [
+        "parenchymal",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "left-kidney",
+        "spleen",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:right-kidney-central",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "rightArm",
+      "q": 10.689779000837326,
+      "qExternal": 10.689779000837326,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:right-kidney-central",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w2",
+      "part": "abdomen",
+      "q": 19.775820067752857,
+      "qExternal": 0,
+      "qInternal": 19.775820067752857,
+      "sourceKinds": [
+        "parenchymal",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "liver",
+        "right-kidney",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:carotid",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "neck",
+      "q": 10.285750056618703,
+      "qExternal": 10.285750056618703,
+      "qInternal": 0,
+      "sourceKinds": [
+        "artery",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "left-carotid",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:femoral-complete",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 88.94536024305555,
+      "qExternal": 0.27686024224498545,
+      "qInternal": 88.66850000081057,
+      "sourceKinds": [
+        "artery",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "left-femoral",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:thoracic-aorta",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 54.66287859936537,
+      "qExternal": 0,
+      "qInternal": 54.66287859936537,
+      "sourceKinds": [
+        "artery",
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "thoracic-aorta",
+        "heart",
+        "left-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:heart",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 0.5269871603824025,
+      "qExternal": 0,
+      "qInternal": 0.5269871603824025,
+      "sourceKinds": [
+        "vein",
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "heart",
+        "left-lung",
+        "right-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:arm-muscle",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 10.67492983173854,
+      "qExternal": 10.67492983173854,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:femoral-partial",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 88.94536024305556,
+      "qExternal": 0.3540843623244136,
+      "qInternal": 88.59127588073115,
+      "sourceKinds": [
+        "artery",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "left-femoral",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:inferior-vena-cava",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 73.27387001743226,
+      "qExternal": 0,
+      "qInternal": 73.27387001743226,
+      "sourceKinds": [
+        "vein",
+        "parenchymal",
+        "vein",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "abdominal-vena-cava",
+        "left-kidney",
+        "bowel",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:liver-posterior",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "rightArm",
+      "q": 0.6115578863491021,
+      "qExternal": 0.5028090691728779,
+      "qInternal": 0.10874881717622419,
+      "sourceKinds": [
+        "parenchymal",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "liver",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:liver-posterior",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w2",
+      "part": "abdomen",
+      "q": 70.07402484161396,
+      "qExternal": 0,
+      "qInternal": 70.07402484161396,
+      "sourceKinds": [
+        "parenchymal",
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "liver",
+        "hepatic-vein-trunk",
+        "abdominal-vena-cava",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:portal-crossing",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 34.86205730014093,
+      "qExternal": 0,
+      "qInternal": 34.86205730014093,
+      "sourceKinds": [
+        "vein",
+        "parenchymal",
+        "parenchymal",
+        "vein",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "portal-vein",
+        "spleen",
+        "left-kidney",
+        "bowel",
+        "liver",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:portal-crossing",
+      "ammoId": "545_ps_gs",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w2",
+      "part": "rightArm",
+      "q": 0.641806042658993,
+      "qExternal": 0.641806042658993,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:liver-central",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 18.90612926995839,
+      "qExternal": 0,
+      "qInternal": 18.90612926995839,
+      "sourceKinds": [
+        "parenchymal",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "right-kidney",
+        "liver",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:liver-central",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w2",
+      "part": "leftArm",
+      "q": 2.026043301064867,
+      "qExternal": 2.026043301064867,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:liver-graze",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 30.14295519327588,
+      "qExternal": 0,
+      "qInternal": 30.14295519327588,
+      "sourceKinds": [
+        "vein",
+        "parenchymal",
+        "parenchymal",
+        "vein",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "hepatic-vein-trunk",
+        "right-kidney",
+        "liver",
+        "bowel",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:spleen-central",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 8.449385334097638,
+      "qExternal": 0,
+      "qInternal": 8.449385334097638,
+      "sourceKinds": [
+        "parenchymal",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "left-kidney",
+        "spleen",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:spleen-central",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w2",
+      "part": "rightArm",
+      "q": 4.021830351837239,
+      "qExternal": 4.021830351837239,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:left-kidney-central",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 8.58904046437531,
+      "qExternal": 0,
+      "qInternal": 8.58904046437531,
+      "sourceKinds": [
+        "parenchymal",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "left-kidney",
+        "spleen",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:right-kidney-central",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "rightArm",
+      "q": 14.38501659233384,
+      "qExternal": 14.38501659233384,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:right-kidney-central",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w2",
+      "part": "abdomen",
+      "q": 8.395355787926732,
+      "qExternal": 0,
+      "qInternal": 8.395355787926732,
+      "sourceKinds": [
+        "parenchymal",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "liver",
+        "right-kidney",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:carotid",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "neck",
+      "q": 10.868926670939974,
+      "qExternal": 10.868926670939974,
+      "qInternal": 0,
+      "sourceKinds": [
+        "artery",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "left-carotid",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:femoral-complete",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 88.94536024305555,
+      "qExternal": 0.32406424055328,
+      "qInternal": 88.62129600250226,
+      "sourceKinds": [
+        "artery",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "left-femoral",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:thoracic-aorta",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 83.63914692756718,
+      "qExternal": 0,
+      "qInternal": 83.63914692756718,
+      "sourceKinds": [
+        "artery",
+        "vein",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "thoracic-aorta",
+        "heart",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:heart",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "chest",
+      "q": 0.4060802066678515,
+      "qExternal": 0,
+      "qInternal": 0.4060802066678515,
+      "sourceKinds": [
+        "vein",
+        "vein",
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "heart",
+        "right-lung",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:arm-muscle",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftArm",
+      "q": 14.378801035580693,
+      "qExternal": 14.378801035580693,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:femoral-partial",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "leftLeg",
+      "q": 88.94536024305556,
+      "qExternal": 0.35233925759652196,
+      "qInternal": 88.59302098545903,
+      "sourceKinds": [
+        "artery",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "left-femoral",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:inferior-vena-cava",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 88.94536024305553,
+      "qExternal": 0,
+      "qInternal": 88.94536024305553,
+      "sourceKinds": [
+        "vein",
+        "vein",
+        "parenchymal",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "abdominal-vena-cava",
+        "bowel",
+        "liver",
+        "right-kidney",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:liver-posterior",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "rightArm",
+      "q": 10.73358959654354,
+      "qExternal": 10.73358959654354,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:liver-posterior",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w2",
+      "part": "abdomen",
+      "q": 78.21177064651201,
+      "qExternal": 0,
+      "qInternal": 78.21177064651201,
+      "sourceKinds": [
+        "vein",
+        "vein",
+        "parenchymal",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "hepatic-vein-trunk",
+        "abdominal-vena-cava",
+        "liver",
+        "right-kidney",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:portal-crossing",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w1",
+      "part": "abdomen",
+      "q": 47.497504655851834,
+      "qExternal": 0,
+      "qInternal": 47.497504655851834,
+      "sourceKinds": [
+        "vein",
+        "parenchymal",
+        "parenchymal",
+        "vein",
+        "parenchymal",
+        "capillary"
+      ],
+      "major": true,
+      "vessels": [
+        "portal-vein",
+        "spleen",
+        "left-kidney",
+        "bowel",
+        "liver",
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    },
+    {
+      "name": "single:portal-crossing",
+      "ammoId": "556_m855",
+      "distance": 5,
+      "armor": false,
+      "woundId": "w2",
+      "part": "rightArm",
+      "q": 1.8154424674414045,
+      "qExternal": 1.8154424674414045,
+      "qInternal": 0,
+      "sourceKinds": [
+        "capillary"
+      ],
+      "major": false,
+      "vessels": [
+        "muscle/capillary ooze"
+      ],
+      "arrest": false
+    }
+  ],
+  "bugs": {
+    "enemy": {
+      "player": 100,
+      "enemy": 1
+    },
+    "closeOldRecord": {
+      "reservationSurvives": false,
+      "afterClosing": "interrupted"
+    },
+    "restartOldRecord": {
+      "resumed": false,
+      "activeCount": 1
+    }
+  }
+}

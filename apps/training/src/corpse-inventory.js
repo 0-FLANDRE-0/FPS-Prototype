@@ -1,5 +1,5 @@
 import{Vector3,Group}from'three';import{EQUIPMENT,pocketOwners,pocketInfo}from'./equipment-data.js';
-import{installInitialPlates}from'./plate-inventory.js';import{IFAK,INITIAL_IFAK_CONTENTS,MEDICAL_SUPPLIES}from'./medical-supplies.js';
+import{installInitialPlates}from'./plate-inventory.js';import{createMedicalSupply,IFAK,INITIAL_IFAK_CONTENTS,MEDICAL_SUPPLIES}from'./medical-supplies.js';
 import{storageCell}from'./equipment-inventory.js';
 export const SEARCH_SECONDS={game:1,realistic:3,reality:5};
 export function canSearch(body){const m=body?.medical?.actor?.medical;return!!m&&(body.medical.actor.isDead||m.isDead||m.isUnconscious);}
@@ -11,7 +11,7 @@ export function createEnemyItems(inv,enemy,forced='random'){
  const gun=add({instanceId:id+':gun',kind:'weapon',definitionId:'ak74m',owner:'actor:'+id+':weapon',magazineId:id+':mag-0',chamber:'545_ps_gs',boltLocked:false,fireMode:'full'});add({instanceId:gun.magazineId,kind:'magazine',definitionId:'ak_545_30',owner:'weapon:'+gun.instanceId,rounds:Array(29).fill('545_ps_gs')});
  for(let n=1;n<=4;n++)add({instanceId:id+':mag-'+n,kind:'magazine',definitionId:'ak_545_30',owner:pocketOwners(n===4?'belt':'rig',slots[n===4?'belt':'rig'])[n===4?1:n+2],cell:{x:0,y:0},rounds:Array(30).fill('545_ps_gs')});
  const kit=add({instanceId:id+':ifak',kind:'medicalContainer',definitionId:IFAK.id,owner:pocketOwners('rig',slots.rig)[7],cell:{x:0,y:0}});
- for(const[n,[definitionId,x,y]]of INITIAL_IFAK_CONTENTS.entries()){const d=MEDICAL_SUPPLIES[definitionId];add({instanceId:id+':medical-'+n,kind:'medicalSupply',definitionId,owner:'container:'+kit.instanceId,cell:{x,y},remaining:d.units});}
+ for(const[n,[definitionId,x,y]]of INITIAL_IFAK_CONTENTS.entries()){const d=MEDICAL_SUPPLIES[definitionId];add(createMedicalSupply(id+':medical-'+n,definitionId,'container:'+kit.instanceId,{x,y}));}
  enemy.actor.loadWeightKg=Object.values(slots).reduce((n,id)=>n+inv.itemWeightKg(inv.items.get(id)),0)+inv.itemWeightKg(gun);enemy.equipmentSlots=slots;enemy.weaponItemId=gun.instanceId;enemy.plateChoice={plateId,roll,forced,tuning:'two existing LCG samples summed modulo1, 50:50 threshold; forced choice consumes same two samples'};inv.changed();return slots;
 }
 export function enemyFireInventory(inv,e){const gun=inv.items.get(e.weaponItemId),mag=inv.items.get(gun?.magazineId);gun.chamber=null;if(mag?.rounds.length)gun.chamber=mag.rounds.pop();gun.boltLocked=!gun.chamber;e.rounds=(mag?.rounds.length||0)+(gun.chamber?1:0);inv.revision++;}

@@ -17,10 +17,5 @@ export const extraDuration=(kind,mode)=>m4bDuration(kind,mode)??M4C.profiles[mod
 export function careDuration(kind,partKey,p,mode){return kind==='cat'?p.catSeconds[partKey?.endsWith('Arm')?'arm':'leg']:kind==='bandage'?p.bandageSeconds:kind==='gauze'?p.gauzePackingSeconds+p.gauzePressureSeconds:extraDuration(kind,mode);}
 // One pack may represent several units, with the same mass/footprint (game allowance).
 // Depleted packs retain a non-spatial stock ledger so changing mode cannot refill uses.
-export function syncMedicalUses(inv,mode){
- mode=validCareMode(mode);inv.treatmentMode=mode;inv.medicalStock??=new Map();
- for(const item of inv.items.values())if(item.kind==='medicalSupply'&&item.definitionId!=='cat'&&!inv.medicalStock.has(item.instanceId))inv.medicalStock.set(item.instanceId,{template:structuredClone(item),used:0});
- for(const[id,stock]of inv.medicalStock){if(stock.template.definitionId==='bandage'){const item=inv.items.get(id);if(item)initBandageResource(item);stock.resourceRuleId=BANDAGE.ruleId;continue;}const max=useLimit(stock.template.definitionId,mode),remaining=Math.max(0,max-stock.used),item=inv.items.get(id);stock.maximum=max;if(item&&!item.owner.startsWith('treatment:')){stock.template=structuredClone(item);item.remaining=remaining;item.maximumUses=max;item.used=stock.used;if(!remaining)inv.items.delete(id);}else if(!item&&remaining){const restored={...structuredClone(stock.template),remaining,maximumUses:max,used:stock.used};let cell=inv.findCell(restored.owner,restored);if(!cell){restored.owner='bag';cell=inv.findCell('bag',restored);}if(cell){restored.cell=cell;inv.items.set(id,restored);}}}
- inv.changed();
-}
+export function syncMedicalUses(){return true;}
 export function consumeMedicalUse(inv,item){const stock=inv.medicalStock?.get(item.instanceId);if(stock){stock.template=structuredClone(item);stock.used++;item.used=stock.used;}item.remaining=Math.max(0,item.remaining-1);if(!item.remaining)inv.items.delete(item.instanceId);}

@@ -1,6 +1,7 @@
+import{referenceFlow}from'./medical-reference-flow.js';
 import{MO2,GAUZE_KINDS,productRule,TEMPORARY_CARE}from'./medical-mo2-policy.js';
 import{careTiming,treatments,activeTreatment,careTime}from'./medical-care-state.js';
-import{bandageActive,gauzeComplete,remainingWork,ensureWoundWork,applyGauze,preFlow}from'./medical-hemostasis.js';
+import{bandageActive,gauzeComplete,remainingWork,ensureWoundWork,applyGauze}from'./medical-hemostasis.js';
 import{tourniquetOn}from'./medical-tourniquet.js';
 import{medicalReserved,releaseMedicalReservation}from'./medical-reservations.js';
 import{startPartRecovery}from'./medical-part-recovery.js';
@@ -30,7 +31,7 @@ export class SelfCare{
   }
   if(kind==='bandage'||GAUZE_KINDS.includes(kind)){
    if(!w)return{allowed:false,reason:'상처 하나를 선택하세요.'};
-   const linked=(m.bleedSources||[]).filter(s=>s.woundIds.includes(w.id)),surface=medicalSurfaces(this.getMedical()).find(s=>s.woundId===w.id),q=preFlow(m,w);
+   const linked=(m.bleedSources||[]).filter(s=>s.woundIds.includes(w.id)),surface=medicalSurfaces(this.getMedical()).find(s=>s.woundId===w.id);
    if(kind==='bandage'){
     if(bandageActive(w))return{allowed:false,reason:'이 상처에는 이미 붕대를 감았습니다.'};
     if(w.care?.components?.some(c=>c.workDone>0)&&!gauzeComplete(w))return{allowed:false,reason:'거즈류 처치를 완료한 뒤 붕대로 마무리하세요.'};
@@ -42,7 +43,7 @@ export class SelfCare{
     if(kind==='gauze'&&linked.length&&!surface?.entry)return{allowed:false,reason:'거즈를 넣을 피부 입구가 확인되지 않았습니다.'};
     if(remainingWork(m,w,kind)<=1e-9)return{allowed:false,reason:'이 제품의 범위에는 남은 처치 필요량이 없습니다. 체강에는 주입기·폼을 사용하세요.'};
    }
-   return{allowed:true,kind,partKey,timing,target:{kind:'wound',partKey,woundId:w.id},grade:q.q0>MO2.bandageQ?'과다출혈':'일반 출혈'};
+   return{allowed:true,kind,partKey,timing,target:{kind:'wound',partKey,woundId:w.id},grade:referenceFlow(w).total>MO2.bandageQ?'과다출혈':'일반 출혈'};
   }
   if(kind==='seal'){
    if(!w?.chestTraumaModel?.openChestWound)return{allowed:false,reason:'열린 가슴 상처를 선택하세요.'};const holes=chestSides(w).flatMap(side=>chestOpenings(this.getMedical(),side)).filter(h=>h.woundId===w.id);
@@ -107,11 +108,11 @@ export class SelfCare{
   if(t.kind==='cat-remove'){
    const old=this.list.find(x=>x.id===t.priorId),dest=old&&this.returnPlace(old);if(!old||!dest)return this.interrupt('회수 공간이 없어 지혈대를 유지합니다.');item.owner=dest.owner;item.cell={...dest.cell};old.status='removed';old.removedAtS=time;
   }else if(t.kind==='unwrap'){
-   w.care.bandage.active=false;w.care.unwrappedCapacity=w.care.bandage.finishing?0:MO2.bandageQ*MO2.unwrapRetainedBlock;const old=this.list.find(x=>x.id===t.originalBandageId);if(old){old.status='removed';old.removedAtS=time;}
+   w.care.bandage.active=false;w.care.unwrappedFraction=w.care.bandage.finishing?0:Math.min(1,MO2.bandageQ/Math.max(1e-30,referenceFlow(w).external))*MO2.unwrapRetainedBlock;const old=this.list.find(x=>x.id===t.originalBandageId);if(old){old.status='removed';old.removedAtS=time;}
   }else if(t.kind==='cat'){
    if(tourniquetOn(m,t.target.partKey))return this.interrupt('이미 지혈대가 장착돼 있습니다.');item.owner='treatment:'+t.id;delete item.cell;t.consumedUnits=0;
   }else if(t.kind==='bandage'){
-   if(bandageActive(w)){t.consumedUnits=0;}else{item.remaining--;t.consumedUnits=1;w.care??={ruleId:MO2.ruleId};w.care.bandage={active:true,finishing:gauzeComplete(w),appliedAtS:time,recordId:t.id};w.care.unwrappedCapacity=0;if(gauzeComplete(w))w.care.seepUntilS=0;}
+   if(bandageActive(w)){t.consumedUnits=0;}else{item.remaining--;t.consumedUnits=1;w.care??={ruleId:MO2.ruleId};w.care.bandage={active:true,finishing:gauzeComplete(w),appliedAtS:time,recordId:t.id};w.care.unwrappedFraction=0;if(gauzeComplete(w))w.care.seepUntilS=0;}
   }else if(GAUZE_KINDS.includes(t.kind)){
    if(bandageActive(w))return this.interrupt('붕대를 먼저 풀어야 합니다.');t.consumedUnits=applyGauze(m,w,item,time);
   }else if(M4B_KINDS.includes(t.kind))finishDrugOrBlood(this.getMedical(),t,inv);

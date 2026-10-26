@@ -1,5 +1,7 @@
 # MO2 — 지혈·회복 조건·단일 처치 정책
 
+> `efeda39` 당시 구현 기록이다. 등급·붕대 비율·내구도·움직임 확률은 [MO2b](mo2b-reference-flow.md)가 대체한다. 아래 수치/캡처/대장은 당시 기준으로 보존했다. 옛 검사 스크립트는 `docs/history/mo2b-superseded/`에 보관한다.
+
 `feature/medical-overhaul`, 기준 `01eb585`. [사용자 지시서](mo2-instructions.md)를 적용한 **의료 개편의 중간 단계**다. main에 병합하거나 전체 개편 완료판으로 배포하지 않는다. [대장](mo2-ledger.json), [옛 값 처분표](mo2-mode-disposition.md), [수치 원자료](mo2-numerical-results.json)를 함께 본다.
 
 ## 실제 동작

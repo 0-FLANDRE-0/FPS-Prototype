@@ -1,0 +1,1621 @@
+{
+  "stage": "MO2b",
+  "complete": false,
+  "status": "Implementation measured; final source-commit build/regression pending",
+  "baselineCommit": "efeda39c10ff412ec353231ca5071739e0af2c54",
+  "referenceCirculation": {
+    "mapMmHg": 93,
+    "cardiacOutputMlMin": 5250,
+    "classification": "원본 S1 기준 순환 / 사용자 설계값: 생성 시 고정 Qref"
+  },
+  "distributions": {
+    "matchedMO2": {
+      "groups": {
+        "major": {
+          "n": 47,
+          "min": 10.22192217106387,
+          "p25": 47.143249750284,
+          "p50": 87.5,
+          "p75": 87.5,
+          "p90": 87.5,
+          "max": 87.5,
+          "heavy": 45
+        },
+        "other": {
+          "n": 187,
+          "min": 0.6069786245291423,
+          "p25": 3.2367142759959258,
+          "p50": 10.2,
+          "p75": 14.34,
+          "p90": 26.35,
+          "max": 42.77,
+          "heavy": 24
+        }
+      },
+      "thresholds": [
+        {
+          "q": 15,
+          "majorHeavyFraction": 0.9574468085106383,
+          "otherNormalFraction": 0.7700534759358288
+        },
+        {
+          "q": 20,
+          "majorHeavyFraction": 0.9574468085106383,
+          "otherNormalFraction": 0.8716577540106952
+        },
+        {
+          "q": 25,
+          "majorHeavyFraction": 0.9148936170212766,
+          "otherNormalFraction": 0.8823529411764706
+        },
+        {
+          "q": 30,
+          "majorHeavyFraction": 0.8723404255319149,
+          "otherNormalFraction": 0.946524064171123
+        }
+      ]
+    },
+    "allPositiveReferences": {
+      "groups": {
+        "major": {
+          "n": 47,
+          "min": 10.22192217106387,
+          "p25": 47.143249750284,
+          "p50": 87.5,
+          "p75": 87.5,
+          "p90": 87.5,
+          "max": 87.5,
+          "heavy": 45
+        },
+        "other": {
+          "n": 203,
+          "min": 0.6069786245291423,
+          "p25": 3.45,
+          "p50": 9.67,
+          "p75": 14.34,
+          "p90": 26.11,
+          "max": 42.77,
+          "heavy": 24
+        }
+      },
+      "thresholds": [
+        {
+          "q": 15,
+          "majorHeavyFraction": 0.9574468085106383,
+          "otherNormalFraction": 0.7881773399014779
+        },
+        {
+          "q": 20,
+          "majorHeavyFraction": 0.9574468085106383,
+          "otherNormalFraction": 0.8817733990147784
+        },
+        {
+          "q": 25,
+          "majorHeavyFraction": 0.9148936170212766,
+          "otherNormalFraction": 0.8916256157635468
+        },
+        {
+          "q": 30,
+          "majorHeavyFraction": 0.8723404255319149,
+          "otherNormalFraction": 0.9507389162561576
+        }
+      ]
+    }
+  },
+  "movement": [
+    {
+      "name": "rest",
+      "trials": 500,
+      "seconds": 30,
+      "seepTrials": 0,
+      "reopenTrials": 0,
+      "eventSeep": 0,
+      "eventReopen": 0,
+      "seepTrialRate": 0,
+      "reopenTrialRate": 0,
+      "samples": [
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "name": "crouch",
+      "trials": 500,
+      "seconds": 30,
+      "seepTrials": 0,
+      "reopenTrials": 0,
+      "eventSeep": 0,
+      "eventReopen": 0,
+      "seepTrialRate": 0,
+      "reopenTrialRate": 0,
+      "samples": [
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "name": "walk",
+      "trials": 500,
+      "seconds": 30,
+      "seepTrials": 225,
+      "reopenTrials": 35,
+      "eventSeep": 260,
+      "eventReopen": 35,
+      "seepTrialRate": 0.45,
+      "reopenTrialRate": 0.07,
+      "samples": [
+        [
+          {
+            "kind": "reopen",
+            "time": 11.333333333333334
+          }
+        ],
+        [],
+        [
+          {
+            "kind": "seep",
+            "time": 8.233333333333333
+          }
+        ]
+      ]
+    },
+    {
+      "name": "run",
+      "trials": 500,
+      "seconds": 30,
+      "seepTrials": 275,
+      "reopenTrials": 300,
+      "eventSeep": 347,
+      "eventReopen": 300,
+      "seepTrialRate": 0.55,
+      "reopenTrialRate": 0.6,
+      "samples": [
+        [
+          {
+            "kind": "reopen",
+            "time": 11.333333333333334
+          }
+        ],
+        [
+          {
+            "kind": "seep",
+            "time": 1.0666666666666667
+          },
+          {
+            "kind": "reopen",
+            "time": 1.75
+          }
+        ],
+        [
+          {
+            "kind": "seep",
+            "time": 8.233333333333333
+          },
+          {
+            "kind": "reopen",
+            "time": 14.666666666666666
+          }
+        ]
+      ]
+    },
+    {
+      "name": "walkWrapped",
+      "trials": 500,
+      "seconds": 30,
+      "seepTrials": 0,
+      "reopenTrials": 0,
+      "eventSeep": 0,
+      "eventReopen": 0,
+      "seepTrialRate": 0,
+      "reopenTrialRate": 0,
+      "samples": [
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "name": "runWrapped",
+      "trials": 500,
+      "seconds": 30,
+      "seepTrials": 0,
+      "reopenTrials": 0,
+      "eventSeep": 0,
+      "eventReopen": 0,
+      "seepTrialRate": 0,
+      "reopenTrialRate": 0,
+      "samples": [
+        [],
+        [],
+        []
+      ]
+    }
+  ],
+  "representatives": [
+    {
+      "name": "lung-only",
+      "part": "chest",
+      "ammo": "545_ps_gs",
+      "reference": {
+        "total": 1.052562825437858,
+        "external": 0.5,
+        "limbInternal": 0,
+        "cavity": 0.5525628254378581
+      },
+      "requiredWork": 21.84213002603196,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": false,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 33,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 21.84213002603196,
+          "allRangesCovered": true,
+          "resourceForWound": 21.84213002603196,
+          "woundsPerFullItem": 8,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 21.84213002603196,
+          "allRangesCovered": true,
+          "resourceForWound": 21.84213002603196,
+          "woundsPerFullItem": 16,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "organ-bed/heart|0|cavity",
+          "sourceId": "organ-bed/heart",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 1.2315043202071987,
+          "requiredWork": 3.694512960621596,
+          "workDone": 0
+        },
+        {
+          "id": "organ-bed/left-lung|0|cavity",
+          "sourceId": "organ-bed/left-lung",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 3.586197048055724,
+          "requiredWork": 10.758591144167173,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver",
+      "part": "leftArm",
+      "ammo": "545_ps_gs",
+      "reference": {
+        "total": 10.66,
+        "external": 10.66,
+        "limbInternal": 0,
+        "cavity": 0
+      },
+      "requiredWork": 7.389025921243192,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 33,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 24,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 47,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver",
+      "part": "abdomen",
+      "ammo": "545_ps_gs",
+      "reference": {
+        "total": 5.2142559011850365,
+        "external": 0.5,
+        "limbInternal": 0,
+        "cavity": 4.7142559011850365
+      },
+      "requiredWork": 45.70193950805256,
+      "products": {
+        "gauze": {
+          "eligibleWork": 3.694512960621596,
+          "allRangesCovered": false,
+          "resourceForWound": 3.694512960621596,
+          "woundsPerFullItem": 67,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 45.70193950805256,
+          "allRangesCovered": true,
+          "resourceForWound": 45.70193950805256,
+          "woundsPerFullItem": 3,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 45.70193950805256,
+          "allRangesCovered": true,
+          "resourceForWound": 45.70193950805256,
+          "woundsPerFullItem": 7,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "parenchymal/spleen|0|cavity",
+          "sourceId": "parenchymal/spleen",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 6.76665960932564,
+          "requiredWork": 20.299978827976922,
+          "workDone": 0
+        },
+        {
+          "id": "parenchymal/liver|0|cavity",
+          "sourceId": "parenchymal/liver",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 7.235815906484682,
+          "requiredWork": 21.707447719454045,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w2|0|external",
+          "sourceId": "ooze/w2",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 1.2315043202071987,
+          "requiredWork": 3.694512960621596,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver",
+      "part": "rightArm",
+      "ammo": "545_ps_gs",
+      "reference": {
+        "total": 0.64,
+        "external": 0.64,
+        "limbInternal": 0,
+        "cavity": 0
+      },
+      "requiredWork": 3.694512960621596,
+      "products": {
+        "gauze": {
+          "eligibleWork": 3.694512960621596,
+          "allRangesCovered": true,
+          "resourceForWound": 3.694512960621596,
+          "woundsPerFullItem": 67,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 3.694512960621596,
+          "allRangesCovered": true,
+          "resourceForWound": 3.694512960621596,
+          "woundsPerFullItem": 48,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 3.694512960621596,
+          "allRangesCovered": true,
+          "resourceForWound": 3.694512960621596,
+          "woundsPerFullItem": 94,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "ooze/w3|0|external",
+          "sourceId": "ooze/w3",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 1.2315043202071987,
+          "requiredWork": 3.694512960621596,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "femoral-artery",
+      "part": "leftLeg",
+      "ammo": "545_ps_gs",
+      "reference": {
+        "total": 87.5,
+        "external": 74.41585330766749,
+        "limbInternal": 13.084146692332506,
+        "cavity": 0
+      },
+      "requiredWork": 167.58931665186208,
+      "products": {
+        "gauze": {
+          "eligibleWork": 167.58931665186208,
+          "allRangesCovered": true,
+          "resourceForWound": 167.58931665186208,
+          "woundsPerFullItem": 1,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 167.58931665186208,
+          "allRangesCovered": true,
+          "resourceForWound": 167.58931665186208,
+          "woundsPerFullItem": 1,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 167.58931665186208,
+          "allRangesCovered": true,
+          "resourceForWound": 167.58931665186208,
+          "woundsPerFullItem": 2,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "vessel/left-femoral|0|external",
+          "sourceId": "vessel/left-femoral",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 45.39008237367535,
+          "requiredWork": 136.17024712102605,
+          "workDone": 0
+        },
+        {
+          "id": "vessel/left-femoral|0|limb",
+          "sourceId": "vessel/left-femoral",
+          "index": 0,
+          "range": "limb",
+          "originalAreaMm2": 8.010014536530944,
+          "requiredWork": 24.03004360959283,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "arm-muscle",
+      "part": "leftArm",
+      "ammo": "545_ps_gs",
+      "reference": {
+        "total": 10.66,
+        "external": 10.66,
+        "limbInternal": 0,
+        "cavity": 0
+      },
+      "requiredWork": 7.389025921243192,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 33,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 24,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 47,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "leg-muscle",
+      "part": "leftLeg",
+      "ammo": "545_ps_gs",
+      "reference": {
+        "total": 10.66,
+        "external": 10.66,
+        "limbInternal": 0,
+        "cavity": 0
+      },
+      "requiredWork": 7.389025921243192,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 33,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 24,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 47,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver-central",
+      "part": "leftArm",
+      "ammo": "545_ps_gs",
+      "reference": {
+        "total": 9.87,
+        "external": 9.87,
+        "limbInternal": 0,
+        "cavity": 0
+      },
+      "requiredWork": 7.389025921243192,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 33,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 24,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 47,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver-central",
+      "part": "abdomen",
+      "ammo": "545_ps_gs",
+      "reference": {
+        "total": 14.63929140995013,
+        "external": 0.5,
+        "limbInternal": 0,
+        "cavity": 14.13929140995013
+      },
+      "requiredWork": 31.45611571998958,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": false,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 33,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 31.45611571998958,
+          "allRangesCovered": true,
+          "resourceForWound": 31.45611571998958,
+          "woundsPerFullItem": 5,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 31.45611571998958,
+          "allRangesCovered": true,
+          "resourceForWound": 31.45611571998958,
+          "woundsPerFullItem": 11,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "organ-bed/bowel|0|cavity",
+          "sourceId": "organ-bed/bowel",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 6.487464145037112,
+          "requiredWork": 19.462392435111337,
+          "workDone": 0
+        },
+        {
+          "id": "parenchymal/liver|0|cavity",
+          "sourceId": "parenchymal/liver",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 1.534899121211684,
+          "requiredWork": 4.6046973636350526,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w2|0|external",
+          "sourceId": "ooze/w2",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver-graze",
+      "part": "leftArm",
+      "ammo": "545_ps_gs",
+      "reference": {
+        "total": 9.87,
+        "external": 9.87,
+        "limbInternal": 0,
+        "cavity": 0
+      },
+      "requiredWork": 7.389025921243192,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 33,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 24,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 47,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver-graze",
+      "part": "abdomen",
+      "ammo": "545_ps_gs",
+      "reference": {
+        "total": 13.894828629065552,
+        "external": 0.5,
+        "limbInternal": 0,
+        "cavity": 13.394828629065552
+      },
+      "requiredWork": 28.993015433976144,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": false,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 33,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 28.993015433976144,
+          "allRangesCovered": true,
+          "resourceForWound": 28.993015433976144,
+          "woundsPerFullItem": 6,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 28.993015433976144,
+          "allRangesCovered": true,
+          "resourceForWound": 28.993015433976144,
+          "woundsPerFullItem": 12,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "parenchymal/liver|0|cavity",
+          "sourceId": "parenchymal/liver",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 7.20132983757765,
+          "requiredWork": 21.60398951273295,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w2|0|external",
+          "sourceId": "ooze/w2",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "femoral-complete",
+      "part": "leftLeg",
+      "ammo": "545_ps_gs",
+      "reference": {
+        "total": 87.5,
+        "external": 74.41585330766749,
+        "limbInternal": 13.084146692332506,
+        "cavity": 0
+      },
+      "requiredWork": 167.58931665186208,
+      "products": {
+        "gauze": {
+          "eligibleWork": 167.58931665186208,
+          "allRangesCovered": true,
+          "resourceForWound": 167.58931665186208,
+          "woundsPerFullItem": 1,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 167.58931665186208,
+          "allRangesCovered": true,
+          "resourceForWound": 167.58931665186208,
+          "woundsPerFullItem": 1,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 167.58931665186208,
+          "allRangesCovered": true,
+          "resourceForWound": 167.58931665186208,
+          "woundsPerFullItem": 2,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "vessel/left-femoral|0|external",
+          "sourceId": "vessel/left-femoral",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 45.39008237367535,
+          "requiredWork": 136.17024712102605,
+          "workDone": 0
+        },
+        {
+          "id": "vessel/left-femoral|0|limb",
+          "sourceId": "vessel/left-femoral",
+          "index": 0,
+          "range": "limb",
+          "originalAreaMm2": 8.010014536530944,
+          "requiredWork": 24.03004360959283,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "arm-muscle",
+      "part": "leftArm",
+      "ammo": "545_ps_gs",
+      "reference": {
+        "total": 10.66,
+        "external": 10.66,
+        "limbInternal": 0,
+        "cavity": 0
+      },
+      "requiredWork": 7.389025921243192,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 33,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 24,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 47,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "femoral-partial",
+      "part": "leftLeg",
+      "ammo": "545_ps_gs",
+      "reference": {
+        "total": 87.5,
+        "external": 74.4273189399754,
+        "limbInternal": 13.072681060024603,
+        "cavity": 0
+      },
+      "requiredWork": 132.37199844543645,
+      "products": {
+        "gauze": {
+          "eligibleWork": 132.37199844543645,
+          "allRangesCovered": true,
+          "resourceForWound": 132.37199844543645,
+          "woundsPerFullItem": 1,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 132.37199844543645,
+          "allRangesCovered": true,
+          "resourceForWound": 132.37199844543645,
+          "woundsPerFullItem": 1,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 132.37199844543645,
+          "allRangesCovered": true,
+          "resourceForWound": 132.37199844543645,
+          "woundsPerFullItem": 2,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "vessel/left-femoral|0|external",
+          "sourceId": "vessel/left-femoral",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 35.41184221518809,
+          "requiredWork": 106.23552664556426,
+          "workDone": 0
+        },
+        {
+          "id": "vessel/left-femoral|0|limb",
+          "sourceId": "vessel/left-femoral",
+          "index": 0,
+          "range": "limb",
+          "originalAreaMm2": 6.249148626209663,
+          "requiredWork": 18.747445878628987,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver-posterior",
+      "part": "rightArm",
+      "ammo": "545_ps_gs",
+      "reference": {
+        "total": 0.6069786245291423,
+        "external": 0.5,
+        "limbInternal": 0,
+        "cavity": 0.10697862452914231
+      },
+      "requiredWork": 30.063082515318897,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": false,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 33,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 30.063082515318897,
+          "allRangesCovered": true,
+          "resourceForWound": 30.063082515318897,
+          "woundsPerFullItem": 5,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 30.063082515318897,
+          "allRangesCovered": true,
+          "resourceForWound": 30.063082515318897,
+          "woundsPerFullItem": 11,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "parenchymal/liver|0|cavity",
+          "sourceId": "parenchymal/liver",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 7.558018864691902,
+          "requiredWork": 22.674056594075704,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver-posterior",
+      "part": "abdomen",
+      "ammo": "545_ps_gs",
+      "reference": {
+        "total": 69.92127327332457,
+        "external": 0.5,
+        "limbInternal": 0,
+        "cavity": 69.42127327332457
+      },
+      "requiredWork": 267.9864219934818,
+      "products": {
+        "gauze": {
+          "eligibleWork": 3.694512960621596,
+          "allRangesCovered": false,
+          "resourceForWound": 3.694512960621596,
+          "woundsPerFullItem": 67,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 267.9864219934818,
+          "allRangesCovered": true,
+          "resourceForWound": 267.9864219934818,
+          "woundsPerFullItem": 0,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 267.9864219934818,
+          "allRangesCovered": true,
+          "resourceForWound": 267.9864219934818,
+          "woundsPerFullItem": 1,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "parenchymal/liver|1|cavity",
+          "sourceId": "parenchymal/liver",
+          "index": 1,
+          "range": "cavity",
+          "originalAreaMm2": 1.318795189669255,
+          "requiredWork": 3.9563855690077645,
+          "workDone": 0
+        },
+        {
+          "id": "vessel/hepatic-vein-trunk|0|cavity",
+          "sourceId": "vessel/hepatic-vein-trunk",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 0.756335360322929,
+          "requiredWork": 2.2690060809687873,
+          "workDone": 0
+        },
+        {
+          "id": "vessel/abdominal-vena-cava|0|cavity",
+          "sourceId": "vessel/abdominal-vena-cava",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 86.02217246096124,
+          "requiredWork": 258.0665173828837,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w2|0|external",
+          "sourceId": "ooze/w2",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 1.2315043202071987,
+          "requiredWork": 3.694512960621596,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver-central",
+      "part": "abdomen",
+      "ammo": "556_m855",
+      "reference": {
+        "total": 18.602569005871857,
+        "external": 0.5,
+        "limbInternal": 0,
+        "cavity": 18.102569005871857
+      },
+      "requiredWork": 19.613576931915638,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.65527589863493,
+          "allRangesCovered": false,
+          "resourceForWound": 7.65527589863493,
+          "woundsPerFullItem": 32,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 19.613576931915638,
+          "allRangesCovered": true,
+          "resourceForWound": 19.613576931915638,
+          "woundsPerFullItem": 9,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 19.613576931915638,
+          "allRangesCovered": true,
+          "resourceForWound": 19.613576931915638,
+          "woundsPerFullItem": 17,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "parenchymal/right-kidney|0|cavity",
+          "sourceId": "parenchymal/right-kidney",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 1.2758793164391549,
+          "requiredWork": 3.827637949317465,
+          "workDone": 0
+        },
+        {
+          "id": "parenchymal/liver|0|cavity",
+          "sourceId": "parenchymal/liver",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 2.710221027987748,
+          "requiredWork": 8.130663083963244,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.5517586328783097,
+          "requiredWork": 7.65527589863493,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver-central",
+      "part": "leftArm",
+      "ammo": "556_m855",
+      "reference": {
+        "total": 2.02,
+        "external": 2.02,
+        "limbInternal": 0,
+        "cavity": 0
+      },
+      "requiredWork": 3.827637949317465,
+      "products": {
+        "gauze": {
+          "eligibleWork": 3.827637949317465,
+          "allRangesCovered": true,
+          "resourceForWound": 3.827637949317465,
+          "woundsPerFullItem": 65,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 3.827637949317465,
+          "allRangesCovered": true,
+          "resourceForWound": 3.827637949317465,
+          "woundsPerFullItem": 47,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 3.827637949317465,
+          "allRangesCovered": true,
+          "resourceForWound": 3.827637949317465,
+          "woundsPerFullItem": 91,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "ooze/w2|0|external",
+          "sourceId": "ooze/w2",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 1.2758793164391549,
+          "requiredWork": 3.827637949317465,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver-graze",
+      "part": "abdomen",
+      "ammo": "556_m855",
+      "reference": {
+        "total": 29.834690441437175,
+        "external": 0.5,
+        "limbInternal": 0,
+        "cavity": 29.334690441437175
+      },
+      "requiredWork": 67.30620439852511,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.65527589863493,
+          "allRangesCovered": false,
+          "resourceForWound": 7.65527589863493,
+          "woundsPerFullItem": 32,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 67.30620439852511,
+          "allRangesCovered": true,
+          "resourceForWound": 67.30620439852511,
+          "woundsPerFullItem": 2,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 67.30620439852511,
+          "allRangesCovered": true,
+          "resourceForWound": 67.30620439852511,
+          "woundsPerFullItem": 5,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "vessel/hepatic-vein-trunk|0|cavity",
+          "sourceId": "vessel/hepatic-vein-trunk",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 13.919894042719065,
+          "requiredWork": 41.759682128157195,
+          "workDone": 0
+        },
+        {
+          "id": "parenchymal/right-kidney|0|cavity",
+          "sourceId": "parenchymal/right-kidney",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 1.2758793164391549,
+          "requiredWork": 3.827637949317465,
+          "workDone": 0
+        },
+        {
+          "id": "parenchymal/liver|0|cavity",
+          "sourceId": "parenchymal/liver",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 1.275879316439156,
+          "requiredWork": 3.827637949317468,
+          "workDone": 0
+        },
+        {
+          "id": "organ-bed/bowel|0|cavity",
+          "sourceId": "organ-bed/bowel",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 3.411990157699352,
+          "requiredWork": 10.235970473098057,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.5517586328783097,
+          "requiredWork": 7.65527589863493,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "femoral-complete",
+      "part": "leftLeg",
+      "ammo": "556_m855",
+      "reference": {
+        "total": 87.5,
+        "external": 74.42281869786822,
+        "limbInternal": 13.077181302131779,
+        "cavity": 0
+      },
+      "requiredWork": 144.44753410679505,
+      "products": {
+        "gauze": {
+          "eligibleWork": 144.44753410679505,
+          "allRangesCovered": true,
+          "resourceForWound": 144.44753410679505,
+          "woundsPerFullItem": 1,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 144.44753410679505,
+          "allRangesCovered": true,
+          "resourceForWound": 144.44753410679505,
+          "woundsPerFullItem": 1,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 144.44753410679505,
+          "allRangesCovered": true,
+          "resourceForWound": 144.44753410679505,
+          "woundsPerFullItem": 2,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "vessel/left-femoral|0|external",
+          "sourceId": "vessel/left-femoral",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 38.757806492312035,
+          "requiredWork": 116.27341947693611,
+          "workDone": 0
+        },
+        {
+          "id": "vessel/left-femoral|0|limb",
+          "sourceId": "vessel/left-femoral",
+          "index": 0,
+          "range": "limb",
+          "originalAreaMm2": 6.839612910408007,
+          "requiredWork": 20.51883873122402,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.5517586328783097,
+          "requiredWork": 7.65527589863493,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "arm-muscle",
+      "part": "leftArm",
+      "ammo": "556_m855",
+      "reference": {
+        "total": 14.34,
+        "external": 14.34,
+        "limbInternal": 0,
+        "cavity": 0
+      },
+      "requiredWork": 7.65527589863493,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.65527589863493,
+          "allRangesCovered": true,
+          "resourceForWound": 7.65527589863493,
+          "woundsPerFullItem": 32,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 7.65527589863493,
+          "allRangesCovered": true,
+          "resourceForWound": 7.65527589863493,
+          "woundsPerFullItem": 23,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 7.65527589863493,
+          "allRangesCovered": true,
+          "resourceForWound": 7.65527589863493,
+          "woundsPerFullItem": 45,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.5517586328783097,
+          "requiredWork": 7.65527589863493,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "femoral-partial",
+      "part": "leftLeg",
+      "ammo": "556_m855",
+      "reference": {
+        "total": 87.5,
+        "external": 74.42706108744883,
+        "limbInternal": 13.072938912551162,
+        "cavity": 0
+      },
+      "requiredWork": 133.2597520272874,
+      "products": {
+        "gauze": {
+          "eligibleWork": 133.2597520272874,
+          "allRangesCovered": true,
+          "resourceForWound": 133.2597520272874,
+          "woundsPerFullItem": 1,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 133.2597520272874,
+          "allRangesCovered": true,
+          "resourceForWound": 133.2597520272874,
+          "woundsPerFullItem": 1,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 133.2597520272874,
+          "allRangesCovered": true,
+          "resourceForWound": 133.2597520272874,
+          "woundsPerFullItem": 2,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "vessel/left-femoral|0|external",
+          "sourceId": "vessel/left-femoral",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 35.587934903118196,
+          "requiredWork": 106.76380470935459,
+          "workDone": 0
+        },
+        {
+          "id": "vessel/left-femoral|0|limb",
+          "sourceId": "vessel/left-femoral",
+          "index": 0,
+          "range": "limb",
+          "originalAreaMm2": 6.280223806432622,
+          "requiredWork": 18.840671419297866,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.5517586328783097,
+          "requiredWork": 7.65527589863493,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver-posterior",
+      "part": "rightArm",
+      "ammo": "556_m855",
+      "reference": {
+        "total": 8.343026984500211,
+        "external": 8.343026984500211,
+        "limbInternal": 0,
+        "cavity": 0
+      },
+      "requiredWork": 7.65527589863493,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.65527589863493,
+          "allRangesCovered": true,
+          "resourceForWound": 7.65527589863493,
+          "woundsPerFullItem": 32,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 7.65527589863493,
+          "allRangesCovered": true,
+          "resourceForWound": 7.65527589863493,
+          "woundsPerFullItem": 23,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 7.65527589863493,
+          "allRangesCovered": true,
+          "resourceForWound": 7.65527589863493,
+          "woundsPerFullItem": 45,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.5517586328783097,
+          "requiredWork": 7.65527589863493,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver-posterior",
+      "part": "abdomen",
+      "ammo": "556_m855",
+      "reference": {
+        "total": 79.15697301549979,
+        "external": 0.29090052247211334,
+        "limbInternal": 0,
+        "cavity": 78.86607249302767
+      },
+      "requiredWork": 542.3853566095554,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.65527589863493,
+          "allRangesCovered": false,
+          "resourceForWound": 7.65527589863493,
+          "woundsPerFullItem": 32,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 542.3853566095554,
+          "allRangesCovered": true,
+          "resourceForWound": 542.3853566095554,
+          "woundsPerFullItem": 0,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 542.3853566095554,
+          "allRangesCovered": true,
+          "resourceForWound": 542.3853566095554,
+          "woundsPerFullItem": 0,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "vessel/hepatic-vein-trunk|0|cavity",
+          "sourceId": "vessel/hepatic-vein-trunk",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 23.975512091454114,
+          "requiredWork": 71.92653627436235,
+          "workDone": 0
+        },
+        {
+          "id": "vessel/abdominal-vena-cava|0|cavity",
+          "sourceId": "vessel/abdominal-vena-cava",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 143.6645406944309,
+          "requiredWork": 430.99362208329273,
+          "workDone": 0
+        },
+        {
+          "id": "parenchymal/liver|0|cavity",
+          "sourceId": "parenchymal/liver",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 5.095863627406897,
+          "requiredWork": 15.287590882220691,
+          "workDone": 0
+        },
+        {
+          "id": "parenchymal/right-kidney|0|cavity",
+          "sourceId": "parenchymal/right-kidney",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 5.507443823681567,
+          "requiredWork": 16.5223314710447,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w2|0|external",
+          "sourceId": "ooze/w2",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.5517586328783097,
+          "requiredWork": 7.65527589863493,
+          "workDone": 0
+        }
+      ]
+    }
+  ]
+}

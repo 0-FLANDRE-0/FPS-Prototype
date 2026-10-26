@@ -30,3 +30,10 @@ export function limbRoutingState(m){const t=tables.get(m);return{ruleId:LIMB_ROU
 export function observedExternalSources(m){const t=tables.get(m);return(m.bleedSources||[]).map(s=>{const r=t?.sources.get(s.id);return r?{...s,destination:'external',flowMlPerS:r.externalFlowMlPerS,cumulativeMl:r.externalMl}:oozeSplits.get(m)?.has(s.id)&&s.destination!=='external'?{...s,destination:'external',flowMlPerS:oozeSplits.get(m).get(s.id).externalFlowMlPerS,cumulativeMl:oozeSplits.get(m).get(s.id).externalMl}:s;});}
 
 export const limbOpeningFact=(m,id)=>tables.get(m)?.openings.get(id)||null;
+
+// Reference-flow evaluation copies the anatomical opening/compartment state at
+// birth; it never changes the live limb or copies treatment flow plans.
+export function copyLimbRoutingState(from,to){
+ const source=tables.get(from);if(!source)return;
+ tables.set(to,{openings:new Map([...source.openings].map(([id,o])=>[id,{...o}])),compartments:new Map([...source.compartments].map(([id,c])=>[id,{...c}])),sources:new Map(),timeS:source.timeS});
+}

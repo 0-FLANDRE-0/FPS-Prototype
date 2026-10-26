@@ -1,3 +1,5 @@
+import{captureReferenceFlows}from'./medical-b1-reference.js';
+import{referenceFlow}from'./medical-reference-flow.js';
 import{stepCareMovement}from'./medical-hemostasis.js';
 import{stepDrugsAndBlood,createDrugSlots,careSafetyAfter}from'./medical-care-drugs.js';
 import{setCareTime,systemicCarePain}from'./medical-care-systemic.js';
@@ -30,6 +32,7 @@ export function medicalObservation(actor,time){
 }
 export class TrainingMedical {
   constructor({medicalModel='v2',targetId='H01',team='enemy'}={}){this.targetId=targetId;this.team=team;this.medicalModel=medicalModel;this.reset();}
+  get referenceFlows(){return this.actor.medical.wounds.map(w=>({woundId:w.id,...referenceFlow(w)}));}
   get limbRouting(){return limbRoutingState(this.actor.medical);}
   get surfaceRecords(){return medicalSurfaces(this);}
   setMedicalModel(model){if(!['legacy','v2'].includes(model))throw Error('Unknown medical model');if(model!==this.medicalModel){this.medicalModel=model;this.reset();}}
@@ -130,6 +133,7 @@ export class TrainingMedical {
         this.events.push(record);records.push(record);
       }
     }
+    if(this.medicalModel==='v2')captureReferenceFlows(this.actor);
     this.current=null;
     if(this.events.length>256)this.events.splice(0,this.events.length-256);
     this.activity.recordWounds();return structuredClone(records);
@@ -158,7 +162,7 @@ export class TrainingMedical {
       bluntCouplingProxy:transfer,bluntSource:'original applyOutcome(BLOCK), deflected; projectile energy-loss coupling proxy',
       damageEvent:structuredClone(this.actor.medical._lastDamageEvent||null)};
   }
-  tick(dt,time,active=true){if(!active)return;setCareTime(this.actor.medical,time);setLimbRoutingTime(this.actor.medical,time);this.time=time;this.legacy.setTime(time);this.activity.step(dt,time);stepCareMovement(this,dt);
+  tick(dt,time,active=true){if(!active)return;if(this.medicalModel==='v2')captureReferenceFlows(this.actor);setCareTime(this.actor.medical,time);setLimbRoutingTime(this.actor.medical,time);this.time=time;this.legacy.setTime(time);this.activity.step(dt,time);stepCareMovement(this,dt);
     if(!this.actor.isDead&&(this.actor.alive||this.actor.isDowned)){
       stepDrugsAndBlood(this,dt);systemicCarePain(this.actor.medical);careClinicalBefore(this.actor.medical);
       this.legacy.tickUnitMedicalBefore(this.actor,dt);

@@ -1,3 +1,4 @@
+import{referenceFlow}from'./medical-reference-flow.js';
 import{MO2,GAUZE_KINDS}from'./medical-mo2-policy.js';
 import{carePlans,oozeSplits,careTime,treatments}from'./medical-care-state.js';
 import{limbRouteFractions,limbOpeningFact}from'./medical-routing.js';
@@ -18,20 +19,21 @@ export function prepareCareFlows(m,cap,before,dt){
  const raw=m.bleedSources.reduce((n,s)=>n+s.rawFlowMlPerS,0),scale=raw>cap&&raw>0?cap/raw:1,available=dt>0&&raw*scale*dt>before?before/(raw*scale*dt):1;
  const table={sources:new Map(),wounds:new Map(),scale,available};
  for(const s of m.bleedSources){const rows=sourceRows(m,s).map((r,index)=>({...r,index,preFlow:s.rawFlowMlPerS*scale*available*r.share}));table.sources.set(s.id,rows);
-  for(const r of rows){const w=table.wounds.get(r.woundId)||{q0:0,external:0,internal:0};w.q0+=r.preFlow;w.external+=r.preFlow*(1-r.internalFraction);w.internal+=r.preFlow*r.internalFraction;table.wounds.set(r.woundId,w);}}
+  for(const r of rows){const w=table.wounds.get(r.woundId)||{q0:0,external:0,internal:0,limbInternal:0,cavity:0};w.q0+=r.preFlow;w.external+=r.preFlow*(1-r.internalFraction);w.internal+=r.preFlow*r.internalFraction;w[s.destination==='limb_compartment'?'limbInternal':'cavity']+=r.preFlow*r.internalFraction;table.wounds.set(r.woundId,w);}}
  flows.set(m,table);return table;
 }
-export const preFlow=(m,w)=>flows.get(m)?.wounds.get(typeof w==='string'?w:w.id)||{q0:0,external:0,internal:0};
+export const preFlow=(m,w)=>flows.get(m)?.wounds.get(typeof w==='string'?w:w.id)||{q0:0,external:0,internal:0,limbInternal:0,cavity:0};
 export function woundFlow(m,w){
  const pre=preFlow(m,w),table=flows.get(m);let external=0,internal=0;
  for(const s of m.bleedSources||[]){const plan=carePlans.get(m)?.get(s.id),rows=table?.sources.get(s.id)||sourceRows(m,s);
   for(let i=0;i<rows.length;i++){const r=rows[i];if(r.woundId!==w.id)continue;const p=plan?.segments[i],share=p?p.shareAfter/Math.max(1e-30,plan.factor):r.share,fraction=p?.internalFractionAfter??r.internalFraction;external+=s.flowMlPerS*share*(1-fraction);internal+=s.flowMlPerS*share*fraction;}}
  const leak=(w.care?.seepUntilS||0)>careTime(m),actual=external+internal;
- return{...pre,externalFlow:external,internalFlow:internal,actual,grade:pre.q0>MO2.bandageQ?'과다출혈':'일반 출혈',status:actual<=MO2.stopFlowMlS?'멎음':leak?'샘':'흐름'};
+ return{...pre,reference:referenceFlow(w),externalFlow:external,internalFlow:internal,actual,grade:referenceFlow(w).total>MO2.bandageQ?'과다출혈':'일반 출혈',status:actual<=MO2.stopFlowMlS?'멎음':leak?'샘':'흐름'};
 }
-export function bandageBlock(m,w,time=careTime(m)){
- const b=w.care?.bandage;if(b?.active){if(b.finishing)return MO2.bandageQ;const f=MO2.bandageInitialBlock+(1-MO2.bandageInitialBlock)*clamp((time-b.appliedAtS)/MO2.bandageRiseS);return MO2.bandageQ*f;}
- return w.care?.unwrappedCapacity||0;
+export function bandageFraction(m,w,time=careTime(m)){
+ const ref=referenceFlow(w),maximum=ref.external>0?Math.min(1,MO2.bandageQ/ref.external):1;
+ const b=w.care?.bandage;if(b?.active){if(b.finishing)return maximum;const f=MO2.bandageInitialBlock+(1-MO2.bandageInitialBlock)*clamp((time-b.appliedAtS)/MO2.bandageRiseS);return maximum*f;}
+ return w.care?.unwrappedFraction||0;
 }
 export const bandageActive=w=>!!w?.care?.bandage?.active;
 export const gauzeComplete=w=>!!w.care?.components?.length&&w.care.components.every(c=>c.workDone>=c.requiredWork-1e-9);
@@ -63,7 +65,7 @@ export function applyGauze(m,w,item,time){
  for(const c of rows){c.workDone+=Math.max(0,c.requiredWork-c.workDone)*fraction;if(c.requiredWork-c.workDone<1e-9)c.workDone=c.requiredWork;}
  item.remaining=Math.max(0,item.remaining-used);if(item.remaining<1e-9)item.remaining=0;
  w.care.lastGauzeKind=item.definitionId;w.care.treatedAtS=time;w.care.lastUsed=used;
- if(gauzeComplete(w)){w.care.seepUntilS=0;w.care.unwrappedCapacity=0;w.care.reopened=false;}
+ if(gauzeComplete(w)){w.care.seepUntilS=0;w.care.unwrappedFraction=0;w.care.reopened=false;}
  return used;
 }
 function progressFor(w,s,index,range){const c=w.care?.components?.find(c=>c.id===componentId(s.id,index,range));return c?clamp(c.workDone/c.requiredWork):0;}
@@ -71,7 +73,7 @@ export function treatmentControlFactor(m,s){
  const table=flows.get(m),rows=table?.sources.get(s.id)||sourceRows(m,s);let factor=0;const segments=[];
  for(const r of rows){const w=m.wounds.find(w=>w.id===r.woundId);let ext=1,int=1;
   if(w){ext=1-progressFor(w,s,r.index??rows.indexOf(r),'external');int=1-progressFor(w,s,r.index??rows.indexOf(r),s.destination==='limb_compartment'?'limb':'cavity');
-   const q=preFlow(m,w),block=bandageBlock(m,w);if(block>0)ext*=q.external>0?Math.max(0,1-block/q.external):1;
+   const q=preFlow(m,w),blockedFraction=bandageFraction(m,w);if(blockedFraction>0)ext*=1-blockedFraction;
    if(gauzeComplete(w)&&(w.care.seepUntilS||0)>careTime(m)&&!bandageActive(w)){const ratio=q.q0>0?Math.min(1,MO2.movement.seepFlowMlS/q.q0):0;ext=Math.max(ext,ratio);int=Math.max(int,ratio);}
    if(tourniquetOn(m,w.partKey)&&(s.destination==='external'||s.destination==='limb_compartment'))ext=int=0;
   }
@@ -85,16 +87,19 @@ export const hasCareEffects=m=>treatments(m).length>0||m.wounds.some(w=>w.care);
 export function woundComplete(m,w){
  const f=woundFlow(m,w);if((w.care?.seepUntilS||0)>careTime(m)||w.care?.reopened)return false;
  if(gauzeComplete(w))return true;
- return!!w.care?.bandage?.active&&f.q0<=MO2.bandageQ&&f.actual<=MO2.stopFlowMlS;
+ return!!w.care?.bandage?.active&&referenceFlow(w).total<=MO2.bandageQ&&f.actual<=MO2.stopFlowMlS;
+}
+export function selectMovementEvent(care,time,dt,running,random,p=MO2.movement){
+ const seep=care.seepUntilS>time?0:running?p.runSeepPerS:p.walkSeepPerS,reopen=running?p.runReopenPerS:p.walkReopenPerS,total=seep+reopen;
+ if(random()>=1-Math.exp(-total*dt))return null;
+ return random()<reopen/total?'reopen':'seep';
 }
 export function stepCareMovement(bridge,dt){
  const m=bridge.actor.medical,a=activityFor(m),speed=a?.controls?.speedMps||0;if(speed<.05||a.controls.crouched||m.isDead||m.isUnconscious)return;
  const running=!!a.controls.sprinting||speed>2.5,p=MO2.movement,time=bridge.time;
  const random=()=>{bridge.seed=(Math.imul(bridge.seed,1664525)+1013904223)>>>0;return bridge.seed/4294967296;};
  for(const w of m.wounds){if(!gauzeComplete(w)||bandageActive(w)||tourniquetOn(m,w.partKey)||preFlow(m,w).q0<=MO2.stopFlowMlS)continue;
-  const seep=running||w.care.seepUntilS>time?0:p.walkSeepPerS,reopen=running?p.runReopenPerS:p.walkReopenPerS,total=seep+reopen;
-  if(random()>=1-Math.exp(-total*dt))continue;
-  const kind=random()<reopen/total?'reopen':'seep';
+  const kind=selectMovementEvent(w.care,time,dt,running,random);if(!kind)continue;
   if(kind==='reopen'){for(const c of w.care.components)c.workDone=c.requiredWork*(1-p.reopenFraction);w.care.reopened=true;w.care.seepUntilS=0;}
   else w.care.seepUntilS=time+p.seepSeconds;
   const events=w.care.events??=[];events.push({kind,time});if(events.length>100)events.shift();

@@ -73,7 +73,7 @@ export function treatmentControlFactor(m,s){
   if(w){ext=1-progressFor(w,s,r.index??rows.indexOf(r),'external');int=1-progressFor(w,s,r.index??rows.indexOf(r),s.destination==='limb_compartment'?'limb':'cavity');
    const q=preFlow(m,w),block=bandageBlock(m,w);if(block>0)ext*=q.external>0?Math.max(0,1-block/q.external):1;
    if(gauzeComplete(w)&&(w.care.seepUntilS||0)>careTime(m)&&!bandageActive(w)){const ratio=q.q0>0?Math.min(1,MO2.movement.seepFlowMlS/q.q0):0;ext=Math.max(ext,ratio);int=Math.max(int,ratio);}
-   if(tourniquetOn(m,w.partKey))ext=int=0;
+   if(tourniquetOn(m,w.partKey)&&(s.destination==='external'||s.destination==='limb_compartment'))ext=int=0;
   }
   const systemic=systemicCareFactor(m,s);ext*=systemic;int*=systemic;
   const coefficient=(1-r.internalFraction)*ext+r.internalFraction*int;factor+=r.share*coefficient;segments.push({...r,coefficient,shareAfter:r.share*coefficient,internalFractionAfter:coefficient>0?r.internalFraction*int/coefficient:r.internalFraction,allFactor:int,externalFactor:ext});

@@ -1,7 +1,7 @@
 # 문서 안내
 
 - 현재 시작점: [루트 인계서](../HANDOFF_KO.md)
-- 진행 중인 의료 개편: [확정 규칙과 구현 순서](medical-overhaul-contract.md) — feature/medical-overhaul, MO2 진행 중
+- 진행 중인 의료 개편: [확정 규칙과 구현 순서](medical-overhaul-contract.md) — feature/medical-overhaul, MO2 반영
 - 독립 개발과 검증: [README](../README.md), [이관 기록](migration-v69/README.md)
 - 최신 기능: [W1/v69 SCAR-H](training-w1-v69.md), [수치 대장](w1-ledger.json), [출처](w1-sources.json)
 - 역사: [CQB-HTML 인계서 보존본](history/CQB-HTML-HANDOFF-v69.md), [이전 앱 안내](history/training-readme-v69.md)

@@ -1766,6 +1766,8 @@
   "ui": {
     "passed": true,
     "method": "QA instrumentation with real surface-verified P01 traceShot; native PC click and mobile tap; fixed60Hz medical ticks, original damage untouched; scarce3-point gauze fixture explicitly marked.",
+    "screenshots": "docs/media/mo2",
+    "actualPhonePerformanceMeasured": false,
     "summaries": [
       {
         "viewport": {
@@ -1780,81 +1782,165 @@
         "suppressed": {
           "hp": 50.40210087632408,
           "maxHp": 75,
-          "bloodMl": 4709.392848646877,
+          "bloodMl": 4708.858014077542,
           "external": 0,
-          "internal": 0,
-          "recovery": null,
+          "internal": 0.06432154173025513,
           "error": "",
-          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 과다출혈 · 멎음 / ═ 처치됨"
+          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 과다출혈 · 흐름 / ═ 처치 미완료",
+          "sources": [
+            {
+              "id": "vessel/left-brachial",
+              "destination": "limb_compartment",
+              "flowMlPerS": 0
+            },
+            {
+              "id": "organ-bed/left-lung",
+              "destination": "thoracic_left",
+              "flowMlPerS": 0.06432154173025513
+            },
+            {
+              "id": "ooze/w1",
+              "destination": "external",
+              "flowMlPerS": 0
+            }
+          ]
         },
         "partial": {
           "hp": 50.40210087632408,
           "maxHp": 75,
-          "bloodMl": 4709.392848646877,
+          "bloodMl": 4707.947532828895,
           "external": 0,
-          "internal": 0,
+          "internal": 0.04408487779449846,
           "recovery": {
             "ruleId": "medical-mo2",
             "active": false,
-            "startedAtS": 14.5000000000003,
+            "startedAtS": 14.516666666666968,
             "lastHp": 50.40210087632408,
             "recoveredHp": 0,
             "reason": "지혈대 착용"
           },
           "error": "",
-          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 멎음 / ═▧ 처치됨\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 멎음\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치됨\n\n입구 보기 · 앞출구 보기 · 뒤"
+          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 흐름 / ═▧ 처치 미완료\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 흐름\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치 미완료\n\n입구 보기 · 앞출구 보기 · 뒤",
+          "sources": [
+            {
+              "id": "vessel/left-brachial",
+              "destination": "limb_compartment",
+              "flowMlPerS": 0
+            },
+            {
+              "id": "organ-bed/left-lung",
+              "destination": "thoracic_left",
+              "flowMlPerS": 0.04408487779449846
+            },
+            {
+              "id": "ooze/w1",
+              "destination": "external",
+              "flowMlPerS": 0
+            }
+          ]
         },
         "controlled": {
           "hp": 50.40210087632408,
           "maxHp": 75,
-          "bloodMl": 4709.392848646877,
+          "bloodMl": 4707.739609127152,
           "external": 0,
           "internal": 0,
           "recovery": {
             "ruleId": "medical-mo2",
             "active": false,
-            "startedAtS": 14.5000000000003,
+            "startedAtS": 14.516666666666968,
             "lastHp": 50.40210087632408,
             "recoveredHp": 0,
             "reason": "지혈대 착용"
           },
           "error": "",
-          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 멎음 / ═▧✚ 처치됨\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 멎음\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치됨\n\n입구 보기 · 앞출구 보기 · 뒤"
+          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 멎음 / ═▧✚ 처치 완료\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 멎음\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치 완료\n\n입구 보기 · 앞출구 보기 · 뒤",
+          "sources": [
+            {
+              "id": "vessel/left-brachial",
+              "destination": "limb_compartment",
+              "flowMlPerS": 0
+            },
+            {
+              "id": "organ-bed/left-lung",
+              "destination": "thoracic_left",
+              "flowMlPerS": 0
+            },
+            {
+              "id": "ooze/w1",
+              "destination": "external",
+              "flowMlPerS": 0
+            }
+          ]
         },
         "removed": {
           "hp": 50.40210087632408,
           "maxHp": 75,
-          "bloodMl": 4709.392848646877,
+          "bloodMl": 4707.739609127152,
           "external": 0,
           "internal": 0,
           "recovery": {
             "ruleId": "medical-mo2",
             "active": true,
-            "startedAtS": 32.49999999999944,
+            "startedAtS": 32.516666666666104,
             "lastHp": 50.40210087632408,
             "recoveredHp": 0,
             "reason": null
           },
           "error": "",
-          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 멎음 / ▧✚ 처치됨\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 멎음\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치됨\n\n입구 보기 · 앞출구 보기 · 뒤"
+          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 멎음 / ▧✚ 처치 완료\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 멎음\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치 완료\n\n입구 보기 · 앞출구 보기 · 뒤",
+          "sources": [
+            {
+              "id": "vessel/left-brachial",
+              "destination": "limb_compartment",
+              "flowMlPerS": 0
+            },
+            {
+              "id": "organ-bed/left-lung",
+              "destination": "thoracic_left",
+              "flowMlPerS": 0
+            },
+            {
+              "id": "ooze/w1",
+              "destination": "external",
+              "flowMlPerS": 0
+            }
+          ]
         },
         "final": {
           "hp": 75,
           "maxHp": 75,
-          "bloodMl": 4709.392848646877,
+          "bloodMl": 4707.739609127152,
           "external": 0,
           "internal": 0,
           "recovery": {
             "ruleId": "medical-mo2",
             "active": false,
-            "startedAtS": 32.49999999999944,
+            "startedAtS": 32.516666666666104,
             "lastHp": 75,
             "recoveredHp": 24.59789912368127,
             "reason": "회복 완료",
-            "completedAtS": 97.3333333333291
+            "completedAtS": 97.34999999999576
           },
           "error": "",
-          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 멎음 / ▧✚▰ 처치됨붕대 풀기 · 2초\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 멎음\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치됨\n\n입구 보기 · 앞출구 보기 · 뒤"
+          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 멎음 / ▧✚▰ 처치 완료붕대 풀기 · 2초\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 멎음\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치 완료\n\n입구 보기 · 앞출구 보기 · 뒤",
+          "sources": [
+            {
+              "id": "vessel/left-brachial",
+              "destination": "limb_compartment",
+              "flowMlPerS": 0
+            },
+            {
+              "id": "organ-bed/left-lung",
+              "destination": "thoracic_left",
+              "flowMlPerS": 0
+            },
+            {
+              "id": "ooze/w1",
+              "destination": "external",
+              "flowMlPerS": 0
+            }
+          ]
         },
         "overflow": false
       },
@@ -1871,87 +1957,169 @@
         "suppressed": {
           "hp": 50.40210087632408,
           "maxHp": 75,
-          "bloodMl": 4709.392848646877,
+          "bloodMl": 4708.858014077542,
           "external": 0,
-          "internal": 0,
-          "recovery": null,
+          "internal": 0.06432154173025513,
           "error": "",
-          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 과다출혈 · 멎음 / ═ 처치됨"
+          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 과다출혈 · 흐름 / ═ 처치 미완료",
+          "sources": [
+            {
+              "id": "vessel/left-brachial",
+              "destination": "limb_compartment",
+              "flowMlPerS": 0
+            },
+            {
+              "id": "organ-bed/left-lung",
+              "destination": "thoracic_left",
+              "flowMlPerS": 0.06432154173025513
+            },
+            {
+              "id": "ooze/w1",
+              "destination": "external",
+              "flowMlPerS": 0
+            }
+          ]
         },
         "partial": {
           "hp": 50.40210087632408,
           "maxHp": 75,
-          "bloodMl": 4709.392848646877,
+          "bloodMl": 4707.947532828895,
           "external": 0,
-          "internal": 0,
+          "internal": 0.04408487779449846,
           "recovery": {
             "ruleId": "medical-mo2",
             "active": false,
-            "startedAtS": 14.5000000000003,
+            "startedAtS": 14.516666666666968,
             "lastHp": 50.40210087632408,
             "recoveredHp": 0,
             "reason": "지혈대 착용"
           },
           "error": "",
-          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 멎음 / ═▧ 처치됨\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 멎음\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치됨\n\n입구 보기 · 앞출구 보기 · 뒤"
+          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 흐름 / ═▧ 처치 미완료\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 흐름\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치 미완료\n\n입구 보기 · 앞출구 보기 · 뒤",
+          "sources": [
+            {
+              "id": "vessel/left-brachial",
+              "destination": "limb_compartment",
+              "flowMlPerS": 0
+            },
+            {
+              "id": "organ-bed/left-lung",
+              "destination": "thoracic_left",
+              "flowMlPerS": 0.04408487779449846
+            },
+            {
+              "id": "ooze/w1",
+              "destination": "external",
+              "flowMlPerS": 0
+            }
+          ]
         },
         "controlled": {
           "hp": 50.40210087632408,
           "maxHp": 75,
-          "bloodMl": 4709.392848646877,
+          "bloodMl": 4707.739609127152,
           "external": 0,
           "internal": 0,
           "recovery": {
             "ruleId": "medical-mo2",
             "active": false,
-            "startedAtS": 14.5000000000003,
+            "startedAtS": 14.516666666666968,
             "lastHp": 50.40210087632408,
             "recoveredHp": 0,
             "reason": "지혈대 착용"
           },
           "error": "",
-          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 멎음 / ═▧✚ 처치됨\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 멎음\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치됨\n\n입구 보기 · 앞출구 보기 · 뒤"
+          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 멎음 / ═▧✚ 처치 완료\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 멎음\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치 완료\n\n입구 보기 · 앞출구 보기 · 뒤",
+          "sources": [
+            {
+              "id": "vessel/left-brachial",
+              "destination": "limb_compartment",
+              "flowMlPerS": 0
+            },
+            {
+              "id": "organ-bed/left-lung",
+              "destination": "thoracic_left",
+              "flowMlPerS": 0
+            },
+            {
+              "id": "ooze/w1",
+              "destination": "external",
+              "flowMlPerS": 0
+            }
+          ]
         },
         "removed": {
           "hp": 50.40210087632408,
           "maxHp": 75,
-          "bloodMl": 4709.392848646877,
+          "bloodMl": 4707.739609127152,
           "external": 0,
           "internal": 0,
           "recovery": {
             "ruleId": "medical-mo2",
             "active": true,
-            "startedAtS": 32.49999999999944,
+            "startedAtS": 32.516666666666104,
             "lastHp": 50.40210087632408,
             "recoveredHp": 0,
             "reason": null
           },
           "error": "",
-          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 멎음 / ▧✚ 처치됨\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 멎음\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치됨\n\n입구 보기 · 앞출구 보기 · 뒤"
+          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 멎음 / ▧✚ 처치 완료\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 멎음\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치 완료\n\n입구 보기 · 앞출구 보기 · 뒤",
+          "sources": [
+            {
+              "id": "vessel/left-brachial",
+              "destination": "limb_compartment",
+              "flowMlPerS": 0
+            },
+            {
+              "id": "organ-bed/left-lung",
+              "destination": "thoracic_left",
+              "flowMlPerS": 0
+            },
+            {
+              "id": "ooze/w1",
+              "destination": "external",
+              "flowMlPerS": 0
+            }
+          ]
         },
         "final": {
           "hp": 75,
           "maxHp": 75,
-          "bloodMl": 4709.392848646877,
+          "bloodMl": 4707.739609127152,
           "external": 0,
           "internal": 0,
           "recovery": {
             "ruleId": "medical-mo2",
             "active": false,
-            "startedAtS": 32.49999999999944,
+            "startedAtS": 32.516666666666104,
             "lastHp": 75,
             "recoveredHp": 24.59789912368127,
             "reason": "회복 완료",
-            "completedAtS": 97.3333333333291
+            "completedAtS": 97.34999999999576
           },
           "error": "",
-          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 멎음 / ▧✚▰ 처치됨붕대 풀기 · 2초\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 멎음\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치됨\n\n입구 보기 · 앞출구 보기 · 뒤"
+          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 멎음 / ▧✚▰ 처치 완료붕대 풀기 · 2초\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 멎음\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치 완료\n\n입구 보기 · 앞출구 보기 · 뒤",
+          "sources": [
+            {
+              "id": "vessel/left-brachial",
+              "destination": "limb_compartment",
+              "flowMlPerS": 0
+            },
+            {
+              "id": "organ-bed/left-lung",
+              "destination": "thoracic_left",
+              "flowMlPerS": 0
+            },
+            {
+              "id": "ooze/w1",
+              "destination": "external",
+              "flowMlPerS": 0
+            }
+          ]
         },
         "overflow": false
       }
-    ],
-    "screenshots": "docs/media/mo2",
-    "actualPhonePerformanceMeasured": false
+    ]
   },
   "retiredTests": {
     "reason": "old treatment rules intentionally superseded, no skipped/xfail tests",
@@ -1973,13 +2141,28 @@
     ]
   },
   "checks": {
-    "suite": "pending final repeat",
+    "suite": {
+      "passed": true,
+      "tests": 485,
+      "pass": 485,
+      "fail": 0,
+      "skipped": 0,
+      "durationMs": 58414.023374,
+      "logSha256": "c1852ef60c68b81d8df18ef82c37585f37e8b77700ed3c2bcc538b2c37b42ea6",
+      "baselineTests": 499,
+      "retiredOrRewrittenRuleAssertions": 46,
+      "newPolicyAndRetainedPointerTests": 32,
+      "note": "499−46+32=485; old mode/CAT-position/packing/MO1 rules archived; no skipped tests or golden rewrites"
+    },
     "v69Numerical": {
       "passed": true,
-      "S0": 240,
+      "source": "0-FLANDRE-0/CQB-HTML",
+      "commit": "e46c309c9181f9093efd91798f569074047ad40a",
+      "s0": 240,
       "single": 28,
       "channels": 684,
-      "gelatin": 5
+      "gelatin": 5,
+      "htmlCompared": false
     },
     "untreatedDistribution": {
       "passed": true,
@@ -2043,6 +2226,103 @@
           "sha256": "c8da8f7d8f1f7c6ec0ca1f211ec9d182194c8f49e7ffdbb1869c70228eef2141"
         }
       ]
+    },
+    "productionOffline": {
+      "passed": true,
+      "htmlSHA256": "47557e69f05e4f852c6d5f35692cd181a9dc4f219ca9d7338f196f447a3eddb9",
+      "method": "Exact production single HTML, actual requestAnimationFrame/fixed simulation, offline; native keyboard or touch joystick, F/touch panel, selectSCAR/deploy1, pause, pointer lock, persistent/reset AI display. No QA state injection.",
+      "devices": [
+        {
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "approached": {
+            "feet": [
+              131.34791564941406,
+              0.008065693378448424,
+              38.05550765991211
+            ],
+            "interaction": {
+              "kind": "combat-panel",
+              "targetId": "kh-panel",
+              "label": "적 투입",
+              "action": ""
+            }
+          },
+          "deployed": {
+            "sector": "05",
+            "count": 1,
+            "ids": [
+              "E01"
+            ],
+            "settings": {
+              "count": 1,
+              "skill": "regular",
+              "placement": "main",
+              "behavior": "patrol",
+              "posture": "stand"
+            },
+            "cost": {
+              "calls": 230,
+              "triangles": 114197,
+              "enemyCount": 1,
+              "includesPiP": true,
+              "quality": "low"
+            },
+            "playerWeapon": "scar_h"
+          },
+          "menuFrozen": true,
+          "pointerLockCorrect": true,
+          "AISettingPersistentAndReset": true
+        },
+        {
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "approached": {
+            "feet": [
+              131.34544372558594,
+              0.007684640884399352,
+              37.875022888183594
+            ],
+            "interaction": {
+              "kind": "combat-panel",
+              "targetId": "kh-panel",
+              "label": "적 투입",
+              "action": ""
+            }
+          },
+          "deployed": {
+            "sector": "05",
+            "count": 1,
+            "ids": [
+              "E01"
+            ],
+            "settings": {
+              "count": 1,
+              "skill": "regular",
+              "placement": "main",
+              "behavior": "patrol",
+              "posture": "stand"
+            },
+            "cost": {
+              "calls": 206,
+              "triangles": 113939,
+              "enemyCount": 1,
+              "includesPiP": true,
+              "quality": "low"
+            },
+            "playerWeapon": "scar_h"
+          },
+          "menuFrozen": true,
+          "pointerLockCorrect": true,
+          "AISettingPersistentAndReset": true
+        }
+      ],
+      "errors": [],
+      "external": []
     }
   },
   "limitations": [
@@ -2051,5 +2331,122 @@
     "old full-runtime v69 manifest/HTML hash intentionally differs due authorized treatment changes",
     "not the completed medical overhaul; no main merge or release",
     "GitHub Actions not used"
+  ],
+  "sourceCommit": "e9f70103db251b6bbf6a66991fbf0fe5c5842eaa",
+  "build": {
+    "sourceCommit": "e9f70103db251b6bbf6a66991fbf0fe5c5842eaa",
+    "bytes": 39402731,
+    "sha256": "47557e69f05e4f852c6d5f35692cd181a9dc4f219ca9d7338f196f447a3eddb9",
+    "stage": "MO2-hemostasis",
+    "complete": false
+  },
+  "policy": {
+    "ruleId": "medical-mo2",
+    "bandageQ": 20,
+    "bandageInitialBlock": 0.6,
+    "bandageRiseS": 12,
+    "unwrapSeconds": 2,
+    "unwrapRetainedBlock": 0.5,
+    "workPerAreaMm2": 3,
+    "minimumComponentWork": 2,
+    "oozeOpeningAreaFraction": 0.05,
+    "organOpeningAreaFraction": 0.05,
+    "recoveryHpPerS": 3,
+    "recoveryMinimumHpPerS": 0.2,
+    "stopFlowMlS": 0.01,
+    "products": {
+      "bandage": {
+        "seconds": 4,
+        "maximum": 2,
+        "resource": "uses"
+      },
+      "gauze": {
+        "seconds": 6,
+        "maximum": 100,
+        "efficiency": 1,
+        "resource": "durability"
+      },
+      "injector": {
+        "seconds": 5,
+        "maximum": 160,
+        "efficiency": 1.2,
+        "resource": "durability"
+      },
+      "foam": {
+        "seconds": 7,
+        "maximum": 300,
+        "efficiency": 1.8,
+        "resource": "durability"
+      },
+      "cat": {
+        "seconds": 5,
+        "removeSeconds": 2,
+        "maximum": 1,
+        "resource": "uses"
+      }
+    },
+    "movement": {
+      "walkSeepPerS": 0.04,
+      "walkReopenPerS": 0.004,
+      "runReopenPerS": 0.12,
+      "seepSeconds": 8,
+      "seepFlowMlS": 0.3,
+      "reopenFraction": 0.45
+    },
+    "tourniquet": {
+      "painStart": 5,
+      "painMaximum": 55,
+      "painRiseS": 180,
+      "painFadeS": 30,
+      "armTremorMaximumRad": 0.002,
+      "limpStartS": 60,
+      "limpFullS": 240,
+      "limpMaximum": 0.6,
+      "minimumMoveRate": 0.65
+    },
+    "classification": "사용자 설계값: 횟수·범위·곡선·회복 조건·제거 절반 재유출 / 수치: 튜닝·게임 허용"
+  },
+  "temporary": {
+    "classification": "임시 고정 — 해당 단계에서 재작성",
+    "durations": {
+      "seal": 6,
+      "needle": 8,
+      "txa": 8,
+      "pill": 4,
+      "otfc": 2,
+      "ketamine": 5,
+      "blood": 20,
+      "npa": 0
+    },
+    "maximum": {
+      "seal": 2,
+      "needle": 2,
+      "txa": 1,
+      "pill": 1,
+      "otfc": 1,
+      "ketamine": 1,
+      "blood": 1,
+      "npa": 1
+    },
+    "backSealMultiplier": 1.8,
+    "backpackSeconds": 2,
+    "gearSeconds": 1.2,
+    "searchSeconds": 3,
+    "plateSeconds": {
+      "worn": 5,
+      "off": 3
+    },
+    "needleRadius": 0.065,
+    "needleDrainPerS": 0.35,
+    "ventDrainPerS": 0.015,
+    "iatrogenicPneumo": 0.12,
+    "txaWindowS": 10800,
+    "txaDelay": 30,
+    "txa": 0.75,
+    "txaArtery": 1
+  },
+  "followupFixes": [
+    "Separate action completion from wound completion in UI; CAT-only/partial gauze is incomplete and shows progress",
+    "Limb CAT suppresses external/limb sources only, never cavity bleeding attached to the same multi-part wound"
   ]
 }

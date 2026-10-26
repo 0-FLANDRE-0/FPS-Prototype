@@ -1088,7 +1088,7 @@ summary::-webkit-details-marker {
 /* M3 care controls share the medical columns and existing touch ownership. */
 .medical-care-controls:empty{display:none}.medical-care-controls{margin-bottom:10px}.care-choices,.care-position-picker{display:flex;flex-wrap:wrap;gap:5px}.care-position-picker{border:1px solid #c0d9a4;padding:8px;margin-bottom:8px}.care-position-picker strong{flex-basis:100%}.medical-care-controls button{min-height:44px;margin:3px 4px 3px 0;font-size:11px}.care-record{border-left:3px solid #68dceb;background:#20352d;padding:8px;margin:6px 0;font-size:11px}.care-record.interrupted{border-color:#b8abff}.care-record p{margin:5px 0}.care-eligible{outline:2px solid #d3eb93!important;outline-offset:-2px}.medical-body-paths path.care-eligible{stroke:#d3eb93;stroke-width:3}.wound-row.care-eligible{border-color:#d3eb93}.tourniquet-band{pointer-events:none}.care-hud{position:absolute;left:50%;top:18%;transform:translateX(-50%);background:#12241de8;border:1px solid #8faf91;padding:7px 10px;max-width:260px;pointer-events:auto;display:grid;grid-template-columns:1fr auto;gap:6px;z-index:8}.care-hud small{grid-column:1/-1;font-size:11px}.care-hud progress{width:140px;max-width:38vw;align-self:center;accent-color:#b8dd9b}.care-hud button{min-width:44px;min-height:44px}.care-selection{font-size:11px;color:#d3eb93}
 
-.marker-legend .treated{color:#68dceb}.marker-legend .interrupted{color:#b8abff}
+.marker-legend .treated{color:#68dceb}.marker-legend .interrupted{color:#b8abff}.marker-legend .incomplete{color:#f1cb6d}
 
 #playerDownScreen>.care-hud{top:8px}
 

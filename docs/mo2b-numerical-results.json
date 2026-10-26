@@ -12,6 +12,67 @@
   "untreatedSourceDistributionExact": true,
   "untreatedSourceDistributionSHA256": "fa76b05a84265940c5e3d6714cd15196c474278db3e0e8684ffcbebdb7654b7a",
   "workGeometryExact": true,
+  "transfusion": {
+    "method": "real femoral traceShot → CAT → injector → removeCAT → original blood connection20s and180s infusion; actual60Hz medical ticks, no injury/pressure normalization",
+    "beforeBlood": 4488.5521997909955,
+    "afterBlood": 4988.552199793481,
+    "infusedMl": 500,
+    "deliveredMl": 500,
+    "beforeFlow": {
+      "q0": 82.25857300172486,
+      "external": 69.9495616639929,
+      "internal": 12.309011337731961,
+      "limbInternal": 12.309011337731961,
+      "cavity": 0,
+      "reference": {
+        "total": 87.5,
+        "external": 74.41585330766749,
+        "limbInternal": 13.084146692332506,
+        "cavity": 0
+      },
+      "externalFlow": 0,
+      "internalFlow": 0,
+      "actual": 0,
+      "grade": "과다출혈",
+      "status": "멎음"
+    },
+    "afterFlow": {
+      "q0": 57.43380952976216,
+      "external": 48.81881495692385,
+      "internal": 8.614994572838302,
+      "limbInternal": 8.614994572838302,
+      "cavity": 0,
+      "reference": {
+        "total": 87.5,
+        "external": 74.41585330766749,
+        "limbInternal": 13.084146692332506,
+        "cavity": 0
+      },
+      "externalFlow": 0,
+      "internalFlow": 0,
+      "actual": 0,
+      "grade": "과다출혈",
+      "status": "멎음"
+    },
+    "referenceAtBirth": {
+      "total": 87.5,
+      "external": 74.41585330766749,
+      "limbInternal": 13.084146692332506,
+      "cavity": 0
+    },
+    "referenceBeforeInfusion": {
+      "total": 87.5,
+      "external": 74.41585330766749,
+      "limbInternal": 13.084146692332506,
+      "cavity": 0
+    },
+    "referenceAfterInfusion": {
+      "total": 87.5,
+      "external": 74.41585330766749,
+      "limbInternal": 13.084146692332506,
+      "cavity": 0
+    }
+  },
   "threshold": 20,
   "distributions": {
     "matchedMO2": {

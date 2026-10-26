@@ -1,5 +1,5 @@
 import{M4B}from'./medical-care-m4b-policy.js';
-import{M4_VALUES}from'./medical-care-modes.js';
+import{TEMPORARY_CARE as M4_VALUES}from'./medical-mo2-policy.js';
 import{treatments}from'./medical-care-state.js';
 import{careTime}from'./medical-care-systemic.js';
 import{medicalSurfaces}from'./medical-surface.js';
@@ -23,7 +23,7 @@ export function sealCoverage(m,side){const ts=treatments(m),seal=ts.filter(t=>t.
 export const NEEDLE_SITES={anterior:{x:.34,y:.24},lateral:{x:.77,y:.54}};
 export function needleSite(point){if(!point||![point.x,point.y].every(Number.isFinite))return null;return Object.keys(NEEDLE_SITES).find(k=>Math.hypot(point.x-NEEDLE_SITES[k].x,point.y-NEEDLE_SITES[k].y)<=M4_VALUES.needleRadius)||null;}
 export function finishNeedle(bridge,t){const m=bridge.actor.medical,c=m.chestCompartments?.[t.target.side],hadTension=(c?.tensionAir||0)>0;let seed=(bridge.seed^0x4d345f4e^Math.imul(bridge.time*60|0,2654435761)^t.target.side.length)>>>0;const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};
- const reality=t.treatmentMode==='reality',site=t.target.site,roll=random();t.needleResult={site,hadTension,positionCorrect:!!site,reachRoll:roll,success:!!site&&(!reality||roll>=M4_VALUES.needleReachFailure[site])&&hadTension,recurrenceAtS:null,iatrogenic:reality&&!hadTension};if(t.needleResult.success&&reality&&random()<M4_VALUES.needleRecurrenceChance)t.needleResult.recurrenceAtS=bridge.time+M4_VALUES.needleRecurrenceMinS+random()*(M4_VALUES.needleRecurrenceMaxS-M4_VALUES.needleRecurrenceMinS);t.needleResult.finalSeed=seed;
+ const site=t.target.site,roll=random();t.needleResult={site,hadTension,positionCorrect:!!site,reachRoll:roll,success:!!site&&hadTension,recurrenceAtS:null,iatrogenic:false};t.needleResult.finalSeed=seed;
 }
 // Called by the generated 3D copy only, before its original chest progression.
 // No intervention => null: identical original operations, no new medical fields.

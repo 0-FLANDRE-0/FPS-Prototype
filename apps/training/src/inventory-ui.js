@@ -1,4 +1,3 @@
-import{BANDAGE}from'./medical-bandage.js';
 import{PlateWindows}from'./plate-windows.js';
 import{plateMount,mountedOwner}from'./plate-inventory.js';
 import{plateFits}from'./plate-shapes.js';
@@ -253,7 +252,7 @@ export class InventoryUI {
   makeItem(item) {
     const node = document.createElement('button'); node.type = 'button'; node.dataset.item = item.instanceId; node.dataset.kind = item.kind;
     node.className = 'grid-item'+(isMedicalItem(item)?' medical-item':'') + (item.instanceId === this.selectedId ? ' selected' : ''); node.setAttribute('aria-pressed', String(item.instanceId === this.selectedId));
-    const count = item.kind==='armorPlate'?item.condition.current.toFixed(1)+'/'+item.condition.max:item.kind==='gear'?(this.inventory.itemWeightKg(item)).toFixed(2)+'kg':item.kind==='medicalContainer'? (this.inventory.itemWeightKg(item)*1000).toFixed(0)+'g':item.kind==='medicalSupply'?(item.resourceRuleId===BANDAGE.ruleId?Number(item.remaining.toFixed(1))+'/'+BANDAGE.capacity:item.remainingFraction!==undefined?Math.ceil(item.remainingFraction*100)+'%':item.remaining+'/'+(item.maximumUses??medicalDefinition(item).units)):item.kind === 'optic' ? `${itemSize(item).w} × ${itemSize(item).h}` : item.kind === 'ammo' ? item.count + '/60' : item.kind === 'magazine' ? item.rounds.length + '/30' : WEAPONS[item.definitionId].ammo.caliber;
+    const count = item.kind==='armorPlate'?item.condition.current.toFixed(1)+'/'+item.condition.max:item.kind==='gear'?(this.inventory.itemWeightKg(item)).toFixed(2)+'kg':item.kind==='medicalContainer'? (this.inventory.itemWeightKg(item)*1000).toFixed(0)+'g':item.kind==='medicalSupply'?(item.remainingFraction!==undefined?Math.ceil(item.remainingFraction*100)+'%':item.remaining+'/'+(item.maximumUses??medicalDefinition(item).units)):item.kind === 'optic' ? `${itemSize(item).w} × ${itemSize(item).h}` : item.kind === 'ammo' ? item.count + '/60' : item.kind === 'magazine' ? item.rounds.length + '/30' : WEAPONS[item.definitionId].ammo.caliber;
     node.setAttribute('aria-label', `${itemName(item)} ${count}`);
     node.innerHTML = `${item.kind==='armorPlate'?gearIcons.rig:item.kind==='gear'?gearIcons[item.definitionId]:icons[item.kind]||medicalIcon}<span class="item-name"></span><span class="item-count"></span>`;
     node.querySelector('.item-name').textContent = medicalDefinition(item)?.shortName||itemName(item); node.querySelector('.item-count').textContent = count;
@@ -284,7 +283,7 @@ export class InventoryUI {
     const selected = inv.items.get(this.selectedId), notice = this.notice && performance.now() < this.noticeUntil;
     $('selectionHint').textContent = notice ? this.notice : this.chooseMagazine ? '장착할 리그·벨트 탄창을 선택하세요.' : selected ? `${itemName(selected)} · 다시 누르면 해제 / 누른 채 끌어 이동` : '터치: 선택 후 다시 눌러 끌기 · PC: 좌클릭 드래그 / 총 우클릭';
     $('selectedItemMenu').hidden = !selected || selected.kind === 'ammo'||selected.kind==='armorPlate'||isMedicalItem(selected);
-    if(isMedicalItem(selected)){const def=medicalDefinition(selected);$('selectionHint').textContent=def.name+' · '+def.description+(def.target?' 대상: '+def.target:' · 두 번 눌러 열기')+' · '+(this.inventory.itemWeightKg(selected)*1000).toFixed(1)+'g'+(selected.kind==='medicalSupply'?(selected.resourceRuleId===BANDAGE.ruleId?' · 내구도 '+selected.remaining.toFixed(1)+'/'+BANDAGE.capacity:' · 남은 '+selected.remaining+'/'+(selected.maximumUses??def.units)):'');}
+    if(isMedicalItem(selected)){const def=medicalDefinition(selected);$('selectionHint').textContent=def.name+' · '+def.description+(def.target?' 대상: '+def.target:' · 두 번 눌러 열기')+' · '+(this.inventory.itemWeightKg(selected)*1000).toFixed(1)+'g'+(selected.kind==='medicalSupply'?(selected.resourceKind==='durability'?' · 내구도 '+selected.remaining.toFixed(1)+'/'+selected.maximumUses:' · 남은 '+selected.remaining+'/'+(selected.maximumUses??def.units)):'');}
     this.windows.update(false);this.plates.update();this.equipment.update();this.storage?.update();this.corpse?.update();
     $('selectionHint').classList.toggle('inventory-error', Boolean(notice));
     if (this.gesture || this.revision === inv.revision) return;

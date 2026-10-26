@@ -1,4 +1,4 @@
-import{stepPartRecovery}from'./medical-part-recovery.js';
+import{stepCareMovement}from'./medical-hemostasis.js';
 import{stepDrugsAndBlood,createDrugSlots,careSafetyAfter}from'./medical-care-drugs.js';
 import{setCareTime,systemicCarePain}from'./medical-care-systemic.js';
 import{chestCareComplications,registerChestCareBridge}from'./medical-care-chest.js';
@@ -158,9 +158,9 @@ export class TrainingMedical {
       bluntCouplingProxy:transfer,bluntSource:'original applyOutcome(BLOCK), deflected; projectile energy-loss coupling proxy',
       damageEvent:structuredClone(this.actor.medical._lastDamageEvent||null)};
   }
-  tick(dt,time,active=true){if(!active)return;setCareTime(this.actor.medical,time);setLimbRoutingTime(this.actor.medical,time);this.time=time;this.legacy.setTime(time);this.activity.step(dt,time);
+  tick(dt,time,active=true){if(!active)return;setCareTime(this.actor.medical,time);setLimbRoutingTime(this.actor.medical,time);this.time=time;this.legacy.setTime(time);this.activity.step(dt,time);stepCareMovement(this,dt);
     if(!this.actor.isDead&&(this.actor.alive||this.actor.isDowned)){
-      stepPartRecovery(this.actor,dt,time);stepDrugsAndBlood(this,dt);systemicCarePain(this.actor.medical);careClinicalBefore(this.actor.medical);
+      stepDrugsAndBlood(this,dt);systemicCarePain(this.actor.medical);careClinicalBefore(this.actor.medical);
       this.legacy.tickUnitMedicalBefore(this.actor,dt);
       this.legacy.tickMedical(this.actor,dt);
       this.legacy.tickUnitMedicalAfter(this.actor,dt);

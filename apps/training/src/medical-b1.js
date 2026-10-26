@@ -1,6 +1,6 @@
 import{chestCareSideModel}from'./medical-care-chest.js';
 import{routeLimbVolume}from'./medical-routing.js';
-import{treatmentControlFactor}from'./medical-care-effects.js';
+import{treatmentControlFactor,prepareCareFlows,hasCareEffects}from'./medical-care-effects.js';
 import{carePlans}from'./medical-care-state.js';
 import{rememberOozeSplit}from'./medical-care-state.js';
 import {exerciseBleedingFactor} from './medical-d2.js';
@@ -158,10 +158,11 @@ export function updateBleedingB1(unit,dt,{pulseModel=null}={}){
       if(s.organBed)s.rawFlowMlPerS=Math.min(s.rawFlowMlPerS,s.organPerfusionMlPerS);
     }
     if(s.injuryType==='ooze')s.rawFlowMlPerS*=exerciseBleedingFactor(m,s);
-    s.controlFactor=treatmentControlFactor(m,s);
-    raw+=s.controlFactor===1?s.rawFlowMlPerS:s.rawFlowMlPerS*s.controlFactor;
+    raw+=s.rawFlowMlPerS;
   }
-  const scale=raw>cap&&raw>0?cap/raw:1,available=dt>0&&raw*scale*dt>before?before/(raw*scale*dt):1;
+  const allocation=prepareCareFlows(m,cap,before,dt);
+  if(hasCareEffects(m)){raw=0;for(const s of m.bleedSources){s.controlFactor=treatmentControlFactor(m,s);raw+=s.controlFactor===1?s.rawFlowMlPerS:s.rawFlowMlPerS*s.controlFactor;}}
+  const scale=allocation.scale,available=allocation.available;
   const model=m.bleedingModel;Object.assign(model,{cardiacOutputMlPerS:cap,uncappedFlowMlPerS:raw,globalScale:scale,bloodAvailabilityScale:available,totalFlowMlPerS:0});
   for(const p of Object.values(m.bodyParts)){p.externalBleedRate=0;p.internalBleedRate=0;}
   for(const w of m.wounds){w._effExternal=0;w._effInternal=0;}
@@ -170,7 +171,7 @@ export function updateBleedingB1(unit,dt,{pulseModel=null}={}){
     const external=s.destination==='external',key=external?'externalBleedRate':'internalBleedRate';m[key]+=s.flowMlPerS;
     // A shared vessel is reported once globally; compatibility wound/part
     // totals partition its flow across actual lesions, rather than duplicating it.
-    const plan=carePlans.get(m)?.get(s.id),controlled=plan&&s.woundIds.some(id=>m.wounds.find(w=>w.id===id)?.bandageRepair);
+    const plan=carePlans.get(m)?.get(s.id),controlled=!!plan;
     const shares=controlled?plan.segments.map(r=>({woundId:r.woundId,currentAreaMm2:r.shareAfter})):s.injuryType==='ooze'?[{woundId:s.woundIds[0],currentAreaMm2:1}]:s.injuryType==='parenchymal'?s.lesions.map(l=>({woundId:l.woundId,currentAreaMm2:l.severity*l.closureFactor})):s.lesions,total=shares.reduce((n,l)=>n+l.currentAreaMm2,0);
     for(const l of shares){const w=m.wounds.find(w=>w.id===l.woundId);if(!w)continue;const f=s.flowMlPerS*l.currentAreaMm2/Math.max(1e-30,total);w[external?'_effExternal':'_effInternal']+=f;if(m.bodyParts[w.partKey])m.bodyParts[w.partKey][key]+=f;}
   }

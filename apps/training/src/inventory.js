@@ -1,9 +1,9 @@
-import{medicalReserved}from'./medical-bandage.js';
+import{medicalReserved}from'./medical-reservations.js';
 import{corpseAccess}from'./corpse-inventory.js';
 import{plateMount,plateParent,plateAccess,plateMove,stepPlateAction}from'./plate-inventory.js';
 import{EQUIPMENT,gearDefinition,pocketInfo,pocketOwners}from'./equipment-data.js';
 import{initEquipment,equipmentRootParent,equipmentLayout,equipmentAccess,reachableMedical,weightOf,carriedMass,reloadStorage,storageCell,closeBackpack,beginBackpack,dropItem,pickupItem,wearGear,stepEquipment,isCarriedRoot}from'./equipment-inventory.js';
-import{syncMedicalUses}from'./medical-care-modes.js';
+import{TEMPORARY_CARE}from'./medical-mo2-policy.js';
 import{createMedicalSupply,IFAK,MEDIC_POUCH,MEDIC_SUPPORT,INITIAL_MEDIC_SUPPORT,MEDICAL_SUPPLIES,INITIAL_IFAK_CONTENTS,medicalDefinition}from'./medical-supplies.js';
 import { CATALOG, MAGAZINE, AK_MAGAZINE, SCAR_MAGAZINE, magazineDefinition, compatibleAmmo, shotBallistics } from './catalog.js';
 import { WEAPONS, SWITCH_LOWER_S, DRAW_S } from './weapon-data.js';
@@ -21,9 +21,9 @@ const overlaps = (a, b) => a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h
 // One instance, one owner. Cell coordinates exist only inside spatial containers.
 // Timed actions reserve storage before they start; cancellation keeps committed transfers.
 export class Inventory {
-  constructor({includeSCAR=false,primaryWeaponId="m4a1",includePlates=false,includeEquipment=false,includeAK=true,nativeHandling=false,includeDebug=false,includeMedical=false,includeAbdominal=false,includeMedic=false,treatmentMode='reality'}={}) { this.includeSCAR=includeSCAR;this.primaryWeaponId=primaryWeaponId;this.includePlates=includePlates;this.includeEquipment=includeEquipment;this.includeMedic=includeMedic;this.includeAbdominal=includeAbdominal;this.treatmentMode=treatmentMode;this.includeMedical=includeMedical;this.includeAK=includeAK;this.nativeHandling=nativeHandling;this.includeDebug=includeDebug; this.reset(); }
+  constructor({includeSCAR=false,primaryWeaponId="m4a1",includePlates=false,includeEquipment=false,includeAK=true,nativeHandling=false,includeDebug=false,includeMedical=false,includeAbdominal=false,includeMedic=false}={}) { this.includeSCAR=includeSCAR;this.primaryWeaponId=primaryWeaponId;this.includePlates=includePlates;this.includeEquipment=includeEquipment;this.includeMedic=includeMedic;this.includeAbdominal=includeAbdominal;this.includeMedical=includeMedical;this.includeAK=includeAK;this.nativeHandling=nativeHandling;this.includeDebug=includeDebug; this.reset(); }
   reset() {
-    this.medicalReservations=new Map();this.medicalStock=new Map();this.openMedicalContainers=new Set();this.items = new Map(); this.primaryId = 'weapon-01'; this.weaponSlots = ['weapon-01','weapon-02']; this.action = null; this.spent = {};
+    this.medicalReservations=new Map();this.openMedicalContainers=new Set();this.items = new Map(); this.primaryId = 'weapon-01'; this.weaponSlots = ['weapon-01','weapon-02']; this.action = null; this.spent = {};
     this.accessibleContainer = null; this.serial = 0; this.lastError = '';
     this.debugStateCache=null;this.debugStateKey='';
     this.debugWeapon=this.includeDebug?{instanceId:DEBUG_WEAPON.instanceId,kind:'weapon',definitionId:'ak74m',debugOnly:true,owner:'debug:slot3',magazineId:null,chamber:DEBUG_WEAPON.defaultAmmoId,boltLocked:false,fireMode:'full',velocityOverrideMps:null,autoZero:false}:null;
@@ -63,8 +63,9 @@ export class Inventory {
       for(const id of compatibleAmmo('scar_h')){const item={instanceId:'crate:'+id,kind:'ammo',definitionId:id,owner:CRATE_OWNER,count:AMMO_MAX_STACK};item.cell=this.findCell(CRATE_OWNER,item);if(!item.cell)throw Error('SCAR ammo crate capacity');this.items.set(item.instanceId,item);}
       if(this.primaryWeaponId==='scar_h'){const w=this.items.get('weapon-01');w.definitionId='scar_h';w.chamber='762_m80';for(let i=1;i<=5;i++){const mag=this.items.get('mag-0'+i);mag.definitionId=SCAR_MAGAZINE.id;mag.rounds=Array(i===1?19:i<=3?20:0).fill(['762_m80','762_m80','762_m80a1'][i-1]);}}
     }
-    if(this.includeMedical)syncMedicalUses(this,this.treatmentMode);
     if(this.includeEquipment)initEquipment(this);
+    if(this.includeMedical){const item=createMedicalSupply('medical:injector','injector',this.includeEquipment?'belt:pouch-1':'bag',null),owners=this.includeEquipment?['belt:pouch-1']:['bag',...[...this.items.values()].filter(i=>i.kind==='medicalContainer').map(i=>'container:'+i.instanceId)];for(const owner of owners){const cell=this.findCell(owner,item);if(cell){item.owner=owner;item.cell=cell;break;}}if(!item.cell)throw Error('Initial injector does not fit');this.items.set(item.instanceId,item);}
+
     this.initialRounds = this.totalRounds(); this.initialByAmmo = this.roundCounts();
     this.selectedMagazineId = 'mag-02'; this.revision = (this.revision || 0) + 1;
   }
@@ -86,7 +87,7 @@ export class Inventory {
   get magazine() { return this.weapon?.magazineId ? this.items.get(this.weapon.magazineId) : null; }
   get optic() { return this.weapon?.opticId ? this.items.get(this.weapon.opticId) : null; }
   get attachmentWeightKg() { return opticDefinition(this.optic)?.weightKg || 0; }
-  get backpackSeconds(){return EQUIPMENT.backpackSeconds[this.treatmentMode];}
+  get backpackSeconds(){return TEMPORARY_CARE.backpackSeconds;}
   get weaponWeightKg() { if(this.includeEquipment&&this.weapon&&!this.isDebugWeapon)return weightOf(this,this.weapon);return this.weapon ? shotBallistics(compatibleAmmo(this.weapon.definitionId)[0],this.weapon.definitionId).weaponMassKg+this.attachmentWeightKg : 0; }
   get loadedRounds() { if(this.isDebugWeapon)return Infinity; return (this.magazine?.rounds.length || 0) + (this.weapon?.chamber ? 1 : 0); }
   get reserveRounds() {

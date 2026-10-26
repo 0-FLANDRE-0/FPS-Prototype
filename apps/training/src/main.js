@@ -70,7 +70,7 @@ async function start() {
   const aim = new AimState(settings);
   const locomotion=new PlayerLocomotion(humans.source.animations);
   const lean=new LeanState();
-  const inventory = new Inventory({includeSCAR:true,includePlates:true,includeEquipment:true,nativeHandling:true,includeDebug:true,includeMedical:true,includeAbdominal:true,includeMedic:true,treatmentMode:settings.treatmentMode});
+  const inventory = new Inventory({includeSCAR:true,includePlates:true,includeEquipment:true,nativeHandling:true,includeDebug:true,includeMedical:true,includeAbdominal:true,includeMedic:true});
   const state = { ready: true, phase: 'menu', tick: 0, time: 0, shots: 0, hits: 0,
     cooldown: 0, lastShotTime: -10, blocked: false, speed: 0, sprinting: false, sprintShotPending:false, lastShot: null,
     viewHeight: PLAYER.standView, previousHeight: PLAYER.standView, motion: 0.7, quality: 'balanced', fpsLimit: 30,
@@ -115,7 +115,7 @@ async function start() {
     },toast
   });
   medicalUI=new MedicalInventoryUI({bag,getMedical:playerMedical,getDebug:()=>settings.internalRegions,getHearing:()=>sound.hearing.get('P01')});
-  const care=new SelfCare({inventory,getMedical:playerMedical,getFeedback:playerFeedback,getMode:()=>settings.treatmentMode,notify:toast,onStart:()=>{input.ads=false;input.clear();pendingFire=false;state.sprintShotPending=false;inventory.cancel();physics.velocity.set(0,0,0);physics.movementVelocity.set(0,0,0);},onChange:()=>{medicalUI.dirty=true;}});
+  const care=new SelfCare({inventory,getMedical:playerMedical,getFeedback:playerFeedback,notify:toast,onStart:()=>{input.ads=false;input.clear();pendingFire=false;state.sprintShotPending=false;inventory.cancel();physics.velocity.set(0,0,0);physics.movementVelocity.set(0,0,0);},onChange:()=>{medicalUI.dirty=true;}});
   const careUI=new MedicalCareUI({medicalUI,care,getPhase:()=>state.phase});medicalUI.careUI=careUI;careUI.touchControls=installTouchControls(careUI.hud);
   window.addEventListener('keydown',e=>{if((care.active||inventory.action?.kind.startsWith('gear-')||inventory.action?.kind==='backpack-open')&&!e.target.matches('input,select,textarea')&&['KeyW','KeyA','KeyS','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','ShiftLeft','ShiftRight','Digit1','Digit2','Digit3'].includes(e.code))care.interrupt('이동·총 들기 입력');});
   window.addEventListener('keydown',e=>{if(!e.target.matches('input,select,textarea')&&['KeyW','KeyA','KeyS','KeyD','ShiftLeft','ShiftRight'].includes(e.code)){if(inventory.action?.kind.startsWith('gear-')||inventory.action?.kind==='backpack-open')inventory.cancel();if(inventory.backpackOpen)inventory.closeBackpack();}});
@@ -584,7 +584,6 @@ async function start() {
     physics.bodyModel=settings.medicalModel==='legacy'?'legacy':'s2';
     medical.setMedicalModel(settings.medicalModel); $('medicalModel').value = settings.medicalModel;
     $('mouseAdsMode').value = settings.mouseAdsMode; input.setMouseAdsMode(settings.mouseAdsMode);
-    $('treatmentMode').value=settings.treatmentMode;if(inventory.treatmentMode!==settings.treatmentMode)care.setMode(settings.treatmentMode);
     $('leanMode').value=settings.leanMode;input.setLeanMode(settings.leanMode);
     $('fov').closest('.setting-row').hidden = settings.lensStrength > 0;
     $('lensFov').closest('.setting-row').hidden = settings.lensStrength === 0;
@@ -615,7 +614,6 @@ async function start() {
   $('trajectories').addEventListener('change', event => { settings.trajectories = event.target.checked; saveSettings(settings); syncPreferences(); });
   $('medicalModel').addEventListener('change', event => { settings.medicalModel = event.target.value; saveSettings(settings); syncPreferences(); medicalPanelStamp = ''; renderMedicalPanel(medical, $('medicalContent')); });
   $('mouseAdsMode').addEventListener('change', event => { settings.mouseAdsMode = event.target.value; saveSettings(settings); syncPreferences(); });
-  $('treatmentMode').addEventListener('change',event=>{settings.treatmentMode=event.target.value;saveSettings(settings);syncPreferences();});
   $('leanMode').addEventListener('change',event=>{settings.leanMode=event.target.value;input.clearLean();clearLeanPose();saveSettings(settings);syncPreferences();});
   $('internalRegions').addEventListener('change',event=>{settings.internalRegions=event.target.checked;saveSettings(settings);syncPreferences();});
   $('skeletonRegions').addEventListener('change',event=>{settings.skeletonRegions=event.target.checked;saveSettings(settings);syncPreferences();});

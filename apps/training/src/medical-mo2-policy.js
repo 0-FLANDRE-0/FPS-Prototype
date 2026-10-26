@@ -1,6 +1,6 @@
 // MO2: user-designed product rules; numerical values below are game tuning.
 export const MO2=Object.freeze({ruleId:'medical-mo2',bandageQ:20,bandageInitialBlock:.6,bandageRiseS:12,
- unwrapSeconds:2,unwrapRetainedBlock:.5,workPerAreaMm2:3,minimumComponentWork:2,
+ unwrapSeconds:2,unwrapRetainedBlock:.5,workPerAreaMm2:3,minimumComponentWork:2,oozeOpeningAreaFraction:.05,organOpeningAreaFraction:.05,
  recoveryHpPerS:3,recoveryMinimumHpPerS:.2,stopFlowMlS:.01,
  products:Object.freeze({bandage:{seconds:4,maximum:2,resource:'uses'},gauze:{seconds:6,maximum:100,efficiency:1,resource:'durability'},injector:{seconds:5,maximum:160,efficiency:1.2,resource:'durability'},foam:{seconds:7,maximum:300,efficiency:1.8,resource:'durability'},cat:{seconds:5,removeSeconds:2,maximum:1,resource:'uses'}}),
  movement:Object.freeze({walkSeepPerS:.04,walkReopenPerS:.004,runReopenPerS:.12,seepSeconds:8,seepFlowMlS:.3,reopenFraction:.45}),

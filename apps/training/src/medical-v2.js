@@ -1,3 +1,5 @@
+import{stepPartRecovery}from'./medical-part-recovery.js';
+import{careTime}from'./medical-care-state.js';
 import {exerciseHemodynamics,exerciseVitals,exerciseAfterPump} from './medical-d2.js';
 import {arrestAttributionB1b} from './medical-b1b.js';
 import {ensureBleedingB1,updateBleedingB1,applyHemothoraxB1} from './medical-b1.js';
@@ -115,7 +117,7 @@ export function createMedicalV2Slots(original){
     applySpinalFunctionR2(unit);critical(unit);
   }
   function updateMedicalBleeding(unit,dt){
-    ensureMedicalV2(unit);updateBleedingB1(unit,dt,bleedOptions);
+    ensureMedicalV2(unit);updateBleedingB1(unit,dt,bleedOptions);stepPartRecovery(unit,dt,careTime(unit.medical));
   }
   function updateHemodynamics(unit,dt){
     applyHemothoraxB1(unit.medical);

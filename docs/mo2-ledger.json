@@ -1,0 +1,2055 @@
+{
+  "stage": "MO2-hemostasis",
+  "complete": false,
+  "repository": "0-FLANDRE-0/FPS-Prototype",
+  "branch": "feature/medical-overhaul",
+  "baselineCommit": "01eb585278a8d74f7d365f354d3c1a04c7a35eda",
+  "dateUTC": "2026-10-26",
+  "classifications": {
+    "source": "기존 의료품 제조사 치수·질량 출처 유지; 해부·혈관/피격 출처 유지",
+    "original": "ballistics/protection/channel/direct-vs-cavity/damage/untreated physiology; existing HP taper and drug/infusion/chest equations",
+    "userDesign": "one threshold=bandageQ; bandage2uses; item scopes; half unblock; per-wound progress; movement hazards; oneCATperlimb; all-wounds recovery; remove all modes",
+    "tuning": "Q20mL/s, durations4/6/5/7/5/remove2, durability100/160/300 & efficiency1/1.2/1.8, ramp60%/12s, area work3/min2, channel aperture fraction5%, hazard/penalty coefficients",
+    "gameAllowance": "generic all-body injector/foam, abstract resource points, geometric equivalent microvascular opening, short fixed use times"
+  },
+  "policyFile": "apps/training/src/medical-mo2-policy.js",
+  "modeDisposition": "docs/mo2-mode-disposition.md",
+  "rawOldPolicy": "docs/mo2-old-policy.json",
+  "rawMeasurements": "docs/mo2-numerical-results.json",
+  "scopeExcluded": [
+    "TXA/drug/blood redesign",
+    "infection/antibiotics",
+    "chest/lung/seal/needle/NPA removal",
+    "liver/heart downstream redesign",
+    "fracture/surgery",
+    "unconsciousness rules",
+    "ballistics/protection/wound channel/damage formulas"
+  ],
+  "bugs": {
+    "before": {
+      "enemy": {
+        "player": 100,
+        "enemy": 1
+      },
+      "closeOldRecord": {
+        "reservationSurvives": false,
+        "afterClosing": "interrupted"
+      },
+      "restartOldRecord": {
+        "resumed": false,
+        "activeCount": 1
+      }
+    },
+    "after": {
+      "enemy": {
+        "player": 1,
+        "enemy": 2
+      },
+      "closeOldRecord": {
+        "reservationSurvives": true,
+        "afterClosing": "completed"
+      },
+      "restartOldRecord": {
+        "resumed": false,
+        "activeCount": 1
+      }
+    },
+    "note": "After-survey player bandage already used once(1remaining), enemy newly created2; fresh factory regression verifies both2. Suspicious old-resume bug was not reproduced; existing preview refused. Added explicit active/reservation guards."
+  },
+  "threshold": {
+    "sourceCases": 268,
+    "allWounds": 258,
+    "eligibleWounds": 234,
+    "thresholdMlPerS": 20,
+    "groups": {
+      "major": {
+        "n": 47,
+        "min": 10.285750056618703,
+        "p25": 47.497504655851834,
+        "p50": 83.64611535359886,
+        "p75": 88.94536024305555,
+        "p90": 88.94536024305555,
+        "max": 88.94536024305556,
+        "heavy": 45
+      },
+      "other": {
+        "n": 187,
+        "min": 0.393175795906074,
+        "p25": 2.903937856560896,
+        "p50": 10.237778692836773,
+        "p75": 14.38182153650154,
+        "p90": 26.430996593471153,
+        "max": 42.94095279242817,
+        "heavy": 24
+      }
+    },
+    "thresholdAlternatives": [
+      {
+        "q": 15,
+        "majorHeavyFraction": 0.9574468085106383,
+        "otherNormalFraction": 0.7700534759358288
+      },
+      {
+        "q": 20,
+        "majorHeavyFraction": 0.9574468085106383,
+        "otherNormalFraction": 0.8716577540106952
+      },
+      {
+        "q": 25,
+        "majorHeavyFraction": 0.9148936170212766,
+        "otherNormalFraction": 0.8823529411764706
+      },
+      {
+        "q": 30,
+        "majorHeavyFraction": 0.8936170212765957,
+        "otherNormalFraction": 0.946524064171123
+      }
+    ]
+  },
+  "initialInjector": {
+    "countPerActor": 1,
+    "playerSlot": "belt:pouch-1",
+    "enemySlot": "belt:<actor>:belt:pouch-1",
+    "grid": [
+      1,
+      1
+    ],
+    "packageMm": [
+      150,
+      35,
+      35
+    ],
+    "massKg": 0.06,
+    "classification": "unverified dimensions/mass — tuning, generic brandless product",
+    "sourceAttempts": [
+      {
+        "url": "https://www.revmedx.com/xstat/",
+        "result": "redirects to P30 different variant; dimensions not reused"
+      },
+      {
+        "url": "https://www.revmedx.com/xstat12/",
+        "result": "404"
+      },
+      {
+        "url": "https://www.rescue-essentials.com/xstat-12-hemostatic-device/",
+        "result": "404"
+      }
+    ],
+    "ifakExpanded": false,
+    "foamSlot": "container:medic-pouch-01 at(1,0)"
+  },
+  "workload": {
+    "vascular": "original lesion baseAreaMm2; no current-area/pressure/fullness discount",
+    "organ": "no measured microvascular opening; estimate5% of original local permanent channel cross section, fallback bullet radius. No severity/HP/volume dependency. Tuning, not a measured vessel aperture.",
+    "ooze": "5% of original projectile aperture × original opening count",
+    "freeze": "first modern gauze request; preview is read-only",
+    "minimumWork": 2,
+    "workPerMm2": 3,
+    "rangeSplit": "original verified openings .15/.6 internal; mixed torso ooze .5 only when both source destinations existed"
+  },
+  "movement": [
+    {
+      "name": "rest",
+      "trials": 500,
+      "durationS": 30,
+      "seepTrials": 0,
+      "reopenTrials": 0,
+      "seepTrialRate": 0,
+      "reopenTrialRate": 0,
+      "eventSeep": 0,
+      "eventReopen": 0,
+      "repeatedSeedsIdentical": true,
+      "samples": [
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "name": "crouch",
+      "trials": 500,
+      "durationS": 30,
+      "seepTrials": 0,
+      "reopenTrials": 0,
+      "seepTrialRate": 0,
+      "reopenTrialRate": 0,
+      "eventSeep": 0,
+      "eventReopen": 0,
+      "repeatedSeedsIdentical": true,
+      "samples": [
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "name": "walk",
+      "trials": 500,
+      "durationS": 30,
+      "seepTrials": 330,
+      "reopenTrials": 57,
+      "seepTrialRate": 0.66,
+      "reopenTrialRate": 0.114,
+      "eventSeep": 446,
+      "eventReopen": 57,
+      "repeatedSeedsIdentical": true,
+      "samples": [
+        [
+          {
+            "kind": "seep",
+            "time": 11.333333333333334
+          }
+        ],
+        [
+          {
+            "kind": "reopen",
+            "time": 1.7666666666666666
+          }
+        ],
+        [
+          {
+            "kind": "seep",
+            "time": 8.233333333333333
+          }
+        ]
+      ]
+    },
+    {
+      "name": "run",
+      "trials": 500,
+      "durationS": 30,
+      "seepTrials": 0,
+      "reopenTrials": 490,
+      "seepTrialRate": 0,
+      "reopenTrialRate": 0.98,
+      "eventSeep": 0,
+      "eventReopen": 490,
+      "repeatedSeedsIdentical": true,
+      "samples": [
+        [
+          {
+            "kind": "reopen",
+            "time": 11.333333333333334
+          }
+        ],
+        [
+          {
+            "kind": "reopen",
+            "time": 1.0666666666666667
+          }
+        ],
+        [
+          {
+            "kind": "reopen",
+            "time": 8.233333333333333
+          }
+        ]
+      ]
+    },
+    {
+      "name": "walkWrapped",
+      "trials": 500,
+      "durationS": 30,
+      "seepTrials": 0,
+      "reopenTrials": 0,
+      "seepTrialRate": 0,
+      "reopenTrialRate": 0,
+      "eventSeep": 0,
+      "eventReopen": 0,
+      "repeatedSeedsIdentical": true,
+      "samples": [
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "name": "runWrapped",
+      "trials": 500,
+      "durationS": 30,
+      "seepTrials": 0,
+      "reopenTrials": 0,
+      "seepTrialRate": 0,
+      "reopenTrialRate": 0,
+      "eventSeep": 0,
+      "eventReopen": 0,
+      "repeatedSeedsIdentical": true,
+      "samples": [
+        [],
+        [],
+        []
+      ]
+    }
+  ],
+  "representatives": [
+    {
+      "name": "lung-only",
+      "part": "chest",
+      "ammo": "545_ps_gs",
+      "flow": {
+        "q0": 1.0521530555625491,
+        "external": 0.4997948451289953,
+        "internal": 0.5523582104335538,
+        "externalFlow": 0.4997948451289953,
+        "internalFlow": 0.5523582104335538,
+        "actual": 1.0521530555625491,
+        "grade": "일반 출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 21.84213002603196,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": false,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 13,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 21.84213002603196,
+          "allRangesCovered": true,
+          "resourceForWound": 18.2017750216933,
+          "woundsPerFullItem": 8,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 21.84213002603196,
+          "allRangesCovered": true,
+          "resourceForWound": 12.134516681128867,
+          "woundsPerFullItem": 24,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "organ-bed/heart|0|cavity",
+          "sourceId": "organ-bed/heart",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 1.2315043202071987,
+          "requiredWork": 3.694512960621596,
+          "workDone": 0
+        },
+        {
+          "id": "organ-bed/left-lung|0|cavity",
+          "sourceId": "organ-bed/left-lung",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 3.586197048055724,
+          "requiredWork": 10.758591144167173,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver",
+      "part": "leftArm",
+      "ammo": "545_ps_gs",
+      "flow": {
+        "q0": 10.691272949662316,
+        "external": 10.691272949662316,
+        "internal": 0,
+        "externalFlow": 10.691272949662316,
+        "internalFlow": 0,
+        "actual": 10.691272949662316,
+        "grade": "일반 출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 7.389025921243192,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 13,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 6.157521601035993,
+          "woundsPerFullItem": 25,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 4.105014400690663,
+          "woundsPerFullItem": 73,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver",
+      "part": "abdomen",
+      "ammo": "545_ps_gs",
+      "flow": {
+        "q0": 5.295179030190358,
+        "external": 0.50248398840454,
+        "internal": 4.792695041785818,
+        "externalFlow": 0.50248398840454,
+        "internalFlow": 4.792695041785818,
+        "actual": 5.295179030190358,
+        "grade": "일반 출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 45.70193950805256,
+      "products": {
+        "gauze": {
+          "eligibleWork": 3.694512960621596,
+          "allRangesCovered": false,
+          "resourceForWound": 3.694512960621596,
+          "woundsPerFullItem": 27,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 45.70193950805256,
+          "allRangesCovered": true,
+          "resourceForWound": 38.084949590043806,
+          "woundsPerFullItem": 4,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 45.70193950805256,
+          "allRangesCovered": true,
+          "resourceForWound": 25.389966393362535,
+          "woundsPerFullItem": 11,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "parenchymal/spleen|0|cavity",
+          "sourceId": "parenchymal/spleen",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 6.76665960932564,
+          "requiredWork": 20.299978827976922,
+          "workDone": 0
+        },
+        {
+          "id": "parenchymal/liver|0|cavity",
+          "sourceId": "parenchymal/liver",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 7.235815906484682,
+          "requiredWork": 21.707447719454045,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w2|0|external",
+          "sourceId": "ooze/w2",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 1.2315043202071987,
+          "requiredWork": 3.694512960621596,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver",
+      "part": "rightArm",
+      "ammo": "545_ps_gs",
+      "flow": {
+        "q0": 0.6418780019503988,
+        "external": 0.6418780019503988,
+        "internal": 0,
+        "externalFlow": 0.6418780019503988,
+        "internalFlow": 0,
+        "actual": 0.6418780019503988,
+        "grade": "일반 출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 3.694512960621596,
+      "products": {
+        "gauze": {
+          "eligibleWork": 3.694512960621596,
+          "allRangesCovered": true,
+          "resourceForWound": 3.694512960621596,
+          "woundsPerFullItem": 27,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 3.694512960621596,
+          "allRangesCovered": true,
+          "resourceForWound": 3.0787608005179967,
+          "woundsPerFullItem": 51,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 3.694512960621596,
+          "allRangesCovered": true,
+          "resourceForWound": 2.0525072003453313,
+          "woundsPerFullItem": 146,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "ooze/w3|0|external",
+          "sourceId": "ooze/w3",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 1.2315043202071987,
+          "requiredWork": 3.694512960621596,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "femoral-artery",
+      "part": "leftLeg",
+      "ammo": "545_ps_gs",
+      "flow": {
+        "q0": 88.94536024305555,
+        "external": 75.64508524293396,
+        "internal": 13.300275000121585,
+        "externalFlow": 75.64508524293396,
+        "internalFlow": 13.300275000121585,
+        "actual": 88.94536024305555,
+        "grade": "과다출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 167.58931665186208,
+      "products": {
+        "gauze": {
+          "eligibleWork": 167.58931665186208,
+          "allRangesCovered": true,
+          "resourceForWound": 167.58931665186208,
+          "woundsPerFullItem": 0,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 167.58931665186208,
+          "allRangesCovered": true,
+          "resourceForWound": 139.65776387655174,
+          "woundsPerFullItem": 1,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 167.58931665186208,
+          "allRangesCovered": true,
+          "resourceForWound": 93.10517591770115,
+          "woundsPerFullItem": 3,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "vessel/left-femoral|0|external",
+          "sourceId": "vessel/left-femoral",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 45.39008237367535,
+          "requiredWork": 136.17024712102605,
+          "workDone": 0
+        },
+        {
+          "id": "vessel/left-femoral|0|limb",
+          "sourceId": "vessel/left-femoral",
+          "index": 0,
+          "range": "limb",
+          "originalAreaMm2": 8.010014536530944,
+          "requiredWork": 24.03004360959283,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "arm-muscle",
+      "part": "leftArm",
+      "ammo": "545_ps_gs",
+      "flow": {
+        "q0": 10.67492983173854,
+        "external": 10.67492983173854,
+        "internal": 0,
+        "externalFlow": 10.67492983173854,
+        "internalFlow": 0,
+        "actual": 10.67492983173854,
+        "grade": "일반 출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 7.389025921243192,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 13,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 6.157521601035993,
+          "woundsPerFullItem": 25,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 4.105014400690663,
+          "woundsPerFullItem": 73,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "leg-muscle",
+      "part": "leftLeg",
+      "ammo": "545_ps_gs",
+      "flow": {
+        "q0": 10.690578549147695,
+        "external": 10.690578549147695,
+        "internal": 0,
+        "externalFlow": 10.690578549147695,
+        "internalFlow": 0,
+        "actual": 10.690578549147695,
+        "grade": "일반 출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 7.389025921243192,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 13,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 6.157521601035993,
+          "woundsPerFullItem": 25,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 4.105014400690663,
+          "woundsPerFullItem": 73,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver-central",
+      "part": "leftArm",
+      "ammo": "545_ps_gs",
+      "flow": {
+        "q0": 9.8982098262047,
+        "external": 9.8982098262047,
+        "internal": 0,
+        "externalFlow": 9.8982098262047,
+        "internalFlow": 0,
+        "actual": 9.8982098262047,
+        "grade": "일반 출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 7.389025921243192,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 13,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 6.157521601035993,
+          "woundsPerFullItem": 25,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 4.105014400690663,
+          "woundsPerFullItem": 73,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver-central",
+      "part": "abdomen",
+      "ammo": "545_ps_gs",
+      "flow": {
+        "q0": 14.870618275297728,
+        "external": 0.5024825559359155,
+        "internal": 14.368135719361813,
+        "externalFlow": 0.5024825559359155,
+        "internalFlow": 14.368135719361813,
+        "actual": 14.870618275297728,
+        "grade": "일반 출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 31.45611571998958,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": false,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 13,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 31.45611571998958,
+          "allRangesCovered": true,
+          "resourceForWound": 26.213429766657985,
+          "woundsPerFullItem": 6,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 31.45611571998958,
+          "allRangesCovered": true,
+          "resourceForWound": 17.475619844438654,
+          "woundsPerFullItem": 17,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "organ-bed/bowel|0|cavity",
+          "sourceId": "organ-bed/bowel",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 6.487464145037112,
+          "requiredWork": 19.462392435111337,
+          "workDone": 0
+        },
+        {
+          "id": "parenchymal/liver|0|cavity",
+          "sourceId": "parenchymal/liver",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 1.534899121211684,
+          "requiredWork": 4.6046973636350526,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w2|0|external",
+          "sourceId": "ooze/w2",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver-graze",
+      "part": "leftArm",
+      "ammo": "545_ps_gs",
+      "flow": {
+        "q0": 9.897555860243944,
+        "external": 9.897555860243944,
+        "internal": 0,
+        "externalFlow": 9.897555860243944,
+        "internalFlow": 0,
+        "actual": 9.897555860243944,
+        "grade": "일반 출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 7.389025921243192,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 13,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 6.157521601035993,
+          "woundsPerFullItem": 25,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 4.105014400690663,
+          "woundsPerFullItem": 73,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver-graze",
+      "part": "abdomen",
+      "ammo": "545_ps_gs",
+      "flow": {
+        "q0": 14.120019390200152,
+        "external": 0.5024826892675123,
+        "internal": 13.61753670093264,
+        "externalFlow": 0.5024826892675123,
+        "internalFlow": 13.61753670093264,
+        "actual": 14.120019390200152,
+        "grade": "일반 출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 28.993015433976144,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": false,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 13,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 28.993015433976144,
+          "allRangesCovered": true,
+          "resourceForWound": 24.16084619498012,
+          "woundsPerFullItem": 6,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 28.993015433976144,
+          "allRangesCovered": true,
+          "resourceForWound": 16.10723079665341,
+          "woundsPerFullItem": 18,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "parenchymal/liver|0|cavity",
+          "sourceId": "parenchymal/liver",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 7.20132983757765,
+          "requiredWork": 21.60398951273295,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w2|0|external",
+          "sourceId": "ooze/w2",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "femoral-complete",
+      "part": "leftLeg",
+      "ammo": "545_ps_gs",
+      "flow": {
+        "q0": 88.94536024305555,
+        "external": 75.64508524293396,
+        "internal": 13.300275000121585,
+        "externalFlow": 75.64508524293396,
+        "internalFlow": 13.300275000121585,
+        "actual": 88.94536024305555,
+        "grade": "과다출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 167.58931665186208,
+      "products": {
+        "gauze": {
+          "eligibleWork": 167.58931665186208,
+          "allRangesCovered": true,
+          "resourceForWound": 167.58931665186208,
+          "woundsPerFullItem": 0,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 167.58931665186208,
+          "allRangesCovered": true,
+          "resourceForWound": 139.65776387655174,
+          "woundsPerFullItem": 1,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 167.58931665186208,
+          "allRangesCovered": true,
+          "resourceForWound": 93.10517591770115,
+          "woundsPerFullItem": 3,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "vessel/left-femoral|0|external",
+          "sourceId": "vessel/left-femoral",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 45.39008237367535,
+          "requiredWork": 136.17024712102605,
+          "workDone": 0
+        },
+        {
+          "id": "vessel/left-femoral|0|limb",
+          "sourceId": "vessel/left-femoral",
+          "index": 0,
+          "range": "limb",
+          "originalAreaMm2": 8.010014536530944,
+          "requiredWork": 24.03004360959283,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "arm-muscle",
+      "part": "leftArm",
+      "ammo": "545_ps_gs",
+      "flow": {
+        "q0": 10.67492983173854,
+        "external": 10.67492983173854,
+        "internal": 0,
+        "externalFlow": 10.67492983173854,
+        "internalFlow": 0,
+        "actual": 10.67492983173854,
+        "grade": "일반 출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 7.389025921243192,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 13,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 6.157521601035993,
+          "woundsPerFullItem": 25,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": true,
+          "resourceForWound": 4.105014400690663,
+          "woundsPerFullItem": 73,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "femoral-partial",
+      "part": "leftLeg",
+      "ammo": "545_ps_gs",
+      "flow": {
+        "q0": 88.94536024305556,
+        "external": 75.65666886094589,
+        "internal": 13.288691382109672,
+        "externalFlow": 75.65666886094589,
+        "internalFlow": 13.288691382109672,
+        "actual": 88.94536024305556,
+        "grade": "과다출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 132.37199844543645,
+      "products": {
+        "gauze": {
+          "eligibleWork": 132.37199844543645,
+          "allRangesCovered": true,
+          "resourceForWound": 132.37199844543645,
+          "woundsPerFullItem": 0,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 132.37199844543645,
+          "allRangesCovered": true,
+          "resourceForWound": 110.30999870453037,
+          "woundsPerFullItem": 1,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 132.37199844543645,
+          "allRangesCovered": true,
+          "resourceForWound": 73.53999913635359,
+          "woundsPerFullItem": 4,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "vessel/left-femoral|0|external",
+          "sourceId": "vessel/left-femoral",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 35.41184221518809,
+          "requiredWork": 106.23552664556426,
+          "workDone": 0
+        },
+        {
+          "id": "vessel/left-femoral|0|limb",
+          "sourceId": "vessel/left-femoral",
+          "index": 0,
+          "range": "limb",
+          "originalAreaMm2": 6.249148626209663,
+          "requiredWork": 18.747445878628987,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver-posterior",
+      "part": "rightArm",
+      "ammo": "545_ps_gs",
+      "flow": {
+        "q0": 0.6112231274509865,
+        "external": 0.5024743102144599,
+        "internal": 0.10874881723652657,
+        "externalFlow": 0.5024743102144599,
+        "internalFlow": 0.10874881723652657,
+        "actual": 0.6112231274509865,
+        "grade": "일반 출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 30.063082515318897,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.389025921243192,
+          "allRangesCovered": false,
+          "resourceForWound": 7.389025921243192,
+          "woundsPerFullItem": 13,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 30.063082515318897,
+          "allRangesCovered": true,
+          "resourceForWound": 25.05256876276575,
+          "woundsPerFullItem": 6,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 30.063082515318897,
+          "allRangesCovered": true,
+          "resourceForWound": 16.701712508510496,
+          "woundsPerFullItem": 17,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "parenchymal/liver|0|cavity",
+          "sourceId": "parenchymal/liver",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 7.558018864691902,
+          "requiredWork": 22.674056594075704,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.4630086404143974,
+          "requiredWork": 7.389025921243192,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver-posterior",
+      "part": "abdomen",
+      "ammo": "545_ps_gs",
+      "flow": {
+        "q0": 70.07402484679282,
+        "external": 0.5024743102144599,
+        "internal": 69.57155053657836,
+        "externalFlow": 0.5024743102144599,
+        "internalFlow": 69.57155053657836,
+        "actual": 70.07402484679282,
+        "grade": "과다출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 267.9864219934818,
+      "products": {
+        "gauze": {
+          "eligibleWork": 3.694512960621596,
+          "allRangesCovered": false,
+          "resourceForWound": 3.694512960621596,
+          "woundsPerFullItem": 27,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 267.9864219934818,
+          "allRangesCovered": true,
+          "resourceForWound": 223.32201832790153,
+          "woundsPerFullItem": 0,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 267.9864219934818,
+          "allRangesCovered": true,
+          "resourceForWound": 148.88134555193434,
+          "woundsPerFullItem": 2,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "parenchymal/liver|1|cavity",
+          "sourceId": "parenchymal/liver",
+          "index": 1,
+          "range": "cavity",
+          "originalAreaMm2": 1.318795189669255,
+          "requiredWork": 3.9563855690077645,
+          "workDone": 0
+        },
+        {
+          "id": "vessel/hepatic-vein-trunk|0|cavity",
+          "sourceId": "vessel/hepatic-vein-trunk",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 0.756335360322929,
+          "requiredWork": 2.2690060809687873,
+          "workDone": 0
+        },
+        {
+          "id": "vessel/abdominal-vena-cava|0|cavity",
+          "sourceId": "vessel/abdominal-vena-cava",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 86.02217246096124,
+          "requiredWork": 258.0665173828837,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w2|0|external",
+          "sourceId": "ooze/w2",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 1.2315043202071987,
+          "requiredWork": 3.694512960621596,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver-central",
+      "part": "abdomen",
+      "ammo": "556_m855",
+      "flow": {
+        "q0": 18.906129269958395,
+        "external": 0.5024832502683011,
+        "internal": 18.403646019690093,
+        "externalFlow": 0.5024832502683011,
+        "internalFlow": 18.403646019690093,
+        "actual": 18.906129269958395,
+        "grade": "일반 출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 19.613576931915638,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.65527589863493,
+          "allRangesCovered": false,
+          "resourceForWound": 7.65527589863493,
+          "woundsPerFullItem": 13,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 19.613576931915638,
+          "allRangesCovered": true,
+          "resourceForWound": 16.34464744326303,
+          "woundsPerFullItem": 9,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 19.613576931915638,
+          "allRangesCovered": true,
+          "resourceForWound": 10.896431628842022,
+          "woundsPerFullItem": 27,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "parenchymal/right-kidney|0|cavity",
+          "sourceId": "parenchymal/right-kidney",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 1.2758793164391549,
+          "requiredWork": 3.827637949317465,
+          "workDone": 0
+        },
+        {
+          "id": "parenchymal/liver|0|cavity",
+          "sourceId": "parenchymal/liver",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 2.710221027987748,
+          "requiredWork": 8.130663083963244,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.5517586328783097,
+          "requiredWork": 7.65527589863493,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver-central",
+      "part": "leftArm",
+      "ammo": "556_m855",
+      "flow": {
+        "q0": 2.026043301064867,
+        "external": 2.026043301064867,
+        "internal": 0,
+        "externalFlow": 2.026043301064867,
+        "internalFlow": 0,
+        "actual": 2.026043301064867,
+        "grade": "일반 출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 3.827637949317465,
+      "products": {
+        "gauze": {
+          "eligibleWork": 3.827637949317465,
+          "allRangesCovered": true,
+          "resourceForWound": 3.827637949317465,
+          "woundsPerFullItem": 26,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 3.827637949317465,
+          "allRangesCovered": true,
+          "resourceForWound": 3.1896982910978875,
+          "woundsPerFullItem": 50,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 3.827637949317465,
+          "allRangesCovered": true,
+          "resourceForWound": 2.1264655273985915,
+          "woundsPerFullItem": 141,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "ooze/w2|0|external",
+          "sourceId": "ooze/w2",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 1.2758793164391549,
+          "requiredWork": 3.827637949317465,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver-graze",
+      "part": "abdomen",
+      "ammo": "556_m855",
+      "flow": {
+        "q0": 30.142955193275878,
+        "external": 0.5024815996966517,
+        "internal": 29.640473593579227,
+        "externalFlow": 0.5024815996966517,
+        "internalFlow": 29.640473593579227,
+        "actual": 30.142955193275878,
+        "grade": "과다출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 67.30620439852511,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.65527589863493,
+          "allRangesCovered": false,
+          "resourceForWound": 7.65527589863493,
+          "woundsPerFullItem": 13,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 67.30620439852511,
+          "allRangesCovered": true,
+          "resourceForWound": 56.08850366543759,
+          "woundsPerFullItem": 2,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 67.30620439852511,
+          "allRangesCovered": true,
+          "resourceForWound": 37.3923357769584,
+          "woundsPerFullItem": 8,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "vessel/hepatic-vein-trunk|0|cavity",
+          "sourceId": "vessel/hepatic-vein-trunk",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 13.919894042719065,
+          "requiredWork": 41.759682128157195,
+          "workDone": 0
+        },
+        {
+          "id": "parenchymal/right-kidney|0|cavity",
+          "sourceId": "parenchymal/right-kidney",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 1.2758793164391549,
+          "requiredWork": 3.827637949317465,
+          "workDone": 0
+        },
+        {
+          "id": "parenchymal/liver|0|cavity",
+          "sourceId": "parenchymal/liver",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 1.275879316439156,
+          "requiredWork": 3.827637949317468,
+          "workDone": 0
+        },
+        {
+          "id": "organ-bed/bowel|0|cavity",
+          "sourceId": "organ-bed/bowel",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 3.411990157699352,
+          "requiredWork": 10.235970473098057,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.5517586328783097,
+          "requiredWork": 7.65527589863493,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "femoral-complete",
+      "part": "leftLeg",
+      "ammo": "556_m855",
+      "flow": {
+        "q0": 88.94536024305555,
+        "external": 75.6521658426802,
+        "internal": 13.29319440037534,
+        "externalFlow": 75.6521658426802,
+        "internalFlow": 13.29319440037534,
+        "actual": 88.94536024305555,
+        "grade": "과다출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 144.44753410679505,
+      "products": {
+        "gauze": {
+          "eligibleWork": 144.44753410679505,
+          "allRangesCovered": true,
+          "resourceForWound": 144.44753410679505,
+          "woundsPerFullItem": 0,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 144.44753410679505,
+          "allRangesCovered": true,
+          "resourceForWound": 120.37294508899588,
+          "woundsPerFullItem": 1,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 144.44753410679505,
+          "allRangesCovered": true,
+          "resourceForWound": 80.24863005933058,
+          "woundsPerFullItem": 3,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "vessel/left-femoral|0|external",
+          "sourceId": "vessel/left-femoral",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 38.757806492312035,
+          "requiredWork": 116.27341947693611,
+          "workDone": 0
+        },
+        {
+          "id": "vessel/left-femoral|0|limb",
+          "sourceId": "vessel/left-femoral",
+          "index": 0,
+          "range": "limb",
+          "originalAreaMm2": 6.839612910408007,
+          "requiredWork": 20.51883873122402,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.5517586328783097,
+          "requiredWork": 7.65527589863493,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "arm-muscle",
+      "part": "leftArm",
+      "ammo": "556_m855",
+      "flow": {
+        "q0": 14.378801035580693,
+        "external": 14.378801035580693,
+        "internal": 0,
+        "externalFlow": 14.378801035580693,
+        "internalFlow": 0,
+        "actual": 14.378801035580693,
+        "grade": "일반 출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 7.65527589863493,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.65527589863493,
+          "allRangesCovered": true,
+          "resourceForWound": 7.65527589863493,
+          "woundsPerFullItem": 13,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 7.65527589863493,
+          "allRangesCovered": true,
+          "resourceForWound": 6.379396582195775,
+          "woundsPerFullItem": 25,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 7.65527589863493,
+          "allRangesCovered": true,
+          "resourceForWound": 4.252931054797183,
+          "woundsPerFullItem": 70,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.5517586328783097,
+          "requiredWork": 7.65527589863493,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "femoral-partial",
+      "part": "leftLeg",
+      "ammo": "556_m855",
+      "flow": {
+        "q0": 88.94536024305556,
+        "external": 75.6564070952367,
+        "internal": 13.288953147818855,
+        "externalFlow": 75.6564070952367,
+        "internalFlow": 13.288953147818855,
+        "actual": 88.94536024305556,
+        "grade": "과다출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 133.2597520272874,
+      "products": {
+        "gauze": {
+          "eligibleWork": 133.2597520272874,
+          "allRangesCovered": true,
+          "resourceForWound": 133.2597520272874,
+          "woundsPerFullItem": 0,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 133.2597520272874,
+          "allRangesCovered": true,
+          "resourceForWound": 111.04979335607283,
+          "woundsPerFullItem": 1,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 133.2597520272874,
+          "allRangesCovered": true,
+          "resourceForWound": 74.03319557071522,
+          "woundsPerFullItem": 4,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "vessel/left-femoral|0|external",
+          "sourceId": "vessel/left-femoral",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 35.587934903118196,
+          "requiredWork": 106.76380470935459,
+          "workDone": 0
+        },
+        {
+          "id": "vessel/left-femoral|0|limb",
+          "sourceId": "vessel/left-femoral",
+          "index": 0,
+          "range": "limb",
+          "originalAreaMm2": 6.280223806432622,
+          "requiredWork": 18.840671419297866,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.5517586328783097,
+          "requiredWork": 7.65527589863493,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver-posterior",
+      "part": "rightArm",
+      "ammo": "556_m855",
+      "flow": {
+        "q0": 8.488834628838356,
+        "external": 8.488834628838356,
+        "internal": 0,
+        "externalFlow": 8.488834628838356,
+        "internalFlow": 0,
+        "actual": 8.488834628838356,
+        "grade": "일반 출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 7.65527589863493,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.65527589863493,
+          "allRangesCovered": true,
+          "resourceForWound": 7.65527589863493,
+          "woundsPerFullItem": 13,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 7.65527589863493,
+          "allRangesCovered": true,
+          "resourceForWound": 6.379396582195775,
+          "woundsPerFullItem": 25,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 7.65527589863493,
+          "allRangesCovered": true,
+          "resourceForWound": 4.252931054797183,
+          "woundsPerFullItem": 70,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "ooze/w1|0|external",
+          "sourceId": "ooze/w1",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.5517586328783097,
+          "requiredWork": 7.65527589863493,
+          "workDone": 0
+        }
+      ]
+    },
+    {
+      "name": "liver-posterior",
+      "part": "abdomen",
+      "ammo": "556_m855",
+      "flow": {
+        "q0": 80.4565256142172,
+        "external": 0.29644887099747114,
+        "internal": 80.16007674321973,
+        "externalFlow": 0.29644887099747114,
+        "internalFlow": 80.16007674321973,
+        "actual": 80.4565256142172,
+        "grade": "과다출혈",
+        "status": "흐름"
+      },
+      "requiredWork": 542.3853566095554,
+      "products": {
+        "gauze": {
+          "eligibleWork": 7.65527589863493,
+          "allRangesCovered": false,
+          "resourceForWound": 7.65527589863493,
+          "woundsPerFullItem": 13,
+          "seconds": 6
+        },
+        "injector": {
+          "eligibleWork": 542.3853566095554,
+          "allRangesCovered": true,
+          "resourceForWound": 451.9877971746295,
+          "woundsPerFullItem": 0,
+          "seconds": 5
+        },
+        "foam": {
+          "eligibleWork": 542.3853566095554,
+          "allRangesCovered": true,
+          "resourceForWound": 301.32519811641964,
+          "woundsPerFullItem": 0,
+          "seconds": 7
+        }
+      },
+      "components": [
+        {
+          "id": "vessel/hepatic-vein-trunk|0|cavity",
+          "sourceId": "vessel/hepatic-vein-trunk",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 23.975512091454114,
+          "requiredWork": 71.92653627436235,
+          "workDone": 0
+        },
+        {
+          "id": "vessel/abdominal-vena-cava|0|cavity",
+          "sourceId": "vessel/abdominal-vena-cava",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 143.6645406944309,
+          "requiredWork": 430.99362208329273,
+          "workDone": 0
+        },
+        {
+          "id": "parenchymal/liver|0|cavity",
+          "sourceId": "parenchymal/liver",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 5.095863627406897,
+          "requiredWork": 15.287590882220691,
+          "workDone": 0
+        },
+        {
+          "id": "parenchymal/right-kidney|0|cavity",
+          "sourceId": "parenchymal/right-kidney",
+          "index": 0,
+          "range": "cavity",
+          "originalAreaMm2": 5.507443823681567,
+          "requiredWork": 16.5223314710447,
+          "workDone": 0
+        },
+        {
+          "id": "ooze/w2|0|external",
+          "sourceId": "ooze/w2",
+          "index": 0,
+          "range": "external",
+          "originalAreaMm2": 2.5517586328783097,
+          "requiredWork": 7.65527589863493,
+          "workDone": 0
+        }
+      ]
+    }
+  ],
+  "modeBranches": [],
+  "ui": {
+    "passed": true,
+    "method": "QA instrumentation with real surface-verified P01 traceShot; native PC click and mobile tap; fixed60Hz medical ticks, original damage untouched; scarce3-point gauze fixture explicitly marked.",
+    "summaries": [
+      {
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "shot": {
+          "woundId": "w1",
+          "hp": 50.40210087632408,
+          "maxHp": 75
+        },
+        "suppressed": {
+          "hp": 50.40210087632408,
+          "maxHp": 75,
+          "bloodMl": 4709.392848646877,
+          "external": 0,
+          "internal": 0,
+          "recovery": null,
+          "error": "",
+          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 과다출혈 · 멎음 / ═ 처치됨"
+        },
+        "partial": {
+          "hp": 50.40210087632408,
+          "maxHp": 75,
+          "bloodMl": 4709.392848646877,
+          "external": 0,
+          "internal": 0,
+          "recovery": {
+            "ruleId": "medical-mo2",
+            "active": false,
+            "startedAtS": 14.5000000000003,
+            "lastHp": 50.40210087632408,
+            "recoveredHp": 0,
+            "reason": "지혈대 착용"
+          },
+          "error": "",
+          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 멎음 / ═▧ 처치됨\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 멎음\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치됨\n\n입구 보기 · 앞출구 보기 · 뒤"
+        },
+        "controlled": {
+          "hp": 50.40210087632408,
+          "maxHp": 75,
+          "bloodMl": 4709.392848646877,
+          "external": 0,
+          "internal": 0,
+          "recovery": {
+            "ruleId": "medical-mo2",
+            "active": false,
+            "startedAtS": 14.5000000000003,
+            "lastHp": 50.40210087632408,
+            "recoveredHp": 0,
+            "reason": "지혈대 착용"
+          },
+          "error": "",
+          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 멎음 / ═▧✚ 처치됨\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 멎음\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치됨\n\n입구 보기 · 앞출구 보기 · 뒤"
+        },
+        "removed": {
+          "hp": 50.40210087632408,
+          "maxHp": 75,
+          "bloodMl": 4709.392848646877,
+          "external": 0,
+          "internal": 0,
+          "recovery": {
+            "ruleId": "medical-mo2",
+            "active": true,
+            "startedAtS": 32.49999999999944,
+            "lastHp": 50.40210087632408,
+            "recoveredHp": 0,
+            "reason": null
+          },
+          "error": "",
+          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 멎음 / ▧✚ 처치됨\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 멎음\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치됨\n\n입구 보기 · 앞출구 보기 · 뒤"
+        },
+        "final": {
+          "hp": 75,
+          "maxHp": 75,
+          "bloodMl": 4709.392848646877,
+          "external": 0,
+          "internal": 0,
+          "recovery": {
+            "ruleId": "medical-mo2",
+            "active": false,
+            "startedAtS": 32.49999999999944,
+            "lastHp": 75,
+            "recoveredHp": 24.59789912368127,
+            "reason": "회복 완료",
+            "completedAtS": 97.3333333333291
+          },
+          "error": "",
+          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 멎음 / ▧✚▰ 처치됨붕대 풀기 · 2초\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 멎음\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치됨\n\n입구 보기 · 앞출구 보기 · 뒤"
+        },
+        "overflow": false
+      },
+      {
+        "viewport": {
+          "width": 844,
+          "height": 390
+        },
+        "shot": {
+          "woundId": "w1",
+          "hp": 50.40210087632408,
+          "maxHp": 75
+        },
+        "suppressed": {
+          "hp": 50.40210087632408,
+          "maxHp": 75,
+          "bloodMl": 4709.392848646877,
+          "external": 0,
+          "internal": 0,
+          "recovery": null,
+          "error": "",
+          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 과다출혈 · 멎음 / ═ 처치됨"
+        },
+        "partial": {
+          "hp": 50.40210087632408,
+          "maxHp": 75,
+          "bloodMl": 4709.392848646877,
+          "external": 0,
+          "internal": 0,
+          "recovery": {
+            "ruleId": "medical-mo2",
+            "active": false,
+            "startedAtS": 14.5000000000003,
+            "lastHp": 50.40210087632408,
+            "recoveredHp": 0,
+            "reason": "지혈대 착용"
+          },
+          "error": "",
+          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 멎음 / ═▧ 처치됨\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 멎음\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치됨\n\n입구 보기 · 앞출구 보기 · 뒤"
+        },
+        "controlled": {
+          "hp": 50.40210087632408,
+          "maxHp": 75,
+          "bloodMl": 4709.392848646877,
+          "external": 0,
+          "internal": 0,
+          "recovery": {
+            "ruleId": "medical-mo2",
+            "active": false,
+            "startedAtS": 14.5000000000003,
+            "lastHp": 50.40210087632408,
+            "recoveredHp": 0,
+            "reason": "지혈대 착용"
+          },
+          "error": "",
+          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 멎음 / ═▧✚ 처치됨\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 멎음\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치됨\n\n입구 보기 · 앞출구 보기 · 뒤"
+        },
+        "removed": {
+          "hp": 50.40210087632408,
+          "maxHp": 75,
+          "bloodMl": 4709.392848646877,
+          "external": 0,
+          "internal": 0,
+          "recovery": {
+            "ruleId": "medical-mo2",
+            "active": true,
+            "startedAtS": 32.49999999999944,
+            "lastHp": 50.40210087632408,
+            "recoveredHp": 0,
+            "reason": null
+          },
+          "error": "",
+          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 멎음 / ▧✚ 처치됨\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 멎음\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치됨\n\n입구 보기 · 앞출구 보기 · 뒤"
+        },
+        "final": {
+          "hp": 75,
+          "maxHp": 75,
+          "bloodMl": 4709.392848646877,
+          "external": 0,
+          "internal": 0,
+          "recovery": {
+            "ruleId": "medical-mo2",
+            "active": false,
+            "startedAtS": 32.49999999999944,
+            "lastHp": 75,
+            "recoveredHp": 24.59789912368127,
+            "reason": "회복 완료",
+            "completedAtS": 97.3333333333291
+          },
+          "error": "",
+          "text": "#01 / 왼팔 · 상완 · 오른쪽 측면 / 관통상 / 일반 출혈 · 멎음 / ▧✚▰ 처치됨붕대 풀기 · 2초\n\n관통상 · 왼팔 · 상완 · 오른쪽 측면\n\n입구 · 왼팔 · 상완 · 오른쪽 측면\n\n출구 · 왼팔 · 상완 · 후면\n\n일반 출혈 · 멎음\n\n겉 출혈 · 멈춤\n\n처치 상태 · 처치됨\n\n입구 보기 · 앞출구 보기 · 뒤"
+        },
+        "overflow": false
+      }
+    ],
+    "screenshots": "docs/media/mo2",
+    "actualPhonePerformanceMeasured": false
+  },
+  "retiredTests": {
+    "reason": "old treatment rules intentionally superseded, no skipped/xfail tests",
+    "originals": "docs/history/mo2-retired-tests",
+    "replaced": [
+      "M3 positional/loose CAT and old coefficients",
+      "M4 modes/count changes/systemic foam",
+      "M4c phases/injury caps",
+      "MO1 durability100/partial recovery",
+      "M4b movement coefficient",
+      "M6 mode-capped one-hand connection"
+    ],
+    "retained": [
+      "pointer-lock test verbatim in own file",
+      "all M2 inventory/routing with injector counts/mass",
+      "M6 bag/equipment and M7plate mechanics with fixed time",
+      "12 M4b drug/blood tests with former-realistic timing",
+      "bilateral chest/temporaryTXA/needle tests"
+    ]
+  },
+  "checks": {
+    "suite": "pending final repeat",
+    "v69Numerical": {
+      "passed": true,
+      "S0": 240,
+      "single": 28,
+      "channels": 684,
+      "gelatin": 5
+    },
+    "untreatedDistribution": {
+      "passed": true,
+      "cases": 268,
+      "wounds": 258,
+      "sha256": "fa76b05a84265940c5e3d6714cd15196c474278db3e0e8684ffcbebdb7654b7a",
+      "beforeBugs": {
+        "enemy": {
+          "player": 100,
+          "enemy": 1
+        },
+        "closeOldRecord": {
+          "reservationSurvives": false,
+          "afterClosing": "interrupted"
+        },
+        "restartOldRecord": {
+          "resumed": false,
+          "activeCount": 1
+        }
+      },
+      "afterBugs": {
+        "enemy": {
+          "player": 1,
+          "enemy": 2
+        },
+        "closeOldRecord": {
+          "reservationSurvives": true,
+          "afterClosing": "completed"
+        },
+        "restartOldRecord": {
+          "resumed": false,
+          "activeCount": 1
+        }
+      }
+    },
+    "preserved": {
+      "passed": true,
+      "count": 137,
+      "reportCommand": "node scripts/verify-mo2-preserved.mjs"
+    },
+    "reference2D": {
+      "passed": true,
+      "bytes": 3641864,
+      "sha256": "ff330c641f9720e3a960adfd84ee084ea06f215366e88e7f03e14803a176f90d"
+    },
+    "sixHundredTicks": {
+      "passed": true,
+      "reports": [
+        {
+          "weapon": "m4a1",
+          "ticks": 600,
+          "shots": 6,
+          "exact": true,
+          "sha256": "da0c21cec0ca8e4169445d0613ff50a591fc2be550ba88dcdc9dd5d9a3fb076e"
+        },
+        {
+          "weapon": "ak74m",
+          "ticks": 600,
+          "shots": 6,
+          "exact": true,
+          "sha256": "c8da8f7d8f1f7c6ec0ca1f211ec9d182194c8f49e7ffdbb1869c70228eef2141"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "generic injector dimensions/mass and equivalent source openings are tuning",
+    "software Chromium; no real phone performance measurement",
+    "old full-runtime v69 manifest/HTML hash intentionally differs due authorized treatment changes",
+    "not the completed medical overhaul; no main merge or release",
+    "GitHub Actions not used"
+  ]
+}

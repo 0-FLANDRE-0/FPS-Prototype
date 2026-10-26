@@ -49,11 +49,11 @@ export function storageCell(inv,item,{readyOnly=false}={}){
  if(!readyOnly){const cell=inv.findCell('bag',item);if(cell)return{owner:'bag',cell};}return null;
 }
 export function closeBackpack(inv){inv.backpackOpen=false;for(const owner of [...inv.openMedicalContainers]){const p=inv.items.get(owner.slice(10));if(p&&inv.rootOwner(p)==='bag')inv.openMedicalContainers.delete(owner);}if(inv.action?.kind==='backpack-open')inv.cancel();inv.changed();}
-export function beginBackpack(inv,after=null){if(inv.canEquipmentAct?.()===false)return inv.fail('현재 상태에서는 장비를 다룰 수 없습니다.');if(inv.action)return inv.fail();if(inv.backpackOpen)return true;inv.action={kind:'backpack-open',phase:'배낭 열기',elapsed:0,duration:EQUIPMENT.backpackSeconds[inv.treatmentMode],after};inv.onEquipmentAction?.();return inv.changed();}
+export function beginBackpack(inv,after=null){if(inv.canEquipmentAct?.()===false)return inv.fail('현재 상태에서는 장비를 다룰 수 없습니다.');if(inv.action)return inv.fail();if(inv.backpackOpen)return true;inv.action={kind:'backpack-open',phase:'배낭 열기',elapsed:0,duration:EQUIPMENT.backpackSeconds,after};inv.onEquipmentAction?.();return inv.changed();}
 export function dropItem(inv,id){
  if(inv.canEquipmentAct?.()===false)return inv.fail('현재 상태에서는 장비를 다룰 수 없습니다.');
  if(inv.action)return inv.fail();const item=inv.items.get(id);if(item?.kind==='armorPlate')return inv.movePlate(id,{owner:'world'});if(item?.owner.startsWith('actor:'))return inv.corpseController?.strip(id)||false;if(!item||!['gear','weapon','magazine'].includes(item.kind)||item.debugOnly)return inv.fail('이 물품은 떨굴 수 없습니다.');
- if(item.kind==='gear'){if(!['helmet','rig'].includes(item.definitionId))return inv.fail('벨트·배낭 벗기는 후속 단계입니다.');if(item.owner==='bag'){if(!inv.backpackOpen)return beginBackpack(inv,{kind:'drop',id});return commitDrop(inv,item);}if(item.owner!=='equipment:'+item.definitionId)return inv.fail('장착한 장비를 선택하세요.');inv.action={kind:'gear-remove',phase:'장비 벗기',itemId:id,elapsed:0,duration:EQUIPMENT.gearSeconds[inv.treatmentMode]};inv.onEquipmentAction?.();return inv.changed();}
+ if(item.kind==='gear'){if(!['helmet','rig'].includes(item.definitionId))return inv.fail('벨트·배낭 벗기는 후속 단계입니다.');if(item.owner==='bag'){if(!inv.backpackOpen)return beginBackpack(inv,{kind:'drop',id});return commitDrop(inv,item);}if(item.owner!=='equipment:'+item.definitionId)return inv.fail('장착한 장비를 선택하세요.');inv.action={kind:'gear-remove',phase:'장비 벗기',itemId:id,elapsed:0,duration:EQUIPMENT.gearSeconds};inv.onEquipmentAction?.();return inv.changed();}
  if(!isCarriedRoot(inv.rootOwner(item)))return inv.fail('휴대한 물품을 선택하세요.');
  return commitDrop(inv,item);
 }
@@ -69,7 +69,7 @@ export function pickupItem(inv,id,{wear=false,destination=null}={}){
  if(inv.action)return inv.fail();const item=inv.items.get(id);if(!item?.owner.startsWith('ground:')||!inv.nearbyIds.has(id))return inv.fail('가까운 바닥 물건을 선택하세요.');
  if(item.kind==='gear'&&!destination){
   const slot=item.definitionId;if(!['helmet','rig'].includes(slot)||inv.gearSlots[slot])return inv.fail('장착 칸을 먼저 비우세요.');
-  inv.action={kind:'gear-equip',phase:'장비 입기',itemId:id,elapsed:0,duration:EQUIPMENT.gearSeconds[inv.treatmentMode]};inv.onEquipmentAction?.();return inv.changed();
+  inv.action={kind:'gear-equip',phase:'장비 입기',itemId:id,elapsed:0,duration:EQUIPMENT.gearSeconds};inv.onEquipmentAction?.();return inv.changed();
  }
  if(item.kind==='gear'&&destination?.owner!=='bag')return inv.fail('헬멧·리그는 장착하거나 배낭에 보관하세요.');
  let place=destination;
@@ -91,4 +91,4 @@ export function stepEquipment(inv,dt){
 
 export function worldMass(inv){return [...inv.items.values()].filter(i=>i.owner.startsWith('equipment:')||i.owner.startsWith('actor:')||i.owner==='container:ammo-crate'||i.owner.startsWith('ground:')||i.owner.startsWith('treatment:')||i.owner.startsWith('hand:')).reduce((n,i)=>n+weightOf(inv,i),0);}
 
-export function wearGear(inv,id){const item=inv.items.get(id);if(!item||item.kind!=='gear'||!['helmet','rig'].includes(item.definitionId)||inv.gearSlots[item.definitionId])return inv.fail('빈 장착 칸에 맞는 장비를 선택하세요.');if(item.owner.startsWith('ground:'))return pickupItem(inv,id,{wear:true});if(item.owner!=='bag')return inv.fail('배낭이나 바닥의 장비를 선택하세요.');if(!inv.backpackOpen)return beginBackpack(inv,{kind:'wear-gear',id});if(inv.action||inv.canEquipmentAct?.()===false)return inv.fail();inv.action={kind:'gear-equip',phase:'장비 입기',itemId:id,elapsed:0,duration:EQUIPMENT.gearSeconds[inv.treatmentMode]};inv.onEquipmentAction?.();return inv.changed();}
+export function wearGear(inv,id){const item=inv.items.get(id);if(!item||item.kind!=='gear'||!['helmet','rig'].includes(item.definitionId)||inv.gearSlots[item.definitionId])return inv.fail('빈 장착 칸에 맞는 장비를 선택하세요.');if(item.owner.startsWith('ground:'))return pickupItem(inv,id,{wear:true});if(item.owner!=='bag')return inv.fail('배낭이나 바닥의 장비를 선택하세요.');if(!inv.backpackOpen)return beginBackpack(inv,{kind:'wear-gear',id});if(inv.action||inv.canEquipmentAct?.()===false)return inv.fail();inv.action={kind:'gear-equip',phase:'장비 입기',itemId:id,elapsed:0,duration:EQUIPMENT.gearSeconds};inv.onEquipmentAction?.();return inv.changed();}

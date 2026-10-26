@@ -1,3 +1,5 @@
+import{tourniquetPenalties}from'./medical-tourniquet.js';
+import{careTime}from'./medical-care-state.js';
 import{drugPresentation}from'./medical-care-drugs.js';
 import {activityFor} from './medical-d2.js';
 // D1 is a read-only consumer. Never writes physiology, damage or collapse flags.
@@ -14,7 +16,8 @@ const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),smooth=(a,b,v)=>{const x=clam
 export const painStage=p=>p<30?1:p<60?2:p<80?3:4;
 const partKeys=['leftArm','rightArm','leftLeg','rightLeg','chest','abdomen'];
 export function readMedicalFeedback(m){
- const s=m?.stressResponse||{},h=m?.hemodynamics||{},mask=clamp(finite(s.painMasking,0)),perceived=clamp(finite(s.perceivedPain,finite(m?.pain,0)*(1-mask)),0,100),adrenaline=clamp(finite(s.adrenaline,0)),panic=clamp(finite(s.panic,0)),arousal=clamp(finite(s.combatArousal,0)),crash=clamp(finite(s.postCombatCrash,0)),cons=clamp(finite(m?.consciousness,100),0,100),perfusion=clamp(finite(h.tissuePerfusion,1)),oxygen=clamp(finite(h.oxygenDelivery,1)),map=finite(h.map,93),breathing=clamp(finite(m?.breathingEfficiency,100),0,100),heartRate=finite(m?.heartRate,75);
+ const tq=tourniquetPenalties(m,careTime(m)),tqPain=Math.max(0,...Object.values(tq.pain));
+ const s=m?.stressResponse||{},h=m?.hemodynamics||{},mask=clamp(finite(s.painMasking,0)),perceived=Math.max(tqPain*(1-mask),clamp(finite(s.perceivedPain,finite(m?.pain,0)*(1-mask)),0,100)),adrenaline=clamp(finite(s.adrenaline,0)),panic=clamp(finite(s.panic,0)),arousal=clamp(finite(s.combatArousal,0)),crash=clamp(finite(s.postCombatCrash,0)),cons=clamp(finite(m?.consciousness,100),0,100),perfusion=clamp(finite(h.tissuePerfusion,1)),oxygen=clamp(finite(h.oxygenDelivery,1)),map=finite(h.map,93),breathing=clamp(finite(m?.breathingEfficiency,100),0,100),heartRate=finite(m?.heartRate,75);
  const fn=k=>clamp(finite(m?.bodyParts?.[k]?.functionRatio,1)),parts={};
  for(const k of partKeys){const p=m?.bodyParts?.[k],matching=(m?.wounds||[]).filter(w=>w.partKey===k||w.bodyPart===k),raw=Math.max(k==='abdomen'?finite(m?.abdomenPainFloor,0):0,finite(p?.pain,matching.length?finite(m?.pain,0)*matching.length/Math.max(1,m.wounds.length):0)),pain=clamp(raw*(1-mask),0,100);parts[k]={pain,rawPain:raw,stage:painStage(pain),functionRatio:fn(k)};}
  const armFn=Math.min(fn('leftArm'),fn('rightArm'))*.4+(fn('leftArm')+fn('rightArm'))/2*.6;
@@ -24,9 +27,9 @@ export function readMedicalFeedback(m){
  const armPain=Math.max(parts.leftArm.pain,parts.rightArm.pain)/100,thoraxPain=Math.max(parts.chest.pain,parts.abdomen.pain)/100,stage=painStage(perceived),severe=stage===4?.35:1;
  // Per-side pain and crash add presentation/handling penalties. Existing move
  // and reload multipliers are read as performance (1=normal), not durations.
- amplitudes.partArms=armPain*.0015;amplitudes.crash=crash*.002;amplitudes.thorax=thoraxPain*.0012;
- const handlingRate=Math.min(finite(m?.weaponHandlingMul,1),severe)/(1+armPain*.5+crash*.6),reloadRate=Math.min(finite(m?.reloadMul,1),severe)/(1+armPain*.5+crash*.65),stanceRate=Math.min(finite(m?.stanceChangeMul,1),severe),moveRate=Math.min(finite(m?.moveMul,1),severe);
- const limb=k=>clamp(parts[k].pain/100*.7+(1-parts[k].functionRatio)*.8),limp={left:limb('leftLeg'),right:limb('rightLeg')};
+ amplitudes.partArms=armPain*.0015+tq.armTremorRad;amplitudes.crash=crash*.002;amplitudes.thorax=thoraxPain*.0012;
+ const handlingRate=Math.min(finite(m?.weaponHandlingMul,1),severe)/(1+armPain*.5+crash*.6),reloadRate=Math.min(finite(m?.reloadMul,1),severe)/(1+armPain*.5+crash*.65),stanceRate=Math.min(finite(m?.stanceChangeMul,1),severe),moveRate=Math.min(finite(m?.moveMul,1),severe,tq.moveRate);
+ const limb=k=>clamp(parts[k].pain/100*.7+(1-parts[k].functionRatio)*.8),limp={left:Math.max(limb('leftLeg'),tq.limp.left),right:Math.max(limb('rightLeg'),tq.limp.right)};
  const attention=clamp(Math.max(0,adrenaline-.55,arousal-.55)/.45*.6+panic*.5),auditoryExclusionDb=D1.maxAuditoryExclusionDb*attention;
  const bloodLoss=clamp(1-finite(m?.bloodMl,1)/Math.max(1e-9,finite(m?.bloodMax,1))),visionDrive=clamp((bloodLoss-D1.bloodLossVisionStart)/(D1.bloodLossVisionFull-D1.bloodLossVisionStart)),sprintAllowed=stage<4&&parts.leftLeg.stage<2&&parts.rightLeg.stage<2&&fn('leftLeg')>=D1.sprintLegFunction&&fn('rightLeg')>=D1.sprintLegFunction;
  const output={unconscious:!!(m?.isUnconscious||m?.isDead),perceivedPain:perceived,painMasking:mask,painStage:stage,parts,armFn,adrenaline,arousal,panic,crash,consciousness:cons,map,perfusion,oxygen,heartRate,breathing,thoraxPain,factors,contribution,amplitudes,aimMul,reconstructedAimMul,handlingRate,reloadRate,stanceRate,moveRate,sprintAllowed,limp,attention,auditoryExclusionDb,visionDrive,bloodLoss,reactionRate:clamp(finite(m?.reactionMul,1),.25,1.2)};

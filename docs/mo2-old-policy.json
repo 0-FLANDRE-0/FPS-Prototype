@@ -1,0 +1,277 @@
+{
+  "baselineCommit": "01eb585",
+  "objects": {
+    "M4_VALUES": {
+      "ruleId": "self-care-m4-v60",
+      "defaultMode": "realistic",
+      "sealSeconds": 25,
+      "needleSeconds": 12,
+      "txaSeconds": 20,
+      "foamSeconds": 30,
+      "backSealMultiplier": 1.8,
+      "needleRadius": 0.065,
+      "needleDrainPerS": 0.35,
+      "ventDrainPerS": 0.015,
+      "needleRecurrenceChance": 0.35,
+      "needleRecurrenceMinS": 90,
+      "needleRecurrenceMaxS": 300,
+      "needleReachFailure": {
+        "anterior": 0.08,
+        "lateral": 0.02
+      },
+      "iatrogenicPneumo": 0.12,
+      "foamPain": 40,
+      "txaWindowS": 10800,
+      "classification": "사용자 모드 설계; 시간·확률·허용 반경·출혈 계수 튜닝; 임상 치료 지침 아님"
+    },
+    "CARE": {
+      "ruleId": "self-care-m3-v59",
+      "catSeconds": {
+        "arm": 28,
+        "leg": 37.5
+      },
+      "oneHandMultiplier": 1.65,
+      "bandageSeconds": 30,
+      "gauzePackingSeconds": 30,
+      "gauzePressureSeconds": 180,
+      "resumeSetupSeconds": 1.5,
+      "aboveWoundM": 0.065,
+      "catResidual": 0.00005,
+      "looseArteryGain": 0.35,
+      "looseVeinFactor": 0.15,
+      "catPain": 70,
+      "bandage": {
+        "artery": 0.8,
+        "vein": 0.15,
+        "capillary": 0.1
+      },
+      "gauze": {
+        "artery": 0.03,
+        "vein": 0.05,
+        "capillary": 0.1
+      },
+      "manualPressure": {
+        "artery": 0.15,
+        "vein": 0.15,
+        "capillary": 0.15
+      },
+      "interruptedGauzeGain": 0.25,
+      "classification": "다리 CAT37.5초 연구 중앙값·180초 압박 제조사 출처; 위팔28초; 적용 시간·계수·배율·통증은 튜닝, 위치/중단/구성은 사용자 설계값",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    "M4B": {
+      "ruleId": "care-m4b-v61",
+      "backSealRealityMultiplier": 3,
+      "ventPneumoPerS": 0.006,
+      "valveChance": 0.1,
+      "valveThreshold": 0.24,
+      "valveRisePerS": 0.01,
+      "walkRebleedGain": 1.0390625,
+      "sprintRebleedGain": 0.015625,
+      "otfcDropConsciousness": 65,
+      "ketamineRepeatS": 1800,
+      "profiles": {
+        "game": {
+          "drugGain": 1.1,
+          "pillOnset": 10,
+          "otfcOnset": 5,
+          "ketamineOnset": 3,
+          "dissolveS": 60,
+          "connectS": 5,
+          "infuseS": 60,
+          "pillS": 36000,
+          "otfcS": 9000,
+          "ketamineS": 2400
+        },
+        "realistic": {
+          "drugGain": 1,
+          "pillOnset": 60,
+          "otfcOnset": 30,
+          "ketamineOnset": 15,
+          "dissolveS": 240,
+          "connectS": 20,
+          "infuseS": 180,
+          "pillS": 28800,
+          "otfcS": 7200,
+          "ketamineS": 1800
+        },
+        "reality": {
+          "drugGain": 0.9,
+          "pillOnset": 180,
+          "otfcOnset": 120,
+          "ketamineOnset": 60,
+          "dissolveS": 480,
+          "connectS": 60,
+          "infuseS": 480,
+          "pillS": 28800,
+          "otfcS": 7200,
+          "ketamineS": 1800
+        }
+      },
+      "application": {
+        "pill": {
+          "game": 2,
+          "realistic": 4,
+          "reality": 6
+        },
+        "otfc": {
+          "game": 1,
+          "realistic": 2,
+          "reality": 3
+        },
+        "ketamine": {
+          "game": 2,
+          "realistic": 5,
+          "reality": 10
+        }
+      },
+      "analgesia": {
+        "pill": 25,
+        "otfc": 60,
+        "ketamine": 75
+      },
+      "effects": {
+        "otfcDrowsy": 7,
+        "otfcRespiration": 0.04,
+        "shockAmplification": 1.5,
+        "ketamineDrowsy": 5,
+        "ketamineSympathetic": 0.08,
+        "ketamineDoubleCssPx": 4,
+        "ketamineDizzyCssPx": 2,
+        "ketamineColor": 0.12,
+        "ketamineAudioRate": 0.92
+      }
+    },
+    "M4C": {
+      "ruleId": "care-m4c-v62",
+      "caps": {
+        "game": {
+          "injury": 1.2,
+          "total": 1.5
+        },
+        "realistic": {
+          "injury": 1.5,
+          "total": 2.2
+        }
+      },
+      "profiles": {
+        "game": {
+          "catSeconds": {
+            "leg": 3,
+            "arm": 2.5
+          },
+          "bandageSeconds": 3,
+          "gauzePackingSeconds": 3,
+          "gauzePressureSeconds": 4,
+          "sealSeconds": 2,
+          "needleSeconds": 2,
+          "txaSeconds": 2,
+          "foamSeconds": 3
+        },
+        "realistic": {
+          "catSeconds": {
+            "leg": 10,
+            "arm": 8
+          },
+          "bandageSeconds": 8,
+          "gauzePackingSeconds": 8,
+          "gauzePressureSeconds": 20,
+          "sealSeconds": 6,
+          "needleSeconds": 8,
+          "txaSeconds": 8,
+          "foamSeconds": 12
+        }
+      },
+      "oneHandPressureEfficacy": 0.98,
+      "classification": "출처: 기존 현실180초 압박 근거 유지 / 원본: 현실 손 동작·약효·주입 / 사용자 설계값: 시간 분리·상한·리얼리스틱 시간 / 게임 허용: 단축 / 튜닝: 게임 시간·한 손 완료 압박효과98%",
+      "reversePortCandidate": true,
+      "automatic2DPort": false
+    },
+    "EQUIPMENT": {
+      "backpackSeconds": {
+        "game": 1,
+        "realistic": 2,
+        "reality": 3.5
+      },
+      "gearSeconds": {
+        "game": 0.6,
+        "realistic": 1.2,
+        "reality": 2
+      }
+    },
+    "PLATE_ACTION_SECONDS": {
+      "worn": {
+        "game": 1.5,
+        "realistic": 5,
+        "reality": 10
+      },
+      "off": {
+        "game": 1,
+        "realistic": 3,
+        "reality": 5
+      }
+    },
+    "SEARCH_SECONDS": {
+      "game": 1,
+      "realistic": 3,
+      "reality": 5
+    },
+    "limits": {
+      "game": {
+        "bandage": 3,
+        "gauze": 3,
+        "needle": 3,
+        "seal": 4
+      },
+      "realistic": {
+        "bandage": 2,
+        "gauze": 2,
+        "needle": 2,
+        "seal": 2
+      },
+      "reality": {
+        "bandage": 1,
+        "gauze": 1,
+        "needle": 1,
+        "seal": 2
+      }
+    },
+    "SYSTEMIC_CARE": {
+      "game": {
+        "txaDelay": 5,
+        "txa": 0.5,
+        "txaArtery": 0.9,
+        "foamDelay": 3,
+        "foam": 0,
+        "foamArtery": 0.5
+      },
+      "realistic": {
+        "txaDelay": 30,
+        "txa": 0.75,
+        "txaArtery": 1,
+        "foamDelay": 15,
+        "foam": 0.0365869140625,
+        "foamArtery": 0.8
+      },
+      "reality": {
+        "txaDelay": 600,
+        "txa": 0.95,
+        "txaArtery": 1,
+        "foamDelay": 30,
+        "foam": 0.9,
+        "foamArtery": 1
+      }
+    }
+  },
+  "sources": {
+    "medical-care-modes.js": "import{initBandageResource,BANDAGE}from'./medical-bandage.js';\nimport{M4C}from'./medical-care-m4c-policy.js';\nimport{m4bDuration}from'./medical-care-m4b-policy.js';\n// 3D M4c timing policy. M3 reality coefficients and M4b drug/infusion times remain the baseline.\nexport const TREATMENT_MODES=['game','realistic','reality'];\nexport const MODE_LABELS={game:'게임',realistic:'리얼리스틱',reality:'현실'};\nexport const M4_VALUES={ruleId:'self-care-m4-v60',defaultMode:'realistic',sealSeconds:25,needleSeconds:12,txaSeconds:20,foamSeconds:30,backSealMultiplier:1.8,needleRadius:.065,needleDrainPerS:.35,ventDrainPerS:.015,needleRecurrenceChance:.35,needleRecurrenceMinS:90,needleRecurrenceMaxS:300,needleReachFailure:{anterior:.08,lateral:.02},iatrogenicPneumo:.12,foamPain:40,txaWindowS:10800,classification:'사용자 모드 설계; 시간·확률·허용 반경·출혈 계수 튜닝; 임상 치료 지침 아님'};\nconst limits={game:{bandage:3,gauze:3,needle:3,seal:4},realistic:{bandage:2,gauze:2,needle:2,seal:2},reality:{bandage:1,gauze:1,needle:1,seal:2}};\nexport const validCareMode=m=>TREATMENT_MODES.includes(m)?m:'realistic';\nexport const useLimit=(id,mode)=>limits[validCareMode(mode)][id]??1;\nexport function careProfile(mode,original){\n mode=validCareMode(mode);if(mode==='reality')return original;\n return{...original,...M4C.profiles[mode],catResidual:mode==='game'?0:.00005,looseArteryGain:mode==='game'?0:original.looseArteryGain,looseVeinFactor:mode==='game'?1:original.looseVeinFactor,bandage:mode==='game'?{artery:.3,vein:0,capillary:0}:{artery:.5,vein:.02,capillary:.01},gauze:mode==='game'?{artery:0,vein:0,capillary:0}:{artery:.00005,vein:.00005,capillary:.00005}};\n}\nexport const durationScale=mode=>mode==='game'?1/6:mode==='realistic'?.4:1;\nexport const extraDuration=(kind,mode)=>m4bDuration(kind,mode)??M4C.profiles[mode]?.[kind+'Seconds']??({seal:M4_VALUES.sealSeconds,needle:M4_VALUES.needleSeconds,txa:M4_VALUES.txaSeconds,foam:M4_VALUES.foamSeconds}[kind]??0)*durationScale(mode);\nexport function careDuration(kind,partKey,p,mode){return kind==='cat'?p.catSeconds[partKey?.endsWith('Arm')?'arm':'leg']:kind==='bandage'?p.bandageSeconds:kind==='gauze'?p.gauzePackingSeconds+p.gauzePressureSeconds:extraDuration(kind,mode);}\n// One pack may represent several units, with the same mass/footprint (game allowance).\n// Depleted packs retain a non-spatial stock ledger so changing mode cannot refill uses.\nexport function syncMedicalUses(inv,mode){\n mode=validCareMode(mode);inv.treatmentMode=mode;inv.medicalStock??=new Map();\n for(const item of inv.items.values())if(item.kind==='medicalSupply'&&item.definitionId!=='cat'&&!inv.medicalStock.has(item.instanceId))inv.medicalStock.set(item.instanceId,{template:structuredClone(item),used:0});\n for(const[id,stock]of inv.medicalStock){if(stock.template.definitionId==='bandage'){const item=inv.items.get(id);if(item)initBandageResource(item);stock.resourceRuleId=BANDAGE.ruleId;continue;}const max=useLimit(stock.template.definitionId,mode),remaining=Math.max(0,max-stock.used),item=inv.items.get(id);stock.maximum=max;if(item&&!item.owner.startsWith('treatment:')){stock.template=structuredClone(item);item.remaining=remaining;item.maximumUses=max;item.used=stock.used;if(!remaining)inv.items.delete(id);}else if(!item&&remaining){const restored={...structuredClone(stock.template),remaining,maximumUses:max,used:stock.used};let cell=inv.findCell(restored.owner,restored);if(!cell){restored.owner='bag';cell=inv.findCell('bag',restored);}if(cell){restored.cell=cell;inv.items.set(id,restored);}}}\n inv.changed();\n}\nexport function consumeMedicalUse(inv,item){const stock=inv.medicalStock?.get(item.instanceId);if(stock){stock.template=structuredClone(item);stock.used++;item.used=stock.used;}item.remaining=Math.max(0,item.remaining-1);if(!item.remaining)inv.items.delete(item.instanceId);}\n",
+    "medical-care-state.js": "import{isNewBandage}from'./medical-bandage.js';\n// M3 game treatment state, created lazily: untreated medical JSON stays v58 exact.\n// No medical/HP/ballistic formula or legacy 2D declaration is replaced here.\nimport{careProfile,careDuration}from'./medical-care-modes.js';\nimport{M4C,careRemainingSeconds}from'./medical-care-m4c-policy.js';\nimport{SOLDIER_BONES}from'./soldier-rig.js';\nexport const CARE=Object.freeze({ruleId:'self-care-m3-v59',catSeconds:{arm:28,leg:37.5},oneHandMultiplier:1.65,bandageSeconds:30,gauzePackingSeconds:30,gauzePressureSeconds:180,resumeSetupSeconds:1.5,aboveWoundM:.065,catResidual:.00005,looseArteryGain:.35,looseVeinFactor:.15,catPain:70,bandage:{artery:.8,vein:.15,capillary:.1},gauze:{artery:.03,vein:.05,capillary:.1},manualPressure:{artery:.15,vein:.15,capillary:.15},interruptedGauzeGain:.25,classification:'다리 CAT37.5초 연구 중앙값·180초 압박 제조사 출처; 위팔28초; 적용 시간·계수·배율·통증은 튜닝, 위치/중단/구성은 사용자 설계값',reversePortCandidate:true,automatic2DPort:false});\nexport const carePlans=new WeakMap();\n// Private split of B1's existing mixed torso ooze; no new snapshot fields.\nexport const oozeSplits=new WeakMap();\nexport function rememberOozeSplit(m,s,external,total){if(!oozeSplits.has(m))oozeSplits.set(m,new Map());const rows=oozeSplits.get(m),r=rows.get(s.id)||{externalMl:0,externalFlowMlPerS:0};r.externalFraction=total>0?Math.max(0,Math.min(1,external/total)):0;rows.set(s.id,r);}\nconst painOverlays=new WeakMap();\nexport const treatments=m=>(m.appliedTreatments||[]).filter(t=>t.status!=='removed');\nexport const activeTreatment=m=>treatments(m).find(t=>t.status==='active')||null;\nconst bones=Object.fromEntries(SOLDIER_BONES.map(b=>[b.name,b.at])),clamp=x=>Math.max(0,Math.min(1,x));\nexport function limbChain(position){\n const partKey=position?.partKey;if(!/(Arm|Leg)$/.test(partKey||''))return null;\n const side=partKey.startsWith('left')?'left':'right',chain=(partKey.endsWith('Arm')?['UpperArm','Forearm','Hand','Middle1']:['UpperLeg','LowerLeg','Foot','Toes']).map(n=>side+n).filter(n=>bones[n]);\n const origin=bones[position.bone],point=position.bindActorPoint||(origin&&position.boneLocalPoint?origin.map((v,i)=>v+position.boneLocalPoint[i]):origin);if(!point)return null;\n let best=null,total=0;for(let i=0;i<chain.length-1;i++){const a=bones[chain[i]],b=bones[chain[i+1]],d=b.map((v,j)=>v-a[j]),l=Math.hypot(...d),u=clamp(d.reduce((n,v,j)=>n+(point[j]-a[j])*v,0)/(l*l)),distance=Math.hypot(...point.map((v,j)=>v-a[j]-d[j]*u));if(!best||distance<best.distance)best={partKey,chainOrder:i+u,pathDistanceM:total+l*u,distance,bone:chain[i],proximalPoint:position.proximalPoint||{chainOrder:0,bone:chain[0]}};total+=l;}\n return best;\n}\nexport function regionPosition(partKey,region){const side=partKey.startsWith('left')?'left':'right',bone=side+({upperArm:'UpperArm',forearm:'Forearm',upperLeg:'UpperLeg',lowerLeg:'LowerLeg'}[region]||'');return bones[bone]?{partKey,bone,bindActorPoint:[...bones[bone]]}:null;}\nexport function limbPointAtDistance(partKey,distance){const side=partKey.startsWith('left')?'left':'right',chain=(partKey.endsWith('Arm')?['UpperArm','Forearm','Hand']:['UpperLeg','LowerLeg','Foot']).map(n=>bones[side+n]);let remaining=distance;for(let i=1;i<chain.length;i++){const a=chain[i-1],b=chain[i],length=Math.hypot(...b.map((v,j)=>v-a[j]));if(remaining<=length)return a.map((v,j)=>v+(b[j]-v)*remaining/length);remaining-=length;}return[...chain.at(-1)];}\nexport const treatmentProfile=t=>careProfile(t.treatmentMode||'reality',CARE);\nexport function careTiming(m,kind,partKey,feedback={},mode='reality'){\n const arms=['leftArm','rightArm'].map(k=>m.bodyParts[k]),usable=arms.filter(p=>!p.s2Comminuted&&!p.s2Amputated&&!p.amputated);if(m.isUnconscious||m.isDead||m.cardiacArrest)return{allowed:false,reason:'의식이 없어 자가 처치할 수 없습니다.'};if(!usable.length)return{allowed:false,reason:'두 팔이 분쇄·절단되어 자가 처치할 수 없습니다.'};\n const fn=usable.reduce((n,p)=>n+clamp(p.functionRatio??1),0)/usable.length,pain=Math.max(m.stressResponse?.perceivedPain??m.pain??0,...usable.map(p=>p.pain||0))/100,tremor=clamp(Math.hypot(...Object.values(feedback.amplitudes||{}).filter(Number.isFinite))/.004),consciousness=clamp((100-(m.consciousness??100))/100),perfusion=1-clamp(m.hemodynamics?.tissuePerfusion??1);\n const originalMultiplier=(usable.length===1?CARE.oneHandMultiplier:1)*(1+1.1*(1-fn))*(1+.8*pain)*(1+.35*tremor)*(1+.8*consciousness)*(1+.7*perfusion);\n // Preserve v61's exact multiplication order for uncapped reality hand work.\n const oneHand=usable.length===1?CARE.oneHandMultiplier:1,caps=M4C.caps[mode],multiplier=caps?Math.min(caps.total,Math.min(caps.injury,originalMultiplier/oneHand)*oneHand):originalMultiplier,profile=careProfile(mode,CARE),base=careDuration(kind,partKey,profile,mode);\n return{allowed:true,hands:usable.length,multiplier,baseSeconds:base,estimatedSeconds:kind==='gauze'?careRemainingSeconds(0,profile,multiplier):base*multiplier,factors:{function:fn,pain,tremor,consciousness,perfusion},classification:'사용자 설계값·게임 허용·튜닝; 손 동작만 부상 배율, 거즈 압박은 모드별 고정 시간; 현실 손 동작은 v61 원본'};\n}\nexport function matchesTourniquet(t,position){const p=limbChain(position);return!!p&&t.target.partKey===p.partKey&&p.pathDistanceM>t.target.pathDistanceM+1e-8;}\nexport function treatmentForWound(m,w){return treatments(m).filter(t=>t.kind!=='cat'&&t.target.woundId===w.id||t.kind==='cat'&&t.target.partKey===w.partKey&&(m.bleedSources||[]).some(s=>!['intra_thoracic','intra_abdominal','junctional'].includes(s.controlClass)&&s.woundIds.includes(w.id)&&(s.lesions.length?s.lesions:[s]).some(l=>(l.woundId==null||l.woundId===w.id)&&matchesTourniquet(t,l.position||s.position))));}\nexport function treatmentStatus(list){list=list.filter(t=>!isNewBandage(t)||t.status!=='active');return list.some(t=>t.status==='interrupted')?'interrupted':list.length?'treated':'untreated';}\nexport function careClinicalBefore(m){const previous=painOverlays.get(m);if(previous){for(const[k,p]of previous){const part=m.bodyParts[k];if(part.pain>=p.written)part.pain=p.before+(part.pain-p.written);}painOverlays.delete(m);}if(!treatments(m).some(t=>t.kind==='cat'&&t.progress>0))return;m.acutePain=Math.max(m.acutePain||0,CARE.catPain);}\nexport function careClinicalAfter(m){\n const overlays=new Map();for(const t of treatments(m)){if(t.kind!=='cat'||t.progress<=0)continue;const k=t.target.partKey,p=m.bodyParts[k];p.functionRatio=0;if(!overlays.has(k))overlays.set(k,{before:p.pain||0,written:Math.max(p.pain||0,CARE.catPain)});p.pain=Math.max(p.pain||0,CARE.catPain);if(k.endsWith('Arm'))m.canShoot=false;else{m.canWalk=false;m.canMove=!!m.canCrawl;}}if(overlays.size)painOverlays.set(m,overlays);\n}\n",
+    "medical-care-m4b-policy.js": "// M4b authored/tuned simulation parameters. No clinical dosing engine.\nexport const M4B={ruleId:'care-m4b-v61',backSealRealityMultiplier:3,ventPneumoPerS:.006,valveChance:.10,valveThreshold:.24,valveRisePerS:.01,walkRebleedGain:1.0390625,sprintRebleedGain:.015625,otfcDropConsciousness:65,ketamineRepeatS:1800,\n profiles:{game:{drugGain:1.1,pillOnset:10,otfcOnset:5,ketamineOnset:3,dissolveS:60,connectS:5,infuseS:60,pillS:36000,otfcS:9000,ketamineS:2400},realistic:{drugGain:1,pillOnset:60,otfcOnset:30,ketamineOnset:15,dissolveS:240,connectS:20,infuseS:180,pillS:28800,otfcS:7200,ketamineS:1800},reality:{drugGain:.9,pillOnset:180,otfcOnset:120,ketamineOnset:60,dissolveS:480,connectS:60,infuseS:480,pillS:28800,otfcS:7200,ketamineS:1800}},\n application:{pill:{game:2,realistic:4,reality:6},otfc:{game:1,realistic:2,reality:3},ketamine:{game:2,realistic:5,reality:10}},\n analgesia:{pill:25,otfc:60,ketamine:75},effects:{otfcDrowsy:7,otfcRespiration:.04,shockAmplification:1.5,ketamineDrowsy:5,ketamineSympathetic:.08,ketamineDoubleCssPx:4,ketamineDizzyCssPx:2,ketamineColor:.12,ketamineAudioRate:.92}};\nexport const DRUG_KINDS=['pill','otfc','ketamine'];\nexport const M4B_KINDS=[...DRUG_KINDS,'blood'];\nexport function m4bDuration(kind,mode){return kind==='blood'?M4B.profiles[mode].connectS:M4B.application[kind]?.[mode];}\n",
+    "medical-care-m4c-policy.js": "// 3D only. M4c user design/game allowance; these are not clinical recommendations.\nexport const M4C=Object.freeze({\n ruleId:'care-m4c-v62',\n caps:{game:{injury:1.2,total:1.5},realistic:{injury:1.5,total:2.2}},\n profiles:{\n  game:{catSeconds:{leg:3,arm:2.5},bandageSeconds:3,gauzePackingSeconds:3,gauzePressureSeconds:4,sealSeconds:2,needleSeconds:2,txaSeconds:2,foamSeconds:3},\n  realistic:{catSeconds:{leg:10,arm:8},bandageSeconds:8,gauzePackingSeconds:8,gauzePressureSeconds:20,sealSeconds:6,needleSeconds:8,txaSeconds:8,foamSeconds:12}\n },\n oneHandPressureEfficacy:.98,\n classification:'출처: 기존 현실180초 압박 근거 유지 / 원본: 현실 손 동작·약효·주입 / 사용자 설계값: 시간 분리·상한·리얼리스틱 시간 / 게임 허용: 단축 / 튜닝: 게임 시간·한 손 완료 압박효과98%',\n reversePortCandidate:true,automatic2DPort:false\n});\n\nexport function careRemainingSeconds(workS,p,multiplier){\n return Math.max(0,p.gauzePackingSeconds-workS)*multiplier+\n  Math.max(0,p.gauzePressureSeconds-Math.max(0,workS-p.gauzePackingSeconds));\n}\n\n// workS remains nominal packing + pressure seconds for existing effects/UI.\n// Split at the boundary even when one simulation tick crosses both stages.\nexport function advanceGauze(t,dt,p,hands){\n const packing=p.gauzePackingSeconds,total=packing+p.gauzePressureSeconds;\n if(t.workS<packing){\n  const until=(packing-t.workS)*t.timing.multiplier;\n  if(dt<until){t.workS+=dt/t.timing.multiplier;return;}\n  t.workS=packing;dt-=until;\n }\n const pressed=Math.min(dt,total-t.workS);\n if(hands===1&&pressed>0)t.oneHandPressureS=(t.oneHandPressureS||0)+pressed;\n t.workS=Math.min(total,t.workS+pressed);\n}\n\nexport function completedGauzeCoefficient(t,original,pressureSeconds){\n // Two-hand records, including pre-M4c saves, retain exact original arithmetic.\n if(t.treatmentMode==='game'||!(t.oneHandPressureS>0))return original;\n const fraction=Math.min(1,t.oneHandPressureS/pressureSeconds);\n return original+(1-original)*(1-M4C.oneHandPressureEfficacy)*fraction;\n}\n",
+    "equipment-data.js": "import{combatMassLedger}from'./combat-mass.js';\nconst kit=combatMassLedger();\nexport const EQUIPMENT=Object.freeze({ruleId:'equipment-m6-v63',pickupRangeM:2,\n backpackSeconds:{game:1,realistic:2,reality:3.5},gearSeconds:{game:.6,realistic:1.2,reality:2},\n gear:{helmet:{id:'gear-helmet',name:'6B47 헬멧',weightKg:kit.entries.find(e=>e.slot==='helmet').weightKg,size:{w:2,h:2}},rig:{id:'gear-rig',name:'6B45 방호 리그',weightKg:kit.entries.filter(e=>!['helmet','left','right'].includes(e.slot)).reduce((n,e)=>n+e.weightKg,0),size:{w:3,h:3}},belt:{id:'gear-belt',name:'전술 벨트',weightKg:.5,size:{w:2,h:1}},backpack:{id:'gear-backpack',name:'배낭',weightKg:.8,size:{w:3,h:3}}},\n pockets:{rig:[{w:1,h:1},{w:1,h:1},{w:1,h:1},{w:1,h:2},{w:1,h:2},{w:1,h:2},{w:1,h:2},{w:2,h:2}],belt:[{w:1,h:1},{w:1,h:2},{w:1,h:2},{w:1,h:1}]},\n emptyMagazineKg:{scar_762_20:.25,stanag_556_30:.11,ak_545_30:.23},cartridgeToProjectileMass:3,\n loadNoiseAnchors:[[0,.85],[8,1],[13,1.15],[18,1.30]],\n classification:'장비·플레이트 원본 레지스트리 / 벨트·배낭·빈 탄창 질량과 완성탄 질량=탄두×3 튜닝 / 격자·동작 사용자 설계·게임 허용',reversePortCandidate:true,automatic2DPort:false});\nexport const gearDefinition=item=>item?.kind==='gear'?EQUIPMENT.gear[item.definitionId]:null;\nexport const pocketInfo=owner=>{const m=/^(rig|belt)(?::(.+))?:pouch-(\\d+)$/.exec(owner);if(!m)return null;const index=+m[3]-1,size=EQUIPMENT.pockets[m[1]][index];return size?{slot:m[1],gearId:m[2]||EQUIPMENT.gear[m[1]].id,index,...size}:null;};\nexport const pocketOwners=(slot,id=EQUIPMENT.gear[slot].id)=>EQUIPMENT.pockets[slot].map((_,i)=>slot+(id===EQUIPMENT.gear[slot].id?'':':'+id)+':pouch-'+(i+1));\nexport function loadNoiseAtMass(kg){const x=Math.max(0,kg),a=EQUIPMENT.loadNoiseAnchors;for(let i=1;i<a.length;i++)if(x<=a[i][0])return a[i-1][1]+(a[i][1]-a[i-1][1])*(x-a[i-1][0])/(a[i][0]-a[i-1][0]);return a.at(-1)[1]+(x-a.at(-1)[0])*.03;}\n",
+    "plate-inventory.js": "import{CATALOG}from'./catalog.js';\nimport{PLATE_SLOTS,plateFits}from'./plate-shapes.js';\nimport{careTiming}from'./medical-care-state.js';\nexport const PLATE_ACTION_SECONDS={worn:{game:1.5,realistic:5,reality:10},off:{game:1,realistic:3,reality:5}};\nexport const plateMount=owner=>{const m=/^plate:(.+):(front|rear|left|right)$/.exec(owner);return m?{rigId:m[1],slot:m[2]}:null;};\nexport const mountedOwner=(rigId,slot)=>'plate:'+rigId+':'+slot;\nexport function makePlate(instanceId,definitionId,owner){const p=CATALOG.PLATE_REGISTRY[definitionId];if(!p||p.plate.isNone)throw Error('Invalid physical plate');return{instanceId,kind:'armorPlate',definitionId,owner,condition:{current:p.durability.maxDurability,max:p.durability.maxDurability,material:p.armor.material,sourceId:p.id,localZones:{}},damageHistory:[]};}\nexport function installInitialPlates(inv,rig,front='plate_granit_br4',prefix=rig.instanceId){rig.armorId??='armor_6b45_basic_test';rig.plateSlots={};for(const slot of PLATE_SLOTS){const def=slot==='front'||slot==='rear'?front:'plate_granit_side',id=prefix+':plate-'+slot,item=makePlate(id,def,mountedOwner(rig.instanceId,slot));inv.items.set(id,item);rig.plateSlots[slot]=id;}}\nexport function initPlayerPlates(inv){if(!inv.includePlates)return;installInitialPlates(inv,inv.items.get('gear-rig'));}\nexport function plateParent(inv,owner){const at=plateMount(owner);return at?inv.items.get(at.rigId):null;}\nexport const rigWorn=rig=>rig?.owner==='equipment:rig'||/^actor:.+:rig$/.test(rig?.owner||'');\nexport function plateAccess(inv,owner){const at=plateMount(owner);return at?!!plateParent(inv,owner)&&inv.canAccess(plateParent(inv,owner).owner):null;}\nexport function plateMove(inv,id,destination){\n if(inv.action)return inv.fail();if(inv.canEquipmentAct?.()===false)return inv.fail('현재 상태에서는 장비를 다룰 수 없습니다.');\n const item=inv.items.get(id),from=plateMount(item?.owner||''),to=plateMount(destination?.owner||'');if(item?.kind!=='armorPlate'||!inv.canAccess(item.owner))return inv.fail('접근 가능한 판을 선택하세요.');\n if(!from&&!to&&destination.owner!=='world')return inv.move(id,destination.owner,destination.cell.x,destination.cell.y);\n for(const at of[from,to].filter(Boolean)){const rig=inv.items.get(at.rigId);if(!rig||!inv.canAccess(rig.owner))return inv.fail('접근할 수 없는 방탄복입니다.');if(rigWorn(rig)&&at.slot==='rear')return inv.fail('뒤판: 리그를 벗어야 함');}\n if(to){const rig=inv.items.get(to.rigId),reason=plateFits(item.definitionId,rig.armorId||'armor_6b45_basic_test',to.slot);if(reason)return inv.fail(reason);if(rig.plateSlots?.[to.slot])return inv.fail('플레이트 자리를 먼저 비우세요.');}\n else if(destination.owner!=='world'){if(!inv.canAccess(destination.owner))return inv.fail(destination.owner==='bag'?'배낭을 먼저 여세요.':'수납 위치에 접근할 수 없습니다.');if(!inv.canPlace(destination.owner,item,destination.cell))return inv.fail('판을 넣을 빈칸이 없습니다.');}\n const medical=inv.getEquipmentMedical?.(),timing=medical?careTiming(medical,'bandage','chest',inv.getEquipmentFeedback?.()||{},inv.treatmentMode):{allowed:true,multiplier:1};if(!timing.allowed)return inv.fail(timing.reason||'사용 가능한 손이 없습니다.');\n const worn=[from,to].some(at=>at&&rigWorn(inv.items.get(at.rigId))),duration=PLATE_ACTION_SECONDS[worn?'worn':'off'][inv.treatmentMode]*timing.multiplier;\n inv.action={kind:'gear-plate',phase:to?'플레이트 넣기':'플레이트 빼기',itemId:id,fromOwner:item.owner,destination:structuredClone(destination),elapsed:0,duration,multiplier:timing.multiplier};inv.onEquipmentAction?.();return inv.changed();\n}\nexport function stepPlateAction(inv,dt){const a=inv.action;if(a?.kind!=='gear-plate')return undefined;const item=inv.items.get(a.itemId);if(!item||item.owner!==a.fromOwner||!inv.canAccess(item.owner)){inv.cancel();return null;}a.elapsed=Math.min(a.duration,a.elapsed+dt);if(a.elapsed<a.duration-1e-8)return null;const dest=a.destination,to=plateMount(dest.owner),from=plateMount(item.owner);if(to&&inv.items.get(to.rigId)?.plateSlots?.[to.slot]||!to&&dest.owner!=='world'&&!inv.canPlace(dest.owner,item,dest.cell)){inv.action=null;return inv.fail('교체 중 목적지 상태가 바뀌었습니다.');}if(dest.owner==='world'&&inv.onWorldDrop?.(item)===false){inv.action=null;return inv.fail('바닥에 놓을 수 없습니다.');}\n if(item.owner.startsWith('ground:')&&dest.owner!=='world')inv.onWorldPickup?.(item.instanceId);if(from)delete inv.items.get(from.rigId).plateSlots[from.slot];if(to){const rig=inv.items.get(to.rigId);rig.plateSlots??={};rig.plateSlots[to.slot]=item.instanceId;}item.owner=dest.owner==='world'?'ground:'+item.instanceId:dest.owner;if(dest.cell)item.cell={...dest.cell};else delete item.cell;item.claimed=true;inv.action=null;inv.onEquipmentChanged?.();inv.changed();return'gear-plate';}\n",
+    "corpse-inventory.js": "import{Vector3,Group}from'three';import{EQUIPMENT,pocketOwners,pocketInfo}from'./equipment-data.js';\nimport{installInitialPlates}from'./plate-inventory.js';import{IFAK,INITIAL_IFAK_CONTENTS,MEDICAL_SUPPLIES}from'./medical-supplies.js';\nimport{storageCell}from'./equipment-inventory.js';\nexport const SEARCH_SECONDS={game:1,realistic:3,reality:5};\nexport function canSearch(body){const m=body?.medical?.actor?.medical;return!!m&&(body.medical.actor.isDead||m.isDead||m.isUnconscious);}\nexport function createEnemyItems(inv,enemy,forced='random'){\n const id=enemy.actor.id,add=item=>{item.originActor=id;inv.items.set(item.instanceId,item);return item;},slots={};\n for(const slot of['helmet','rig','belt']){const instanceId=id+':'+slot;slots[slot]=instanceId;add({instanceId,kind:'gear',definitionId:slot,owner:'actor:'+id+':'+slot});}\n const roll=(enemy.random()+enemy.random())%1,plateId=forced==='br4'?'plate_granit_br4':forced==='br5'?'plate_granit_br5':roll<.5?'plate_granit_br4':'plate_granit_br5';installInitialPlates(inv,inv.items.get(slots.rig),plateId,id);\n for(const slot of Object.values(inv.items.get(slots.rig).plateSlots))inv.items.get(slot).originActor=id;\n const gun=add({instanceId:id+':gun',kind:'weapon',definitionId:'ak74m',owner:'actor:'+id+':weapon',magazineId:id+':mag-0',chamber:'545_ps_gs',boltLocked:false,fireMode:'full'});add({instanceId:gun.magazineId,kind:'magazine',definitionId:'ak_545_30',owner:'weapon:'+gun.instanceId,rounds:Array(29).fill('545_ps_gs')});\n for(let n=1;n<=4;n++)add({instanceId:id+':mag-'+n,kind:'magazine',definitionId:'ak_545_30',owner:pocketOwners(n===4?'belt':'rig',slots[n===4?'belt':'rig'])[n===4?1:n+2],cell:{x:0,y:0},rounds:Array(30).fill('545_ps_gs')});\n const kit=add({instanceId:id+':ifak',kind:'medicalContainer',definitionId:IFAK.id,owner:pocketOwners('rig',slots.rig)[7],cell:{x:0,y:0}});\n for(const[n,[definitionId,x,y]]of INITIAL_IFAK_CONTENTS.entries()){const d=MEDICAL_SUPPLIES[definitionId];add({instanceId:id+':medical-'+n,kind:'medicalSupply',definitionId,owner:'container:'+kit.instanceId,cell:{x,y},remaining:d.units});}\n enemy.actor.loadWeightKg=Object.values(slots).reduce((n,id)=>n+inv.itemWeightKg(inv.items.get(id)),0)+inv.itemWeightKg(gun);enemy.equipmentSlots=slots;enemy.weaponItemId=gun.instanceId;enemy.plateChoice={plateId,roll,forced,tuning:'two existing LCG samples summed modulo1, 50:50 threshold; forced choice consumes same two samples'};inv.changed();return slots;\n}\nexport function enemyFireInventory(inv,e){const gun=inv.items.get(e.weaponItemId),mag=inv.items.get(gun?.magazineId);gun.chamber=null;if(mag?.rounds.length)gun.chamber=mag.rounds.pop();gun.boltLocked=!gun.chamber;e.rounds=(mag?.rounds.length||0)+(gun.chamber?1:0);inv.revision++;}\nexport function enemyReloadInventory(inv,e){const gun=inv.items.get(e.weaponItemId);if(!gun)return false;const next=[...inv.items.values()].filter(i=>i.kind==='magazine'&&i.definitionId==='ak_545_30'&&i.rounds.length&&Object.values(e.equipmentSlots).includes(pocketInfo(i.owner)?.gearId)).sort((a,b)=>a.owner.localeCompare(b.owner)).sort((a,b)=>a.owner.startsWith('rig:')===b.owner.startsWith('rig:')?0:a.owner.startsWith('rig:')?-1:1)[0];if(!next){e.rounds=0;return false;}const previous=inv.items.get(gun.magazineId),owner=next.owner,cell=next.cell;previous.owner=owner;previous.cell={...cell};next.owner='weapon:'+gun.instanceId;delete next.cell;gun.magazineId=next.instanceId;if(!gun.chamber&&next.rounds.length)gun.chamber=next.rounds.pop();gun.boltLocked=!gun.chamber;e.rounds=next.rounds.length+(gun.chamber?1:0);inv.changed();return true;}\nexport function corpseAccess(inv,owner){const m=/^actor:(.+):(helmet|rig|belt|weapon)$/.exec(owner);if(!m)return null;return!!inv.corpseController?.accessible(m[1]);}\nexport class CorpseInventory{\n constructor({combat,inventory,world,bag,aim,physics,settings,onOpen}){Object.assign(this,{combat,inventory,world,bag,aim,physics,settings,onOpen});inventory.corpseController=this;this.searched=new Set();this.targetId=null;this.confirmCleanupUntil=0;bag.corpse=this;\n  combat.onEnemyDeployed=e=>{createEnemyItems(inventory,e,settings.enemyPlateType||'random');world.syncWorn(true);};combat.onEnemyFired=e=>enemyFireInventory(inventory,e);combat.onEnemyReloaded=e=>enemyReloadInventory(inventory,e);combat.onEnemyDropped=e=>this.dropGun(e);combat.onEnemyCleanup=e=>this.cleanup(e);this.setupUI();\n }\n body(id=this.targetId){return this.combat.listEnemies().find(e=>e.actor.id===id)||null;}\n center(body){return body.registered.body.find(r=>r.shape.id==='chest').pose.position.clone();}\n accessible(id){const body=this.body(id);return!!body&&this.searched.has(id)&&canSearch(body)&&this.center(body).distanceTo(this.physics.feet)<=1.7;}\n nearby(){for(const e of this.combat.listEnemies()){const found=this.nearbyBody(e);if(found)return found;}return null;}\n nearbyBody(e){if(!canSearch(e))return null;const point=this.center(e),delta=point.clone().sub(this.aim.eye),along=delta.dot(this.aim.shotPose().direction);if(point.distanceTo(this.physics.feet)>1.5||along<=0||delta.clone().addScaledVector(this.aim.shotPose().direction,-along).length()>.34)return null;const hit=this.physics.ray(this.aim.eye,delta.clone().normalize(),delta.length());if(hit&&hit.distance<delta.length()-.35&&!String(hit.id).startsWith(e.actor.id))return null;return{kind:'corpse-search',targetId:e.actor.id,label:e.actor.id,action:'수색'};}\n search(id){const inv=this.inventory,e=this.body(id);if(!e||!canSearch(e)||this.center(e).distanceTo(this.physics.feet)>1.5)return inv.fail('죽었거나 의식 없는 가까운 대상만 수색할 수 있습니다.');if(inv.action||inv.canEquipmentAct?.()===false)return inv.fail();if(this.searched.has(id)){this.open(id);return true;}inv.action={kind:'gear-search',phase:'대상 수색',actorId:id,elapsed:0,duration:SEARCH_SECONDS[inv.treatmentMode]};inv.onEquipmentAction?.();return inv.changed();}\n open(id){this.targetId=id;this.bag.targetOpen=true;this.bag.storage.nearbyOpen=false;this.onOpen?.();this.bag.refresh();}\n strip(id){const inv=this.inventory,item=inv.items.get(id),root=item&&inv.rootOwner(item),e=this.combat.listEnemies().find(e=>root?.startsWith('actor:'+e.actor.id+':'));if(inv.action||!e||!canSearch(e)||!root?.startsWith('actor:'+e.actor.id+':')||!this.accessible(e.actor.id)||!['helmet','rig'].includes(item.definitionId))return inv.fail('수색 중인 대상의 헬멧·리그를 선택하세요.');inv.action={kind:'gear-strip',phase:'대상 장비 벗기',actorId:e.actor.id,itemId:id,elapsed:0,duration:EQUIPMENT.gearSeconds[inv.treatmentMode]};inv.onEquipmentAction?.();return inv.changed();}\n step(dt){const inv=this.inventory,a=inv.action;if(!['gear-search','gear-strip'].includes(a?.kind))return undefined;const e=this.body(a.actorId);if(!e||!canSearch(e)||this.center(e).distanceTo(this.physics.feet)>1.7){inv.cancel();return null;}a.elapsed=Math.min(a.duration,a.elapsed+dt);if(a.elapsed<a.duration-1e-8)return null;inv.action=null;if(a.kind==='gear-search'){this.searched.add(a.actorId);this.open(a.actorId);}else{const item=inv.items.get(a.itemId);if(!item||inv.onWorldDrop?.(item)===false)return inv.fail('장비를 바닥에 놓을 수 없습니다.');e.equipmentSlots[item.definitionId]=null;item.owner='ground:'+item.instanceId;delete item.cell;inv.onEquipmentChanged?.();}inv.changed();return a.kind;}\n take(id){const inv=this.inventory,item=inv.items.get(id);if(!item||!inv.canAccess(item.owner))return inv.fail('대상에 접근할 수 없습니다.');if(item.kind==='gear')return this.strip(id);const dest=storageCell(inv,item);if(!dest)return inv.fail('내 장비·배낭에 빈칸이 없습니다.');if(dest.owner==='bag'&&!inv.backpackOpen)return inv.openBackpack({kind:'move',id,x:dest.cell.x,y:dest.cell.y});return inv.move(id,dest.owner,dest.cell.x,dest.cell.y);}\n dropGun(e){const inv=this.inventory,item=inv.items.get(e.weaponItemId);if(!item||!e.droppedBody)return;e.gun.updateMatrixWorld(true);const root=new Group(),relative=e.gun.matrixWorld.clone().invert();this.world.freezeEnemyWeapon(e.gun,root,relative);const body=e.droppedBody,collider=body.collider(0);collider.setMass(inv.itemWeightKg(item));body.recomputeMassPropertiesFromColliders();e.gun.visible=false;root.position.copy(e.gun.position);root.quaternion.copy(e.gun.quaternion);this.world.scene.add(root);item.owner='ground:'+item.instanceId;const row={id:item.instanceId,root,body,collider,mass:inv.itemWeightKg(item),size:[.1,.28,.95],fallbackBox:false,onRemove:()=>{e.droppedBody=null;e.preparedDropBody=null;e.gun.visible=false;}};this.physics.surface.set(collider.handle,{id:'loot:'+item.instanceId,kind:'world-loot'});this.world.rows.set(item.instanceId,row);inv.changed();}\n requestCleanup(){const time=performance.now();if(this.confirmCleanupUntil<time){this.confirmCleanupUntil=time+5000;this.combat.cleanupPrompt=true;return{confirmed:false,message:'정리하면 시체에 남은 장비·물품이 사라집니다. 5초 안에 F를 다시 누르세요.'};}this.confirmCleanupUntil=0;this.combat.cleanupPrompt=false;return{confirmed:true};}\n cleanup(e){const inv=this.inventory,remove=[];for(const item of inv.items.values()){let root;try{root=inv.rootOwner(item);}catch{continue;}if(root.startsWith('actor:'+e.actor.id+':')||item.originActor===e.actor.id&&!item.claimed&&root.startsWith('ground:'))remove.push(item.instanceId);}for(const id of remove)this.world.remove(id);for(const id of remove)inv.items.delete(id);this.world.armorEquipment?.states.delete(e.actor.id);this.searched.delete(e.actor.id);if(this.targetId===e.actor.id){this.targetId=null;this.bag.targetOpen=false;}inv.changed();}\n setupUI(){const bag=this.bag,storage=bag.storage,source=storage.sources;this.panel=document.createElement('section');this.panel.id='corpseItems';source.append(this.panel);this.tab=document.createElement('button');this.tab.id='corpseTab';this.tab.type='button';this.tab.textContent='대상 · 수색';this.tab.addEventListener('click',()=>{if(this.targetId&&this.accessible(this.targetId)){bag.targetOpen=true;bag.refresh();}});source.querySelector('.medical-sources').append(this.tab);document.getElementById('nearbyTab').addEventListener('click',()=>{bag.targetOpen=false;bag.refresh();});const buttons=document.querySelector('#medicalItems>.medical-sources').querySelectorAll('button');this.patientButton=buttons[1];this.patientButton.id='medicalCorpse';this.patientButton.addEventListener('click',()=>{bag.targetOpen=true;storage.medicalTarget=true;storage.medicalNearby=false;bag.refresh();});storage.selfButton.addEventListener('click',()=>{storage.medicalTarget=false;bag.targetOpen=false;});storage.nearButton.addEventListener('click',()=>{storage.medicalTarget=false;bag.targetOpen=false;});}\n update(){const inv=this.inventory,bag=this.bag,e=this.body(),available=e&&this.accessible(e.actor.id);this.tab.disabled=this.patientButton.disabled=!available;this.patientButton.setAttribute('aria-pressed',String(!!bag.storage.medicalTarget));if(!available)bag.targetOpen=false;this.panel.hidden=!bag.targetOpen;bag.storage.world.hidden=!!bag.targetOpen||!bag.storage.nearbyOpen;if(!bag.targetOpen||bag.gesture)return;const stamp=[inv.revision,bag.selectedId,this.targetId,bag.targetOpen].join(':');if(stamp===this.stamp)return;this.stamp=stamp;this.panel.replaceChildren();const title=document.createElement('h3');title.textContent=e.actor.id+' · 대상 장비';this.panel.append(title);\n  for(const slot of['helmet','rig','belt']){const item=inv.items.get(e.equipmentSlots[slot]);if(!item)continue;const row=document.createElement('article');row.className='m7-corpse-gear';row.append(bag.makeItem(item));if(slot!=='belt'){const strip=document.createElement('button');strip.type='button';strip.textContent='벗기';strip.dataset.stripItem=item.instanceId;strip.addEventListener('click',()=>bag.run(()=>this.strip(item.instanceId)));row.append(strip);}if(slot==='rig'){const open=document.createElement('button');open.type='button';open.textContent='플레이트';open.addEventListener('click',()=>{bag.plates.open(item.instanceId);bag.refresh();});row.append(open);}this.panel.append(row);if(slot!=='helmet')bag.storage.pockets(slot,this.panel,item.instanceId);}\n }\n snapshot(){return{targetId:this.targetId,searched:[...this.searched],open:!!this.bag.targetOpen,available:this.targetId?this.accessible(this.targetId):false};}\n reset(){this.searched.clear();this.targetId=null;this.bag.targetOpen=false;this.confirmCleanupUntil=0;}\n}\n",
+    "medical-care-systemic.js": "import{treatments}from'./medical-care-state.js';\nimport{M4_VALUES}from'./medical-care-modes.js';\nconst times=new WeakMap();\nexport const SYSTEMIC_CARE={game:{txaDelay:5,txa:.5,txaArtery:.9,foamDelay:3,foam:0,foamArtery:.5},realistic:{txaDelay:30,txa:.75,txaArtery:1,foamDelay:15,foam:0.0365869140625,foamArtery:.8},reality:{txaDelay:600,txa:.95,txaArtery:1,foamDelay:30,foam:.9,foamArtery:1}};\nexport const setCareTime=(m,time)=>times.set(m,time);\nexport const careTime=m=>times.get(m)??0;\nexport function systemicCareFactor(m,s){let factor=1;for(const t of treatments(m)){if(t.status!=='completed'||!['txa','foam'].includes(t.kind)||t.effectEligible===false)continue;const k=SYSTEMIC_CARE[t.treatmentMode||'reality'];if(careTime(m)<t.appliedAtS+k[t.kind+'Delay'])continue;if(t.kind==='txa')factor*=s.vesselKind==='artery'?k.txaArtery:k.txa;else if(s.destination==='peritoneal')factor*=s.vesselKind==='artery'?k.foamArtery:k.foam;}return factor;}\nexport function systemicCarePain(m){if(treatments(m).some(t=>t.kind==='foam'&&t.status==='completed'&&careTime(m)>=t.appliedAtS+SYSTEMIC_CARE[t.treatmentMode||'reality'].foamDelay)){m.bodyParts.abdomen.pain=Math.max(m.bodyParts.abdomen.pain||0,M4_VALUES.foamPain);}}\n"
+  }
+}

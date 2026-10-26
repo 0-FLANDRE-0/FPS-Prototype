@@ -1,2 +1,0 @@
-import{activityFor}from'./medical-d2.js';import{M4B}from'./medical-care-m4b-policy.js';
-export function movementBleedFactor(m,s){const i=activityFor(m)?.intensity||0;if(!i||s.vesselKind==='artery'||!(['vein','parenchymal','capillary'].includes(s.vesselKind)||['parenchymal','ooze'].includes(s.injuryType)))return 1;return 1+M4B.walkRebleedGain*Math.min(1,i/.18)+M4B.sprintRebleedGain*Math.max(0,(i-.18)/.82);}

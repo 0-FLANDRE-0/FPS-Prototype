@@ -7,11 +7,11 @@ const states=new WeakMap(),clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
 export const drugState=m=>states.get(m)||null;
 // Onset/plateau/offset are game curves, not predicted plasma concentrations.
 export function doseCurve(age,onset,duration){if(age<=onset||age>=duration)return 0;const rise=Math.min(1,(age-onset)/Math.max(5,onset)),fall=Math.min(1,(duration-age)/Math.max(60,duration*.2));return rise*fall;}
-export function infusionRate(m,mode){const a=activityFor(m),speed=a?.intensity||0,movement=speed>=.7?'달리기':speed>0?'걷기':'정지',factor=movement==='달리기'?.5:movement==='걷기'?.85:1;return{mlPerS:500/M4B.profiles[mode].infuseS*factor,movement,factor};}
+export function infusionRate(m){const a=activityFor(m),speed=a?.intensity||0,movement=speed>=.7?'달리기':speed>0?'걷기':'정지',factor=movement==='달리기'?.5:movement==='걷기'?.85:1;return{mlPerS:500/M4B.profile.infuseS*factor,movement,factor};}
 export function finishDrugOrBlood(bridge,t,inventory){
  if(t.kind==='otfc'){t.firstAtS??=bridge.time;t.absorbed??=0;t.pool??=0;t.bloodLevel??=0;t.inMouth=true;t.stopReason=null;}
  if(t.kind==='blood'){t.remainingMl??=500;t.infusedMl??=0;t.deliveredMl??=0;t.connected=true;t.downAtConnection=!!(bridge.actor.medical.isDowned||bridge.actor.medical.isUnconscious||bridge.actor.medical.cardiacArrest||bridge.careRagdoll);t.disconnectedReason=null;}
- if(t.kind==='pill'){for(const old of treatments(bridge.actor.medical))if(old!==t&&old.kind==='pill'&&old.status==='completed'){if(!old.superseded&&doseCurve(bridge.time-old.appliedAtS,M4B.profiles[old.treatmentMode||'reality'].pillOnset,M4B.profiles[old.treatmentMode||'reality'].pillS)>0)t.renewed=true;old.superseded=true;}}
+ if(t.kind==='pill'){for(const old of treatments(bridge.actor.medical))if(old!==t&&old.kind==='pill'&&old.status==='completed'){if(!old.superseded&&doseCurve(bridge.time-old.appliedAtS,M4B.profile.pillOnset,M4B.profile.pillS)>0)t.renewed=true;old.superseded=true;}}
  if(t.kind==='ketamine'){const old=treatments(bridge.actor.medical).filter(x=>x!==t&&x.kind==='ketamine'&&x.status==='completed');t.earlyRepeat=old.some(x=>bridge.time-x.appliedAtS<M4B.ketamineRepeatS);}
 }
 export function stopMouth(m,reason='직접 빼기'){const t=treatments(m).find(t=>t.kind==='otfc'&&t.inMouth);if(!t)return false;t.inMouth=false;t.stopReason=reason;return true;}
@@ -19,10 +19,10 @@ export function disconnectBlood(m,reason='직접 분리'){const t=treatments(m).
 export function stepDrugsAndBlood(bridge,dt){
  const m=bridge.actor.medical,ts=treatments(m).filter(t=>[...DRUG_KINDS,'blood'].includes(t.kind)&&t.status==='completed');if(!ts.length)return;
  const state=states.get(m)||{analgesia:0,drowsy:0,respiration:0,ketamine:0,otfc:0,curves:[]};states.set(m,state);let pill=0,otfc=0,ketamine=0,ketPeak=0;const curves=[];
- for(const t of ts){const p=M4B.profiles[t.treatmentMode||'reality'],age=bridge.time-t.appliedAtS,gain=p.drugGain;
+ for(const t of ts){const p=M4B.profile,age=bridge.time-t.appliedAtS,gain=p.drugGain;
   if(t.kind==='blood'){
    if((m.isUnconscious||m.isDead||m.cardiacArrest||((m.isDowned||bridge.careRagdoll)&&!t.downAtConnection))&&t.connected){t.connected=false;t.disconnectedReason='쓰러짐 · 연결 빠짐';}
-   if(t.connected&&!m.isDead){const rate=infusionRate(m,t.treatmentMode||'reality'),ml=Math.min(t.remainingMl,rate.mlPerS*dt),added=Math.min(ml,Math.max(0,m.bloodMax-m.bloodMl));m.bloodMl+=added;t.remainingMl=Math.max(0,t.remainingMl-ml);t.infusedMl+=ml;t.deliveredMl+=added;t.rate=rate;if(t.remainingMl<1e-8){t.remainingMl=0;t.connected=false;t.disconnectedReason='주입 완료';}}continue;
+   if(t.connected&&!m.isDead){const rate=infusionRate(m),ml=Math.min(t.remainingMl,rate.mlPerS*dt),added=Math.min(ml,Math.max(0,m.bloodMax-m.bloodMl));m.bloodMl+=added;t.remainingMl=Math.max(0,t.remainingMl-ml);t.infusedMl+=ml;t.deliveredMl+=added;t.rate=rate;if(t.remainingMl<1e-8){t.remainingMl=0;t.connected=false;t.disconnectedReason='주입 완료';}}continue;
   }
   let level=0;
   if(t.kind==='pill'&&!t.superseded){level=t.renewed?clamp((p.pillS-age)/(p.pillS*.2)):doseCurve(age,p.pillOnset,p.pillS);pill=Math.max(pill,level*gain);}
@@ -33,7 +33,7 @@ export function stepDrugsAndBlood(bridge,dt){
    // Two compartments; stopping the mouth stops input immediately, not elimination.
    t.pool=(t.pool+absorbed)*Math.exp(-dt/(p.otfcS*.45));const since=bridge.time-t.firstAtS;
    if(since>=p.otfcOnset)t.bloodLevel+=(t.pool-t.bloodLevel)*(1-Math.exp(-dt/Math.max(3,p.otfcOnset*.5)));
-   const inv=inventories.get(m),item=inv?.items.get(t.itemInstanceId);if(item){item.remainingFraction=1-t.absorbed;if(t.absorbed>=1){item.remaining=0;inv.items.delete(item.instanceId);const stock=inv.medicalStock.get(item.instanceId);if(stock)stock.used=1;inv.changed();}}
+   const inv=inventories.get(m),item=inv?.items.get(t.itemInstanceId);if(item){item.remainingFraction=1-t.absorbed;if(t.absorbed>=1){item.remaining=0;inv.items.delete(item.instanceId);inv.changed();}}
    t.level=level=clamp(t.bloodLevel);otfc+=level*gain;
   }
   curves.push({id:t.id,kind:t.kind,ageS:age,level,gain,absorbed:t.absorbed??null,inMouth:t.inMouth??false,earlyRepeat:t.earlyRepeat||false});

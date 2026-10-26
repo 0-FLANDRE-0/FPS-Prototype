@@ -1,0 +1,706 @@
+[
+  {
+    "path": "M4_VALUES.defaultMode",
+    "before": "realistic",
+    "after": "설정/UI/저장 모두 폐기",
+    "disposition": "삭제"
+  },
+  {
+    "path": "M4_VALUES.sealSeconds",
+    "before": 25,
+    "after": 6,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4_VALUES.needleSeconds",
+    "before": 12,
+    "after": 8,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4_VALUES.txaSeconds",
+    "before": 20,
+    "after": 8,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4_VALUES.foamSeconds",
+    "before": 30,
+    "after": 7,
+    "disposition": "새 규칙"
+  },
+  {
+    "path": "M4_VALUES.backSealMultiplier",
+    "before": 1.8,
+    "after": 1.8,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4_VALUES.needleRadius",
+    "before": 0.065,
+    "after": 0.065,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4_VALUES.needleDrainPerS",
+    "before": 0.35,
+    "after": 0.35,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4_VALUES.ventDrainPerS",
+    "before": 0.015,
+    "after": 0.015,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4_VALUES.needleRecurrenceChance",
+    "before": 0.35,
+    "after": "폐기; 기존 리얼리스틱에는 재발 없음",
+    "disposition": "삭제"
+  },
+  {
+    "path": "M4_VALUES.needleRecurrenceMinS",
+    "before": 90,
+    "after": "폐기",
+    "disposition": "삭제"
+  },
+  {
+    "path": "M4_VALUES.needleRecurrenceMaxS",
+    "before": 300,
+    "after": "폐기",
+    "disposition": "삭제"
+  },
+  {
+    "path": "M4_VALUES.needleReachFailure",
+    "before": {
+      "anterior": 0.08,
+      "lateral": 0.02
+    },
+    "after": "폐기; 기존 리얼리스틱의 고정 성공 조건",
+    "disposition": "삭제"
+  },
+  {
+    "path": "M4_VALUES.iatrogenicPneumo",
+    "before": 0.12,
+    "after": "리얼리스틱 false; 새 경로에서 생성 안 함",
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4_VALUES.foamPain",
+    "before": 40,
+    "after": "폐기: 범용 상처별 제품",
+    "disposition": "새 규칙"
+  },
+  {
+    "path": "M4_VALUES.txaWindowS",
+    "before": 10800,
+    "after": 10800,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "CARE.catSeconds",
+    "before": {
+      "arm": 28,
+      "leg": 37.5
+    },
+    "after": "팔·다리5초",
+    "disposition": "새 규칙"
+  },
+  {
+    "path": "CARE.oneHandMultiplier",
+    "before": 1.65,
+    "after": "1; 부상·통증·떨림·관류·의식·손 기능 배율 전부 삭제",
+    "disposition": "삭제"
+  },
+  {
+    "path": "CARE.bandageSeconds",
+    "before": 30,
+    "after": "4초",
+    "disposition": "새 규칙"
+  },
+  {
+    "path": "CARE.gauzePackingSeconds",
+    "before": 30,
+    "after": "통합6초",
+    "disposition": "새 규칙"
+  },
+  {
+    "path": "CARE.gauzePressureSeconds",
+    "before": 180,
+    "after": "없음",
+    "disposition": "새 규칙"
+  },
+  {
+    "path": "CARE.resumeSetupSeconds",
+    "before": 1.5,
+    "after": "현대 제품: 처음부터 / 임시 제품: 남은 고정 시간",
+    "disposition": "새 규칙"
+  },
+  {
+    "path": "CARE.aboveWoundM",
+    "before": 0.065,
+    "after": "위치·원위부/두 번째 지혈대 검사 폐기",
+    "disposition": "삭제"
+  },
+  {
+    "path": "CARE.catResidual",
+    "before": 5e-05,
+    "after": 0,
+    "disposition": "새 규칙"
+  },
+  {
+    "path": "CARE.looseArteryGain",
+    "before": 0.35,
+    "after": "느슨한 지혈대 폐기",
+    "disposition": "삭제"
+  },
+  {
+    "path": "CARE.looseVeinFactor",
+    "before": 0.15,
+    "after": "느슨한 지혈대 폐기",
+    "disposition": "삭제"
+  },
+  {
+    "path": "CARE.catPain",
+    "before": 70,
+    "after": "5→55/180초, 제거 후30초 감소",
+    "disposition": "새 규칙"
+  },
+  {
+    "path": "CARE.bandage",
+    "before": {
+      "artery": 0.8,
+      "vein": 0.15,
+      "capillary": 0.1
+    },
+    "after": "원래 계수 대신 상처당20mL/s 용량",
+    "disposition": "새 규칙"
+  },
+  {
+    "path": "CARE.gauze",
+    "before": {
+      "artery": 0.03,
+      "vein": 0.05,
+      "capillary": 0.1
+    },
+    "after": "출혈원 면적에 따른 연속 내구도/완료0",
+    "disposition": "새 규칙"
+  },
+  {
+    "path": "CARE.manualPressure",
+    "before": {
+      "artery": 0.15,
+      "vein": 0.15,
+      "capillary": 0.15
+    },
+    "after": "수동 압박 단계 폐기",
+    "disposition": "삭제"
+  },
+  {
+    "path": "CARE.interruptedGauzeGain",
+    "before": 0.25,
+    "after": "취소 시 진행/효과 없음",
+    "disposition": "새 규칙"
+  },
+  {
+    "path": "M4B.backSealRealityMultiplier",
+    "before": 3,
+    "after": 1.8,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4B.walkRebleedGain",
+    "before": 1.0390625,
+    "after": "결정론 샘·재출혈 위험률로 대체",
+    "disposition": "삭제/새 규칙"
+  },
+  {
+    "path": "M4B.sprintRebleedGain",
+    "before": 0.015625,
+    "after": "결정론 샘·재출혈 위험률로 대체",
+    "disposition": "삭제/새 규칙"
+  },
+  {
+    "path": "M4B.profile.drugGain",
+    "before": {
+      "game": 1.1,
+      "realistic": 1,
+      "reality": 0.9
+    },
+    "after": 1,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4B.profile.pillOnset",
+    "before": {
+      "game": 10,
+      "realistic": 60,
+      "reality": 180
+    },
+    "after": 60,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4B.profile.otfcOnset",
+    "before": {
+      "game": 5,
+      "realistic": 30,
+      "reality": 120
+    },
+    "after": 30,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4B.profile.ketamineOnset",
+    "before": {
+      "game": 3,
+      "realistic": 15,
+      "reality": 60
+    },
+    "after": 15,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4B.profile.dissolveS",
+    "before": {
+      "game": 60,
+      "realistic": 240,
+      "reality": 480
+    },
+    "after": 240,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4B.profile.connectS",
+    "before": {
+      "game": 5,
+      "realistic": 20,
+      "reality": 60
+    },
+    "after": 20,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4B.profile.infuseS",
+    "before": {
+      "game": 60,
+      "realistic": 180,
+      "reality": 480
+    },
+    "after": 180,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4B.profile.pillS",
+    "before": {
+      "game": 36000,
+      "realistic": 28800,
+      "reality": 28800
+    },
+    "after": 28800,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4B.profile.otfcS",
+    "before": {
+      "game": 9000,
+      "realistic": 7200,
+      "reality": 7200
+    },
+    "after": 7200,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4B.profile.ketamineS",
+    "before": {
+      "game": 2400,
+      "realistic": 1800,
+      "reality": 1800
+    },
+    "after": 1800,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4B.application.pill",
+    "before": {
+      "game": 2,
+      "realistic": 4,
+      "reality": 6
+    },
+    "after": 4,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4B.application.otfc",
+    "before": {
+      "game": 1,
+      "realistic": 2,
+      "reality": 3
+    },
+    "after": 2,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4B.application.ketamine",
+    "before": {
+      "game": 2,
+      "realistic": 5,
+      "reality": 10
+    },
+    "after": 5,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4C.caps",
+    "before": {
+      "game": {
+        "injury": 1.2,
+        "total": 1.5
+      },
+      "realistic": {
+        "injury": 1.5,
+        "total": 2.2
+      }
+    },
+    "after": "모든 부상/한 손 시간 배율 폐기",
+    "disposition": "삭제"
+  },
+  {
+    "path": "M4C.profiles.catSeconds",
+    "before": {
+      "game": {
+        "leg": 3,
+        "arm": 2.5
+      },
+      "realistic": {
+        "leg": 10,
+        "arm": 8
+      }
+    },
+    "after": "팔·다리 모두5초",
+    "disposition": "새 규칙"
+  },
+  {
+    "path": "M4C.profiles.bandageSeconds",
+    "before": {
+      "game": 3,
+      "realistic": 8
+    },
+    "after": "4초",
+    "disposition": "새 규칙"
+  },
+  {
+    "path": "M4C.profiles.gauzePackingSeconds",
+    "before": {
+      "game": 3,
+      "realistic": 8
+    },
+    "after": "채우기·압박 분리 없이6초",
+    "disposition": "새 규칙"
+  },
+  {
+    "path": "M4C.profiles.gauzePressureSeconds",
+    "before": {
+      "game": 4,
+      "realistic": 20
+    },
+    "after": "삭제",
+    "disposition": "새 규칙"
+  },
+  {
+    "path": "M4C.profiles.sealSeconds",
+    "before": {
+      "game": 2,
+      "realistic": 6
+    },
+    "after": "6초",
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4C.profiles.needleSeconds",
+    "before": {
+      "game": 2,
+      "realistic": 8
+    },
+    "after": "8초",
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4C.profiles.txaSeconds",
+    "before": {
+      "game": 2,
+      "realistic": 8
+    },
+    "after": "8초",
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "M4C.profiles.foamSeconds",
+    "before": {
+      "game": 3,
+      "realistic": 12
+    },
+    "after": "7초",
+    "disposition": "새 규칙"
+  },
+  {
+    "path": "M4C.oneHandPressureEfficacy",
+    "before": 0.98,
+    "after": "폐기; 손 개수로 효과를 바꾸지 않음",
+    "disposition": "삭제"
+  },
+  {
+    "path": "EQUIPMENT.backpackSeconds",
+    "before": {
+      "game": 1,
+      "realistic": 2,
+      "reality": 3.5
+    },
+    "after": 2,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "EQUIPMENT.gearSeconds",
+    "before": {
+      "game": 0.6,
+      "realistic": 1.2,
+      "reality": 2
+    },
+    "after": 1.2,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "PLATE_ACTION_SECONDS.worn",
+    "before": {
+      "game": 1.5,
+      "realistic": 5,
+      "reality": 10
+    },
+    "after": 5,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "PLATE_ACTION_SECONDS.off",
+    "before": {
+      "game": 1,
+      "realistic": 3,
+      "reality": 5
+    },
+    "after": 3,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "SEARCH_SECONDS",
+    "before": {
+      "game": 1,
+      "realistic": 3,
+      "reality": 5
+    },
+    "after": 3,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "productCount.bandage",
+    "before": {
+      "game": 3,
+      "realistic": 2,
+      "reality": 1
+    },
+    "after": "2회(이전 표는 MO1에서100내구도로 우회됨)",
+    "disposition": "새 규칙"
+  },
+  {
+    "path": "productCount.gauze",
+    "before": {
+      "game": 3,
+      "realistic": 2,
+      "reality": 1
+    },
+    "after": "내구도100",
+    "disposition": "새 규칙"
+  },
+  {
+    "path": "productCount.needle",
+    "before": {
+      "game": 3,
+      "realistic": 2,
+      "reality": 1
+    },
+    "after": "2회",
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "productCount.seal",
+    "before": {
+      "game": 4,
+      "realistic": 2,
+      "reality": 2
+    },
+    "after": "2회",
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "SYSTEMIC_CARE.txaDelay",
+    "before": {
+      "game": 5,
+      "realistic": 30,
+      "reality": 600
+    },
+    "after": 30,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "SYSTEMIC_CARE.txa",
+    "before": {
+      "game": 0.5,
+      "realistic": 0.75,
+      "reality": 0.95
+    },
+    "after": 0.75,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "SYSTEMIC_CARE.txaArtery",
+    "before": {
+      "game": 0.9,
+      "realistic": 1,
+      "reality": 1
+    },
+    "after": 1,
+    "disposition": "임시 고정"
+  },
+  {
+    "path": "SYSTEMIC_CARE.foamDelay",
+    "before": {
+      "game": 3,
+      "realistic": 15,
+      "reality": 30
+    },
+    "after": "폐기: 상처별 폼 진행으로 교체",
+    "disposition": "삭제/새 규칙"
+  },
+  {
+    "path": "SYSTEMIC_CARE.foam",
+    "before": {
+      "game": 0,
+      "realistic": 0.0365869140625,
+      "reality": 0.9
+    },
+    "after": "폐기: 상처별 폼 진행으로 교체",
+    "disposition": "삭제/새 규칙"
+  },
+  {
+    "path": "SYSTEMIC_CARE.foamArtery",
+    "before": {
+      "game": 0.5,
+      "realistic": 0.8,
+      "reality": 1
+    },
+    "after": "폐기: 상처별 폼 진행으로 교체",
+    "disposition": "삭제/새 규칙"
+  },
+  {
+    "path": "durationScale",
+    "before": {
+      "game": "1/6",
+      "realistic": ".4",
+      "reality": 1
+    },
+    "after": "단일 고정 시간만 참조",
+    "disposition": "삭제"
+  },
+  {
+    "path": "careProfile bandage",
+    "before": {
+      "game": {
+        "artery": 0.3,
+        "vein": 0,
+        "capillary": 0
+      },
+      "realistic": {
+        "artery": 0.5,
+        "vein": 0.02,
+        "capillary": 0.01
+      },
+      "reality": {
+        "artery": 0.8,
+        "vein": 0.15,
+        "capillary": 0.1
+      }
+    },
+    "after": "MO1내구도와 기존 계수 모두 폐기. 상처당20mL/s",
+    "disposition": "새 규칙"
+  },
+  {
+    "path": "careProfile gauze",
+    "before": {
+      "game": 0,
+      "realistic": 5e-05,
+      "reality": {
+        "artery": 0.03,
+        "vein": 0.05,
+        "capillary": 0.1
+      }
+    },
+    "after": "완료0 / 부족시 남은 작업비율",
+    "disposition": "새 규칙"
+  },
+  {
+    "path": "careProfile CAT",
+    "before": {
+      "game": 0,
+      "realistic": 5e-05,
+      "reality": 5e-05
+    },
+    "after": "완료0, 각 사지1개, 신규 상처 포함",
+    "disposition": "새 규칙"
+  },
+  {
+    "path": "unaffected profiles",
+    "before": {
+      "bloodMovement": [
+        1,
+        0.85,
+        0.5
+      ],
+      "ventPneumoPerS": 0.006,
+      "valveChance": 0.1,
+      "valveThreshold": 0.24,
+      "valveRisePerS": 0.01,
+      "analgesia": {
+        "pill": 25,
+        "otfc": 60,
+        "ketamine": 75
+      },
+      "effects": {
+        "otfcDrowsy": 7,
+        "otfcRespiration": 0.04,
+        "shockAmplification": 1.5,
+        "ketamineDrowsy": 5,
+        "ketamineSympathetic": 0.08,
+        "ketamineDoubleCssPx": 4,
+        "ketamineDizzyCssPx": 2,
+        "ketamineColor": 0.12,
+        "ketamineAudioRate": 0.92
+      }
+    },
+    "after": "원본 값·식 유지; 모드 참조 없음",
+    "disposition": "원본 유지"
+  },
+  {
+    "path": "untouched product fallback",
+    "before": {
+      "cat": 1,
+      "txa": 1,
+      "foam": 1,
+      "pill": 1,
+      "otfc": 1,
+      "ketamine": 1,
+      "blood": 1,
+      "npa": 1
+    },
+    "after": "cat1/주입기160/폼300/기타1; NPA 플레이 사용은 후속 그대로",
+    "disposition": "새 규칙/임시 고정"
+  }
+]

@@ -5563,7 +5563,8 @@ function applyDamageEvent(unit, ev) {
     m._acuteResponseLoad = (m._acuteResponseLoad || 0) + acute.stoppingIntensity;
   }
 
-  // MO3: no generic chest/lung respiratory penalty. Neck/CNS/drug routes remain.
+  // MO3: no generic chest/lung respiratory penalty. Preserve the unrelated head-blast response.
+  if (sourceType === 'blast' && partKey === 'head') m.breathingEfficiency = Math.max(30, m.breathingEfficiency - 15);
 
   // === 6) Consciousness — head/neck 직접 신경학적 손상 (medical.shock 경유 금지) ===
   //   [IMPACT-A Phase2] 실제 관통 + head/neck 구조 손상 근거가 있을 때만 즉각 의식저하(transientNeurologicDisruption).

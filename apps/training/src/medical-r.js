@@ -20,11 +20,6 @@ export function createMedicalRSlots(original){
   for(const injury of result.injuries)if(!injury.monitorOnly){injury.status='confirmed_limited';injury.confirmed=true;injury.confirmedBy='actual_internal_intersection';}
   result.confirmedCount=result.injuries.filter(i=>i.confirmed).length;result.suspectedCount=0;return result;
  }
- function buildChestTraumaModel(bt,ibm,hitPart,woundSize){
-  const result=original.buildChestTraumaModel(bt,ibm,hitPart,woundSize);if(!result)return result;
-  if(!geometry(bt).internalHits.some(h=>h.organ==='lung')){result.lungInjuryCandidate=false;result.lungInjuryStatus='none';result.pneumothoraxRisk=0;result.hemothoraxRisk=0;}
-  return result;
- }
  function buildConfirmedInjuryModel(w,bt,cm,med){
   const result=original.buildConfirmedInjuryModel(w,bt,cm,med);
   result.confirmed=[...new Set(geometry(bt).internalHits.filter(h=>h.kind!=='bone').map(h=>h.identifier))];result.probable=[];result.candidates=[];result.confidence=result.confirmed.length?1:0;result.reasonTags=['actual_internal_intersection'];return result;
@@ -61,5 +56,5 @@ export function createMedicalRSlots(original){
   // Recompute rather than dividing a clamped original pulse: pressure appears once.
   return {extPulse:pressure*raw.pulseModifier*raw.vascularToneModifier*flow,intPulse:pressure*(bp.bleedingType==='cavity'?1:1+raw.pulsePressureInfluence*.5)*flow};
  }
- return {buildBodyTrajectoryContext,buildOrganInjuryModel,buildChestTraumaModel,buildConfirmedInjuryModel,buildVascularEvidence,buildFractureEvidence,reinforceVascularEvidenceWithPartDestruction,finalizeBleedingProfileWithEvidence,buildBleedingPulseModel};
+ return {buildBodyTrajectoryContext,buildOrganInjuryModel,buildConfirmedInjuryModel,buildVascularEvidence,buildFractureEvidence,reinforceVascularEvidenceWithPartDestruction,finalizeBleedingProfileWithEvidence,buildBleedingPulseModel};
 }

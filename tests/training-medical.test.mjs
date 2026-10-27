@@ -1,13 +1,14 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';
 import {Vector3} from 'three';import {TrainingMedical} from '../apps/training/src/medical.js';
 import {medicalAddressTable,mapMedicalAddress} from '../apps/training/src/medical-address.js';
+import{LEGACY_MEDICAL_SOURCES}from'../apps/training/src/generated/legacy-medical.js';
 import {extractMedical} from '../scripts/training-medical.mjs';import {createPhysics} from '../apps/training/src/physics.js';
 import {traceShot} from '../apps/training/src/ballistics.js';import {shotBallistics} from '../apps/training/src/catalog.js';
 const origin=(x,y)=>new Vector3(17+x,y,0),direction=new Vector3(0,0,-1);
 async function shot(x,y,id='556_m855',random=()=>.001){const p=await createPhysics();const ballistics=shotBallistics(id),o=origin(x,y);
  const trace=traceShot(p,o,direction,ballistics,{random});return {p,event:{shotId:1,time:1,origin:o,direction,ammoId:id,ballistics,trace}};}
 test('medical extracted dependency closure records exact original declaration hashes and excludes duplicate impact/armor engines',async()=>{
- const r=await extractMedical();assert.equal(await readFile(new URL('../apps/training/src/generated/legacy-medical.js',import.meta.url),'utf8'),r.source);
+ const r=await extractMedical();assert.deepEqual(LEGACY_MEDICAL_SOURCES,r.sources); // MO3 3D-owned port intentionally differs; extraction provenance stays immutable.
  const names=r.sources.flatMap(s=>s.declarations.map(d=>d.name));
  for(const n of ['applyDamageEvent','makeUnit','createMedical','tickMedical','processWoundEvent','validatePartDestructionFoundation'])assert.ok(names.includes(n));
  for(const n of ['resolveImpact','resolveRearArmorInteraction','rollPenetration','applyArmorDurabilityDamage'])assert.ok(!names.includes(n));

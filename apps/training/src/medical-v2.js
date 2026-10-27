@@ -2,7 +2,7 @@ import{stepPartRecovery}from'./medical-part-recovery.js';
 import{careTime}from'./medical-care-state.js';
 import {exerciseHemodynamics,exerciseVitals,exerciseAfterPump} from './medical-d2.js';
 import {arrestAttributionB1b} from './medical-b1b.js';
-import {ensureBleedingB1,updateBleedingB1,applyHemothoraxB1} from './medical-b1.js';
+import {ensureBleedingB1,updateBleedingB1} from './medical-b1.js';
 import {criticalAnatomyS0,applyCardiacPumpS0,localizedHeadLifeS0,MEDICAL_S0_VALUES} from './medical-s0.js';
 import {createMedicalR2Slots,applySpinalFunctionR2,MEDICAL_R2_VALUES} from './medical-r2.js';
 import {createMedicalS1Slots,cavityNeuroTargetS1} from './medical-s1-effects.js';
@@ -120,7 +120,6 @@ export function createMedicalV2Slots(original){
     ensureMedicalV2(unit);updateBleedingB1(unit,dt,bleedOptions);stepPartRecovery(unit,dt,careTime(unit.medical));
   }
   function updateHemodynamics(unit,dt){
-    applyHemothoraxB1(unit.medical);
     if(unit.medical.cardiacArrest){unit.medical.hemodynamics.volumeRatio=clamp(unit.medical.bloodMl/unit.medical.bloodMax,0,1.05);noCirculation(unit.medical);}
     else {
       const before=unit.medical.hemodynamics.oxygenDelivery,cord=applySpinalFunctionR2(unit);
@@ -146,7 +145,7 @@ export function createMedicalV2Slots(original){
     else if(m.bloodMl<1200)reason='exsanguination';
     else if(m.systolicBP<MEDICAL_R2_VALUES.collapsedSystolicBP&&m.hemodynamics.volumeRatio<MEDICAL_R2_VALUES.collapsedVolumeRatio)reason='hemorrhagic_shock';
     else if(m.periArrestElapsedS>=K.PERI_ARREST_HOLD_S||m.lowOxygenElapsedS>=K.OXYGEN_ARREST_HOLD_S){
-      reason=m.spinalCordInjury?.region==='A'?'respiratory_failure':m.breathingEfficiency<35&&m.wounds.some(w=>w.chestTraumaModel&&(w.chestTraumaModel.openChestWound||w.chestTraumaModel.lungInjuryCandidate||w.chestTraumaModel.pneumothoraxRisk>0))?'respiratory_failure':
+      reason=m.spinalCordInjury?.region==='A'?'respiratory_failure':
         m.hemodynamics.volumeRatio<.7?'hemorrhagic_shock':'hypoxia';
     }
     if(reason)enterArrest(m,reason);

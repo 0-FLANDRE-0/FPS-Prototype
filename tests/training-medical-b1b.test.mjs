@@ -6,7 +6,7 @@ const wound=(id,organ,severity)=>({id,partKey:'abdomen',s1OrganDamage:[{id:organ
 test('B1c organ sources preserve B1b flow fractions, cavity routing and small-injury closure',()=>{
  const med=new TrainingMedical(),m=med.actor.medical;
  for(const w of [wound('a','liver',.2),wound('b','liver',.05),wound('c','left-kidney',.2),wound('d','right-kidney',.2),wound('e','spleen',.2)]){m.wounds.push(w);registerBleedingWoundB1(m,w);}
- updateBleedingB1(med.actor,0);const a=m.bleedSources[0];assert.equal(a.injuryType,'parenchymal');assert.ok(Math.abs(a.flowMlPerS-87.5*K.organFlowFractions.liver*(2/3)*.24)<1e-12);assert.equal(a.destination,'peritoneal');assert.ok(m.bleedSources.slice(1,3).every(s=>s.destination==='retroperitoneal'&&s.controlClass==='intra_abdominal'));assert.equal(m.bleedSources.length,4);
+ updateBleedingB1(med.actor,0);const a=m.bleedSources[0];assert.equal(a.injuryType,'parenchymal');assert.ok(Math.abs(a.flowMlPerS-87.5*K.organFlowFractions.liver*(2/3)*.24)<1e-12);assert.equal(a.partKey,'abdomen');assert.ok(m.bleedSources.slice(1,3).every(s=>s.partKey==='abdomen'&&s.destination===undefined));assert.equal(m.bleedSources.length,4);
  m.hemodynamics.cardiacOutputMul=.5;updateBleedingB1(med.actor,180);assert.ok(Math.abs(a.flowMlPerS-43.75*.25*(2/3)*.24)<1e-12);assert.equal(a.closureFactor,1);assert.equal(a.orificeAreaMm2,null);
 });
 test('B1b other organ beds retain their original venous cap and natural closure',()=>{

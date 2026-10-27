@@ -1,6 +1,6 @@
-// Generated reviewed CQB medical dependency closure; original declarations unchanged.
+// 3D-owned CQB medical port. MO3 removes pulmonary sequelae/care and unifies bleeding.
+// LEGACY_MEDICAL_SOURCES retains extraction provenance, not current-file identity.
 import {drugSympathetic} from '../medical-care-drugs.js';
-import {chestCareInput,chestCareTension,chestCareTracks,commitChestCareTracks,chestCareProgress,chestValveCandidate} from '../medical-care-chest.js';
 import {preloadTargetR2,circulatingReserveR2} from '../medical-r2.js';
 export const LEGACY_MEDICAL_SOURCES=[{"path":"src/runtime/scale.js","sha256":"0eb26687262cda2130bfbfbd71b209d16c9479ac0e7b97929eff1804c8e91cb5","declarations":[{"name":"PX_PER_M","sha256":"90050c7adb2f8a2f5e1eb357ab53823161ddc4cb5bf5ae833abe12dc7b74b339"},{"name":"mToPx","sha256":"1e786103cb841c619436dea101df331eae5a8134b8fd912940ee5633d5d37a95"}]},{"path":"src/data/equipment-base.js","sha256":"f4cf721776f3582a20cb666a9ea1a49b5ce06d8e75f040bada9dce2717a2d906","declarations":[{"name":"getMaterialBluntRatio","sha256":"519afd95c08ebdaf33353e4df2e2e7fc69bca9657be0d8b8ef921b9fe3d693e6"}]},{"path":"src/combat/visor-accessories.js","sha256":"57c75c506ad67c364b8191fcfecb9c2e96807dd7e469adcc5b2ce18a9a3f25ff","declarations":[{"name":"initUnitVisorState","sha256":"de25fac58b1233261b8996b0b1512d9628e76ccc39e634a87c84c869c818160d"}]},{"path":"src/combat/armor-durability.js","sha256":"432d05492fc34b41ac90b6a8a2eb6810583f9c3df21567d99f50a03305d1a853","declarations":[{"name":"getSubsonicClass","sha256":"3ab27999de3f3557f574a90f3b2faa4586166721b58b8ee808e5951cd4dbfbb3"},{"name":"_apLikeFromBehavior","sha256":"437cb3e19bb7214f29796cb009709c512981c2e3fdd46f67ebb6e95051567cb9"},{"name":"_isBarrierBlindBehavior","sha256":"d9005e01b5589bfbf293d04052cd58de7d591104b10ac4ef1f30361f768b6c50"},{"name":"getCanonicalProjectileMassG","sha256":"52446e6d105f26457508cb17468867b5d7efad3c6b5b9ae2ebc7a0696c389dd7"},{"name":"getCanonicalProjectileProfile","sha256":"3ad9113ea7303857d0d6273548a897de825b398826986af968349392439b4506"},{"name":"getArmorThreatClass","sha256":"e214ea7e2a7b0e783a59dd56c75f275366c8890bdc49afcc10fbf3e4ce9748d0"},{"name":"computeProjectileKinetics","sha256":"16051deb48a977638e195106939f0a9ed26d304bbdc677cd2c902e08a7aa99b1"}]},{"path":"src/data/ammunition-legacy.js","sha256":"0a7298e8fa5cd021e40edc67bffffcc736ee1c0ce7ca7284c19405dd7f60156f","declarations":[{"name":"getSkillPreset","sha256":"0e8c1651a6623a4ee0e5cf5ba2d7d48b93bfd93bad4b5603a9dc50ce2b10c419"},{"name":"getUnitComposureProfile","sha256":"89580d938bb525f5edc330460cba94e1c23655b59cc50c82839300d4d52579e2"}]},{"path":"src/data/weapons.js","sha256":"957117d7b0fc84ece2b02813e4d0dcc23b8cb7d65e8abeb590a4a529c80a6569","declarations":[{"name":"_resolveLoadoutWeaponId","sha256":"a6d76f3f7d02e349da1cb81082bdf822310848f2a8c3e69520e07f4d29355413"},{"name":"getWeaponPhysicalProfile","sha256":"6bebb368243f9858ebdda9df3343be7fb59d5492d67eb0fe03bd40055bf89640"},{"name":"getWeaponPresets","sha256":"e75e6ad14a6d0f8b88c5dcd160ea6e03cfdb504bc705457dd9cc058cccd4e966"},{"name":"getDefaultWeaponPresetId","sha256":"2eb73f8434c2f97a400e5a0141b2d22fc158b835e357b3d94e2013e37417b93e"},{"name":"applyWeaponPresetToBuild","sha256":"e2482a728bd34e1ac18e20933ceaa492268da1a0ede5aa8b39ee4087f944ba0e"},{"name":"createDefaultWeaponBuild","sha256":"34860e33f0a341f206d0e91e2dd349d98487e70e9e15b299f0865ff44e2157c7"},{"name":"DEFAULT_SECONDARY_WEAPON_ID","sha256":"c07f72bbc73accad760c9047cc0315cc9519830bd3b0e39887b2c1eb44efc131"},{"name":"migrateTeamLoadout","sha256":"eeaf768e1c741e57f8a3556b0e2d23117d86ae63213d01f5e78ff4fabadd91c5"},{"name":"getAllowedAmmoForWeapon","sha256":"35fbd4bd35cb42b1f647254061bfd287c401b7847e4992518e199633a4ced784"},{"name":"sanitizeWeaponAmmoSelection","sha256":"ad945de749091c4cf8516aac6eee2aad11f857b8bfd91aec6b35d5e4225ffef2"},{"name":"initializeWeaponStateFromLoadout","sha256":"6044eb067a0b6e622b978cea2932d625ea1c5289184619e99fb6ef8a5abb6ca8"},{"name":"getActiveWeaponId","sha256":"ab056c337086990eb5d4b4f9be8180034bb29b4244a666b0780a3fada686b20a"},{"name":"getActiveAmmoId","sha256":"b182a48a1ead2d682a6f3945476b3a35f42066319ebc341f30395bc74b34fdf8"},{"name":"getActiveMagAmmo","sha256":"1f02558d15aecb720855420783fdc6bb0587d21dd64daa43db000f20c640e68d"},{"name":"getActiveReserveAmmo","sha256":"9b7d605e7ffaf82d98b2ec02524be194147c8f3ddcec7e95b3c3faa5987c4ce0"},{"name":"syncLegacyWeaponFieldsFromActiveSlot","sha256":"464a1f5121414b06d42ebd680990651132d33139b84454699cde84f49ba55170"}]},{"path":"src/combat/hit-tables-injuries.js","sha256":"0e362a5aa0f335c5121b646a637ba3517ab19fb80a8d5f2da84da10ba12f98e1","declarations":[{"name":"OUTCOME","sha256":"5a440db807fce7415c9bfbcec0cbc63b5631f55b9fc793fd35318db26b592de9"},{"name":"BODY_PART_KOR","sha256":"2e1bb54e6b293108e477fc00439e372d26a83aba6a14ee9d34fffa765834dabd"},{"name":"locationToBodyPart","sha256":"b9322d5552322b8c8b5aafed30e4fa7cf60e770b6ec8a42f23f0733b2436e9bc"},{"name":"SEVERITY","sha256":"d58e2517d94a24412875e1e34d84f9b91aa293e4912303f5e1504ee48e68b504"},{"name":"outcomeToSeverity","sha256":"ff2222f241f0aa598af9ca5412a182457ff617d8f4e448b8f88ad73e7d0dfd6f"},{"name":"severityToBodyDamage","sha256":"5669ad30f86cdcad5e40d9ac2c4ff86d2dbcb88d09c9e08f81c2e6b148e36a55"},{"name":"BODY_HP_BLEED","sha256":"7889c92bcd38abd8c712d7117b25825d31721d63005b7d0e8c64816bd5b2d7d0"},{"name":"updateCombatState","sha256":"c43e0c2ccdfc1124e256049fa81dd3979fb7e6f4e19631e7e61444e01b5936b5"},{"name":"getEquipmentWeightKg","sha256":"95474071ac840d7baed380dca98cbf94234d30e74b609ef7a42fdd6f7a5d4fd7"},{"name":"getLoadClass","sha256":"d85642372f36f6558d5d90c629cec2faf8dd38340ad2c2fdb090375c53593685"},{"name":"updateUnitWeight","sha256":"3964511c6baf0ca2a09fd9e5b3269bc8b3e90aae3ab19b76029b8d8d9f940b7a"},{"name":"applyStopping","sha256":"829936ec969f9da57fa9f12694a5ade7f998a909c24a12c7fd173f1d2d5ed06a"},{"name":"addPain","sha256":"d3115b281c11f94e94822e1c110386ac0218a9b79e8cde20b5e415e1e196672d"}]},{"path":"src/combat/armor-resolution.js","sha256":"f5a4dc104a6c5d6b434a687030a3280e1dc875a4350268969f609c7271a385f7","declarations":[{"name":"_sabotInfo","sha256":"05affc5a0a82118f398480baf6720078cd8657418740e1f9c8744e0e61e2ea3e"},{"name":"AMMO_MEDICAL_DEFAULTS","sha256":"fdc0f5569db45d750b81d4d04f0a26834df72c47c8cabe890b32492b90e0b6ba"},{"name":"getAmmoMedicalProfile","sha256":"517bf116a54b5895f87e969e301a2c6a8ff2f54a16839a5a389f5693a05ab38e"}]},{"path":"src/validation/presets-closures.js","sha256":"525770452b608b7c88ec9e38ab3186dfce905d6915339582fdac7023b37a479c","declarations":[{"name":"validatePartDestructionFoundation","sha256":"9ed03ad0cb235e968b9ce8b2a1279cfbcf155988b0b551a71dea3bacfaaa63e2"}]},{"path":"src/combat/damage-outcomes.js","sha256":"0b41791a21bd809630e12d9d339edbd6a8ac635008c0a515ddcaf545af2fd191","declarations":[{"name":"applyOutcome","sha256":"83b60980af21520a797032226f6d4904403437c7833c753548a7a12692d3881e"}]},{"path":"src/combat/ammo-reload.js","sha256":"dfc196742a43e62b35ce3e4a94d221ff86607239615a5edd9bfcf88b799115dc","declarations":[{"name":"DEFAULT_AMMO_PROFILE","sha256":"b08c5485e4034ea5de922a66c08d9b0bc84807ddd22ff175f7983d56b50f4421"},{"name":"getWeaponAmmoProfile","sha256":"bfa77e9cf0ef20ff24da5a9c7128ea5c60bcf981d7dcd78ed94508d2aa037962"},{"name":"initUnitAmmo","sha256":"dbb32774106b3bdae6d51282dbb3cfef98e25b492c55092deb9ff943761309a4"}]},{"path":"src/combat/impact-address.js","sha256":"3cb53d13f4175e78630dd3bffd1f5d67c8ca256ae70d03b496a9d1f0a6da2cc2","declarations":[{"name":"makeArmorAddressKey","sha256":"e2d1746699973c715b88b2cf68ecd250e57c42ccdfde39e9264ea018872b5a67"}]},{"path":"src/presentation/impact-labels.js","sha256":"65115edd5ee12001630b48ac829f6257f879e0749770b5e08c2a939d1072e8cc","declarations":[{"name":"IA_LABELS","sha256":"395a78880c4e94fadb957a7d61901dabd0023d703d07b4cfe3cf0a806f3e3332"}]},{"path":"src/combat/impact-resolution.js","sha256":"92b8c5eb1ab063523cf7092e4594d0cb6545110bc87c25dde4f7ff3cf2264d7f","declarations":[{"name":"aggregatePhysiologicEffectProfile","sha256":"530ee9a94833abe82373b7318c3015f3ebb7b51f92bdf8dca8166e459f180741"}]},{"path":"src/runtime/game-state.js","sha256":"d890509f8ba0dfb0b708ec61950756e57a35470b0a47d4feec1ccfa87b5282ee","declarations":[{"name":"nextUnitId","sha256":"f421122627fff01cddd7c35bd7d6feef9f084264ab1e9d166eb3da0d04fb39ca"}]},{"path":"src/medical/foundation.js","sha256":"05df9e2384bd84da793aeee331f14845ef024f4d29c80a86f0b0b3fd6a4bf39e","declarations":[{"name":"VIEW_ARC_FRIEND","sha256":"da75cd1ccef7fc165346a6a3f35e6c6ecfc2becf03dbf32d496e9aa702b37d33"},{"name":"FIRE_ARC_FRIEND","sha256":"f3ebea1e073ac61479c9163fa3550bcf4e769518cd919511f79132c7bb88e1ca"},{"name":"VIEW_ARC_ENEMY","sha256":"f599d2974ca6e4e798f8c6a6819607e0c62c29faa01087a273c61ee742534aea"},{"name":"FIRE_ARC_ENEMY","sha256":"dcf04b77e503acc5bb4e74eda98bfdd9aab56365041f263ae545859060ff12d4"},{"name":"SIGHT_RANGE_M","sha256":"83e898202ab48a6d22c8ec48471273195564b9911ef89e1e022adc1e2efe0437"},{"name":"SIGHT_RANGE","sha256":"c7c480c8e38df680b1c2eca4d9256f5abcdef8fcad554dd23305d3a2d5fee34c"},{"name":"BODY_PART_KEYS","sha256":"ad54a34a71297f6ca39e70e85652615866a167e9c7d58771e5d0a3fe273ece68"},{"name":"PART_DESTRUCTION_FUNCTIONAL_CAP","sha256":"e6fdaaf2cb4e402d34955b8136dd3ebd3fe018094db8711c3bf653330076410f"},{"name":"_LIMB_PART_KEYS","sha256":"b2998e3bab26f747ce9d67be17b90634504978ac21c2084d2b4714784e158392"},{"name":"makeDefaultPartDestruction","sha256":"4211764613f9f833b366a17b389a609d9d807845d0cc0377c14707251a567590"},{"name":"_makeAllPartDestruction","sha256":"7848dcd90a6d2d02d4ac031b0979cc3bfd46a703dd1d2404250b36fa422030a2"},{"name":"BODY_PART_MAX_HP","sha256":"54f9433fff72bc1f42897afa41c3a455be27bc76e85a73ce5200ab38425975b9"},{"name":"BODY_HP_TOTAL_MAX","sha256":"679c03a6031fc7487064ab3746d83c0997201950bd6917d372fd1ff7dd66051c"},{"name":"BLOOD_MAX","sha256":"47a9e9361af48171ff9bee1d382b5fee562daa77d75157e086dbb84aaa9acc27"},{"name":"createMedical","sha256":"71ed9d17eb9ee2feb712286756ac751c84869511144df4cd127f2f0c17e55c62"},{"name":"approachValue","sha256":"7a7f880330e84df29fff3ad144e624ad2a82bb3f5a75bace00f0977ca6a0ba33"},{"name":"decayExp","sha256":"4c79fcf20d0b5c1d65ad7edc8027f88690686e5669fc4a2aa21f1ace11c009d1"},{"name":"clamp01","sha256":"7d5f9d4c8896b8c14d340c72bd2b926c4f4474d03c0850de803f1613eaea6b5b"},{"name":"clampMed","sha256":"2fa87cbe4e69a1f525912deb769b7d6760094315334e950d71cbf356b5352ede"},{"name":"ensureMedicalExtensions","sha256":"c367899cb06adc92e2c98503dc6a9cf9bf2d647c96fbfb67c6abada2222a1ca1"},{"name":"ensureFieldStabilizationModel","sha256":"e2a988e9372ff55293dd0a264499683981180aaba11cc78d3c4ce8e876ae1938"},{"name":"_CANON_TO_STORAGE","sha256":"1241b298e12a20b5af84eb877c1cb30136dc73aeba43b5c2a83b95bc270f2d78"},{"name":"_STORAGE_TO_CANON","sha256":"ee110e558ba1a74686d8cac19b52de1d0a8952fefb5910c9ae4ad761b4c174c3"},{"name":"_partKeyWarn","sha256":"8990a019350ab703ac562bfe66f11b2c8907401003ed4919e4018be260703c5d"},{"name":"normalizeAnatomicalPartKey","sha256":"7f0acfef166309a1dbb7a26396f23f1eb5facbb929e9e9e12e1ec9ce511ca3a7"},{"name":"getMedicalBodyPart","sha256":"9a8e6c45158d9fae5c6cb7fbf8e369733b599e4d246ca18deb6b1bd3d1cd1f0f"},{"name":"resolveBodyPartKey","sha256":"387857e1c9572493b1470d5c70f69a9658a96ac37340ed0177c9942a66d58cf1"},{"name":"bleedRateForSeverity","sha256":"b999add373ef1e2a3a09ca6df5f069239505f52e85729877377465f9691c0153"}]},{"path":"src/medical/wound-metadata.js","sha256":"78c275b1fae05d0f56b04d60a680ce8460ee21d1e460a9d1bf6ce292b54542c1","declarations":[{"name":"_WOUND_ID_SEQ","sha256":"41b80a633c00282ccba734076a5eac2d6394c2a7456a8cb805c9838522a221f8"},{"name":"WOUND_SIZE_LABEL_KO","sha256":"ec2d4f1f0d3ac49936018d4fa911b2319a995fa49efb11c57c2f647d7db13acf"},{"name":"WOUND_TYPE_LABEL_KO","sha256":"da9defe7a39fb7cb7b2c6c1fa0c619b27984c57e07d2e0fff663aefe61a174c4"},{"name":"FIELD_CARE_LABEL_KO","sha256":"59abd2b2da97d9c8429e160a6553ecc20efe6ae48e6727eff7c8ac2da495f4ce"},{"name":"_JUNCTIONAL_HINT","sha256":"a922c447f75d60067a19cf3328790ab39b1ac64f09bfba218c62c5500722311a"},{"name":"_VESSEL_CRIT_HINT","sha256":"211249ce12b1c955392e0def39ada76f1922bbdb54eff71a077700186627e810"},{"name":"getMedicalProjectileMeta","sha256":"00ba639e6d02b5a235db347cf14ea4dade4a7f27d9b9853ff99a1fe3229927c0"},{"name":"_WOUND_CLASS_ORDER","sha256":"bebc64f8ea44e09f9f7476a2987cefdb58a9ce4cf507984af96b860636b7f0d9"},{"name":"clampWoundClass","sha256":"ab84bf9e0ff39930aecc2b43c5c3ccb7630cc7de19339903ebe1ae0bc909ef89"},{"name":"getShotgunPelletAcutePhysiologyMeta","sha256":"003976582aa4e59cf491ae706ceb844a5a61795b8cb1207864e6958a6a302231"},{"name":"_CALIBER_MM_TABLE","sha256":"6125933d1f6de9657e74da85e7689534569f8bac119c1020c610eeeeff8ed937"},{"name":"_caliberStringToMm","sha256":"f6e57d351b00fe5b8de45287c57b73525bf125c73d230a2924fc76a1776c72bb"},{"name":"getProjectileDiameterMm","sha256":"b771a26f7f13a5754cedc96e6af393bd3ef175816a36640f73adeb95bf9ffe63"},{"name":"_caliberMm","sha256":"343661f38880535e6b759430ae3fe9fbeeecc09a8880198901e6d7bd74183d12"},{"name":"_woundSizeClassFromScore","sha256":"deb729906232885394d790c0d88e0ead33c004da24e6e117c4b4cfa6b48c3db1"},{"name":"_zoneIsJunctional","sha256":"932c310608844c5caae1b7a6044fbb5c7cd8ada2e62771a53024430630f444b9"},{"name":"_zoneIsVesselCritical","sha256":"023a3024c82b749ddaf97190b58449bf012703a38e77c54534d0146a26fd5a46"},{"name":"_normalizeResidualThreat","sha256":"ab6cbd3fd37c095d38c9c1325975e82c41665cb065cac5be1442941453de1166"},{"name":"deriveWoundPenetrationState","sha256":"b5ae58190705a784048778567207d1b216eb1b700f9685d6ca66ae87ed3fb44c"},{"name":"classifyWoundType","sha256":"d53da1b9bd194ff67f6b05e8aa29f37b008744619baab04c11b73fe906d368ae"},{"name":"computeWoundSize","sha256":"0e482a1b0acb32d5c7de1d4c671c5bd6afa335c9e8e37e317856e09af9c5605c"},{"name":"computeBleedingProfile","sha256":"caeeb66465dbe4e6265e55e52082c8f272206f6642eca5031f04c1504ea9cec1"},{"name":"computeFieldCare","sha256":"7dee0095bc6acc6a53212f5f381d120324ff5c2c35c3536e7c8fc9c5f4065466"},{"name":"computeTreatmentProfile","sha256":"a1d0eb0e6cb3a0ae60deb43cf205f1ebbaf1703530e7aedbd9d2b8a9a4f017d9"},{"name":"_woundShouldBleed","sha256":"24350dda479112bdf57e144d6cfaf74015a46810bf02af6834054a7057749616"}]},{"path":"src/medical/body-trauma.js","sha256":"1fb2bfa93ce9328ad2d46fe3c309f4120e43e1aa024393541124a94c620dbcf1","declarations":[{"name":"BODY_RESISTANCE","sha256":"ba4e0d68c807dd8ffb49fd67dade491d2a3e7646c4f9bac87632dabbab329be3"},{"name":"_projectileSizeClass","sha256":"b890169cf83cd96ea35d5a60db1c928cd4643b8430cd6003eb8b8351781aebb7"},{"name":"_PROJ_SIZE_MODS","sha256":"908f99db6b058e386168df14f536972b997e184440780d3afa2c691ab411024e"},{"name":"_bodyTerminalMods","sha256":"863b7a5d7a63c83928bfc485708cd7687d59ea2be1e45f4ac4736830c72205ba"},{"name":"normalizeMedicalImpactAddress","sha256":"e1f2bb69a62b7acad04c503bc292c0ebfea728f9050c6dd73c8aed67f9613604"},{"name":"classifyBleedingClass","sha256":"1e2d2f8b8fe11df723f0bc7e9963e5c8c3534b01446ac99717db55e8553584c5"},{"name":"buildOrganVesselCandidateMap","sha256":"7b0c6ae3a290a8a8e495b9a9ba9311bea3b011ddc7f97228921121ab3b8db1cb"},{"name":"_finishMap","sha256":"d7f08c2f7a28e38873f0bf40fe9e27c0d13044cfe409aa76fd1a1b10c0cdaccf"},{"name":"_deriveTreatmentIndicationTags","sha256":"2f224161555440817fd08fce523b2dedd198d8b98d9db000c42795fb6f81acae"},{"name":"buildInternalBleedingModel","sha256":"cbf3398428acabc85c08ff7fe715249eb0367281e7172d33cf7cd43a4bdff771"},{"name":"buildChestTraumaModel","sha256":"a0ebd5887312b764a5ca439f51fcee3330dc9de351c903fb29aeebafabeeec52"},{"name":"buildOpenTorsoModel","sha256":"f2b1638f96f98b83aa91a219e182a71c2daa4a43f968ef5cd4cdea105e3821a2"},{"name":"buildOrganInjuryModel","sha256":"06370b0cb4f765f59b0339e4c53c8d2f54a9b00d8ed4e840ffecdc0aa8d963c2"},{"name":"buildHemorrhageControlModel","sha256":"4b670e55466894dcd9bf87d8ba927e9a850283cc79cae999194bf17d898c53c6"},{"name":"buildBodyTrajectoryContext","sha256":"6473d0a09f051b3c2af02cc57d26183bf1969122b15f5c87b705f5a4aaa28269"},{"name":"_WOUND_DEPTH_KO","sha256":"8556fd4984885f9253b8321e0e04963be098afcd2f9f86f49ee9d9fcf7c1f861"},{"name":"_BLEED_CLASS_KO","sha256":"28eea072ccbe5b189581c004e8d5633f5e235dabbe2fcbdb2c5d8fadac66d91e"},{"name":"_REAR_RESULT_KO","sha256":"6a8b567aa4cb60ef86eec6ea86d9a9f2bd9d627f0f370d91fd5528be29661a6f"},{"name":"entryArmorSummaryLabel","sha256":"3b2d52819b7c29c298ccae73a63041af14f9689de3e02ecc27cc407900e2d8f9"},{"name":"rearArmorSummaryLabel","sha256":"cdaef33e4775ad66dc50e35ef469558b0ed9cc2bbd601e973825d4b5fa526430"},{"name":"continuationSummaryLabel","sha256":"1be7b4e6b2868209f97806472714616eae3dcaf9815cf454be6f08382179b85b"},{"name":"bodyTrajectorySummaryLabel","sha256":"1bddb924fbaca2717f86b5020e9a31d79c711a4bc015a9dd409b1997cbc5ed6a"}]},{"path":"src/medical/physiologic-injury.js","sha256":"788e21cee067bdfbdcc0bf6d3e86c35aa534d1e7dc87257df4d7f6e9f7cd951f","declarations":[{"name":"buildPhysiologicInjuryModel","sha256":"43d5f01b5d9369b7463701279a1431df88732bedd388c372facad14f6f0f9d5d"},{"name":"buildConfirmedInjuryModel","sha256":"da23dda381f952c2e9360a1fbc2b9aad4aba6ec082875cf4c4914f481ce14e08"},{"name":"_confirmedInjurySummary","sha256":"2289a8872e024bc233dabe14b5977bb6a22a6db3f3d3887190245c39218888a2"},{"name":"classifyInternalBleedingCategory","sha256":"e653ce9ba6b5e6771f691c27a82d6e0aaf31bc77ae39475bfb02d86f65a2f0e8"},{"name":"_VESSEL_NAMED_RE","sha256":"a08f0bd8af210014b8f3ffa641529f96111beca6801570f57251b2f5d9dd21ca"},{"name":"_VESSEL_MAJOR_RE","sha256":"4e83175ab014c75e4f3e8c0cbaa7c887e6c4f962764b74f9935c6e84ed2fedfe"},{"name":"buildVascularEvidence","sha256":"f5bf5c0b12b895b58db0ae549fe541acd741cb5627c172753b609d5cf9a3d683"},{"name":"_BONE_ZONE_MAP","sha256":"d4cd47e26a21f0f234e099350389c52ca5c0489a56cab915f2803c117f582b51"},{"name":"buildFractureEvidence","sha256":"0ff60577a9624c3e012d73d51116ec818a0115b68dd301cc0d5a3d9737aa287d"}]},{"path":"src/medical/part-destruction.js","sha256":"862699efbb5381ec299c15b822a874bd7fa3f7b2180c3dbabe08e4963c35349d","declarations":[{"name":"ensurePartDestructionModel","sha256":"8721f9019fdc60a3d90f02254b79ab1b7bf90fcf3ac5f95087557275f5ee4951"},{"name":"getPartDestruction","sha256":"300e3b0e4b6c75f608864f4f7ccf17ca90e5e2dd1057af08d27a55f8aab5bcf8"},{"name":"computePartDestructionContribution","sha256":"8dd8fb98177b5d1a14aa4691c1b65d94bd51d8bbf9fde4427b2b19e741b987cc"},{"name":"_shotgunDestructionContributionMul","sha256":"f8bdad86c552fafe621617f88818d4291da9a70d9a662254b15feba827c1dd35"},{"name":"_localClusterState","sha256":"46e2bf8d116addf79e43e3d7f1df04dba5552fff1a62ad9820fba632c1bf1eb0"},{"name":"reinforceVascularEvidenceWithPartDestruction","sha256":"d32a57ac7a3d7edb00c5d916914130601b288986d44f2281608cafccedf04f7d"},{"name":"updatePartDestructionFromWound","sha256":"c8cc8676ff5e1aac7e91903e077c41bdc492376217188dacd4a862a853fab251"},{"name":"PD_STATE_RANK_LIMB","sha256":"9d218c5864f41a2453ea28775a641bdfe76ba95941abd8cae29a20e3a1b385c8"},{"name":"PD_STATE_RANK_NON_LIMB","sha256":"2ad830372536f6065915a2fc9a8c33dc3f4e25c843970afffba816c7b5167601"},{"name":"PD_LIMB_ONLY_STATES","sha256":"adc00049463edd41a7534d91915d2c2d62710db976194b4cbb1f20d0313035d4"},{"name":"PD_NON_LIMB_ONLY_STATES","sha256":"ecc1eb4d2ec43148fb6d03c60d26349157d2763da28a238b2b72178aa8c1054e"},{"name":"PD_DISABLED_STATES","sha256":"e58ce012560e8fc7281174a2833339525faec3d15be933c491045c0f839c887b"},{"name":"PD_ALL_STATES","sha256":"a8c9201d6b7ef690d7012a15cc0d5b8da0a0067fcf2268a3e1f8b48a5bc7209e"},{"name":"getPartDestructionStateRank","sha256":"9431217d3580dda4d44b46c5060042dae8e0fcddb14343e4e941c6b4d51b0f80"},{"name":"PD_DISTAL_CLUSTER_RE","sha256":"482b69f95b0bcbe6846dcf73a355975366b6c3fd1054b64ca3db65fd3708316b"},{"name":"PD_PROXIMAL_CLUSTER_RE","sha256":"f74ad5c7e8e8a29e314c73cedd5558046935619e43cb0a4cbd66f63757c806dc"},{"name":"PD_FX_RANK","sha256":"74a3ffae54b33acbb198fe6a83f36d893b91c7a0758ae1b1b3ad27ffa3284252"},{"name":"_pdProjectileEvidenceClass","sha256":"caa35c46359d7c22054f43cb0b223aab0f1834eabdd775f4b90b88811ecc969a"},{"name":"buildPartDestructionEvidence","sha256":"a1fc5845701f2bf8d1888fcef283bec5d4f1d41f318116476d15bad3cd3a84fc"},{"name":"refreshPartDestructionState","sha256":"5c765eb10e897e8e8b336fa5c1571dcae3dcff220a55c986ab3ad5b34c270465"},{"name":"applyPartDestructionEffects","sha256":"3245e879c5b4873fe3e5ff2f4bf044173c7ed14e0de6e4b71299bc0098c51897"},{"name":"finalizeBleedingProfileWithEvidence","sha256":"aa0d2efafadf1e55b68e0930599b1c955076e922cfd73e4535ecb58547c071f3"}]},{"path":"src/medical/wound-clusters.js","sha256":"aa2707a2f73b7da8bd493de124b03ec03ead626525716b080e603c66dd209520","declarations":[{"name":"normalizeShotgunPelletGroupBleeding","sha256":"e0f37c453a56f183c7182c2c53201838f1718cffcd05f98239195aab4cb3a7b2"},{"name":"normalizeShotgunPelletGroupPhysiology","sha256":"f0bfe8790be81cee0bc02cf436218ec888e669a0047394e5f7cf3d4622e29326"},{"name":"buildWoundDescriptor","sha256":"e806213625877e4b68f151028cd618d15a4543d5f2e5a63cd42f4e4c0b99f544"},{"name":"normalizeWoundAddressCluster","sha256":"f79008c431b28c565f5954ee8be92feb1cb98fcd1e0741ff4720d29cf6ef8ac3"},{"name":"getWoundClusterKey","sha256":"d0f6bf854df5a52d1729a67e25116a7a4fe15407e9aec9a8c65f849c69453e33"},{"name":"computeWoundClusterTreatmentCost","sha256":"804abbc331ecd5dad30a4fb6cbd6442a6c1319fe8a5c5e97efb160f9d2961a60"},{"name":"refreshWoundCluster","sha256":"f4704defbb9c4e5a25c176e17f58783b2d6c475fe6b7a8bf84377f0d7dec9c29"},{"name":"assignWoundToTreatmentCluster","sha256":"7a88c03098d9c7dbd0257b199f18de3207a5ba3f309074959ce301d649d708a9"},{"name":"_woundPipelineError","sha256":"7913862bd60b4d42437699926300f958c0c190f426460ad6e78c7ff1bc9dc522"},{"name":"_markMedicalInconsistent","sha256":"99e512383d198dcf642d9dfc343c2c33fcea1f543faaedf0afe36ae21e11d3cd"},{"name":"validateWoundPipelineInvariants","sha256":"3475d88eed7b8d25b28f3f1390508738d1dbcf67dcd8cc6264637c69da91e198"}]},{"path":"src/medical/wound-pipeline.js","sha256":"0920d78065afae13245db2f34dc8cb296ea22bcb12e93cc5a0fed8294de60a09","declarations":[{"name":"applyFractureEvidenceToBodyPart","sha256":"0dac53be432e7184ae82883aaaf3a5ed99d4478484bfebcddf33fd38f0914dcb"},{"name":"processWoundEvent","sha256":"9dd63ec93466a09c50cbe807532ab4200d2e1c30cc1c6f9c9d3d84abf768d19e"},{"name":"recordWoundFromDamageEvent","sha256":"0dd0c1d3483b32a30fa6030944cf170bf97fd98063533060ab0cf0b6c80008b3"},{"name":"_pruneWoundsWithRemovedIds","sha256":"1ef34dbda41af6cabf0a0364e385f93d15578773227da9228542eba07bec5761"},{"name":"cleanupPrunedWoundReferences","sha256":"306b7267fa9702b12b10a47cb905725f722c358ce5a1607e5da39788549aef63"},{"name":"_bleedLabelKo","sha256":"81b743e4739fdf018544e6f14d7eca7c880edfcd037d96952c1d6f956d05dbc3"},{"name":"_treatLabelKo","sha256":"0a70e144e9dff41bee3c5e84721e9e39297ddf79c8f5593d097173cdaeaa054c"},{"name":"buildWoundUiLabels","sha256":"2d69b78df68bdebaba12f2d3b0036381556b6121323e761e5a3b0c49c560f2dc"},{"name":"woundLocationLabelKo","sha256":"5dc3e8ce1e8d0959a379ad19d5a5b7fcef834dee1771ff7e56d99f29c1de587d"},{"name":"_woundPartKo","sha256":"de3a51d893e0cfbc8b58d78d18d42f11c2ab0c6b8a26f78560feaaf45431cea2"},{"name":"_medicalPartToLegacy","sha256":"5d17a31b22c2722213f1eb47ca370ccf946c9829e54d389999f3ae724450cabc"},{"name":"ensureBodyPartTreatments","sha256":"c760667999461d2bc1ac23cdc91ec4f07588535aa7d11ac6ae5c18bb5dfbe2de"},{"name":"buildBleedingPulseModel","sha256":"e32468c90f622cd3b3c2006eaf567245511cda54c301a8bd7e9c12d1f62215b2"},{"name":"updateMedicalBleedingWoundBased","sha256":"dfae77a12b9dd28f60e75eb6f193a98da2b9012a19a25e81be51fe629315ab19"},{"name":"_woundUrgency","sha256":"505c8fd2979c4dd0bebacd5d7099e5aff88f3e8ec05804f912b6b453e84a01ed"},{"name":"getPartWounds","sha256":"0b9d17b3336601caf6ee80127a47f1f354187dae7eaea8309fafc38b8a74a031"},{"name":"_normalizeWoundAddressClusterKey","sha256":"adda4c28ffb7539eee7ce75558e90716621677a4f4fa75795ebcdde744c7b00d"},{"name":"_woundAddressClusterKey","sha256":"0cf30952df5e1ad659014666c1fd639ea50fa6a4751136819c6c6a1f43e7783e"},{"name":"_NORM_ADDR_KO","sha256":"1c3846acb56d9b49e8e2be0256fd39c2d44f756d9e1a2a78deb1f8b20639967a"},{"name":"_addressClusterKeyLabel","sha256":"dc4f59950c223aa8f1a37134ae0a349affc32949c0c80fe747555f67b8cc901a"},{"name":"getClusterWounds","sha256":"67eaaa2c8b8e29855da94e191a088d40ede9d995066b0e13a9a4a3fb50937a70"},{"name":"_clusterRepLabel","sha256":"1fda84aa25ffa1b8b52fcdae6b526af362e4bfae00f58a5e6719f7a2083a7b29"},{"name":"_clusterBleedSummary","sha256":"386c596be96a41700871b1f6d4e26818e3daeb9746a3c0bd40bd860f9fe9e13a"},{"name":"_clusterTreatSummary","sha256":"ee6cad0f36191d0b049b408cf1890894932f7adafd9bba6510d1f26f1550919c"},{"name":"_buildSingleRow","sha256":"50aa2845c64fb2d9a64093c4c31273e6678c301eb45005e2d980c3e0c83e41dc"},{"name":"_buildClusterRow","sha256":"db1db4d546dca553d5bcf75197530d6e3b9094a02b46fa3461f4b71ca97dc017"},{"name":"buildWoundDisplayRows","sha256":"4fb9f25720a044b5d21131b056ed4c1fd22f2cd75ba9fad88813b7af8131b3a8"},{"name":"validateWoundUiProjection","sha256":"aca0b50ea5cf901d1c6b0f398a8c00c83e60d0aa294a6b87129e566e8982336f"}]},{"path":"src/medical/damage-physiology.js","sha256":"d0fe232b3d3c724e038910f2036a13bf4da2c9fa3cf93bf0dedbd3e5057530f8","declarations":[{"name":"recomputeBodyPartFunctionRatio","sha256":"fc4ac235fc8685cebf90aeedea41729950d8ee141c992b3db7e68fccd9dcaa14"},{"name":"computeAcuteImpactResponse","sha256":"74521045d4e61fcf085001bcdf0dda830e40b1e434aae226dffb0200268fd45c"},{"name":"applyDamageEvent","sha256":"9880fb35ef2f5e576e28683063d24e37a12cba3acdd4b61f5f2f836707cd360f"},{"name":"tickMedical","sha256":"2f0d378a5112dac13ad6a044316b03c2822114ae856b4d2a6fa6a43e8c40506d"},{"name":"updateChestTrauma","sha256":"a79fa488547bc603ec4d51523e0499604311b283f43d2b1944441221eaef9a9c"},{"name":"getTcccCarePhase","sha256":"245e92f52edb02631f5b049ef0cd0e6020d2646b564aa75d413666cdd7a30f43"},{"name":"_woundIsPelvicRegion","sha256":"c72140db7d4e5f29a451004c86d22844eb1acc061110e975812019a3d38083e3"},{"name":"_woundIsJunctionalRegion","sha256":"d6f717008b1abf067d77c92287f81684a4f3309bb027c1dfe32ce90041b7243d"},{"name":"updateFieldStabilization","sha256":"75a44be37014ba2590b4872e9c9729089e362ef8f5027915040bf7f08de466fa"},{"name":"buildEvacuationModel","sha256":"e1685e00923e99d1368b1f843e46a63449f07b173f07db5a20debfc1fea76fb4"},{"name":"buildCardiacRhythmModel","sha256":"1917da308e332aa375bd4ae837d9bcb18e649b8f2584a74ec6fdb07e8435d5f7"},{"name":"buildPreCardiacRisk","sha256":"49639d37340c0aa2a15c5696fa933b3a5fddece3507be638514a045e6fde2496"},{"name":"buildTcccAssessment","sha256":"b7e009204d2bb81656863d56fda0502999716d08150954390f579e41e50add60"},{"name":"updateMedicalBleeding","sha256":"3c2d2abaa32a5d12f7968390e77c38e91112b774a0367c276affdb7f5f44b3c9"},{"name":"updateSystemicHypoxiaDamage","sha256":"5042fa2f09a9879e95cc95ba001f301a32b560add29eb327161b05f5bf356dd0"},{"name":"updateStressResponse","sha256":"450b13911d1ce8178a3db9d65254a255121f53b22daceeb20f9aa2c053870266"},{"name":"updateHormonalCompensation","sha256":"fbe2cc205d44ca9dc55574135c6014318dba31a743efa52e9bb0f8cb9f150024"},{"name":"updateHemodynamics","sha256":"fb8b082acc96d35ad46e79f67a0e50b9190136a9bea7c17901e2dff9e6cc4e6e"},{"name":"getHeartRateState","sha256":"92579629552ff7559c09fb0da92164ab4c8ce971896d13dab4ee2b645caf5224"},{"name":"updateVitalsFromHemodynamics","sha256":"8c08d954d0951e8dde38c02d022f2c22cc0d9068c309cec9d6fc97b34cb5ccec"},{"name":"updatePainShockConsciousness","sha256":"36e167796991bc2caf3a6bbf1a0cadd31cb17351120292467f2cae081be3dec2"},{"name":"updateMedicalPerformanceMultipliers","sha256":"b404e3d4359821839e165311346e0704827c8ef3b86873c849a76bc9ca12ba0a"},{"name":"recalcMedicalSummary","sha256":"3bf8297433521dcc4acad40d8692fba4b41f37fdd8402ddda73a259ca171a4d3"},{"name":"syncLegacyCombatState","sha256":"48fa16c9cb94842ce92bd53cf5deadd9b8c3772d9e030c8ec007a331d87eca22"}]},{"path":"src/runtime/unit-factory.js","sha256":"31c92390f82dc2f3097af4bc5a4b82f336f1bb72e69e77949e3f863bda30a297","declarations":[{"name":"makeUnit","sha256":"25865aab93afe48614b7a2e1d6f80397b6a2a8fbb0b935794cd39f2242def9bb"},{"name":"rebuildArmorDurability","sha256":"e8ee04cceffa60baf79df999aab586bacfe96b7b8166944f2a529d3c7804e953"}]},{"path":"src/ai/utility.js","sha256":"1e170b7a83bb756fc9a5a904969021da64da8d2526675e806633bb8271f5aa2b","declarations":[{"name":"TRAIT_ARCHETYPES","sha256":"5474e9a1caf60137491c1e2fdc682583a8ef6158e458bcf8b7a5a886d94a1fc3"},{"name":"_traitHash","sha256":"91d04c3b85c133d2fc32f5a8f39384fa17b1c376ba794e01c3a50f9229414ed4"},{"name":"rollTraits","sha256":"fb07427d4f5fb4c6739d6f76a049eddebef0c94bca23b68797406dbccc989f05"}]},{"path":"src/simulation/noise-projectile-effects.js","sha256":"0be04daa11cdd5be6d91cb0fa17910d9a3e32ce07535a637ab526975f8d82aea","declarations":[{"name":"_ammoBigBore","sha256":"a26fbab4b08144db757283b002a1c76de2f342e4097b601e3cb33cdb5c63469a"},{"name":"_ammoNotes","sha256":"3c0a127711349c9d53db380b155f57b2ebf3bd5b69ec3b965ea0a6b41f2c1d02"},{"name":"_noteHas","sha256":"639dee5a68293af49f467280a5815b49def5646140e444a69fe2da35ce0e7561"},{"name":"_incendiaryInfo","sha256":"d9be1cbed1b58be3deb98f51d9d41b53398cb568b6fd449fd4cee0261da75e18"},{"name":"BODY_HIT_DIRECTION_RESISTANCE_MUL","sha256":"11f0ef63319ea0bedca3fa2a503b3a37073a79147548e7ba8d7ffb2a3ef0c124"},{"name":"BODY_PART_RESISTANCE_TABLE","sha256":"c5b3890413652214da30ea9423450c2f8be3eacdecbdd22bcca7666d6f5796cb"}]},{"path":"src/medical/treatment.js","sha256":"94e3789e875911d2c5e2aa993be75b6c4ee5631b36144c7560e32028c42e30c0","declarations":[{"name":"MEDICAL_RESOURCE_DEFAULTS","sha256":"cabe5a1ddb53bd0efd8af900e84762b39142b7866d2edcd8e9a269c6d7cfb8ac"},{"name":"initMedicalResources","sha256":"4baece814d3aa1837f10e5bf99dad20f8719b23271f952f2a8c1860bc62f5a12"}]},{"path":"src/presentation/loadout.js","sha256":"5740173e3b0bbcdc2f2ee26c012474c0934fcb7d3889c3fc05037be146586e70","declarations":[{"name":"cloneLoadoutForOperator","sha256":"157bcbdaf6b7ea126d9ebda9176df57b1f1ad5de2d31d4b64398beae678a3332"}]}];
 export const LEGACY_MEDICAL_CONTEXT_SOURCE={"path":"src/simulation/unit-update.js","sha256":"5bb3aa4ecc48760b30537c24f55c1a8312d134ab99249141fc170255a4cda645","before":["unit.suppression = Math.max(0, unit.suppression - dt * 9);","unit.pinned = unit.suppression >= 70;","if (unit.isDowned) unit.downedTime += dt;"],"after":["if (unit.stoppingTimer > 0) unit.stoppingTimer = Math.max(0, unit.stoppingTimer - dt);","if (unit.flashBlindTimer > 0) unit.flashBlindTimer = Math.max(0, unit.flashBlindTimer - dt);","if (unit.flashDeafTimer > 0) unit.flashDeafTimer = Math.max(0, unit.flashDeafTimer - dt);","if ((unit.impactKnockdownTimer || 0) > 0) {\n    unit.impactKnockdownTimer = Math.max(0, unit.impactKnockdownTimer - dt);\n    if (unit.medical) unit.medical.impactKnockdownTimer = unit.impactKnockdownTimer;   // alias 동기화\n    unit._knockdownStanceApplied = (unit.impactKnockdownTimer > 0);   // 종료 시 false → 정상 제어 복귀 신호\n  } else if (unit._knockdownStanceApplied) {\n    unit._knockdownStanceApplied = false;\n  }"],"statementSHA256":["dcdbc0769b10e8c7b85f337bfbd74d49893844786a3a689d9ff28bece88fea7c","1bc928182018d2e96242b178847931acdf88b0cf6b7ab2f634d46ba220c1ba25","9da8d2a90af2af5a5c2993b5b85c24f25bc029ada32d419bb71ffd8135a98cbf","ccd16f137211a09df54f63423006a90d6996d3b86be98b34d998b11622a6f044","8e2b7173103702a2da920864cb89265040b02ae9f44771ce1d5a00eaa0b76b3e","c1f5ab0a3969de44a10d4b7ae5241ddcd7d37b3e5b158b0f012b89cb42568eed","ea786c10b8014c6d66303aff2af83d0822873a53e2ccc55b2b29f2ef7cbb4bd3"]};
@@ -1277,7 +1277,7 @@ function createMedical() {
       externalBleedRate: 0, internalBleedRate: 0,
       pain: 0, fracture: false, functionRatio: 1.0,
       tourniquetApplied: false, bandageApplied: false,
-      chestSealed: false, splinted: false,
+      splinted: false,
       treated: false, disabled: false,
     };
   }
@@ -1418,7 +1418,6 @@ function ensureFieldStabilizationModel(unit) {
   if (!m.fieldStabilizationModel) {
     m.fieldStabilizationModel = {
       airwaySupport:    { candidate:false, active:false, applied:false, quality:0, effectStrength:0, oxygenDeliveryModifier:1.0, artifactReduction:0, breathingDisciplineSupport:0, obstructionRisk:0, startedAt:0, completedAt:0, recurrenceRisk:0, failureReason:null, tags:[] },
-      chestRelief:      { candidate:false, active:false, applied:false, quality:0, effectStrength:0, tensionReliefModifier:1.0, breathingEfficiencyDrainModifier:1.0, oxygenDeliveryModifier:1.0, recurrenceRisk:0, startedAt:0, completedAt:0, failureReason:null, tags:[] },
       pelvicControl:    { candidate:false, active:false, applied:false, quality:0, effectStrength:0, pelvicBleedModifier:1.0, mobilityPenalty:0, evacuationPriorityBoost:0, recurrenceRisk:0, startedAt:0, completedAt:0, tags:[] },
       junctionalControl:{ candidate:false, active:false, applied:false, quality:0, effectStrength:0, pulseSuppression:0, recurrenceRisk:0, startedAt:0, completedAt:0, tags:[] },
       circulationSupport:{ candidate:false, active:false, available:false, fieldLimited:true, resourceRequired:true, effectStrength:0, mapSupportModifier:1.0, perfusionSupportModifier:1.0, transfusionRequired:false, definitiveCareRequired:false, startedAt:0, tags:[] },
@@ -1996,41 +1995,11 @@ function computeFieldCare(ev, woundType, woundSize, bleedingProfile) {
   if (woundType === 'bruise' || woundType === 'abrasion' || woundType === 'blunt_trauma') return 'treatable';
   return 'treatable';
 }
-function computeTreatmentProfile(ev, woundType, bleedingProfile, fieldCare) {
-  const partKey = ev.partKey;
-  const isLimb = (partKey === 'leftArm' || partKey === 'rightArm' || partKey === 'leftLeg' || partKey === 'rightLeg');
-  const junctional = (bleedingProfile.bleedingType === 'junctional');
-  const cavity = (bleedingProfile.bleedingType === 'cavity');
-  const internalOnly = (bleedingProfile.bleedingType === 'internal');
-  const hasExt = (bleedingProfile.bleedingType !== 'none' && !cavity && !internalOnly);
-  const isChest = (partKey === 'chest');
-  const isPenetratingChest = isChest && (woundType === 'cavity_wound' || woundType === 'penetrating_gunshot' || woundType === 'perforating_gunshot');
-  const recommended = [];
-  const prof = {
-    // 2B-0-FINAL §11: 활성 — pressureBandage / tourniquet / chestSeal(placeholder)
-    pressureBandageEligible: hasExt || junctional,
-    tourniquetEligible: isLimb && bleedingProfile.tourniquetEligible && !junctional,
-    chestSealEligible: isPenetratingChest,
-    // 후속용(현재 버튼 숨김) — 데이터 호환 유지
-    bandageEligible: hasExt,
-    hemostaticEligible: hasExt && (junctional || woundType === 'deep_fragment' || partKey === 'neck'),
-    packingEligible: junctional || cavity || woundType === 'deep_fragment' || partKey === 'abdomen' || partKey === 'neck',
-    splintRelevant: !!ev._fracture,
-    pelvicBinderRelevant: (partKey === 'abdomen'),
-    bodyPartTreatmentKey: partKey,
-    treatmentPriority: 0,
-    recommendedActions: recommended,
-  };
-  // 추천 — 압박붕대/지혈대/체스트씰 중심
-  if (isLimb && prof.tourniquetEligible && bleedingProfile.currentExternal > 14) { recommended.push('tourniquet'); if (prof.pressureBandageEligible) recommended.push('pressure_bandage'); }
-  else if (prof.pressureBandageEligible) recommended.push('pressure_bandage');
-  if (prof.chestSealEligible) recommended.push('chestseal');   // placeholder (무조건 1순위는 아님)
-  if (fieldCare === 'field_unmanageable') prof.treatmentPriority = 5;
-  else if (cavity || junctional) prof.treatmentPriority = 4;
-  else if (bleedingProfile.currentExternal > 12) prof.treatmentPriority = 3;
-  else if (bleedingProfile.bleedingType !== 'none') prof.treatmentPriority = 2;
-  return prof;
+function computeTreatmentProfile(ev, woundType, bleedingProfile) {
+  const isLimb=['leftArm','rightArm','leftLeg','rightLeg'].includes(ev.partKey);
+  return {pressureBandageEligible:true,tourniquetEligible:isLimb,bandageEligible:true,hemostaticEligible:true,packingEligible:true,splintRelevant:!!ev._fracture,pelvicBinderRelevant:ev.partKey==='abdomen',bodyPartTreatmentKey:ev.partKey,treatmentPriority:bleedingProfile.bleedingType==='none'?0:2,recommendedActions:[]};
 }
+
 function _woundShouldBleed(ev, penState) {
   if (ev.armorResult === 'penetrated') return true;
   if (ev.wasPenetrated) return true;
@@ -2305,7 +2274,7 @@ function buildOrganVesselCandidateMap(hitPart, ia, depth, deep, sizeClass, termi
       if (centerUpperLeft && (sevBias >= 1 || through || nearExit)) add('heart_candidate', '심장 후보', 'organ', 'low', 'high', 'central_thorax_high_energy', 'trajectory');
       if (deep) add('thoracic_vessel_candidate', '흉부혈관 후보', 'vessel', 'low', 'high', 'central_thorax_deep', 'trajectory');
     }
-    tags.add('chestSealCandidate');
+
     if (sevBias >= 1 || through) tags.add('surgeryRequiredCandidate');
   }
   else if (hitPart === 'abdomen') {
@@ -2385,7 +2354,7 @@ function buildOrganVesselCandidateMap(hitPart, ia, depth, deep, sizeClass, termi
     // 겨드랑이/액와
     if (mz === 'axilla' || med.vascularRegion === 'axillary' || med.vascularRegion === 'axillary_subclavian') {
       addM('axillary_vessel_candidate', '액와혈관 후보', 'vessel', isDeep ? 'medium' : 'low', 'high', 'axilla_gap');
-      if (med.chestCavityRisk && isDeep) { addM('lung_apex_candidate', '폐첨부 후보', 'organ', 'low', 'medium', 'axilla_deep'); addM('subclavian_vessel_candidate', '쇄골하혈관 후보', 'vessel', 'low', 'high', 'axilla_apex'); tags.add('chestSealCandidate'); }
+      if (med.chestCavityRisk && isDeep) { addM('lung_apex_candidate', '폐첨부 후보', 'organ', 'low', 'medium', 'axilla_deep'); addM('subclavian_vessel_candidate', '쇄골하혈관 후보', 'vessel', 'low', 'high', 'axilla_apex');  }
       tags.add('junctionalControlCandidate'); tags.add('hemostaticCandidate');
     }
     // 쇄골/쇄골상/칼라
@@ -2393,7 +2362,7 @@ function buildOrganVesselCandidateMap(hitPart, ia, depth, deep, sizeClass, termi
       addM('subclavian_vessel_candidate', '쇄골하혈관 후보', 'vessel', isDeep ? 'medium' : 'low', 'high', 'clavicle_region');
       addM('clavicle_candidate', '쇄골 후보', 'bone', 'medium', 'low', 'clavicle');
       if (mz === 'supraclavicular') addM('thoracic_inlet_candidate', '흉곽입구 후보', 'cavity', 'low', 'high', 'thoracic_inlet');
-      if (isDeep && med.chestCavityRisk) { addM('upper_lung_candidate', '상폐엽 후보', 'organ', 'low', 'medium', 'clavicle_deep'); tags.add('chestSealCandidate'); }
+      if (isDeep && med.chestCavityRisk) { addM('upper_lung_candidate', '상폐엽 후보', 'organ', 'low', 'medium', 'clavicle_deep');  }
       if (mz === 'supraclavicular') tags.add('junctionalControlCandidate');
     }
     // 측흉부
@@ -2401,7 +2370,7 @@ function buildOrganVesselCandidateMap(hitPart, ia, depth, deep, sizeClass, termi
       addM('lung_candidate', '폐 후보', 'organ', 'medium', 'medium', 'lateral_chest'); addM('rib_candidate', '늑골 후보', 'bone', 'medium', 'low', 'lateral_chest');
       if (med.chestCavityRisk) addM('pleural_cavity_candidate', '흉막강 후보', 'cavity', isDeep ? 'medium' : 'low', 'high', 'pleural_space');
       if (isDeep && (sevBias >= 1 || through)) addM('thoracic_vessel_candidate', '흉부혈관 후보', 'vessel', 'low', 'high', 'lateral_chest_deep');
-      tags.add('chestSealCandidate');
+
     }
     // SIDE-MEDICAL-ORGAN-BLEEDING-1 §2: 흉부 정면 중앙 — 폐/늑골/흉막강 + (매우 제한적) 심장 후보
     if (hitPart === 'chest' && (mz === 'upper' || mz === 'mid' || mz === 'lower' || med.organRegion === 'thorax')) {
@@ -2588,39 +2557,8 @@ function buildInternalBleedingModel(bt, bleedingClass, hitPart) {
   const reason = `${depth}/${sourceType}` + (major ? '/majorVesselCand' : '');
   return { severity, sourceType, cavityRisk, junctionalRisk, majorVesselRisk, organCandidateRisk, fieldCareLimit, surgeryRequiredCandidate, evacuationPriority, reason, confirmed: false };
 }
-function buildChestTraumaModel(bt, ibm, hitPart, woundSize) {
-  if (hitPart !== 'chest') return null;
-  const depth = bt.woundDepthClass || 'surface_only';
-  const isDeep = (depth === 'deep_penetration' || depth === 'near_exit_lodged' || depth === 'body_through_and_through');
-  if (!bt.bodyEntered || !isDeep) return { openChestWound:false, lungInjuryStatus:'none', pneumothoraxRisk:0, tensionPneumothoraxRisk:0, hemothoraxRisk:0, breathingEfficiencyDrain:0, chestSealIndicated:false, needleDecompressionCandidate:false, reason:'surface/shallow' };
-  const through = (depth === 'body_through_and_through');
-  const cm = bt.candidateMap || [];
-  const size = (woundSize && woundSize.sizeClass) || '';
-  const bigWound = (size === 'large' || size === 'massive');
-  const lungCand = cm.some(c => c.id === 'lung_candidate');
-  const pleuralCand = cm.some(c => c.id === 'pleural_space_candidate' || c.id === 'thoracic_vessel_candidate');
-  const ref = (bt.residualEnergyFactor != null) ? bt.residualEnergyFactor : 0.5;
-  const sz = bt.projectileSizeClass || '';
-  const frag = (sz === 'fragmenting' || /fragment/.test(bt.terminalEffectType || ''));
-  const openChestWound = !!(bt.bodyEntered && (bt.exitWoundPresent || bigWound || through));
-  const suckingChestWoundCandidate = openChestWound && (lungCand || pleuralCand);
-  let lungInjuryStatus = 'none';
-  if (lungCand) { lungInjuryStatus = 'candidate'; if (isDeep && (ibm && (ibm.severity === 'moderate' || ibm.severity === 'severe' || ibm.severity === 'critical'))) lungInjuryStatus = 'suspected'; if (through && ref > 0.6) lungInjuryStatus = 'likely'; }
-  let pneumothoraxRisk = 0;
-  if (lungCand || pleuralCand || openChestWound) {
-    pneumothoraxRisk = Math.min(1, 0.3 + (through ? 0.2 : 0) + (openChestWound ? 0.2 : 0) + ref * 0.2 + (frag ? 0.1 : 0) + (bigWound ? 0.1 : 0));
-  }
-  const hemothoraxRisk = +(Math.min(1, (ibm && ibm.sourceType === 'cavity' ? 0.45 : 0) + (cm.some(c => c.id === 'thoracic_vessel_candidate') ? 0.3 : 0) + (lungInjuryStatus === 'likely' ? 0.15 : 0))).toFixed(2);
-  pneumothoraxRisk = +pneumothoraxRisk.toFixed(2);
-  return {
-    openChestWound, suckingChestWoundCandidate, lungInjuryCandidate: lungCand, lungInjuryStatus,
-    pleuralSpaceInvolvement: pleuralCand, pneumothoraxRisk, tensionPneumothoraxRisk: 0,   // tension은 tick에서 진행
-    hemothoraxRisk, breathingEfficiencyDrain: 0, oxygenationRisk: pneumothoraxRisk > 0.5,
-    chestSealIndicated: openChestWound, needleDecompressionCandidate: false, reason: `${depth}${openChestWound ? '/open' : ''}`,
-  };
-}
 function buildOpenTorsoModel(bt, ibm, hitPart, woundSize) {
-  if (hitPart !== 'chest' && hitPart !== 'abdomen') return null;
+  if (hitPart !== 'abdomen') return null; // MO3: chest opening model removed
   const depth = bt.woundDepthClass || 'surface_only';
   const isDeep = (depth === 'deep_penetration' || depth === 'near_exit_lodged' || depth === 'body_through_and_through');
   const through = (depth === 'body_through_and_through');
@@ -2630,9 +2568,8 @@ function buildOpenTorsoModel(bt, ibm, hitPart, woundSize) {
   const sz = bt.projectileSizeClass || '';
   const highDisrupt = (sz === 'shotgun_slug' || sz === 'anti_material' || sz === 'large_bore' || /fragment|explos/.test(bt.terminalEffectType || ''));
   const ref = (bt.residualEnergyFactor != null) ? bt.residualEnergyFactor : 0.5;
-  if (!bt.bodyEntered || !isDeep) return { openTorsoWound:false, openChestWound:false, openAbdominalWound:false, abdominalWallDisruption:false, eviscerationRisk:false, eviscerationStatus:'none', contaminationRisk:0, dressingIndicated:false, abdominalDressingCandidate:false, reason:'surface/shallow' };
+  if (!bt.bodyEntered || !isDeep) return { openTorsoWound:false, openAbdominalWound:false, abdominalWallDisruption:false, eviscerationRisk:false, eviscerationStatus:'none', contaminationRisk:0, dressingIndicated:false, abdominalDressingCandidate:false, reason:'surface/shallow' };
   const openTorsoWound = !!(bt.exitWoundPresent || bigWound || through || highDisrupt);
-  const openChestWound = (hitPart === 'chest') && openTorsoWound;
   const abdominalWallDisruption = (hitPart === 'abdomen') && (cm.some(c => c.id === 'abdominal_wall_candidate') || bigWound) && (ref > 0.5 || highDisrupt);
   const openAbdominalWound = (hitPart === 'abdomen') && (bigWound || through || abdominalWallDisruption || cm.some(c => c.id === 'abdominal_wall_candidate'));
   const bowelCand = cm.some(c => c.id === 'bowel_candidate' || c.id === 'mesenteric_vessel_candidate');
@@ -2640,7 +2577,7 @@ function buildOpenTorsoModel(bt, ibm, hitPart, woundSize) {
   let eviscerationStatus = eviscerationRisk ? (bigWound && through ? 'suspected' : 'candidate') : 'none';
   const contaminationRisk = +(Math.min(1, (openTorsoWound ? 0.3 : 0) + (bowelCand ? 0.35 : 0) + (bigWound ? 0.15 : 0))).toFixed(2);
   return {
-    openTorsoWound, openChestWound, openAbdominalWound, abdominalWallDisruption,
+    openTorsoWound, openAbdominalWound, abdominalWallDisruption,
     eviscerationRisk, eviscerationStatus, contaminationRisk,
     dressingIndicated: openAbdominalWound, abdominalDressingCandidate: openAbdominalWound,
     fieldCareLimit: (ibm && ibm.fieldCareLimit) || 'limited', reason: `${depth}${openTorsoWound ? '/open' : ''}`,
@@ -3087,7 +3024,6 @@ function buildPhysiologicInjuryModel(w, bt, unit) {
   const highEnergyAmmo = expanding || fragmenting || size === 'large_bore' || size === 'shotgun_slug' || size === 'anti_material' || size === 'full_power_rifle';
   const cm = bt.candidateMap || [];
   const oim = w.organInjuryModel || null;
-  const ctm = w.chestTraumaModel || null;
   const ibm = w.internalBleedingModel || null;
   const ia = bt.impactAddress || {};
   const addr = ((ia.zone||'') + ' ' + (ia.subZone||'') + ' ' + (ia.impactSide||ia.side||'') + ' ' + (ia.limbLocation||'') + ' ' + (ia.anatomicalZone||'')).toLowerCase();
@@ -3119,24 +3055,6 @@ function buildPhysiologicInjuryModel(w, bt, unit) {
   const addInj = (id, organ, type, severity, source, effects) => {
     injuries.push({ id, organ, type, severity: +Math.max(0, Math.min(1, severity)).toFixed(2), source, effects, confirmed: true, confirmedLevel: 'confirmed_physiologic' });
   };
-
-  // ===== 4. 폐 손상 루프 =====
-  if (ctm && (ctm.lungInjuryCandidate || (ctm.lungInjuryStatus && ctm.lungInjuryStatus !== 'none') || ctm.openChestWound)) {
-    const ls = ctm.lungInjuryStatus;
-    const promote = (ls === 'likely') || (ls === 'suspected' && gate >= 0.60) || (through && gate >= 0.70 && ctm.lungInjuryCandidate);
-    if (promote) {
-      const sev = Math.min(1, 0.40 + ref*0.30 + (through?0.15:0) + (highEnergyAmmo?0.10:0) + ((ctm.hemothoraxRisk||0)>0.4?0.10:0));
-      addInj(through ? 'lung_penetrating' : 'lung_laceration', 'lung', 'lung_injury', sev, 'chestTraumaModel', {
-        breathingDrain: +(0.04 + sev*0.06).toFixed(3),
-        oxygenDrain: +(0.02 + sev*0.04).toFixed(3),
-        pneumothoraxBoost: +(0.05 + (ctm.pneumothoraxRisk||0)*0.10).toFixed(3),
-        hemothoraxBoost: +((ctm.hemothoraxRisk||0)*0.15).toFixed(3),
-        internalBleedBoost: ((ctm.hemothoraxRisk||0) >= 0.5) ? +(0.05*(1+sev)).toFixed(3) : 0,   // 혈흉 강하면 internal 일부
-      });
-      tags.add('PHYS-LUNG');
-      if ((ctm.hemothoraxRisk||0) >= 0.5) tags.add('PHYS-HEMOTHORAX');
-    }
-  }
 
   // ===== 5. 실질장기 출혈 루프 =====
   if (oim && oim.injuries) {
@@ -3197,9 +3115,8 @@ function buildPhysiologicInjuryModel(w, bt, unit) {
   // ===== 7. 심장 리듬 위험 연결 (확정 손상 아님 — risk 강화 전용) =====
   const heartAdjacent = cm.some(c => c.id === 'heart_candidate') || (oim && oim.injuries && oim.injuries.some(i => i.organ === 'heart_hook_only'));
   const thoracicVesselPhys = injuries.some(i => i.organ === 'thoracic_vessel');
-  const severeChest = ctm && ((ctm.lungInjuryStatus === 'likely') || (ctm.hemothoraxRisk||0) >= 0.5);
-  if ((heartAdjacent && hitPart === 'chest' && bt.deepTissueReached && gate >= 0.60) || thoracicVesselPhys || severeChest) {
-    const riskBoost = Math.min(0.6, 0.15 + (heartAdjacent?0.15:0) + (thoracicVesselPhys?0.20:0) + (severeChest?0.10:0) + ref*0.10);
+  if ((heartAdjacent && hitPart === 'chest' && bt.deepTissueReached && gate >= 0.60) || thoracicVesselPhys) {
+    const riskBoost = Math.min(0.6, 0.15 + (heartAdjacent?0.15:0) + (thoracicVesselPhys?0.20:0) + ref*0.10);
     injuries.push({ id:'cardiac_rhythm_risk', organ:'heart', type:'cardiac_rhythm_risk', severity:+riskBoost.toFixed(2), source:'preCardiacRisk',
       effects:{ rhythmRiskBoost:+riskBoost.toFixed(3), perfusingRhythmPenalty:+(riskBoost*0.3).toFixed(3) }, confirmed:false, confirmedLevel:'risk_only' });
     tags.add('PHYS-CARDIAC-RISK');
@@ -3210,13 +3127,11 @@ function buildPhysiologicInjuryModel(w, bt, unit) {
   const confirmedInj = injuries.filter(i => i.confirmedLevel === 'confirmed_physiologic');
   const physiologicSeverity = +Math.min(1, (injuries.reduce((s,i)=> s + (i.confirmedLevel==='confirmed_physiologic' ? i.severity : i.severity*0.3), 0) / Math.max(1, injuries.length)) + confirmedInj.length*0.05).toFixed(2);
   // effect profile 집계 + clamp (중복 가중 방지)
-  const prof = { breathingDrain:0, oxygenDrain:0, pneumothoraxBoost:0, hemothoraxBoost:0, internalBleedBoost:0, externalBleedBoost:0, majorVesselMul:1.0, shockBoost:0, preArrestBoost:0, rhythmRiskBoost:0, perfusingRhythmPenalty:0 };
+  const prof = { breathingDrain:0, oxygenDrain:0, internalBleedBoost:0, externalBleedBoost:0, majorVesselMul:1.0, shockBoost:0, preArrestBoost:0, rhythmRiskBoost:0, perfusingRhythmPenalty:0 };
   for (const i of injuries) {
     const e = i.effects || {};
     prof.breathingDrain += e.breathingDrain||0;
     prof.oxygenDrain += e.oxygenDrain||0;
-    prof.pneumothoraxBoost += e.pneumothoraxBoost||0;
-    prof.hemothoraxBoost += e.hemothoraxBoost||0;
     prof.internalBleedBoost += e.internalBleedBoost||0;
     prof.externalBleedBoost += e.externalBleedBoost||0;
     if (e.majorVesselMul) prof.majorVesselMul = Math.max(prof.majorVesselMul, e.majorVesselMul);
@@ -3227,8 +3142,6 @@ function buildPhysiologicInjuryModel(w, bt, unit) {
   }
   prof.breathingDrain = +Math.min(0.25, prof.breathingDrain).toFixed(3);
   prof.oxygenDrain = +Math.min(0.18, prof.oxygenDrain).toFixed(3);
-  prof.pneumothoraxBoost = +Math.min(0.40, prof.pneumothoraxBoost).toFixed(3);
-  prof.hemothoraxBoost = +Math.min(0.40, prof.hemothoraxBoost).toFixed(3);
   prof.internalBleedBoost = +Math.min(0.50, prof.internalBleedBoost).toFixed(3);
   prof.externalBleedBoost = +Math.min(0.40, prof.externalBleedBoost).toFixed(3);
   prof.majorVesselMul = +Math.min(2.6, prof.majorVesselMul).toFixed(2);
@@ -3279,7 +3192,7 @@ function buildConfirmedInjuryModel(wound, bt, candidateMap, med) {
     : null;
   if (blockReason) {
     out.reasonTags.push(blockReason);
-    out.ruledOut = candIds.filter(id => /injury|fracture|pneumothorax|hemothorax|bleeding|compromise/.test(id));
+    out.ruledOut = candIds.filter(id => /injury|fracture|bleeding|compromise/.test(id));
     out.severity = bigWound ? 'minor' : 'minor';
     out.confidence = 0.1;
     return out;
@@ -3294,11 +3207,6 @@ function buildConfirmedInjuryModel(wound, bt, candidateMap, med) {
   if (isChestZone) {
     if (has('lung_candidate') && chestCav && isDeep) addC('lung_injury_confirmed', 'chest_deep_lung');
     else if (has('lung_candidate') || has('lung_apex') || has('upper_lung')) addP('lung_injury_probable', 'lung_candidate');
-    if (bodyEntered && chestCav && (through || bigWound || bt.exitWoundPresent)) addC('open_chest_wound_confirmed', 'penetrating_chest');
-    if (out.confirmed.indexOf('lung_injury_confirmed') >= 0 || has('pleural_cavity_candidate') || has('lung_candidate')) {
-      addP('pneumothorax_probable', 'pleural');
-      if (isDeep && (bigWound || isRifleAP || through)) addP('hemothorax_probable', 'hemothorax');
-    }
     if (has('subclavian_vessel_candidate') || /clavicle|supraclavicular|collar/.test(mz) || vasc === 'subclavian') addP('subclavian_vessel_injury_probable', 'subclavian');
     if (has('axillary_vessel_candidate') || mz === 'axilla' || /axillary/.test(vasc)) addP('axillary_vessel_injury_probable', 'axillary');
     // 심장: 매우 제한적. center chest + deep + high energy + 급격한 생리악화에서만 confirmed.
@@ -3378,54 +3286,10 @@ function _confirmedInjurySummary(m) {
   if (!parts.length) parts.push('확정/강한의심 없음 (후보 ' + m.candidates.length + ')');
   return parts.join(' | ');
 }
-function classifyInternalBleedingCategory(confirmedModel, med, bt, ibm, bleedingClass) {
-  const mz = (med && med.medicalZone) || '';
-  const cav = (med && med.cavityRegion) || '';
-  const conf = (confirmedModel && confirmedModel.confirmed) || [];
-  const prob = (confirmedModel && confirmedModel.probable) || [];
-  const all = conf.concat(prob);
-  const hasAny = (re) => all.some(i => re.test(i));
-  // 두부/신경 우선 (혈액손실보다 neuro)
-  if (/skull|head|forehead|crown|temporal|occipital|brain/.test(mz + ' ' + ((med && med.headFaceRegion) || '')) && hasAny(/tbi|skull_fracture/)) {
-    return { category: 'cranial_neuro', fieldControllability: 'neuro_focus', evacBias: 'urgent', note: '두부 손상 — 신경/의식/호흡 위험 중심' };
-  }
-  // 기도
-  if ((med && med.airwayRisk) || hasAny(/airway_compromise/)) {
-    // 기도는 별도 분류지만 외부출혈(안면)과 공존 가능 — airway 우선 반환
-    // CLEANUP HOTFIX 3: 기도 위협 category는 jaw/mouth/lower_face 계열만 (mid_face/nose/cheek 'face' 매칭 제외).
-    if (/jaw|mouth|lower_face|mouth_jaw/.test(mz) || (med && med.airwayRisk === true) || prob.indexOf('airway_compromise_probable') >= 0) return { category: 'airway_compromise', fieldControllability: 'airway_focus', evacBias: 'urgent', note: '기도 위협 — 기도확보 우선, 안면출혈은 외부출혈로 분리' };
-  }
-  // 접합부 (§6: groin_junctional/femoral_triangle/axilla_gap/supraclavicular는 심부 장기위험이 있어도 junctional 우선 — 현장통제 제한)
-  if (/groin_junctional|femoral_triangle|axilla|supraclavicular/.test(mz)) {
-    return { category: 'junctional_limited_control', fieldControllability: 'junctional_partial', evacBias: 'high', note: '접합부 출혈 — tourniquet 효과 제한, hemostatic/packing/junctional control 일부 억제. 심부 iliac/subclavian은 현장 한계' };
-  }
-  // 흉부 내부
-  if (hasAny(/lung_injury|hemothorax|open_chest|thoracic_vessel|subclavian_vessel/) || (med && med.chestCavityRisk && hasAny(/pneumothorax|lung/))) {
-    return { category: 'thoracic_internal', fieldControllability: 'chest_limited', evacBias: 'urgent', note: '흉강 내부출혈/폐손상 — chestSeal은 개방창 악화만 완화, hemothorax 자체 제거 불가' };
-  }
-  // 후복막
-  if (cav === 'retroperitoneal' || hasAny(/retroperitoneal|kidney_injury/) || /kidney|flank/.test(mz)) {
-    return { category: 'retroperitoneal_internal', fieldControllability: 'uncontrollable_field', evacBias: 'urgent', note: '후복막 출혈 의심 — 외부출혈 적어도 실혈 위험, 현장 통제 불가' };
-  }
-  // 골반
-  if ((med && med.pelvicCavityRisk) || mz === 'pelvis_upper' || hasAny(/iliac_vessel|pelvic_bleeding/)) {
-    return { category: 'pelvic_internal', fieldControllability: 'pelvic_binder_partial', evacBias: 'urgent', note: '골반 내부출혈 — 골반고정은 진행 일부 완화, 완전 지혈 아님' };
-  }
-  // 잔여 접합부 후보 (혈관 후보만 있고 zone은 위에 안 걸린 경우)
-  if (hasAny(/junctional_hemorrhage|femoral_vessel|axillary_vessel/)) {
-    return { category: 'junctional_limited_control', fieldControllability: 'junctional_partial', evacBias: 'high', note: '접합부 출혈 — tourniquet 효과 제한, junctional control 일부 억제' };
-  }
-  // 복부 내부
-  if (cav === 'peritoneal' || (med && med.abdominalCavityRisk) || hasAny(/solid_organ|hollow_viscus|abdominal_internal/)) {
-    return { category: 'abdominal_internal', fieldControllability: 'uncontrollable_field', evacBias: 'urgent', note: '복강 내부출혈 — 현장 처치로 직접 감소 불가, 후송 우선' };
-  }
-  // 외부 (severity로 controllable/severe 구분)
-  const sev = (ibm && ibm.severity) || 'low';
-  if (bleedingClass === 'major_vessel_candidate' || sev === 'severe' || sev === 'critical') {
-    return { category: 'external_severe', fieldControllability: 'pressure_tourniquet', evacBias: 'high', note: '심한 외부출혈 — 압박/지혈대 적용 가능' };
-  }
-  return { category: 'external_controllable', fieldControllability: 'controllable', evacBias: 'routine', note: '통제 가능한 외부출혈' };
+function classifyInternalBleedingCategory() {
+  return {category:'wound_bleeding',fieldControllability:'controllable',evacBias:'routine',note:'MO3 상처당 단일 출혈; 모든 부위 처치 가능'};
 }
+
 const _VESSEL_NAMED_RE = /femoral|brachial|axillary|subclavian|iliac|carotid|aorta|popliteal|jugular/;
 const _VESSEL_MAJOR_RE = /femoral|brachial|axillary|subclavian|iliac|carotid|aorta/;
 function buildVascularEvidence(w) {
@@ -4213,7 +4077,7 @@ function normalizeShotgunPelletGroupPhysiology(unit, pelletGroupId) {
     if (ve.level === 'confirmed' && ve.vesselClass === 'major_named') majorConfirmed = true;
     const cim = w.confirmedInjuryModel || {};
     const confirmed = (cim.confirmed || []).concat(cim.physiologic || []);
-    if (confirmed.some(x => /heart|lung_major|tension|massive_hemothorax|thoracic_catastrophic/.test(String(x)))) thoracicCritical = true;
+    if (confirmed.some(x => /heart|thoracic_catastrophic/.test(String(x)))) thoracicCritical = true;
     if (confirmed.some(x => /brain|spinal|cranial|cns/.test(String(x)))) cnsCritical = true;
   }
   let shockCeiling, painCeiling;
@@ -4292,7 +4156,7 @@ function buildWoundDescriptor(unit, ev) {
     tissueProfile: { tissueDamageMul: woundSize.tissueDamageMul, vesselRisk: bleeding.vesselRisk, boneRisk: ev._fracture ? 1 : 0, organCandidates: ev.organCandidates || [] },
     painProfile: { painMul: woundSize.painMul },
     treatmentProfile,
-    treatmentState: { bandaged:false, pressureBandaged:false, hemostaticApplied:false, packed:false, chestSealed:false, stabilized:false, treatmentQuality:0, lastTreatedAt:null, treatedBy:null,
+    treatmentState: { bandaged:false, pressureBandaged:false, hemostaticApplied:false, packed:false, stabilized:false, treatmentQuality:0, lastTreatedAt:null, treatedBy:null,
       pressureBandageAppliedAt:null, pressureBandageInitialMul:null, pressureBandageTargetMul:null, pressureBandageStabilization:0 },
   };
   // SIDE-MED-2B-1A: bodyTrajectory scaffold 연결 (요약 + 출혈분류 + 후보 hint, 기존 수치 불변)
@@ -4372,13 +4236,11 @@ function buildWoundDescriptor(unit, ev) {
     if (bt) {
       const ibm = w.internalBleedingModel || null;
       const hp = bt.hitPart || w.partKey;
-      w.chestTraumaModel = buildChestTraumaModel(bt, ibm, hp, w.woundSize);
       w.openTorsoModel = buildOpenTorsoModel(bt, ibm, hp, w.woundSize);
       w.organInjuryModel = buildOrganInjuryModel(bt, ibm, hp);
       w.hemorrhageControlModel = buildHemorrhageControlModel(bt, ibm, w.bleedingProfile, hp, w.woundSize);
       // §16/§14 태그 보강: open chest/abd → chestSeal/abdominalDressing candidate
       const tagSet = new Set(w.treatmentIndicationTags || []);
-      if (w.chestTraumaModel && w.chestTraumaModel.openChestWound) tagSet.add('chestSealCandidate');
       if (w.openTorsoModel && w.openTorsoModel.abdominalDressingCandidate) tagSet.add('abdominalDressingCandidate');
       if (w.organInjuryModel && w.organInjuryModel.surgeryRequiredCandidate) tagSet.add('surgeryRequiredCandidate');
       w.treatmentIndicationTags = Array.from(tagSet);
@@ -4428,7 +4290,7 @@ function buildWoundDescriptor(unit, ev) {
     if (ibc.category === 'cranial_neuro' || cim.probable.some(i => /tbi|skull/.test(i))) tagSet.add('neuroTraumaCandidate');
     // 후송/수술/수혈/혈관통제 표식 (표시 전용)
     if (cim.confirmed.length || cim.severity === 'severe' || cim.severity === 'critical' || /internal|junctional|neuro|airway/.test(ibc.category)) tagSet.add('definitiveCareRequired');
-    if (cim.confirmed.some(i => /lung|heart|open_chest/.test(i)) || cim.probable.some(i => /organ|vessel|solid_organ|hollow_viscus|abdominal_internal|hemothorax/.test(i))) tagSet.add('surgeryRequiredCandidate');
+    if (cim.confirmed.some(i => /heart/.test(i)) || cim.probable.some(i => /organ|vessel|solid_organ|hollow_viscus|abdominal_internal/.test(i))) tagSet.add('surgeryRequiredCandidate');
     if (cim.severity === 'severe' || cim.severity === 'critical' || /internal/.test(ibc.category) || tagSet.has('probableMajorVesselInjury')) tagSet.add('transfusionRequiredCandidate');
     if (tagSet.has('probableMajorVesselInjury') || /junctional|pelvic|thoracic|abdominal|retroperitoneal/.test(ibc.category)) tagSet.add('vascularControlRequiredCandidate');
     w.treatmentIndicationTags = Array.from(tagSet);
@@ -5026,7 +4888,6 @@ function _treatLabelKo(wound) {
   if (ts.hemostaticApplied) applied.push('지혈거즈');
   if (ts.junctionalPressureApplied) applied.push('접합부압박');
   if (ts.pressureBandaged) applied.push('압박붕대');
-  if (ts.chestSealed) applied.push('체스트씰');
   if (ts.abdominalDressed) applied.push('복부드레싱');
   if (applied.length >= 3) return '복합 처치';
   if (applied.length) return applied.join('+');
@@ -5248,8 +5109,6 @@ function updateMedicalBleedingWoundBased(unit, dt) {
           else if (inj.status === 'suspected' && vessel) intRiskMul *= 1.05; // 혈관 의심은 소폭
         }
       }
-      const ctmW = w.chestTraumaModel;
-      if (ctmW && (ctmW.hemothoraxRisk || 0) >= 0.45) intRiskMul *= 1.08;    // §7: 혈흉 — internal 약하게
       // SIDE-MED-PHYSIOLOGIC-INJURY-CONFIRM-1 §8: confirmed_physiologic internal 가중 (중복 clamp — major/organ이면 상한 상향)
       let intCap = 1.35, physIntMul = 1.0;
       const pep = w.physiologicEffectProfile;
@@ -5322,7 +5181,7 @@ function _woundUrgency(w) {
   if (w.woundSize && w.woundSize.sizeClass === 'large') s += 200;
   if (w.woundSize && w.woundSize.sizeClass === 'medium') s += 100;
   const ts = w.treatmentState || {};
-  const treated = ts.pressureBandaged || ts.packed || ts.hemostaticApplied || ts.chestSealed || ts.stabilized;
+  const treated = ts.pressureBandaged || ts.packed || ts.hemostaticApplied || ts.stabilized;
   if (!treated && bp.bleedingType !== 'none') s += 60;
   if (w.woundType === 'bruise' || w.woundType === 'abrasion' || (w.woundSize && w.woundSize.sizeClass === 'micro')) s -= 50;
   s += eff;
@@ -5704,14 +5563,7 @@ function applyDamageEvent(unit, ev) {
     m._acuteResponseLoad = (m._acuteResponseLoad || 0) + acute.stoppingIntensity;
   }
 
-  // === 5) Breathing — chest/blast 영향 ===
-  if (partKey === 'chest' && armorResult === 'penetrated') {
-    m.breathingEfficiency = Math.max(20, m.breathingEfficiency - 25);
-  } else if (sourceType === 'blast' && (partKey === 'chest' || partKey === 'head')) {
-    m.breathingEfficiency = Math.max(30, m.breathingEfficiency - 15);
-  } else if (partKey === 'chest') {
-    m.breathingEfficiency = Math.max(50, m.breathingEfficiency - 8);
-  }
+  // MO3: no generic chest/lung respiratory penalty. Neck/CNS/drug routes remain.
 
   // === 6) Consciousness — head/neck 직접 신경학적 손상 (medical.shock 경유 금지) ===
   //   [IMPACT-A Phase2] 실제 관통 + head/neck 구조 손상 근거가 있을 때만 즉각 의식저하(transientNeurologicDisruption).
@@ -5828,7 +5680,7 @@ function tickMedical(unit, dt) {
   if (_m._acuteResponseLoad > 0) _m._acuteResponseLoad = Math.max(0, _m._acuteResponseLoad - 40 * dt);
   // 단계별 — 순서 중요 (출혈 → 저혈량 → stress → hormonal → hemodynamics → vitals → pain/shock/conscious → multipliers)
   updateMedicalBleeding(unit, dt);
-  updateChestTrauma(unit, dt);            // SIDE-MED-2C §26: 흉부 외상/기흉 진행 (호흡 효율 영향)
+              // SIDE-MED-2C §26: 흉부 외상/기흉 진행 (호흡 효율 영향)
   updateSystemicHypoxiaDamage(unit, dt);
   updateStressResponse(unit, dt);
   updateHormonalCompensation(unit, dt);
@@ -5844,59 +5696,6 @@ function tickMedical(unit, dt) {
   // 9) lifeStatus 종합
   recalcMedicalSummary(unit);
   syncLegacyCombatState(unit);
-}
-function updateChestTrauma(unit, dt) {
-  const m = unit.medical;
-  if (!m || !m.wounds) return;
-  let worstDrain = 0, anyChest = false, pneumoMax = 0, tensionMax = 0, needleHook = false;
-  for (const w of chestCareTracks(m)) {
-    const ctm = w.chestTraumaModel;
-    if (!ctm || (!ctm.openChestWound && !ctm.lungInjuryCandidate && !(ctm.pneumothoraxRisk > 0))) continue;
-    anyChest = true;
-    const ts = w.treatmentState || {};
-    const sealed = !!ts.chestSealed && (ts.chestSealEffective !== false);
-    ctm._pneumoProg = (ctm._pneumoProg != null) ? ctm._pneumoProg : ctm.pneumothoraxRisk;
-    const _m4=chestCareInput(m,w);
-    const progRate = (sealed ? 0.004 : 0.02)*(_m4?.progress??1);
-    const ceil = Math.min(1, ctm.pneumothoraxRisk + (sealed ? 0.1 : 0.4));
-    if (ctm.openChestWound || ctm.lungInjuryCandidate) ctm._pneumoProg = chestCareProgress(m,w,ctm._pneumoProg,progRate,ceil,dt);
-    // FIELD-STAB-1 §9/§14: chest_relief active → tension 진행 억제 (직전 tick modifier). 폐손상/혈흉 자체는 미해결.
-    const _csRelief = (m.fieldStabilizationModel && m.fieldStabilizationModel.chestRelief) || null;
-    const _tensionMod = (_csRelief && _csRelief.active) ? _csRelief.tensionReliefModifier : 1.0;
-    const _drainMod = (_csRelief && _csRelief.active) ? _csRelief.breathingEfficiencyDrainModifier : 1.0;
-    if (!sealed && (ctm._pneumoProg > 0.6 || chestValveCandidate(w))) ctm.tensionPneumothoraxRisk = Math.min(1, (ctm.tensionPneumothoraxRisk || 0) + 0.01 * _tensionMod * dt * (_m4?.progress??1));
-    else ctm.tensionPneumothoraxRisk = Math.max(0, (ctm.tensionPneumothoraxRisk || 0) - 0.005 * dt - (_csRelief && _csRelief.active ? 0.004 * _csRelief.effectStrength * dt : 0));
-    // FIELD-STAB-1 §9: chest_relief active → 압력 능동 완화 (양 branch 공통, net 감소 가능). 폐손상/혈흉 자체는 미해결.
-    if (_csRelief && _csRelief.active && _csRelief.effectStrength > 0) ctm.tensionPneumothoraxRisk = Math.max(0, ctm.tensionPneumothoraxRisk - 0.012 * _csRelief.effectStrength * dt);
-    if (ctm.tensionPneumothoraxRisk > 0.5) { ctm.needleDecompressionCandidate = true; needleHook = true; }
-    // PRECARDIAC-1 §8: 밀봉했어도 tension 진행 가능 — "체스트씰만으로 해결 불가" 상태 표시 (needle은 후속 단계)
-    ctm.tensionStillPossible = sealed && (ctm.tensionPneumothoraxRisk || 0) > 0.3;
-    if (sealed && ts.chestSealed) ts.chestSealPartial = ctm.tensionStillPossible;
-    // PRECARDIAC-1 §7: 폐 손상 likely·혈흉은 호흡 효율에 약하게 가산 (clamp 내)
-    const lungDrain = (ctm.lungInjuryStatus === 'likely') ? 0.08 : (ctm.lungInjuryStatus === 'suspected' ? 0.04 : 0);
-    const hemoDrain = ((ctm.hemothoraxRisk || 0) >= 0.45) ? 0.05 : 0;
-    // SIDE-MED-PHYSIOLOGIC-INJURY-CONFIRM-1 §4/§8: confirmed_physiologic 폐손상 → breathingDrain 가산 (clamp)
-    const pep = w.physiologicEffectProfile;
-    const physBreathDrain = (pep && pep.breathingDrain) ? Math.min(0.25, pep.breathingDrain) : 0;
-    if (pep && (pep.pneumothoraxBoost || 0) > 0 && (ctm.openChestWound || ctm.lungInjuryCandidate)) {
-      ctm._pneumoProg = Math.min(1, ctm._pneumoProg + Math.min(0.4, pep.pneumothoraxBoost) * 0.02 * dt);   // tension 진행에 소폭 가산(밀봉 시에도 §주의)
-    }
-    ctm.tensionPneumothoraxRisk=chestCareTension(m,w,ctm.tensionPneumothoraxRisk,dt);
-    const drain = Math.min(0.9, (ctm._pneumoProg * 0.25 + (ctm.tensionPneumothoraxRisk || 0) * 0.45 + lungDrain + hemoDrain + physBreathDrain) * _drainMod);
-    ctm.breathingEfficiencyDrain = +drain.toFixed(3);
-    worstDrain = Math.max(worstDrain, drain);
-    pneumoMax = Math.max(pneumoMax, ctm._pneumoProg);
-    tensionMax = Math.max(tensionMax, ctm.tensionPneumothoraxRisk || 0);
-  }
-  commitChestCareTracks(m);
-  if (anyChest && m.breathingEfficiency != null) {
-    // breathingEfficiency는 0~100 스케일. drain(0~1)을 비율로 환산해 target까지 감소 (직접 사망 스위치 금지).
-    const target = Math.max(25, 100 * (1 - worstDrain));
-    m.breathingEfficiency = Math.max(target, m.breathingEfficiency - worstDrain * 100 * dt * 0.08);
-    m._chestPneumoRisk = +pneumoMax.toFixed(2);
-    m._chestTensionRisk = +tensionMax.toFixed(2);
-    m._needleDecompressionHook = needleHook;
-  }
 }
 function getTcccCarePhase(unit, treater, tacticalCtx) {
   const supp = (unit.suppression || 0);
@@ -5967,7 +5766,6 @@ function updateFieldStabilization(unit, dt) {
   fs.lastUpdateTime = now;
   const o2 = (hd.oxygenDelivery != null) ? hd.oxygenDelivery : 1.0;
   const moving = !!(unit.isMoving || (unit.movePath && unit.movePath.length) || unit.beingDragged);
-  const severeChest = !!pcr.severeChestTrauma;
   const severeHypo = (hd.hypovolemiaSeverity === 'severe' || hd.hypovolemiaSeverity === 'critical');
 
   // ---- AIRWAY ----
@@ -5980,30 +5778,13 @@ function updateFieldStabilization(unit, dt) {
     if (aw.recurrenceRisk > 0.85) { aw.active = false; aw.failureReason = 'airway_lost_recurrence'; }
     // 효과 강도 — quality 기반, 단 severe chest/blood loss면 제한
     let eff = aw.quality;
-    if (severeChest) eff *= 0.5;
     if (severeHypo) eff *= 0.6;
     aw.effectStrength = clampMed(eff * (1 - aw.recurrenceRisk * 0.5), 0, 0.95);
     aw.oxygenDeliveryModifier = 1.0 + aw.effectStrength * 0.08;   // 최대 ~1.076 (제한적)
     aw.artifactReduction = aw.effectStrength * 0.12;
     aw.breathingDisciplineSupport = aw.effectStrength * 0.1;
-    aw.tags = ['airway_active']; if (severeChest) aw.tags.push('limited_chest_trauma'); if (severeHypo) aw.tags.push('limited_hypovolemia');
+    aw.tags = ['airway_active']; if (severeHypo) aw.tags.push('limited_hypovolemia');
   } else { aw.oxygenDeliveryModifier = 1.0; aw.artifactReduction = 0; aw.breathingDisciplineSupport = 0; aw.effectStrength = 0; }
-
-  // ---- CHEST RELIEF ----
-  const cr = fs.chestRelief;
-  const tensionRisk = (pcr.tensionPneumothoraxRisk || 0);
-  cr.candidate = (tensionRisk > 0.45 || (severeChest && m.breathingEfficiency < 65)) && !unit.isDead;
-  if (cr.active) {
-    cr.recurrenceRisk = clamp01(cr.recurrenceRisk + (moving ? 0.05 : 0.01) * dt + (tensionRisk > 0.6 ? 0.02 : 0) * dt - (cr.quality > 0.7 ? 0.01 : 0) * dt);
-    if (cr.recurrenceRisk > 0.9) { cr.active = false; cr.failureReason = 'tension_recurred'; }
-    const eff = clampMed(cr.quality * (1 - cr.recurrenceRisk * 0.5), 0, 0.95);
-    cr.effectStrength = eff;
-    cr.tensionReliefModifier = 1.0 - eff * 0.4;             // tension progression 억제 (×0.6 최저)
-    cr.breathingEfficiencyDrainModifier = 1.0 - eff * 0.35; // drain 완화
-    cr.oxygenDeliveryModifier = 1.0 + eff * 0.05;
-    cr.tags = ['chest_relief_active']; if ((pcr.hemothoraxRisk || 0) >= 0.45) cr.tags.push('hemothorax_unresolved');
-    if (cr.recurrenceRisk > 0.5) cr.tags.push('recurrence_possible');
-  } else { cr.tensionReliefModifier = 1.0; cr.breathingEfficiencyDrainModifier = 1.0; cr.oxygenDeliveryModifier = 1.0; cr.effectStrength = 0; }
 
   // ---- PELVIC / JUNCTIONAL (wound 기반) ----
   let pelvicCand = false, junctionalCand = false;
@@ -6054,13 +5835,11 @@ function buildEvacuationModel(unit) {
   const crm = m.cardiacRhythmModel || {};
   const fs = m.fieldStabilizationModel || {};
   const tags = [];
-  let surgeryRequired = false, transfusionRequired = false, airwayAdvancedRequired = false, chestAdvancedRequired = false, vascularControlRequired = false;
+  let surgeryRequired = false, transfusionRequired = false, airwayAdvancedRequired = false, vascularControlRequired = false;
   // 원인 수집
   if (m.internalBleedRate > 3) { tags.push('uncontrolled_internal_bleeding'); surgeryRequired = true; }
   if (hd.hypovolemiaSeverity === 'severe' || hd.hypovolemiaSeverity === 'critical') { tags.push('severe_hypovolemia'); transfusionRequired = true; }
   if ((hd.oxygenDelivery != null && hd.oxygenDelivery < 0.5)) { tags.push('low_oxygen_delivery'); }
-  if ((pcr.tensionPneumothoraxRisk || 0) > 0.5) { tags.push('tension_risk'); chestAdvancedRequired = true; }
-  if ((pcr.hemothoraxRisk || 0) >= 0.45) { tags.push('hemothorax_risk'); chestAdvancedRequired = true; }
   if (pcr.thoracicVesselRisk) { tags.push('thoracic_vessel_risk'); vascularControlRequired = true; surgeryRequired = true; }
   if (fs.pelvicControl && fs.pelvicControl.candidate) { tags.push('pelvic_bleeding_candidate'); }
   if (pcr.heartAdjacentTrack) { tags.push('heart_adjacent_track'); }
@@ -6080,7 +5859,7 @@ function buildEvacuationModel(unit) {
     if (fc === 'uncontrollable_field' || fc === 'chest_limited' || fc === 'pelvic_binder_partial') { woundFieldUncontrollable = true; if (tags.indexOf('field_uncontrollable') < 0) tags.push('field_uncontrollable'); }
     if ((w.confirmedInjuries && w.confirmedInjuries.length) || (w.confirmedInjuryModel && w.confirmedInjuryModel.confirmed && w.confirmedInjuryModel.confirmed.length)) confirmedPresent = true;
     const prob = (w.probableInjuries && w.probableInjuries.length ? w.probableInjuries : (w.confirmedInjuryModel && w.confirmedInjuryModel.probable) || []);
-    if (prob.some(i => /vessel|organ|hemothorax|pelvic|retroperitoneal/.test(i))) probableSerious = true;
+    if (prob.some(i => /vessel|organ|pelvic|retroperitoneal/.test(i))) probableSerious = true;
   }
   if (confirmedPresent && tags.indexOf('confirmed_injury_present') < 0) tags.push('confirmed_injury_present');
   if (probableSerious && tags.indexOf('probable_serious_injury') < 0) tags.push('probable_serious_injury');
@@ -6089,16 +5868,16 @@ function buildEvacuationModel(unit) {
   // priority 산정
   let priority = 'none';
   const crit = (hd.hypovolemiaSeverity === 'critical') || (hd.oxygenDelivery != null && hd.oxygenDelivery < 0.4) || crm.rhythmClass === 'arrest_candidate' || crm.rhythmClass === 'peri_arrest_candidate';
-  const urgent = (hd.hypovolemiaSeverity === 'severe') || m.internalBleedRate > 3 || (pcr.tensionPneumothoraxRisk || 0) > 0.5 || pcr.thoracicVesselRisk || crm.rhythmClass === 'unstable';
+  const urgent = (hd.hypovolemiaSeverity === 'severe') || m.internalBleedRate > 3 || pcr.thoracicVesselRisk || crm.rhythmClass === 'unstable';
   if (crit) priority = 'immediate';
   else if (urgent) priority = 'urgent';
   else if (tags.length > 0) priority = 'priority';
   else if (m.lifeStatus < 70 || (m.externalBleedRate + m.internalBleedRate) > 1) priority = 'monitor';
-  const definitiveCareRequired = (surgeryRequired || transfusionRequired || vascularControlRequired || chestAdvancedRequired || airwayAdvancedRequired || woundFieldUncontrollable);
+  const definitiveCareRequired = (surgeryRequired || transfusionRequired || vascularControlRequired || airwayAdvancedRequired || woundFieldUncontrollable);
   const prevPriority = (m.evacuationModel && m.evacuationModel.evacuationPriority) || 'none';
   m.evacuationModel = {
     evacuationPriority: priority, definitiveCareRequired, surgeryRequired, transfusionRequired,
-    airwayAdvancedRequired, chestAdvancedRequired, vascularControlRequired, reasonTags: tags,
+    airwayAdvancedRequired, vascularControlRequired, reasonTags: tags,
     lastUpdated: (typeof GAME !== 'undefined' && GAME.gameTime) || 0,
   };
   if (fs) { fs.evacuationPriority = priority; fs.definitiveCareRequired = definitiveCareRequired; }
@@ -6140,9 +5919,6 @@ function buildCardiacRhythmModel(unit, dt) {
   raw += exh * 0.12;
   if (hd.preArrestRisk) raw += 0.18;
   if (pcr.arrestRiskHint) raw += 0.12;
-  if (pcr.severeChestTrauma) raw += 0.08;
-  raw += (pcr.tensionPneumothoraxRisk || 0) * 0.12;
-  raw += (pcr.hemothoraxRisk || 0) * 0.08;
   if (pcr.thoracicVesselRisk) raw += 0.08;
   if (pcr.heartAdjacentTrack) raw += 0.10;
   // SIDE-MED-PHYSIOLOGIC-INJURY-CONFIRM-1 §7: confirmed_physiologic 장기/혈관/흉부 → rhythm risk 입력 강화 (보수적 가중)
@@ -6270,7 +6046,6 @@ function buildCardiacRhythmModel(unit, dt) {
   if (hd.decompensatingShock) triggerTags.push('decompensating_shock');
   if (pcr.heartAdjacentTrack) triggerTags.push('heart_adjacent');
   if (pcr.thoracicVesselRisk) triggerTags.push('thoracic_vessel');
-  if ((pcr.tensionPneumothoraxRisk || 0) > 0.5) triggerTags.push('tension_risk');
   if ((sr.panic || 0) > 0.5) triggerTags.push('panic');
   if (sr.combatArousal > 0.5) triggerTags.push('combat_arousal');
 
@@ -6300,15 +6075,9 @@ function buildCardiacRhythmModel(unit, dt) {
 function buildPreCardiacRisk(unit) {
   const m = unit.medical; if (!m) return null;
   const hd = m.hemodynamics || {};
-  let tensionMax = 0, hemoMax = 0, pneumoMax = 0, heartAdjacent = false, thoracicVessel = false;
+  let heartAdjacent = false, thoracicVessel = false;
   let physRhythmRisk = 0, physPerfPenalty = 0, physPreArrest = 0;
   if (m.wounds) for (const w of m.wounds) {
-    const ctm = w.chestTraumaModel;
-    if (ctm) {
-      tensionMax = Math.max(tensionMax, ctm.tensionPneumothoraxRisk || 0);
-      hemoMax = Math.max(hemoMax, ctm.hemothoraxRisk || 0);
-      pneumoMax = Math.max(pneumoMax, (ctm._pneumoProg != null ? ctm._pneumoProg : ctm.pneumothoraxRisk) || 0);
-    }
     const oim = w.organInjuryModel;
     if (oim && oim.injuries) for (const inj of oim.injuries) {
       if (inj.organ === 'heart_hook_only') heartAdjacent = true;
@@ -6322,23 +6091,19 @@ function buildPreCardiacRisk(unit) {
       physPreArrest = Math.max(physPreArrest, pep.preArrestBoost || 0);
     }
   }
-  const severeChest = (tensionMax >= 0.5) || (pneumoMax >= 0.7) || (hemoMax >= 0.6);
   m.preCardiacRisk = {
     hypovolemiaSeverity: hd.hypovolemiaSeverity || 'none',
     decompensatingShock: !!hd.decompensatingShock,
     poorPerfusion: !!hd.poorPerfusion,
     lowOxygenDelivery: (hd.oxygenDelivery != null) ? hd.oxygenDelivery < 0.55 : false,
-    severeChestTrauma: severeChest,
-    tensionPneumothoraxRisk: +tensionMax.toFixed(2),
-    hemothoraxRisk: +hemoMax.toFixed(2),
     thoracicVesselRisk: thoracicVessel,
     physiologicRhythmRisk: +physRhythmRisk.toFixed(3),
     physiologicPerfusingPenalty: +physPerfPenalty.toFixed(3),
     physiologicPreArrestBoost: +physPreArrest.toFixed(3),
     heartAdjacentTrack: heartAdjacent,
     cardiacInjuryCandidateOnly: true,                      // 확정 심장손상 없음 — 후보/감시 단계
-    rhythmModelReadySignal: !!(hd.cardiacRhythmReadySignal || severeChest),
-    arrestRiskHint: !!(hd.preArrestRisk || tensionMax >= 0.8),   // 힌트 — 사망/리듬 판정 직접 사용 금지
+    rhythmModelReadySignal: !!(hd.cardiacRhythmReadySignal),
+    arrestRiskHint: !!(hd.preArrestRisk),   // 힌트 — 사망/리듬 판정 직접 사용 금지
   };
   return m.preCardiacRisk;
 }
@@ -6347,24 +6112,21 @@ function buildTcccAssessment(unit) {
   const phase = getTcccCarePhase(unit, null, null);
   let airwayConcern = false, airwayReason = '', hypothermiaRisk = false;
   const wounds = m.wounds || [];
-  let massiveHemorrhage = false, openChest = false, cavityBleed = false;
+  let massiveHemorrhage = false;
   for (const w of wounds) {
     if (w.hemorrhageControlModel && w.hemorrhageControlModel.isMassiveHemorrhage) massiveHemorrhage = true;
-    if (w.chestTraumaModel && w.chestTraumaModel.openChestWound) openChest = true;
-    if (w.internalBleedingModel && w.internalBleedingModel.sourceType === 'cavity') cavityBleed = true;
     if ((w.partKey === 'neck') || (w.candidateMap && w.candidateMap.some(c => c.type === 'airway'))) { airwayConcern = true; airwayReason = 'neck/airway candidate'; }
   }
   if ((m.consciousness != null && m.consciousness < 35) && (m.shock || 0) > 50) { airwayConcern = true; airwayReason = airwayReason || 'reduced consciousness'; }
-  if ((m.bloodMl != null && m.bloodMl < 3500) || cavityBleed) hypothermiaRisk = true;
+  if ((m.bloodMl != null && m.bloodMl < 3500)) hypothermiaRisk = true;
   let marchStep = 'none', recommendedAction = 'monitor';
   if (massiveHemorrhage) { marchStep = 'M'; recommendedAction = 'hemorrhage_control'; }
   else if (airwayConcern) { marchStep = 'A'; recommendedAction = 'airway_hook'; }
-  else if (openChest) { marchStep = 'R'; recommendedAction = 'chest_seal'; }
-  else if (cavityBleed || (m.shock || 0) > 50) { marchStep = 'C'; recommendedAction = 'evac_circulation'; }
+  else if ((m.shock || 0) > 50) { marchStep = 'C'; recommendedAction = 'evac_circulation'; }
   else if ((m.pain || 0) > 60) { marchStep = 'P'; recommendedAction = 'painkiller'; }
   m.airwayModel = { airwayConcern, airwayObstructionRisk: airwayConcern, neckTraumaConcern: wounds.some(w => w.partKey === 'neck'), reducedConsciousnessAirwayRisk: (m.consciousness != null && m.consciousness < 35), airwayInterventionCandidate: airwayConcern, airwayInterventionAvailable: false, reason: airwayReason };
   m.exposureModel = { hypothermiaRisk, exposedCasualty: phase === 'evacuation_pending', severeBloodLossExposureRisk: (m.bloodMl != null && m.bloodMl < 3000), hypothermiaPreventionCandidate: hypothermiaRisk };
-  m.tcccAssessment = { phase, marchStep, recommendedAction, massiveHemorrhage, openChest, cavityBleed, airwayConcern };
+  m.tcccAssessment = { phase, marchStep, recommendedAction, massiveHemorrhage, airwayConcern };
   return m.tcccAssessment;
 }
 function updateMedicalBleeding(unit, dt) {
@@ -6573,8 +6335,7 @@ function updateHemodynamics(unit, dt) {
   const _fs = m.fieldStabilizationModel;
   if (_fs) {
     const awMod = (_fs.airwaySupport && _fs.airwaySupport.oxygenDeliveryModifier) || 1.0;
-    const crMod = (_fs.chestRelief && _fs.chestRelief.oxygenDeliveryModifier) || 1.0;
-    hd.oxygenDelivery = clampMed(hd.oxygenDelivery * awMod * crMod, 0, 1.2);
+    hd.oxygenDelivery = clampMed(hd.oxygenDelivery * awMod, 0, 1.2);
     // circulation support — MAP/perfusion 매우 제한적 보정 (field limited)
     const csMapMod = (_fs.circulationSupport && _fs.circulationSupport.mapSupportModifier) || 1.0;
     const csPerfMod = (_fs.circulationSupport && _fs.circulationSupport.perfusionSupportModifier) || 1.0;
@@ -7381,8 +7142,8 @@ const BODY_PART_RESISTANCE_TABLE = {
   hand_foot:     { penetrationCost: 3,  dropRatio: 0.03, triggerBias: -0.05, cls: 'thin_limb' },
 };
 const MEDICAL_RESOURCE_DEFAULTS = {
-  bandage:4, pressure_bandage:2, hemostatic_gauze:2, wound_packing:1, tourniquet:2, chest_seal:2,
-  decompression_needle:1, airway_basic:1, oxygen:1, pelvic_binder:1, iv_fluid:1, blood_pack:0, analgesic:2, splint:1
+  bandage:4, pressure_bandage:2, hemostatic_gauze:2, wound_packing:1, tourniquet:2,
+  oxygen:1, pelvic_binder:1, iv_fluid:1, blood_pack:0, analgesic:2, splint:1
 };
 function initMedicalResources(unit) {
   if (!unit) return;
@@ -7461,8 +7222,7 @@ function updateHemodynamicsR(unit, dt) {
   const _fs = m.fieldStabilizationModel;
   if (_fs) {
     const awMod = (_fs.airwaySupport && _fs.airwaySupport.oxygenDeliveryModifier) || 1.0;
-    const crMod = (_fs.chestRelief && _fs.chestRelief.oxygenDeliveryModifier) || 1.0;
-    hd.oxygenDelivery = clampMed(hd.oxygenDelivery * awMod * crMod, 0, 1.2);
+    hd.oxygenDelivery = clampMed(hd.oxygenDelivery * awMod, 0, 1.2);
     // circulation support — MAP/perfusion 매우 제한적 보정 (field limited)
     const csMapMod = (_fs.circulationSupport && _fs.circulationSupport.mapSupportModifier) || 1.0;
     const csPerfMod = (_fs.circulationSupport && _fs.circulationSupport.perfusionSupportModifier) || 1.0;
@@ -7574,8 +7334,7 @@ function updateHemodynamicsR2(unit, dt) {
   const _fs = m.fieldStabilizationModel;
   if (_fs) {
     const awMod = (_fs.airwaySupport && _fs.airwaySupport.oxygenDeliveryModifier) || 1.0;
-    const crMod = (_fs.chestRelief && _fs.chestRelief.oxygenDeliveryModifier) || 1.0;
-    hd.oxygenDelivery = clampMed(hd.oxygenDelivery * awMod * crMod, 0, 1.2);
+    hd.oxygenDelivery = clampMed(hd.oxygenDelivery * awMod, 0, 1.2);
     // circulation support — MAP/perfusion 매우 제한적 보정 (field limited)
     const csMapMod = (_fs.circulationSupport && _fs.circulationSupport.mapSupportModifier) || 1.0;
     const csPerfMod = (_fs.circulationSupport && _fs.circulationSupport.perfusionSupportModifier) || 1.0;
@@ -7745,8 +7504,6 @@ function updateMedicalBleedingWoundBasedR2(unit, dt) {
           else if (inj.status === 'suspected' && vessel) intRiskMul *= 1.05; // 혈관 의심은 소폭
         }
       }
-      const ctmW = w.chestTraumaModel;
-      if (ctmW && (ctmW.hemothoraxRisk || 0) >= 0.45) intRiskMul *= 1.08;    // §7: 혈흉 — internal 약하게
       // SIDE-MED-PHYSIOLOGIC-INJURY-CONFIRM-1 §8: confirmed_physiologic internal 가중 (중복 clamp — major/organ이면 상한 상향)
       let intCap = 1.35, physIntMul = 1.0;
       const pep = w.physiologicEffectProfile;
@@ -7858,10 +7615,9 @@ function getOriginalBleedingPulseTerms(unit, w, bp, extMul) {
   return { pressureModifier, pulseModifier, vascularToneModifier, pulsePressureInfluence };
 }
 function installMedicalSlots(factory){
-const slots=factory({buildBodyTrajectoryContext,buildOrganInjuryModel,buildChestTraumaModel,buildConfirmedInjuryModel,buildVascularEvidence,buildFractureEvidence,reinforceVascularEvidenceWithPartDestruction,finalizeBleedingProfileWithEvidence,buildBleedingPulseModel,updateSystemicHypoxiaDamage,updateMedicalPerformanceMultipliers,updateMedicalBleedingWoundBased,updateMedicalBleeding,updateHemodynamics,updateVitalsFromHemodynamics,updatePainShockConsciousness,recalcMedicalSummary,syncLegacyCombatState,recomputeBodyPartFunctionRatio,aggregatePhysiologicEffectProfile,updateHemodynamicsR,updateHemodynamicsR2,updateMedicalBleedingWoundBasedR2,getOriginalBleedingPulseTerms});
+const slots=factory({buildBodyTrajectoryContext,buildOrganInjuryModel,buildConfirmedInjuryModel,buildVascularEvidence,buildFractureEvidence,reinforceVascularEvidenceWithPartDestruction,finalizeBleedingProfileWithEvidence,buildBleedingPulseModel,updateSystemicHypoxiaDamage,updateMedicalPerformanceMultipliers,updateMedicalBleedingWoundBased,updateMedicalBleeding,updateHemodynamics,updateVitalsFromHemodynamics,updatePainShockConsciousness,recalcMedicalSummary,syncLegacyCombatState,recomputeBodyPartFunctionRatio,aggregatePhysiologicEffectProfile,updateHemodynamicsR,updateHemodynamicsR2,updateMedicalBleedingWoundBasedR2,getOriginalBleedingPulseTerms});
 if(typeof slots.buildBodyTrajectoryContext==='function')buildBodyTrajectoryContext=slots.buildBodyTrajectoryContext;
 if(typeof slots.buildOrganInjuryModel==='function')buildOrganInjuryModel=slots.buildOrganInjuryModel;
-if(typeof slots.buildChestTraumaModel==='function')buildChestTraumaModel=slots.buildChestTraumaModel;
 if(typeof slots.buildConfirmedInjuryModel==='function')buildConfirmedInjuryModel=slots.buildConfirmedInjuryModel;
 if(typeof slots.buildVascularEvidence==='function')buildVascularEvidence=slots.buildVascularEvidence;
 if(typeof slots.buildFractureEvidence==='function')buildFractureEvidence=slots.buildFractureEvidence;

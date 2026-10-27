@@ -1,5 +1,7 @@
 # MO2b — 기준 유량·내구도·움직임 확률
 
+> `d349025` 당시 기록이다. 혈관 상한·출혈 범위·폐 후속은 [MO3](mo3-unified-bleeding.md)가 대체한다. 아래 수치와 기존 골든은 보존한다.
+
 브랜치 `feature/medical-overhaul`, 기준 `efeda39`([MO2 기록](mo2-hemostasis.md)). [사용자 지시서](mo2b-instructions.md)를 반영한 의료 개편 중간 단계다. [검증·정책 대장](mo2b-ledger.json)과 [전체 수치](mo2b-numerical-results.json)를 함께 본다.
 
 ## 고정 기준 유량

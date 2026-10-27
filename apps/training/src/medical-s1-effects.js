@@ -8,7 +8,6 @@ export const MEDICAL_S1_PHYSIOLOGY_VALUES=Object.freeze({
   restingCardiacOutputMlMin:5250,aortaFlowReserve:1.7,
   aortaOpeningAreaFractionAtFullSeverity:1,
   aortaInternalSeedFraction:.5,
-  lung:{breathingDrain:.10,oxygenDrain:.06,pneumothoraxBoost:.15,hemothoraxBoost:.15,internalBleedBoost:.10},
   solid:{internalBleedBoost:.16,shockBoost:.08},
   vessel:{majorVesselGain:1.2,shockBoost:.14,preArrestBoost:.10,internalBleedBoost:.28,externalBleedBoost:.24},
   hollow:{internalBleedBoost:.04,shockBoost:.04},
@@ -16,7 +15,7 @@ export const MEDICAL_S1_PHYSIOLOGY_VALUES=Object.freeze({
   cardiac:{rhythmRiskBoost:.40,perfusingRhythmPenalty:.12},
 });
 const K=MEDICAL_S1_PHYSIOLOGY_VALUES,clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
-const aggregateCaps={breathingDrain:.25,oxygenDrain:.18,pneumothoraxBoost:.40,hemothoraxBoost:.40,internalBleedBoost:.50,externalBleedBoost:.40,majorVesselMul:2.6,shockBoost:.30,preArrestBoost:.30,rhythmRiskBoost:.60,perfusingRhythmPenalty:.30};
+const aggregateCaps={breathingDrain:.25,oxygenDrain:.18,internalBleedBoost:.50,externalBleedBoost:.40,majorVesselMul:2.6,shockBoost:.30,preArrestBoost:.30,rhythmRiskBoost:.60,perfusingRhythmPenalty:.30};
 const organAlias=o=>o==='heart_hook_only'?'heart':o;
 const vesselOrgan=o=>/aorta|thoracic/.test(o.identifier||'')?'thoracic_vessel':/femoral/.test(o.identifier||'')?'femoral_vessel':/carotid|jugular/.test(o.identifier||'')?'carotid_jugular':/iliac/.test(o.identifier||'')?'iliac_vessel':/axillary|brachial|subclavian/.test(o.identifier||'')?'axillary_vessel':'abdominal_vessel';
 function effectFor(o){
@@ -25,7 +24,7 @@ function effectFor(o){
     const internal=/aorta|thoracic|iliac|abdominal|mesenteric/.test(o.identifier||'');
     return {type:'major_vessel_injury',organ:vesselOrgan(o),effects:{majorVesselMul:1+K.vessel.majorVesselGain*s,shockBoost:K.vessel.shockBoost*s,preArrestBoost:K.vessel.preArrestBoost*s,[internal?'internalBleedBoost':'externalBleedBoost']:(internal?K.vessel.internalBleedBoost:K.vessel.externalBleedBoost)*s}};
   }
-  if(organ==='lung')return {type:'lung_injury',organ,effects:scale(K.lung)};
+  if(organ==='lung')return {type:'lung_injury',organ,effects:{}};
   if(['liver','spleen','kidney'].includes(organ))return {type:'solid_organ_injury',organ,effects:scale(K.solid)};
   if(['bowel','stomach','bladder'].includes(organ))return {type:'hollow_viscus_injury',organ,effects:scale(K.hollow)};
   if(organ==='airway')return {type:'airway_injury',organ,effects:scale(K.airway)};
@@ -52,10 +51,6 @@ export function applyWoundChannelEffectsS1(w,bt,{vesselContusionsOnly=false}={})
   w.physiologicTags=[...new Set(injuries.map(i=>'S1-'+i.type))];w.physiologicEffectProfile=profile;
   w.physiologicInjuryModel={physiologicInjuries:injuries,physiologicSeverity:w.physiologicSeverity,physiologicTags:w.physiologicTags,physiologicEffectProfile:profile,source:'S1 cavity volume adapter'};
   w.organInjuryModel={...(w.organInjuryModel||{}),injuries:organs.filter(o=>!vesselContusionsOnly||o.kind!=='vessel'||o.direct).map(o=>({organ:o.kind==='vessel'?vesselOrgan(o):o.organ,geometryId:o.id,severity:o.severity,injuryScore:100*o.severity,status:o.direct?'confirmed_limited':'modeled_cavity_damage',confirmed:!!o.direct,confirmedBy:o.direct?'actual_internal_intersection':'S1 modeled cavity overlap',monitorOnly:false,bleedRisk:o.severity>.7?'high':o.severity>.25?'moderate':'low',functionLoss:o.severity,priorityScore:100*o.severity,sourceRegion:w.partKey})),source:'S1 effective organ damage volume'};
-  // A lung reached only by the cavity needs a real respiratory response too.
-  // Its modeled overlap remains distinct from the unchanged direct-hit list.
-  const lungs=organs.filter(o=>o.organ==='lung'),lungSeverity=Math.max(0,...lungs.map(o=>o.severity));
-  if(lungs.length){const c=w.chestTraumaModel||{};w.chestTraumaModel={...c,lungInjuryCandidate:true,lungInjuryStatus:lungSeverity>.7?'likely':'suspected',pneumothoraxRisk:clamp(lungSeverity*.45),hemothoraxRisk:clamp(lungSeverity*.50),s1VolumeSeverity:lungSeverity,s1CavityOnly:!lungs.some(o=>o.direct)};}
   w.s1CavityInjuries=injuries.filter(i=>!i.direct);
   return true;
 }

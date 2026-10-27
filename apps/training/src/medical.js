@@ -3,12 +3,12 @@ import{referenceFlow}from'./medical-reference-flow.js';
 import{stepCareMovement}from'./medical-hemostasis.js';
 import{stepDrugsAndBlood,createDrugSlots,careSafetyAfter}from'./medical-care-drugs.js';
 import{setCareTime,systemicCarePain}from'./medical-care-systemic.js';
-import{chestCareComplications,registerChestCareBridge}from'./medical-care-chest.js';
-import{registerLimbOpening,limbRoutingState,setLimbRoutingTime}from'./medical-routing.js';
+import{bleedingWounds}from'./medical-bleeding-wounds.js';
+import{recordWorkOpening}from'./medical-work.js';
 import{careClinicalBefore,careClinicalAfter,activeTreatment}from'./medical-care-state.js';
 import{clearMedicalSurfaces,recordMedicalSurface,medicalSurfaces}from'./medical-surface.js';
 import {MedicalActivity} from './medical-d2.js';
-import {registerBleedingWoundB1} from './medical-b1.js';
+import {registerBleedingWoundB1,finalizeBleedingSources} from './medical-b1.js';
 import {advanceStructuralHitS2} from './medical-s2-effects.js';
 import {installMedicalS3Adapter} from './medical-s3-effects.js';
 import { createMedicalV2Slots, ensureMedicalV2 } from './medical-v2.js';
@@ -27,13 +27,12 @@ export function medicalObservation(actor,time){
     lifeStatus:m.lifeStatus,combatState:actor.combatState,combatEffectiveness:m.combatEffectiveness,mobility:m.mobility,
     isDowned:m.isDowned,isUnconscious:m.isUnconscious,isDead:m.isDead,downReason:m.downReason,deathReason:m.deathReason,
     partPain:Object.fromEntries(Object.entries(m.bodyParts).map(([k,p])=>[k,p.pain])),
-    ...(m.medicalModel==='v2'?{medicalModel:'v2',bleedingModel:structuredClone(m.bleedingModel),bleedSources:structuredClone(m.bleedSources),bloodPoolsMl:structuredClone(m.bloodPoolsMl),chestCompartments:structuredClone(m.chestCompartments),vesselContusions:structuredClone(m.vesselContusions),structuralTrauma:structuredClone(m.structuralTrauma||null),concussionRisk:m.concussionRisk||0,partStructuralState:Object.fromEntries(Object.entries(m.bodyParts).map(([k,p])=>[k,{state:p.structuralState||'intact',functionDisabled:!!p.functionDisabled,irreversibleWithoutTreatment:!!p.irreversibleWithoutTreatment}])),brainInjury:structuredClone(m.brainInjury||null),heartInjury:structuredClone(m.heartInjury||null),weightBearingFracture:structuredClone(m.weightBearingFracture||null),spinalCordInjury:structuredClone(m.spinalCordInjury||null),canShoot:m.canShoot,canWalk:m.canWalk,canCrawl:m.canCrawl,partFunction:Object.fromEntries(Object.entries(m.bodyParts).map(([k,p])=>[k,p.functionRatio])),cardiacArrest:m.cardiacArrest,arrestReason:m.arrestReason,arrestElapsedS:m.arrestElapsedS,arrestDetails:m.arrestDetails,downReasonDetails:m.downReasonDetails,ischemicLoad:Object.fromEntries(Object.entries(m.bodyParts).map(([k,p])=>[k,p.ischemicLoad])),acutePain:m.acutePain,painFloor:m.painFloor,abdomenPainFloor:m.abdomenPainFloor||0,perceivedPain:m.stressResponse.perceivedPain,consciousnessTarget:m.consciousnessTarget,shockTarget:m.shockTarget,hemodynamics:structuredClone(m.hemodynamics),adrenaline:m.stressResponse.adrenaline,painMasking:m.stressResponse.painMasking}:{}),
+    ...(m.medicalModel==='v2'?{medicalModel:'v2',bleedingModel:structuredClone(m.bleedingModel),bleedSources:structuredClone(m.bleedSources),bleedRateMlPerS:m.bleedRateMlPerS,bloodLossMl:m.bloodLossMl||0,linkedBleedingWounds:structuredClone(m.bleedingWounds||[]),vesselContusions:structuredClone(m.vesselContusions),structuralTrauma:structuredClone(m.structuralTrauma||null),concussionRisk:m.concussionRisk||0,partStructuralState:Object.fromEntries(Object.entries(m.bodyParts).map(([k,p])=>[k,{state:p.structuralState||'intact',functionDisabled:!!p.functionDisabled,irreversibleWithoutTreatment:!!p.irreversibleWithoutTreatment}])),brainInjury:structuredClone(m.brainInjury||null),heartInjury:structuredClone(m.heartInjury||null),weightBearingFracture:structuredClone(m.weightBearingFracture||null),spinalCordInjury:structuredClone(m.spinalCordInjury||null),canShoot:m.canShoot,canWalk:m.canWalk,canCrawl:m.canCrawl,partFunction:Object.fromEntries(Object.entries(m.bodyParts).map(([k,p])=>[k,p.functionRatio])),cardiacArrest:m.cardiacArrest,arrestReason:m.arrestReason,arrestElapsedS:m.arrestElapsedS,arrestDetails:m.arrestDetails,downReasonDetails:m.downReasonDetails,ischemicLoad:Object.fromEntries(Object.entries(m.bodyParts).map(([k,p])=>[k,p.ischemicLoad])),acutePain:m.acutePain,painFloor:m.painFloor,abdomenPainFloor:m.abdomenPainFloor||0,perceivedPain:m.stressResponse.perceivedPain,consciousnessTarget:m.consciousnessTarget,shockTarget:m.shockTarget,hemodynamics:structuredClone(m.hemodynamics),adrenaline:m.stressResponse.adrenaline,painMasking:m.stressResponse.painMasking}:{}),
     partDestruction:Object.fromEntries(Object.entries(m.partDestruction).map(([k,p])=>[k,p.state]))};
 }
 export class TrainingMedical {
   constructor({medicalModel='v2',targetId='H01',team='enemy'}={}){this.targetId=targetId;this.team=team;this.medicalModel=medicalModel;this.reset();}
-  get referenceFlows(){return this.actor.medical.wounds.map(w=>({woundId:w.id,...referenceFlow(w)}));}
-  get limbRouting(){return limbRoutingState(this.actor.medical);}
+  get referenceFlows(){return bleedingWounds(this.actor.medical).map(w=>({woundId:w.id,...referenceFlow(w)}));}
   get surfaceRecords(){return medicalSurfaces(this);}
   setMedicalModel(model){if(!['legacy','v2'].includes(model))throw Error('Unknown medical model');if(model!==this.medicalModel){this.medicalModel=model;this.reset();}}
   reset(){
@@ -44,7 +43,7 @@ export class TrainingMedical {
     this.actor=this.legacy.makeUnit({team:this.team,name:this.targetId,x:0,y:0,loadout:{},bodyArmorId:'none',helmetId:'none',frontPlateId:'none',backPlateId:'none'});
     if(this.medicalModel==='v2')ensureMedicalV2(this.actor);
     this.legacy.ensureMedicalExtensions(this.actor);this.legacy.recalcMedicalSummary(this.actor);this.legacy.syncLegacyCombatState(this.actor);
-    this.activity=new MedicalActivity(this.actor.medical);registerChestCareBridge(this);
+    this.activity=new MedicalActivity(this.actor.medical);
   }
   rearProjection(){
     const r=this.current?.rearArmor;
@@ -111,7 +110,7 @@ export class TrainingMedical {
         medicalDepth:wound?.bodyTrajectory?.woundDepthClass||null,bleedingClass:wound?.bleedingClass||null,bleedGrade:wound?.bleedingClass||null,
         skippedAfterDeath:!wound&&this.actor.isDead};
       records.push(record);this.events.push(record);
-      if(wound){const surface=recordMedicalSurface(this,wound,{body,part,physics,event});registerLimbOpening(this.actor.medical,wound,surface);}
+      if(wound){const surface=recordMedicalSurface(this,wound,{body,part,physics,event});recordWorkOpening(this.actor.medical,wound,surface);}
       }
     }
     deflectionsBefore(Infinity);
@@ -133,7 +132,7 @@ export class TrainingMedical {
         this.events.push(record);records.push(record);
       }
     }
-    if(this.medicalModel==='v2')captureReferenceFlows(this.actor);
+    if(this.medicalModel==='v2'){finalizeBleedingSources(this.actor.medical);this.legacy.syncLegacyCombatState(this.actor);captureReferenceFlows(this.actor);}
     this.current=null;
     if(this.events.length>256)this.events.splice(0,this.events.length-256);
     this.activity.recordWounds();return structuredClone(records);
@@ -162,13 +161,13 @@ export class TrainingMedical {
       bluntCouplingProxy:transfer,bluntSource:'original applyOutcome(BLOCK), deflected; projectile energy-loss coupling proxy',
       damageEvent:structuredClone(this.actor.medical._lastDamageEvent||null)};
   }
-  tick(dt,time,active=true){if(!active)return;if(this.medicalModel==='v2')captureReferenceFlows(this.actor);setCareTime(this.actor.medical,time);setLimbRoutingTime(this.actor.medical,time);this.time=time;this.legacy.setTime(time);this.activity.step(dt,time);stepCareMovement(this,dt);
+  tick(dt,time,active=true){if(!active)return;if(this.medicalModel==='v2')captureReferenceFlows(this.actor);setCareTime(this.actor.medical,time);this.time=time;this.legacy.setTime(time);this.activity.step(dt,time);stepCareMovement(this,dt);
     if(!this.actor.isDead&&(this.actor.alive||this.actor.isDowned)){
       stepDrugsAndBlood(this,dt);systemicCarePain(this.actor.medical);careClinicalBefore(this.actor.medical);
       this.legacy.tickUnitMedicalBefore(this.actor,dt);
       this.legacy.tickMedical(this.actor,dt);
       this.legacy.tickUnitMedicalAfter(this.actor,dt);
-      chestCareComplications(this.actor.medical);careClinicalAfter(this.actor.medical);careSafetyAfter(this);
+      careClinicalAfter(this.actor.medical);careSafetyAfter(this);
     }
     if(this.events.length&&Math.floor(time)>Math.floor(this.timeline.at(-1)?.time??-1)){
       this.timeline.push(medicalObservation(this.actor,time));

@@ -11,8 +11,8 @@ test('S1 organ volume severity changes both retained injury severity and effecti
  const low=wound([organ('left-lung','lung',.1)]),high=wound([organ('left-lung','lung',.8)]);
  for(const w of [low,high])applyWoundChannelEffectsS1(w,w.bodyTrajectory);
  assert.equal(low.physiologicInjuries[0].type,'lung_injury');assert.equal(low.physiologicInjuries[0].severity,.1);
- assert.ok(low.physiologicEffectProfile.breathingDrain<high.physiologicEffectProfile.breathingDrain);
- assert.ok(low.physiologicEffectProfile.oxygenDrain<high.physiologicEffectProfile.oxygenDrain);
+ assert.equal(low.physiologicEffectProfile.breathingDrain,0);assert.equal(high.physiologicEffectProfile.breathingDrain,0);
+ assert.equal(low.physiologicEffectProfile.oxygenDrain,0);assert.equal(high.physiologicEffectProfile.oxygenDrain,0);
  assert.deepEqual(low.bodyTrajectory.internalGeometry.internalHits,[]);
  assert.equal(low.organInjuryModel.injuries[0].severity,.1);
  const snapshot=structuredClone(low);applyWoundChannelEffectsS1(low,low.bodyTrajectory);assert.deepEqual(low,snapshot);
@@ -21,7 +21,7 @@ test('TC-only organ and vessel damage has separate evidence and enters existing 
  const w=wound([organ('right-lung','lung',.4,false),organ('thoracic-aorta','vessel',.3,false,{kind:'vessel',identifier:'aorta_vessel_injury',vesselKind:'artery'})]);
  const r={buildVascularEvidence:()=>({level:'none',vesselClass:'none',vesselKinds:[]})},original={buildVascularEvidence:view=>({level:'confirmed',vesselClass:'major_named',confirmedVessels:view.confirmedInjuries})};
  applyWoundChannelEffectsS1(w,w.bodyTrajectory);const evidence=createMedicalS1Slots(r,original).buildVascularEvidence(w);
- assert.equal(w.chestTraumaModel.s1CavityOnly,true);assert.ok(w.physiologicEffectProfile.internalBleedBoost>0);
+ assert.equal(w.chestTraumaModel,undefined);assert.ok(w.physiologicEffectProfile.internalBleedBoost>0);
  assert.deepEqual(evidence.cavityDamage,['aorta_vessel_injury']);assert.deepEqual(evidence.vesselKinds,['artery']);
  assert.equal(w.s1CavityInjuries.length,2);assert.ok(w.s1CavityInjuries.every(i=>!i.confirmed));assert.deepEqual(w.bodyTrajectory.internalGeometry.internalHits,[]);
 });
@@ -63,7 +63,7 @@ test('B1 direct aorta and femoral sources remain fatal untreated with output cap
   assert.ok(death!==null&&death<=900,`${name} ${ammoId} death ${death}`);assert.ok(Math.abs(death-arrest-300)<.02);
   // B1 replaces S1 bleeding. The original ~30s clinical target is still
   // scored independently, including misses, in the240case B1 report.
-  assert.ok(uc!==null);assert.equal(m.bleedingModel.ruleId,'bleed-sources-b1c');
+  assert.ok(uc!==null);assert.equal(m.bleedingModel.ruleId,'bleed-sources-mo3');
   assert.ok(m.bleedingModel.totalFlowMlPerS<=m.bleedingModel.cardiacOutputMlPerS+1e-8);
   assert.ok(m.bleedSources.some(s=>s.id==='vessel/'+(name==='aorta'?'thoracic-aorta':'left-femoral')));
   assert.deepEqual(c.enemy.medical.validate(),[]);

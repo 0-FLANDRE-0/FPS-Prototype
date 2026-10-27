@@ -1,0 +1,680 @@
+{
+  "method": "one-time isolated source archive of MO2b d349025, no historical-checkout dependency in committed tooling; same preserved GLB/dist;60Hz medical ticks",
+  "versions": [
+    {
+      "label": "MO2b d349025",
+      "cases": [
+        {
+          "name": "aorta",
+          "rows": [
+            {
+              "time": 0,
+              "blood": 5000,
+              "totalFlow": 87.5,
+              "breathing": 75,
+              "oxygen": 1
+            },
+            {
+              "time": 10,
+              "blood": 4616.913291486983,
+              "totalFlow": 36.494471722184024,
+              "breathing": 92.7421871124144,
+              "oxygen": 0.40927074023079246
+            },
+            {
+              "time": 20,
+              "blood": 4276.826887888018,
+              "totalFlow": 31.236891532281852,
+              "breathing": 87.85502849689524,
+              "oxygen": 0.3575147169798957
+            },
+            {
+              "time": 30,
+              "blood": 3979.6767621115273,
+              "totalFlow": 25.761656573645556,
+              "breathing": 84.41693594177265,
+              "oxygen": 0.31032801739972
+            },
+            {
+              "time": 40,
+              "blood": 3758.608210826988,
+              "totalFlow": 21.9611950260158,
+              "breathing": 82.23877372118523,
+              "oxygen": 0.28163908577894403
+            },
+            {
+              "time": 50,
+              "blood": 3544.535171950018,
+              "totalFlow": 17.840986271526813,
+              "breathing": 80.3605634435892,
+              "oxygen": 0.25080664293146593
+            },
+            {
+              "time": 60,
+              "blood": 3395.1831959572437,
+              "totalFlow": 12.751840496339524,
+              "breathing": 79.18426626189208,
+              "oxygen": 0.21790412317608368
+            }
+          ]
+        },
+        {
+          "name": "lung-only",
+          "rows": [
+            {
+              "time": 0,
+              "blood": 5000,
+              "totalFlow": 1.052562825437858,
+              "breathing": 75,
+              "oxygen": 1
+            },
+            {
+              "time": 10,
+              "blood": 4991.905579516708,
+              "totalFlow": 0.6228434010015983,
+              "breathing": 97.38276280452591,
+              "oxygen": 0.6752591494826896
+            },
+            {
+              "time": 20,
+              "blood": 4986.87999044187,
+              "totalFlow": 0.4025134651677864,
+              "breathing": 96.59597504760035,
+              "oxygen": 0.6613939539677952
+            },
+            {
+              "time": 30,
+              "blood": 4983.56666803773,
+              "totalFlow": 0.27094501061530696,
+              "breathing": 93.89068364339158,
+              "oxygen": 0.6253171060602738
+            },
+            {
+              "time": 40,
+              "blood": 4981.3040558817875,
+              "totalFlow": 0.18772691398701546,
+              "breathing": 91.18539223918282,
+              "oxygen": 0.596015147545422
+            },
+            {
+              "time": 50,
+              "blood": 4979.719308550464,
+              "totalFlow": 0.13293225926559138,
+              "breathing": 88.48010083497405,
+              "oxygen": 0.5785210233362627
+            },
+            {
+              "time": 60,
+              "blood": 4978.58872263887,
+              "totalFlow": 0.09552725665238414,
+              "breathing": 85.77480943076529,
+              "oxygen": 0.5609558832295741
+            }
+          ]
+        },
+        {
+          "name": "femoral-artery",
+          "rows": [
+            {
+              "time": 0,
+              "blood": 5000,
+              "totalFlow": 87.5,
+              "breathing": 100,
+              "oxygen": 1
+            },
+            {
+              "time": 10,
+              "blood": 4021.6326478531637,
+              "totalFlow": 89.80728813925022,
+              "breathing": 100,
+              "oxygen": 1.0632617886135929
+            },
+            {
+              "time": 20,
+              "blood": 3489.4365107093904,
+              "totalFlow": 30.887283107112513,
+              "breathing": 100,
+              "oxygen": 0.5919337060968419
+            },
+            {
+              "time": 30,
+              "blood": 3256.414128900409,
+              "totalFlow": 16.24162994560501,
+              "breathing": 100,
+              "oxygen": 0.4925207306738182
+            },
+            {
+              "time": 40,
+              "blood": 3152.8013335219357,
+              "totalFlow": 9.73984094532746,
+              "breathing": 100,
+              "oxygen": 0.4516574863864631
+            },
+            {
+              "time": 50,
+              "blood": 3055.0669664727097,
+              "totalFlow": 9.806659562821423,
+              "breathing": 100,
+              "oxygen": 0.4553577881307066
+            },
+            {
+              "time": 60,
+              "blood": 2956.667286444169,
+              "totalFlow": 9.87339922745267,
+              "breathing": 100,
+              "oxygen": 0.45903946207438406
+            }
+          ]
+        },
+        {
+          "name": "liver-central",
+          "rows": [
+            {
+              "time": 0,
+              "blood": 5000,
+              "totalFlow": 24.50929140995013,
+              "breathing": 100,
+              "oxygen": 1
+            },
+            {
+              "time": 10,
+              "blood": 4764.501005287259,
+              "totalFlow": 19.749097788245486,
+              "breathing": 100,
+              "oxygen": 1.0590943187103843
+            },
+            {
+              "time": 20,
+              "blood": 4582.620058479359,
+              "totalFlow": 17.049924557164125,
+              "breathing": 100,
+              "oxygen": 1.0614062520880936
+            },
+            {
+              "time": 30,
+              "blood": 4418.692553757282,
+              "totalFlow": 15.911023669214444,
+              "breathing": 100,
+              "oxygen": 1.0692777881594568
+            },
+            {
+              "time": 40,
+              "blood": 4262.194340781906,
+              "totalFlow": 15.458975392514988,
+              "breathing": 100,
+              "oxygen": 1.0786962484337073
+            },
+            {
+              "time": 50,
+              "blood": 4110.05124191332,
+              "totalFlow": 14.945972008537476,
+              "breathing": 100,
+              "oxygen": 1.0693467782307158
+            },
+            {
+              "time": 60,
+              "blood": 3963.3218203559636,
+              "totalFlow": 14.140703160630595,
+              "breathing": 100,
+              "oxygen": 1.0383218067098023
+            }
+          ]
+        },
+        {
+          "name": "liver-posterior",
+          "rows": [
+            {
+              "time": 0,
+              "blood": 5000,
+              "totalFlow": 70.52825189785372,
+              "breathing": 100,
+              "oxygen": 1
+            },
+            {
+              "time": 10,
+              "blood": 4281.942910014026,
+              "totalFlow": 70.96419807473457,
+              "breathing": 100,
+              "oxygen": 1.0892440025115118
+            },
+            {
+              "time": 20,
+              "blood": 3635.212240056182,
+              "totalFlow": 43.66225542125615,
+              "breathing": 100,
+              "oxygen": 0.6827185554278643
+            },
+            {
+              "time": 30,
+              "blood": 3332.6958073884857,
+              "totalFlow": 20.733984089630024,
+              "breathing": 100,
+              "oxygen": 0.5252216850489736
+            },
+            {
+              "time": 40,
+              "blood": 3205.6126125931037,
+              "totalFlow": 9.792183384128272,
+              "breathing": 100,
+              "oxygen": 0.45196362168100535
+            },
+            {
+              "time": 50,
+              "blood": 3107.4571438322937,
+              "totalFlow": 9.84742591533371,
+              "breathing": 100,
+              "oxygen": 0.4555628181771997
+            },
+            {
+              "time": 60,
+              "blood": 3008.6511974018367,
+              "totalFlow": 9.914161984848969,
+              "breathing": 100,
+              "oxygen": 0.45924922581935546
+            }
+          ]
+        }
+      ],
+      "sprint": [
+        {
+          "name": "lung-only",
+          "seconds": 11.216666666666667,
+          "reason": "stamina-empty",
+          "activity": {
+            "ruleId": "medical-activity-d2-v55",
+            "time": 11.216666666666667,
+            "leg": 0,
+            "legMax": 0.37532440266173817,
+            "arm": 0.37532440266173817,
+            "armMax": 0.37532440266173817,
+            "sprintLocked": true,
+            "intensity": 1,
+            "hrExtra": 44.05591068334924,
+            "hrApplied": 44.05591068334924,
+            "exercise": {
+              "baseCO": 0.6220000149670226,
+              "baseSV": 0.6091341644406244,
+              "preload": 0.999079928259062,
+              "exercisePreload": 1.2479319529666308,
+              "exerciseContractility": 0.8040805259469962,
+              "preloadMul": 1.2490811972783837,
+              "contractilityMul": 1.3188239325163311,
+              "capacity": 0.9963247891135347,
+              "oxygenSupply": 1.0528569710276727,
+              "oxygenDemand": 2.8,
+              "supplyDemandRatio": 0.3760203467955974,
+              "intensity": 1
+            },
+            "armLoad": {
+              "weaponMassKg": 3.1,
+              "attachmentMassKg": 0,
+              "leverM": 0.31,
+              "torqueNm": 9.42741,
+              "mvc": 0.23568525,
+              "enduranceS": 209.7154493662469
+            },
+            "concussion": {
+              "dose": 0,
+              "severity": 0,
+              "focusDelay": 0,
+              "inputs": []
+            },
+            "concussionSeverity": 0,
+            "concussionBlur": 0,
+            "concussionBloom": 0,
+            "concussionTinnitusGain": 0,
+            "concussionHandlingRate": 1,
+            "concussionHearingDb": 0,
+            "armFatigue": 0,
+            "legFatigue": 1,
+            "exerciseIntensity": 1,
+            "sprintAllowed": false
+          },
+          "blood": 4990.799282590619,
+          "breathing": 97.50342324330302,
+          "oxygen": 0.3760203467955974
+        }
+      ]
+    },
+    {
+      "label": "MO3",
+      "cases": [
+        {
+          "name": "aorta",
+          "rows": [
+            {
+              "time": 0,
+              "blood": 5000,
+              "totalFlow": 87.49999999999999,
+              "breathing": 100,
+              "oxygen": 1
+            },
+            {
+              "time": 10,
+              "blood": 4616.958150119806,
+              "totalFlow": 36.48656804031487,
+              "breathing": 100,
+              "oxygen": 0.44128346014050274
+            },
+            {
+              "time": 20,
+              "blood": 4266.678000556594,
+              "totalFlow": 33.45616400229061,
+              "breathing": 100,
+              "oxygen": 0.4243262791157617
+            },
+            {
+              "time": 30,
+              "blood": 3948.95638809253,
+              "totalFlow": 28.67735698362426,
+              "breathing": 100,
+              "oxygen": 0.39123362468644457
+            },
+            {
+              "time": 40,
+              "blood": 3739.87859921725,
+              "totalFlow": 17.66990373259673,
+              "breathing": 100,
+              "oxygen": 0.30927529238657625
+            },
+            {
+              "time": 50,
+              "blood": 3572.2669966739086,
+              "totalFlow": 17.871844749309364,
+              "breathing": 100,
+              "oxygen": 0.31358072825277744
+            },
+            {
+              "time": 60,
+              "blood": 3399.0945956313494,
+              "totalFlow": 14.319297635764778,
+              "breathing": 100,
+              "oxygen": 0.28721786306471475
+            }
+          ]
+        },
+        {
+          "name": "lung-only",
+          "rows": [
+            {
+              "time": 0,
+              "blood": 5000,
+              "totalFlow": 1.052562825437858,
+              "breathing": 100,
+              "oxygen": 1
+            },
+            {
+              "time": 10,
+              "blood": 4991.761584833703,
+              "totalFlow": 0.6315074250256807,
+              "breathing": 100,
+              "oxygen": 0.7175056420502419
+            },
+            {
+              "time": 20,
+              "blood": 4986.649040649807,
+              "totalFlow": 0.41147378164593396,
+              "breathing": 100,
+              "oxygen": 0.7179400316630393
+            },
+            {
+              "time": 30,
+              "blood": 4983.241891164075,
+              "totalFlow": 0.2807442885196003,
+              "breathing": 100,
+              "oxygen": 0.7180099413514351
+            },
+            {
+              "time": 40,
+              "blood": 4980.877737109997,
+              "totalFlow": 0.19811713508107703,
+              "breathing": 100,
+              "oxygen": 0.718059439336609
+            },
+            {
+              "time": 50,
+              "blood": 4979.189770522371,
+              "totalFlow": 0.14307319903405777,
+              "breathing": 100,
+              "oxygen": 0.7180950229177657
+            },
+            {
+              "time": 60,
+              "blood": 4977.961312566309,
+              "totalFlow": 0.10490013425162764,
+              "breathing": 100,
+              "oxygen": 0.718121057467918
+            }
+          ]
+        },
+        {
+          "name": "femoral-artery",
+          "rows": [
+            {
+              "time": 0,
+              "blood": 5000,
+              "totalFlow": 28.9,
+              "breathing": 100,
+              "oxygen": 1
+            },
+            {
+              "time": 10,
+              "blood": 4712.364810776566,
+              "totalFlow": 28.63149259586977,
+              "breathing": 100,
+              "oxygen": 1.0520798964705942
+            },
+            {
+              "time": 20,
+              "blood": 4426.766903947265,
+              "totalFlow": 28.505001417225714,
+              "breathing": 100,
+              "oxygen": 1.0599801615823796
+            },
+            {
+              "time": 30,
+              "blood": 4142.039805330584,
+              "totalFlow": 28.44787026051147,
+              "breathing": 100,
+              "oxygen": 1.0714447804120042
+            },
+            {
+              "time": 40,
+              "blood": 3857.7113645585587,
+              "totalFlow": 28.420712158502585,
+              "breathing": 100,
+              "oxygen": 0.9287660276423196
+            },
+            {
+              "time": 50,
+              "blood": 3573.5759958784556,
+              "totalFlow": 28.408513174683335,
+              "breathing": 100,
+              "oxygen": 0.6406578309068064
+            },
+            {
+              "time": 60,
+              "blood": 3319.1437769089794,
+              "totalFlow": 18.913886979446453,
+              "breathing": 100,
+              "oxygen": 0.5136557769321706
+            }
+          ]
+        },
+        {
+          "name": "liver-central",
+          "rows": [
+            {
+              "time": 0,
+              "blood": 5000,
+              "totalFlow": 24.50929140995013,
+              "breathing": 100,
+              "oxygen": 1
+            },
+            {
+              "time": 10,
+              "blood": 4764.501005287259,
+              "totalFlow": 19.74909778824549,
+              "breathing": 100,
+              "oxygen": 1.0590943187103843
+            },
+            {
+              "time": 20,
+              "blood": 4582.620058479359,
+              "totalFlow": 17.049924557164122,
+              "breathing": 100,
+              "oxygen": 1.0614062520880936
+            },
+            {
+              "time": 30,
+              "blood": 4418.692553757282,
+              "totalFlow": 15.911023669214444,
+              "breathing": 100,
+              "oxygen": 1.0692777881594568
+            },
+            {
+              "time": 40,
+              "blood": 4262.194340781906,
+              "totalFlow": 15.45897539251499,
+              "breathing": 100,
+              "oxygen": 1.0786962484337073
+            },
+            {
+              "time": 50,
+              "blood": 4110.05124191332,
+              "totalFlow": 14.945972008537476,
+              "breathing": 100,
+              "oxygen": 1.0693467782307158
+            },
+            {
+              "time": 60,
+              "blood": 3963.3218203559636,
+              "totalFlow": 14.140703160630594,
+              "breathing": 100,
+              "oxygen": 1.0383218067098023
+            }
+          ]
+        },
+        {
+          "name": "liver-posterior",
+          "rows": [
+            {
+              "time": 0,
+              "blood": 5000,
+              "totalFlow": 70.52825189785372,
+              "breathing": 100,
+              "oxygen": 1
+            },
+            {
+              "time": 10,
+              "blood": 4281.942910014026,
+              "totalFlow": 70.96419807473455,
+              "breathing": 100,
+              "oxygen": 1.0892440025115118
+            },
+            {
+              "time": 20,
+              "blood": 3635.212240056182,
+              "totalFlow": 43.66225542125615,
+              "breathing": 100,
+              "oxygen": 0.6827185554278643
+            },
+            {
+              "time": 30,
+              "blood": 3332.6958073884857,
+              "totalFlow": 20.733984089630024,
+              "breathing": 100,
+              "oxygen": 0.5252216850489736
+            },
+            {
+              "time": 40,
+              "blood": 3205.6126125931037,
+              "totalFlow": 9.79218338412827,
+              "breathing": 100,
+              "oxygen": 0.45196362168100535
+            },
+            {
+              "time": 50,
+              "blood": 3107.4571438322937,
+              "totalFlow": 9.84742591533371,
+              "breathing": 100,
+              "oxygen": 0.4555628181771997
+            },
+            {
+              "time": 60,
+              "blood": 3008.6511974018367,
+              "totalFlow": 9.914161984848969,
+              "breathing": 100,
+              "oxygen": 0.45924922581935546
+            }
+          ]
+        }
+      ],
+      "sprint": [
+        {
+          "name": "lung-only",
+          "seconds": 11.633333333333333,
+          "reason": "stamina-empty",
+          "activity": {
+            "ruleId": "medical-activity-d2-v55",
+            "time": 11.633333333333333,
+            "leg": 0,
+            "legMax": 0.37646347515480394,
+            "lungs": {
+              "left": 0.08854134487431364,
+              "right": 0,
+              "factor": 0.9778646637814216
+            },
+            "arm": 0.38498525317298243,
+            "armMax": 0.38498525317298243,
+            "sprintLocked": true,
+            "intensity": 1,
+            "hrExtra": 45.221627860784174,
+            "hrApplied": 45.221627860784174,
+            "exercise": {
+              "baseCO": 0.6213029404056202,
+              "baseSV": 0.6090025919211943,
+              "preload": 0.9990539247200375,
+              "exercisePreload": 1.2478735661501923,
+              "exerciseContractility": 0.8039075365611439,
+              "preloadMul": 1.249055266461098,
+              "contractilityMul": 1.3187907410702056,
+              "capacity": 0.9962210658443926,
+              "oxygenSupply": 1.08,
+              "oxygenDemand": 2.8,
+              "supplyDemandRatio": 0.3857142857142858,
+              "intensity": 1
+            },
+            "armLoad": {
+              "weaponMassKg": 3.1,
+              "attachmentMassKg": 0,
+              "leverM": 0.31,
+              "torqueNm": 9.42741,
+              "mvc": 0.23568525,
+              "enduranceS": 209.7154493662469
+            },
+            "concussion": {
+              "dose": 0,
+              "severity": 0,
+              "focusDelay": 0,
+              "inputs": []
+            },
+            "concussionSeverity": 0,
+            "concussionBlur": 0,
+            "concussionBloom": 0,
+            "concussionTinnitusGain": 0,
+            "concussionHandlingRate": 1,
+            "concussionHearingDb": 0,
+            "armFatigue": 0,
+            "legFatigue": 1,
+            "exerciseIntensity": 1,
+            "sprintAllowed": false
+          },
+          "blood": 4990.539247200375,
+          "breathing": 100,
+          "oxygen": 0.3857142857142858
+        }
+      ]
+    }
+  ]
+}

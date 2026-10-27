@@ -1,9 +1,8 @@
 import{MO2,productRule}from'./medical-mo2-policy.js';
 import{tourniquetPenalties}from'./medical-tourniquet.js';
-export const CARE=MO2,carePlans=new WeakMap(),oozeSplits=new WeakMap();
+export const CARE=MO2,carePlans=new WeakMap();
 const clocks=new WeakMap(),painOverlays=new WeakMap();
 export const setCareTime=(m,time)=>clocks.set(m,time),careTime=m=>clocks.get(m)??0;
-export function rememberOozeSplit(m,s,external,total){if(!oozeSplits.has(m))oozeSplits.set(m,new Map());const rows=oozeSplits.get(m),r=rows.get(s.id)||{externalMl:0,externalFlowMlPerS:0};r.externalFraction=total>0?Math.max(0,Math.min(1,external/total)):0;rows.set(s.id,r);}
 export const treatments=m=>(m.appliedTreatments||[]).filter(t=>t.status!=='removed');
 export const activeTreatment=m=>treatments(m).find(t=>t.status==='active')||null;
 export function careTiming(m,kind){

@@ -1,0 +1,53 @@
+[
+  {
+    "file": "training-m2-v58.test.mjs",
+    "removed": [
+      "M2 shared vascular lesions partition once, unverified openings retain legacy routing",
+      "M2 fullness reduces inward fraction and enforces open-compartment cap with conserved loss; torso unchanged",
+      "M2 route splits actual flow85/15 versus40/60, zero dt never adds blood, does not touch source flow or clinical summaries"
+    ]
+  },
+  {
+    "file": "training-m4b-v61.test.mjs",
+    "removed": [
+      "M4b no seal preserves original progress arithmetic; vented seal relaxes rather than snaps"
+    ]
+  },
+  {
+    "file": "training-mo2-temporary.test.mjs",
+    "removed": [
+      "M4 bilateral chest model keeps one real wound and drains only the selected side",
+      "MO2 temporary needle retains two uses,8s fixed and selected-side deterministic effect with no new complication"
+    ]
+  },
+  {
+    "file": "training-medical-b1.test.mjs",
+    "removed": [
+      "B1 pelvic iliac bleeding is retroperitoneal and chest-wall ooze follows the anatomical side of its bind point",
+      "B1 hemothorax accumulation limits only corresponding lung and remains separate from normalized air/open wall state"
+    ]
+  },
+  {
+    "file": "training-mo2.test.mjs",
+    "removed": [
+      "MO2 limb CAT never controls cavity sources attached to the same cross-part wound",
+      "MO2 gauze refuses head/cavity-only scope; injector and foam cover all source ranges",
+      "MO2 bandage controls external component only, never protected limb internal blood"
+    ]
+  },
+  {
+    "file": "training-mo2b.test.mjs",
+    "removed": [
+      "MO2b a new reference retains verified opening and limb-compartment state at birth",
+      "MO2b reference flow components distinguish a cavity source from verified skin and limb openings"
+    ]
+  },
+  {
+    "file": "training-medical-b1b.test.mjs",
+    "removed": []
+  },
+  {
+    "file": "training-medical-s1.test.mjs",
+    "removed": []
+  }
+]

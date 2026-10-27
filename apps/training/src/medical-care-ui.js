@@ -1,3 +1,4 @@
+import{bleedingWound}from'./medical-bleeding-wounds.js';
 import{MO2,GAUZE_KINDS,productRule}from'./medical-mo2-policy.js';
 import{M4B_KINDS}from'./medical-care-m4b-policy.js';
 import{projectSkinPoint}from'./medical-view.js';
@@ -5,7 +6,7 @@ import{woundFlow,bandageActive,gauzeComplete}from'./medical-hemostasis.js';
 import{BODY_LABELS}from'./body-silhouette.js';
 import{MEDICAL_SUPPLIES}from'./medical-supplies.js';
 import{SOLDIER_BONES}from'./soldier-rig.js';
-const $=id=>document.getElementById(id),ns='http://www.w3.org/2000/svg',labels={active:'처치 중',completed:'완료',interrupted:'취소됨'},names={cat:'지혈대',bandage:'붕대',gauze:'지혈거즈',injector:'지혈 주입기',foam:'지혈 폼',unwrap:'붕대 풀기','cat-remove':'지혈대 제거',seal:'흉부 씰',needle:'바늘 감압',txa:'TXA',pill:'약 팩',otfc:'OTFC',ketamine:'케타민',blood:'수혈'};
+const $=id=>document.getElementById(id),ns='http://www.w3.org/2000/svg',labels={active:'처치 중',completed:'완료',interrupted:'취소됨'},names={cat:'지혈대',bandage:'붕대',gauze:'지혈거즈',injector:'지혈 주입기',foam:'지혈 폼',unwrap:'붕대 풀기','cat-remove':'지혈대 제거',txa:'TXA',pill:'약 팩',otfc:'OTFC',ketamine:'케타민',blood:'수혈'};
 function el(tag,text,cls){const n=document.createElement(tag);if(text)n.textContent=text;if(cls)n.className=cls;return n;}
 function btn(text,run){const b=el('button',text);b.type='button';b.addEventListener('click',run);return b;}
 export class MedicalCareUI{
@@ -13,7 +14,7 @@ export class MedicalCareUI{
  selected(){const id=this.bag.selectedId;return this.bag.inventory.items.get(id)?.kind==='medicalSupply'?id:null;}
  valid(id,target){try{return this.care.preview(id,target).allowed;}catch{return false;}}
  destination(element){const n=element.closest('[data-marker-id],[data-select-wound],.wound-row');if(n)return{kind:'care',target:n,careTarget:{woundId:n.dataset.woundId||n.dataset.selectWound||n.dataset.markerId?.split(':').slice(0,-1).join(':'),...(n.dataset.markerId?{hole:n.dataset.markerId.endsWith(':exit')?'exit':'entry'}:{})}};const p=element.closest('[data-medical-part],[data-select-part]');return p?{kind:'care',target:p,careTarget:{partKey:p.dataset.medicalPart||p.dataset.selectPart}}:null;}
- choose(itemId,target){const p=this.care.preview(itemId,target);if(!p.allowed)return this.care.fail(p.reason);if(p.needsHole||p.needsSide||p.needsNeedlePosition){this.pending={itemId,options:p,target:{...target,partKey:p.partKey,side:p.side||target.side}};this.ui.dirty=true;this.ui.update(true);return false;}return this.apply(itemId,target);}
+ choose(itemId,target){const p=this.care.preview(itemId,target);if(!p.allowed)return this.care.fail(p.reason);return this.apply(itemId,target);}
  apply(id,target){const ok=this.care.request(id,target);if(ok){this.pending=null;this.bag.selectedId=null;this.bag.refresh();}this.ui.dirty=true;this.ui.update(true);return ok;}
  click(target){const id=this.selected();if(!id)return false;this.choose(id,target);return true;}
  action(fn){fn();this.bag.refresh();this.ui.dirty=true;this.ui.update(true);}
@@ -22,13 +23,12 @@ export class MedicalCareUI{
   if(id){const rule=productRule(item.definitionId);nodes.push(el('p',`${MEDICAL_SUPPLIES[item.definitionId].shortName} · ${rule.seconds}초 · ${item.resourceKind==='durability'?'내구도':'남은 횟수'} ${Number(item.remaining.toFixed(1))}/${item.maximumUses}`,'care-selection'));nodes.push(el('small',item.definitionId==='cat'?'팔·다리 부위를 누르세요.':'상처 하나를 누르세요.'));
    if(['txa',...M4B_KINDS].includes(item.definitionId))nodes.push(btn('나에게 '+names[item.definitionId]+' 사용',()=>this.choose(id,{partKey:'abdomen'})));
   }
-  if(this.pending){const p=this.pending;if(!this.bag.inventory.items.has(p.itemId))this.pending=null;else{const box=el('div',null,'care-position-picker');if(p.options.needsHole){box.append(el('strong','피부 구멍 선택'));for(const h of p.options.holes)box.append(btn((h.hole==='entry'?'입구':'출구')+' · '+h.face,()=>this.choose(p.itemId,{...p.target,hole:h.hole,side:h.side})));}else if(p.options.needsSide){for(const[side,label]of[['left','왼쪽 가슴'],['right','오른쪽 가슴']])box.append(btn(label,()=>this.choose(p.itemId,{...p.target,side})));}else for(const[site,label]of[['anterior','앞쪽 위치'],['lateral','옆쪽 위치']])box.append(btn(label,()=>this.apply(p.itemId,{...p.target,site})));box.append(btn('돌아가기',()=>{this.pending=null;this.action(()=>true);}));nodes.push(box);}}
   for(const[key,r]of Object.entries(m.partRecovery||{})){const n=el('p',BODY_LABELS[key]+' · '+(r.active?'부위 HP 회복 중':r.reason));n.dataset.recoveryPart=key;nodes.push(n);}
   for(const t of this.care.list){const card=el('article',null,'care-record '+t.status);card.dataset.treatmentId=t.id;card.dataset.kind=t.kind;card.append(el('strong',(names[t.kind]||t.kind)+' · '+BODY_LABELS[t.target.partKey]+' · '+labels[t.status]));
    if(t.status==='active')card.append(el('p',`${t.remainingSeconds.toFixed(1)}초 남음 · ${Math.round(t.progress*100)}%`),btn('처치 취소',()=>this.action(()=>this.care.interrupt('취소 버튼'))));
    else if(t.status==='interrupted')card.append(el('p',t.interruptionReason||'취소됨'),...(['unwrap','cat-remove'].includes(t.kind)?[]:[btn('다시 사용',()=>this.action(()=>this.care.resume(t.id)))]),btn('기록 닫기',()=>this.action(()=>this.care.remove(t.id))));
    else if(t.kind==='cat')card.append(el('p','사지 전체 출혈 억제 · 상처는 별도로 처치'),btn(`지혈대 제거 · ${MO2.products.cat.removeSeconds}초`,()=>this.action(()=>this.care.remove(t.id))));
-   else if(t.kind==='bandage'||GAUZE_KINDS.includes(t.kind)){const w=m.wounds.find(w=>w.id===t.target.woundId),f=w&&woundFlow(m,w);card.append(el('p',`${f?.grade||''} · ${f?.status||''} · ${t.consumedUnits?.toFixed(1)||0} ${GAUZE_KINDS.includes(t.kind)?'내구도':'회'} 사용`));if(GAUZE_KINDS.includes(t.kind)&&w?.care?.components){const total=w.care.components.reduce((n,c)=>n+c.requiredWork,0),done=w.care.components.reduce((n,c)=>n+c.workDone,0);card.append(el('p','지혈 진행 '+Math.floor(100*done/Math.max(1e-30,total))+'%'));}if(t.kind==='bandage'&&bandageActive(w))card.append(btn('붕대 풀기',()=>this.action(()=>this.care.unwrap(w.id))));else if(w&&gauzeComplete(w)&&!bandageActive(w))card.append(el('small','붕대로 마무리하면 움직임 재출혈을 막습니다.'));}
+   else if(t.kind==='bandage'||GAUZE_KINDS.includes(t.kind)){const w=bleedingWound(m,t.target.woundId),f=w&&woundFlow(m,w);card.append(el('p',`${f?.grade||''} · ${f?.status||''} · ${t.consumedUnits?.toFixed(1)||0} ${GAUZE_KINDS.includes(t.kind)?'내구도':'회'} 사용`));if(GAUZE_KINDS.includes(t.kind)&&w?.care?.components){const total=w.care.components.reduce((n,c)=>n+c.requiredWork,0),done=w.care.components.reduce((n,c)=>n+c.workDone,0);card.append(el('p','지혈 진행 '+Math.floor(100*done/Math.max(1e-30,total))+'%'));}if(t.kind==='bandage'&&bandageActive(w))card.append(btn('붕대 풀기',()=>this.action(()=>this.care.unwrap(w.id))));else if(w&&gauzeComplete(w)&&!bandageActive(w))card.append(el('small','붕대로 마무리하면 움직임 재출혈을 막습니다.'));}
    else if(t.kind==='otfc'){card.append(el('p',`${Math.ceil((1-t.absorbed)*100)}% 남음`));if(t.absorbed<1)card.append(btn(t.inMouth?'OTFC 빼기':'OTFC 다시 물기',()=>this.action(()=>t.inMouth?this.care.stopOTFC():this.care.reconnect(t.id))));}
    else if(t.kind==='blood'){card.append(el('p',`${Math.ceil(t.remainingMl)}mL · ${t.connected?'주입 중':'분리됨'}`));if(t.remainingMl>0)card.append(btn(t.connected?'수혈 줄 분리':'수혈 다시 연결',()=>this.action(()=>t.connected?this.care.disconnectBlood():this.care.reconnect(t.id))));}
    else card.append(el('p','사용 완료'));

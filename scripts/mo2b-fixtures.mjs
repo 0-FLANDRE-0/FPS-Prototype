@@ -4,7 +4,7 @@ import{freezeReferenceFlow}from'../apps/training/src/medical-reference-flow.js';
 import{prepareCareFlows,treatmentControlFactor,woundFlow,selectMovementEvent}from'../apps/training/src/medical-hemostasis.js';
 import{setCareTime}from'../apps/training/src/medical-care-state.js';
 export function pressureFixture(referenceExternal=100){
- const bridge=new TrainingMedical(),m=bridge.actor.medical,w={id:'test-wound',partKey:'leftArm',care:{ruleId:MO2.ruleId}},s={id:'test-source',vesselKind:'artery',destination:'external',injuryType:'partial_laceration',woundIds:[w.id],rawFlowMlPerS:referenceExternal,flowMlPerS:referenceExternal,lesions:[{woundId:w.id,baseAreaMm2:10,currentAreaMm2:10}]};m.wounds=[w];m.bleedSources=[s];freezeReferenceFlow(w,{external:referenceExternal});
+ const bridge=new TrainingMedical(),m=bridge.actor.medical,w={id:'test-wound',partKey:'leftArm',care:{ruleId:MO2.ruleId}},s={id:'test-source',vesselKind:'artery',destination:'external',injuryType:'partial_laceration',woundIds:[w.id],rawFlowMlPerS:referenceExternal,flowMlPerS:referenceExternal,lesions:[{woundId:w.id,baseAreaMm2:10,currentAreaMm2:10}]};m.wounds=[w];m.bleedSources=[s];freezeReferenceFlow(w,{total:referenceExternal});
  return{bridge,m,w,s,flow(time,current=referenceExternal){s.rawFlowMlPerS=current;setCareTime(m,time);prepareCareFlows(m,200,5000,0);s.flowMlPerS=s.rawFlowMlPerS*treatmentControlFactor(m,s);return woundFlow(m,w);}};
 }
 export function sampleMovement(running,policy=MO2.movement,{seedBase=0x740000,trials=500,seconds=30}={}){

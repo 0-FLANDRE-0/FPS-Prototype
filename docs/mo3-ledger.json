@@ -1,0 +1,12 @@
+{
+  "stage": "MO3",
+  "complete": false,
+  "status": "Implementation source; final build verification receipt follows in documentation commit",
+  "baselineCommit": "d3490252ee105bd2e159ea69cc0f3a301999acf2",
+  "tests": {
+    "passed": 488,
+    "failed": 0
+  },
+  "numeric": "mo3-numerical-results.json",
+  "sources": "mo3-sources.md"
+}

@@ -1,5 +1,4 @@
 import{drugSnapshot}from'./medical-care-drugs.js';
-import{limbRoutingState}from'./medical-routing.js';
 import {MEDICAL_S3_VALUES} from './medical-s3-effects.js';
 import {MedicalFeedback} from './medical-feedback.js';
 const partLabel={head:'머리',neck:'목',chest:'흉부',abdomen:'복부',leftArm:'왼팔',rightArm:'오른팔',leftLeg:'왼다리',rightLeg:'오른다리'};
@@ -54,9 +53,8 @@ export function renderMedicalPanel(bridge,container,{showInternals=false}={}){
 export function renderBleedingDebugB1(m,container){
   container.replaceChildren();if(m.bleedingModel){
     const model=m.bleedingModel,debug=node('section','');debug.dataset.bleedDebug='b1';debug.append(node('h3','출혈원 · B1'),node('p',`출혈 ${model.totalFlowMlPerS.toFixed(2)} ml/s · 현재 심박출량 상한 ${model.cardiacOutputMlPerS.toFixed(2)} ml/s · 비례 배율 ${model.globalScale.toFixed(3)}`));
-    const routing=limbRoutingState(m);if(routing.sources.length){debug.append(node('p','M2 목적지 분배 (호환용 외부/내부 요약은 v57 유량 계산 보존)'));for(const s of routing.sources)debug.append(node('p',s.sourceId+' · 외부 '+s.externalFlowMlPerS.toFixed(3)+' / 구획 '+s.internalFlowMlPerS.toFixed(3)+' ml/s'));for(const c of routing.compartments)debug.append(node('p',c.id+' · '+c.volumeMl.toFixed(1)+' / '+c.capacityMl+' ml · 충만 '+(c.fullness*100).toFixed(1)+'% · 압력 지표 '+c.pressureProxy.toFixed(3)));}
-    debug.append(node('p',Object.entries(m.bloodPoolsMl).map(([k,v])=>`${k} ${v.toFixed(1)} ml`).join(' · ')));
-    for(const s of m.bleedSources)debug.append(node('p',`${s.vesselName} · ${s.vesselKind} · ${s.injuryType} · ${s.destination} · ${s.controlClass} · ${s.flowMlPerS.toFixed(2)} ml/s · 누적 ${s.cumulativeMl.toFixed(1)} ml`));
+    debug.append(node('p',`누적 출혈 ${(m.bloodLossMl||0).toFixed(1)} ml`));
+    for(const s of m.bleedSources)debug.append(node('p',`${s.vesselName} · ${s.vesselKind} · ${s.injuryType} · ${s.partKey} · ${s.flowMlPerS.toFixed(2)} ml/s · 누적 ${s.cumulativeMl.toFixed(1)} ml`));
     debug.append(node('p',`혈관 타박 ${m.vesselContusions.length}건 · 생리 효과 없음`));container.append(debug);
   }
 }

@@ -17,4 +17,3 @@ for(const weapon of ['m4a1','ak74m']) {
   } finally {await s.close();}
 }
 await writeFile(out+'/600-tick.json',JSON.stringify({passed:true,reports},null,2)+'\n');
-

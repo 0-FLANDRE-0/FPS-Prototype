@@ -26,7 +26,7 @@ test('B1 major partial artery remains open; complete transection retracts to a n
 
 
 test('B1 retains existing S2 modeled amputation severance as explicit estimated source without claiming direct geometry',()=>{
- const med=new TrainingMedical(),m=med.actor.medical,w=wound('w',[]);w.vascularEvidence={s2AmputationSeverance:{identifier:'femoral_vessel_injury'}};m.wounds.push(w);updateBleedingB1(med.actor,0);const s=m.bleedSources.find(s=>s.id==='modeled-severance/leftLeg');assert.ok(s);assert.equal(s.injuryType,'complete_transection');assert.match(s.evidence,/not a fabricated/);assert.ok(s.flowMlPerS>0);
+ const med=new TrainingMedical(),m=med.actor.medical,w=wound('w',[]);w.vascularEvidence={s2AmputationSeverance:{identifier:'femoral_vessel_injury'}};m.wounds.push(w);updateBleedingB1(med.actor,0);const s=m.bleedSources.find(s=>s.id==='modeled-severance/leftLeg');assert.ok(s);assert.equal(s.injuryType,'complete_transection');assert.match(s.evidence,/not a fabricated/);assert.ok(s.flowMlPerS>0);assert.equal(s.capEvidence.normalFlowMlMin,s.normalFlowMlMin);assert.equal(s.capEvidence.capMlPerS,s.vesselCapMlPerS);
 });
 
 

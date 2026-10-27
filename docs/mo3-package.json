@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "stage": "MO3-preview",
+  "published": false,
+  "file": "FPS-Prototype-MO3-preview.zip",
+  "bytes": 18580955,
+  "sha256": "495926168f5f94105df5ab814e670b8f3b9dfe693deed28dea60fa2acb95d096",
+  "htmlSHA256": "c95c07325ed0db2f662da396a80d6d0a146cc3cc3febc4d5c5b2c455971eb919",
+  "sourceCommit": "c5b65c10e25705f80302fc66fc0fb64308ed2088"
+}

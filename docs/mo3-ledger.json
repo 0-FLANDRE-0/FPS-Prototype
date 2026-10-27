@@ -5,10 +5,10 @@
   "branch": "feature/medical-overhaul",
   "baselineCommit": "d3490252ee105bd2e159ea69cc0f3a301999acf2",
   "dateKST": "2026-10-27",
-  "sourceCommit": "42464f0790d20f87169f568ba62d981001d2fbfe",
+  "sourceCommit": "c5b65c10e25705f80302fc66fc0fb64308ed2088",
   "build": {
-    "bytes": 39378481,
-    "sha256": "cdcd17f2e14c17f74393a87a2a4ccab5f6868bff81cf30ec5f53fef48efd1287"
+    "bytes": 39378651,
+    "sha256": "c95c07325ed0db2f662da396a80d6d0a146cc3cc3febc4d5c5b2c455971eb919"
   },
   "classifications": {
     "source": "published resting-flow observations; study site/population and page ranges stated in mo3-sources.md",
@@ -130,7 +130,8 @@
       "neck airway S1 .15 breathing/.08 oxygen scaled by raw severity",
       "brainstem S0 respiratory arrest",
       "spinal A apnea R2",
-      "OTFC M4b drug respiratory suppression; no rewrite"
+      "OTFC M4b drug respiratory suppression; no rewrite",
+      "original non-pulmonary head-blast breathing response"
     ],
     "actualInputs": [
       {
@@ -367,8 +368,8 @@
   ],
   "verification": {
     "tests": {
-      "tests": 488,
-      "passed": 488,
+      "tests": 489,
+      "passed": 489,
       "failed": 0,
       "skipped": 0
     },
@@ -1940,7 +1941,7 @@
     },
     "offline": {
       "passed": true,
-      "htmlSHA256": "cdcd17f2e14c17f74393a87a2a4ccab5f6868bff81cf30ec5f53fef48efd1287",
+      "htmlSHA256": "c95c07325ed0db2f662da396a80d6d0a146cc3cc3febc4d5c5b2c455971eb919",
       "method": "Exact production single HTML, actual requestAnimationFrame/fixed simulation, offline; native keyboard or touch joystick, F/touch panel, selectSCAR/deploy1, pause, pointer lock, persistent/reset AI display. No QA state injection.",
       "devices": [
         {
@@ -1950,9 +1951,9 @@
           },
           "approached": {
             "feet": [
-              131.34837341308594,
-              0.00808721065521234,
-              38.08236312866211
+              131.34893798828125,
+              0.008099668025970397,
+              38.1356201171875
             ],
             "interaction": {
               "kind": "combat-panel",
@@ -1975,8 +1976,8 @@
               "posture": "stand"
             },
             "cost": {
-              "calls": 230,
-              "triangles": 114197,
+              "calls": 231,
+              "triangles": 114199,
               "enemyCount": 1,
               "includesPiP": true,
               "quality": "low"
@@ -1994,9 +1995,9 @@
           },
           "approached": {
             "feet": [
-              131.34524536132812,
-              0.008029811382293639,
-              37.80557632446289
+              131.34542846679688,
+              0.007684640884399352,
+              37.87501525878906
             ],
             "interaction": {
               "kind": "combat-panel",
@@ -2019,8 +2020,8 @@
               "posture": "stand"
             },
             "cost": {
-              "calls": 205,
-              "triangles": 113927,
+              "calls": 206,
+              "triangles": 113939,
               "enemyCount": 1,
               "includesPiP": true,
               "quality": "low"

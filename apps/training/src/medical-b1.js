@@ -129,7 +129,7 @@ export function updateBleedingB1(unit,dt,{pulseModel=null}={}){
       s.orificeFlowMlPerS=K.dischargeCoefficient*area*1e-6*Math.sqrt(2*s.pressureMmHg*K.mmHgToPa/K.bloodDensityKgM3)*1e6;
       // MO3 named vessel ceiling: resting regional flow × tuned open-vessel k.
       // The orifice equation and shared current-CO allocation are retained.
-      const spec=vesselFlowSpec({id:s.vesselName,vesselKind:s.vesselKind,diameterM:s.lesions[0]?.diameterMm/1000});s.vesselCapMlPerS=s.organBed?s.normalFlowMlMin/60*K.flowReserve:(s.normalFlowMlMin||spec.normalFlowMlMin)/60*spec.multiplier;s.capEvidence=s.organBed?'original organ-bed cap':{...spec,normalFlowMlMin:s.normalFlowMlMin||spec.normalFlowMlMin,capMlPerS:s.vesselCapMlPerS};
+      const spec=vesselFlowSpec({id:s.vesselName,vesselKind:s.vesselKind,diameterM:s.lesions[0]?.diameterMm/1000});s.vesselCapMlPerS=s.organBed?s.normalFlowMlMin/60*K.flowReserve:Math.max((s.normalFlowMlMin||spec.normalFlowMlMin)/60*spec.multiplier,spec.minimumCapMlPerS);s.capEvidence=s.organBed?'original organ-bed cap':{...spec,normalFlowMlMin:s.normalFlowMlMin||spec.normalFlowMlMin,capMlPerS:s.vesselCapMlPerS};
       s.rawFlowMlPerS=s.vesselCapMlPerS===null?s.orificeFlowMlPerS:Math.min(s.orificeFlowMlPerS,s.vesselCapMlPerS);
       if(s.organBed)s.rawFlowMlPerS=Math.min(s.rawFlowMlPerS,s.organPerfusionMlPerS);
     }

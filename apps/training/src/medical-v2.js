@@ -1,3 +1,4 @@
+import{cardiacPumpFailure,markFatalHeart}from'./medical-heart-fatal.js';
 import{stepPartRecovery}from'./medical-part-recovery.js';
 import{careTime}from'./medical-care-state.js';
 import {exerciseHemodynamics,exerciseVitals,exerciseAfterPump} from './medical-d2.js';
@@ -141,7 +142,7 @@ export function createMedicalV2Slots(original){
     m.periArrestElapsedS=m._heartRateState==='peri_arrest'&&failedCirculation?m.periArrestElapsedS+dt:0;
     m.lowOxygenElapsedS=m.hemodynamics.oxygenDelivery<K.OXYGEN_ARREST_THRESHOLD?m.lowOxygenElapsedS+dt:0;
     let reason=null;
-    if(m.heartInjury?.pumpFunction<=MEDICAL_S0_VALUES.failedPumpThreshold&&m.isUnconscious&&m.hemodynamics.oxygenDelivery<K.OXYGEN_ARREST_THRESHOLD)reason='cardiac_pump_failure';
+    if(cardiacPumpFailure(m)){markFatalHeart(m,careTime(m));reason='cardiac_pump_failure';}
     else if(m.bloodMl<1200)reason='exsanguination';
     else if(m.systolicBP<MEDICAL_R2_VALUES.collapsedSystolicBP&&m.hemodynamics.volumeRatio<MEDICAL_R2_VALUES.collapsedVolumeRatio)reason='hemorrhagic_shock';
     else if(m.periArrestElapsedS>=K.PERI_ARREST_HOLD_S||m.lowOxygenElapsedS>=K.OXYGEN_ARREST_HOLD_S){
@@ -188,7 +189,7 @@ export function createMedicalV2Slots(original){
   function syncLegacyCombatState(unit){
     ensureMedicalV2(unit);const m=unit.medical;
     critical(unit);
-    const dead=!!(m.isDead||(m.cardiacArrest&&m.arrestElapsedS+1e-9>=K.ARREST_TO_DEATH_S));
+    const dead=!!(m.fatalHeartInjury||m.isDead||(m.cardiacArrest&&m.arrestElapsedS+1e-9>=K.ARREST_TO_DEATH_S));
     const cardiacReserve=!!m.heartInjury&&!m.brainInjury&&!m.cardiacArrest&&m.consciousness>=30;
     const conditions={brain_injury:!!m.brainInjury,weight_bearing_fracture:!!m.weightBearingFracture,spinal_cord_injury:!!m.spinalCordInjury&&m.bodyParts.leftLeg.functionRatio===0&&m.bodyParts.rightLeg.functionRatio===0,leg_function_loss:['leftLeg','rightLeg'].some(k=>m.bodyParts[k].structuralFunctionDisabled),low_consciousness:m.consciousness<30,hypotension:!cardiacReserve&&m.systolicBP<70,shock:m.shock>85,
       critical_status:!cardiacReserve&&m.lifeStatus<25,incapacitated:!m.canMove&&!m.canShoot,blood_loss:m.bloodMl<2000};
@@ -200,7 +201,7 @@ export function createMedicalV2Slots(original){
         values:{consciousness:m.consciousness,systolicBP:m.systolicBP,shock:m.shock,lifeStatus:m.lifeStatus,bloodMl:m.bloodMl,canMove:m.canMove,canShoot:m.canShoot}};
       if(unit.downedTime===0)unit.downedTime=.01;
     }
-    if(dead&&!unit.isDead)m.deathReason=m.bodyParts.neck.hp<=0?'neck_destroyed':m.arrestReason;
+    if(m.fatalHeartInjury)m.deathReason=m.fatalHeartInjury.reason;else if(dead&&!unit.isDead)m.deathReason=m.bodyParts.neck.hp<=0?'neck_destroyed':m.arrestReason;
     if(!dead)m.deathReason=null;
     refreshStructuralStateS2(unit);
     updateBleedingB1(unit,0,bleedOptions); // current MAP/CO display; never integrate blood twice

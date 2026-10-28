@@ -1,3 +1,4 @@
+import{infectionModifiers}from'./medical-infection.js';
 import{lungDamage}from'./medical-lungs.js';
 // D2: independent 3D activity state. Never adds fields to retained medical records.
 // Numeric mappings are game tuning; provenance: docs/medical-d2-ledger.json.
@@ -51,7 +52,7 @@ export class MedicalActivity{
   this.intensity=exerciseIntensity(speed,gear);
   this.hrExtra=follow(this.hrExtra,D2.exerciseHrBpm*this.intensity,dt,this.intensity*D2.exerciseHrBpm>this.hrExtra?D2.hrRiseTauS:D2.hrRecoveryTauS);
   if(this.hrExtra<1e-8&&!this.intensity)this.hrExtra=0;
-  this.lungs=lungDamage(m);this.legMax=reserve(m,['leftLeg','rightLeg'])*this.lungs.factor;this.armMax=reserve(m,['leftArm','rightArm']);
+  this.lungs=lungDamage(m);this.legMax=reserve(m,['leftLeg','rightLeg'])*this.lungs.factor*infectionModifiers(m).staminaFactor;this.armMax=reserve(m,['leftArm','rightArm']);
   const gearFactor=1+Math.max(0,gear-D2.equipmentMassKg)/40;
   if(c.sprinting&&speed>.25&&!incapacitated)this.leg=Math.max(0,Math.min(this.leg,this.legMax)-dt*gearFactor/D2.sprintSeconds);
   else this.leg=Math.min(this.legMax,this.leg+dt*this.legMax*(speed>.1?1/D2.walkingRecoveryS:1/D2.legRecoveryS));
@@ -66,7 +67,7 @@ export class MedicalActivity{
  }
  feedback(){const s=this.concussionSeverity,fatigue=clamp((.65-this.arm/Math.max(.05,this.armMax))/.65);
   return{concussionSeverity:s,concussionBlur:s*(.35+.12*Math.sin(this.time*.63))+.5*this.focusDelay,concussionBloom:.3*s,concussionTinnitusGain:D2.concussionTinnitusGain*s,concussionHandlingRate:1-D2.concussionHandlingLoss*s,concussionHearingDb:D2.concussionHearingDb*s,armFatigue:fatigue,legFatigue:1-this.leg/Math.max(.05,this.legMax),exerciseIntensity:this.intensity,sprintAllowed:!this.sprintLocked&&this.leg>0};}
- snapshot(){return{ruleId:D2.ruleId,time:this.time,leg:this.leg,legMax:this.legMax,lungs:this.lungs||lungDamage(this.m),arm:this.arm,armMax:this.armMax,sprintLocked:this.sprintLocked,intensity:this.intensity,hrExtra:this.hrExtra,hrApplied:this.hrApplied,exercise:this.exercise?{...this.exercise}:null,armLoad:{...this.armLoad},concussion:{dose:this.concussionDose,severity:this.concussionSeverity,focusDelay:this.focusDelay,inputs:this.concussionInputs.map(x=>({...x}))},...this.feedback()};}
+ snapshot(){return{ruleId:D2.ruleId,time:this.time,leg:this.leg,legMax:this.legMax,lungs:this.lungs||lungDamage(this.m),...(this.m.infection?{infection:infectionModifiers(this.m)}:{}),arm:this.arm,armMax:this.armMax,sprintLocked:this.sprintLocked,intensity:this.intensity,hrExtra:this.hrExtra,hrApplied:this.hrApplied,exercise:this.exercise?{...this.exercise}:null,armLoad:{...this.armLoad},concussion:{dose:this.concussionDose,severity:this.concussionSeverity,focusDelay:this.focusDelay,inputs:this.concussionInputs.map(x=>({...x}))},...this.feedback()};}
 }
 // Run retained pathology HR/SV calculation with only its own HR. The exercise
 // component is added independently and never bypasses arrest or pump loss.

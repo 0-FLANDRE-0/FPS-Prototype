@@ -1,3 +1,4 @@
+import{recordInfectionWounds,stepInfection}from'./medical-infection.js';
 import{captureReferenceFlows}from'./medical-b1-reference.js';
 import{referenceFlow}from'./medical-reference-flow.js';
 import{stepCareMovement}from'./medical-hemostasis.js';
@@ -21,7 +22,7 @@ import { resolveBodyAddress } from './human-targets.js';
 export function medicalObservation(actor,time){
   const m=actor.medical;
   return {time,bloodMl:m.bloodMl,bloodPercent:m.bloodMl/m.bloodMax*100,
-    externalBleedRate:m.externalBleedRate,internalBleedRate:m.internalBleedRate,
+    externalBleedRate:m.externalBleedRate,internalBleedRate:m.internalBleedRate,...(m.infection?{infection:structuredClone(m.infection)}:{}),
     consciousness:m.consciousness,pain:m.pain,shock:m.shock,heartRate:m.heartRate,
     systolicBP:m.systolicBP,diastolicBP:m.diastolicBP,breathingEfficiency:m.breathingEfficiency,
     lifeStatus:m.lifeStatus,combatState:actor.combatState,combatEffectiveness:m.combatEffectiveness,mobility:m.mobility,
@@ -135,7 +136,7 @@ export class TrainingMedical {
     if(this.medicalModel==='v2'){finalizeBleedingSources(this.actor.medical);this.legacy.syncLegacyCombatState(this.actor);captureReferenceFlows(this.actor);}
     this.current=null;
     if(this.events.length>256)this.events.splice(0,this.events.length-256);
-    this.activity.recordWounds();return structuredClone(records);
+    recordInfectionWounds(this.actor.medical,this.time);this.activity.recordWounds();return structuredClone(records);
   }
   recordDeflection(deflected,event,physics,ammo,order){
     const head=physics?.humanSensors.find(s=>s.actor.id===this.targetId&&s.shape.id==='head');
@@ -161,7 +162,7 @@ export class TrainingMedical {
       bluntCouplingProxy:transfer,bluntSource:'original applyOutcome(BLOCK), deflected; projectile energy-loss coupling proxy',
       damageEvent:structuredClone(this.actor.medical._lastDamageEvent||null)};
   }
-  tick(dt,time,active=true){if(!active)return;if(this.medicalModel==='v2')captureReferenceFlows(this.actor);setCareTime(this.actor.medical,time);this.time=time;this.legacy.setTime(time);this.activity.step(dt,time);stepCareMovement(this,dt);
+  tick(dt,time,active=true){if(!active)return;if(this.medicalModel==='v2')captureReferenceFlows(this.actor);setCareTime(this.actor.medical,time);this.time=time;this.legacy.setTime(time);if(!this.actor.isDead)stepInfection(this.actor.medical,dt,time);this.activity.step(dt,time);stepCareMovement(this,dt);
     if(!this.actor.isDead&&(this.actor.alive||this.actor.isDowned)){
       stepDrugsAndBlood(this,dt);systemicCarePain(this.actor.medical);careClinicalBefore(this.actor.medical);
       this.legacy.tickUnitMedicalBefore(this.actor,dt);

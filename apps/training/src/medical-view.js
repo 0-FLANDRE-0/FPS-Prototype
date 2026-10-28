@@ -1,3 +1,4 @@
+import{infectionSymptoms}from'./medical-infection.js';
 import{woundFlow,bandageActive,gauzeComplete,woundComplete}from'./medical-hemostasis.js';
 import{drugState}from'./medical-care-drugs.js';
 import{treatments}from'./medical-care-state.js';
@@ -37,7 +38,8 @@ export function medicalView(bridge,{feedback=bridge.feedback?.output,hearing={}}
   for(const[kind,p]of[['entry',entry],['exit',exit]])if(p)markers.push({id:w.id+':'+kind,woundId:w.id,partKey:w.partKey,kind,glyph:type==='graze'||type==='other'?'line':kind==='entry'?'dot':'ring',face:p.face,...projectSkinPoint(w.partKey,p.bindActorPoint,p.face),status:woundTreatmentState(m,w)});
   const flow=woundFlow(m,w);return{...flow,bandaged:bandageActive(w),gauzeComplete:gauzeComplete(w),id:w.id,number:index+1,partKey:w.partKey,location:entry?.address.label||w.bodyTrajectory?.entryAddress?.label||names[w.partKey],type,typeLabel:w.sourceOnly?'연계 손상':typeNames[type],sourceOnly:!!w.sourceOnly,treatmentStatus:woundTreatmentState(m,w),treatmentIcons:[...new Set(treatmentForWound(m,w).map(t=>({cat:'═',bandage:'▰',gauze:'▧',txa:'✚',foam:'▤',injector:'✚'})[t.kind]))].join(''),treatmentLabel:({untreated:'미처치',active:'처치 중',treated:'처치 완료',incomplete:'처치 미완료',interrupted:'중단됨'})[woundTreatmentState(m,w)],entry:entry?{label:entry.address.label,face:entry.face}:null,exit:exit?{label:exit.address.label,face:exit.face}:null,markers,exitUnknown:!!surface?.physicalExit&&!exit,surfaceIncomplete:surface?.surfaceIncomplete??true};
  });
- const observations=[],bleeding=bleedingObservation([...sources.values()]);observations.push({kind:'bleeding',text:'출혈 · '+bleeding.label+' · '+bleeding.flowMlPerS.toFixed(2)+' mL/s'});
+ const observations=[],infection=infectionSymptoms(m),bleeding=bleedingObservation([...sources.values()]);observations.push({kind:'bleeding',text:'출혈 · '+bleeding.label+' · '+bleeding.flowMlPerS.toFixed(2)+' mL/s'});
+ if(infection)observations.push({kind:'infection',text:infection.text,level:infection.level});
  for(const p of parts){const raw=m.bodyParts[p.id];
   if(raw.s2Comminuted||raw.s2Amputated||raw.fracture&&m.wounds.some(w=>w.partKey===p.id&&w.s2StructuralTrauma?.actualBoneIds?.length))observations.push({kind:'bone',partKey:p.id,text:p.label+' · '+(raw.s2Amputated?'외형 손상':raw.fracture||raw.s2Comminuted?'변형·비정상 움직임':'움직임 불편')});
   if(p.pain!=='없음')observations.push({kind:'pain',partKey:p.id,text:p.label+' 통증 · '+p.pain});

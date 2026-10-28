@@ -5,11 +5,11 @@ CQB Training의 독립 3D 개발 저장소입니다. `0-FLANDRE-0/CQB-HTML`의 *
 - [v69 이관 기준 실행판 다운로드](https://github.com/0-FLANDRE-0/FPS-Prototype/releases/tag/v69-migration)
 - [작업 인계서](HANDOFF_KO.md) · [이관 기록과 검증](docs/migration-v69/README.md) · [문서 안내](docs/INDEX.md)
 
-현재 `feature/medical-overhaul` 브랜치에는 [MO2b 기준 유량·내구도·움직임 확률](docs/mo2b-reference-flow.md)이 반영돼 있습니다. [검증 대장](docs/mo2b-ledger.json)과 두 화면 캡처를 확인하세요. 의료 전체 개편 완료판은 아니며, 위 다운로드는 변경 전 v69 이관 기준판입니다. MO2b의 미처치 수치 검사는 `node scripts/verify-v69.mjs --calculations-only`를 사용합니다. 전체 HTML 일치 검사와 이관 전용 패키징은 v69 기준 작업입니다.
+현재 `feature/medical-overhaul` 브랜치는 [MO4 심장 치명·감염·동맥/폐 보정](docs/mo4-heart-infection.md) 단계입니다. [검증 대장](docs/mo4-ledger.json)과 두 화면 캡처를 확인하세요. 의료 전체 개편 완료판은 아니며, 위 다운로드는 변경 전 v69 이관 기준판입니다. 현재 의료의 재실행 명령은 MO4 문서를 사용합니다. 과거 MO3/v69 기준은 보존하며 전체 HTML 일치 검사와 이관 전용 패키징은 v69 기준 작업입니다.
 
 ## 실행
 
-Node.js 22 이상, npm, Git, Python 3를 사용합니다. Python은 표준 라이브러리만 필요합니다.
+Node.js 22 이상, npm, Git, Python 3를 사용합니다. 패키징은 Python 표준 라이브러리만 필요하며, 선택적인 MO4 그래프 재생성은 matplotlib을 사용합니다.
 
 ```sh
 npm ci

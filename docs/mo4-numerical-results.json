@@ -33,7 +33,361 @@
           "equal": 240,
           "different": 0
         }
-      }
+      },
+      "medicalChanges": [
+        {
+          "index": 32,
+          "name": "aorta",
+          "pose": "standing",
+          "ammo": "545_ps_gs",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 34,
+          "name": "aorta",
+          "pose": "standing",
+          "ammo": "545_ps_gs",
+          "distance": 50,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 36,
+          "name": "aorta",
+          "pose": "standing",
+          "ammo": "556_m855",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 38,
+          "name": "aorta",
+          "pose": "standing",
+          "ammo": "556_m855",
+          "distance": 50,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 56,
+          "name": "femoral-artery",
+          "pose": "standing",
+          "ammo": "545_ps_gs",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 57,
+          "name": "femoral-artery",
+          "pose": "standing",
+          "ammo": "545_ps_gs",
+          "distance": 5,
+          "armor": true,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 58,
+          "name": "femoral-artery",
+          "pose": "standing",
+          "ammo": "545_ps_gs",
+          "distance": 50,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 59,
+          "name": "femoral-artery",
+          "pose": "standing",
+          "ammo": "545_ps_gs",
+          "distance": 50,
+          "armor": true,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 60,
+          "name": "femoral-artery",
+          "pose": "standing",
+          "ammo": "556_m855",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 61,
+          "name": "femoral-artery",
+          "pose": "standing",
+          "ammo": "556_m855",
+          "distance": 5,
+          "armor": true,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 62,
+          "name": "femoral-artery",
+          "pose": "standing",
+          "ammo": "556_m855",
+          "distance": 50,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 63,
+          "name": "femoral-artery",
+          "pose": "standing",
+          "ammo": "556_m855",
+          "distance": 50,
+          "armor": true,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 136,
+          "name": "aorta",
+          "pose": "aim",
+          "ammo": "545_ps_gs",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 138,
+          "name": "aorta",
+          "pose": "aim",
+          "ammo": "545_ps_gs",
+          "distance": 50,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 140,
+          "name": "aorta",
+          "pose": "aim",
+          "ammo": "556_m855",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 142,
+          "name": "aorta",
+          "pose": "aim",
+          "ammo": "556_m855",
+          "distance": 50,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 152,
+          "name": "liver",
+          "pose": "aim",
+          "ammo": "545_ps_gs",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 153,
+          "name": "liver",
+          "pose": "aim",
+          "ammo": "545_ps_gs",
+          "distance": 5,
+          "armor": true,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 154,
+          "name": "liver",
+          "pose": "aim",
+          "ammo": "545_ps_gs",
+          "distance": 50,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 155,
+          "name": "liver",
+          "pose": "aim",
+          "ammo": "545_ps_gs",
+          "distance": 50,
+          "armor": true,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 156,
+          "name": "liver",
+          "pose": "aim",
+          "ammo": "556_m855",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 157,
+          "name": "liver",
+          "pose": "aim",
+          "ammo": "556_m855",
+          "distance": 5,
+          "armor": true,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 158,
+          "name": "liver",
+          "pose": "aim",
+          "ammo": "556_m855",
+          "distance": 50,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 159,
+          "name": "liver",
+          "pose": "aim",
+          "ammo": "556_m855",
+          "distance": 50,
+          "armor": true,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 160,
+          "name": "femoral-artery",
+          "pose": "aim",
+          "ammo": "545_ps_gs",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 161,
+          "name": "femoral-artery",
+          "pose": "aim",
+          "ammo": "545_ps_gs",
+          "distance": 5,
+          "armor": true,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 162,
+          "name": "femoral-artery",
+          "pose": "aim",
+          "ammo": "545_ps_gs",
+          "distance": 50,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 163,
+          "name": "femoral-artery",
+          "pose": "aim",
+          "ammo": "545_ps_gs",
+          "distance": 50,
+          "armor": true,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 164,
+          "name": "femoral-artery",
+          "pose": "aim",
+          "ammo": "556_m855",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 165,
+          "name": "femoral-artery",
+          "pose": "aim",
+          "ammo": "556_m855",
+          "distance": 5,
+          "armor": true,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 166,
+          "name": "femoral-artery",
+          "pose": "aim",
+          "ammo": "556_m855",
+          "distance": 50,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 167,
+          "name": "femoral-artery",
+          "pose": "aim",
+          "ammo": "556_m855",
+          "distance": 50,
+          "armor": true,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        }
+      ]
     },
     "single": {
       "count": 28,
@@ -66,7 +420,185 @@
           "equal": 28,
           "different": 0
         }
-      }
+      },
+      "medicalChanges": [
+        {
+          "index": 0,
+          "name": "liver-central",
+          "pose": "standing",
+          "ammo": "545_ps_gs",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": true,
+          "namedVesselCapEvidenceSchema": false,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 5,
+          "name": "carotid",
+          "pose": "standing",
+          "ammo": "545_ps_gs",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 6,
+          "name": "femoral-complete",
+          "pose": "standing",
+          "ammo": "545_ps_gs",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 7,
+          "name": "thoracic-aorta",
+          "pose": "standing",
+          "ammo": "545_ps_gs",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 10,
+          "name": "femoral-partial",
+          "pose": "standing",
+          "ammo": "545_ps_gs",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 11,
+          "name": "inferior-vena-cava",
+          "pose": "standing",
+          "ammo": "545_ps_gs",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": true,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 12,
+          "name": "liver-posterior",
+          "pose": "standing",
+          "ammo": "545_ps_gs",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 13,
+          "name": "portal-crossing",
+          "pose": "standing",
+          "ammo": "545_ps_gs",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": true,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 15,
+          "name": "liver-graze",
+          "pose": "standing",
+          "ammo": "556_m855",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": true,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 19,
+          "name": "carotid",
+          "pose": "standing",
+          "ammo": "556_m855",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 20,
+          "name": "femoral-complete",
+          "pose": "standing",
+          "ammo": "556_m855",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 21,
+          "name": "thoracic-aorta",
+          "pose": "standing",
+          "ammo": "556_m855",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 24,
+          "name": "femoral-partial",
+          "pose": "standing",
+          "ammo": "556_m855",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 25,
+          "name": "inferior-vena-cava",
+          "pose": "standing",
+          "ammo": "556_m855",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": true,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 26,
+          "name": "liver-posterior",
+          "pose": "standing",
+          "ammo": "556_m855",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": false,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        },
+        {
+          "index": 27,
+          "name": "portal-crossing",
+          "pose": "standing",
+          "ammo": "556_m855",
+          "distance": 5,
+          "armor": false,
+          "infectionRegistered": true,
+          "namedVesselCapEvidenceSchema": true,
+          "note": "capEvidence adds explicit minimumCapMlPerS (even unchanged caps); eligible raw injury adds latent infection state, UI hidden; trace/raw damage/HP exact separately asserted"
+        }
+      ]
     },
     "channels": {
       "count": 684,

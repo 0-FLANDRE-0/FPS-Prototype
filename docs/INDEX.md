@@ -1,7 +1,8 @@
 # 문서 안내
 
 - 현재 시작점: [루트 인계서](../HANDOFF_KO.md)
-- 진행 중인 의료 개편: [확정 규칙과 구현 순서](medical-overhaul-contract.md) — feature/medical-overhaul, MO2b 반영
+- 진행 중인 의료 개편: [MO4 심장·감염·동맥/폐 보정](mo4-heart-infection.md), [대장](mo4-ledger.json), [출처/튜닝](mo4-sources.md), [혈관·심장표](mo4-tables.md) — feature/medical-overhaul, 전체 완료판 아님
+- 의료 개편 범위: [확정 규칙과 구현 순서](medical-overhaul-contract.md)
 - 독립 개발과 검증: [README](../README.md), [이관 기록](migration-v69/README.md)
 - 최신 기능: [W1/v69 SCAR-H](training-w1-v69.md), [수치 대장](w1-ledger.json), [출처](w1-sources.json)
 - 역사: [CQB-HTML 인계서 보존본](history/CQB-HTML-HANDOFF-v69.md), [이전 앱 안내](history/training-readme-v69.md)
@@ -11,6 +12,7 @@
 
 - 의료 개편 치료1: [붕대·회복](medical-overhaul-bandage-1.md), [실측·정책 대장](medical-overhaul-bandage-ledger.json). 작업 브랜치 feature/medical-overhaul, 전체 개편 완료판 아님.
 
-- 의료 개편 현재 단계: [MO2 지혈·회복](mo2-hemostasis.md), [수치 대장](mo2-ledger.json), [모드 처분표](mo2-mode-disposition.md). MO1 붕대 정책을 대체하며 전체 개편 완료판은 아니다.
+- 의료 개편 이전 MO2: [지혈·회복](mo2-hemostasis.md), [수치 대장](mo2-ledger.json), [모드 처분표](mo2-mode-disposition.md). 당시 정책 기록이다.
 
-- 의료 개편 최신: [MO2b 기준 유량·내구도·확률](mo2b-reference-flow.md), [대장](mo2b-ledger.json). MO2의 해당 세 정책을 대체한다.
+- 의료 개편 이전 MO2b: [기준 유량·내구도·확률](mo2b-reference-flow.md), [대장](mo2b-ledger.json).
+- 의료 개편 이전 MO3: [단일 출혈·폐 정리](mo3-unified-bleeding.md), [대장](mo3-ledger.json). MO4의 직접 비교 기준이다.

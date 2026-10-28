@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "stage": "MO4-preview",
+  "published": false,
+  "file": "FPS-Prototype-MO4-preview.zip",
+  "bytes": 19084043,
+  "sha256": "c7dc3f2b938466ed2ba450e94f211d3e9d3a6a32b53f1362a0bb84eeb3809bca",
+  "htmlSHA256": "3a0a5eef99e6c61e71c4fd08a68346a3f00bb7caed9760d1c1999c5f4cc425ce",
+  "sourceCommit": "47197faf39734b22b8cc92a702ca9d1ddbba6317"
+}
